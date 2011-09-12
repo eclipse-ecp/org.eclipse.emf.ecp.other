@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.eclipse.emf.emfstore.teamprovider.recording.ui.navigator"
+            targetID="org.eclipse.ui.views.ResourceNavigator">
+         <action
+               class="org.eclipse.emf.emfstore.teamprovider.recording.ui.commands.EnableEMFStoreMergingCommand"
+               enablesFor="1"
+               id="org.eclipse.emf.emfstore.teamprovider.recording.ui.enable"
+               label="Enable EMFStore Merging"
+               menubarPath="org.eclipse.emf.emfstore.teamprovider.recording.ui.menu/group"
+               tooltip="Enables EMFStore merging facility for model files">
+         </action>
+         <action
+               class="org.eclipse.emf.emfstore.teamprovider.recording.ui.commands.DisableEMFStoreMergingCommand"
+               enablesFor="1"
+               id="org.eclipse.emf.emfstore.teamprovider.recording.ui.disable"
+               label="Disable EMFStore Merging"
+               menubarPath="org.eclipse.emf.emfstore.teamprovider.recording.ui.menu/group"
+               tooltip="Disables EMFStore merging facility for model files">
+         </action>
+         <action
+               class="org.eclipse.emf.emfstore.teamprovider.recording.ui.commands.ExecuteMergerCommand"
+               id="org.eclipse.emf.emfstore.teamprovider.recording.ui.merge"
+               label="Merge"
+               menubarPath="org.eclipse.emf.emfstore.teamprovider.recording.ui.menu/group"
+               tooltip="Executes merging">
+         </action>
+         <menu
+               id="org.eclipse.emf.emfstore.teamprovider.recording.ui.menu"
+               label="emfstore merging">
+            <groupMarker
+                  name="org.eclipse.emf.emfstore.teamprovider.recording.ui.menu/group">
+            </groupMarker>
+         </menu>
+      </viewerContribution>
+   </extension>
+
+</plugin>

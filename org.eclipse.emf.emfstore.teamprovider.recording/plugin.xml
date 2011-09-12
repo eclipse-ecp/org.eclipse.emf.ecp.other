@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.eclipse.emf.emfstore.recording.provider" name="Model Merge VCS Provider" schema="schema/org.eclipse.emf.emfstore.recording.provider.exsd"/>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="org.eclipse.emf.emfstore.teamprovider.recording.Activator"></startup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="false"
+            class="org.eclipse.emf.emfstore.teamprovider.recording.impl.RecorderDecorator"
+            id="org.eclipse.emf.emfstore.teamprovider.recording.decorator"
+            label="Recorder Label"
+            state="true">
+      </decorator>
+   </extension>
+
+</plugin>
