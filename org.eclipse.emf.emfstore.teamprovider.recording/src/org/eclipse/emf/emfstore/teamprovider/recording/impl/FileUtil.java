@@ -24,6 +24,9 @@ public class FileUtil {
 
 	private static void addFileExtensions() {
 		managedFileExtensions.add("ecore");
+		managedFileExtensions.add("umldi-history");
+		managedFileExtensions.add("umldi");
+		managedFileExtensions.add("uml");
 		// TODO: provide extensions points to read them here
 	}
 
@@ -74,6 +77,7 @@ public class FileUtil {
 	}
 	
 	public static String getHistoryFilename(IFile file) {
+		// TODO
 		return file.getName().replace("." + file.getFileExtension(), ".hist");
 	}
 	

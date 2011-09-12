@@ -44,15 +44,18 @@ public class ResourceFactoryRegistry implements Resource.Factory, Resource.Facto
 	 */
 	public static void replaceSupportedFactories() {
 		Map<String, Object> extensionToFactoryMap = Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap();
-		Object ecoreFactory = extensionToFactoryMap.get("ecore");
-		for (String key : extensionToFactoryMap.keySet()) {
-			Object currentFactory = extensionToFactoryMap.get(key);
-			if (ecoreFactory == currentFactory) {
-				// remember initial ResourceFactory
-				initialResourceFactory.put(key, currentFactory);
-
-				// replace factory in registry with an EMF Store adapted one.
-				extensionToFactoryMap.put(key, new ResourceFactoryRegistry());
+		
+		// replace factories for all managed file extensions
+		for (String fileExtension : FileUtil.getManagedFileExtensions()) {
+			Object factory = extensionToFactoryMap.get(fileExtension);
+			for (String key : extensionToFactoryMap.keySet()) {
+				Object currentFactory = extensionToFactoryMap.get(key);
+				if (factory == currentFactory) {
+					// remember initial ResourceFactory
+					initialResourceFactory.put(key, currentFactory);
+					// replace factory in registry with an EMF Store adapted one.
+					extensionToFactoryMap.put(key, new ResourceFactoryRegistry());
+				}
 			}
 		}
 	}
@@ -66,8 +69,8 @@ public class ResourceFactoryRegistry implements Resource.Factory, Resource.Facto
 	 */
 	public Resource createResource(final URI uri) {
 	
-		// file was not a EMFStore Resource - use initial resource factory
-		Object object = initialResourceFactory.get("ecore");
+		// use initial resource factory
+		Object object = initialResourceFactory.get(uri.fileExtension());
 		Factory factory = null;
 		if (object instanceof Resource.Factory.Registry) {
 			Resource.Factory.Registry registry = (Resource.Factory.Registry) object;
