@@ -22,17 +22,6 @@ public interface IVCSProvider<T,R> {
 	
 	void resolveConflict(IFile file);
 	
-	/**
-	 * Returns the {@link IFileRevision} of the file with the given {@link IObjectId}
-	 * that 
-	 * @param repository
-	 * @param revision
-	 * @param objectId
-	 * @return
-	 */
-//	IFileRevision getFileRevision(IRepository<R> repository, 
-//			IRevision<T> revision, IObjectId objectId);
-	
 	void addToVCS(IFile file);
 	
 	IRepository<R> getRepository(IResource resource)
