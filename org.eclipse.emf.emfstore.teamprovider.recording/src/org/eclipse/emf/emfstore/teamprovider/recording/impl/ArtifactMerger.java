@@ -1,30 +1,15 @@
 package org.eclipse.emf.emfstore.teamprovider.recording.impl;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.compare.ITypedElement;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IStorage;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
-//import org.eclipse.egit.core.internal.storage.GitFileRevision;
-//import org.eclipse.egit.core.project.RepositoryMapping;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.emfstore.client.ui.dialogs.merge.DecisionManager;
@@ -38,36 +23,9 @@ import org.eclipse.emf.emfstore.server.model.versioning.PrimaryVersionSpec;
 import org.eclipse.emf.emfstore.server.model.versioning.VersioningFactory;
 import org.eclipse.emf.emfstore.server.model.versioning.operations.AbstractOperation;
 import org.eclipse.emf.emfstore.teamprovider.recording.Activator;
-import org.eclipse.emf.emfstore.teamprovider.recording.IRevision;
 import org.eclipse.emf.emfstore.teamprovider.recording.IVCSProvider;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.revwalk.RevWalk;
-//import org.eclipse.jgit.api.AddCommand;
-//import org.eclipse.jgit.api.RebaseCommand;
-//import org.eclipse.jgit.dircache.DirCacheEntry;
-//import org.eclipse.jgit.dircache.DirCacheIterator;
-//import org.eclipse.jgit.lib.Constants;
-//import org.eclipse.jgit.lib.ObjectId;
-//import org.eclipse.jgit.lib.Repository;
-//import org.eclipse.jgit.lib.RepositoryState;
-//import org.eclipse.jgit.revwalk.RevCommit;
-//import org.eclipse.jgit.revwalk.RevWalk;
-//import org.eclipse.jgit.revwalk.filter.RevFilter;
-//import org.eclipse.jgit.treewalk.AbstractTreeIterator;
-//import org.eclipse.jgit.treewalk.FileTreeIterator;
-//import org.eclipse.jgit.treewalk.TreeWalk;
-//import org.eclipse.jgit.treewalk.filter.AndTreeFilter;
-//import org.eclipse.jgit.treewalk.filter.NotIgnoredFilter;
-//import org.eclipse.jgit.treewalk.filter.OrTreeFilter;
-//import org.eclipse.jgit.treewalk.filter.PathFilter;
-//import org.eclipse.jgit.treewalk.filter.TreeFilter;
-//import org.eclipse.jgit.util.IO;
-//import org.eclipse.jgit.util.RawParseUtils;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.team.core.history.IFileRevision;
-import org.xml.sax.InputSource;
 
 public class ArtifactMerger {
 
@@ -104,6 +62,7 @@ public class ArtifactMerger {
 		List myOperations = provider.getRightOperations(resource, new NullProgressMonitor());
 		List theirOperations = provider.getHeadOperations(resource, new NullProgressMonitor());
 		List<AbstractOperation> mergeResult = callMergeDialog(myOperations, theirOperations);
+		// if mergeResult is empty, file have been auto-merged
 		try {
 			merge(myOperations, theirOperations, mergeResult);
 			// resolve conflict on ecore
