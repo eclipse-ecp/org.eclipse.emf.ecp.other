@@ -102,11 +102,7 @@ public class FileUtil {
 		String artifactFileName = historyFile.getName().replace("." + historyFile.getFileExtension(), ".ecore");
 		
 		IResource resource = historyFile.getProject().findMember(artifactFileName);
-		
-		if (!(resource instanceof IFile) || !resource.exists()) {
-			throw new IllegalStateException("Artifact file either does not exist or is not a file");
-		}
-		
+				
 		return (IFile) resource;
 	}
 	
