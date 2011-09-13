@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -22,28 +21,30 @@ import org.eclipse.emf.emfstore.server.model.versioning.ChangePackage;
 import org.eclipse.emf.emfstore.server.model.versioning.PrimaryVersionSpec;
 import org.eclipse.emf.emfstore.server.model.versioning.VersioningFactory;
 import org.eclipse.emf.emfstore.server.model.versioning.operations.AbstractOperation;
-import org.eclipse.emf.emfstore.teamprovider.recording.Activator;
 import org.eclipse.emf.emfstore.teamprovider.recording.IVCSProvider;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Display;
 
-public class ArtifactMerger {
+public class ArtifactMerger<T, R> {
 
 	private IResource resource;
 	private final Project project;
 	private XMIResource historyResource;
 	private final XMIResource xmiResource;
+	private IVCSProvider<T, R> provider;
 	
-	public ArtifactMerger(IResource resource, XMIResource xmiResource, XMIResource historyResource, Project project) {
+	public ArtifactMerger(IVCSProvider<T, R> provider, IResource resource,
+			Artifact artifact) {
 		this.resource = resource;
-		this.xmiResource = xmiResource;
-		this.historyResource =historyResource;
-		this.project = project;
-		// TODO
-		IVCSProvider provider = Activator.VCS_PROVIDER;
-		
+		this.xmiResource = artifact.getModelResource();
+		this.historyResource = artifact.getHistoryResource();
+		this.project = artifact.getCollection();
+		this.provider = provider;
+	}
+	
+	public void merge() {
 		try {
-			String artifactFile = provider.getArtifactFile(FileUtil.getFile(xmiResource.getURI()), new NullProgressMonitor());
+			String artifactFile = provider.getMyModelResourceFile(FileUtil.getFile(xmiResource.getURI()), new NullProgressMonitor());
 			EObject stringToEObject = ModelUtil.stringToEObject(artifactFile);
 			writeToXMIResource(Collections.singletonList(stringToEObject), xmiResource);
 		} catch (IOException e1) {
@@ -59,12 +60,13 @@ public class ArtifactMerger {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List myOperations = provider.getRightOperations(resource, new NullProgressMonitor());
+		List myOperations = provider.getMyOperations(resource, new NullProgressMonitor());
 		List theirOperations = provider.getHeadOperations(resource, new NullProgressMonitor());
 		List<AbstractOperation> mergeResult = callMergeDialog(myOperations, theirOperations);
 		// if mergeResult is empty, file have been auto-merged
 		try {
-			merge(myOperations, theirOperations, mergeResult);
+			Artifact artifact = ArtifactRegistry.getInstance().getVersionedArtifact(ResourceFactoryRegistry.CURRENT_URI);
+			applyMergeResult(artifact, myOperations, theirOperations, mergeResult);
 			// resolve conflict on ecore
 			IFile artifactFile = FileUtil.getFile(xmiResource.getURI());
 			provider.resolveConflict(artifactFile);
@@ -91,14 +93,12 @@ public class ArtifactMerger {
 	public void applyOperations(List<AbstractOperation> operations) {
 		// TODO: API
 		((ProjectImpl) project).getChangeNotifier().disableNotifications(true);
-
 		try {
 			for (AbstractOperation operation : operations) {
 				operation.apply(project);
 			}
 		} finally {
 			((ProjectImpl) project).getChangeNotifier().disableNotifications(false);
-
 		}
 	}
 	
@@ -113,7 +113,8 @@ public class ArtifactMerger {
 		return changePackage;
 	}
 
-	private List<AbstractOperation> callMergeDialog(List<AbstractOperation> myOperations, List<AbstractOperation> theirOperations) {
+	private List<AbstractOperation> callMergeDialog(List<AbstractOperation> myOperations, 
+			List<AbstractOperation> theirOperations) {
 		
 		ChangePackage myChangePackage = createChangePackage(myOperations);
 		ChangePackage theirChangePackage = createChangePackage(theirOperations);
@@ -133,50 +134,37 @@ public class ArtifactMerger {
 			// TODO: handle cancel case
 			mergeDialog.open();
 
-			
-			
 			// generate merge result and apply to local workspace
 			List<AbstractOperation> acceptedMine = mgr.getAcceptedMine();
 			List<AbstractOperation> rejectedTheirs = mgr.getRejectedTheirs();
 		
-			
 			for (AbstractOperation operationToReverse : rejectedTheirs) {
 				mergeResult.add(0, operationToReverse.reverse());
 			}
 			
 			mergeResult.addAll(acceptedMine);
-			
-			return mergeResult;
-			
-//			artifact.getpSpace().
-			////////////////////////////////////////
-			
-			/*
-			 * merge result muss auf ecore angewendet werden
-			 * 
-			 * history file = ancestor commit + ausgewaehlte ops, neu schreiben, konflikt als geloest markieren
-			 * (sowohl ecore, als auch evtl. history)
-			 */
 		} 
 		
 		return mergeResult;
 	}
 	
-	private void merge(List<AbstractOperation> myOperations, List<AbstractOperation> theirOperations, List<AbstractOperation> mergeResult) 
+	/**
+	 * Applies the given merge result upon the given {@link Artifact}. 
+	 * @param artifact the {@link Artifact} upon which to apply the merge result
+	 * @param myOperations the local operations
+	 * @param theirOperations the incoming operations
+	 * @param mergeResult the merge result as determined by the user
+	 * @throws IOException
+	 */
+	private void applyMergeResult(Artifact artifact, List<AbstractOperation> myOperations, 
+			List<AbstractOperation> theirOperations, List<AbstractOperation> mergeResult) 
 		throws IOException {
-		// fetch currently selected artifact
-		// TODO: is there an other, more reasonable way, to fetch the artifact
 		
 		ChangePackage myChangePackage = createChangePackage(myOperations);
 		ChangePackage theirChangePackage = createChangePackage(theirOperations);
 		
-		
-		Artifact artifact = ArtifactRegistry.getInstance().getVersionedArtifact(ResourceFactoryRegistry.CURRENT_URI);
-
 		// revert our changes
-		artifact.getOperations().clear();
-		artifact.getOperations().addAll((Collection<? extends AbstractOperation>) myChangePackage.getOperations());
-		artifact.revert();
+		artifact.revert(myChangePackage.getOperations());
 
 		applyOperations(theirChangePackage.getOperations());
 		applyOperations(mergeResult);

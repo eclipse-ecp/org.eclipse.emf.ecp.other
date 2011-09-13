@@ -4,6 +4,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.emfstore.teamprovider.recording.Activator;
 import org.eclipse.emf.emfstore.teamprovider.recording.impl.Artifact;
 import org.eclipse.emf.emfstore.teamprovider.recording.impl.ArtifactMerger;
 import org.eclipse.emf.emfstore.teamprovider.recording.impl.ArtifactRegistry;
@@ -39,10 +40,9 @@ public class ExecuteMergerCommand extends AbstractHandler implements IViewAction
 					versionedArtifact.initialize();
 				}
 				// file == must be history file ATM
-				ArtifactMerger merger = new ArtifactMerger(file, versionedArtifact.getXmiResource(),
-						versionedArtifact.getHistoryResource(),
-						versionedArtifact.getCollection());
-				merger.toString();
+				ArtifactMerger merger = new ArtifactMerger(
+						Activator.VCS_PROVIDER, file, versionedArtifact); 
+				merger.merge();
 			}
 		}
 	}
