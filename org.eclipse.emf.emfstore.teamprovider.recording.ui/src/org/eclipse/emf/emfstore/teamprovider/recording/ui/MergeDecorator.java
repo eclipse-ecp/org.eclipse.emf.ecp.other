@@ -1,12 +1,14 @@
-package org.eclipse.emf.emfstore.teamprovider.recording.impl;
+package org.eclipse.emf.emfstore.teamprovider.recording.ui;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.emfstore.teamprovider.recording.impl.ArtifactRegistry;
+import org.eclipse.emf.emfstore.teamprovider.recording.impl.FileUtil;
 import org.eclipse.jface.viewers.ILabelDecorator;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
 
-public class RecorderDecorator implements ILabelDecorator {
+public class MergeDecorator implements ILabelDecorator {
 
 	public void addListener(ILabelProviderListener listener) {
 		// TODO Auto-generated method stub

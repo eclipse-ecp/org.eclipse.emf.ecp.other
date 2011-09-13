@@ -38,5 +38,15 @@
          </menu>
       </viewerContribution>
    </extension>
-
+	<extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="false"
+            class="org.eclipse.emf.emfstore.teamprovider.recording.ui.MergeDecorator"
+            id="org.eclipse.emf.emfstore.teamprovider.recording.decorator"
+            label="Recorder Label"
+            state="true">
+      </decorator>
+   </extension>
+	
 </plugin>
