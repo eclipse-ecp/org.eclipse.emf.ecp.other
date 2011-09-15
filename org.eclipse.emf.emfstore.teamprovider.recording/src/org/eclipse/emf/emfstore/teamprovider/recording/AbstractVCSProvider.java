@@ -19,19 +19,18 @@ import org.eclipse.emf.emfstore.common.model.util.ModelUtil;
 import org.eclipse.emf.emfstore.server.model.versioning.operations.AbstractOperation;
 import org.xml.sax.InputSource;
 
-public abstract class AbstractVCSProvider<T,R> implements IVCSProvider<T,R> {
+public abstract class AbstractVCSProvider implements IVCSProvider {
 
 	/**
 	 * URI used to serialize EObject with the model util.
 	 */
 	public static final URI VIRTUAL_URI = URI.createURI("virtualUri");
 	
-	public List<AbstractOperation> getRightOperations(IResource resource, IProgressMonitor monitor) {
+	public List<AbstractOperation> getTheirOperations(IResource resource, IProgressMonitor monitor) {
 		try {
-			IRevision<T> rightCommit = getRightRevision(resource, monitor);
-			String rightFile = getFile(resource, rightCommit, monitor);
-			List<AbstractOperation> rightOperations = getOperations(rightFile);
-			return rightOperations;
+			String theirRevision = getTheirRevision(resource, monitor);
+			List<AbstractOperation> theirOperations = getOperations(theirRevision);
+			return theirOperations;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,13 +42,11 @@ public abstract class AbstractVCSProvider<T,R> implements IVCSProvider<T,R> {
 		return null;
 	}
 	
-	public List<AbstractOperation> getHeadOperations(IResource resource, IProgressMonitor monitor) {
-		IRevision<T> rightCommit;
+	public List<AbstractOperation> getMyOperations(IResource resource, IProgressMonitor monitor) {
 		try {
-			rightCommit = getHeadRevision(resource, monitor);
-			String rightFile = getFile(resource, rightCommit, monitor);
-			List<AbstractOperation> headOperations = getOperations(rightFile);
-			return headOperations;
+			String myRevision = getMyRevision(resource, monitor);
+			List<AbstractOperation> myOperations = getOperations(myRevision);
+			return myOperations;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,7 +58,7 @@ public abstract class AbstractVCSProvider<T,R> implements IVCSProvider<T,R> {
 		return null;
 	}
 	
-	public List<AbstractOperation> getOperations(String s) {
+	private List<AbstractOperation> getOperations(String s) {
 		// TODO Auto-generated method stub
 		EList<EObject> ops1 = null;
 		try {
@@ -92,7 +89,7 @@ public abstract class AbstractVCSProvider<T,R> implements IVCSProvider<T,R> {
 	 * @throws SerializationException
 	 *             if deserialization fails
 	 */
-	public EList<EObject> stringToEObject(String object)
+	private EList<EObject> stringToEObject(String object)
 			throws SerializationException {
 		if (object == null) {
 			return null;
