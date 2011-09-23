@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.eclipse.emf.emfstore.teamprovider.recording" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.emf.emfstore.standalone" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.eclipse.emf.emfstore.teamprovider.recording" id="org.eclipse.emf.emfstore.recording.provider" name="Model Merge VCS Provider"/>
+         <meta.schema plugin="org.eclipse.emf.emfstore.standalone" id="org.eclipse.emf.emfstore.standalone.vcs.provider" name="Model Merge VCS Provider"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -59,7 +59,7 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="name" type="string">
+         <attribute name="id" type="string">
             <annotation>
                <documentation>
                   
