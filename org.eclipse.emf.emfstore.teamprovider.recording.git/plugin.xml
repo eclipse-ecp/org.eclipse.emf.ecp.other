@@ -2,11 +2,11 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
+         name="gitProvider"
          point="org.eclipse.emf.emfstore.standalone.core.vcs.provider">
       <provider
             class="org.eclipse.emf.emfstore.standalone.git.GitVCSProvider"
-            id="org.eclipse.egit.core.GitProvider"
-            name="gitProvider">
+            id="org.eclipse.egit.core.GitProvider">
       </provider>
    </extension>
 
