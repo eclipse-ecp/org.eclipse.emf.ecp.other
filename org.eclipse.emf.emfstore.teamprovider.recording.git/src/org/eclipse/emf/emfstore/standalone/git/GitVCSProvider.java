@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.compare.ITypedElement;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IStorage;
@@ -27,7 +26,6 @@ import org.eclipse.jgit.api.RebaseCommand;
 import org.eclipse.jgit.api.errors.NoFilepatternException;
 import org.eclipse.jgit.dircache.DirCache;
 import org.eclipse.jgit.dircache.DirCacheEntry;
-import org.eclipse.jgit.dircache.DirCacheIterator;
 import org.eclipse.jgit.errors.CorruptObjectException;
 import org.eclipse.jgit.errors.IncorrectObjectTypeException;
 import org.eclipse.jgit.errors.MissingObjectException;
@@ -39,7 +37,6 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryState;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
-import org.eclipse.jgit.treewalk.AbstractTreeIterator;
 import org.eclipse.jgit.treewalk.FileTreeIterator;
 import org.eclipse.jgit.treewalk.TreeWalk;
 import org.eclipse.jgit.treewalk.WorkingTreeIterator;
@@ -218,18 +215,11 @@ public class GitVCSProvider extends AbstractVCSProvider {
 		List<String> filterPaths = new ArrayList<String>();
 		filterPaths.add(map.getRepoRelativePath(resource));
 		Repository repository = map.getRepository();
-		RevWalk rw = new RevWalk(repository);
-
 		TreeWalk tw = new TreeWalk(repository);
 	
-		int dirCacheIndex;
 		String s = null;
 		try {
-			dirCacheIndex = tw.addTree(new DirCacheIterator(repository
-					.readDirCache()));
 			int fileTreeIndex = tw.addTree(new FileTreeIterator(repository));
-			int repositoryTreeIndex = tw.addTree(rw.parseTree(repository
-					.resolve(Constants.HEAD)));
 			// skip ignored resources
 			NotIgnoredFilter notIgnoredFilter = new NotIgnoredFilter(
 					fileTreeIndex);
@@ -260,28 +250,10 @@ public class GitVCSProvider extends AbstractVCSProvider {
 				if (fit == null)
 					continue;
 
-				DirCacheIterator dit = tw.getTree(dirCacheIndex,
-						DirCacheIterator.class);
-
-				final DirCacheEntry dirCacheEntry = dit == null ? null : dit
-						.getDirCacheEntry();
-
-				boolean conflicting = dirCacheEntry != null
-				&& dirCacheEntry.getStage() > 0;
-
-				AbstractTreeIterator rt = tw.getTree(repositoryTreeIndex,
-						AbstractTreeIterator.class);
-
-				// compare local file against HEAD to see if it was modified
-				boolean modified = rt != null
-				&& !fit.getEntryObjectId()
-				.equals(rt.getEntryObjectId());
-
 				// if this is neither conflicting nor changed, we skip it
 				//				if (!conflicting && !modified)
 				//					continue;
 
-				ITypedElement right;
 				IFileRevision fileRevision;
 				// TODO: conflicting muss sich auf ecore beziehne
 				// TODO: parameter checken
