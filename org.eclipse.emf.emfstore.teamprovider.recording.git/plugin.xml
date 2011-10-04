@@ -2,9 +2,10 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.emf.emfstore.recording.provider">
+         point="org.eclipse.emf.emfstore.standalone.core.vcs.provider">
       <provider
-            class="org.eclipse.emf.emfstore.teamprovider.recording.git.GitVCSProvider"
+            class="org.eclipse.emf.emfstore.standalone.git.GitVCSProvider"
+            id="org.eclipse.egit.core.GitProvider"
             name="gitProvider">
       </provider>
    </extension>
