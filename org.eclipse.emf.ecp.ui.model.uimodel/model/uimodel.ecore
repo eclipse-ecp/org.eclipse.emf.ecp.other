@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="uimodel" nsURI="http://eclipse.org/emf/emfclient/uimodel" nsPrefix="uimodel">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiLayout" eSuperTypes="#//YUiEmbeddable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//YUiEmbeddable" containment="true" eOpposite="#//YUiEmbeddable/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiField" eSuperTypes="#//YUiEmbeddable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiView" eSuperTypes="#//YUiElement #//YUiLayout">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiRoot" eSuperTypes="#//YUiElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
+        eType="#//YUiView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiEmbeddable" abstract="true" eSuperTypes="#//YUiElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//YUiLayout" eOpposite="#//YUiLayout/elements"/>
+  </eClassifiers>
+</ecore:EPackage>
