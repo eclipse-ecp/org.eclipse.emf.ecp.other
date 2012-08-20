@@ -11,39 +11,40 @@
 package org.eclipse.emf.ecp.ui.model.uimodel;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YUi Root</b></em>'.
+ * A representation of the model object '<em><b>YUi View Set</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot#getViews <em>Views</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiRoot()
+ * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiViewSet()
  * @model
  * @generated
  */
-public interface YUiRoot extends YUiElement {
+public interface YUiViewSet extends YUiElement {
 	/**
-	 * Returns the value of the '<em><b>Views</b></em>' reference list.
+	 * Returns the value of the '<em><b>Views</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView}.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Views</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Views</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Views</em>' reference list.
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiRoot_Views()
-	 * @model
+	 * @return the value of the '<em>Views</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiViewSet_Views()
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getRoot
+	 * @model opposite="root" containment="true"
 	 * @generated
 	 */
 	EList<YUiView> getViews();
 
-} // YUiRoot
+} // YUiViewSet

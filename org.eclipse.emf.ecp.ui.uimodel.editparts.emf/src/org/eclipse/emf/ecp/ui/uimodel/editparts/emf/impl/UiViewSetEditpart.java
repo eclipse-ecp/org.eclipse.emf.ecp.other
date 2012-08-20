@@ -15,23 +15,38 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
-import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiRootEditpart;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiViewEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiViewSetEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.emf.common.IResourceSetManager;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.emf.common.ResourceSetManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UiRootEditpart<M extends YUiRoot> extends UiElementEditpart<M> implements IUiRootEditpart {
+public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M> implements IUiViewSetEditpart {
 
-	private static final Logger logger = LoggerFactory.getLogger(UiRootEditpart.class);
+	private static final Logger logger = LoggerFactory.getLogger(UiViewSetEditpart.class);
 
 	private List<IUiViewEditpart> uiViewEditparts;
 
-	protected UiRootEditpart() {
+	protected UiViewSetEditpart() {
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected M createModel() {
+		M model = (M) UiModelFactory.eINSTANCE.createYUiViewSet();
+
+		// add model to orphan resource
+		Resource resource = ResourceSetManager.getInstance().getResource(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI);
+		resource.getContents().add(model);
+
+		return model;
 	}
 
 	@Override
@@ -95,8 +110,8 @@ public class UiRootEditpart<M extends YUiRoot> extends UiElementEditpart<M> impl
 		checkDisposed();
 
 		switch (featureId) {
-		case UiModelPackage.YUI_ROOT__VIEWS:
-			YUiEmbeddable yElement = (YUiEmbeddable) notification.getNewValue();
+		case UiModelPackage.YUI_VIEW_SET__VIEWS:
+			YUiView yElement = (YUiView) notification.getNewValue();
 			internalAddElement((IUiViewEditpart) getEditpart(yElement));
 			break;
 		}
@@ -109,8 +124,8 @@ public class UiRootEditpart<M extends YUiRoot> extends UiElementEditpart<M> impl
 		checkDisposed();
 
 		switch (featureId) {
-		case UiModelPackage.YUI_ROOT__VIEWS:
-			YUiEmbeddable yElement = (YUiEmbeddable) notification.getOldValue();
+		case UiModelPackage.YUI_VIEW_SET__VIEWS:
+			YUiView yElement = (YUiView) notification.getOldValue();
 			internalRemoveElement((IUiViewEditpart) getEditpart(yElement));
 			break;
 		}
@@ -123,12 +138,6 @@ public class UiRootEditpart<M extends YUiRoot> extends UiElementEditpart<M> impl
 	 */
 	protected void internalAddElement(IUiViewEditpart editpart) {
 		checkDisposed();
-
-		// set the parent
-		//
-		if (editpart.getParent() != null) {
-			logger.warn("parent is not null for {}", editpart); //$NON-NLS-1$
-		}
 
 		if (uiViewEditparts == null) {
 			internalLoadViews();

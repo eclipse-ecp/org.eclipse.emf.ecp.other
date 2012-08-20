@@ -13,30 +13,33 @@ package org.eclipse.emf.ecp.ui.model.uimodel.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Root</b></em>'.
+ * An implementation of the model object '<em><b>YUi View Set</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiRootImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiRootImpl#getViews <em>Views</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiViewSetImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiViewSetImpl#getViews <em>Views</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YUiRootImpl extends EObjectImpl implements YUiRoot {
+public class YUiViewSetImpl extends EObjectImpl implements YUiViewSet {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,6 +49,7 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,8 +59,9 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
 	/**
-	 * The cached value of the '{@link #getViews() <em>Views</em>}' reference list.
+	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getViews()
@@ -70,7 +75,7 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected YUiRootImpl() {
+	protected YUiViewSetImpl() {
 		super();
 	}
 
@@ -81,7 +86,7 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UiModelPackage.Literals.YUI_ROOT;
+		return UiModelPackage.Literals.YUI_VIEW_SET;
 	}
 
 	/**
@@ -102,7 +107,7 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_ROOT__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_VIEW_SET__ID, oldId, id));
 	}
 
 	/**
@@ -112,9 +117,38 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	 */
 	public EList<YUiView> getViews() {
 		if (views == null) {
-			views = new EObjectResolvingEList<YUiView>(YUiView.class, this, UiModelPackage.YUI_ROOT__VIEWS);
+			views = new EObjectContainmentWithInverseEList<YUiView>(YUiView.class, this, UiModelPackage.YUI_VIEW_SET__VIEWS, UiModelPackage.YUI_VIEW__ROOT);
 		}
 		return views;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UiModelPackage.YUI_VIEW_SET__VIEWS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getViews()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UiModelPackage.YUI_VIEW_SET__VIEWS:
+				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -125,9 +159,9 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UiModelPackage.YUI_ROOT__ID:
+			case UiModelPackage.YUI_VIEW_SET__ID:
 				return getId();
-			case UiModelPackage.YUI_ROOT__VIEWS:
+			case UiModelPackage.YUI_VIEW_SET__VIEWS:
 				return getViews();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -142,10 +176,10 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UiModelPackage.YUI_ROOT__ID:
+			case UiModelPackage.YUI_VIEW_SET__ID:
 				setId((String)newValue);
 				return;
-			case UiModelPackage.YUI_ROOT__VIEWS:
+			case UiModelPackage.YUI_VIEW_SET__VIEWS:
 				getViews().clear();
 				getViews().addAll((Collection<? extends YUiView>)newValue);
 				return;
@@ -161,10 +195,10 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.YUI_ROOT__ID:
+			case UiModelPackage.YUI_VIEW_SET__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case UiModelPackage.YUI_ROOT__VIEWS:
+			case UiModelPackage.YUI_VIEW_SET__VIEWS:
 				getViews().clear();
 				return;
 		}
@@ -179,9 +213,9 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UiModelPackage.YUI_ROOT__ID:
+			case UiModelPackage.YUI_VIEW_SET__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case UiModelPackage.YUI_ROOT__VIEWS:
+			case UiModelPackage.YUI_VIEW_SET__VIEWS:
 				return views != null && !views.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -203,4 +237,4 @@ public class YUiRootImpl extends EObjectImpl implements YUiRoot {
 		return result.toString();
 	}
 
-} //YUiRootImpl
+} //YUiViewSetImpl

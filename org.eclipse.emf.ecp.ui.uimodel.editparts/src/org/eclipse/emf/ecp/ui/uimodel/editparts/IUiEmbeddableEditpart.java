@@ -19,10 +19,18 @@ public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 
 	/**
 	 * Returns the parent of this embeddable edit part.<br>
-	 * May not be <code>null</code> as far as this element is attached to a parent.
+	 * Will be <code>null</code> for the layout that is attached to the view as content.
 	 * 
 	 * @return
 	 */
 	IUiLayoutEditpart getParent();
+
+	/**
+	 * Returns the view edit part of this embeddable edit part.<br>
+	 * May be <code>null</code> as far as this element and no of its parents are attached to a view.
+	 * 
+	 * @return
+	 */
+	IUiViewEditpart getView();
 
 }

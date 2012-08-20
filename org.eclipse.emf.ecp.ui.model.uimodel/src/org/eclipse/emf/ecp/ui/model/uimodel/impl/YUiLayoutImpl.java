@@ -16,7 +16,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
@@ -72,24 +72,9 @@ public class YUiLayoutImpl extends YUiEmbeddableImpl implements YUiLayout {
 	 */
 	public EList<YUiEmbeddable> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<YUiEmbeddable>(YUiEmbeddable.class, this, UiModelPackage.YUI_LAYOUT__ELEMENTS, UiModelPackage.YUI_EMBEDDABLE__PARENT);
+			elements = new EObjectContainmentEList<YUiEmbeddable>(YUiEmbeddable.class, this, UiModelPackage.YUI_LAYOUT__ELEMENTS);
 		}
 		return elements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UiModelPackage.YUI_LAYOUT__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

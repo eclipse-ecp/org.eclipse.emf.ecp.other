@@ -7,18 +7,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiLayout" eSuperTypes="#//YUiEmbeddable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//YUiEmbeddable" containment="true" eOpposite="#//YUiEmbeddable/parent"/>
+        eType="#//YUiEmbeddable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiField" eSuperTypes="#//YUiEmbeddable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiView" eSuperTypes="#//YUiElement #//YUiLayout">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiView" eSuperTypes="#//YUiElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//YUiViewSet"
+        eOpposite="#//YUiViewSet/views"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//YUiEmbeddable"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiRoot" eSuperTypes="#//YUiElement">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiViewSet" eSuperTypes="#//YUiElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
-        eType="#//YUiView"/>
+        eType="#//YUiView" containment="true" eOpposite="#//YUiView/root"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiEmbeddable" abstract="true" eSuperTypes="#//YUiElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-        eType="#//YUiLayout" eOpposite="#//YUiLayout/elements"/>
+    <eOperations name="getParent" eType="#//YUiLayout"/>
+    <eOperations name="getView" eType="#//YUiView"/>
   </eClassifiers>
 </ecore:EPackage>

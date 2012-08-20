@@ -10,12 +10,12 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.editparts.emf.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiEmbeddableEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiViewEditpart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,12 +24,11 @@ import org.slf4j.LoggerFactory;
  * 
  * @param <M>
  */
-public class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiElementEditpart<M> implements
+public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiElementEditpart<M> implements
 	IUiEmbeddableEditpart {
 
 	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(UiEmbeddableEditpart.class);
-	private IUiLayoutEditpart parent;
 
 	protected UiEmbeddableEditpart() {
 	}
@@ -39,20 +38,14 @@ public class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiElementEdit
 	 */
 	@Override
 	public IUiLayoutEditpart getParent() {
-		if (parent == null) {
-			loadParent();
-		}
-		return parent;
+		YUiLayout yParent = getModel().getParent();
+		return yParent != null ? (IUiLayoutEditpart) getEditpart(yParent) : null;
 	}
 
-	/**
-	 * Loads the parent of the embeddable.
-	 */
-	protected void loadParent() {
-		if (parent == null) {
-			YUiLayout yParent = getModel().getParent();
-			internalSetParent((IUiLayoutEditpart) getEditpart(yParent));
-		}
+	@Override
+	public IUiViewEditpart getView() {
+		YUiView yView = getModel().getView();
+		return yView != null ? (IUiViewEditpart) getEditpart(yView) : null;
 	}
 
 	/**
@@ -60,35 +53,6 @@ public class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiElementEdit
 	 */
 	@Override
 	protected void internalDispose() {
-		this.parent = null;
-
-		super.dispose();
+		super.internalDispose();
 	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void handleModel_Set(int featureId, Notification notification) {
-		checkDisposed();
-
-		checkDisposed();
-
-		switch (featureId) {
-		case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-			YUiEmbeddable yParent = (YUiEmbeddable) notification.getNewValue();
-			internalSetParent((IUiLayoutEditpart) getEditpart(yParent));
-			break;
-		}
-	}
-
-	/**
-	 * Is invoked by a model change and the parent of the edit part should be set.
-	 * 
-	 * @param parent
-	 */
-	protected void internalSetParent(IUiLayoutEditpart parent) {
-		this.parent = parent;
-	}
-
 }

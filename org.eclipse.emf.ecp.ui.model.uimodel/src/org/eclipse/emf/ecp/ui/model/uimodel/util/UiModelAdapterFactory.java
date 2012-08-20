@@ -20,8 +20,8 @@ import org.eclipse.emf.ecp.ui.model.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,8 +96,8 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createYUiViewAdapter();
 			}
 			@Override
-			public Adapter caseYUiRoot(YUiRoot object) {
-				return createYUiRootAdapter();
+			public Adapter caseYUiViewSet(YUiViewSet object) {
+				return createYUiViewSetAdapter();
 			}
 			@Override
 			public Adapter caseYUiEmbeddable(YUiEmbeddable object) {
@@ -180,16 +180,16 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot <em>YUi Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet <em>YUi View Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet
 	 * @generated
 	 */
-	public Adapter createYUiRootAdapter() {
+	public Adapter createYUiViewSetAdapter() {
 		return null;
 	}
 

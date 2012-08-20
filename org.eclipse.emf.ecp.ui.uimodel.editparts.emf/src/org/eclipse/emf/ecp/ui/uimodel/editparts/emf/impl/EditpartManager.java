@@ -7,9 +7,14 @@ import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiElementEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiFieldEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiViewSetEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiViewEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.editparts.emf.common.IResourceSetManager;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.util.IEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.util.IUiElementEditpartProvider;
 import org.slf4j.Logger;
@@ -26,8 +31,12 @@ public class EditpartManager implements IEditPartManager {
 		if (element instanceof EObject) {
 			Resource resource = ((EObject) element).eResource();
 			if (resource != null) {
-				return resource.getURI().toString().equals(UiModelPackage.eNS_URI);
+				String uriString = resource.getURI().toString();
+				return uriString.equals(UiModelPackage.eNS_URI)
+					|| uriString.equals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING);
 			}
+		} else if (element instanceof String) {
+			return element.equals(UiModelPackage.eNS_URI);
 		}
 		return false;
 	}
@@ -57,41 +66,65 @@ public class EditpartManager implements IEditPartManager {
 		return (A) findEditPartFor((YUiElement) yElement);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public <A extends IUiElementEditpart> A createEditpart(Object selector, Class<A> editPartClazz) {
+		UiElementEditpart<YUiElement> result = null;
+		if (editPartClazz.isAssignableFrom(IUiViewEditpart.class)) {
+			result = createNewInstance(UiViewEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiLayoutEditpart.class)) {
+			result = createNewInstance(UiLayoutEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiFieldEditpart.class)) {
+			result = createNewInstance(UiFieldEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiViewSetEditpart.class)) {
+			result = createNewInstance(UiViewSetEditpart.class);
+		}
+
+		if (result != null) {
+			result.initialize();
+		}
+
+		return (A) result;
+	}
+
 	/**
 	 * Creates a new instance of the edit part.
 	 * 
 	 * @param yElement
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	protected <A extends IUiElementEditpart> A createEditpart(Object yElement) {
-		A result = null;
+		// asserts that no editpart was created already for the given element
+		assertOneEditpartForModelelement(yElement);
+
+		UiElementEditpart<YUiElement> result = null;
 		if (yElement instanceof YUiView) {
-			result = createNewInstance(yElement, UiViewEditpart.class);
+			result = createNewInstance(UiViewEditpart.class);
 		} else if (yElement instanceof YUiLayout) {
-			result = createNewInstance(yElement, UiLayoutEditpart.class);
+			result = createNewInstance(UiLayoutEditpart.class);
 		} else if (yElement instanceof YUiField) {
-			result = createNewInstance(yElement, UiFieldEditpart.class);
-		} else if (yElement instanceof YUiRoot) {
-			result = createNewInstance(yElement, UiRootEditpart.class);
+			result = createNewInstance(UiFieldEditpart.class);
+		} else if (yElement instanceof YUiViewSet) {
+			result = createNewInstance(UiViewSetEditpart.class);
 		}
 
-		return result;
+		if (result != null) {
+			result.initialize((YUiElement) yElement);
+		}
+
+		return (A) result;
 	}
 
 	/**
 	 * Creates a new instance of the required edit part.
 	 * 
 	 * @param <A>
-	 * @param element
 	 * @param type
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	private <A extends IUiElementEditpart> A createNewInstance(Object element, Class<? extends IUiElementEditpart> type) {
-
-		// asserts that no editpart was created already for the given element
-		assertOneEditpartForModelelement(element);
-
+	private <A extends IUiElementEditpart> A createNewInstance(Class<? extends IUiElementEditpart> type) {
 		A result = null;
 		UiElementEditpart<YUiElement> editPart = null;
 		try {
@@ -103,7 +136,6 @@ public class EditpartManager implements IEditPartManager {
 			logger.error("{}", e);
 			throw new RuntimeException(e);
 		}
-		editPart.initialize((YUiElement) element);
 		result = (A) editPart;
 		return result;
 	}

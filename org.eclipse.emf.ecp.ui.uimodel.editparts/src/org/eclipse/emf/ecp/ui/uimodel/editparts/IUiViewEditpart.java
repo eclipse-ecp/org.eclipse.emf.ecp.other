@@ -15,7 +15,7 @@ package org.eclipse.emf.ecp.ui.uimodel.editparts;
  * {@link IUiEmbeddableEditpart}. The IUiViewEditpart should not be contained in a {@link IUiLayoutEditpart} but it can
  * contain several embeddables.
  */
-public interface IUiViewEditpart extends IUiLayoutEditpart {
+public interface IUiViewEditpart extends IUiElementEditpart {
 
 	/**
 	 * Returns the name of the view.
@@ -23,4 +23,18 @@ public interface IUiViewEditpart extends IUiLayoutEditpart {
 	 * @return
 	 */
 	String getName();
+
+	/**
+	 * Is called to set the content of the view.
+	 * 
+	 * @param content
+	 */
+	void setContent(IUiEmbeddableEditpart content);
+
+	/**
+	 * Returns the content of the view.
+	 * 
+	 * @return content
+	 */
+	IUiEmbeddableEditpart getContent();
 }

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
 
 /**
@@ -68,7 +69,7 @@ public class UiModelExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.uimodel"));
-				YUiView root = UiModelFactory.eINSTANCE.createYUiView();
+				YUiLayout root = UiModelFactory.eINSTANCE.createYUiLayout();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

@@ -16,7 +16,7 @@ import java.util.List;
  * An IUiRootEditpart is a container for views. They can be put there and also be accessed again, but the root does not
  * control the lifecycle of the views. Removing / deleting the root will never delete the referenced views.
  */
-public interface IUiRootEditpart extends IUiElementEditpart {
+public interface IUiViewSetEditpart extends IUiElementEditpart {
 
 	/**
 	 * Returns an unmodifiable list with all views referenced by the root. The root does not control the lifecycle of

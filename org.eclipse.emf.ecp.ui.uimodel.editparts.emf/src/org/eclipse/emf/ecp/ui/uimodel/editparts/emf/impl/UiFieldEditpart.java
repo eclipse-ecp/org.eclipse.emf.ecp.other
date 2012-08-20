@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.editparts.emf.impl;
 
+import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.uimodel.editparts.IUiFieldEditpart;
 import org.slf4j.Logger;
@@ -21,6 +22,12 @@ public class UiFieldEditpart<M extends YUiField> extends UiEmbeddableEditpart<M>
 	private static final Logger logger = LoggerFactory.getLogger(UiFieldEditpart.class);
 
 	protected UiFieldEditpart() {
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	protected M createModel() {
+		return (M) UiModelFactory.eINSTANCE.createYUiField();
 	}
 
 }

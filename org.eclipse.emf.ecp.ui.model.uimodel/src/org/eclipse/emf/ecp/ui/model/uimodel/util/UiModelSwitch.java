@@ -19,8 +19,8 @@ import org.eclipse.emf.ecp.ui.model.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,16 +104,14 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.YUI_VIEW: {
 				YUiView yUiView = (YUiView)theEObject;
 				T result = caseYUiView(yUiView);
-				if (result == null) result = caseYUiLayout(yUiView);
-				if (result == null) result = caseYUiEmbeddable(yUiView);
 				if (result == null) result = caseYUiElement(yUiView);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UiModelPackage.YUI_ROOT: {
-				YUiRoot yUiRoot = (YUiRoot)theEObject;
-				T result = caseYUiRoot(yUiRoot);
-				if (result == null) result = caseYUiElement(yUiRoot);
+			case UiModelPackage.YUI_VIEW_SET: {
+				YUiViewSet yUiViewSet = (YUiViewSet)theEObject;
+				T result = caseYUiViewSet(yUiViewSet);
+				if (result == null) result = caseYUiElement(yUiViewSet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,17 +187,17 @@ public class UiModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YUi Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YUi View Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YUi Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YUi View Set</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYUiRoot(YUiRoot object) {
+	public T caseYUiViewSet(YUiViewSet object) {
 		return null;
 	}
 

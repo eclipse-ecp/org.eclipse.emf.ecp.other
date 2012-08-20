@@ -18,8 +18,10 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecp.ui.model.uimodel.*;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,7 +70,7 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 			case UiModelPackage.YUI_LAYOUT: return createYUiLayout();
 			case UiModelPackage.YUI_FIELD: return createYUiField();
 			case UiModelPackage.YUI_VIEW: return createYUiView();
-			case UiModelPackage.YUI_ROOT: return createYUiRoot();
+			case UiModelPackage.YUI_VIEW_SET: return createYUiViewSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -109,9 +111,9 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YUiRoot createYUiRoot() {
-		YUiRootImpl yUiRoot = new YUiRootImpl();
-		return yUiRoot;
+	public YUiViewSet createYUiViewSet() {
+		YUiViewSetImpl yUiViewSet = new YUiViewSetImpl();
+		return yUiViewSet;
 	}
 
 	/**

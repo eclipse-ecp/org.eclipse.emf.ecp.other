@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
@@ -31,6 +32,12 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 
 	protected UiLayoutEditpart() {
 
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	protected M createModel() {
+		return (M) UiModelFactory.eINSTANCE.createYUiLayout();
 	}
 
 	@Override
@@ -122,12 +129,6 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	 */
 	protected void internalAddElement(IUiEmbeddableEditpart editpart) {
 		checkDisposed();
-
-		// set the parent
-		//
-		if (editpart.getParent() != null) {
-			logger.warn("parent is not null for {}", editpart); //$NON-NLS-1$
-		}
 
 		if (uiElementEditparts == null) {
 			internalLoadElements();

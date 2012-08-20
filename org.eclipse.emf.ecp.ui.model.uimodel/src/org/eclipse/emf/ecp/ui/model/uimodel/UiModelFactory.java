@@ -57,13 +57,13 @@ public interface UiModelFactory extends EFactory {
 	YUiView createYUiView();
 
 	/**
-	 * Returns a new object of class '<em>YUi Root</em>'.
+	 * Returns a new object of class '<em>YUi View Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YUi Root</em>'.
+	 * @return a new object of class '<em>YUi View Set</em>'.
 	 * @generated
 	 */
-	YUiRoot createYUiRoot();
+	YUiViewSet createYUiViewSet();
 
 	/**
 	 * Returns the package supported by this factory.

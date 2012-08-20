@@ -6,20 +6,19 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *    Florian Pirchner - initial API and implementation
+ * Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.model.uimodel.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,6 @@ import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiEmbeddableImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiEmbeddableImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,86 +96,31 @@ public abstract class YUiEmbeddableImpl extends EObjectImpl implements YUiEmbedd
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
 	public YUiLayout getParent() {
-		if (eContainerFeatureID() != UiModelPackage.YUI_EMBEDDABLE__PARENT) return null;
-		return (YUiLayout)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParent(YUiLayout newParent, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParent, UiModelPackage.YUI_EMBEDDABLE__PARENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParent(YUiLayout newParent) {
-		if (newParent != eInternalContainer() || (eContainerFeatureID() != UiModelPackage.YUI_EMBEDDABLE__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, UiModelPackage.YUI_LAYOUT__ELEMENTS, YUiLayout.class, msgs);
-			msgs = basicSetParent(newParent, msgs);
-			if (msgs != null) msgs.dispatch();
+		EObject container = eContainer();
+		if (container instanceof YUiLayout) {
+			return (YUiLayout) container;
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_EMBEDDABLE__PARENT, newParent, newParent));
+		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParent((YUiLayout)otherEnd, msgs);
+	public YUiView getView() {
+		EObject container = eContainer();
+		if (container instanceof YUiView) {
+			return (YUiView) container;
+		} else if (container instanceof YUiLayout) {
+			return ((YUiLayout) container).getView();
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				return basicSetParent(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				return eInternalContainer().eInverseRemove(this, UiModelPackage.YUI_LAYOUT__ELEMENTS, YUiLayout.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
+		return null;
 	}
 
 	/**
@@ -190,8 +133,6 @@ public abstract class YUiEmbeddableImpl extends EObjectImpl implements YUiEmbedd
 		switch (featureID) {
 			case UiModelPackage.YUI_EMBEDDABLE__ID:
 				return getId();
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,9 +147,6 @@ public abstract class YUiEmbeddableImpl extends EObjectImpl implements YUiEmbedd
 		switch (featureID) {
 			case UiModelPackage.YUI_EMBEDDABLE__ID:
 				setId((String)newValue);
-				return;
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				setParent((YUiLayout)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -225,9 +163,6 @@ public abstract class YUiEmbeddableImpl extends EObjectImpl implements YUiEmbedd
 			case UiModelPackage.YUI_EMBEDDABLE__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				setParent((YUiLayout)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,8 +177,6 @@ public abstract class YUiEmbeddableImpl extends EObjectImpl implements YUiEmbedd
 		switch (featureID) {
 			case UiModelPackage.YUI_EMBEDDABLE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case UiModelPackage.YUI_EMBEDDABLE__PARENT:
-				return getParent() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,4 +197,4 @@ public abstract class YUiEmbeddableImpl extends EObjectImpl implements YUiEmbedd
 		return result.toString();
 	}
 
-} //YUiEmbeddableImpl
+} // YUiEmbeddableImpl

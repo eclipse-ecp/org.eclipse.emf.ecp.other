@@ -19,7 +19,9 @@ package org.eclipse.emf.ecp.ui.model.uimodel;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getViewName <em>View Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getContent <em>Content</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +29,7 @@ package org.eclipse.emf.ecp.ui.model.uimodel;
  * @model
  * @generated
  */
-public interface YUiView extends YUiElement, YUiLayout {
+public interface YUiView extends YUiElement {
 	/**
 	 * Returns the value of the '<em><b>View Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,5 +55,59 @@ public interface YUiView extends YUiElement, YUiLayout {
 	 * @generated
 	 */
 	void setViewName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Content</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Content</em>' containment reference.
+	 * @see #setContent(YUiEmbeddable)
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiView_Content()
+	 * @model containment="true"
+	 * @generated
+	 */
+	YUiEmbeddable getContent();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getContent <em>Content</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content</em>' containment reference.
+	 * @see #getContent()
+	 * @generated
+	 */
+	void setContent(YUiEmbeddable value);
+
+	/**
+	 * Returns the value of the '<em><b>Root</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Root</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root</em>' container reference.
+	 * @see #setRoot(YUiViewSet)
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiView_Root()
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet#getViews
+	 * @model opposite="views" required="true" transient="false"
+	 * @generated
+	 */
+	YUiViewSet getRoot();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getRoot <em>Root</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Root</em>' container reference.
+	 * @see #getRoot()
+	 * @generated
+	 */
+	void setRoot(YUiViewSet value);
 
 } // YUiView

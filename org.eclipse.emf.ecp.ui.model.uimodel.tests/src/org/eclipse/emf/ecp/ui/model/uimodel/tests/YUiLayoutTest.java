@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ui.model.uimodel.tests;
 
+import junit.textui.TestRunner;
+import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
 
 /**
@@ -18,7 +20,16 @@ import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class YUiLayoutTest extends YUiEmbeddableTest {
+public class YUiLayoutTest extends YUiEmbeddableTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(YUiLayoutTest.class);
+	}
 
 	/**
 	 * Constructs a new YUi Layout test case with the given name.
@@ -39,6 +50,28 @@ public abstract class YUiLayoutTest extends YUiEmbeddableTest {
 	@Override
 	protected YUiLayout getFixture() {
 		return (YUiLayout)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(UiModelFactory.eINSTANCE.createYUiLayout());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //YUiLayoutTest

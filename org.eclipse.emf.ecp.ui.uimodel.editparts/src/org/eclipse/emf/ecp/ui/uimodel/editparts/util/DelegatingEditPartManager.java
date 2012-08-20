@@ -35,8 +35,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	}
 
 	/**
-	 * Returns the instance of that manager. But may be <code>null</code> if the
-	 * component was not activated.
+	 * Returns the instance of that manager.
 	 * 
 	 * @return the instance
 	 */
@@ -61,11 +60,9 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	 * {@inheritDoc}
 	 */
 	public <A extends IUiElementEditpart> A findEditpart(Object element) {
-		synchronized (factories) {
-			for (IEditPartManager factory : factories) {
-				if (factory.isFor(element)) {
-					return factory.findEditpart(element);
-				}
+		for (IEditPartManager factory : factories.toArray(new IEditPartManager[factories.size()])) {
+			if (factory.isFor(element)) {
+				return factory.findEditpart(element);
 			}
 		}
 		logger.error("No proper editPartFactory found for element {}", element);
@@ -74,14 +71,23 @@ public class DelegatingEditPartManager implements IEditPartManager {
 
 	@Override
 	public <A extends IUiElementEditpart> A getEditpart(Object element) {
-		synchronized (factories) {
-			for (IEditPartManager factory : factories) {
-				if (factory.isFor(element)) {
-					return factory.getEditpart(element);
-				}
+		for (IEditPartManager factory : factories.toArray(new IEditPartManager[factories.size()])) {
+			if (factory.isFor(element)) {
+				return factory.getEditpart(element);
 			}
 		}
 		logger.error("No proper editPartFactory found for element {}", element);
+		return null;
+	}
+
+	@Override
+	public <A extends IUiElementEditpart> A createEditpart(Object selector, Class<A > editPartClazz) {
+		for (IEditPartManager factory : factories.toArray(new IEditPartManager[factories.size()])) {
+			if (factory.isFor(selector)) {
+				return factory.createEditpart(selector, editPartClazz);
+			}
+		}
+		logger.error("No proper editPartFactory found for element {}", selector);
 		return null;
 	}
 

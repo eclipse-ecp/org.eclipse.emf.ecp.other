@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ui.model.uimodel.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -21,8 +22,8 @@ import org.eclipse.emf.ecp.ui.model.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiLayout;
-import org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +65,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yUiRootEClass = null;
+	private EClass yUiViewSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,7 +195,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	public EAttribute getYUiView_ViewName() {
-		return (EAttribute)yUiViewEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)yUiViewEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -202,8 +203,8 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYUiRoot() {
-		return yUiRootEClass;
+	public EReference getYUiView_Content() {
+		return (EReference)yUiViewEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -211,8 +212,26 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getYUiRoot_Views() {
-		return (EReference)yUiRootEClass.getEStructuralFeatures().get(0);
+	public EClass getYUiViewSet() {
+		return yUiViewSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiViewSet_Views() {
+		return (EReference)yUiViewSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiView_Root() {
+		return (EReference)yUiViewEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -222,15 +241,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EClass getYUiEmbeddable() {
 		return yUiEmbeddableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getYUiEmbeddable_Parent() {
-		return (EReference)yUiEmbeddableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -270,13 +280,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		yUiFieldEClass = createEClass(YUI_FIELD);
 
 		yUiViewEClass = createEClass(YUI_VIEW);
+		createEReference(yUiViewEClass, YUI_VIEW__ROOT);
 		createEAttribute(yUiViewEClass, YUI_VIEW__VIEW_NAME);
+		createEReference(yUiViewEClass, YUI_VIEW__CONTENT);
 
-		yUiRootEClass = createEClass(YUI_ROOT);
-		createEReference(yUiRootEClass, YUI_ROOT__VIEWS);
+		yUiViewSetEClass = createEClass(YUI_VIEW_SET);
+		createEReference(yUiViewSetEClass, YUI_VIEW_SET__VIEWS);
 
 		yUiEmbeddableEClass = createEClass(YUI_EMBEDDABLE);
-		createEReference(yUiEmbeddableEClass, YUI_EMBEDDABLE__PARENT);
 	}
 
 	/**
@@ -310,8 +321,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		yUiLayoutEClass.getESuperTypes().add(this.getYUiEmbeddable());
 		yUiFieldEClass.getESuperTypes().add(this.getYUiEmbeddable());
 		yUiViewEClass.getESuperTypes().add(this.getYUiElement());
-		yUiViewEClass.getESuperTypes().add(this.getYUiLayout());
-		yUiRootEClass.getESuperTypes().add(this.getYUiElement());
+		yUiViewSetEClass.getESuperTypes().add(this.getYUiElement());
 		yUiEmbeddableEClass.getESuperTypes().add(this.getYUiElement());
 
 		// Initialize classes and features; add operations and parameters
@@ -319,18 +329,23 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getYUiElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, YUiElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiLayoutEClass, YUiLayout.class, "YUiLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYUiLayout_Elements(), this.getYUiEmbeddable(), this.getYUiEmbeddable_Parent(), "elements", null, 0, -1, YUiLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYUiLayout_Elements(), this.getYUiEmbeddable(), null, "elements", null, 0, -1, YUiLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiFieldEClass, YUiField.class, "YUiField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yUiViewEClass, YUiView.class, "YUiView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiView_Root(), this.getYUiViewSet(), this.getYUiViewSet_Views(), "root", null, 1, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYUiView_ViewName(), ecorePackage.getEString(), "viewName", null, 0, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYUiView_Content(), this.getYUiEmbeddable(), null, "content", null, 0, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yUiRootEClass, YUiRoot.class, "YUiRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYUiRoot_Views(), this.getYUiView(), null, "views", null, 0, -1, YUiRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yUiViewSetEClass, YUiViewSet.class, "YUiViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiViewSet_Views(), this.getYUiView(), this.getYUiView_Root(), "views", null, 0, -1, YUiViewSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiEmbeddableEClass, YUiEmbeddable.class, "YUiEmbeddable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYUiEmbeddable_Parent(), this.getYUiLayout(), this.getYUiLayout_Elements(), "parent", null, 1, 1, YUiEmbeddable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(yUiEmbeddableEClass, this.getYUiLayout(), "getParent", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(yUiEmbeddableEClass, this.getYUiView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

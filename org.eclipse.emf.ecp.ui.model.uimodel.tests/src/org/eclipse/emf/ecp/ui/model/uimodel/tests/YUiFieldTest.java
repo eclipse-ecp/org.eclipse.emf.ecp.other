@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ui.model.uimodel.tests;
 
+import junit.textui.TestRunner;
+import org.eclipse.emf.ecp.ui.model.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
 
 /**
@@ -18,7 +20,16 @@ import org.eclipse.emf.ecp.ui.model.uimodel.YUiField;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class YUiFieldTest extends YUiEmbeddableTest {
+public class YUiFieldTest extends YUiEmbeddableTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(YUiFieldTest.class);
+	}
 
 	/**
 	 * Constructs a new YUi Field test case with the given name.
@@ -39,6 +50,28 @@ public abstract class YUiFieldTest extends YUiEmbeddableTest {
 	@Override
 	protected YUiField getFixture() {
 		return (YUiField)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(UiModelFactory.eINSTANCE.createYUiField());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 } //YUiFieldTest

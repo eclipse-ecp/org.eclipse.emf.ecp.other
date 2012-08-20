@@ -32,7 +32,6 @@ public interface YUiLayout extends YUiEmbeddable {
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -41,8 +40,7 @@ public interface YUiLayout extends YUiEmbeddable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ui.model.uimodel.UiModelPackage#getYUiLayout_Elements()
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable#getParent
-	 * @model opposite="parent" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<YUiEmbeddable> getElements();

@@ -21,25 +21,37 @@ public interface IEditPartManager {
 	/**
 	 * Returns true, if the factory can be used for the given element.
 	 * 
-	 * @param element
+	 * @param modelElement Any kind of object that contains information how to create the edit part.
 	 * @return
 	 */
-	boolean isFor(Object element);
+	boolean isFor(Object modelElement);
 
 	/**
 	 * Tries to find an existing edit part for the given element. If no edit part could be found, a new one will be
 	 * created.
 	 * 
+	 * @param modelElement Any kind of object that contains information how to create the edit part.
 	 * @return
 	 */
-	<A extends IUiElementEditpart> A getEditpart(Object element);
+	<A extends IUiElementEditpart> A getEditpart(Object modelElement);
 
 	/**
 	 * Tries to find an existing instance of the editpart. If no instance could be found then <code>null</code> will be
 	 * returned.
 	 * 
+	 * @param modelElement Any kind of object that contains information how to create the edit part.
 	 * @return
 	 */
-	<A extends IUiElementEditpart> A findEditpart(Object element);
+	<A extends IUiElementEditpart> A findEditpart(Object modelElement);
+
+	/**
+	 * Is used to create a new instance of an edit part, without having an model element.
+	 * 
+	 * @param selector The selector is used to find the proper edit part manager that is responsible to handle that
+	 *            call.
+	 * @param editPartClazz The type of edit part an instance of should be prepared.
+	 * @return
+	 */
+	<A extends IUiElementEditpart> A createEditpart(Object selector, Class<A> editPartClazz);
 
 }

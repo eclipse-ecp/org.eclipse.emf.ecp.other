@@ -103,7 +103,7 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	}
 
 	/**
-	 * Is called to initialize this edit part
+	 * Is called to initialize this edit part with the given model. The editpart will be built based on the given model.
 	 * 
 	 * @param element
 	 */
@@ -127,6 +127,24 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 
 		registerAdapter(this);
 	}
+
+	/**
+	 * Is called to initialize this edit part. Since no model is given, a new model will be instantiated.
+	 * 
+	 * @param element
+	 */
+	public void initialize() {
+		checkDisposed();
+
+		initialize(createModel());
+	}
+
+	/**
+	 * Has to return a new initialized instance of the model element that is responsible for the edit part.
+	 * 
+	 * @return
+	 */
+	protected abstract M createModel();
 
 	/**
 	 * Returns an existing edit part or creates a new one.

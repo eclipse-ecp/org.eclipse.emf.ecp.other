@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ui.model.uimodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -111,22 +112,13 @@ public interface UiModelPackage extends EPackage {
 	int YUI_EMBEDDABLE__ID = YUI_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_EMBEDDABLE__PARENT = YUI_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>YUi Embeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_EMBEDDABLE_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 1;
+	int YUI_EMBEDDABLE_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiLayoutImpl <em>YUi Layout</em>}' class.
@@ -146,15 +138,6 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_LAYOUT__ID = YUI_EMBEDDABLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_LAYOUT__PARENT = YUI_EMBEDDABLE__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -194,15 +177,6 @@ public interface UiModelPackage extends EPackage {
 	int YUI_FIELD__ID = YUI_EMBEDDABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_FIELD__PARENT = YUI_EMBEDDABLE__PARENT;
-
-	/**
 	 * The number of structural features of the '<em>YUi Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,22 +205,13 @@ public interface UiModelPackage extends EPackage {
 	int YUI_VIEW__ID = YUI_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * The feature id for the '<em><b>Root</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__PARENT = YUI_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_VIEW__ELEMENTS = YUI_ELEMENT_FEATURE_COUNT + 1;
+	int YUI_VIEW__ROOT = YUI_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -255,7 +220,16 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__VIEW_NAME = YUI_ELEMENT_FEATURE_COUNT + 2;
+	int YUI_VIEW__VIEW_NAME = YUI_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VIEW__CONTENT = YUI_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>YUi View</em>' class.
@@ -267,14 +241,14 @@ public interface UiModelPackage extends EPackage {
 	int YUI_VIEW_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiRootImpl <em>YUi Root</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiViewSetImpl <em>YUi View Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiRootImpl
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.UiModelPackageImpl#getYUiRoot()
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiViewSetImpl
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.UiModelPackageImpl#getYUiViewSet()
 	 * @generated
 	 */
-	int YUI_ROOT = 4;
+	int YUI_VIEW_SET = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -283,26 +257,25 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_ROOT__ID = YUI_ELEMENT__ID;
+	int YUI_VIEW_SET__ID = YUI_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Views</b></em>' reference list.
+	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_ROOT__VIEWS = YUI_ELEMENT_FEATURE_COUNT + 0;
+	int YUI_VIEW_SET__VIEWS = YUI_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>YUi Root</em>' class.
+	 * The number of structural features of the '<em>YUi View Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_ROOT_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 1;
-
+	int YUI_VIEW_SET_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiElement <em>YUi Element</em>}'.
@@ -378,25 +351,47 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getYUiView_ViewName();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot <em>YUi Root</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YUi Root</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot
+	 * @return the meta object for the containment reference '<em>Content</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getContent()
+	 * @see #getYUiView()
 	 * @generated
 	 */
-	EClass getYUiRoot();
+	EReference getYUiView_Content();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot#getViews <em>Views</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet <em>YUi View Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Views</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiRoot#getViews()
-	 * @see #getYUiRoot()
+	 * @return the meta object for class '<em>YUi View Set</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet
 	 * @generated
 	 */
-	EReference getYUiRoot_Views();
+	EClass getYUiViewSet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet#getViews <em>Views</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Views</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiViewSet#getViews()
+	 * @see #getYUiViewSet()
+	 * @generated
+	 */
+	EReference getYUiViewSet_Views();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getRoot <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Root</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiView#getRoot()
+	 * @see #getYUiView()
+	 * @generated
+	 */
+	EReference getYUiView_Root();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable <em>YUi Embeddable</em>}'.
@@ -407,17 +402,6 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYUiEmbeddable();
-
-	/**
-	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.uimodel.YUiEmbeddable#getParent()
-	 * @see #getYUiEmbeddable()
-	 * @generated
-	 */
-	EReference getYUiEmbeddable_Parent();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -506,22 +490,38 @@ public interface UiModelPackage extends EPackage {
 		EAttribute YUI_VIEW__VIEW_NAME = eINSTANCE.getYUiView_ViewName();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiRootImpl <em>YUi Root</em>}' class.
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiRootImpl
-		 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.UiModelPackageImpl#getYUiRoot()
 		 * @generated
 		 */
-		EClass YUI_ROOT = eINSTANCE.getYUiRoot();
+		EReference YUI_VIEW__CONTENT = eINSTANCE.getYUiView_Content();
 
 		/**
-		 * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiViewSetImpl <em>YUi View Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiViewSetImpl
+		 * @see org.eclipse.emf.ecp.ui.model.uimodel.impl.UiModelPackageImpl#getYUiViewSet()
+		 * @generated
+		 */
+		EClass YUI_VIEW_SET = eINSTANCE.getYUiViewSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference YUI_ROOT__VIEWS = eINSTANCE.getYUiRoot_Views();
+		EReference YUI_VIEW_SET__VIEWS = eINSTANCE.getYUiViewSet_Views();
+
+		/**
+		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_VIEW__ROOT = eINSTANCE.getYUiView_Root();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.uimodel.impl.YUiEmbeddableImpl <em>YUi Embeddable</em>}' class.
@@ -532,14 +532,6 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YUI_EMBEDDABLE = eINSTANCE.getYUiEmbeddable();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference YUI_EMBEDDABLE__PARENT = eINSTANCE.getYUiEmbeddable_Parent();
 
 	}
 
