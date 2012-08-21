@@ -42,6 +42,13 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	public static DelegatingEditPartManager getInstance() {
 		return instance;
 	}
+	
+	/**
+	 * Removes all factories. Should only be used very carefully
+	 */
+	public void clear(){
+		factories.clear();
+	}
 
 	/**
 	 * Returns true, if one of the registered factories are responsible to handle the request.

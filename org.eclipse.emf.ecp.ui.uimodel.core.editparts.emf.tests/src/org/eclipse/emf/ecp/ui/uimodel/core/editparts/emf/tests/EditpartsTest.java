@@ -10,31 +10,27 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceSetManager;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 @SuppressWarnings("restriction")
 public class EditpartsTest {
 
-	private static DelegatingEditPartManager editpartManager;
+	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
 	private ResourceSetImpl resourceSet;
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
-
-	@BeforeClass
-	public static void setupStatic() {
-		editpartManager = DelegatingEditPartManager.getInstance();
-		editpartManager.addFactory(new EditpartManager());
-	}
 
 	@Before
 	public void setup() {
@@ -43,8 +39,10 @@ public class EditpartsTest {
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		resourceSet.getPackageRegistry().put(UiModelPackage.eNS_URI, UiModelPackage.eINSTANCE);
 
-		DelegatingEditPartManager manager = DelegatingEditPartManager.getInstance();
-		manager.addFactory(new EditpartManager());
+		editpartManager.clear();
+		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
+		editpartManager
+			.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
 
 	/**
@@ -269,20 +267,23 @@ public class EditpartsTest {
 		Assert.assertSame(layout2, layout2Editpart.getModel());
 		Assert.assertSame(field2, field2Editpart.getModel());
 
-		// test the uris of the model elements
-		//
-		Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, viewSet.eResource().getURI()
-			.toString());
-		Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, view1.eResource().getURI().toString());
-		Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, layout1.eResource().getURI()
-			.toString());
-		Assert
-			.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, field1.eResource().getURI().toString());
-		Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, view2.eResource().getURI().toString());
-		Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, layout2.eResource().getURI()
-			.toString());
-		Assert
-			.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, field2.eResource().getURI().toString());
+		// TODO should views added to a orphan resource?
+		// // test the uris of the model elements
+		// //
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, viewSet.eResource().getURI()
+		// .toString());
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// view1.eResource().getURI().toString());
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, layout1.eResource().getURI()
+		// .toString());
+		// Assert
+		// .assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, field1.eResource().getURI().toString());
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// view2.eResource().getURI().toString());
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, layout2.eResource().getURI()
+		// .toString());
+		// Assert
+		// .assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, field2.eResource().getURI().toString());
 
 		// ensure that the editpart can be accessed by its model element
 		//
@@ -568,4 +569,66 @@ public class EditpartsTest {
 		Assert.assertSame(view2, field2.getView());
 	}
 
+	/**
+	 * Tests that only one editpart instance is created for one model instance.<br>
+	 * It's the same as {@link #test_SingletonEdipartPerEObjectInstance()} but the editpartManager.getEditpart(object)
+	 * first accesses the editpart. Afterwards it is determined by the edit parts parent.
+	 */
+	@Test
+	public void test_ExtensionModel() {
+		YUiTextField textField = UimodelExtensionFactory.eINSTANCE.createYUiTextField();
+
+		// access the editparts the editpartManager
+		//
+		// viewSet
+		IUiTextFieldEditpart textEditPart = editpartManager.getEditpart(textField);
+
+		// ensure that the eObject of the edit part is the same
+		// as the eObject from the ui model
+		//
+		Assert.assertSame(textField, textEditPart.getModel());
+
+		// ensure that the editpart can be accessed by its model element
+		//
+		Assert.assertSame(textEditPart, UiElementEditpart.findEditPartFor(textField));
+
+		// ensure that the editpart parents also returns the singleton instance
+		//
+		Assert.assertSame(textEditPart, editpartManager.getEditpart(textField));
+	}
+
+	/**
+	 * Creates an ui model without the use of an emf model, but afterwards tests whether the emf model was internally
+	 * prepared properly. The uri of the orphan elements is {@link IResourceSetManager#ORPHAN_VIEW_RESOURCE_URI}
+	 */
+	@Test
+	public void test_ExtensionModel_createUiModel_WithoutEMFModel_Instances() {
+		// textField
+		String selector = UimodelExtensionPackage.eNS_URI;
+
+		// access the editparts the editpartManager
+		//
+		// viewSet
+		IUiFieldEditpart textFieldEditPart = editpartManager.createEditpart(selector, IUiTextFieldEditpart.class);
+		YUiTextField yTextField = (YUiTextField) textFieldEditPart.getModel();
+
+		// ensure that the eObject of the edit part is the same
+		// as the eObject from the ui model
+		//
+		Assert.assertSame(yTextField, textFieldEditPart.getModel());
+
+		// TODO should views be added to an orphan resource?
+		// // test the uris of the model elements
+		// //
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, yTextField.eResource().getURI()
+		// .toString());
+
+		// ensure that the editpart can be accessed by its model element
+		//
+		Assert.assertSame(textFieldEditPart, UiElementEditpart.findEditPartFor(yTextField));
+
+		// ensure that the editpartManager also returns the singleton instance
+		//
+		Assert.assertSame(textFieldEditPart, editpartManager.getEditpart(yTextField));
+	}
 }

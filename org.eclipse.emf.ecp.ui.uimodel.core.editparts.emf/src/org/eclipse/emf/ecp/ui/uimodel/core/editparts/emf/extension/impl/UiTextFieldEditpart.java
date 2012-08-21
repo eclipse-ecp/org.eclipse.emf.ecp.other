@@ -10,9 +10,16 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiFieldEditpart;
 
-public class UiTextFieldEditpart extends UiFieldEditpart<YUiTextField> {
-	
+public class UiTextFieldEditpart extends UiFieldEditpart<YUiTextField> implements IUiTextFieldEditpart {
+
+	@Override
+	protected YUiTextField createModel() {
+		return (YUiTextField) UimodelExtensionFactory.eINSTANCE.createYUiTextField();
+	}
+
 }

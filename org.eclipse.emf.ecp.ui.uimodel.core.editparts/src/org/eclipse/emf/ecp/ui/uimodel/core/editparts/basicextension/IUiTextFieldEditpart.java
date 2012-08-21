@@ -10,9 +10,11 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension;
 
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
+
 /**
  * An edit part for text fields.
  */
-public interface IUiTextFieldEditpart {
+public interface IUiTextFieldEditpart extends IUiFieldEditpart {
 
 }

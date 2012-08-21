@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.IEditPartManager;
@@ -28,9 +30,9 @@ public class EditpartManager extends AbstractEditpartManager {
 	public boolean isFor(Object element) {
 		if (element instanceof EObject) {
 			String uriString = ((EObject) element).eClass().getEPackage().getNsURI();
-			return uriString.equals(UiModelPackage.eNS_URI);
+			return uriString.equals(UimodelExtensionPackage.eNS_URI);
 		} else if (element instanceof String) {
-			return element.equals(UiModelPackage.eNS_URI);
+			return element.equals(UimodelExtensionPackage.eNS_URI);
 		}
 		return false;
 	}
@@ -62,7 +64,7 @@ public class EditpartManager extends AbstractEditpartManager {
 		assertOneEditpartForModelelement(yElement);
 
 		UiElementEditpart<YUiElement> result = null;
-		if (yElement instanceof IUiTextFieldEditpart) {
+		if (yElement instanceof YUiTextField) {
 			result = createNewInstance(UiTextFieldEditpart.class);
 		}
 
