@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.internal.OrphanViewsResource;
 
-public class ResourceSetManager implements IResourceSetManager {
+public class ResourceManager implements IResourceManager {
 
-	private static IResourceSetManager instance = new ResourceSetManager();
+	private static IResourceManager instance = new ResourceManager();
 
 	private ResourceSet resourceSet;
 
@@ -30,7 +30,7 @@ public class ResourceSetManager implements IResourceSetManager {
 	 * 
 	 * @return the instance
 	 */
-	public static IResourceSetManager getInstance() {
+	public static IResourceManager getInstance() {
 		return instance;
 	}
 

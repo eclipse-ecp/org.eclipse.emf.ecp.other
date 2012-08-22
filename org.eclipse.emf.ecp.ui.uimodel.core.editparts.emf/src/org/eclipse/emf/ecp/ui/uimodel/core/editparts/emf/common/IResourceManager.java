@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 /**
  * Handles the resources of the ui models.
  */
-public interface IResourceSetManager {
+public interface IResourceManager {
 
 	public static final String ORPHAN_VIEWS_EXTENSION = "orphan";
 

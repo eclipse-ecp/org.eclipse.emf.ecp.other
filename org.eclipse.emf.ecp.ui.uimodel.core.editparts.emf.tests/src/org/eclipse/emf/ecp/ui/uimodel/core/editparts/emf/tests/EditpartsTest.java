@@ -23,7 +23,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceSetManager;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
@@ -216,7 +216,7 @@ public class EditpartsTest {
 
 	/**
 	 * Creates an ui model without the use of an emf model, but afterwards tests whether the emf model was internally
-	 * prepared properly. The uri of the orphan elements is {@link IResourceSetManager#ORPHAN_VIEW_RESOURCE_URI}
+	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}
 	 */
 	@Test
 	public void test_createUiModel_WithoutEMFModel_Instances() {
@@ -599,7 +599,7 @@ public class EditpartsTest {
 
 	/**
 	 * Creates an ui model without the use of an emf model, but afterwards tests whether the emf model was internally
-	 * prepared properly. The uri of the orphan elements is {@link IResourceSetManager#ORPHAN_VIEW_RESOURCE_URI}
+	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}
 	 */
 	@Test
 	public void test_ExtensionModel_createUiModel_WithoutEMFModel_Instances() {
