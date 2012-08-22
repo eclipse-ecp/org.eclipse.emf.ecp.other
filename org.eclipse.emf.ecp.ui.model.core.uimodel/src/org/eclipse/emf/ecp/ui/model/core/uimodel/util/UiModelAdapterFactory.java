@@ -15,6 +15,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.*;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,6 +102,10 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYUiEmbeddable(YUiEmbeddable object) {
 				return createYUiEmbeddableAdapter();
+			}
+			@Override
+			public Adapter caseYUiCssAble(YUiCssAble object) {
+				return createYUiCssAbleAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -197,6 +208,20 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiEmbeddableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble <em>YUi Css Able</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble
+	 * @generated
+	 */
+	public Adapter createYUiCssAbleAdapter() {
 		return null;
 	}
 

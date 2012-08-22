@@ -10,10 +10,11 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.databinding.observable.Observables;
+import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
@@ -33,33 +34,39 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	protected UiLayoutEditpart() {
 
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	protected M createModel() {
 		return (M) UiModelFactory.eINSTANCE.createYUiLayout();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<IUiEmbeddableEditpart> getElements() {
-		if(uiElementEditparts == null){
+		if (uiElementEditparts == null) {
 			internalLoadElements();
 		}
-		
-		return (uiElementEditparts != null ? Collections.unmodifiableList(uiElementEditparts) : Collections
-			.<IUiEmbeddableEditpart> emptyList());
+		return Observables.unmodifiableObservableList((IObservableList) uiElementEditparts);
 	}
 
 	@Override
 	protected void internalDispose() {
-		if (uiElementEditparts != null) {
-			for (IUiEmbeddableEditpart editpart : uiElementEditparts) {
-				editpart.dispose();
+		try {
+			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
+			// but exist in the model.
+			if (uiElementEditparts != null || getModel().getElements().size() > 0) {
+				List<IUiEmbeddableEditpart> tempElements = getElements();
+				synchronized (uiElementEditparts) {
+					for (IUiEmbeddableEditpart editpart : tempElements) {
+						editpart.dispose();
+					}
+				}
+				uiElementEditparts = null;
 			}
-			uiElementEditparts = null;
+		} finally {
+			super.internalDispose();
 		}
-
-		super.internalDispose();
 	}
 
 	@Override
@@ -154,11 +161,12 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	/**
 	 * Is called to load and initialize all elements.
 	 */
+	@SuppressWarnings("unchecked")
 	protected void internalLoadElements() {
 		checkDisposed();
 
 		if (uiElementEditparts == null) {
-			uiElementEditparts = new ArrayList<IUiEmbeddableEditpart>();
+			uiElementEditparts = new WritableList();
 			for (YUiEmbeddable yElement : getModel().getElements()) {
 				IUiEmbeddableEditpart editPart = getEditpart(yElement);
 				internalAddElement(editPart);

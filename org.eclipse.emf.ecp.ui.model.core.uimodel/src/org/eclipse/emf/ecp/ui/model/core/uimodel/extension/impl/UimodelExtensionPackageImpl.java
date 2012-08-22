@@ -4,11 +4,8 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;

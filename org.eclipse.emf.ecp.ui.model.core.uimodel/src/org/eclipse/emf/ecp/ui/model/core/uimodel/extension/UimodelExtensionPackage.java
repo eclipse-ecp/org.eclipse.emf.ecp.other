@@ -4,7 +4,6 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 
 /**

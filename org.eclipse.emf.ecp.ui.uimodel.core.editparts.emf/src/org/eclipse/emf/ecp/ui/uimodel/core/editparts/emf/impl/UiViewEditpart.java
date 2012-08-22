@@ -94,9 +94,25 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 
 		switch (featureId) {
 		case UiModelPackage.YUI_VIEW__CONTENT:
-			YUiEmbeddable yContent = (YUiEmbeddable) notification.getNewValue();
-			internalSetContent((IUiEmbeddableEditpart) getEditpart(yContent));
+			YUiEmbeddable yNewContent = (YUiEmbeddable) notification.getNewValue();
+			internalSetContent((IUiEmbeddableEditpart) getEditpart(yNewContent));
+			// fire event
+			firePropertyChanged_Editpart(PROP_CONTENT, notification);
 			break;
+		}
+	}
+
+	@Override
+	protected void internalDispose() {
+		try {
+			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
+			// but exist in the model.
+			if (getContent() != null) {
+				content.dispose();
+				content = null;
+			}
+		} finally {
+			super.internalDispose();
 		}
 	}
 }

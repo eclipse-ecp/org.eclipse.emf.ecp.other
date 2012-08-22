@@ -17,6 +17,10 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
  */
 public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 
+	public static final String PROP_PARENT = "parent";
+	public static final String PROP_CSSCLASS = "cssClass";
+	public static final String PROP_CSSID = "cssID";
+
 	/**
 	 * Returns the parent of this embeddable edit part.<br>
 	 * Will be <code>null</code> for the layout that is attached to the view as content.
@@ -32,5 +36,33 @@ public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 	 * @return
 	 */
 	IUiViewEditpart getView();
+
+	/**
+	 * Returns the css class of that element.
+	 * 
+	 * @return
+	 */
+	String getCssClass();
+
+	/**
+	 * Sets the new css class of that element.
+	 * 
+	 * @param cssClass
+	 */
+	void setCssClass(String cssClass);
+
+	/**
+	 * Returns the css ID of that element.
+	 * 
+	 * @return
+	 */
+	String getCssID();
+
+	/**
+	 * Sets the new css ID of that element.
+	 * 
+	 * @param cssID
+	 */
+	void setCssID(String cssID);
 
 }

@@ -12,10 +12,15 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.*;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,6 +90,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseYUiLayout(yUiLayout);
 				if (result == null) result = caseYUiEmbeddable(yUiLayout);
 				if (result == null) result = caseYUiElement(yUiLayout);
+				if (result == null) result = caseYUiCssAble(yUiLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,6 +99,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				T result = caseYUiField(yUiField);
 				if (result == null) result = caseYUiEmbeddable(yUiField);
 				if (result == null) result = caseYUiElement(yUiField);
+				if (result == null) result = caseYUiCssAble(yUiField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,6 +121,13 @@ public class UiModelSwitch<T> extends Switch<T> {
 				YUiEmbeddable yUiEmbeddable = (YUiEmbeddable)theEObject;
 				T result = caseYUiEmbeddable(yUiEmbeddable);
 				if (result == null) result = caseYUiElement(yUiEmbeddable);
+				if (result == null) result = caseYUiCssAble(yUiEmbeddable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.YUI_CSS_ABLE: {
+				YUiCssAble yUiCssAble = (YUiCssAble)theEObject;
+				T result = caseYUiCssAble(yUiCssAble);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,6 +222,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiEmbeddable(YUiEmbeddable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Css Able</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Css Able</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiCssAble(YUiCssAble object) {
 		return null;
 	}
 

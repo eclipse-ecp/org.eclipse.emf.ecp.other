@@ -1,5 +1,9 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.tests;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -13,14 +17,16 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceSetManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +40,8 @@ public class EditpartsTest {
 
 	@Before
 	public void setup() {
+		DefaultRealm.setup();
+		
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
@@ -63,7 +71,6 @@ public class EditpartsTest {
 		// ......> layout2
 		// ...........> field2
 		YUiView view1 = modelFactory.createYUiView();
-		resource.getContents().add(view1);
 		viewSet.getViews().add(view1);
 		YUiLayout layout1 = modelFactory.createYUiLayout();
 		view1.setContent(layout1);
@@ -71,7 +78,6 @@ public class EditpartsTest {
 		layout1.getElements().add(field1);
 
 		YUiView view2 = modelFactory.createYUiView();
-		resource.getContents().add(view2);
 		viewSet.getViews().add(view2);
 		YUiLayout layout2 = modelFactory.createYUiLayout();
 		view2.setContent(layout2);
@@ -81,15 +87,15 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IUiViewSetEditpart rootEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		// view1
-		IUiViewEditpart view1Editpart = rootEditPart.getViews().get(0);
+		IUiViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
 		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart.getContent();
 		// field1
 		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart.getElements().get(0);
 		// view 2
-		IUiViewEditpart view2Editpart = rootEditPart.getViews().get(1);
+		IUiViewEditpart view2Editpart = viewSetEditPart.getViews().get(1);
 		// layout2
 		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart.getContent();
 		// field2
@@ -98,7 +104,7 @@ public class EditpartsTest {
 		// ensure that the eObject of the edit part is the same
 		// as the eObject from the ui model
 		//
-		Assert.assertSame(viewSet, rootEditPart.getModel());
+		Assert.assertSame(viewSet, viewSetEditPart.getModel());
 		Assert.assertSame(view1, view1Editpart.getModel());
 		Assert.assertSame(layout1, layout1Editpart.getModel());
 		Assert.assertSame(field1, field1Editpart.getModel());
@@ -108,7 +114,7 @@ public class EditpartsTest {
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(rootEditPart, UiElementEditpart.findEditPartFor(viewSet));
+		Assert.assertSame(viewSetEditPart, UiElementEditpart.findEditPartFor(viewSet));
 		Assert.assertSame(view1Editpart, UiElementEditpart.findEditPartFor(view1));
 		Assert.assertSame(layout1Editpart, UiElementEditpart.findEditPartFor(layout1));
 		Assert.assertSame(field1Editpart, UiElementEditpart.findEditPartFor(field1));
@@ -118,7 +124,7 @@ public class EditpartsTest {
 
 		// ensure that the editpartManager also returns the singleton instance
 		//
-		Assert.assertSame(rootEditPart, editpartManager.getEditpart(viewSet));
+		Assert.assertSame(viewSetEditPart, editpartManager.getEditpart(viewSet));
 		Assert.assertSame(view1Editpart, editpartManager.getEditpart(view1));
 		Assert.assertSame(layout1Editpart, editpartManager.getEditpart(layout1));
 		Assert.assertSame(field1Editpart, editpartManager.getEditpart(field1));
@@ -146,7 +152,6 @@ public class EditpartsTest {
 		// ......> layout2
 		// ...........> field2
 		YUiView view1 = modelFactory.createYUiView();
-		resource.getContents().add(view1);
 		viewSet.getViews().add(view1);
 		YUiLayout layout1 = modelFactory.createYUiLayout();
 		view1.setContent(layout1);
@@ -154,7 +159,6 @@ public class EditpartsTest {
 		layout1.getElements().add(field1);
 
 		YUiView view2 = modelFactory.createYUiView();
-		resource.getContents().add(view2);
 		viewSet.getViews().add(view2);
 		YUiLayout layout2 = modelFactory.createYUiLayout();
 		view2.setContent(layout2);
@@ -164,7 +168,7 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart rootEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		// view1
 		IUiViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		// layout1
@@ -181,7 +185,7 @@ public class EditpartsTest {
 		// ensure that the eObject of the edit part is the same
 		// as the eObject from the ui model
 		//
-		Assert.assertSame(viewSet, rootEditPart.getModel());
+		Assert.assertSame(viewSet, viewSetEditPart.getModel());
 		Assert.assertSame(view1, view1Editpart.getModel());
 		Assert.assertSame(layout1, layout1Editpart.getModel());
 		Assert.assertSame(field1, field1Editpart.getModel());
@@ -191,7 +195,7 @@ public class EditpartsTest {
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(rootEditPart, UiElementEditpart.findEditPartFor(viewSet));
+		Assert.assertSame(viewSetEditPart, UiElementEditpart.findEditPartFor(viewSet));
 		Assert.assertSame(view1Editpart, UiElementEditpart.findEditPartFor(view1));
 		Assert.assertSame(layout1Editpart, UiElementEditpart.findEditPartFor(layout1));
 		Assert.assertSame(field1Editpart, UiElementEditpart.findEditPartFor(field1));
@@ -201,11 +205,11 @@ public class EditpartsTest {
 
 		// ensure that the editpart parents also returns the singleton instance
 		//
-		Assert.assertSame(rootEditPart, editpartManager.getEditpart(viewSet));
-		Assert.assertSame(view1Editpart, rootEditPart.getViews().get(0));
+		Assert.assertSame(viewSetEditPart, editpartManager.getEditpart(viewSet));
+		Assert.assertSame(view1Editpart, viewSetEditPart.getViews().get(0));
 		Assert.assertSame(layout1Editpart, view1Editpart.getContent());
 		Assert.assertSame(field1Editpart, layout1Editpart.getElements().get(0));
-		Assert.assertSame(view2Editpart, rootEditPart.getViews().get(1));
+		Assert.assertSame(view2Editpart, viewSetEditPart.getViews().get(1));
 		Assert.assertSame(layout2Editpart, view2Editpart.getContent());
 		Assert.assertSame(field2Editpart, layout2Editpart.getElements().get(0));
 	}
@@ -348,7 +352,6 @@ public class EditpartsTest {
 		// ......> layout2
 		// ...........> field2
 		YUiView view1 = modelFactory.createYUiView();
-		resource.getContents().add(view1);
 		viewSet.getViews().add(view1);
 		YUiLayout layout1 = modelFactory.createYUiLayout();
 		view1.setContent(layout1);
@@ -356,7 +359,6 @@ public class EditpartsTest {
 		layout1.getElements().add(field1);
 
 		YUiView view2 = modelFactory.createYUiView();
-		resource.getContents().add(view2);
 		viewSet.getViews().add(view2);
 		YUiLayout layout2 = modelFactory.createYUiLayout();
 		view2.setContent(layout2);
@@ -465,7 +467,6 @@ public class EditpartsTest {
 		// ......> layout2
 		// ...........> field2
 		YUiView view1 = modelFactory.createYUiView();
-		resource.getContents().add(view1);
 		viewSet.getViews().add(view1);
 		YUiLayout layout1 = modelFactory.createYUiLayout();
 		view1.setContent(layout1);
@@ -473,7 +474,6 @@ public class EditpartsTest {
 		layout1.getElements().add(field1);
 
 		YUiView view2 = modelFactory.createYUiView();
-		resource.getContents().add(view2);
 		viewSet.getViews().add(view2);
 		YUiLayout layout2 = modelFactory.createYUiLayout();
 		view2.setContent(layout2);
@@ -630,5 +630,407 @@ public class EditpartsTest {
 		// ensure that the editpartManager also returns the singleton instance
 		//
 		Assert.assertSame(textFieldEditPart, editpartManager.getEditpart(yTextField));
+	}
+
+	@Test
+	public void test_ID() {
+		// Start with an empty id and let the edit part create one
+		//
+		final YUiLayout yLayout = modelFactory.createYUiLayout();
+		Assert.assertNull(yLayout.getId());
+		final IUiLayoutEditpart layoutEditPart = editpartManager.getEditpart(yLayout);
+		Assert.assertEquals(yLayout.getId(), layoutEditPart.getId());
+		Assert.assertNotNull(yLayout.getId());
+
+		try {
+			yLayout.setId("MyId");
+			Assert.fail("Exception must be thrown!");
+		} catch (Exception e) {
+		}
+
+		// Start with an given id
+		//
+		final YUiLayout yLayout2 = modelFactory.createYUiLayout();
+		yLayout2.setId("Huhuhu");
+		final IUiLayoutEditpart layoutEditPart2 = editpartManager.getEditpart(yLayout2);
+		Assert.assertEquals(yLayout2.getId(), layoutEditPart2.getId());
+		Assert.assertEquals("Huhuhu", yLayout2.getId());
+
+		try {
+			yLayout2.setId("MyId");
+			Assert.fail("Exception must be thrown!");
+		} catch (Exception e) {
+		}
+
+		// Create an edit part without an model element
+		//
+		final IUiLayoutEditpart layoutEditPart3 = editpartManager.createEditpart(UiModelPackage.eNS_URI,
+			IUiLayoutEditpart.class);
+		final YUiLayout yLayout3 = (YUiLayout) layoutEditPart3.getModel();
+		Assert.assertEquals(yLayout3.getId(), layoutEditPart3.getId());
+		Assert.assertNotNull(yLayout3.getId());
+
+		try {
+			yLayout3.setId("MyId");
+			Assert.fail("Exception must be thrown!");
+		} catch (Exception e) {
+		}
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Test
+	public void test_CssClass() {
+		final int[] counter = new int[1];
+		final YUiLayout yLayout = modelFactory.createYUiLayout();
+		yLayout.setCssClass("initialCssClass");
+		final UiLayoutEditpart layoutEditPart = editpartManager.getEditpart(yLayout);
+		layoutEditPart.addPropertyChangeListener(IUiLayoutEditpart.PROP_CSSCLASS, new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				switch (counter[0]) {
+				case 0:
+					Assert.assertEquals("initialCssClass", evt.getOldValue());
+					Assert.assertEquals("cssClass1", evt.getNewValue());
+					Assert.assertEquals("cssClass1", yLayout.getCssClass());
+					Assert.assertEquals("cssClass1", layoutEditPart.getCssClass());
+					break;
+				case 1:
+					Assert.assertEquals("cssClass1", evt.getOldValue());
+					Assert.assertEquals("cssClass2", evt.getNewValue());
+					Assert.assertEquals("cssClass2", yLayout.getCssClass());
+					Assert.assertEquals("cssClass2", layoutEditPart.getCssClass());
+					break;
+				case 2:
+					Assert.assertEquals("cssClass2", evt.getOldValue());
+					Assert.assertEquals("cssClass3", evt.getNewValue());
+					Assert.assertEquals("cssClass3", yLayout.getCssClass());
+					Assert.assertEquals("cssClass3", layoutEditPart.getCssClass());
+					break;
+				case 3:
+					Assert.assertEquals("cssClass3", evt.getOldValue());
+					Assert.assertEquals("cssClass4", evt.getNewValue());
+					Assert.assertEquals("cssClass4", yLayout.getCssClass());
+					Assert.assertEquals("cssClass4", layoutEditPart.getCssClass());
+					break;
+				}
+				counter[0]++;
+			}
+		});
+		layoutEditPart.setCssClass("cssClass1");
+		layoutEditPart.setCssClass("cssClass2");
+		yLayout.setCssClass("cssClass3");
+		yLayout.setCssClass("cssClass4");
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Test
+	public void test_CssID() {
+		final int[] counter = new int[1];
+		final YUiLayout yLayout = modelFactory.createYUiLayout();
+		yLayout.setCssID("initialCssID");
+		final UiLayoutEditpart layoutEditPart = editpartManager.getEditpart(yLayout);
+		layoutEditPart.addPropertyChangeListener(IUiLayoutEditpart.PROP_CSSID, new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				switch (counter[0]) {
+				case 0:
+					Assert.assertEquals("initialCssID", evt.getOldValue());
+					Assert.assertEquals("cssID1", evt.getNewValue());
+					Assert.assertEquals("cssID1", yLayout.getCssID());
+					Assert.assertEquals("cssID1", layoutEditPart.getCssID());
+					break;
+				case 1:
+					Assert.assertEquals("cssID1", evt.getOldValue());
+					Assert.assertEquals("cssID2", evt.getNewValue());
+					Assert.assertEquals("cssID2", yLayout.getCssID());
+					Assert.assertEquals("cssID2", layoutEditPart.getCssID());
+					break;
+				case 2:
+					Assert.assertEquals("cssID2", evt.getOldValue());
+					Assert.assertEquals("cssID3", evt.getNewValue());
+					Assert.assertEquals("cssID3", yLayout.getCssID());
+					Assert.assertEquals("cssID3", layoutEditPart.getCssID());
+					break;
+				case 3:
+					Assert.assertEquals("cssID3", evt.getOldValue());
+					Assert.assertEquals("cssID4", evt.getNewValue());
+					Assert.assertEquals("cssID4", yLayout.getCssID());
+					Assert.assertEquals("cssID4", layoutEditPart.getCssID());
+					break;
+				}
+				counter[0]++;
+			}
+		});
+		layoutEditPart.setCssID("cssID1");
+		layoutEditPart.setCssID("cssID2");
+		yLayout.setCssID("cssID3");
+		yLayout.setCssID("cssID4");
+	}
+
+	/**
+	 * Tests the disposal of edit parts.
+	 */
+	@Test
+	public void test_Dispose_Containements() {
+		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		YUiViewSet viewSet = modelFactory.createYUiViewSet();
+		resource.getContents().add(viewSet);
+
+		// viewSet
+		// ...> view1
+		// ......> layout1
+		// ...........> field1
+		// ...> view2
+		// ......> layout2
+		// ...........> field2
+		YUiView view1 = modelFactory.createYUiView();
+		viewSet.getViews().add(view1);
+		YUiLayout layout1 = modelFactory.createYUiLayout();
+		view1.setContent(layout1);
+		YUiField field1 = modelFactory.createYUiField();
+		layout1.getElements().add(field1);
+
+		YUiView view2 = modelFactory.createYUiView();
+		viewSet.getViews().add(view2);
+		YUiLayout layout2 = modelFactory.createYUiLayout();
+		view2.setContent(layout2);
+		YUiField field2 = modelFactory.createYUiField();
+		layout2.getElements().add(field2);
+
+		// access the editparts the editpartManager
+		//
+		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewEditpart view1Editpart = editpartManager.getEditpart(view1);
+		IUiLayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
+		IUiFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
+		IUiViewEditpart view2Editpart = editpartManager.getEditpart(view2);
+		IUiLayoutEditpart layout2Editpart = editpartManager.getEditpart(layout2);
+		IUiFieldEditpart field2Editpart = editpartManager.getEditpart(field2);
+
+		Assert.assertFalse(viewSetEditPart.isDisposed());
+		Assert.assertFalse(view1Editpart.isDisposed());
+		Assert.assertFalse(layout1Editpart.isDisposed());
+		Assert.assertFalse(field1Editpart.isDisposed());
+		Assert.assertFalse(view2Editpart.isDisposed());
+		Assert.assertFalse(layout2Editpart.isDisposed());
+		Assert.assertFalse(field2Editpart.isDisposed());
+
+		// dispose the root and all contained edit parts will be disposed too
+		//
+		viewSetEditPart.dispose();
+
+		Assert.assertTrue(viewSetEditPart.isDisposed());
+		Assert.assertTrue(view1Editpart.isDisposed());
+		Assert.assertTrue(layout1Editpart.isDisposed());
+		Assert.assertTrue(field1Editpart.isDisposed());
+		Assert.assertTrue(view2Editpart.isDisposed());
+		Assert.assertTrue(layout2Editpart.isDisposed());
+		Assert.assertTrue(field2Editpart.isDisposed());
+	}
+
+	/**
+	 * Tests the disposal of edit parts.
+	 */
+	@Test
+	public void test_UiViewSetEditPart_views() {
+		YUiViewSet viewSet = modelFactory.createYUiViewSet();
+		// viewSet
+		// ...> view1
+		// ...> view2
+		YUiView view1 = modelFactory.createYUiView();
+		viewSet.getViews().add(view1);
+
+		YUiView view2 = modelFactory.createYUiView();
+		viewSet.getViews().add(view2);
+
+		// access the editparts the editpartManager
+		//
+		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+
+		Assert.assertEquals(2, viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+
+		// add 3rd view by model
+		YUiView view3 = modelFactory.createYUiView();
+		viewSet.getViews().add(view3);
+		Assert.assertEquals(3, viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+
+		// add 4th view by edit part
+		IUiViewEditpart view4Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI, IUiViewEditpart.class);
+		viewSetEditPart.addView(view4Editpart);
+		Assert.assertEquals(4, viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+
+		// remove 3rd view by model
+		viewSet.getViews().remove(view3);
+		Assert.assertEquals(3, viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+
+		// remove 4rd view by edit part
+		viewSetEditPart.removeView(view4Editpart);
+		Assert.assertEquals(2, viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+	}
+
+	/**
+	 * Tests the disposal of edit parts.
+	 */
+	@Test
+	public void test_UiViewEditPart_content() {
+		// view
+		// ...> layout1
+		YUiView view = modelFactory.createYUiView();
+		IUiViewEditpart viewEditPart = editpartManager.getEditpart(view);
+		NotificationObserver observer = new NotificationObserver(IUiViewEditpart.PROP_CONTENT, viewEditPart);
+
+		Assert.assertNull(view.getContent());
+		Assert.assertNull(viewEditPart.getContent());
+
+		// set layout by model
+		YUiLayout layout1 = modelFactory.createYUiLayout();
+		view.setContent(layout1);
+		Assert.assertSame(layout1, view.getContent());
+		Assert.assertSame(editpartManager.getEditpart(layout1), viewEditPart.getContent());
+		Assert.assertTrue(observer.isCalled());
+		Assert.assertNull(observer.getEvent().getOldValue());
+		Assert.assertEquals(viewEditPart.getContent(), observer.getEvent().getNewValue());
+
+		// set other layout by edit part
+		observer.reset();
+
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI,
+			IUiLayoutEditpart.class);
+		viewEditPart.setContent(layout2Editpart);
+		Assert.assertSame(layout2Editpart.getModel(), view.getContent());
+		Assert.assertSame(layout2Editpart, viewEditPart.getContent());
+		Assert.assertTrue(observer.isCalled());
+		Assert.assertEquals(editpartManager.getEditpart(layout1), observer.getEvent().getOldValue());
+		Assert.assertEquals(layout2Editpart, observer.getEvent().getNewValue());
+	}
+
+	/**
+	 * Tests the disposal of edit parts.
+	 */
+	@Test
+	public void test_UiLayoutEditPart_elements() {
+		YUiLayout rootLayout = modelFactory.createYUiLayout();
+		// layout
+		// ...> layout1
+		// ...> field1
+		YUiLayout layout1 = modelFactory.createYUiLayout();
+		rootLayout.getElements().add(layout1);
+
+		YUiField field1 = modelFactory.createYUiField();
+		rootLayout.getElements().add(field1);
+
+		// access the editparts by the editpartManager
+		//
+		IUiLayoutEditpart rootLayoutEditPart = editpartManager.getEditpart(rootLayout);
+
+		Assert.assertEquals(2, rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+
+		// add 3rd field by model
+		YUiField field3 = modelFactory.createYUiField();
+		rootLayout.getElements().add(field3);
+		Assert.assertEquals(3, rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+
+		// add 4th layout by edit part
+		IUiLayoutEditpart layout4Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI,
+			IUiLayoutEditpart.class);
+		rootLayoutEditPart.addElement(layout4Editpart);
+		Assert.assertEquals(4, rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+
+		// remove 3rd layout by model
+		rootLayout.getElements().remove(field3);
+		Assert.assertEquals(3, rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+
+		// remove 4rd layout by edit part
+		rootLayoutEditPart.removeElement(layout4Editpart);
+		Assert.assertEquals(2, rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+	}
+
+	/**
+	 * Tests the disposal of edit parts.
+	 */
+	@Test
+	public void test_NotificationObserver() {
+		YUiView view = modelFactory.createYUiView();
+		IUiViewEditpart viewEditPart = editpartManager.getEditpart(view);
+		NotificationObserver observer = new NotificationObserver(IUiViewEditpart.PROP_CONTENT, viewEditPart);
+		Assert.assertFalse(observer.isCalled());
+
+		// core test
+		//
+		observer.reset();
+		Assert.assertFalse(observer.isCalled());
+
+		observer.propertyChange(new PropertyChangeEvent(this, "Test", null, null));
+		Assert.assertTrue(observer.isCalled());
+
+		observer.reset();
+		Assert.assertFalse(observer.isCalled());
+
+		// observing test
+		//
+
+		// set layout by model
+		YUiLayout layout1 = modelFactory.createYUiLayout();
+		view.setContent(layout1);
+		Assert.assertTrue(observer.isCalled());
+
+		// set other layout by edit part
+		observer.reset();
+		Assert.assertFalse(observer.isCalled());
+
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI,
+			IUiLayoutEditpart.class);
+		viewEditPart.setContent(layout2Editpart);
+		Assert.assertTrue(observer.isCalled());
+	}
+
+	private static class NotificationObserver implements PropertyChangeListener {
+
+		private PropertyChangeEvent event;
+
+		public NotificationObserver(String property, IUiElementEditpart editpart) {
+			((UiElementEditpart<?>) editpart).addPropertyChangeListener(property, this);
+		}
+
+		@Override
+		public void propertyChange(PropertyChangeEvent evt) {
+			event = evt;
+		}
+
+		public boolean isCalled() {
+			return event != null;
+		}
+
+		public void reset() {
+			event = null;
+		}
+
+		public PropertyChangeEvent getEvent() {
+			return event;
+		}
+	}
+
+	private static class DefaultRealm extends Realm {
+
+		public static void setup() {
+			if (getDefault() == null) {
+				setDefault(new DefaultRealm());
+			}
+		}
+
+		@Override
+		public boolean isCurrent() {
+			return true;
+		}
 	}
 }

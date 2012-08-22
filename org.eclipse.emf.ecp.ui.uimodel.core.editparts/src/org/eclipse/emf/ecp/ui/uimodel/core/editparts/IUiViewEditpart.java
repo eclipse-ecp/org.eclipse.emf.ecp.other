@@ -17,6 +17,8 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
  */
 public interface IUiViewEditpart extends IUiElementEditpart {
 
+	public static final String PROP_CONTENT = "content";
+	
 	/**
 	 * Returns the name of the view.
 	 * 

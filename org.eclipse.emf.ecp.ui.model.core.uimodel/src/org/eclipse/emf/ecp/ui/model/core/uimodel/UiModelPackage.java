@@ -12,7 +12,6 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -112,13 +111,31 @@ public interface UiModelPackage extends EPackage {
 	int YUI_EMBEDDABLE__ID = YUI_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_EMBEDDABLE__CSS_CLASS = YUI_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_EMBEDDABLE__CSS_ID = YUI_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>YUi Embeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_EMBEDDABLE_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 0;
+	int YUI_EMBEDDABLE_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiLayoutImpl <em>YUi Layout</em>}' class.
@@ -138,6 +155,24 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_LAYOUT__ID = YUI_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LAYOUT__CSS_CLASS = YUI_EMBEDDABLE__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LAYOUT__CSS_ID = YUI_EMBEDDABLE__CSS_ID;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -175,6 +210,24 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_FIELD__ID = YUI_EMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_FIELD__CSS_CLASS = YUI_EMBEDDABLE__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_FIELD__CSS_ID = YUI_EMBEDDABLE__CSS_ID;
 
 	/**
 	 * The number of structural features of the '<em>YUi Field</em>' class.
@@ -276,6 +329,43 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_VIEW_SET_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble <em>YUi Css Able</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiCssAble()
+	 * @generated
+	 */
+	int YUI_CSS_ABLE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CSS_ABLE__CSS_CLASS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CSS_ABLE__CSS_ID = 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Css Able</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CSS_ABLE_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement <em>YUi Element</em>}'.
@@ -402,6 +492,38 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYUiEmbeddable();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble <em>YUi Css Able</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Css Able</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble
+	 * @generated
+	 */
+	EClass getYUiCssAble();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssClass <em>Css Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Css Class</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssClass()
+	 * @see #getYUiCssAble()
+	 * @generated
+	 */
+	EAttribute getYUiCssAble_CssClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssID <em>Css ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Css ID</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssID()
+	 * @see #getYUiCssAble()
+	 * @generated
+	 */
+	EAttribute getYUiCssAble_CssID();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -532,6 +654,32 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YUI_EMBEDDABLE = eINSTANCE.getYUiEmbeddable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble <em>YUi Css Able</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiCssAble()
+		 * @generated
+		 */
+		EClass YUI_CSS_ABLE = eINSTANCE.getYUiCssAble();
+
+		/**
+		 * The meta object literal for the '<em><b>Css Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_CSS_ABLE__CSS_CLASS = eINSTANCE.getYUiCssAble_CssClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Css ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_CSS_ABLE__CSS_ID = eINSTANCE.getYUiCssAble_CssID();
 
 	}
 

@@ -12,12 +12,12 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
@@ -73,6 +73,13 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass yUiEmbeddableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiCssAbleEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -248,6 +255,33 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiCssAble() {
+		return yUiCssAbleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiCssAble_CssClass() {
+		return (EAttribute)yUiCssAbleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiCssAble_CssID() {
+		return (EAttribute)yUiCssAbleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiModelFactory getUiModelFactory() {
 		return (UiModelFactory)getEFactoryInstance();
 	}
@@ -288,6 +322,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(yUiViewSetEClass, YUI_VIEW_SET__VIEWS);
 
 		yUiEmbeddableEClass = createEClass(YUI_EMBEDDABLE);
+
+		yUiCssAbleEClass = createEClass(YUI_CSS_ABLE);
+		createEAttribute(yUiCssAbleEClass, YUI_CSS_ABLE__CSS_CLASS);
+		createEAttribute(yUiCssAbleEClass, YUI_CSS_ABLE__CSS_ID);
 	}
 
 	/**
@@ -323,6 +361,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		yUiViewEClass.getESuperTypes().add(this.getYUiElement());
 		yUiViewSetEClass.getESuperTypes().add(this.getYUiElement());
 		yUiEmbeddableEClass.getESuperTypes().add(this.getYUiElement());
+		yUiEmbeddableEClass.getESuperTypes().add(this.getYUiCssAble());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yUiElementEClass, YUiElement.class, "YUiElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -346,6 +385,10 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		addEOperation(yUiEmbeddableEClass, this.getYUiLayout(), "getParent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(yUiEmbeddableEClass, this.getYUiView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yUiCssAbleEClass, YUiCssAble.class, "YUiCssAble", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiCssAble_CssClass(), ecorePackage.getEString(), "cssClass", null, 0, 1, YUiCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiCssAble_CssID(), ecorePackage.getEString(), "cssID", null, 0, 1, YUiCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension;
+package org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 

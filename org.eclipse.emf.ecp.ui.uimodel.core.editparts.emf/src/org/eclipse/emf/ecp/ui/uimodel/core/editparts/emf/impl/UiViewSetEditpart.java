@@ -10,10 +10,11 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.databinding.observable.Observables;
+import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
@@ -41,26 +42,33 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 		return model;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<IUiViewEditpart> getViews() {
 		if (uiViewEditparts == null) {
 			internalLoadViews();
 		}
 
-		return (uiViewEditparts != null ? Collections.unmodifiableList(uiViewEditparts) : Collections
-			.<IUiViewEditpart> emptyList());
+		return Observables.unmodifiableObservableList((IObservableList) uiViewEditparts);
 	}
 
 	@Override
 	protected void internalDispose() {
-		if (uiViewEditparts != null) {
-			for (IUiViewEditpart editpart : uiViewEditparts) {
-				editpart.dispose();
+		try {
+			// lazy loading: view parts also have to be disposed if they have not been loaded yet,
+			// but exist in the model.
+			if (uiViewEditparts != null || getModel().getViews().size() > 0) {
+				List<IUiViewEditpart> tempViews = getViews();
+				synchronized (uiViewEditparts) {
+					for (IUiViewEditpart editpart : tempViews) {
+						editpart.dispose();
+					}
+				}
+				uiViewEditparts = null;
 			}
-			uiViewEditparts = null;
+		} finally {
+			super.internalDispose();
 		}
-
-		super.internalDispose();
 	}
 
 	@Override
@@ -155,11 +163,12 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 	/**
 	 * Is called to load and initialize all elements.
 	 */
+	@SuppressWarnings("unchecked")
 	protected void internalLoadViews() {
 		checkDisposed();
 
 		if (uiViewEditparts == null) {
-			uiViewEditparts = new ArrayList<IUiViewEditpart>();
+			uiViewEditparts = new WritableList();
 			for (YUiView yElement : getModel().getViews()) {
 				IUiViewEditpart editPart = getEditpart(yElement);
 				internalAddElement(editPart);

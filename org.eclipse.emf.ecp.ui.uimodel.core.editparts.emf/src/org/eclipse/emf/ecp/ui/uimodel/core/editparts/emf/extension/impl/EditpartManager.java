@@ -11,15 +11,14 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.basicextension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.IEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 
 /**
  * An implementation of {@link IEditPartManager} for eObjects with nsURI=http://eclipse.org/emf/emfclient/uimodel

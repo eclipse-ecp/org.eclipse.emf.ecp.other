@@ -5,12 +5,11 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
  * <!-- begin-user-doc -->

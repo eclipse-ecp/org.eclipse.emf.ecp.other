@@ -21,7 +21,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel;
  * @model abstract="true"
  * @generated
  */
-public interface YUiEmbeddable extends YUiElement {
+public interface YUiEmbeddable extends YUiElement, YUiCssAble {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <p>

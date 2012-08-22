@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 

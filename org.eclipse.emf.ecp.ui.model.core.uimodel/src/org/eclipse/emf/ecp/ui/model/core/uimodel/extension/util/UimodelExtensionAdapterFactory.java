@@ -4,16 +4,13 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
-
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
  * <!-- begin-user-doc -->

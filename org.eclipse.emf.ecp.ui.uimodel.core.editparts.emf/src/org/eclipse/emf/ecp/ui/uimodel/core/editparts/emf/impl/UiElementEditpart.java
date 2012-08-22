@@ -10,13 +10,17 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
@@ -63,6 +67,8 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 
 	private static final Logger logger = LoggerFactory.getLogger(UiElementEditpart.class);
 
+	private final PropertyChangeSupport changeSupport;
+
 	private boolean disposed;
 	private List<IDisposable.Listener> disposeListeners;
 	private M model;
@@ -79,7 +85,84 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	}
 
 	protected UiElementEditpart() {
+		changeSupport = new PropertyChangeSupport(this);
+	}
 
+	/**
+	 * Adds the given property change listener to the change support.
+	 * 
+	 * @param listener
+	 * @see java.beans.PropertyChangeSupport#addPropertyChangeListener(java.beans.PropertyChangeListener)
+	 */
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+		changeSupport.addPropertyChangeListener(listener);
+	}
+
+	/**
+	 * Adds the given property change listener to the change support.
+	 * 
+	 * @param property
+	 * @param listener
+	 * @see java.beans.PropertyChangeSupport#addPropertyChangeListener(java.lang.String,
+	 *      java.beans.PropertyChangeListener)
+	 */
+	public void addPropertyChangeListener(String property, PropertyChangeListener listener) {
+		changeSupport.addPropertyChangeListener(property, listener);
+	}
+
+	/**
+	 * Removes the given property change listener from the change support.
+	 * 
+	 * @param listener
+	 * @see java.beans.PropertyChangeSupport#removePropertyChangeListener(java.beans.PropertyChangeListener)
+	 */
+	public void removePropertyChangeListener(PropertyChangeListener listener) {
+		changeSupport.removePropertyChangeListener(listener);
+	}
+
+	/**
+	 * Removes the given property change listener from the change support.
+	 * 
+	 * @param property
+	 * @param listener
+	 * @see java.beans.PropertyChangeSupport#removePropertyChangeListener(java.lang.String,
+	 *      java.beans.PropertyChangeListener)
+	 */
+	public void removePropertyChangeListener(String property, PropertyChangeListener listener) {
+		changeSupport.removePropertyChangeListener(property, listener);
+	}
+
+	/**
+	 * Fires the property changed event.
+	 * 
+	 * @param property
+	 * @param oldValue
+	 * @param newValue
+	 * @see java.beans.PropertyChangeSupport#firePropertyChange(String, Object, Object)
+	 */
+	protected void firePropertyChanged(String property, Object oldValue, Object newValue) {
+		changeSupport.firePropertyChange(property, oldValue, newValue);
+	}
+
+	/**
+	 * Fires the property changed event.
+	 * 
+	 * @param property
+	 * @param notification
+	 */
+	protected void firePropertyChanged(String property, Notification notification) {
+		firePropertyChanged(property, notification.getOldValue(), notification.getNewValue());
+	}
+
+	/**
+	 * Fires the property changed event for edit part properties. The new and old values are resolved to edit parts.
+	 * 
+	 * @param property
+	 * @param notification
+	 */
+	protected void firePropertyChanged_Editpart(String property, Notification notification) {
+		firePropertyChanged(property, getEditpart((YUiElement) notification.getOldValue()),
+			getEditpart((YUiElement) notification.getNewValue()));
 	}
 
 	/**
@@ -123,7 +206,11 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 		}
 
 		this.model = model;
-		this.id = model.getId();
+		id = model.getId();
+		if (id == null || id.equals("")) {
+			id = UUID.randomUUID().toString();
+			model.setId(id);
+		}
 
 		registerAdapter(this);
 	}
@@ -199,8 +286,6 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	 * Is called by the emf model element, if state changed.
 	 */
 	public void notifyChanged(Notification notification) {
-		checkDisposed();
-
 		int featureId = notification.getFeatureID(YUiElement.class);
 		switch (notification.getEventType()) {
 		case Notification.ADD:
@@ -243,6 +328,10 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	 */
 	protected void handleModel_Set(int featureId, Notification notification) {
 		checkDisposed();
+
+		if (featureId == UiModelPackage.YUI_ELEMENT__ID) {
+			throw new IllegalArgumentException("The id must never be changed!");
+		}
 	}
 
 	/**
@@ -264,10 +353,12 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	}
 
 	protected void internalDispose() {
-		disposed = true;
-
-		// unregisters the observer from observing the model
-		unregisterAdapter(this);
+		try {
+			// unregisters the observer from observing the model
+			unregisterAdapter(this);
+		} finally {
+			disposed = true;
+		}
 	}
 
 	/**
