@@ -31,6 +31,42 @@ public interface UimodelExtensionFactory extends EFactory {
 	YUiTextField createYUiTextField();
 
 	/**
+	 * Returns a new object of class '<em>YUi Grid Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Grid Layout</em>'.
+	 * @generated
+	 */
+	YUiGridLayout createYUiGridLayout();
+
+	/**
+	 * Returns a new object of class '<em>YUi Grid Layout Cell</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Grid Layout Cell</em>'.
+	 * @generated
+	 */
+	YUiGridLayoutCell createYUiGridLayoutCell();
+
+	/**
+	 * Returns a new object of class '<em>YUi Grid Layout Cell Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Grid Layout Cell Style</em>'.
+	 * @generated
+	 */
+	YUiGridLayoutCellStyle createYUiGridLayoutCellStyle();
+
+	/**
+	 * Returns a new object of class '<em>YUi Span Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Span Info</em>'.
+	 * @generated
+	 */
+	YUiSpanInfo createYUiSpanInfo();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

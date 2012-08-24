@@ -5,9 +5,12 @@ Bundle-SymbolicName: org.eclipse.emf.ecp.ui.uimodel.core.editparts
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipse.emf.ecp.ui.uimodel.core.editparts,
- org.eclipse.emf.ecp.ui.uimodel.core.editparts.common,
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans,
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.context,
  org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal,
- org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension,
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans;x-internal:=true,
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.presenter
 Import-Package: org.osgi.service.component;version="1.2.0",
  org.slf4j
 Service-Component: OSGI-INF/editPartManager.xml

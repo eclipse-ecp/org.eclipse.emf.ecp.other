@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
 import org.eclipse.emf.ecore.EObject;
@@ -7,12 +17,12 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.IEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.AbstractEditpartManager;
 
 /**

@@ -12,18 +12,17 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpartProvider;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.IUiElementEditpartProvider;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-@SuppressWarnings("restriction")
 public class EditpartManagerTest {
 
 	private EditpartManager editpartManager = new EditpartManager();
@@ -32,6 +31,8 @@ public class EditpartManagerTest {
 
 	@Before
 	public void setup() {
+		DefaultRealm.setup();
+
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());

@@ -3,7 +3,6 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.tests;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -17,15 +16,14 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 import org.junit.Assert;
 import org.junit.Before;
@@ -41,7 +39,7 @@ public class EditpartsTest {
 	@Before
 	public void setup() {
 		DefaultRealm.setup();
-		
+
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
@@ -677,96 +675,6 @@ public class EditpartsTest {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
-	@Test
-	public void test_CssClass() {
-		final int[] counter = new int[1];
-		final YUiLayout yLayout = modelFactory.createYUiLayout();
-		yLayout.setCssClass("initialCssClass");
-		final UiLayoutEditpart layoutEditPart = editpartManager.getEditpart(yLayout);
-		layoutEditPart.addPropertyChangeListener(IUiLayoutEditpart.PROP_CSSCLASS, new PropertyChangeListener() {
-			@Override
-			public void propertyChange(PropertyChangeEvent evt) {
-				switch (counter[0]) {
-				case 0:
-					Assert.assertEquals("initialCssClass", evt.getOldValue());
-					Assert.assertEquals("cssClass1", evt.getNewValue());
-					Assert.assertEquals("cssClass1", yLayout.getCssClass());
-					Assert.assertEquals("cssClass1", layoutEditPart.getCssClass());
-					break;
-				case 1:
-					Assert.assertEquals("cssClass1", evt.getOldValue());
-					Assert.assertEquals("cssClass2", evt.getNewValue());
-					Assert.assertEquals("cssClass2", yLayout.getCssClass());
-					Assert.assertEquals("cssClass2", layoutEditPart.getCssClass());
-					break;
-				case 2:
-					Assert.assertEquals("cssClass2", evt.getOldValue());
-					Assert.assertEquals("cssClass3", evt.getNewValue());
-					Assert.assertEquals("cssClass3", yLayout.getCssClass());
-					Assert.assertEquals("cssClass3", layoutEditPart.getCssClass());
-					break;
-				case 3:
-					Assert.assertEquals("cssClass3", evt.getOldValue());
-					Assert.assertEquals("cssClass4", evt.getNewValue());
-					Assert.assertEquals("cssClass4", yLayout.getCssClass());
-					Assert.assertEquals("cssClass4", layoutEditPart.getCssClass());
-					break;
-				}
-				counter[0]++;
-			}
-		});
-		layoutEditPart.setCssClass("cssClass1");
-		layoutEditPart.setCssClass("cssClass2");
-		yLayout.setCssClass("cssClass3");
-		yLayout.setCssClass("cssClass4");
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Test
-	public void test_CssID() {
-		final int[] counter = new int[1];
-		final YUiLayout yLayout = modelFactory.createYUiLayout();
-		yLayout.setCssID("initialCssID");
-		final UiLayoutEditpart layoutEditPart = editpartManager.getEditpart(yLayout);
-		layoutEditPart.addPropertyChangeListener(IUiLayoutEditpart.PROP_CSSID, new PropertyChangeListener() {
-			@Override
-			public void propertyChange(PropertyChangeEvent evt) {
-				switch (counter[0]) {
-				case 0:
-					Assert.assertEquals("initialCssID", evt.getOldValue());
-					Assert.assertEquals("cssID1", evt.getNewValue());
-					Assert.assertEquals("cssID1", yLayout.getCssID());
-					Assert.assertEquals("cssID1", layoutEditPart.getCssID());
-					break;
-				case 1:
-					Assert.assertEquals("cssID1", evt.getOldValue());
-					Assert.assertEquals("cssID2", evt.getNewValue());
-					Assert.assertEquals("cssID2", yLayout.getCssID());
-					Assert.assertEquals("cssID2", layoutEditPart.getCssID());
-					break;
-				case 2:
-					Assert.assertEquals("cssID2", evt.getOldValue());
-					Assert.assertEquals("cssID3", evt.getNewValue());
-					Assert.assertEquals("cssID3", yLayout.getCssID());
-					Assert.assertEquals("cssID3", layoutEditPart.getCssID());
-					break;
-				case 3:
-					Assert.assertEquals("cssID3", evt.getOldValue());
-					Assert.assertEquals("cssID4", evt.getNewValue());
-					Assert.assertEquals("cssID4", yLayout.getCssID());
-					Assert.assertEquals("cssID4", layoutEditPart.getCssID());
-					break;
-				}
-				counter[0]++;
-			}
-		});
-		layoutEditPart.setCssID("cssID1");
-		layoutEditPart.setCssID("cssID2");
-		yLayout.setCssID("cssID3");
-		yLayout.setCssID("cssID4");
-	}
-
 	/**
 	 * Tests the disposal of edit parts.
 	 */
@@ -1020,17 +928,4 @@ public class EditpartsTest {
 		}
 	}
 
-	private static class DefaultRealm extends Realm {
-
-		public static void setup() {
-			if (getDefault() == null) {
-				setDefault(new DefaultRealm());
-			}
-		}
-
-		@Override
-		public boolean isCurrent() {
-			return true;
-		}
-	}
 }

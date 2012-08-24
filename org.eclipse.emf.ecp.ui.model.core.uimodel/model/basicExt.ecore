@@ -12,7 +12,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayoutCell"/>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayoutCellStyle">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="ecore:EClass uimodel.ecore#//YUiEmbeddable"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YUiAlignment"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

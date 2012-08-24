@@ -6,9 +6,12 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
@@ -73,8 +76,28 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 				return createYUiTextFieldAdapter();
 			}
 			@Override
+			public Adapter caseYUiGridLayout(YUiGridLayout object) {
+				return createYUiGridLayoutAdapter();
+			}
+			@Override
+			public Adapter caseYUiGridLayoutCell(YUiGridLayoutCell object) {
+				return createYUiGridLayoutCellAdapter();
+			}
+			@Override
+			public Adapter caseYUiGridLayoutCellStyle(YUiGridLayoutCellStyle object) {
+				return createYUiGridLayoutCellStyleAdapter();
+			}
+			@Override
+			public Adapter caseYUiSpanInfo(YUiSpanInfo object) {
+				return createYUiSpanInfoAdapter();
+			}
+			@Override
 			public Adapter caseYUiElement(YUiElement object) {
 				return createYUiElementAdapter();
+			}
+			@Override
+			public Adapter caseYUiCssAble(YUiCssAble object) {
+				return createYUiCssAbleAdapter();
 			}
 			@Override
 			public Adapter caseYUiEmbeddable(YUiEmbeddable object) {
@@ -83,6 +106,10 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYUiField(YUiField object) {
 				return createYUiFieldAdapter();
+			}
+			@Override
+			public Adapter caseYUiLayout(YUiLayout object) {
+				return createYUiLayoutAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -119,6 +146,62 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout <em>YUi Grid Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout
+	 * @generated
+	 */
+	public Adapter createYUiGridLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCell <em>YUi Grid Layout Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCell
+	 * @generated
+	 */
+	public Adapter createYUiGridLayoutCellAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle <em>YUi Grid Layout Cell Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle
+	 * @generated
+	 */
+	public Adapter createYUiGridLayoutCellStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo <em>YUi Span Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo
+	 * @generated
+	 */
+	public Adapter createYUiSpanInfoAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement <em>YUi Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -129,6 +212,20 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble <em>YUi Css Able</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble
+	 * @generated
+	 */
+	public Adapter createYUiCssAbleAdapter() {
 		return null;
 	}
 
@@ -157,6 +254,20 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout <em>YUi Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout
+	 * @generated
+	 */
+	public Adapter createYUiLayoutAdapter() {
 		return null;
 	}
 

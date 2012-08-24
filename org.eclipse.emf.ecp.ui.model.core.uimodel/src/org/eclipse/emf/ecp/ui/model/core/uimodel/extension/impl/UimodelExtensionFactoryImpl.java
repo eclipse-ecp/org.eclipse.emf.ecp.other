@@ -3,10 +3,12 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
@@ -56,8 +58,42 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD: return createYUiTextField();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT: return createYUiGridLayout();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL: return createYUiGridLayoutCell();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE: return createYUiGridLayoutCellStyle();
+			case UimodelExtensionPackage.YUI_SPAN_INFO: return createYUiSpanInfo();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case UimodelExtensionPackage.YUI_ALIGNMENT:
+				return createYUiAlignmentFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case UimodelExtensionPackage.YUI_ALIGNMENT:
+				return convertYUiAlignmentToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -69,6 +105,66 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public YUiTextField createYUiTextField() {
 		YUiTextFieldImpl yUiTextField = new YUiTextFieldImpl();
 		return yUiTextField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiGridLayout createYUiGridLayout() {
+		YUiGridLayoutImpl yUiGridLayout = new YUiGridLayoutImpl();
+		return yUiGridLayout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiGridLayoutCell createYUiGridLayoutCell() {
+		YUiGridLayoutCellImpl yUiGridLayoutCell = new YUiGridLayoutCellImpl();
+		return yUiGridLayoutCell;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiGridLayoutCellStyle createYUiGridLayoutCellStyle() {
+		YUiGridLayoutCellStyleImpl yUiGridLayoutCellStyle = new YUiGridLayoutCellStyleImpl();
+		return yUiGridLayoutCellStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiSpanInfo createYUiSpanInfo() {
+		YUiSpanInfoImpl yUiSpanInfo = new YUiSpanInfoImpl();
+		return yUiSpanInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiAlignment createYUiAlignmentFromString(EDataType eDataType, String initialValue) {
+		YUiAlignment result = YUiAlignment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYUiAlignmentToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

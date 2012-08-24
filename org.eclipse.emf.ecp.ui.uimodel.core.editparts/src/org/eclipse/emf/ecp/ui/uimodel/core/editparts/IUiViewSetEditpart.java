@@ -12,11 +12,27 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
 import java.util.List;
 
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewSetContext;
+
 /**
  * An IUiRootEditpart is a container for views. They can be put there and also be accessed again, but the root does not
  * control the lifecycle of the views. Removing / deleting the root will never delete the referenced views.
  */
 public interface IUiViewSetEditpart extends IUiElementEditpart {
+
+	/**
+	 * Returns the view set context. It offers access to more view set related information.
+	 * 
+	 * @return
+	 */
+	IViewSetContext getContext();
+
+	/**
+	 * Sets the view set context. It offers access to more view related information.
+	 * 
+	 * @return
+	 */
+	void setContext(IViewSetContext context);
 
 	/**
 	 * Returns an unmodifiable list with all views referenced by the root. The root does not control the lifecycle of

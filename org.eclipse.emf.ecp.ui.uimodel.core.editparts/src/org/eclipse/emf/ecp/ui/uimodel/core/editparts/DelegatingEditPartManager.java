@@ -9,14 +9,13 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  *******************************************************************************/
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.common;
+package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

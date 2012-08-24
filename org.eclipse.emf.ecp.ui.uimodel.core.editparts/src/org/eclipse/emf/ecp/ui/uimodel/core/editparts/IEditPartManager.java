@@ -9,9 +9,8 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  *******************************************************************************/
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.common;
+package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 
 /**
  * Is responsible to return editparts based on the given element.

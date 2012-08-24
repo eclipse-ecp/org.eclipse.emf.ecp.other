@@ -9,7 +9,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  *******************************************************************************/
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.tests;
+package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.tests.common;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;

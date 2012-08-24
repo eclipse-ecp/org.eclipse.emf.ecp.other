@@ -9,20 +9,8 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  *******************************************************************************/
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.common;
+package org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans;
 
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-
-/**
- * Returns the {@link IUiElementEditpart}
- */
-public interface IUiElementEditpartProvider {
-
-	/**
-	 * Returns the edit part.
-	 * 
-	 * @return
-	 */
-	IUiElementEditpart getEditpart();
+public class ObjectBean extends AbstractBean {
 
 }

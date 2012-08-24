@@ -37,32 +37,4 @@ public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 	 */
 	IUiViewEditpart getView();
 
-	/**
-	 * Returns the css class of that element.
-	 * 
-	 * @return
-	 */
-	String getCssClass();
-
-	/**
-	 * Sets the new css class of that element.
-	 * 
-	 * @param cssClass
-	 */
-	void setCssClass(String cssClass);
-
-	/**
-	 * Returns the css ID of that element.
-	 * 
-	 * @return
-	 */
-	String getCssID();
-
-	/**
-	 * Sets the new css ID of that element.
-	 * 
-	 * @param cssID
-	 */
-	void setCssID(String cssID);
-
 }

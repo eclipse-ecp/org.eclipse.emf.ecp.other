@@ -22,9 +22,9 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.common.IUiElementEditpartProvider;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpartProvider;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,11 +53,16 @@ import org.slf4j.LoggerFactory;
  * call to the handleModel_... methods.<br>
  * 
  * <h3>Internal methods</h3> The handleModel_... methods interpret the model change and invoke the internal... methods.
- * These are responsible to make the changes to the user interface.
+ * These are responsible to make the changes to internal state of the edit part.
  * 
  * <h3>Advantage</h3> The advantage of that pattern is to provide a very flexible API. The ui can be built up by the
- * edit parts, but it can be also defined based on the underlying emf model. And each change of the model will be
- * detected by the edit parts that are using the information to reflect them to the ui.
+ * edit parts, but it can be also defined based on the underlying emf model.
+ * 
+ * <h3>Presenters</h3> The presenter used to render the ui by a special ui-kit may use databinding. Therefore they can
+ * bind the emf model directly to become notified of changes to the ui model. But they can also bind the edit parts
+ * properties. But attention! Binding an edit part can only notify about edit part related changes. For instance, if a
+ * new edit part was prepared based on a model change. All returned lists for <code>"List get[Element]()"</code> should
+ * return an unmodifiable bindable list representation like a UnmodifiableObservableList.
  * <p>
  * 
  * @param <M>
@@ -356,6 +361,9 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 		try {
 			// unregisters the observer from observing the model
 			unregisterAdapter(this);
+
+			// first call the dispose listener and the set disposed=true
+			notifyDisposeListeners();
 		} finally {
 			disposed = true;
 		}

@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
+
 /**
  * An IUiViewEditpart is an abstraction of the root ui element of a composite structure based on
  * {@link IUiEmbeddableEditpart}. The IUiViewEditpart should not be contained in a {@link IUiLayoutEditpart} but it can
@@ -18,7 +20,21 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 public interface IUiViewEditpart extends IUiElementEditpart {
 
 	public static final String PROP_CONTENT = "content";
+
+	/**
+	 * Returns the view context. It offers access to more view related information.
+	 * 
+	 * @return
+	 */
+	IViewContext getContext();
 	
+	/**
+	 * Sets the view context. It offers access to more view related information.
+	 * 
+	 * @return
+	 */
+	void setContext(IViewContext context);
+
 	/**
 	 * Returns the name of the view.
 	 * 
@@ -39,4 +55,12 @@ public interface IUiViewEditpart extends IUiElementEditpart {
 	 * @return content
 	 */
 	IUiEmbeddableEditpart getContent();
+
+	/**
+	 * Returns the parent of that edit part.
+	 * 
+	 * @return
+	 */
+	IUiViewSetEditpart getParent();
+
 }

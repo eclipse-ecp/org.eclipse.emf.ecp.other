@@ -2,12 +2,20 @@
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCell;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
@@ -23,6 +31,37 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * @generated
 	 */
 	private EClass yUiTextFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiGridLayoutEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiGridLayoutCellEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiGridLayoutCellStyleEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiSpanInfoEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum yUiAlignmentEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -102,6 +141,168 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiGridLayout() {
+		return yUiGridLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiGridLayout_CellStyles() {
+		return (EReference)yUiGridLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiGridLayout_Spacing() {
+		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiGridLayout_Margin() {
+		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiGridLayout_Columns() {
+		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiGridLayoutCell() {
+		return yUiGridLayoutCellEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiGridLayoutCellStyle() {
+		return yUiGridLayoutCellStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiGridLayoutCellStyle_Target() {
+		return (EReference)yUiGridLayoutCellStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiGridLayoutCellStyle_Alignment() {
+		return (EAttribute)yUiGridLayoutCellStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiGridLayoutCellStyle_GrabHorizontal() {
+		return (EAttribute)yUiGridLayoutCellStyleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiGridLayoutCellStyle_GrabVertical() {
+		return (EAttribute)yUiGridLayoutCellStyleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiGridLayoutCellStyle_SpanInfo() {
+		return (EReference)yUiGridLayoutCellStyleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiSpanInfo() {
+		return yUiSpanInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiSpanInfo_ColumnFrom() {
+		return (EAttribute)yUiSpanInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiSpanInfo_RowFrom() {
+		return (EAttribute)yUiSpanInfoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiSpanInfo_ColumnTo() {
+		return (EAttribute)yUiSpanInfoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiSpanInfo_RowTo() {
+		return (EAttribute)yUiSpanInfoEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getYUiAlignment() {
+		return yUiAlignmentEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UimodelExtensionFactory getUimodelExtensionFactory() {
 		return (UimodelExtensionFactory)getEFactoryInstance();
 	}
@@ -126,6 +327,30 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 
 		// Create classes and their features
 		yUiTextFieldEClass = createEClass(YUI_TEXT_FIELD);
+
+		yUiGridLayoutEClass = createEClass(YUI_GRID_LAYOUT);
+		createEReference(yUiGridLayoutEClass, YUI_GRID_LAYOUT__CELL_STYLES);
+		createEAttribute(yUiGridLayoutEClass, YUI_GRID_LAYOUT__SPACING);
+		createEAttribute(yUiGridLayoutEClass, YUI_GRID_LAYOUT__MARGIN);
+		createEAttribute(yUiGridLayoutEClass, YUI_GRID_LAYOUT__COLUMNS);
+
+		yUiGridLayoutCellEClass = createEClass(YUI_GRID_LAYOUT_CELL);
+
+		yUiGridLayoutCellStyleEClass = createEClass(YUI_GRID_LAYOUT_CELL_STYLE);
+		createEReference(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__TARGET);
+		createEAttribute(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT);
+		createEAttribute(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL);
+		createEAttribute(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL);
+		createEReference(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO);
+
+		yUiSpanInfoEClass = createEClass(YUI_SPAN_INFO);
+		createEAttribute(yUiSpanInfoEClass, YUI_SPAN_INFO__COLUMN_FROM);
+		createEAttribute(yUiSpanInfoEClass, YUI_SPAN_INFO__ROW_FROM);
+		createEAttribute(yUiSpanInfoEClass, YUI_SPAN_INFO__COLUMN_TO);
+		createEAttribute(yUiSpanInfoEClass, YUI_SPAN_INFO__ROW_TO);
+
+		// Create enums
+		yUiAlignmentEEnum = createEEnum(YUI_ALIGNMENT);
 	}
 
 	/**
@@ -160,9 +385,47 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 
 		// Add supertypes to classes
 		yUiTextFieldEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
+		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiLayout());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yUiTextFieldEClass, YUiTextField.class, "YUiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yUiGridLayoutEClass, YUiGridLayout.class, "YUiGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiGridLayout_CellStyles(), this.getYUiGridLayoutCellStyle(), null, "cellStyles", null, 0, -1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiGridLayout_Spacing(), ecorePackage.getEBoolean(), "spacing", null, 0, 1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiGridLayout_Margin(), ecorePackage.getEBoolean(), "margin", null, 0, 1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiGridLayout_Columns(), ecorePackage.getEInt(), "columns", null, 0, 1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiGridLayoutCellEClass, YUiGridLayoutCell.class, "YUiGridLayoutCell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yUiGridLayoutCellStyleEClass, YUiGridLayoutCellStyle.class, "YUiGridLayoutCellStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiGridLayoutCellStyle_Target(), theUiModelPackage.getYUiEmbeddable(), null, "target", null, 1, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiGridLayoutCellStyle_Alignment(), this.getYUiAlignment(), "alignment", null, 0, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiGridLayoutCellStyle_GrabHorizontal(), ecorePackage.getEBoolean(), "grabHorizontal", null, 0, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiGridLayoutCellStyle_GrabVertical(), ecorePackage.getEBoolean(), "grabVertical", null, 0, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYUiGridLayoutCellStyle_SpanInfo(), this.getYUiSpanInfo(), null, "spanInfo", null, 0, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiSpanInfoEClass, YUiSpanInfo.class, "YUiSpanInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiSpanInfo_ColumnFrom(), ecorePackage.getEInt(), "columnFrom", null, 0, 1, YUiSpanInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiSpanInfo_RowFrom(), ecorePackage.getEInt(), "rowFrom", null, 0, 1, YUiSpanInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiSpanInfo_ColumnTo(), ecorePackage.getEInt(), "columnTo", null, 0, 1, YUiSpanInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiSpanInfo_RowTo(), ecorePackage.getEInt(), "rowTo", null, 0, 1, YUiSpanInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(yUiAlignmentEEnum, YUiAlignment.class, "YUiAlignment");
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.BOTTOM_LEFT);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.BOTTOM_CENTER);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.BOTTOM_RIGHT);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.BOTTOM_FILL);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.MIDDLE_LEFT);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.MIDDLE_CENTER);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.MIDDLE_RIGHT);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.MIDDLE_FILL);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.TOP_LEFT);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.TOP_CENTER);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.TOP_RIGHT);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.TOP_FILL);
+		addEEnumLiteral(yUiAlignmentEEnum, YUiAlignment.FILL_FILL);
 
 		// Create resource
 		createResource(eNS_URI);

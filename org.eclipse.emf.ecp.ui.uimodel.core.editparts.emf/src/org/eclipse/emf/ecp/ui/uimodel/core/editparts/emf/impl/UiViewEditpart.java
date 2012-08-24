@@ -15,8 +15,11 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiEmbeddableEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +27,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 
 	private static final Logger logger = LoggerFactory.getLogger(UiViewEditpart.class);
 	private IUiEmbeddableEditpart content;
+	private IViewContext context;
 
 	protected UiViewEditpart() {
 
@@ -35,6 +39,16 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 		M model = (M) UiModelFactory.eINSTANCE.createYUiView();
 
 		return model;
+	}
+
+	@Override
+	public IViewContext getContext() {
+		return context;
+	}
+
+	@Override
+	public void setContext(IViewContext context) {
+		this.context = context;
 	}
 
 	@Override
@@ -114,5 +128,11 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 		} finally {
 			super.internalDispose();
 		}
+	}
+
+	@Override
+	public IUiViewSetEditpart getParent() {
+		YUiViewSet yViewSet = getModel().getRoot();
+		return yViewSet != null ? (IUiViewSetEditpart) getEditpart(yViewSet) : null;
 	}
 }

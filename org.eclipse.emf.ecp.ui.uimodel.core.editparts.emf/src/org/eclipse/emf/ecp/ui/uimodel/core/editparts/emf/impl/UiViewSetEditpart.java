@@ -22,6 +22,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewSetContext;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ViewSetContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,8 +33,20 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 
 	private List<IUiViewEditpart> uiViewEditparts;
 
+	private IViewSetContext context;
+
 	protected UiViewSetEditpart() {
 
+	}
+
+	@Override
+	public IViewSetContext getContext() {
+		return context;
+	}
+
+	@Override
+	public void setContext(IViewSetContext context) {
+		this.context = context;
 	}
 
 	@SuppressWarnings("unchecked")
