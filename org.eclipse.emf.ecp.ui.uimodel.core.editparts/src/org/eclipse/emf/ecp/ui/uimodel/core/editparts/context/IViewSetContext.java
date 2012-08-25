@@ -54,6 +54,16 @@ public interface IViewSetContext extends IDisposable {
 	IValueBean getValueBean(String selector);
 
 	/**
+	 * Registers an instance of value bean to the context. It can be accessed by the selector.
+	 * See also {@link IValueBean} or {@link #getValueBean(String) getValueBean}.
+	 * 
+	 * @param selector The selector string to identify the value bean instance.
+	 * @param bean The value bean.
+	 * @return
+	 */
+	void registerValueBean(String selector, IValueBean bean);
+
+	/**
 	 * Returns a value bean that contains the main domain model element. Every time a new domain model is set to the
 	 * returned value bean, all observing ui elements will become notified.
 	 * 

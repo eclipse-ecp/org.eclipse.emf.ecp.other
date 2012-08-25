@@ -27,13 +27,13 @@ public interface IUiViewEditpart extends IUiElementEditpart {
 	 * @return
 	 */
 	IViewContext getContext();
-	
+
 	/**
 	 * Sets the view context. It offers access to more view related information.
 	 * 
-	 * @return
+	 * @throws RuntimeException if the context changes and the editpart was already rendered.
 	 */
-	void setContext(IViewContext context);
+	void setContext(IViewContext context) throws RuntimeException;
 
 	/**
 	 * Returns the name of the view.

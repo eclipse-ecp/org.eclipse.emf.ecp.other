@@ -11,92 +11,126 @@
  *******************************************************************************/
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans.ObjectBean;
 
 public class ViewContext extends DisposableContext implements IViewContext {
 
-	private Map<String, IValueBean> valueBeans = Collections.synchronizedMap(new HashMap<String, IValueBean>());
-
-	private IUiViewEditpart editPart;
+	private final IUiViewEditpart viewEditpart;
 	private Object rootLayout;
 	private String presentationURI;
 
-	public ViewContext() {
+	private boolean rendered;
 
+	public ViewContext(IUiViewEditpart viewEditpart) {
+		this.viewEditpart = viewEditpart;
+		this.viewEditpart.setContext(this);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String getPresentationURI() {
+		checkDisposed();
+
 		return presentationURI;
 	}
 
 	/**
-	 * Sets the URI that is used to determine the ui kit that should be used to render the UI.
+	 * Sets the URI that is used to determine the UI kit that should be used to render the UI.
 	 * 
 	 * @param presentationURI
+	 * @throws IllegalArgumentException if was already rendered.
 	 */
 	public void setPresentationURI(String presentationURI) {
+		checkDisposed();
+
+		if (isRendered()) {
+			throw new IllegalArgumentException("Not valid if already rendered!");
+		}
+
 		this.presentationURI = presentationURI;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public IUiViewEditpart getViewEditpart() {
-		return editPart;
+		checkDisposed();
+
+		return viewEditpart;
 	}
 
 	/**
-	 * Sets the view edit part.
-	 * 
-	 * @param editPart
+	 * {@inheritDoc}
 	 */
-	public void setViewEditpart(IUiViewEditpart editPart) {
-		this.editPart = editPart;
-	}
-
 	@Override
 	public IViewSetContext getParentContext() {
-		IUiViewSetEditpart parent = editPart.getParent();
+		checkDisposed();
+
+		IUiViewSetEditpart parent = viewEditpart.getParent();
 		return parent != null ? parent.getContext() : null;
 	}
 
-	@Override
-	public IValueBean getValueBean(String selector) {
-		checkDisposed();
-
-		synchronized (valueBeans) {
-			if (!valueBeans.containsKey(selector)) {
-				valueBeans.put(selector, new ObjectBean());
-			}
-		}
-		return valueBeans.get(selector);
-	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Object getRootLayout() {
+		checkDisposed();
+
 		return rootLayout;
 	}
 
-	@Override
-	public void setRootLayout(Object rootLayout) throws ContextException {
-		if (rootLayout != null) {
-			throw new ContextException("Changing root layout not allowed!");
-		}
-
-		this.rootLayout = rootLayout;
-	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public IValueBean getRootBean() {
-		return getValueBean("org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.view.rootbean");
+		checkDisposed();
+
+		return getValueBean("http://eclipse.org/emf/emfclient/uimodel/view/rootbean");
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void render(String presentationURI, Object rootLayout) throws ContextException {
+		checkDisposed();
+
+		if (rootLayout == null) {
+			throw new ContextException("RootLayout must not be null!");
+		}
+
+		if (rendered) {
+			throw new ContextException("Has already been rendered!");
+		}
+
+		try {
+			this.presentationURI = presentationURI;
+			this.rootLayout = rootLayout;
+		} finally {
+			rendered = true;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isRendered() {
+		checkDisposed();
+
+		return rendered;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dispose() {
 		if (isDisposed()) {
@@ -104,10 +138,9 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		}
 
 		try {
-			valueBeans = null;
+			viewEditpart.dispose();
 		} finally {
 			super.dispose();
 		}
 	}
-
 }

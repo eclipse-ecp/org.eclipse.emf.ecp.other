@@ -58,7 +58,8 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 			if (uiElementEditparts != null || getModel().getElements().size() > 0) {
 				List<IUiEmbeddableEditpart> tempElements = getElements();
 				synchronized (uiElementEditparts) {
-					for (IUiEmbeddableEditpart editpart : tempElements) {
+					for (IUiEmbeddableEditpart editpart : tempElements.toArray(new IUiEmbeddableEditpart[tempElements
+						.size()])) {
 						editpart.dispose();
 					}
 				}

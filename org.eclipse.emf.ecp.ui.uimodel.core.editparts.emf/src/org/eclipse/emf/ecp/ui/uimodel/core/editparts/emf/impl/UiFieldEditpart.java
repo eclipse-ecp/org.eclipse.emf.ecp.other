@@ -23,7 +23,7 @@ public class UiFieldEditpart<M extends YUiField> extends UiEmbeddableEditpart<M>
 
 	protected UiFieldEditpart() {
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	protected M createModel() {

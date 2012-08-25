@@ -53,6 +53,14 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiEl
 	 */
 	@Override
 	protected void internalDispose() {
-		super.internalDispose();
+		try {
+			// remove from the parent
+			IUiLayoutEditpart parent = getParent();
+			if (parent != null) {
+				parent.removeElement(this);
+			}
+		} finally {
+			super.internalDispose();
+		}
 	}
 }

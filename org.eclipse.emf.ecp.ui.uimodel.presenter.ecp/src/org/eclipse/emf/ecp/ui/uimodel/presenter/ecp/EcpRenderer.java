@@ -20,7 +20,12 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presenter.IRenderer;
 import org.eclipse.swt.widgets.Composite;
 
+/**
+ * A special implementation for ECP that offers convenience methods.
+ */
 public class EcpRenderer implements IRenderer {
+
+	public static final String UI_KIT_URI = "http://eclipse.org/emfclient/mekit";
 
 	/**
 	 * Renders the UI for the given composite and UI model.
@@ -31,11 +36,7 @@ public class EcpRenderer implements IRenderer {
 	 */
 	public void render(Composite composite, YUiView yView) throws ContextException {
 		IUiViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
-		ViewContext viewContext = new ViewContext();
-		viewContext.setRootLayout(composite);
-		viewContext.setViewEditpart(viewEditpart);
-
-		render(viewContext, viewEditpart);
+		render(composite, viewEditpart);
 	}
 
 	/**
@@ -46,16 +47,16 @@ public class EcpRenderer implements IRenderer {
 	 * @throws ContextException
 	 */
 	public void render(Composite composite, IUiViewEditpart viewEditpart) throws ContextException {
-		ViewContext viewContext = new ViewContext();
-		viewContext.setRootLayout(composite);
-		viewContext.setViewEditpart(viewEditpart);
-
-		render(viewContext, viewEditpart);
+		ViewContext viewContext = new ViewContext(viewEditpart);
+		render(viewContext, composite);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public void render(IViewContext viewContext, IUiViewEditpart viewEditpart) throws ContextException {
-
+	public void render(IViewContext viewContext, Object composite) throws ContextException {
+		viewContext.render(UI_KIT_URI, composite);
 	}
 
 }

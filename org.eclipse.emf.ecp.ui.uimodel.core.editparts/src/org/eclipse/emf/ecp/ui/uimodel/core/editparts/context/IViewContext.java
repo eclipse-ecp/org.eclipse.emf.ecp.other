@@ -23,7 +23,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
 public interface IViewContext extends IDisposable {
 
 	/**
-	 * Returns the URI that specifies the ui kit to be used.
+	 * Returns the URI that specifies the UI kit to be used.
 	 * 
 	 * @return
 	 */
@@ -60,20 +60,21 @@ public interface IViewContext extends IDisposable {
 	IValueBean getValueBean(String selector);
 
 	/**
+	 * Registers an instance of value bean to the context. It can be accessed by the selector.
+	 * See also {@link IValueBean} or {@link #getValueBean(String) getValueBean}.
+	 * 
+	 * @param selector The selector string to identify the value bean instance.
+	 * @param bean The value bean.
+	 * @return
+	 */
+	void registerValueBean(String selector, IValueBean bean);
+
+	/**
 	 * Returns the root layout where all UI elements should be child elements from it.
 	 * 
 	 * @return
 	 */
 	Object getRootLayout();
-
-	/**
-	 * Sets the root layout where all UI elements should be child elements from it. If a root layout was already set an
-	 * {@link ContextException} will be thrown.
-	 * 
-	 * @return
-	 * @throws ContextException if a layout was already set.
-	 */
-	void setRootLayout(Object rootLayout) throws ContextException;
 
 	/**
 	 * Returns a value bean that contains the main domain model element. Every time a new domain model is set to the
@@ -82,5 +83,24 @@ public interface IViewContext extends IDisposable {
 	 * @return
 	 */
 	IValueBean getRootBean();
+
+	/**
+	 * Renders the UI based on the {@link IUiViewEditpart}.
+	 * 
+	 * @param presentationURI The URI that specifies the UI kit to be used.
+	 * @param rootLayout The given root layout is the base element for the elements
+	 *            to be rendered.
+	 * 
+	 * @return
+	 * @throws ContextException if the UI was already rendered or the rootlayout is <code>null</code>
+	 */
+	void render(String presentationURI, Object rootLayout) throws ContextException;
+
+	/**
+	 * Returns true, if the UI was already rendered.
+	 * 
+	 * @return
+	 */
+	boolean isRendered();
 
 }

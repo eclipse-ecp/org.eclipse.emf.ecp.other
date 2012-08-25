@@ -32,12 +32,22 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 		this.editPart.setContext(this);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public IUiViewSetEditpart getViewSetEditpart() {
+		checkDisposed();
+
 		return editPart;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public List<IViewContext> getViewContexts() {
+		checkDisposed();
+
 		List<IViewContext> childContexts = new ArrayList<IViewContext>();
 		for (IUiViewEditpart child : editPart.getViews()) {
 			IViewContext childContext = child.getContext();
@@ -48,6 +58,9 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 		return childContexts;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public IValueBean getValueBean(String selector) {
 		checkDisposed();
@@ -60,11 +73,19 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 		return valueBeans.get(selector);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public IValueBean getRootBean() {
+		checkDisposed();
+
 		return getValueBean("org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.viewset.rootbean");
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void dispose() {
 		if (isDisposed()) {
@@ -72,6 +93,11 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 		}
 
 		try {
+			List<IViewContext> temp = getViewContexts();
+			for (IViewContext childContext : temp.toArray(new IViewContext[temp.size()])) {
+				childContext.dispose();
+			}
+
 			valueBeans = null;
 		} finally {
 			super.dispose();

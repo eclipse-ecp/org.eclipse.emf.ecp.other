@@ -23,7 +23,6 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewSetContext;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ViewSetContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,6 +45,13 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 
 	@Override
 	public void setContext(IViewSetContext context) {
+		if (this.context == context) {
+			return;
+		}
+
+		if (this.context != null) {
+			throw new RuntimeException("Changing context not allowed!");
+		}
 		this.context = context;
 	}
 
@@ -74,7 +80,7 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 			if (uiViewEditparts != null || getModel().getViews().size() > 0) {
 				List<IUiViewEditpart> tempViews = getViews();
 				synchronized (uiViewEditparts) {
-					for (IUiViewEditpart editpart : tempViews) {
+					for (IUiViewEditpart editpart : tempViews.toArray(new IUiViewEditpart[tempViews.size()])) {
 						editpart.dispose();
 					}
 				}

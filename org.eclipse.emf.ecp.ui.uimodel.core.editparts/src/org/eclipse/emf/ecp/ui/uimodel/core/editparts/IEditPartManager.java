@@ -11,7 +11,6 @@
  *******************************************************************************/
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
-
 /**
  * Is responsible to return editparts based on the given element.
  */

@@ -33,10 +33,8 @@ public class ResourceManagerTest {
 		Resource r2_2 = ResourceManager.getInstance().getResource(URI.createURI(UiModelPackage.eNS_URI));
 		Assert.assertSame(r2_1, r2_2);
 
-		Resource r3_1 = ResourceManager.getInstance().getResource(
-			IResourceManager.ORPHAN_VIEW_RESOURCE_URI_STRING);
-		Resource r3_2 = ResourceManager.getInstance().getResource(
-			IResourceManager.ORPHAN_VIEW_RESOURCE_URI_STRING);
+		Resource r3_1 = ResourceManager.getInstance().getResource(IResourceManager.ORPHAN_VIEW_RESOURCE_URI_STRING);
+		Resource r3_2 = ResourceManager.getInstance().getResource(IResourceManager.ORPHAN_VIEW_RESOURCE_URI_STRING);
 		Assert.assertSame(r3_1, r3_2);
 		Assert.assertTrue(r3_1 instanceof OrphanViewsResource);
 
@@ -45,7 +43,7 @@ public class ResourceManagerTest {
 		Assert.assertSame(r4_1, r4_2);
 		Assert.assertTrue(r4_1 instanceof OrphanViewsResource);
 	}
-	
+
 	@Test
 	public void test_getResourceSet() {
 		Assert.assertNotNull(ResourceManager.getInstance().getResourceSet());

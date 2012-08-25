@@ -22,6 +22,10 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ContextException;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewSetContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
@@ -902,6 +906,45 @@ public class EditpartsTest {
 		Assert.assertTrue(observer.isCalled());
 	}
 
+	@Test
+	public void test_setContext() {
+		// ...........> field2
+		YUiView view1 = modelFactory.createYUiView();
+		IUiViewEditpart view1EditPart = editpartManager.getEditpart(view1);
+
+		// contexts null
+		//
+		Assert.assertNull(view1EditPart.getContext());
+
+		// set context 1
+		//
+		InternalViewContext viewContext1 = new InternalViewContext();
+		view1EditPart.setContext(viewContext1);
+		Assert.assertSame(viewContext1, view1EditPart.getContext());
+
+		InternalViewContext viewContext2 = new InternalViewContext();
+		view1EditPart.setContext(viewContext2);
+		Assert.assertSame(viewContext2, view1EditPart.getContext());
+
+		// mark rendered
+		//
+		viewContext2.rendered = true;
+
+		// set the same instance twice
+		//
+		view1EditPart.setContext(viewContext2);
+		Assert.assertSame(viewContext2, view1EditPart.getContext());
+
+		try {
+			// set a new instance
+			//
+			view1EditPart.setContext(new InternalViewContext());
+			Assert.fail();
+		} catch (Exception e) {
+			// expected
+		}
+	}
+
 	private static class NotificationObserver implements PropertyChangeListener {
 
 		private PropertyChangeEvent event;
@@ -928,4 +971,69 @@ public class EditpartsTest {
 		}
 	}
 
+	private static class InternalViewContext implements IViewContext {
+
+		private boolean rendered;
+
+		@Override
+		public boolean isDisposed() {
+			return false;
+		}
+
+		@Override
+		public void dispose() {
+		}
+
+		@Override
+		public void addDisposeListener(Listener listener) {
+		}
+
+		@Override
+		public void removeDisposeListener(Listener listener) {
+		}
+
+		@Override
+		public String getPresentationURI() {
+			return null;
+		}
+
+		@Override
+		public IUiViewEditpart getViewEditpart() {
+			return null;
+		}
+
+		@Override
+		public IViewSetContext getParentContext() {
+			return null;
+		}
+
+		@Override
+		public IValueBean getValueBean(String selector) {
+			return null;
+		}
+
+		@Override
+		public void registerValueBean(String selector, IValueBean bean) {
+		}
+
+		@Override
+		public Object getRootLayout() {
+			return null;
+		}
+
+		@Override
+		public IValueBean getRootBean() {
+			return null;
+		}
+
+		@Override
+		public void render(String presentationURI, Object rootLayout) throws ContextException {
+
+		}
+
+		@Override
+		public boolean isRendered() {
+			return rendered;
+		}
+	}
 }

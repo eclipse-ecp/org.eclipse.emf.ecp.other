@@ -26,8 +26,8 @@ public class PresenterFactory implements IPresenterFactory {
 
 	@Override
 	public <A extends IPresenter> A createPresenter(IViewContext uiContext, IUiElementEditpart editpart) {
-		if(editpart instanceof IUiTextFieldEditpart){
-			
+		if (editpart instanceof IUiTextFieldEditpart) {
+
 		}
 		return null;
 	}

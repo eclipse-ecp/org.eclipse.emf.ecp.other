@@ -47,7 +47,14 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	}
 
 	@Override
-	public void setContext(IViewContext context) {
+	public void setContext(IViewContext context) throws RuntimeException {
+		if (this.context == context) {
+			return;
+		}
+
+		if (this.context != null && this.context.isRendered()) {
+			throw new RuntimeException("Already rendered! Changing context not allowed!");
+		}
 		this.context = context;
 	}
 
@@ -119,6 +126,13 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	@Override
 	protected void internalDispose() {
 		try {
+
+			// remove from the parent
+			IUiViewSetEditpart parent = getParent();
+			if (parent != null) {
+				parent.removeView(this);
+			}
+
 			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
 			// but exist in the model.
 			if (getContent() != null) {

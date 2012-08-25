@@ -41,11 +41,11 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	public static DelegatingEditPartManager getInstance() {
 		return instance;
 	}
-	
+
 	/**
 	 * Removes all factories. Should only be used very carefully
 	 */
-	public void clear(){
+	public void clear() {
 		factories.clear();
 	}
 
@@ -87,7 +87,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	}
 
 	@Override
-	public <A extends IUiElementEditpart> A createEditpart(Object selector, Class<A > editPartClazz) {
+	public <A extends IUiElementEditpart> A createEditpart(Object selector, Class<A> editPartClazz) {
 		for (IEditPartManager factory : factories.toArray(new IEditPartManager[factories.size()])) {
 			if (factory.isFor(selector)) {
 				return factory.createEditpart(selector, editPartClazz);

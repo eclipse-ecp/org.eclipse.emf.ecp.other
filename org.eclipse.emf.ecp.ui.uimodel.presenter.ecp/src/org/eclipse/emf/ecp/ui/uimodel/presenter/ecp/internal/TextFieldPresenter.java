@@ -16,13 +16,13 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presenter.IPresenter;
 
-public class TextFieldPresenter implements IPresenter{
+public class TextFieldPresenter implements IPresenter {
 
 	private METextControl control;
-	
+
 	@Override
 	public void present(IViewContext uiContext, IUiElementEditpart editpart) {
-		
+
 	}
 
 }
