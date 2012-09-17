@@ -299,6 +299,9 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 		case Notification.REMOVE:
 			handleModel_Remove(featureId, notification);
 			break;
+		case Notification.MOVE:
+			handleModel_Move(featureId, notification);
+			break;
 		case Notification.SET:
 			handleModel_Set(featureId, notification);
 			break;
@@ -322,6 +325,16 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	 * @param notification
 	 */
 	protected void handleModel_Remove(int featureId, Notification notification) {
+		checkDisposed();
+	}
+
+	/**
+	 * Is called from {@link #notifyChanged(Notification)} for the move-event to be handled by subclasses.
+	 * 
+	 * @param featureId
+	 * @param notification
+	 */
+	protected void handleModel_Move(int featureId, Notification notification) {
 		checkDisposed();
 	}
 

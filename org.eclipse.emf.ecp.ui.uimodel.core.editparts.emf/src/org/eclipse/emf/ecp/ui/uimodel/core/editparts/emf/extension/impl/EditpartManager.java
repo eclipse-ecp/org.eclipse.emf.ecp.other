@@ -13,11 +13,13 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IEditPartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiGridLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 
 /**
@@ -42,6 +44,8 @@ public class EditpartManager extends AbstractEditpartManager {
 		UiElementEditpart<YUiElement> result = null;
 		if (editPartClazz.isAssignableFrom(IUiTextFieldEditpart.class)) {
 			result = createNewInstance(UiTextFieldEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiGridLayoutEditpart.class)) {
+			result = createNewInstance(UiGridLayoutEditpart.class);
 		}
 
 		if (result != null) {
@@ -65,6 +69,8 @@ public class EditpartManager extends AbstractEditpartManager {
 		UiElementEditpart<YUiElement> result = null;
 		if (yElement instanceof YUiTextField) {
 			result = createNewInstance(UiTextFieldEditpart.class);
+		} else if (yElement instanceof YUiGridLayout) {
+			result = createNewInstance(UiGridLayoutEditpart.class);
 		}
 
 		if (result != null) {

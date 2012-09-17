@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiEmbeddableEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.ILayoutPresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +32,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 
 	private List<IUiEmbeddableEditpart> uiElementEditparts;
 
-	protected UiLayoutEditpart() {
+	public UiLayoutEditpart() {
 
 	}
 
@@ -129,6 +130,20 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 			break;
 		}
 	}
+	
+	// /**
+	// * {@inheritDoc}
+	// */
+	// protected void handleModel_Move(int featureId, Notification notification) {
+	// checkDisposed();
+	//
+	// switch (featureId) {
+	// case UiModelPackage.YUI_LAYOUT__ELEMENTS:
+	// YUiEmbeddable yElement = (YUiEmbeddable) notification.getNewValue();
+	// internalAddElement((IUiEmbeddableEditpart) getEditpart(yElement));
+	// break;
+	// }
+	// }
 
 	/**
 	 * Is called to change the internal state and add the given editpart to the list of elements.
@@ -144,6 +159,11 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		if (!uiElementEditparts.contains(editpart)) {
 			uiElementEditparts.add(editpart);
 		}
+
+		// handle the presentation
+		//
+		ILayoutPresentation<?> presenter = getPresenter();
+		presenter.add(editpart.getPresenter());
 	}
 
 	/**
@@ -157,6 +177,11 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		if (uiElementEditparts != null && editpart != null) {
 			uiElementEditparts.remove(editpart);
 		}
+
+		// handle the presentation
+		//
+		ILayoutPresentation<?> presenter = getPresenter();
+		presenter.remove(editpart.getPresenter());
 	}
 
 	/**

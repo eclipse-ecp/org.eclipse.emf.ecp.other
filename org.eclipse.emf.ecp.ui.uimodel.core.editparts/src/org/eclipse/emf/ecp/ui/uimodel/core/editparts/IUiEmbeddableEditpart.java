@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
+
 /**
  * An IUiEmbeddableEditpart is an abstraction of editparts that can be added to a {@link IUiLayoutEditpart}.</br>
  * They have an assigned parent, that must never be <code>null</code> if the IUiEmbeddableEditpart is attached to its
@@ -36,5 +38,12 @@ public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 	 * @return
 	 */
 	IUiViewEditpart getView();
+
+	/**
+	 * Returns the widget presenter for the edit part.
+	 * 
+	 * @return
+	 */
+	<A extends IWidgetPresentation<?>> A getPresenter();
 
 }

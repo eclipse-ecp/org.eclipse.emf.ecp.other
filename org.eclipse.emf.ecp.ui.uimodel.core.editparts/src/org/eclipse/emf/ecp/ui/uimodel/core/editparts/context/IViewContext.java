@@ -85,9 +85,9 @@ public interface IViewContext extends IDisposable {
 	IValueBean getRootBean();
 
 	/**
-	 * Renders the UI based on the {@link IUiViewEditpart}.
+	 * Renders the UI based on the {@link IUiViewEditpart} and the given presentationURI.
 	 * 
-	 * @param presentationURI The URI that specifies the UI kit to be used.
+	 * @param presentationURI The URI that specifies the UI kit to be used. May be <code>null</code>.
 	 * @param rootLayout The given root layout is the base element for the elements
 	 *            to be rendered.
 	 * 

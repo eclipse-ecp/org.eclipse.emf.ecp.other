@@ -20,6 +20,8 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiEmbeddableEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.DelegatingPresenterFactory;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,8 +30,9 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	private static final Logger logger = LoggerFactory.getLogger(UiViewEditpart.class);
 	private IUiEmbeddableEditpart content;
 	private IViewContext context;
+	private IViewPresentation<?> presenter;
 
-	protected UiViewEditpart() {
+	public UiViewEditpart() {
 
 	}
 
@@ -71,7 +74,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 			// set the element by using the model
 			//
 			M yView = getModel();
-			YUiEmbeddable yElement = (YUiEmbeddable) content.getModel();
+			YUiEmbeddable yElement = content != null ? (YUiEmbeddable) content.getModel() : null;
 			yView.setContent(yElement);
 		} catch (RuntimeException e) {
 			logger.error("{}", e);
@@ -133,6 +136,13 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 				parent.removeView(this);
 			}
 
+			// dispose the presenter
+			//
+			if (presenter != null) {
+				presenter.dispose();
+				presenter = null;
+			}
+
 			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
 			// but exist in the model.
 			if (getContent() != null) {
@@ -148,5 +158,21 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	public IUiViewSetEditpart getParent() {
 		YUiViewSet yViewSet = getModel().getRoot();
 		return yViewSet != null ? (IUiViewSetEditpart) getEditpart(yViewSet) : null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <A extends IViewPresentation<?>> A getPresentation() {
+		if (presenter == null) {
+			presenter = createPresenter();
+		}
+		return (A) presenter;
+	}
+
+	/**
+	 * Is called to created the presenter for this edit part.
+	 */
+	protected <A extends IViewPresentation<?>> A createPresenter() {
+		return DelegatingPresenterFactory.getInstance().createPresentation(getContext(), this);
 	}
 }

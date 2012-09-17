@@ -14,6 +14,7 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
 
 public class ViewContext extends DisposableContext implements IViewContext {
 
@@ -113,6 +114,16 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		try {
 			this.presentationURI = presentationURI;
 			this.rootLayout = rootLayout;
+
+			// start to render
+			//
+			IUiViewEditpart editPart = getViewEditpart();
+			IViewPresentation<?> presenter = editPart.getPresentation();
+			if (presenter == null) {
+				throw new ContextException("Presenter must not be null!");
+			}
+			presenter.render();
+
 		} finally {
 			rendered = true;
 		}
@@ -132,11 +143,7 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void dispose() {
-		if (isDisposed()) {
-			return;
-		}
-
+	public void internalDispose() {
 		try {
 			viewEditpart.dispose();
 		} finally {

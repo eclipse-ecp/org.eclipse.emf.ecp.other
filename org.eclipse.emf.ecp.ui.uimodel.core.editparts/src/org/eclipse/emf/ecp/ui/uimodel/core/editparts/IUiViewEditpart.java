@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
 
 /**
  * An IUiViewEditpart is an abstraction of the root ui element of a composite structure based on
@@ -62,5 +63,12 @@ public interface IUiViewEditpart extends IUiElementEditpart {
 	 * @return
 	 */
 	IUiViewSetEditpart getParent();
+
+	/**
+	 * Returns the view presenter for the edit part.
+	 * 
+	 * @return
+	 */
+	<A extends IViewPresentation<?>> A getPresentation();
 
 }

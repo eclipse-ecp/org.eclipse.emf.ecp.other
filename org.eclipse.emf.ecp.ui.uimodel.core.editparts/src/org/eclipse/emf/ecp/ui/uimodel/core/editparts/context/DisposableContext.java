@@ -12,21 +12,20 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans.ObjectBean;
 
-public abstract class DisposableContext implements IDisposable {
+/**
+ * Base implementation for a disposable context.
+ */
+public abstract class DisposableContext extends AbstractDisposable {
 
 	private Map<String, IValueBean> valueBeans = Collections.synchronizedMap(new HashMap<String, IValueBean>());
-	private List<Listener> disposeListeners;
-	private boolean disposed;
 
 	public DisposableContext() {
 		super();
@@ -75,14 +74,6 @@ public abstract class DisposableContext implements IDisposable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isDisposed() {
-		return disposed;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void dispose() {
 		if (isDisposed()) {
 			return;
@@ -90,70 +81,8 @@ public abstract class DisposableContext implements IDisposable {
 
 		try {
 			valueBeans = null;
-
-			// first call the dispose listener and the set disposed=true
-			notifyDisposeListeners();
-			disposeListeners = null;
 		} finally {
-			disposed = true;
+			super.dispose();
 		}
 	}
-
-	/**
-	 * Checks whether the element is disposed. Throws a DisposeException is the element is disposed.
-	 * 
-	 * @throws DisposeException
-	 */
-	protected void checkDisposed() {
-		IDisposable.DisposableUtil.checkDisposed(this);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void addDisposeListener(Listener listener) {
-		checkDisposed();
-
-		if (listener == null) {
-			return;
-		}
-
-		if (disposeListeners == null) {
-			disposeListeners = new ArrayList<IDisposable.Listener>();
-		}
-
-		if (!disposeListeners.contains(listener)) {
-			disposeListeners.add(listener);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void removeDisposeListener(Listener listener) {
-		checkDisposed();
-
-		if (listener == null || disposeListeners == null) {
-			return;
-		}
-
-		disposeListeners.remove(listener);
-	}
-
-	/**
-	 * Notifies all listeners about the disposal of that elemenyElement
-	 **/
-	protected void notifyDisposeListeners() {
-		if (disposeListeners == null) {
-			return;
-		}
-
-		for (IDisposable.Listener listener : disposeListeners
-			.toArray(new IDisposable.Listener[disposeListeners.size()])) {
-			listener.notifyDisposed(this);
-		}
-	}
-
 }

@@ -87,11 +87,7 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void dispose() {
-		if (isDisposed()) {
-			return;
-		}
-
+	public void internalDispose() {
 		try {
 			List<IViewContext> temp = getViewContexts();
 			for (IViewContext childContext : temp.toArray(new IViewContext[temp.size()])) {
