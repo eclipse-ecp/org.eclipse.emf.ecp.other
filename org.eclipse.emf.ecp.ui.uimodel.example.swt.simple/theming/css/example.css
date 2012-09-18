@@ -1,0 +1,13 @@
+.marginAndSpacingExample {
+	margin-left: 40;
+	margin-top: 10;
+	border: 4px red;
+}
+
+.marginAndSpacingExample .gridlayout {
+	margin-left: 25;
+	margin-top: 55;
+	spacing-horizontal: 68;
+	spacing-vertical: 35;
+	border: 4px red;
+}

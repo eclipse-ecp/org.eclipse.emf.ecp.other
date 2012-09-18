@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.Example1"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.MarginAndSpacingExample">
+         </run>
+      </application>
+   </extension>
+</plugin>
