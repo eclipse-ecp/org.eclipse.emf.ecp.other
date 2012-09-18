@@ -258,13 +258,31 @@ public interface UiModelPackage extends EPackage {
 	int YUI_VIEW__ID = YUI_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VIEW__CSS_CLASS = YUI_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VIEW__CSS_ID = YUI_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__ROOT = YUI_ELEMENT_FEATURE_COUNT + 0;
+	int YUI_VIEW__ROOT = YUI_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -273,7 +291,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__VIEW_NAME = YUI_ELEMENT_FEATURE_COUNT + 1;
+	int YUI_VIEW__VIEW_NAME = YUI_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -282,7 +300,16 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__CONTENT = YUI_ELEMENT_FEATURE_COUNT + 2;
+	int YUI_VIEW__CONTENT = YUI_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VIEW__MARGIN = YUI_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>YUi View</em>' class.
@@ -291,7 +318,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 3;
+	int YUI_VIEW_FEATURE_COUNT = YUI_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewSetImpl <em>YUi View Set</em>}' class.
@@ -450,6 +477,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYUiView_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#isMargin <em>Margin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Margin</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#isMargin()
+	 * @see #getYUiView()
+	 * @generated
+	 */
+	EAttribute getYUiView_Margin();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet <em>YUi View Set</em>}'.
@@ -618,6 +656,14 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_VIEW__CONTENT = eINSTANCE.getYUiView_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Margin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_VIEW__MARGIN = eINSTANCE.getYUiView_Margin();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewSetImpl <em>YUi View Set</em>}' class.

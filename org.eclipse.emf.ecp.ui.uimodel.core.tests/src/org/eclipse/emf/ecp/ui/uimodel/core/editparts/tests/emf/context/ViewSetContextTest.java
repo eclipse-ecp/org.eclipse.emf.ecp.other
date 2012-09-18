@@ -29,7 +29,6 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ViewSetContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans.ObjectBean;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.DefaultRealm;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,8 +45,6 @@ public class ViewSetContextTest {
 
 	@Before
 	public void setup() {
-		DefaultRealm.setup();
-
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());

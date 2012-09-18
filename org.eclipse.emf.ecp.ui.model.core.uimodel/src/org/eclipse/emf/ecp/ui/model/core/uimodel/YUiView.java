@@ -22,6 +22,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel;
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getContent <em>Content</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#isMargin <em>Margin</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,7 +30,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel;
  * @model
  * @generated
  */
-public interface YUiView extends YUiElement {
+public interface YUiView extends YUiElement, YUiCssAble {
 	/**
 	 * Returns the value of the '<em><b>View Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,6 +82,32 @@ public interface YUiView extends YUiElement {
 	 * @generated
 	 */
 	void setContent(YUiEmbeddable value);
+
+	/**
+	 * Returns the value of the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Margin</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Margin</em>' attribute.
+	 * @see #setMargin(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage#getYUiView_Margin()
+	 * @model
+	 * @generated
+	 */
+	boolean isMargin();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#isMargin <em>Margin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Margin</em>' attribute.
+	 * @see #isMargin()
+	 * @generated
+	 */
+	void setMargin(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.

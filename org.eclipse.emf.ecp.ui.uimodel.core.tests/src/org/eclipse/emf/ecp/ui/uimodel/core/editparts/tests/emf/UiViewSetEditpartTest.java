@@ -21,8 +21,6 @@ public class UiViewSetEditpartTest {
 
 	@Before
 	public void setup() {
-		DefaultRealm.setup();
-
 		editpartManager.clear();
 		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
 		editpartManager

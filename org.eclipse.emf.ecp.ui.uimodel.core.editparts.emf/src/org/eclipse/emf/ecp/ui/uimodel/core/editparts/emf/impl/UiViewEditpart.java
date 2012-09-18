@@ -119,7 +119,14 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 		switch (featureId) {
 		case UiModelPackage.YUI_VIEW__CONTENT:
 			YUiEmbeddable yNewContent = (YUiEmbeddable) notification.getNewValue();
-			internalSetContent((IUiEmbeddableEditpart) getEditpart(yNewContent));
+
+			IUiEmbeddableEditpart editPart = (IUiEmbeddableEditpart) getEditpart(yNewContent);
+			internalSetContent(editPart);
+
+			// handle the presentation
+			//
+			getPresentation().setContent(editPart != null ? editPart.getPresentation() : null);
+
 			// fire event
 			firePropertyChanged_Editpart(PROP_CONTENT, notification);
 			break;
@@ -164,7 +171,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	@Override
 	public <A extends IViewPresentation<?>> A getPresentation() {
 		if (presenter == null) {
-			presenter = createPresenter();
+			presenter = createPresentation();
 		}
 		return (A) presenter;
 	}
@@ -172,7 +179,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	/**
 	 * Is called to created the presenter for this edit part.
 	 */
-	protected <A extends IViewPresentation<?>> A createPresenter() {
+	protected <A extends IViewPresentation<?>> A createPresentation() {
 		return DelegatingPresenterFactory.getInstance().createPresentation(getContext(), this);
 	}
 }

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tests
-Bundle-SymbolicName: org.eclipse.emf.ecp.ui.uimodel.core.tests
+Bundle-SymbolicName: org.eclipse.emf.ecp.ui.uimodel.core.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
@@ -10,4 +10,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.junit;visibility:=reexport,
  org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf;bundle-version="1.0.0",
  org.eclipse.swt;bundle-version="3.100.0",
- org.eclipse.emf.ecp.ui.uimodel.example.presentation;bundle-version="1.0.0"
+ org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple;bundle-version="1.0.0"

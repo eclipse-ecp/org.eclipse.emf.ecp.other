@@ -12,6 +12,7 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
 import java.beans.PropertyChangeSupport;
+import java.util.Map;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
@@ -90,11 +91,11 @@ public interface IViewContext extends IDisposable {
 	 * @param presentationURI The URI that specifies the UI kit to be used. May be <code>null</code>.
 	 * @param rootLayout The given root layout is the base element for the elements
 	 *            to be rendered.
-	 * 
+	 * @param parameter Parameters that can be passed for rendering
 	 * @return
 	 * @throws ContextException if the UI was already rendered or the rootlayout is <code>null</code>
 	 */
-	void render(String presentationURI, Object rootLayout) throws ContextException;
+	void render(String presentationURI, Object rootLayout, Map<String, Object> parameter) throws ContextException;
 
 	/**
 	 * Returns true, if the UI was already rendered.

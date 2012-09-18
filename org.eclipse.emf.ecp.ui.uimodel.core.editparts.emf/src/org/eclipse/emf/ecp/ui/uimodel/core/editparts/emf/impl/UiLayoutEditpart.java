@@ -10,11 +10,10 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.Observables;
-import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
@@ -48,7 +47,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		if (uiElementEditparts == null) {
 			internalLoadElements();
 		}
-		return Observables.unmodifiableObservableList((IObservableList) uiElementEditparts);
+		return Collections.unmodifiableList(uiElementEditparts);
 	}
 
 	@Override
@@ -112,7 +111,14 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		switch (featureId) {
 		case UiModelPackage.YUI_LAYOUT__ELEMENTS:
 			YUiEmbeddable yElement = (YUiEmbeddable) notification.getNewValue();
-			internalAddElement((IUiEmbeddableEditpart) getEditpart(yElement));
+
+			IUiEmbeddableEditpart editPart = (IUiEmbeddableEditpart) getEditpart(yElement);
+			internalAddElement(editPart);
+
+			// handle the presentation
+			//
+			ILayoutPresentation<?> presenter = getPresentation();
+			presenter.add(editPart.getPresentation());
 			break;
 		}
 	}
@@ -126,11 +132,18 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		switch (featureId) {
 		case UiModelPackage.YUI_LAYOUT__ELEMENTS:
 			YUiEmbeddable yElement = (YUiEmbeddable) notification.getOldValue();
-			internalRemoveElement((IUiEmbeddableEditpart) getEditpart(yElement));
+
+			IUiEmbeddableEditpart editPart = (IUiEmbeddableEditpart) getEditpart(yElement);
+			internalRemoveElement(editPart);
+
+			// handle the presentation
+			//
+			ILayoutPresentation<?> presenter = getPresentation();
+			presenter.remove(editPart.getPresentation());
 			break;
 		}
 	}
-	
+
 	// /**
 	// * {@inheritDoc}
 	// */
@@ -159,11 +172,6 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		if (!uiElementEditparts.contains(editpart)) {
 			uiElementEditparts.add(editpart);
 		}
-
-		// handle the presentation
-		//
-		ILayoutPresentation<?> presenter = getPresenter();
-		presenter.add(editpart.getPresenter());
 	}
 
 	/**
@@ -177,11 +185,6 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		if (uiElementEditparts != null && editpart != null) {
 			uiElementEditparts.remove(editpart);
 		}
-
-		// handle the presentation
-		//
-		ILayoutPresentation<?> presenter = getPresenter();
-		presenter.remove(editpart.getPresenter());
 	}
 
 	/**
@@ -192,7 +195,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		checkDisposed();
 
 		if (uiElementEditparts == null) {
-			uiElementEditparts = new WritableList();
+			uiElementEditparts = new ArrayList<IUiEmbeddableEditpart>();
 			for (YUiEmbeddable yElement : getModel().getElements()) {
 				IUiEmbeddableEditpart editPart = getEditpart(yElement);
 				internalAddElement(editPart);

@@ -32,8 +32,6 @@ public class EditpartManagerTest {
 
 	@Before
 	public void setup() {
-		DefaultRealm.setup();
-
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());

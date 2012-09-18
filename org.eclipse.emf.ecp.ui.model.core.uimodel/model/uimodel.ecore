@@ -10,12 +10,13 @@
         eType="#//YUiEmbeddable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiField" eSuperTypes="#//YUiEmbeddable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiView" eSuperTypes="#//YUiElement">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiView" eSuperTypes="#//YUiElement #//YUiCssAble">
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//YUiViewSet"
         eOpposite="#//YUiViewSet/views"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="viewName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//YUiEmbeddable"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="margin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiViewSet" eSuperTypes="#//YUiElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"

@@ -2,6 +2,7 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -43,8 +44,6 @@ public class EditpartsTest {
 
 	@Before
 	public void setup() {
-		DefaultRealm.setup();
-
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
@@ -1026,7 +1025,7 @@ public class EditpartsTest {
 		}
 
 		@Override
-		public void render(String presentationURI, Object rootLayout) throws ContextException {
+		public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter) throws ContextException {
 
 		}
 

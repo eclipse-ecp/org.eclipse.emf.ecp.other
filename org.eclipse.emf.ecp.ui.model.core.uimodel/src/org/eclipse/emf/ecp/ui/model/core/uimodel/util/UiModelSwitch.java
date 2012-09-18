@@ -107,6 +107,7 @@ public class UiModelSwitch<T> extends Switch<T> {
 				YUiView yUiView = (YUiView)theEObject;
 				T result = caseYUiView(yUiView);
 				if (result == null) result = caseYUiElement(yUiView);
+				if (result == null) result = caseYUiCssAble(yUiView);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

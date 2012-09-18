@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ContextException;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 
@@ -25,8 +27,9 @@ public interface IRenderer {
 	 * @param viewContext the context that is responsible to define the UI kit an to offer additional information to the
 	 *            edit part
 	 * @param rootLayout the root layout that should the base for all UI elements
+	 * @param options rendering options. Depend on the underlying UI-Kit
 	 * @throws if the view can not be rendered
 	 */
-	void render(IViewContext viewContext, Object rootLayout) throws ContextException;
+	void render(IViewContext viewContext, Object rootLayout, Map<String, Object> options) throws ContextException;
 
 }

@@ -44,6 +44,6 @@ public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 	 * 
 	 * @return
 	 */
-	<A extends IWidgetPresentation<?>> A getPresenter();
+	<A extends IWidgetPresentation<?>> A getPresentation();
 
 }

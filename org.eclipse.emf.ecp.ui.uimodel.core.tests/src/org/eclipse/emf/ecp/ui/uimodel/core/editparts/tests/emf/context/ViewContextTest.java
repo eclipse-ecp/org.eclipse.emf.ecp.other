@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.context;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -39,7 +41,6 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.DelegatingPres
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.DefaultRealm;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,8 +56,6 @@ public class ViewContextTest {
 
 	@Before
 	public void setup() {
-		DefaultRealm.setup();
-
 		resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
@@ -196,7 +195,7 @@ public class ViewContextTest {
 		}
 
 		try {
-			context.render("test", null);
+			context.render("test", null, null);
 			Assert.fail("must throw exception");
 		} catch (Exception e) {
 		}
@@ -305,7 +304,7 @@ public class ViewContextTest {
 		Assert.assertEquals("test", context.getPresentationURI());
 
 		try {
-			context.render("test", new Object());
+			context.render("test", new Object(), null);
 		} catch (ContextException e) {
 			Assert.fail();
 		}
@@ -323,7 +322,7 @@ public class ViewContextTest {
 
 		Object layout = new Object();
 		try {
-			context.render("test", layout);
+			context.render("test", layout, null);
 		} catch (ContextException e) {
 			Assert.fail();
 		}
@@ -346,7 +345,7 @@ public class ViewContextTest {
 		Assert.assertFalse(context.isRendered());
 
 		try {
-			context.render("test", new Object());
+			context.render("test", new Object(), null);
 		} catch (ContextException e) {
 			Assert.fail();
 		}
@@ -354,7 +353,7 @@ public class ViewContextTest {
 		Assert.assertTrue(context.isRendered());
 
 		try {
-			context.render("test", new Object());
+			context.render("test", new Object(), null);
 			Assert.fail();
 		} catch (Exception e) {
 			Assert.assertEquals("Has already been rendered!", e.getMessage());
@@ -365,7 +364,7 @@ public class ViewContextTest {
 	public void test_render_PresenterNull() {
 		presenterFactory.clear();
 		try {
-			context.render(null, new Object());
+			context.render(null, new Object(), null);
 		} catch (ContextException e) {
 			Assert.assertEquals("Presenter must not be null!", e.getMessage());
 		}
@@ -375,7 +374,7 @@ public class ViewContextTest {
 	public void test_render_layoutNull() {
 		presenterFactory.clear();
 		try {
-			context.render("test", null);
+			context.render("test", null, null);
 			Assert.fail();
 		} catch (ContextException e) {
 			Assert.assertEquals("RootLayout must not be null!", e.getMessage());
@@ -387,7 +386,7 @@ public class ViewContextTest {
 		presenterFactory.clear();
 		presenterFactory.addFactory(new PresenterFactory());
 		try {
-			context.render(null, new Object());
+			context.render(null, new Object(), null);
 		} catch (ContextException e) {
 			Assert.fail();
 		}
@@ -471,7 +470,7 @@ public class ViewContextTest {
 		// mark rendered
 		//
 		try {
-			viewContext2.render("test", new Object());
+			viewContext2.render("test", new Object(), null);
 		} catch (ContextException e1) {
 			Assert.fail();
 		}
@@ -530,11 +529,6 @@ public class ViewContextTest {
 		}
 
 		@Override
-		public void render() {
-
-		}
-
-		@Override
 		public void unrender() {
 
 		}
@@ -554,5 +548,14 @@ public class ViewContextTest {
 			return false;
 		}
 
+		@Override
+		public void setContent(IWidgetPresentation presentation) {
+
+		}
+
+		@Override
+		public void render(Map options) {
+
+		}
 	}
 }

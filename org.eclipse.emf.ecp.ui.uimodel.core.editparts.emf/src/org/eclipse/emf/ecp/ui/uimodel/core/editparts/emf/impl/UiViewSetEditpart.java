@@ -10,11 +10,10 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.databinding.observable.Observables;
-import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
@@ -69,7 +68,7 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 			internalLoadViews();
 		}
 
-		return Observables.unmodifiableObservableList((IObservableList) uiViewEditparts);
+		return Collections.unmodifiableList(uiViewEditparts);
 	}
 
 	@Override
@@ -188,7 +187,7 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 		checkDisposed();
 
 		if (uiViewEditparts == null) {
-			uiViewEditparts = new WritableList();
+			uiViewEditparts = new ArrayList<IUiViewEditpart>();
 			for (YUiView yElement : getModel().getViews()) {
 				IUiViewEditpart editPart = getEditpart(yElement);
 				internalAddElement(editPart);

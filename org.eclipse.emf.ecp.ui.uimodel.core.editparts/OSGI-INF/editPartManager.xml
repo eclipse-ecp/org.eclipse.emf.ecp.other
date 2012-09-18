@@ -3,4 +3,3 @@
    <implementation class="org.eclipse.emf.ecp.ui.uimodel.core.editparts.DelegatingEditPartManager$Component"/>
    <reference bind="addFactory" cardinality="0..n" interface="org.eclipse.emf.ecp.ui.uimodel.core.editparts.IEditPartManager" name="editPartFactory" policy="dynamic" unbind="removeFactory"/>
 </scr:component>
- 

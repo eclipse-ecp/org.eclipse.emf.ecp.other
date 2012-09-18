@@ -13,9 +13,9 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiLayoutEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiGridLayoutEditpart;
 
-public class UiGridLayoutEditpart extends UiLayoutEditpart<YUiGridLayout> implements IUiTextFieldEditpart {
+public class UiGridLayoutEditpart extends UiLayoutEditpart<YUiGridLayout> implements IUiGridLayoutEditpart {
 
 	@Override
 	protected YUiGridLayout createModel() {

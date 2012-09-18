@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
@@ -30,9 +31,12 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getCssClass <em>Css Class</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#isMargin <em>Margin</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +62,46 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CSS_CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cssClass = CSS_CLASS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCssID() <em>Css ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CSS_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCssID() <em>Css ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssID()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cssID = CSS_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getViewName() <em>View Name</em>}' attribute.
@@ -88,6 +132,26 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 	 * @ordered
 	 */
 	protected YUiEmbeddable content;
+
+	/**
+	 * The default value of the '{@link #isMargin() <em>Margin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMargin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MARGIN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMargin()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean margin = MARGIN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,6 +191,48 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_VIEW__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCssClass(String newCssClass) {
+		String oldCssClass = cssClass;
+		cssClass = newCssClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_VIEW__CSS_CLASS, oldCssClass, cssClass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCssID() {
+		return cssID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCssID(String newCssID) {
+		String oldCssID = cssID;
+		cssID = newCssID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_VIEW__CSS_ID, oldCssID, cssID));
 	}
 
 	/**
@@ -191,6 +297,27 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_VIEW__CONTENT, newContent, newContent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isMargin() {
+		return margin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMargin(boolean newMargin) {
+		boolean oldMargin = margin;
+		margin = newMargin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UiModelPackage.YUI_VIEW__MARGIN, oldMargin, margin));
 	}
 
 	/**
@@ -291,12 +418,18 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 		switch (featureID) {
 			case UiModelPackage.YUI_VIEW__ID:
 				return getId();
+			case UiModelPackage.YUI_VIEW__CSS_CLASS:
+				return getCssClass();
+			case UiModelPackage.YUI_VIEW__CSS_ID:
+				return getCssID();
 			case UiModelPackage.YUI_VIEW__ROOT:
 				return getRoot();
 			case UiModelPackage.YUI_VIEW__VIEW_NAME:
 				return getViewName();
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				return getContent();
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				return isMargin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,6 +446,12 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 			case UiModelPackage.YUI_VIEW__ID:
 				setId((String)newValue);
 				return;
+			case UiModelPackage.YUI_VIEW__CSS_CLASS:
+				setCssClass((String)newValue);
+				return;
+			case UiModelPackage.YUI_VIEW__CSS_ID:
+				setCssID((String)newValue);
+				return;
 			case UiModelPackage.YUI_VIEW__ROOT:
 				setRoot((YUiViewSet)newValue);
 				return;
@@ -321,6 +460,9 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				return;
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				setContent((YUiEmbeddable)newValue);
+				return;
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				setMargin((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -337,6 +479,12 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 			case UiModelPackage.YUI_VIEW__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case UiModelPackage.YUI_VIEW__CSS_CLASS:
+				setCssClass(CSS_CLASS_EDEFAULT);
+				return;
+			case UiModelPackage.YUI_VIEW__CSS_ID:
+				setCssID(CSS_ID_EDEFAULT);
+				return;
 			case UiModelPackage.YUI_VIEW__ROOT:
 				setRoot((YUiViewSet)null);
 				return;
@@ -345,6 +493,9 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				return;
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				setContent((YUiEmbeddable)null);
+				return;
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				setMargin(MARGIN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -360,14 +511,54 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 		switch (featureID) {
 			case UiModelPackage.YUI_VIEW__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case UiModelPackage.YUI_VIEW__CSS_CLASS:
+				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
+			case UiModelPackage.YUI_VIEW__CSS_ID:
+				return CSS_ID_EDEFAULT == null ? cssID != null : !CSS_ID_EDEFAULT.equals(cssID);
 			case UiModelPackage.YUI_VIEW__ROOT:
 				return getRoot() != null;
 			case UiModelPackage.YUI_VIEW__VIEW_NAME:
 				return VIEW_NAME_EDEFAULT == null ? viewName != null : !VIEW_NAME_EDEFAULT.equals(viewName);
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				return content != null;
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				return margin != MARGIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == YUiCssAble.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.YUI_VIEW__CSS_CLASS: return UiModelPackage.YUI_CSS_ABLE__CSS_CLASS;
+				case UiModelPackage.YUI_VIEW__CSS_ID: return UiModelPackage.YUI_CSS_ABLE__CSS_ID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == YUiCssAble.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.YUI_CSS_ABLE__CSS_CLASS: return UiModelPackage.YUI_VIEW__CSS_CLASS;
+				case UiModelPackage.YUI_CSS_ABLE__CSS_ID: return UiModelPackage.YUI_VIEW__CSS_ID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -382,8 +573,14 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", cssClass: ");
+		result.append(cssClass);
+		result.append(", cssID: ");
+		result.append(cssID);
 		result.append(", viewName: ");
 		result.append(viewName);
+		result.append(", margin: ");
+		result.append(margin);
 		result.append(')');
 		return result.toString();
 	}

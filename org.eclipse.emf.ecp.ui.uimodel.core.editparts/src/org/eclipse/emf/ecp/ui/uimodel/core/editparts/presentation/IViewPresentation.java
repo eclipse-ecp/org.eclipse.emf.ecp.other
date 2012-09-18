@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation;
 
+import java.util.Map;
+
 /**
  * View presenters are used to render UIs based on a view.<br>
  * Implementations are UI-kit specific.
@@ -22,7 +24,16 @@ public interface IViewPresentation<C> extends IWidgetPresentation<C> {
 
 	/**
 	 * Is called to render the view.
+	 * 
+	 * @param options can contain different options used for rendering
 	 */
-	void render();
+	void render(Map<String, Object> options);
+
+	/**
+	 * Sets the presentation that should render the content.
+	 * 
+	 * @param presentation
+	 */
+	void setContent(IWidgetPresentation<?> presentation);
 
 }

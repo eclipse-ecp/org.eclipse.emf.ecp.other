@@ -53,7 +53,7 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiEl
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <A extends IWidgetPresentation<?>> A getPresenter() {
+	public <A extends IWidgetPresentation<?>> A getPresentation() {
 		if (presenter == null) {
 			presenter = createPresenter();
 		}
