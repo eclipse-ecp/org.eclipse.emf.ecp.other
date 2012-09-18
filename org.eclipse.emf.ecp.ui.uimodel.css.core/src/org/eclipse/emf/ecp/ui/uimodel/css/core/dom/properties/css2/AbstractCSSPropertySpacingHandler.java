@@ -15,7 +15,7 @@ public abstract class AbstractCSSPropertySpacingHandler implements ICSSPropertyS
 		}
 		return false;
 	}
-
+ 
 	public String retrieveCSSProperty(Object element, String property, String pseudo, CSSEngine engine)
 		throws Exception {
 		if ("spacing-horizontal".equals(property)) {
