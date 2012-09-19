@@ -89,4 +89,14 @@ public interface ILayoutPresentation<C> extends IWidgetPresentation<C> {
 	 * @throws RuntimeException If presentation is not a child yet
 	 */
 	void move(IWidgetPresentation<?> presentation, int index);
+
+	/**
+	 * Will render the child presentations.<br>
+	 * <ul>
+	 * <li><b>force == false:</b> Only elements will be rendered that are not rendered yet. Already rendered elements
+	 * will not be touched.</li>
+	 * <li><b>force == true:</b> First will unrender all child presentations and afterward it will render them again.</li>
+	 * </ul>
+	 */
+	void renderChildren(boolean force);
 }

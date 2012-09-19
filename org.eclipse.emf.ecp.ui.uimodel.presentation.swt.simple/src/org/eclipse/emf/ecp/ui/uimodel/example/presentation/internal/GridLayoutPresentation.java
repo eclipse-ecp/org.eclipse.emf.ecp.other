@@ -65,6 +65,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(1, true));
+			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
 
 			if (modelAccess.isMargin()) {
 				controlBase.setData(CSSSWTConstants.MARGIN_WRAPPER_KEY, CSSSWTConstants.MARGIN_WRAPPER_KEY);
@@ -77,29 +78,24 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
 			if (modelAccess.isCssIdValid()) {
 				setCSSId(control, modelAccess.getCssID());
+			} else {
+				setCSSId(control, editpart.getId());
 			}
 
 			if (modelAccess.isCssClassValid()) {
 				setCSSClass(control, modelAccess.getCssClass());
+			} else {
+				setCSSClass(control, CSS_CLASS__CONTROL);
 			}
 
 			if (modelAccess.isSpacing()) {
 				control.setData(CssConstants.SPACING_ENABLED, CssConstants.SPACING_ENABLED);
 			}
 
-			renderChildren();
+			renderChildren(false);
 		}
 
 		return controlBase;
-	}
-
-	/**
-	 * Is called to render the children.
-	 */
-	protected void renderChildren() {
-		for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
-			childEditpart.getPresentation().createWidget(control);
-		}
 	}
 
 	@Override
@@ -123,16 +119,55 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			controlBase.dispose();
 			controlBase = null;
 			control = null;
+
+			// unrender the childs
+			for (IWidgetPresentation<?> child : getChildren()) {
+				child.unrender();
+			}
+		}
+	}
+
+	@Override
+	public void renderChildren(boolean force) {
+		if (force) {
+			unrenderChildren();
+		}
+
+		for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
+			IWidgetPresentation<?> presentation = childEditpart.getPresentation();
+			if (!contains(presentation)) {
+				// will be rendered automatically after add
+				super.add(presentation);
+			} else {
+				// render the widget
+				createChildWidget(presentation);
+			}
 		}
 	}
 
 	/**
-	 * Is called to create the widget for the given presentation
+	 * Will unrender all children.
+	 */
+	protected void unrenderChildren() {
+		for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
+			IWidgetPresentation<?> presentation = childEditpart.getPresentation();
+			if (presentation.isRendered()) {
+				presentation.unrender();
+			}
+		}
+	}
+
+	/**
+	 * Is called to create the widget for the given presentation. If the presentation is not rendered yet, null will be
+	 * returned.
 	 * 
 	 * @param childPresentation
 	 * @return
 	 */
 	protected Control createChildWidget(IWidgetPresentation<?> childPresentation) {
+		if (!isRendered()) {
+			return null;
+		}
 		Control childControl = (Control) childPresentation.createWidget(control);
 		childControl.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, false, false));
 		return childControl;
@@ -259,6 +294,5 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			int columns = yLayout.getColumns();
 			return columns <= 0 ? 2 : columns;
 		}
-
 	}
 }

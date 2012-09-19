@@ -124,6 +124,10 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 	 * Is called to render the content.
 	 */
 	protected void renderContent() {
+		if (!isRendered()) {
+			return;
+		}
+
 		if (contentPresentation != null) {
 			Control contentControl = (Control) contentPresentation.createWidget(control);
 			contentControl.setLayoutData(null);
@@ -220,9 +224,7 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 			oldPresentation.unrender();
 		}
 
-		if (isRendered()) {
-			renderContent();
-		}
+		renderContent();
 	}
 
 	private static class ModelAccess {

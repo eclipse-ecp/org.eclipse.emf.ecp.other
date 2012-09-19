@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PresentationTests {
+public class BuildViewTests {
 
 	private SimpleModelFactory factory = new SimpleModelFactory();
 	private Display display = Display.getCurrent();

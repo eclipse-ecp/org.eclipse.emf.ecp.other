@@ -1,4 +1,4 @@
-package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests.css;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,6 +15,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ContextException;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests.Activator;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;

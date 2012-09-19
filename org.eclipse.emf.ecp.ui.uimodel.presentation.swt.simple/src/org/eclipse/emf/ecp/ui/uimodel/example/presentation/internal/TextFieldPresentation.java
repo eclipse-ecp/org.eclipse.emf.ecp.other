@@ -16,7 +16,6 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -29,15 +28,13 @@ import org.eclipse.swt.widgets.Text;
 public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
 	private final IUiTextFieldEditpart editpart;
-	@SuppressWarnings("unused")
-	private final YUiTextField model;
+	private final ModelAccess modelAccess;
 	private Composite controlBase;
-	@SuppressWarnings("unused")
 	private Text control;
 
 	public TextFieldPresentation(IUiElementEditpart editpart) {
 		this.editpart = (IUiTextFieldEditpart) editpart;
-		this.model = (YUiTextField) editpart.getModel();
+		this.modelAccess = new ModelAccess((YUiTextField) editpart.getModel());
 	}
 
 	/**
@@ -66,8 +63,21 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(1, true));
+			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+
 			control = new Text(controlBase, SWT.BORDER);
 			control.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+			if (modelAccess.isCssIdValid()) {
+				setCSSId(control, modelAccess.getCssID());
+			} else {
+				setCSSId(control, editpart.getId());
+			}
+
+			if (modelAccess.isCssClassValid()) {
+				setCSSClass(control, modelAccess.getCssClass());
+			} else {
+				setCSSClass(control, CSS_CLASS__CONTROL);
+			}
 		}
 		return controlBase;
 	}
@@ -101,5 +111,48 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	protected void internalDispose() {
 		// unrender the ui control
 		unrender();
+	}
+
+	private static class ModelAccess {
+		private final YUiTextField yText;
+
+		public ModelAccess(YUiTextField yText) {
+			super();
+			this.yText = yText;
+		}
+
+		/**
+		 * @return
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssClass()
+		 */
+		public String getCssClass() {
+			return yText.getCssClass();
+		}
+
+		/**
+		 * Returns true, if the css class is not null and not empty.
+		 * 
+		 * @return
+		 */
+		public boolean isCssClassValid() {
+			return getCssClass() != null && !getCssClass().equals("");
+		}
+
+		/**
+		 * @return
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssID()
+		 */
+		public String getCssID() {
+			return yText.getCssID();
+		}
+
+		/**
+		 * Returns true, if the css id is not null and not empty.
+		 * 
+		 * @return
+		 */
+		public boolean isCssIdValid() {
+			return getCssID() != null && !getCssID().equals("");
+		}
 	}
 }

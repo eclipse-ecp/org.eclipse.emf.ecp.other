@@ -116,7 +116,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 
 			// handle the presentation
 			//
-			if (isRendered()) {
+			if (isPresentationPresent()) {
 				ILayoutPresentation<?> presenter = getPresentation();
 				presenter.add(editPart.getPresentation());
 			}
@@ -125,12 +125,12 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	}
 
 	/**
-	 * Returns true, if the editpart is currently rendered.
+	 * Returns true, if the presenter is present.
 	 * 
 	 * @return
 	 */
-	private boolean isRendered() {
-		return internal_getPresentation() != null && internal_getPresentation().isRendered();
+	private boolean isPresentationPresent() {
+		return internal_getPresentation() != null;
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 
 			// handle the presentation
 			//
-			if (isRendered()) {
+			if (isPresentationPresent()) {
 				ILayoutPresentation<?> presenter = getPresentation();
 				presenter.remove(editPart.getPresentation());
 			}

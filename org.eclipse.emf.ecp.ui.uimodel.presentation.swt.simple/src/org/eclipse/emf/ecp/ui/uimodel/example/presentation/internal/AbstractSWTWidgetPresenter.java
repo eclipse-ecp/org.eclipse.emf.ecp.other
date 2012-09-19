@@ -8,6 +8,9 @@ import org.eclipse.swt.widgets.Control;
 @SuppressWarnings("restriction")
 public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable implements IWidgetPresentation<Control> {
 
+	public static final String CSS_CLASS__CONTROL_BASE ="controlbase";
+	public static final String CSS_CLASS__CONTROL ="control";
+	
 	/**
 	 * Sets the css id at the control.
 	 * 

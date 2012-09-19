@@ -13,6 +13,9 @@ import org.eclipse.swt.widgets.Control;
 @SuppressWarnings("restriction")
 public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable implements ILayoutPresentation<Control> {
 
+	public static final String CSS_CLASS__CONTROL_BASE ="controlbase";
+	public static final String CSS_CLASS__CONTROL ="control";
+	
 	private List<IWidgetPresentation<?>> children;
 
 	@Override
