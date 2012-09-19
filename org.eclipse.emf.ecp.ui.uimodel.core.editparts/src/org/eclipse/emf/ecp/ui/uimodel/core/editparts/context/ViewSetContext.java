@@ -96,7 +96,6 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 
 			valueBeans = null;
 		} finally {
-			super.dispose();
 		}
 	}
 }

@@ -51,7 +51,9 @@ public class ViewSetContextTest {
 		resourceSet.getPackageRegistry().put(UiModelPackage.eNS_URI, UiModelPackage.eINSTANCE);
 
 		DelegatingEditPartManager manager = DelegatingEditPartManager.getInstance();
-		manager.addFactory(new EditpartManager());
+		manager.clear();
+		manager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
+		manager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 
 		IUiViewEditpart viewEditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
 			IUiViewEditpart.class);

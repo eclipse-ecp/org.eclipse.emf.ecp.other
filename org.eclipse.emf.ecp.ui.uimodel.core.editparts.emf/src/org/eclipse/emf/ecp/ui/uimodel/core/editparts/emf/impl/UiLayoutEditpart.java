@@ -41,7 +41,6 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 		return (M) UiModelFactory.eINSTANCE.createYUiLayout();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<IUiEmbeddableEditpart> getElements() {
 		if (uiElementEditparts == null) {
@@ -117,10 +116,21 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 
 			// handle the presentation
 			//
-			ILayoutPresentation<?> presenter = getPresentation();
-			presenter.add(editPart.getPresentation());
+			if (isRendered()) {
+				ILayoutPresentation<?> presenter = getPresentation();
+				presenter.add(editPart.getPresentation());
+			}
 			break;
 		}
+	}
+
+	/**
+	 * Returns true, if the editpart is currently rendered.
+	 * 
+	 * @return
+	 */
+	private boolean isRendered() {
+		return internal_getPresentation() != null && internal_getPresentation().isRendered();
 	}
 
 	/**
@@ -138,8 +148,10 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 
 			// handle the presentation
 			//
-			ILayoutPresentation<?> presenter = getPresentation();
-			presenter.remove(editPart.getPresentation());
+			if (isRendered()) {
+				ILayoutPresentation<?> presenter = getPresentation();
+				presenter.remove(editPart.getPresentation());
+			}
 			break;
 		}
 	}
@@ -190,7 +202,6 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	/**
 	 * Is called to load and initialize all elements.
 	 */
-	@SuppressWarnings("unchecked")
 	protected void internalLoadElements() {
 		checkDisposed();
 

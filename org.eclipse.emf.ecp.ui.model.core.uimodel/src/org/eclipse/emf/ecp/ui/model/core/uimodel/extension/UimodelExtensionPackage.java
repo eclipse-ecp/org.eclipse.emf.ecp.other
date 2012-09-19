@@ -151,22 +151,13 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_GRID_LAYOUT__ELEMENTS = UiModelPackage.YUI_LAYOUT__ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Cell Styles</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_GRID_LAYOUT__CELL_STYLES = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_GRID_LAYOUT__SPACING = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 1;
+	int YUI_GRID_LAYOUT__SPACING = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Margin</b></em>' attribute.
@@ -175,7 +166,16 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_GRID_LAYOUT__MARGIN = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 2;
+	int YUI_GRID_LAYOUT__MARGIN = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Cell Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_GRID_LAYOUT__CELL_STYLES = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' attribute.
@@ -376,28 +376,6 @@ public interface UimodelExtensionPackage extends EPackage {
 	EReference getYUiGridLayout_CellStyles();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isSpacing <em>Spacing</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Spacing</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isSpacing()
-	 * @see #getYUiGridLayout()
-	 * @generated
-	 */
-	EAttribute getYUiGridLayout_Spacing();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isMargin <em>Margin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Margin</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isMargin()
-	 * @see #getYUiGridLayout()
-	 * @generated
-	 */
-	EAttribute getYUiGridLayout_Margin();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -594,20 +572,6 @@ public interface UimodelExtensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_GRID_LAYOUT__CELL_STYLES = eINSTANCE.getYUiGridLayout_CellStyles();
-		/**
-		 * The meta object literal for the '<em><b>Spacing</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YUI_GRID_LAYOUT__SPACING = eINSTANCE.getYUiGridLayout_Spacing();
-		/**
-		 * The meta object literal for the '<em><b>Margin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YUI_GRID_LAYOUT__MARGIN = eINSTANCE.getYUiGridLayout_Margin();
 		/**
 		 * The meta object literal for the '<em><b>Columns</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->

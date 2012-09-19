@@ -5,6 +5,8 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +17,6 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getCellStyles <em>Cell Styles</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isSpacing <em>Spacing</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isMargin <em>Margin</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
  * @model
  * @generated
  */
-public interface YUiGridLayout extends YUiLayout {
+public interface YUiGridLayout extends YUiLayout, YUiSpacingable, YUiMarginable {
 	/**
 	 * Returns the value of the '<em><b>Cell Styles</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle}.
@@ -41,58 +41,6 @@ public interface YUiGridLayout extends YUiLayout {
 	 * @generated
 	 */
 	EList<YUiGridLayoutCellStyle> getCellStyles();
-
-	/**
-	 * Returns the value of the '<em><b>Spacing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Spacing</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Spacing</em>' attribute.
-	 * @see #setSpacing(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_Spacing()
-	 * @model
-	 * @generated
-	 */
-	boolean isSpacing();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isSpacing <em>Spacing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Spacing</em>' attribute.
-	 * @see #isSpacing()
-	 * @generated
-	 */
-	void setSpacing(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Margin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Margin</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Margin</em>' attribute.
-	 * @see #setMargin(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_Margin()
-	 * @model
-	 * @generated
-	 */
-	boolean isMargin();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isMargin <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Margin</em>' attribute.
-	 * @see #isMargin()
-	 * @generated
-	 */
-	void setMargin(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' attribute.

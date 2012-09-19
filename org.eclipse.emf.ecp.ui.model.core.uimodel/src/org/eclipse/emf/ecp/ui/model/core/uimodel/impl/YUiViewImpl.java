@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 
@@ -33,10 +34,10 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getCssClass <em>Css Class</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getCssID <em>Css ID</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#isMargin <em>Margin</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#getContent <em>Content</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewImpl#isMargin <em>Margin</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,6 +105,26 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 	protected String cssID = CSS_ID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isMargin() <em>Margin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMargin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MARGIN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMargin()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean margin = MARGIN_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getViewName() <em>View Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,26 +153,6 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 	 * @ordered
 	 */
 	protected YUiEmbeddable content;
-
-	/**
-	 * The default value of the '{@link #isMargin() <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMargin()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MARGIN_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMargin()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean margin = MARGIN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -422,14 +423,14 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				return getCssClass();
 			case UiModelPackage.YUI_VIEW__CSS_ID:
 				return getCssID();
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				return isMargin();
 			case UiModelPackage.YUI_VIEW__ROOT:
 				return getRoot();
 			case UiModelPackage.YUI_VIEW__VIEW_NAME:
 				return getViewName();
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				return getContent();
-			case UiModelPackage.YUI_VIEW__MARGIN:
-				return isMargin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -452,6 +453,9 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 			case UiModelPackage.YUI_VIEW__CSS_ID:
 				setCssID((String)newValue);
 				return;
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				setMargin((Boolean)newValue);
+				return;
 			case UiModelPackage.YUI_VIEW__ROOT:
 				setRoot((YUiViewSet)newValue);
 				return;
@@ -460,9 +464,6 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				return;
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				setContent((YUiEmbeddable)newValue);
-				return;
-			case UiModelPackage.YUI_VIEW__MARGIN:
-				setMargin((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -485,6 +486,9 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 			case UiModelPackage.YUI_VIEW__CSS_ID:
 				setCssID(CSS_ID_EDEFAULT);
 				return;
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				setMargin(MARGIN_EDEFAULT);
+				return;
 			case UiModelPackage.YUI_VIEW__ROOT:
 				setRoot((YUiViewSet)null);
 				return;
@@ -493,9 +497,6 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				return;
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				setContent((YUiEmbeddable)null);
-				return;
-			case UiModelPackage.YUI_VIEW__MARGIN:
-				setMargin(MARGIN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -515,14 +516,14 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
 			case UiModelPackage.YUI_VIEW__CSS_ID:
 				return CSS_ID_EDEFAULT == null ? cssID != null : !CSS_ID_EDEFAULT.equals(cssID);
+			case UiModelPackage.YUI_VIEW__MARGIN:
+				return margin != MARGIN_EDEFAULT;
 			case UiModelPackage.YUI_VIEW__ROOT:
 				return getRoot() != null;
 			case UiModelPackage.YUI_VIEW__VIEW_NAME:
 				return VIEW_NAME_EDEFAULT == null ? viewName != null : !VIEW_NAME_EDEFAULT.equals(viewName);
 			case UiModelPackage.YUI_VIEW__CONTENT:
 				return content != null;
-			case UiModelPackage.YUI_VIEW__MARGIN:
-				return margin != MARGIN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -541,6 +542,12 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 				default: return -1;
 			}
 		}
+		if (baseClass == YUiMarginable.class) {
+			switch (derivedFeatureID) {
+				case UiModelPackage.YUI_VIEW__MARGIN: return UiModelPackage.YUI_MARGINABLE__MARGIN;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -555,6 +562,12 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 			switch (baseFeatureID) {
 				case UiModelPackage.YUI_CSS_ABLE__CSS_CLASS: return UiModelPackage.YUI_VIEW__CSS_CLASS;
 				case UiModelPackage.YUI_CSS_ABLE__CSS_ID: return UiModelPackage.YUI_VIEW__CSS_ID;
+				default: return -1;
+			}
+		}
+		if (baseClass == YUiMarginable.class) {
+			switch (baseFeatureID) {
+				case UiModelPackage.YUI_MARGINABLE__MARGIN: return UiModelPackage.YUI_VIEW__MARGIN;
 				default: return -1;
 			}
 		}
@@ -577,10 +590,10 @@ public class YUiViewImpl extends EObjectImpl implements YUiView {
 		result.append(cssClass);
 		result.append(", cssID: ");
 		result.append(cssID);
-		result.append(", viewName: ");
-		result.append(viewName);
 		result.append(", margin: ");
 		result.append(margin);
+		result.append(", viewName: ");
+		result.append(viewName);
 		result.append(')');
 		return result.toString();
 	}

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.DelegatingPresenterFactory;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	private static final Logger logger = LoggerFactory.getLogger(UiViewEditpart.class);
 	private IUiEmbeddableEditpart content;
 	private IViewContext context;
-	private IViewPresentation<?> presenter;
+	private IViewPresentation<?> presentation;
 
 	public UiViewEditpart() {
 
@@ -125,12 +126,23 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 
 			// handle the presentation
 			//
-			getPresentation().setContent(editPart != null ? editPart.getPresentation() : null);
+			if (isRendered()) {
+				getPresentation().setContent(editPart != null ? editPart.getPresentation() : null);
+			}
 
 			// fire event
 			firePropertyChanged_Editpart(PROP_CONTENT, notification);
 			break;
 		}
+	}
+	
+	/**
+	 * Returns true, if the editpart is currently rendered.
+	 * 
+	 * @return
+	 */
+	private boolean isRendered() {
+		return internal_getPresentation() != null && internal_getPresentation().isRendered();
 	}
 
 	@Override
@@ -145,9 +157,9 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 
 			// dispose the presenter
 			//
-			if (presenter != null) {
-				presenter.dispose();
-				presenter = null;
+			if (presentation != null) {
+				presentation.dispose();
+				presentation = null;
 			}
 
 			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
@@ -166,14 +178,23 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 		YUiViewSet yViewSet = getModel().getRoot();
 		return yViewSet != null ? (IUiViewSetEditpart) getEditpart(yViewSet) : null;
 	}
+	
+	/**
+	 * Returns the instance of the presentation, but does not load it.
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	protected <A extends IWidgetPresentation<?>> A internal_getPresentation() {
+		return (A) presentation;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends IViewPresentation<?>> A getPresentation() {
-		if (presenter == null) {
-			presenter = createPresentation();
+		if (presentation == null) {
+			presentation = createPresentation();
 		}
-		return (A) presenter;
+		return (A) presentation;
 	}
 
 	/**

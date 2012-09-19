@@ -11,6 +11,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
@@ -110,6 +112,14 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYUiLayout(YUiLayout object) {
 				return createYUiLayoutAdapter();
+			}
+			@Override
+			public Adapter caseYUiSpacingable(YUiSpacingable object) {
+				return createYUiSpacingableAdapter();
+			}
+			@Override
+			public Adapter caseYUiMarginable(YUiMarginable object) {
+				return createYUiMarginableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -268,6 +278,34 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable <em>YUi Spacingable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable
+	 * @generated
+	 */
+	public Adapter createYUiSpacingableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable <em>YUi Marginable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable
+	 * @generated
+	 */
+	public Adapter createYUiMarginableAdapter() {
 		return null;
 	}
 

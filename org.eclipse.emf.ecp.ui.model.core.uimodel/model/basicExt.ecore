@@ -3,11 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="extension" nsURI="http://eclipse.org/emf/emfclient/uimodel/basicExtension"
     nsPrefix="basicextension">
   <eClassifiers xsi:type="ecore:EClass" name="YUiTextField" eSuperTypes="uimodel.ecore#//YUiField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayout" eSuperTypes="uimodel.ecore#//YUiLayout">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
         eType="#//YUiGridLayoutCellStyle" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spacing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="margin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayoutCell"/>

@@ -159,26 +159,8 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYUiGridLayout_Spacing() {
-		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYUiGridLayout_Margin() {
-		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getYUiGridLayout_Columns() {
-		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)yUiGridLayoutEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -330,8 +312,6 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 
 		yUiGridLayoutEClass = createEClass(YUI_GRID_LAYOUT);
 		createEReference(yUiGridLayoutEClass, YUI_GRID_LAYOUT__CELL_STYLES);
-		createEAttribute(yUiGridLayoutEClass, YUI_GRID_LAYOUT__SPACING);
-		createEAttribute(yUiGridLayoutEClass, YUI_GRID_LAYOUT__MARGIN);
 		createEAttribute(yUiGridLayoutEClass, YUI_GRID_LAYOUT__COLUMNS);
 
 		yUiGridLayoutCellEClass = createEClass(YUI_GRID_LAYOUT_CELL);
@@ -386,14 +366,14 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		// Add supertypes to classes
 		yUiTextFieldEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiLayout());
+		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiSpacingable());
+		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yUiTextFieldEClass, YUiTextField.class, "YUiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yUiGridLayoutEClass, YUiGridLayout.class, "YUiGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYUiGridLayout_CellStyles(), this.getYUiGridLayoutCellStyle(), null, "cellStyles", null, 0, -1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYUiGridLayout_Spacing(), ecorePackage.getEBoolean(), "spacing", null, 0, 1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYUiGridLayout_Margin(), ecorePackage.getEBoolean(), "margin", null, 0, 1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYUiGridLayout_Columns(), ecorePackage.getEInt(), "columns", null, 0, 1, YUiGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiGridLayoutCellEClass, YUiGridLayoutCell.class, "YUiGridLayoutCell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

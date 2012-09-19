@@ -276,13 +276,22 @@ public interface UiModelPackage extends EPackage {
 	int YUI_VIEW__CSS_ID = YUI_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VIEW__MARGIN = YUI_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__ROOT = YUI_ELEMENT_FEATURE_COUNT + 2;
+	int YUI_VIEW__ROOT = YUI_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -291,7 +300,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__VIEW_NAME = YUI_ELEMENT_FEATURE_COUNT + 3;
+	int YUI_VIEW__VIEW_NAME = YUI_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -300,16 +309,7 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_VIEW__CONTENT = YUI_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Margin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_VIEW__MARGIN = YUI_ELEMENT_FEATURE_COUNT + 5;
+	int YUI_VIEW__CONTENT = YUI_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>YUi View</em>' class.
@@ -393,6 +393,62 @@ public interface UiModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_CSS_ABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable <em>YUi Marginable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiMarginable()
+	 * @generated
+	 */
+	int YUI_MARGINABLE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_MARGINABLE__MARGIN = 0;
+
+	/**
+	 * The number of structural features of the '<em>YUi Marginable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_MARGINABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable <em>YUi Spacingable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiSpacingable()
+	 * @generated
+	 */
+	int YUI_SPACINGABLE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_SPACINGABLE__SPACING = 0;
+
+	/**
+	 * The number of structural features of the '<em>YUi Spacingable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_SPACINGABLE_FEATURE_COUNT = 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement <em>YUi Element</em>}'.
@@ -479,17 +535,6 @@ public interface UiModelPackage extends EPackage {
 	EReference getYUiView_Content();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#isMargin <em>Margin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Margin</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#isMargin()
-	 * @see #getYUiView()
-	 * @generated
-	 */
-	EAttribute getYUiView_Margin();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet <em>YUi View Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,6 +607,48 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYUiCssAble_CssID();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable <em>YUi Marginable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Marginable</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable
+	 * @generated
+	 */
+	EClass getYUiMarginable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable#isMargin <em>Margin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Margin</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable#isMargin()
+	 * @see #getYUiMarginable()
+	 * @generated
+	 */
+	EAttribute getYUiMarginable_Margin();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable <em>YUi Spacingable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Spacingable</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable
+	 * @generated
+	 */
+	EClass getYUiSpacingable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable#isSpacing <em>Spacing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Spacing</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable#isSpacing()
+	 * @see #getYUiSpacingable()
+	 * @generated
+	 */
+	EAttribute getYUiSpacingable_Spacing();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -658,14 +745,6 @@ public interface UiModelPackage extends EPackage {
 		EReference YUI_VIEW__CONTENT = eINSTANCE.getYUiView_Content();
 
 		/**
-		 * The meta object literal for the '<em><b>Margin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YUI_VIEW__MARGIN = eINSTANCE.getYUiView_Margin();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiViewSetImpl <em>YUi View Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -726,6 +805,42 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YUI_CSS_ABLE__CSS_ID = eINSTANCE.getYUiCssAble_CssID();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable <em>YUi Marginable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiMarginable()
+		 * @generated
+		 */
+		EClass YUI_MARGINABLE = eINSTANCE.getYUiMarginable();
+
+		/**
+		 * The meta object literal for the '<em><b>Margin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_MARGINABLE__MARGIN = eINSTANCE.getYUiMarginable_Margin();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable <em>YUi Spacingable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiSpacingable()
+		 * @generated
+		 */
+		EClass YUI_SPACINGABLE = eINSTANCE.getYUiSpacingable();
+
+		/**
+		 * The meta object literal for the '<em><b>Spacing</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_SPACINGABLE__SPACING = eINSTANCE.getYUiSpacingable_Spacing();
 
 	}
 

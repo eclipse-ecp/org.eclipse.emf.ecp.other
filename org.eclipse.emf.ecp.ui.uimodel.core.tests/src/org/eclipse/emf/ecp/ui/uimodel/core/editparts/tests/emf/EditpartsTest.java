@@ -51,6 +51,7 @@ public class EditpartsTest {
 
 		editpartManager.clear();
 		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
+		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
 
 	/**

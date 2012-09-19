@@ -10,6 +10,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
@@ -85,6 +87,8 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiGridLayout yUiGridLayout = (YUiGridLayout)theEObject;
 				T result = caseYUiGridLayout(yUiGridLayout);
 				if (result == null) result = caseYUiLayout(yUiGridLayout);
+				if (result == null) result = caseYUiSpacingable(yUiGridLayout);
+				if (result == null) result = caseYUiMarginable(yUiGridLayout);
 				if (result == null) result = caseYUiEmbeddable(yUiGridLayout);
 				if (result == null) result = caseYUiElement(yUiGridLayout);
 				if (result == null) result = caseYUiCssAble(yUiGridLayout);
@@ -260,6 +264,36 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiLayout(YUiLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Spacingable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Spacingable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiSpacingable(YUiSpacingable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Marginable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Marginable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiMarginable(YUiMarginable object) {
 		return null;
 	}
 

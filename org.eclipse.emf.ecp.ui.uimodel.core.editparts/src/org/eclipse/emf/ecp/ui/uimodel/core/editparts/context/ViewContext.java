@@ -149,7 +149,7 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		try {
 			viewEditpart.dispose();
 		} finally {
-			super.dispose();
+			
 		}
 	}
 }

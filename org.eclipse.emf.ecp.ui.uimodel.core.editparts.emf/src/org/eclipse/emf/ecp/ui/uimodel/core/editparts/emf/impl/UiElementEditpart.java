@@ -246,6 +246,10 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	 * @return
 	 */
 	public <A extends IUiElementEditpart> A getEditpart(YUiElement yElement) {
+		if(yElement == null){
+			return null;
+		}
+		
 		A editPart = findEditPartFor(yElement);
 		if (editPart != null) {
 			return editPart;

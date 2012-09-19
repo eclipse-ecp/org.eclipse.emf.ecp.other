@@ -22,6 +22,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 
@@ -80,6 +82,20 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass yUiCssAbleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiMarginableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiSpacingableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -219,15 +235,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYUiView_Margin() {
-		return (EAttribute)yUiViewEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYUiViewSet() {
 		return yUiViewSetEClass;
 	}
@@ -291,6 +298,42 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiMarginable() {
+		return yUiMarginableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiMarginable_Margin() {
+		return (EAttribute)yUiMarginableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiSpacingable() {
+		return yUiSpacingableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiSpacingable_Spacing() {
+		return (EAttribute)yUiSpacingableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiModelFactory getUiModelFactory() {
 		return (UiModelFactory)getEFactoryInstance();
 	}
@@ -326,7 +369,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEReference(yUiViewEClass, YUI_VIEW__ROOT);
 		createEAttribute(yUiViewEClass, YUI_VIEW__VIEW_NAME);
 		createEReference(yUiViewEClass, YUI_VIEW__CONTENT);
-		createEAttribute(yUiViewEClass, YUI_VIEW__MARGIN);
 
 		yUiViewSetEClass = createEClass(YUI_VIEW_SET);
 		createEReference(yUiViewSetEClass, YUI_VIEW_SET__VIEWS);
@@ -336,6 +378,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		yUiCssAbleEClass = createEClass(YUI_CSS_ABLE);
 		createEAttribute(yUiCssAbleEClass, YUI_CSS_ABLE__CSS_CLASS);
 		createEAttribute(yUiCssAbleEClass, YUI_CSS_ABLE__CSS_ID);
+
+		yUiMarginableEClass = createEClass(YUI_MARGINABLE);
+		createEAttribute(yUiMarginableEClass, YUI_MARGINABLE__MARGIN);
+
+		yUiSpacingableEClass = createEClass(YUI_SPACINGABLE);
+		createEAttribute(yUiSpacingableEClass, YUI_SPACINGABLE__SPACING);
 	}
 
 	/**
@@ -370,6 +418,7 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		yUiFieldEClass.getESuperTypes().add(this.getYUiEmbeddable());
 		yUiViewEClass.getESuperTypes().add(this.getYUiElement());
 		yUiViewEClass.getESuperTypes().add(this.getYUiCssAble());
+		yUiViewEClass.getESuperTypes().add(this.getYUiMarginable());
 		yUiViewSetEClass.getESuperTypes().add(this.getYUiElement());
 		yUiEmbeddableEClass.getESuperTypes().add(this.getYUiElement());
 		yUiEmbeddableEClass.getESuperTypes().add(this.getYUiCssAble());
@@ -387,7 +436,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEReference(getYUiView_Root(), this.getYUiViewSet(), this.getYUiViewSet_Views(), "root", null, 1, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYUiView_ViewName(), ecorePackage.getEString(), "viewName", null, 0, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYUiView_Content(), this.getYUiEmbeddable(), null, "content", null, 0, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYUiView_Margin(), ecorePackage.getEBoolean(), "margin", null, 0, 1, YUiView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiViewSetEClass, YUiViewSet.class, "YUiViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYUiViewSet_Views(), this.getYUiView(), this.getYUiView_Root(), "views", null, 0, -1, YUiViewSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -401,6 +449,12 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEClass(yUiCssAbleEClass, YUiCssAble.class, "YUiCssAble", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYUiCssAble_CssClass(), ecorePackage.getEString(), "cssClass", null, 0, 1, YUiCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYUiCssAble_CssID(), ecorePackage.getEString(), "cssID", null, 0, 1, YUiCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiMarginableEClass, YUiMarginable.class, "YUiMarginable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiMarginable_Margin(), ecorePackage.getEBoolean(), "margin", null, 0, 1, YUiMarginable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiSpacingableEClass, YUiSpacingable.class, "YUiSpacingable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiSpacingable_Spacing(), ecorePackage.getEBoolean(), "spacing", null, 0, 1, YUiSpacingable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

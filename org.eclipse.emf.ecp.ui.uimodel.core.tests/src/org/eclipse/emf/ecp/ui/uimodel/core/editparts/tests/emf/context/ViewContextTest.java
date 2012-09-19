@@ -297,38 +297,7 @@ public class ViewContextTest {
 		Assert.assertTrue(field1Editpart.isDisposed());
 	}
 
-	@Test
-	public void test_presentationURI() {
-		Assert.assertNull(context.getPresentationURI());
-		context.setPresentationURI("test");
-		Assert.assertEquals("test", context.getPresentationURI());
 
-		try {
-			context.render("test", new Object(), null);
-		} catch (ContextException e) {
-			Assert.fail();
-		}
-
-		try {
-			context.setPresentationURI("test");
-			Assert.fail();
-		} catch (Exception e) {
-		}
-	}
-
-	@Test
-	public void test_rootLayout() {
-		Assert.assertNull(context.getRootLayout());
-
-		Object layout = new Object();
-		try {
-			context.render("test", layout, null);
-		} catch (ContextException e) {
-			Assert.fail();
-		}
-
-		Assert.assertSame(layout, context.getRootLayout());
-	}
 
 	@Test
 	public void test_getViewEditpart() {
@@ -447,47 +416,6 @@ public class ViewContextTest {
 		//
 		Assert.assertNotNull(viewContext1.getParentContext());
 		Assert.assertNotNull(viewContext2.getParentContext());
-	}
-
-	@Test
-	public void test_newInstance() {
-		// ...........> field2
-		YUiView view1 = modelFactory.createYUiView();
-		IUiViewEditpart view1EditPart = editpartManager.getEditpart(view1);
-
-		// contexts null
-		//
-		Assert.assertNull(view1EditPart.getContext());
-
-		// set context 1
-		//
-		ViewContext viewContext1 = new ViewContext(view1EditPart);
-		Assert.assertSame(viewContext1, view1EditPart.getContext());
-
-		ViewContext viewContext2 = new ViewContext(view1EditPart);
-		Assert.assertSame(viewContext2, view1EditPart.getContext());
-
-		// mark rendered
-		//
-		try {
-			viewContext2.render("test", new Object(), null);
-		} catch (ContextException e1) {
-			Assert.fail();
-		}
-
-		// set the same instance twice
-		//
-		view1EditPart.setContext(viewContext2);
-		Assert.assertSame(viewContext2, view1EditPart.getContext());
-
-		try {
-			// set a new instance
-			//
-			new ViewContext(view1EditPart);
-			Assert.fail();
-		} catch (Exception e) {
-			// expected
-		}
 	}
 
 	private static class PresenterFactory implements IPresentationFactory {

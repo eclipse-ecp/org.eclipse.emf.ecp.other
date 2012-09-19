@@ -29,9 +29,8 @@ import org.slf4j.LoggerFactory;
 public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiElementEditpart<M> implements
 	IUiEmbeddableEditpart {
 
-	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(UiEmbeddableEditpart.class);
-	private IWidgetPresentation<?> presenter;
+	private IWidgetPresentation<?> presentation;
 
 	protected UiEmbeddableEditpart() {
 	}
@@ -50,21 +49,36 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiEl
 		YUiView yView = getModel().getView();
 		return yView != null ? (IUiViewEditpart) getEditpart(yView) : null;
 	}
+	
+	/**
+	 * Returns the instance of the presentation, but does not load it.
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	protected <A extends IWidgetPresentation<?>> A internal_getPresentation() {
+		return (A) presentation;
+	}
+
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends IWidgetPresentation<?>> A getPresentation() {
-		if (presenter == null) {
-			presenter = createPresenter();
+		if (presentation == null) {
+			presentation = createPresenter();
 		}
-		return (A) presenter;
+		return (A) presentation;
 	}
 
 	/**
 	 * Is called to created the presenter for this edit part.
 	 */
 	protected <A extends IWidgetPresentation<?>> A createPresenter() {
-		return DelegatingPresenterFactory.getInstance().createPresentation(getView().getContext(), this);
+		IUiViewEditpart viewEditPart = getView();
+		if (viewEditPart == null) {
+			logger.info("View is null");
+			return null;
+		}
+		return DelegatingPresenterFactory.getInstance().createPresentation(viewEditPart.getContext(), this);
 	}
 
 	/**
@@ -87,9 +101,9 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiEl
 
 			// dispose the presenter
 			//
-			if (presenter != null) {
-				presenter.dispose();
-				presenter = null;
+			if (presentation != null) {
+				presentation.dispose();
+				presentation = null;
 			}
 
 		} finally {
