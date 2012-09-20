@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
@@ -25,12 +25,20 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.ILayoutPresent
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * An implementation of {@link IUiLayoutEditpart}.
+ * 
+ * @param <M>
+ */
 public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<M> implements IUiLayoutEditpart {
 
-	private static final Logger logger = LoggerFactory.getLogger(UiLayoutEditpart.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UiLayoutEditpart.class);
 
 	private List<IUiEmbeddableEditpart> uiElementEditparts;
 
+	/**
+	 * Default constructor.
+	 */
 	public UiLayoutEditpart() {
 
 	}
@@ -79,8 +87,10 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 			M yLayout = getModel();
 			YUiEmbeddable yElement = (YUiEmbeddable) element.getModel();
 			yLayout.getElements().add(yElement);
-		} catch (RuntimeException e) {
-			logger.error("{}", e);
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (RuntimeException e) { 
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
 			throw e;
 		}
 	}
@@ -95,8 +105,10 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 			M yLayout = getModel();
 			YUiEmbeddable yElement = (YUiEmbeddable) element.getModel();
 			yLayout.getElements().remove(yElement);
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (RuntimeException e) {
-			logger.error("{}", e);
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
 			throw e;
 		}
 	}
@@ -104,7 +116,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void handleModel_Add(int featureId, Notification notification) {
+	protected void handleModelAdd(int featureId, Notification notification) {
 		checkDisposed();
 
 		switch (featureId) {
@@ -118,8 +130,38 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 			//
 			if (isPresentationPresent()) {
 				ILayoutPresentation<?> presenter = getPresentation();
-				presenter.add(editPart.getPresentation());
+				int index = notification.getPosition();
+				if (index < 0 || index >= getElements().size() - 1) {
+					presenter.add(editPart.getPresentation());
+				} else {
+					presenter.insert(editPart.getPresentation(), index);
+				}
 			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	@Override
+	protected void handleModelMove(int featureId, Notification notification) {
+		checkDisposed();
+
+		switch (featureId) {
+		case UiModelPackage.YUI_LAYOUT__ELEMENTS:
+			YUiEmbeddable yElement = (YUiEmbeddable) notification.getNewValue();
+
+			IUiEmbeddableEditpart editPart = (IUiEmbeddableEditpart) getEditpart(yElement);
+			internalMoveElement(editPart, notification.getPosition());
+
+			// handle the presentation
+			//
+			if (isPresentationPresent()) {
+				ILayoutPresentation<?> presenter = getPresentation();
+				presenter.move(editPart.getPresentation(), notification.getPosition());
+			}
+			break;
+		default:
 			break;
 		}
 	}
@@ -130,13 +172,13 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	 * @return
 	 */
 	private boolean isPresentationPresent() {
-		return internal_getPresentation() != null;
+		return internalGetPresentation() != null;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void handleModel_Remove(int featureId, Notification notification) {
+	protected void handleModelRemove(int featureId, Notification notification) {
 		checkDisposed();
 
 		switch (featureId) {
@@ -152,6 +194,8 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 				ILayoutPresentation<?> presenter = getPresentation();
 				presenter.remove(editPart.getPresentation());
 			}
+			break;
+		default:
 			break;
 		}
 	}
@@ -173,7 +217,7 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	/**
 	 * Is called to change the internal state and add the given editpart to the list of elements.
 	 * 
-	 * @param editpart
+	 * @param editpart The editpart to be added
 	 */
 	protected void internalAddElement(IUiEmbeddableEditpart editpart) {
 		checkDisposed();
@@ -187,9 +231,28 @@ public class UiLayoutEditpart<M extends YUiLayout> extends UiEmbeddableEditpart<
 	}
 
 	/**
+	 * Is called to change the internal state and to move the given editpart in the list of elements.
+	 * 
+	 * @param editpart The editpart to be inserted
+	 * @param index The index to move the element.
+	 */
+	protected void internalMoveElement(IUiEmbeddableEditpart editpart, int index) {
+		checkDisposed();
+
+		if (uiElementEditparts == null) {
+			internalLoadElements();
+		} else if (!uiElementEditparts.contains(editpart)) {
+			throw new RuntimeException(String.format("Editpart %s is not contained in elements", editpart.getId()));
+		} else {
+			uiElementEditparts.remove(editpart);
+			uiElementEditparts.add(index, editpart);
+		}
+	}
+
+	/**
 	 * Is called to change the internal state and remove the given editpart from the list of elements.
 	 * 
-	 * @param editpart
+	 * @param editpart The editpart to be removed
 	 */
 	protected void internalRemoveElement(IUiEmbeddableEditpart editpart) {
 		checkDisposed();

@@ -6,18 +6,21 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
 
+/**
+ * The root editpart. An editpart is a controller that handles the model and the ui presentations.
+ */
 public interface IUiElementEditpart extends IDisposable {
 
 	/**
 	 * Returns the unique id of that edit part.
 	 * 
-	 * @return
+	 * @return id The id of the editpart
 	 */
 	String getId();
 

@@ -1,6 +1,5 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +7,7 @@
  * 
  * Contributors:
  * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
 import java.io.IOException;
@@ -29,6 +28,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.Activator;
+import org.eclipse.emf.ecp.ui.uimodel.example.presentation.IConstants;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.SimpleSwtRenderer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
@@ -45,7 +45,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("restriction")
 public class ViewPresentation extends AbstractDisposable implements IViewPresentation<Control> {
 
-	private static final Logger logger = LoggerFactory.getLogger(ViewPresentation.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ViewPresentation.class);
 
 	private ModelAccess modelAccess;
 	private final IUiViewEditpart editpart;
@@ -54,6 +54,11 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 	private IWidgetPresentation<?> contentPresentation;
 	private CSSEngine cssEngine;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param editpart The editpart for that presentation.
+	 */
 	public ViewPresentation(IUiViewEditpart editpart) {
 		this.editpart = editpart;
 		this.modelAccess = new ModelAccess((YUiView) editpart.getModel());
@@ -62,7 +67,7 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 	/**
 	 * Returns the editpart the presenter will render for.
 	 * 
-	 * @return
+	 * @return editpart
 	 */
 	public IUiElementEditpart getEditpart() {
 		checkDisposed();
@@ -98,7 +103,7 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 	/**
 	 * Instantiates the CSS engine.
 	 * 
-	 * @param cssFiles
+	 * @param cssFiles The cssFiles to be used
 	 */
 	protected void setupCSSEngine(Set<URL> cssFiles) {
 		cssEngine = new CSSSWTEngineImpl(controlBase.getDisplay());
@@ -111,11 +116,11 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 				}
 			}
 		} catch (IOException e) {
-			logger.error("{}", e);
+			LOGGER.error("{}", e);
 		}
 		cssEngine.setErrorHandler(new CSSErrorHandler() {
 			public void error(Exception e) {
-				logger.error("{}", e);
+				LOGGER.error("{}", e);
 			}
 		});
 	}
@@ -132,12 +137,14 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 			Control contentControl = (Control) contentPresentation.createWidget(control);
 			contentControl.setLayoutData(null);
 		} else {
-			logger.warn("Content is null");
+			LOGGER.warn("Content is null");
 		}
 	}
 
 	/**
-	 * Applies the layout to the root composite.
+	 * Applies the layout to the "control" composite.
+	 * 
+	 * @param composite
 	 */
 	protected void applyViewLayout(Composite composite) {
 		composite.setLayout(new FillLayout());
@@ -152,6 +159,8 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 			// create control base with grid layout to enable margins
 			//
 			controlBase = new Composite((Composite) parent, SWT.NONE);
+			WidgetElement.setCSSClass(controlBase, IConstants.CSS_CLASS__CONTROL_BASE);
+
 			GridLayout layout = new GridLayout(1, true);
 			controlBase.setLayout(layout);
 
@@ -167,10 +176,14 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 
 			if (modelAccess.isCssIdValid()) {
 				WidgetElement.setID(control, modelAccess.getCssID());
+			} else {
+				WidgetElement.setID(control, editpart.getId());
 			}
 
 			if (modelAccess.isCssClassValid()) {
 				WidgetElement.setCSSClass(control, modelAccess.getCssClass());
+			} else {
+				WidgetElement.setCSSClass(control, IConstants.CSS_CLASS__CONTROL);
 			}
 
 			// render the content
@@ -198,6 +211,11 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
+
+			IWidgetPresentation<?> childPresentation = getContent();
+			if (childPresentation != null) {
+				childPresentation.unrender();
+			}
 		}
 	}
 
@@ -227,6 +245,14 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 		renderContent();
 	}
 
+	@Override
+	public IWidgetPresentation<?> getContent() {
+		return contentPresentation;
+	}
+
+	/**
+	 * An internal helper class.
+	 */
 	private static class ModelAccess {
 		private final YUiView yView;
 

@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests;
 
 import junit.framework.Assert;
@@ -21,12 +31,18 @@ import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests common build issues.
+ */
 public class BuildViewTests {
 
 	private SimpleModelFactory factory = new SimpleModelFactory();
 	private Display display = Display.getCurrent();
 	private Shell shell;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		shell = new Shell(display);
@@ -48,10 +64,12 @@ public class BuildViewTests {
 	}
 
 	/**
-	 * Tests the build of a simple view without any content
+	 * Tests the build of a simple view without any content.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void build_View() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
 		YUiView yView = factory.createYView();
 
@@ -76,8 +94,13 @@ public class BuildViewTests {
 		Assert.assertEquals(0, viewComposite.getChildren().length);
 	}
 
+	/**
+	 * Tests a build with a text.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void build_ViewWithText() {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yText
@@ -109,8 +132,13 @@ public class BuildViewTests {
 		Assert.assertTrue(text.getLayoutData() instanceof GridData);
 	}
 
+	/**
+	 * Test the replacing of a text.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void build_ViewWithText__replaceText() {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yText
@@ -139,9 +167,14 @@ public class BuildViewTests {
 		Assert.assertEquals(0, viewChilds.length);
 	}
 
+	/**
+	 * Tests the build of a layout and text.
+	 */
 	@SuppressWarnings("unused")
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void build_ViewWithGridlayoutAndText() {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -175,8 +208,13 @@ public class BuildViewTests {
 		Text text2 = (Text) unwrap(layoutComposite.getChildren()[1]);
 	}
 
+	/**
+	 * Tests setting the same instance twice.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_newInstance() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...........> field2
 		YUiView view1 = factory.createYView();
 		IUiViewEditpart view1EditPart = DelegatingEditPartManager.getInstance().getEditpart(view1);
@@ -211,13 +249,20 @@ public class BuildViewTests {
 			//
 			new ViewContext(view1EditPart);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 	}
 
+	/**
+	 * Tests presentation URI issues.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_presentationURI() {
+		// END SUPRESS CATCH EXCEPTION
 		IUiViewEditpart viewEditPart = DelegatingEditPartManager.getInstance().createEditpart(
 			"http://eclipse.org/emf/emfclient/uimodel", IUiViewEditpart.class);
 		ViewContext context = new ViewContext(viewEditPart);
@@ -235,12 +280,19 @@ public class BuildViewTests {
 		try {
 			context.setPresentationURI("test");
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 	}
 
+	/**
+	 * Tests root layout issues.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_rootLayout() {
+		// END SUPRESS CATCH EXCEPTION
 		IUiViewEditpart viewEditPart = DelegatingEditPartManager.getInstance().createEditpart(
 			"http://eclipse.org/emf/emfclient/uimodel", IUiViewEditpart.class);
 		ViewContext context = new ViewContext(viewEditPart);

@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
@@ -21,21 +21,21 @@ public interface IUiLayoutEditpart extends IUiEmbeddableEditpart {
 	/**
 	 * Returns an unmodifiable list with all children contained in the layout.
 	 * 
-	 * @return
+	 * @return elements The children editparts contained in this layoutEditpart
 	 */
 	List<IUiEmbeddableEditpart> getElements();
 
 	/**
 	 * Adds an element to the layout. Adding the same element twice has no effect.
 	 * 
-	 * @param element
+	 * @param element The editpart to be added.
 	 */
 	void addElement(IUiEmbeddableEditpart element);
 
 	/**
 	 * Removes an element from the layout.
 	 * 
-	 * @param element
+	 * @param element The editpart to be removed.
 	 */
 	void removeElement(IUiEmbeddableEditpart element);
 

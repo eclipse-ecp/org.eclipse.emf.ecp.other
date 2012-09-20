@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests;
 
 import junit.framework.Assert;
@@ -24,20 +34,33 @@ import org.eclipse.swt.widgets.Shell;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test common presentation issues.
+ */
 public class CommonPresentationTests {
 
 	private SimpleModelFactory factory = new SimpleModelFactory();
 	private Display display = Display.getCurrent();
 	private Shell shell;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		shell = new Shell(display);
 		shell.setLayout(new FillLayout());
 	}
 
+	/**
+	 * Test the rendering and unrendering by the model.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_isRendered_unrender_byModel() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -61,8 +84,15 @@ public class CommonPresentationTests {
 		Assert.assertFalse(presentation.isDisposed());
 	}
 
+	/**
+	 * Tests render, unrender and render again by the model.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_isRendered__unrender_and_render_byModel() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -93,8 +123,15 @@ public class CommonPresentationTests {
 		Assert.assertNotNull(presentation.getWidget());
 	}
 
+	/**
+	 * Tests the rendering and unrendering with a layout.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_isRendered_unrender_layout_and_render_byModel() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -217,8 +254,15 @@ public class CommonPresentationTests {
 
 	}
 
+	/**
+	 * Tests unrendering of child presentations.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_isRendered_unrender_childByPresentation() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -271,6 +315,12 @@ public class CommonPresentationTests {
 		return control;
 	}
 
+	/**
+	 * Returns the control for the given model element.
+	 * 
+	 * @param yView model element
+	 * @return control
+	 */
 	protected Control getControl(YUiElement yView) {
 		IUiElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
 

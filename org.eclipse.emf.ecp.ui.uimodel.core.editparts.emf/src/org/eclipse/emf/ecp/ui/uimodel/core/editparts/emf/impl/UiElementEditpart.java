@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
@@ -19,7 +19,6 @@ import java.util.UUID;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.DelegatingEditPartManager;
@@ -32,7 +31,7 @@ import org.slf4j.LoggerFactory;
 /**
  * The implementation of the main edit part. <br>
  * The whole ui is based on an ui model which is built by emf.
- * And each edit part is based on an {@link EObject} (ui model element) that is given in the initialize
+ * And each edit part is based on an EObject (ui model element) that is given in the initialize
  * method and contains all information required to render the ui element. The edit part is just the
  * controller that renders the ui but the informations how to render is given by the EObject.
  * <p>
@@ -70,7 +69,7 @@ import org.slf4j.LoggerFactory;
 public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImpl implements IUiElementEditpart,
 	IUiElementEditpartProvider {
 
-	private static final Logger logger = LoggerFactory.getLogger(UiElementEditpart.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UiElementEditpart.class);
 
 	private final PropertyChangeSupport changeSupport;
 
@@ -82,13 +81,17 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Returns the edit part for the given model yElement.
 	 * 
-	 * @param yElement
-	 * @return
+	 * @param <A> An instance of {@link IUiElementEditpart}
+	 * @param yElement the model element
+	 * @return editpart
 	 */
 	public static <A extends IUiElementEditpart> A findEditPartFor(YUiElement yElement) {
 		return EditpartManager.findEditPartFor(yElement);
 	}
 
+	/**
+	 * The default constructor.
+	 */
 	protected UiElementEditpart() {
 		changeSupport = new PropertyChangeSupport(this);
 	}
@@ -96,7 +99,7 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Adds the given property change listener to the change support.
 	 * 
-	 * @param listener
+	 * @param listener the listener to be added
 	 * @see java.beans.PropertyChangeSupport#addPropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -106,8 +109,8 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Adds the given property change listener to the change support.
 	 * 
-	 * @param property
-	 * @param listener
+	 * @param property the property
+	 * @param listener the listener to be added
 	 * @see java.beans.PropertyChangeSupport#addPropertyChangeListener(java.lang.String,
 	 *      java.beans.PropertyChangeListener)
 	 */
@@ -118,7 +121,7 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Removes the given property change listener from the change support.
 	 * 
-	 * @param listener
+	 * @param listener the listener to be added
 	 * @see java.beans.PropertyChangeSupport#removePropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
@@ -128,8 +131,8 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Removes the given property change listener from the change support.
 	 * 
-	 * @param property
-	 * @param listener
+	 * @param property the property
+	 * @param listener the listener to be removed
 	 * @see java.beans.PropertyChangeSupport#removePropertyChangeListener(java.lang.String,
 	 *      java.beans.PropertyChangeListener)
 	 */
@@ -140,9 +143,9 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Fires the property changed event.
 	 * 
-	 * @param property
-	 * @param oldValue
-	 * @param newValue
+	 * @param property the property
+	 * @param oldValue the oldValue
+	 * @param newValue the newValue
 	 * @see java.beans.PropertyChangeSupport#firePropertyChange(String, Object, Object)
 	 */
 	protected void firePropertyChanged(String property, Object oldValue, Object newValue) {
@@ -152,8 +155,8 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Fires the property changed event.
 	 * 
-	 * @param property
-	 * @param notification
+	 * @param property the property
+	 * @param notification the notification
 	 */
 	protected void firePropertyChanged(String property, Notification notification) {
 		firePropertyChanged(property, notification.getOldValue(), notification.getNewValue());
@@ -162,10 +165,10 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Fires the property changed event for edit part properties. The new and old values are resolved to edit parts.
 	 * 
-	 * @param property
-	 * @param notification
+	 * @param property the property
+	 * @param notification the notification
 	 */
-	protected void firePropertyChanged_Editpart(String property, Notification notification) {
+	protected void firePropertyChangedEditpart(String property, Notification notification) {
 		firePropertyChanged(property, getEditpart((YUiElement) notification.getOldValue()),
 			getEditpart((YUiElement) notification.getNewValue()));
 	}
@@ -193,19 +196,19 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Is called to initialize this edit part with the given model. The editpart will be built based on the given model.
 	 * 
-	 * @param element
+	 * @param model the model element
 	 */
 	public void initialize(M model) {
 		checkDisposed();
 
 		if (this.model != null) {
-			logger.error("Editparts must only be initialized once!");
+			LOGGER.error("Editparts must only be initialized once!");
 			throw new IllegalStateException("Editparts must only be initialized once!");
 		}
 
 		for (Adapter adapter : model.eAdapters()) {
 			if (adapter instanceof IUiElementEditpartProvider) {
-				logger.error("For a modelelement instance only one editpart can be created!");
+				LOGGER.error("For a modelelement instance only one editpart can be created!");
 				throw new RuntimeException("For a modelelement instance only one editpart can be created!");
 			}
 		}
@@ -234,22 +237,22 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Has to return a new initialized instance of the model element that is responsible for the edit part.
 	 * 
-	 * @return
+	 * @return model
 	 */
 	protected abstract M createModel();
 
 	/**
 	 * Returns an existing edit part or creates a new one.
 	 * 
-	 * @param <A>
-	 * @param yElement
-	 * @return
+	 * @param <A> An instance of {@link IUiElementEditpart}
+	 * @param yElement the model element
+	 * @return editpart
 	 */
 	public <A extends IUiElementEditpart> A getEditpart(YUiElement yElement) {
-		if(yElement == null){
+		if (yElement == null) {
 			return null;
 		}
-		
+
 		A editPart = findEditPartFor(yElement);
 		if (editPart != null) {
 			return editPart;
@@ -272,7 +275,7 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Registers an adapter at the model element.
 	 * 
-	 * @param adapter
+	 * @param adapter The adapter to be added to the model element
 	 */
 	protected void registerAdapter(Adapter adapter) {
 		checkDisposed();
@@ -285,7 +288,7 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 	/**
 	 * Unregisters an adapter at the model element.
 	 * 
-	 * @param adapter
+	 * @param adapter The adapter to be removed from the model element
 	 */
 	protected void unregisterAdapter(Adapter adapter) {
 		model.eAdapters().remove(adapter);
@@ -293,62 +296,66 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 
 	/**
 	 * Is called by the emf model element, if state changed.
+	 * 
+	 * @param notification notification to be processed
 	 */
 	public void notifyChanged(Notification notification) {
 		int featureId = notification.getFeatureID(YUiElement.class);
 		switch (notification.getEventType()) {
 		case Notification.ADD:
-			handleModel_Add(featureId, notification);
+			handleModelAdd(featureId, notification);
 			break;
 		case Notification.REMOVE:
-			handleModel_Remove(featureId, notification);
+			handleModelRemove(featureId, notification);
 			break;
 		case Notification.MOVE:
-			handleModel_Move(featureId, notification);
+			handleModelMove(featureId, notification);
 			break;
 		case Notification.SET:
-			handleModel_Set(featureId, notification);
+			handleModelSet(featureId, notification);
 			break;
+		default:
+
 		}
 	}
 
 	/**
 	 * Is called from {@link #notifyChanged(Notification)} for the add-event to be handled by subclasses.
 	 * 
-	 * @param featureId
-	 * @param notification
+	 * @param featureId The featureId the notication belongs to
+	 * @param notification The notfication
 	 */
-	protected void handleModel_Add(int featureId, Notification notification) {
+	protected void handleModelAdd(int featureId, Notification notification) {
 		checkDisposed();
 	}
 
 	/**
 	 * Is called from {@link #notifyChanged(Notification)} for the remove-event to be handled by subclasses.
 	 * 
-	 * @param featureId
-	 * @param notification
+	 * @param featureId The featureId the notication belongs to
+	 * @param notification The notfication
 	 */
-	protected void handleModel_Remove(int featureId, Notification notification) {
+	protected void handleModelRemove(int featureId, Notification notification) {
 		checkDisposed();
 	}
 
 	/**
 	 * Is called from {@link #notifyChanged(Notification)} for the move-event to be handled by subclasses.
 	 * 
-	 * @param featureId
-	 * @param notification
+	 * @param featureId The featureId the notication belongs to
+	 * @param notification The notfication
 	 */
-	protected void handleModel_Move(int featureId, Notification notification) {
+	protected void handleModelMove(int featureId, Notification notification) {
 		checkDisposed();
 	}
 
 	/**
 	 * Is called from {@link #notifyChanged(Notification)} for the set-event to be handled by subclasses.
 	 * 
-	 * @param featureId
-	 * @param notification
+	 * @param featureId The featureId the notication belongs to
+	 * @param notification The notfication
 	 */
-	protected void handleModel_Set(int featureId, Notification notification) {
+	protected void handleModelSet(int featureId, Notification notification) {
 		checkDisposed();
 
 		if (featureId == UiModelPackage.YUI_ELEMENT__ID) {
@@ -374,6 +381,9 @@ public abstract class UiElementEditpart<M extends YUiElement> extends AdapterImp
 		}
 	}
 
+	/**
+	 * Is called to dispose all this instance.
+	 */
 	protected void internalDispose() {
 		try {
 			// unregisters the observer from observing the model

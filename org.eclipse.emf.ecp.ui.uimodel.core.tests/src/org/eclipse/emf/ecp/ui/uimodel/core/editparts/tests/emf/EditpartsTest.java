@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 
 import java.beans.PropertyChangeEvent;
@@ -35,6 +45,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the common editparts issues.
+ */
 @SuppressWarnings("restriction")
 public class EditpartsTest {
 
@@ -42,6 +55,9 @@ public class EditpartsTest {
 	private ResourceSetImpl resourceSet;
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 
+	/**
+	 * Setup the test.
+	 */
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
@@ -51,7 +67,8 @@ public class EditpartsTest {
 
 		editpartManager.clear();
 		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
-		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
+		editpartManager
+			.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
 
 	/**
@@ -59,7 +76,9 @@ public class EditpartsTest {
 	 * Note that the editpartManager.getEditpart() was used.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_SingletonEdipartPerEObjectInstance__FirstAccessByParentEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -140,7 +159,9 @@ public class EditpartsTest {
 	 * first accesses the editpart. Afterwards it is determined by the edit parts parent.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_SingletonEdipartPerEObjectInstance__FirstAccessByEditpartManager() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -220,7 +241,9 @@ public class EditpartsTest {
 	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_createUiModel_WithoutEMFModel_Instances() {
+		// END SUPRESS CATCH EXCEPTION
 		// viewSet
 		// ...> view1
 		// ......> layout1
@@ -339,8 +362,13 @@ public class EditpartsTest {
 		Assert.assertSame(field2, layout2.getElements().get(0));
 	}
 
+	/**
+	 * Test the getParent method by emf model.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getParent_WithEMFModel() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -399,8 +427,10 @@ public class EditpartsTest {
 		Assert.assertSame(layout2, field2.getParent());
 	}
 
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_getParent_WithoutEMFModel() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// viewSet
 		// ...> view1
@@ -454,8 +484,10 @@ public class EditpartsTest {
 		Assert.assertSame(layout2, field2.getParent());
 	}
 
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_getView_WithEMFModel() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -513,8 +545,10 @@ public class EditpartsTest {
 		Assert.assertSame(view2, field2.getView());
 	}
 
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_getView_WithoutEMFModel() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// viewSet
 		// ...> view1
@@ -575,8 +609,10 @@ public class EditpartsTest {
 	 * It's the same as {@link #test_SingletonEdipartPerEObjectInstance()} but the editpartManager.getEditpart(object)
 	 * first accesses the editpart. Afterwards it is determined by the edit parts parent.
 	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_ExtensionModel() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiTextField textField = UimodelExtensionFactory.eINSTANCE.createYUiTextField();
 
 		// access the editparts the editpartManager
@@ -600,10 +636,12 @@ public class EditpartsTest {
 
 	/**
 	 * Creates an ui model without the use of an emf model, but afterwards tests whether the emf model was internally
-	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}
+	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}.
 	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_ExtensionModel_createUiModel_WithoutEMFModel_Instances() {
+		// END SUPRESS CATCH EXCEPTION
 		// textField
 		String selector = UimodelExtensionPackage.eNS_URI;
 
@@ -633,8 +671,10 @@ public class EditpartsTest {
 		Assert.assertSame(textFieldEditPart, editpartManager.getEditpart(yTextField));
 	}
 
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_ID() {
+		// END SUPRESS CATCH EXCEPTION
 		// Start with an empty id and let the edit part create one
 		//
 		final YUiLayout yLayout = modelFactory.createYUiLayout();
@@ -646,7 +686,9 @@ public class EditpartsTest {
 		try {
 			yLayout.setId("MyId");
 			Assert.fail("Exception must be thrown!");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		// Start with an given id
@@ -660,7 +702,9 @@ public class EditpartsTest {
 		try {
 			yLayout2.setId("MyId");
 			Assert.fail("Exception must be thrown!");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		// Create an edit part without an model element
@@ -674,7 +718,9 @@ public class EditpartsTest {
 		try {
 			yLayout3.setId("MyId");
 			Assert.fail("Exception must be thrown!");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 	}
 
@@ -682,7 +728,9 @@ public class EditpartsTest {
 	 * Tests the disposal of edit parts.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_Dispose_Containements() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -743,7 +791,9 @@ public class EditpartsTest {
 	 * Tests the disposal of edit parts.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_UiViewSetEditPart_views() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		// viewSet
 		// ...> view1
@@ -788,7 +838,9 @@ public class EditpartsTest {
 	 * Tests the disposal of edit parts.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_UiViewEditPart_content() {
+		// END SUPRESS CATCH EXCEPTION
 		// view
 		// ...> layout1
 		YUiView view = modelFactory.createYUiView();
@@ -824,7 +876,9 @@ public class EditpartsTest {
 	 * Tests the disposal of edit parts.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_UiLayoutEditPart_elements() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiLayout rootLayout = modelFactory.createYUiLayout();
 		// layout
 		// ...> layout1
@@ -870,7 +924,9 @@ public class EditpartsTest {
 	 * Tests the disposal of edit parts.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_NotificationObserver() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiView view = modelFactory.createYUiView();
 		IUiViewEditpart viewEditPart = editpartManager.getEditpart(view);
 		NotificationObserver observer = new NotificationObserver(IUiViewEditpart.PROP_CONTENT, viewEditPart);
@@ -905,8 +961,10 @@ public class EditpartsTest {
 		Assert.assertTrue(observer.isCalled());
 	}
 
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_setContext() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...........> field2
 		YUiView view1 = modelFactory.createYUiView();
 		IUiViewEditpart view1EditPart = editpartManager.getEditpart(view1);
@@ -939,11 +997,16 @@ public class EditpartsTest {
 			//
 			view1EditPart.setContext(new InternalViewContext());
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 	}
 
+	/**
+	 * A implementation of {@link PropertyChangeListener}.
+	 */
 	private static class NotificationObserver implements PropertyChangeListener {
 
 		private PropertyChangeEvent event;
@@ -970,6 +1033,9 @@ public class EditpartsTest {
 		}
 	}
 
+	/**
+	 * Internal context for testing.
+	 */
 	private static class InternalViewContext implements IViewContext {
 
 		private boolean rendered;
@@ -1026,7 +1092,8 @@ public class EditpartsTest {
 		}
 
 		@Override
-		public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter) throws ContextException {
+		public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter)
+			throws ContextException {
 
 		}
 

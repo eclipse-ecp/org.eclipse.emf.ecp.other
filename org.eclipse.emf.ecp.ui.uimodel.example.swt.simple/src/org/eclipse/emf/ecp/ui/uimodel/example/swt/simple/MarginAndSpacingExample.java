@@ -1,13 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2000, 2005 IBM Corporation and others.
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * IBM Corporation - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.example.swt.simple;
 
 import java.net.URL;
@@ -27,12 +27,17 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+/**
+ * An example demonstrating how margins can be used.
+ */
 public class MarginAndSpacingExample implements IApplication {
 
 	private SimpleModelFactory factory = new SimpleModelFactory();
 
 	@Override
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public Object start(IApplicationContext context) throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		Display display = Display.getDefault();
 		Shell shell = new Shell(display);
 		shell.setLayout(new FillLayout());
@@ -49,7 +54,7 @@ public class MarginAndSpacingExample implements IApplication {
 		YUiView yView = factory.createYView();
 		yView.setCssClass("marginAndSpacingExample");
 		yView.setMargin(true);
-		
+
 		YUiGridLayout yGridLayout = factory.createYGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setMargin(true);
@@ -83,8 +88,9 @@ public class MarginAndSpacingExample implements IApplication {
 
 		shell.open();
 		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch())
+			if (!display.readAndDispatch()) {
 				display.sleep();
+			}
 		}
 		display.dispose();
 

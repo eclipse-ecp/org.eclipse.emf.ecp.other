@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
 import java.util.ArrayList;
@@ -8,14 +18,28 @@ import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.ILayoutPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ui.uimodel.example.presentation.IConstants;
 import org.eclipse.swt.widgets.Control;
 
+/**
+ * An abstract base class implementing {@link ILayoutPresentation}.
+ */
 @SuppressWarnings("restriction")
 public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable implements ILayoutPresentation<Control> {
 
-	public static final String CSS_CLASS__CONTROL_BASE ="controlbase";
-	public static final String CSS_CLASS__CONTROL ="control";
-	
+	/**
+	 * See {@link IConstants#CSS_CLASS__CONTROL_BASE}.
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public static final String CSS_CLASS__CONTROL_BASE = IConstants.CSS_CLASS__CONTROL_BASE;
+	// END SUPRESS CATCH EXCEPTION
+	/**
+	 * See {@link IConstants#CSS_CLASS__CONTROL}.
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public static final String CSS_CLASS__CONTROL = IConstants.CSS_CLASS__CONTROL;
+	// END SUPRESS CATCH EXCEPTION
+
 	private List<IWidgetPresentation<?>> children;
 
 	@Override
@@ -44,7 +68,7 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * This method is called after the presentation was successfully added to the children collection.<br>
 	 * Subclasses should handle the add of the UI element in that method.
 	 * 
-	 * @param presentation
+	 * @param presentation The presentation to be added
 	 */
 	protected abstract void internalAdd(IWidgetPresentation<?> presentation);
 
@@ -63,7 +87,7 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * This method is called after the presentation was successfully removed from the children collection.<br>
 	 * Subclasses should handle the unrendering of the UI element in that method.
 	 * 
-	 * @param presentation
+	 * @param presentation The presentation to be removed
 	 */
 	protected abstract void internalRemove(IWidgetPresentation<?> presentation);
 
@@ -86,7 +110,8 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * This method is called after the presentation was successfully inserted to the children collection.<br>
 	 * Subclasses should handle the insert of the UI element in that method.
 	 * 
-	 * @param presentation
+	 * @param presentation The presentation to be inserted
+	 * @param index The index where the presentation should be inserted
 	 */
 	protected abstract void internalInsert(IWidgetPresentation<?> presentation, int index);
 
@@ -102,7 +127,6 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 		}
 
 		int currentIndex = children.indexOf(presentation);
-
 		children.remove(presentation);
 		children.add(index, presentation);
 
@@ -113,12 +137,15 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * This method is called after the presentation was successfully moved inside the children collection.<br>
 	 * Subclasses should handle the move of the UI element in that method.
 	 * 
-	 * @param presentation
+	 * @param presentation The presentation to be moved.
 	 * @param oldIndex The old index where the control was located.
 	 * @param newIndex The new index where the control should be located after the move operation.
 	 */
 	protected abstract void internalMove(IWidgetPresentation<?> presentation, int oldIndex, int newIndex);
 
+	/**
+	 * Ensures, that the children collection exists.
+	 */
 	protected void ensureChildren() {
 		if (children == null) {
 			children = new ArrayList<IWidgetPresentation<?>>();
@@ -128,8 +155,8 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	/**
 	 * Sets the css id at the control.
 	 * 
-	 * @param control
-	 * @param id
+	 * @param control The control
+	 * @param id The CSS id
 	 */
 	protected void setCSSId(Control control, String id) {
 		WidgetElement.setID(control, id);
@@ -138,8 +165,8 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	/**
 	 * Sets the css class at the control.
 	 * 
-	 * @param control
-	 * @param clazz
+	 * @param control The control
+	 * @param clazz The CSS class
 	 */
 	protected void setCSSClass(Control control, String clazz) {
 		WidgetElement.setCSSClass(control, clazz);

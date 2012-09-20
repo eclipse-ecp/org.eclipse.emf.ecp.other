@@ -1,17 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2012 Florian Pirchner and others
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
-import java.beans.PropertyChangeSupport;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +25,9 @@ public abstract class DisposableContext extends AbstractDisposable {
 
 	private Map<String, IValueBean> valueBeans = Collections.synchronizedMap(new HashMap<String, IValueBean>());
 
-	public DisposableContext() {
-		super();
-	}
-
 	/**
 	 * Returns a value bean. It can be used to store transient values related to the current view. All returned beans
-	 * should offer {@link PropertyChangeSupport}.<br>
+	 * should offer PropertyChangeSupport.<br>
 	 * If an instance of a value bean for the given selector could be found, it will be returned. Otherwise a new bean
 	 * will be created an registered.
 	 * <p>
@@ -43,7 +37,7 @@ public abstract class DisposableContext extends AbstractDisposable {
 	 * may be used.
 	 * 
 	 * @param selector The selector string to identify the value bean instance.
-	 * @return
+	 * @return selector
 	 */
 	public IValueBean getValueBean(String selector) {
 		checkDisposed();

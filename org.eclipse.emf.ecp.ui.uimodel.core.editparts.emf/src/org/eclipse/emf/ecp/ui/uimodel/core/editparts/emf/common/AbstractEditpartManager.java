@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common;
 
@@ -21,16 +21,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Abstract base implementation of {@link IEditPartManager}
+ * Abstract base implementation of {@link IEditPartManager}.
  */
 public abstract class AbstractEditpartManager implements IEditPartManager {
-	private static final Logger logger = LoggerFactory.getLogger(AbstractEditpartManager.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractEditpartManager.class);
 
 	/**
 	 * Returns the edit part for the given model yElement.
 	 * 
-	 * @param yElement
-	 * @return
+	 * @param <A> an instance of IUiElementEditpart
+	 * @param yElement the model element
+	 * @return editpart
 	 */
 	@SuppressWarnings("unchecked")
 	public static <A extends IUiElementEditpart> A findEditPartFor(YUiElement yElement) {
@@ -77,17 +78,18 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 	/**
 	 * Creates a new instance of the edit part.
 	 * 
-	 * @param yElement
-	 * @return
+	 * @param <A> an instance of IUiElementEditpart
+	 * @param yElement the model element
+	 * @return editpart
 	 */
 	protected abstract <A extends IUiElementEditpart> A createEditpart(Object yElement);
 
 	/**
 	 * Creates a new instance of the required edit part.
 	 * 
-	 * @param <A>
-	 * @param type
-	 * @return
+	 * @param <A> An instance of {@link IUiElementEditpart}
+	 * @param type the type of the editpart to be returned
+	 * @return editpart
 	 */
 	@SuppressWarnings("unchecked")
 	protected <A extends IUiElementEditpart> A createNewInstance(Class<? extends IUiElementEditpart> type) {
@@ -96,10 +98,10 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 		try {
 			editPart = (UiElementEditpart<YUiElement>) newInstance(type);
 		} catch (InstantiationException e) {
-			logger.error("{}", e);
+			LOGGER.error("{}", e);
 			throw new RuntimeException(e);
 		} catch (IllegalAccessException e) {
-			logger.error("{}", e);
+			LOGGER.error("{}", e);
 			throw new RuntimeException(e);
 		}
 		result = (A) editPart;
@@ -107,28 +109,29 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 	}
 
 	/**
-	 * Returns a new instance of the type
+	 * Returns a new instance of the type.
 	 * 
-	 * @param type
-	 * @return
-	 * @throws InstantiationException
-	 * @throws IllegalAccessException
+	 * @param type the type of the editpart to be created
+	 * @return editpart
+	 * 
+	 * @throws InstantiationException exception
+	 * @throws IllegalAccessException exception
 	 */
 	protected abstract IUiElementEditpart newInstance(Class<? extends IUiElementEditpart> type)
 		throws InstantiationException, IllegalAccessException;
 
+	/**
+	 * Asserts that only one IUiElementEditpartProvider exists for the given element.
+	 * 
+	 * @param element the model element
+	 */
 	protected void assertOneEditpartForModelelement(Object element) {
 		YUiElement yElement = (YUiElement) element;
 		for (Adapter adapter : yElement.eAdapters()) {
 			if (adapter instanceof IUiElementEditpartProvider) {
-				logger.error("For a modelelement instance only one editpart can be created!");
+				LOGGER.error("For a modelelement instance only one editpart can be created!");
 				throw new RuntimeException("For a modelelement instance only one editpart can be created!");
 			}
 		}
 	}
-
-	public AbstractEditpartManager() {
-		super();
-	}
-
 }

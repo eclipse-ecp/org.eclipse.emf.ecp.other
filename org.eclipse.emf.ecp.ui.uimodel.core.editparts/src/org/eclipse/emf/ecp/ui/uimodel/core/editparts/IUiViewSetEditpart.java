@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
@@ -23,14 +23,14 @@ public interface IUiViewSetEditpart extends IUiElementEditpart {
 	/**
 	 * Returns the view set context. It offers access to more view set related information.
 	 * 
-	 * @return
+	 * @return context The viewSet context
 	 */
 	IViewSetContext getContext();
 
 	/**
 	 * Sets the view set context. It offers access to more view related information.
 	 * 
-	 * @return
+	 * @param context The viewSet context
 	 */
 	void setContext(IViewSetContext context);
 
@@ -38,21 +38,21 @@ public interface IUiViewSetEditpart extends IUiElementEditpart {
 	 * Returns an unmodifiable list with all views referenced by the root. The root does not control the lifecycle of
 	 * the views.
 	 * 
-	 * @return
+	 * @return view The contained views
 	 */
 	List<IUiViewEditpart> getViews();
 
 	/**
 	 * Adds a view to the root. Adding the same view twice has no effect.
 	 * 
-	 * @param view
+	 * @param view The view editpart to be added
 	 */
 	void addView(IUiViewEditpart view);
 
 	/**
 	 * Removes a view from the root.
 	 * 
-	 * @param view
+	 * @param view The view editpart to be removed
 	 */
 	void removeView(IUiViewEditpart view);
 

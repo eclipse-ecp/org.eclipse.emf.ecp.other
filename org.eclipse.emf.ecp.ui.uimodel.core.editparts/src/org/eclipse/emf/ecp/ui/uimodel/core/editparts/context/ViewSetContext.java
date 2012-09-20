@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2012 Florian Pirchner and others
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
 import java.util.ArrayList;
@@ -22,11 +21,19 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans.ObjectBean;
 
+/**
+ * Implementation of {@link IViewSetContext}.
+ */
 public class ViewSetContext extends DisposableContext implements IViewSetContext {
 
 	private Map<String, IValueBean> valueBeans = Collections.synchronizedMap(new HashMap<String, IValueBean>());
 	private final IUiViewSetEditpart editPart;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param editPart The viewSetEditpart
+	 */
 	public ViewSetContext(IUiViewSetEditpart editPart) {
 		this.editPart = editPart;
 		this.editPart.setContext(this);

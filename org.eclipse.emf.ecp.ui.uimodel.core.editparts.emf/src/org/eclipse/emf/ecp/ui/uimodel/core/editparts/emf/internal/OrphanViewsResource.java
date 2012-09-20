@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.internal;
 
 import java.io.IOException;
@@ -23,6 +22,11 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  */
 public class OrphanViewsResource extends ResourceImpl {
 
+	/**
+	 * The constructor.
+	 * 
+	 * @param uri The URI used to initialize the resource.
+	 */
 	public OrphanViewsResource(URI uri) {
 		super(uri);
 	}
@@ -32,6 +36,9 @@ public class OrphanViewsResource extends ResourceImpl {
 		// ignore
 	}
 
+	/**
+	 * A resource factory for {@link OrphanViewsResource}.
+	 */
 	public static class OrphanViewsResourceFactory implements Resource.Factory {
 		@Override
 		public Resource createResource(URI uri) {

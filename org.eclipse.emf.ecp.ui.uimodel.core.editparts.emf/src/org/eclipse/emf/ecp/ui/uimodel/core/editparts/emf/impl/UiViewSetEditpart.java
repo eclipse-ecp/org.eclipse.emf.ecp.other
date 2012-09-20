@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
@@ -25,14 +25,22 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewSetContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * An implementation of {@link IUiViewEditpart}.
+ * 
+ * @param <M>
+ */
 public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M> implements IUiViewSetEditpart {
 
-	private static final Logger logger = LoggerFactory.getLogger(UiViewSetEditpart.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UiViewSetEditpart.class);
 
 	private List<IUiViewEditpart> uiViewEditparts;
 
 	private IViewSetContext context;
 
+	/**
+	 * The default constructor.
+	 */
 	protected UiViewSetEditpart() {
 
 	}
@@ -61,7 +69,6 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 		return model;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<IUiViewEditpart> getViews() {
 		if (uiViewEditparts == null) {
@@ -100,8 +107,10 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 			M yView = getModel();
 			YUiView yElement = (YUiView) view.getModel();
 			yView.getViews().add(yElement);
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (RuntimeException e) {
-			logger.error("{}", e);
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
 			throw e;
 		}
 	}
@@ -116,8 +125,10 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 			M yView = getModel();
 			YUiView yElement = (YUiView) view.getModel();
 			yView.getViews().remove(yElement);
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (RuntimeException e) {
-			logger.error("{}", e);
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
 			throw e;
 		}
 	}
@@ -125,7 +136,7 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void handleModel_Add(int featureId, Notification notification) {
+	protected void handleModelAdd(int featureId, Notification notification) {
 		checkDisposed();
 
 		switch (featureId) {
@@ -133,13 +144,15 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 			YUiView yElement = (YUiView) notification.getNewValue();
 			internalAddElement((IUiViewEditpart) getEditpart(yElement));
 			break;
+		default:
+			break;
 		}
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void handleModel_Remove(int featureId, Notification notification) {
+	protected void handleModelRemove(int featureId, Notification notification) {
 		checkDisposed();
 
 		switch (featureId) {
@@ -147,13 +160,15 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 			YUiView yElement = (YUiView) notification.getOldValue();
 			internalRemoveElement((IUiViewEditpart) getEditpart(yElement));
 			break;
+		default:
+			break;
 		}
 	}
 
 	/**
 	 * Is called to change the internal state and add the given editpart to the list of elements.
 	 * 
-	 * @param editpart
+	 * @param editpart The editpart to be added
 	 */
 	protected void internalAddElement(IUiViewEditpart editpart) {
 		checkDisposed();
@@ -169,7 +184,7 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 	/**
 	 * Is called to change the internal state and remove the given editpart from the list of elements.
 	 * 
-	 * @param editpart
+	 * @param editpart The editpart to be removed
 	 */
 	protected void internalRemoveElement(IUiViewEditpart editpart) {
 		checkDisposed();
@@ -182,7 +197,6 @@ public class UiViewSetEditpart<M extends YUiViewSet> extends UiElementEditpart<M
 	/**
 	 * Is called to load and initialize all elements.
 	 */
-	@SuppressWarnings("unchecked")
 	protected void internalLoadViews() {
 		checkDisposed();
 

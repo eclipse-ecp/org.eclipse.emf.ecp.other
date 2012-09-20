@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -23,6 +33,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the editpartManager.
+ */
 @SuppressWarnings("restriction")
 public class EditpartManagerTest {
 
@@ -30,6 +43,9 @@ public class EditpartManagerTest {
 	private ResourceSetImpl resourceSet;
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 
+	/**
+	 * Setup the test.
+	 */
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
@@ -44,10 +60,12 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Tests that the editpart manager always returns the same instance on calling getInstance()
+	 * Tests that the editpart manager always returns the same instance on calling getInstance().
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getInstance() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -104,10 +122,12 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Tests that no edit part is created for findEditpart(modelObject)
+	 * Tests that no edit part is created for findEditpart(modelObject).
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_findEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -154,10 +174,12 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Tests that the findEditpart(modelObject) will find the same instance as getInstance
+	 * Tests that the findEditpart(modelObject) will find the same instance as getInstance.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_findEditpart_afterGetEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -214,10 +236,12 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Tests that the findEditpart(modelObject) finds the edit part that was created by createEditpart
+	 * Tests that the findEditpart(modelObject) finds the edit part that was created by createEditpart.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_findEditpart_afterCreateEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		String selector = "http://eclipse.org/emf/emfclient/uimodel";
 
 		// access the editparts the editpartManager
@@ -261,7 +285,9 @@ public class EditpartManagerTest {
 	 * getEditpart(modelObject). Just one for the first create.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getInstance_justOneAdapterInstanceRegistered() {
+		// END SUPRESS CATCH EXCEPTION
 		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
@@ -324,10 +350,12 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Tests that no edit part is created for findEditpart(modelObject)
+	 * Tests that no edit part is created for findEditpart(modelObject).
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_createEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		String selector = "http://eclipse.org/emf/emfclient/uimodel";
 
 		// access the editparts the editpartManager

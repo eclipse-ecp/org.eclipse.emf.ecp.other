@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests.css;
 
 import java.util.Collections;
@@ -26,12 +36,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the CSS spacings.
+ */
 public class SpacingTests {
 
 	private SimpleModelFactory factory = new SimpleModelFactory();
 	private Display display = Display.getCurrent();
 	private Shell shell;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		shell = new Shell(display);
@@ -39,11 +55,13 @@ public class SpacingTests {
 	}
 
 	/**
-	 * Tests the margin<br>
+	 * Tests the spacing.<br>
 	 * yView.setSpacing(false);
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_spacing_gridlayout_settingFalse_noCSS() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
 		YUiView yView = factory.createYView();
 		yView.setCssClass("spacingtests");
@@ -72,11 +90,13 @@ public class SpacingTests {
 	}
 
 	/**
-	 * Tests the margin<br>
+	 * Tests the spacing.<br>
 	 * yView.setSpacing(true);
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_spacing_gridlayout_settingTrue_noCSS() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
 		YUiView yView = factory.createYView();
 		yView.setCssClass("spacingtests");
@@ -105,12 +125,14 @@ public class SpacingTests {
 	}
 
 	/**
-	 * Tests the margin<br>
+	 * Tests the spacing.<br>
 	 * yView.setSpacing(false);<br>
 	 * createCssOptions() is used
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_spacing_gridlayout_settingFalse_withCSS() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
 		YUiView yView = factory.createYView();
 		yView.setCssClass("spacingtests");
@@ -140,12 +162,14 @@ public class SpacingTests {
 	}
 
 	/**
-	 * Tests the margin<br>
+	 * Tests the spacing.<br>
 	 * yView.setSpacing(true);<br>
 	 * createCssOptions() is used
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_spacing_gridlayout_settingTrue_withCSS() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
 		YUiView yView = factory.createYView();
 		yView.setCssClass("spacingtests");
@@ -187,6 +211,12 @@ public class SpacingTests {
 		return control;
 	}
 
+	/**
+	 * Returns the control for the given model element.
+	 * 
+	 * @param yView model element.
+	 * @return control
+	 */
 	protected Control getControl(YUiElement yView) {
 		IUiElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
 
@@ -200,6 +230,11 @@ public class SpacingTests {
 		return widget;
 	}
 
+	/**
+	 * Creates the CSSOptions.
+	 * 
+	 * @return CSSOptions
+	 */
 	protected Map<String, Object> createCssOptions() {
 		Map<String, Object> options = new HashMap<String, Object>();
 		options.put(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES,

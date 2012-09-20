@@ -37,6 +37,10 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	private Composite control;
 	private ModelAccess modelAccess;
 
+	/**
+	 * The constructor.
+	 * @param editpart The editpart of that presentation.
+	 */
 	public GridLayoutPresentation(IUiElementEditpart editpart) {
 		this.editpart = (IUiLayoutEditpart) editpart;
 		this.modelAccess = new ModelAccess((YUiGridLayout) editpart.getModel());
@@ -45,7 +49,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Returns the view context.
 	 * 
-	 * @return
+	 * @return viewContext
 	 */
 	protected IViewContext getViewContext() {
 		return editpart.getView().getContext();
@@ -54,7 +58,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Returns the editpart the presenter will render for.
 	 * 
-	 * @return
+	 * @return editpart
 	 */
 	public IUiLayoutEditpart getEditpart() {
 		return editpart;
@@ -131,16 +135,33 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	public void renderChildren(boolean force) {
 		if (force) {
 			unrenderChildren();
-		}
 
-		for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
-			IWidgetPresentation<?> presentation = childEditpart.getPresentation();
-			if (!contains(presentation)) {
-				// will be rendered automatically after add
-				super.add(presentation);
-			} else {
-				// render the widget
-				createChildWidget(presentation);
+			for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
+				IWidgetPresentation<?> presentation = childEditpart.getPresentation();
+				if (!contains(presentation)) {
+					// will be rendered automatically after add
+					super.add(presentation);
+				} else {
+					// render the widget
+					createChildWidget(presentation);
+				}
+			}
+		} else {
+			// ensure, that the widget is inserted into its correct position
+			//
+			int index = -1;
+			for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
+				IWidgetPresentation<?> presentation = childEditpart.getPresentation();
+				index++;
+				if (presentation.isRendered()) {
+					continue;
+				}
+				if (!contains(presentation)) {
+					// will be rendered automatically after add
+					super.add(presentation);
+				} else {
+					internalInsert(presentation, index);
+				}
 			}
 		}
 	}
@@ -161,8 +182,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	 * Is called to create the widget for the given presentation. If the presentation is not rendered yet, null will be
 	 * returned.
 	 * 
-	 * @param childPresentation
-	 * @return
+	 * @param childPresentation The presentation that should become a child presentation
+	 * @return childWidget
 	 */
 	protected Control createChildWidget(IWidgetPresentation<?> childPresentation) {
 		if (!isRendered()) {
@@ -195,7 +216,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 				children.length));
 		}
 
-		if (index == children.length) {
+		if (index == children.length - 1) {
 			// nothing to do. Control was added at the end.
 		} else {
 			// determine the next control, and move the given control before it.
@@ -228,6 +249,9 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 		}
 	}
 
+	/**
+	 * An internal helper class.
+	 */
 	private static class ModelAccess {
 		private final YUiGridLayout yLayout;
 

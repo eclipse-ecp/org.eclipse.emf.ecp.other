@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
@@ -26,13 +26,21 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresent
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * The implementation for {@link IUiViewEditpart}.
+ * 
+ * @param <M>
+ */
 public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> implements IUiViewEditpart {
 
-	private static final Logger logger = LoggerFactory.getLogger(UiViewEditpart.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UiViewEditpart.class);
 	private IUiEmbeddableEditpart content;
 	private IViewContext context;
 	private IViewPresentation<?> presentation;
 
+	/**
+	 * Default constructor.
+	 */
 	public UiViewEditpart() {
 
 	}
@@ -51,7 +59,9 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	}
 
 	@Override
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void setContext(IViewContext context) throws RuntimeException {
+		// END SUPRESS CATCH EXCEPTION
 		if (this.context == context) {
 			return;
 		}
@@ -77,8 +87,10 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 			M yView = getModel();
 			YUiEmbeddable yElement = content != null ? (YUiEmbeddable) content.getModel() : null;
 			yView.setContent(yElement);
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (RuntimeException e) {
-			logger.error("{}", e);
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
 			throw e;
 		}
 	}
@@ -104,7 +116,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	/**
 	 * May be invoked by a model change and the content of the edit part should be set.
 	 * 
-	 * @param parent
+	 * @param content The content to be set
 	 */
 	protected void internalSetContent(IUiEmbeddableEditpart content) {
 		this.content = content;
@@ -114,7 +126,7 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void handleModel_Set(int featureId, Notification notification) {
+	protected void handleModelSet(int featureId, Notification notification) {
 		checkDisposed();
 
 		switch (featureId) {
@@ -131,18 +143,20 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 			}
 
 			// fire event
-			firePropertyChanged_Editpart(PROP_CONTENT, notification);
+			firePropertyChangedEditpart(PROP_CONTENT, notification);
+			break;
+		default:
 			break;
 		}
 	}
-	
+
 	/**
 	 * Returns true, if the editpart is currently rendered.
 	 * 
 	 * @return
 	 */
 	private boolean isRendered() {
-		return internal_getPresentation() != null && internal_getPresentation().isRendered();
+		return internalGetPresentation() != null && internalGetPresentation().isRendered();
 	}
 
 	@Override
@@ -178,13 +192,15 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 		YUiViewSet yViewSet = getModel().getRoot();
 		return yViewSet != null ? (IUiViewSetEditpart) getEditpart(yViewSet) : null;
 	}
-	
+
 	/**
 	 * Returns the instance of the presentation, but does not load it.
-	 * @return
+	 * 
+	 * @param <A> An instance of {@link IWidgetPresentation}
+	 * @return presentation
 	 */
 	@SuppressWarnings("unchecked")
-	protected <A extends IWidgetPresentation<?>> A internal_getPresentation() {
+	protected <A extends IWidgetPresentation<?>> A internalGetPresentation() {
 		return (A) presentation;
 	}
 
@@ -199,6 +215,10 @@ public class UiViewEditpart<M extends YUiView> extends UiElementEditpart<M> impl
 
 	/**
 	 * Is called to created the presenter for this edit part.
+	 * 
+	 * @param <A> An instance of {@link IViewPresentation}
+	 * 
+	 * @return The created presentation.
 	 */
 	protected <A extends IViewPresentation<?>> A createPresentation() {
 		return DelegatingPresenterFactory.getInstance().createPresentation(getContext(), this);

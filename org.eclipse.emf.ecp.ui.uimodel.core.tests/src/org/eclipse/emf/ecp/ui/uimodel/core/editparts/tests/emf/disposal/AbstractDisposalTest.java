@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.disposal;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
@@ -16,10 +15,18 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests the {@link AbstractDisposable}.
+ */
 public class AbstractDisposalTest {
 
+	/**
+	 * Tests dispose.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
+		// END SUPRESS CATCH EXCEPTION
 		AbstractDisposable disposable = new AbstractDisposable() {
 			@Override
 			protected void internalDispose() {
@@ -37,22 +44,27 @@ public class AbstractDisposalTest {
 		try {
 			disposable.addDisposeListener(listener);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			disposable.removeDisposeListener(listener);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
-
 	}
 
 	/**
 	 * Tests that the internalDispose method is called.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_callInternalDispose() {
+		// END SUPRESS CATCH EXCEPTION
 		final boolean[] called = new boolean[] { false };
 		AbstractDisposable disposable = new AbstractDisposable() {
 			@Override
@@ -70,7 +82,9 @@ public class AbstractDisposalTest {
 	 * Tests that the internalDispose method is called.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_callInternalDispose_BeforeSetDisposed() {
+		// END SUPRESS CATCH EXCEPTION
 		AbstractDisposable disposable = new AbstractDisposable() {
 			@Override
 			protected void internalDispose() {
@@ -84,7 +98,9 @@ public class AbstractDisposalTest {
 	 * Tests that the internalDispose method is called.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_callListener() {
+		// END SUPRESS CATCH EXCEPTION
 		AbstractDisposable disposable = new AbstractDisposable() {
 			@Override
 			protected void internalDispose() {
@@ -109,6 +125,9 @@ public class AbstractDisposalTest {
 		Assert.assertEquals(0, listener3.callCounter);
 	}
 
+	/**
+	 * A helper class.
+	 */
 	private static class Listener implements IDisposable.Listener {
 		private int callCounter;
 

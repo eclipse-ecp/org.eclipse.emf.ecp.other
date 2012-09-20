@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans;
 
@@ -15,6 +15,9 @@ import java.beans.PropertyChangeSupport;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 
+/**
+ * A default implementation of value bean. Offerns {@link PropertyChangeSupport}.
+ */
 public class AbstractBean implements IValueBean {
 	private final PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 	private Object value;
@@ -22,7 +25,7 @@ public class AbstractBean implements IValueBean {
 	/**
 	 * Adds the given property change listener to the change support.
 	 * 
-	 * @param listener
+	 * @param listener Listener to be added
 	 * @see java.beans.PropertyChangeSupport#addPropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -32,8 +35,8 @@ public class AbstractBean implements IValueBean {
 	/**
 	 * Adds the given property change listener to the change support.
 	 * 
-	 * @param property
-	 * @param listener
+	 * @param property Name of the property
+	 * @param listener Listener to be added
 	 * @see java.beans.PropertyChangeSupport#addPropertyChangeListener(java.lang.String,
 	 *      java.beans.PropertyChangeListener)
 	 */
@@ -44,7 +47,7 @@ public class AbstractBean implements IValueBean {
 	/**
 	 * Removes the given property change listener from the change support.
 	 * 
-	 * @param listener
+	 * @param listener Listener to be removed
 	 * @see java.beans.PropertyChangeSupport#removePropertyChangeListener(java.beans.PropertyChangeListener)
 	 */
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
@@ -54,8 +57,8 @@ public class AbstractBean implements IValueBean {
 	/**
 	 * Removes the given property change listener from the change support.
 	 * 
-	 * @param property
-	 * @param listener
+	 * @param property Name of the property
+	 * @param listener Listener to be removed
 	 * @see java.beans.PropertyChangeSupport#removePropertyChangeListener(java.lang.String,
 	 *      java.beans.PropertyChangeListener)
 	 */
@@ -66,9 +69,9 @@ public class AbstractBean implements IValueBean {
 	/**
 	 * Fires the property changed event.
 	 * 
-	 * @param property
-	 * @param oldValue
-	 * @param newValue
+	 * @param property Name of the property
+	 * @param oldValue The old value
+	 * @param newValue The new value
 	 * @see java.beans.PropertyChangeSupport#firePropertyChange(String, Object, Object)
 	 */
 	protected void firePropertyChanged(String property, Object oldValue, Object newValue) {
@@ -82,6 +85,8 @@ public class AbstractBean implements IValueBean {
 
 	@Override
 	public void setValue(Object value) {
+		// BEGIN SUPRESS CATCH EXCEPTION
 		firePropertyChanged("value", this.value, this.value = value);
+		// END SUPRESS CATCH EXCEPTION
 	}
 }

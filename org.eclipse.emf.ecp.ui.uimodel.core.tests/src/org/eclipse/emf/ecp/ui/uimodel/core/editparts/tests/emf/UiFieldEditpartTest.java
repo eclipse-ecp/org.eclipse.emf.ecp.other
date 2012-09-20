@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
@@ -11,12 +21,21 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the ui field edit part.
+ * 
+ * @author admin
+ * 
+ */
 @SuppressWarnings("restriction")
 public class UiFieldEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		editpartManager.clear();
@@ -24,9 +43,14 @@ public class UiFieldEditpartTest {
 		editpartManager
 			.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
-	
+
+	/**
+	 * Tets the parent property.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_parent() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> layout1
 		// ......> field1
 		YUiLayout layout1 = modelFactory.createYUiLayout();
@@ -49,8 +73,13 @@ public class UiFieldEditpartTest {
 		Assert.assertNull(field1.getParent());
 	}
 
+	/**
+	 * Tests the disposal.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> layout1
 		// ......> field1
 		YUiField field1 = modelFactory.createYUiField();
@@ -70,35 +99,45 @@ public class UiFieldEditpartTest {
 				}
 			});
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			field1Editpart.getId();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			field1Editpart.getModel();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			field1Editpart.getParent();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			field1Editpart.getView();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
@@ -109,7 +148,9 @@ public class UiFieldEditpartTest {
 				}
 			});
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 	}

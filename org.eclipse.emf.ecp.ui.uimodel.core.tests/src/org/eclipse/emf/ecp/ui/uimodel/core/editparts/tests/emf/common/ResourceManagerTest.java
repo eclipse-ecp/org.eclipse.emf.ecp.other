@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.common;
 
 import org.eclipse.emf.common.util.URI;
@@ -20,10 +19,17 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.internal.OrphanViewsRes
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Tests the {@link ResourceManager}.
+ */
 @SuppressWarnings("restriction")
 public class ResourceManagerTest {
 
+	/**
+	 * Tests the getResource method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getResource() {
 		Resource r1_1 = ResourceManager.getInstance().getResource(UiModelPackage.eNS_URI);
 		Resource r1_2 = ResourceManager.getInstance().getResource(UiModelPackage.eNS_URI);
@@ -44,8 +50,15 @@ public class ResourceManagerTest {
 		Assert.assertTrue(r4_1 instanceof OrphanViewsResource);
 	}
 
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Tests the get resourceSet method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getResourceSet() {
+		// END SUPRESS CATCH EXCEPTION
 		Assert.assertNotNull(ResourceManager.getInstance().getResourceSet());
 	}
 }

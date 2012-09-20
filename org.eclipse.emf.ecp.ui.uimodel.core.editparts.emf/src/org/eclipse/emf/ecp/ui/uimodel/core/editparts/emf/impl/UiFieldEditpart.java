@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
@@ -16,11 +16,18 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiFieldEditpart;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Implementation of {@link IUiFieldEditpart}.
+ * @param <M>
+ */
 public class UiFieldEditpart<M extends YUiField> extends UiEmbeddableEditpart<M> implements IUiFieldEditpart {
 
 	@SuppressWarnings("unused")
-	private static final Logger logger = LoggerFactory.getLogger(UiFieldEditpart.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UiFieldEditpart.class);
 
+	/**
+	 * A default constructor.
+	 */
 	protected UiFieldEditpart() {
 	}
 

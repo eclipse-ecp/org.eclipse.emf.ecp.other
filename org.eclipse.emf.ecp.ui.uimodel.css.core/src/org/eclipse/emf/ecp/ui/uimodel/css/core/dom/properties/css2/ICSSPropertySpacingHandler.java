@@ -1,3 +1,15 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Based on org.eclipse.e4.ui.css.core.dom.properties.css2.ICSSPropertyMarginHandler
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.css.core.dom.properties.css2;
 
 import org.eclipse.e4.ui.css.core.dom.properties.ICSSPropertyHandler;
@@ -19,8 +31,9 @@ public interface ICSSPropertySpacingHandler extends ICSSPropertyHandler {
 	 * @param engine
 	 * @throws Exception
 	 */
-	public void applyCSSPropertySpacingHorizontal(Object element, CSSValue value, String pseudo, CSSEngine engine)
-		throws Exception;
+	// BEGIN SUPRESS CATCH EXCEPTION
+	void applyCSSPropertySpacingHorizontal(Object element, CSSValue value, String pseudo, CSSEngine engine)
+		throws Exception; // END SUPRESS CATCH EXCEPTION
 
 	/**
 	 * Sets the vertical spacing. Available values are {length}
@@ -31,12 +44,32 @@ public interface ICSSPropertySpacingHandler extends ICSSPropertyHandler {
 	 * @param engine
 	 * @throws Exception
 	 */
-	public void applyCSSPropertySpacingVertical(Object element, CSSValue value, String pseudo, CSSEngine engine)
-		throws Exception;
+	// BEGIN SUPRESS CATCH EXCEPTION
+	void applyCSSPropertySpacingVertical(Object element, CSSValue value, String pseudo, CSSEngine engine)
+		throws Exception; // END SUPRESS CATCH EXCEPTION
 
-	public String retrieveCSSPropertySpacingHorizontal(Object element, String pseudo, CSSEngine engine)
-		throws Exception;
+	/**
+	 * Retrieves the CSS property.
+	 * 
+	 * @param element
+	 * @param pseudo
+	 * @param engine
+	 * @return value
+	 * @throws Exception
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	String retrieveCSSPropertySpacingHorizontal(Object element, String pseudo, CSSEngine engine) throws Exception; // END
 
-	public String retrieveCSSPropertySpacingVertical(Object element, String pseudo, CSSEngine engine) throws Exception;
-
+	/**
+	 * Retrieves the CSS property.
+	 * 
+	 * @param element
+	 * @param pseudo
+	 * @param engine
+	 * @return value
+	 * @throws Exception
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	String retrieveCSSPropertySpacingVertical(Object element, String pseudo, CSSEngine engine) throws Exception; // END
+																													// EXCEPTION
 }

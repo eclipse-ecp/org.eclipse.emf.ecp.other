@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.context;
 
 import java.util.Map;
@@ -45,6 +44,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the view context.
+ */
 @SuppressWarnings("restriction")
 public class ViewContextTest {
 
@@ -54,6 +56,9 @@ public class ViewContextTest {
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 	private ViewContext context;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
@@ -75,7 +80,9 @@ public class ViewContextTest {
 	 * Tests {@link IViewContext#getValueBean(String)} and {@link IViewContext#registerValueBean(String, IValueBean)}.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_valueBeans() {
+		// END SUPRESS CATCH EXCEPTION
 		IValueBean valueBean1 = new IValueBean() {
 			@Override
 			public void setValue(Object value) {
@@ -119,8 +126,13 @@ public class ViewContextTest {
 		Assert.assertSame(valueBean2, context.getValueBean("bean1"));
 	}
 
+	/**
+	 * Tests dispose.
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_dispose() {
+		// END SUPRESS CATCH EXCEPTION
 		Assert.assertFalse(context.isDisposed());
 		context.dispose();
 		Assert.assertTrue(context.isDisposed());
@@ -128,49 +140,65 @@ public class ViewContextTest {
 		try {
 			context.addDisposeListener(null);
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.getParentContext();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.getPresentationURI();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.getRootBean();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.getRootLayout();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.getValueBean("test");
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.getViewEditpart();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.isRendered();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
@@ -185,30 +213,43 @@ public class ViewContextTest {
 				}
 			});
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.removeDisposeListener(null);
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.render("test", null, null);
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			context.setPresentationURI("test");
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 	}
 
+	/**
+	 * Test the dipose listeners.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose_listener() {
+		// END SUPRESS CATCH EXCEPTION
 		final int[] counter = new int[1];
 		IDisposable.Listener listener = new IDisposable.Listener() {
 			@Override
@@ -222,8 +263,13 @@ public class ViewContextTest {
 		Assert.assertEquals(1, counter[0]);
 	}
 
+	/**
+	 * Tests the removal of the context from its parent.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose_removedFromParentContext() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 
 		// viewSet
@@ -261,8 +307,13 @@ public class ViewContextTest {
 		Assert.assertEquals(0, viewSetContext.getViewContexts().size());
 	}
 
+	/**
+	 * Tests, that disposal will also dispose the containment childs.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose_delegateToContentEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 
 		// viewSet
@@ -297,18 +348,26 @@ public class ViewContextTest {
 		Assert.assertTrue(field1Editpart.isDisposed());
 	}
 
-
-
+	/**
+	 * Tests the getViewEditpart method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getViewEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		IUiViewEditpart viewEditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
 			IUiViewEditpart.class);
 		ViewContext context = new ViewContext(viewEditPart);
 		Assert.assertSame(viewEditPart, context.getViewEditpart());
 	}
 
+	/**
+	 * Tests the render method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_render() {
+		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
 		presenterFactory.addFactory(new PresenterFactory());
 		Assert.assertFalse(context.isRendered());
@@ -324,13 +383,20 @@ public class ViewContextTest {
 		try {
 			context.render("test", new Object(), null);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			Assert.assertEquals("Has already been rendered!", e.getMessage());
 		}
 	}
 
+	/**
+	 * Tests the rendering with a presenter of null.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_render_PresenterNull() {
+		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
 		try {
 			context.render(null, new Object(), null);
@@ -339,8 +405,13 @@ public class ViewContextTest {
 		}
 	}
 
+	/**
+	 * Tests the rendering with a layout of null.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_render_layoutNull() {
+		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
 		try {
 			context.render("test", null, null);
@@ -350,8 +421,13 @@ public class ViewContextTest {
 		}
 	}
 
+	/**
+	 * Tests the rendering with a presentation URI of null.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_render_presentationURINull() {
+		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
 		presenterFactory.addFactory(new PresenterFactory());
 		try {
@@ -361,8 +437,13 @@ public class ViewContextTest {
 		}
 	}
 
+	/**
+	 * Tests the getParentContext method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getParentContext() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 
 		// viewSet
@@ -418,6 +499,9 @@ public class ViewContextTest {
 		Assert.assertNotNull(viewContext2.getParentContext());
 	}
 
+	/**
+	 * A helper presenter factory.
+	 */
 	private static class PresenterFactory implements IPresentationFactory {
 
 		@Override
@@ -433,6 +517,9 @@ public class ViewContextTest {
 		}
 	}
 
+	/**
+	 * A helper presentation.
+	 */
 	@SuppressWarnings("rawtypes")
 	private static class Presentation implements IViewPresentation {
 
@@ -484,6 +571,12 @@ public class ViewContextTest {
 		@Override
 		public void render(Map options) {
 
+		}
+
+		@Override
+		public IWidgetPresentation getContent() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 }

@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal;
 
@@ -90,8 +90,8 @@ public abstract class AbstractDisposable implements IDisposable {
 	}
 
 	/**
-	 * Notifies all listeners about the disposal of that elemenyElement
-	 **/
+	 * Notifies all listeners about the disposal of that elemenyElement.
+	 */
 	protected void notifyDisposeListeners() {
 		if (disposeListeners == null) {
 			return;

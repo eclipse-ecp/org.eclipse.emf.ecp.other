@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
 import java.util.ArrayList;
@@ -23,9 +22,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Delegates the calls to the implementing services provided by OSGi-DS.
  */
-public class DelegatingEditPartManager implements IEditPartManager {
+public final class DelegatingEditPartManager implements IEditPartManager {
 
-	private static final Logger logger = LoggerFactory.getLogger(DelegatingEditPartManager.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DelegatingEditPartManager.class);
 	private static DelegatingEditPartManager instance = new DelegatingEditPartManager();
 
 	private final List<IEditPartManager> factories = Collections.synchronizedList(new ArrayList<IEditPartManager>());
@@ -50,7 +49,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	}
 
 	/**
-	 * Returns true, if one of the registered factories are responsible to handle the request.
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isFor(Object element) {
@@ -71,7 +70,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 				return factory.findEditpart(element);
 			}
 		}
-		logger.error("No proper editPartFactory found for element {}", element);
+		LOGGER.error("No proper editPartFactory found for element {}", element);
 		return null;
 	}
 
@@ -82,7 +81,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 				return factory.getEditpart(element);
 			}
 		}
-		logger.error("No proper editPartFactory found for element {}", element);
+		LOGGER.error("No proper editPartFactory found for element {}", element);
 		return null;
 	}
 
@@ -93,14 +92,14 @@ public class DelegatingEditPartManager implements IEditPartManager {
 				return factory.createEditpart(selector, editPartClazz);
 			}
 		}
-		logger.error("No proper editPartFactory found for element {}", selector);
+		LOGGER.error("No proper editPartFactory found for element {}", selector);
 		return null;
 	}
 
 	/**
 	 * Adds a new factory to the manager.
 	 * 
-	 * @param service
+	 * @param factory factory to be added
 	 */
 	public void addFactory(IEditPartManager factory) {
 		if (!factories.contains(factory)) {
@@ -111,7 +110,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 	/**
 	 * Removes the factory from the manager.
 	 * 
-	 * @param service
+	 * @param factory factory to be removed
 	 */
 	public void removeFactory(IEditPartManager factory) {
 		if (factory == null) {
@@ -120,32 +119,35 @@ public class DelegatingEditPartManager implements IEditPartManager {
 		factories.remove(factory);
 	}
 
+	/**
+	 * The OSGi component.
+	 */
 	public static class Component {
 
 		/**
-		 * Called by OSGi-DS
+		 * Called by OSGi-DS.
 		 * 
-		 * @param context
-		 * @param properties
+		 * @param context ComponentContext
+		 * @param properties Map of properties
 		 */
 		public void activate(ComponentContext context, Map<String, Object> properties) {
-			logger.debug("EditPartFactoryManager activated");
+			LOGGER.debug("EditPartFactoryManager activated");
 		}
 
 		/**
-		 * Called by OSGi-DS
+		 * Called by OSGi-DS.
 		 * 
-		 * @param context
-		 * @param properties
+		 * @param context ComponentContext
+		 * @param properties Map of properties
 		 */
 		public void deactivate(ComponentContext context, Map<String, Object> properties) {
-			logger.debug("EditPartFactoryManager deactivated");
+			LOGGER.debug("EditPartFactoryManager deactivated");
 		}
 
 		/**
 		 * Called by OSGi DS.
 		 * 
-		 * @param service
+		 * @param factory Factory to be added.
 		 */
 		protected void addFactory(IEditPartManager factory) {
 			DelegatingEditPartManager.getInstance().addFactory(factory);
@@ -154,7 +156,7 @@ public class DelegatingEditPartManager implements IEditPartManager {
 		/**
 		 * Called by OSGi DS.
 		 * 
-		 * @param service
+		 * @param factory Factory to be removed.
 		 */
 		protected void removeFactory(IEditPartManager factory) {
 			DelegatingEditPartManager.getInstance().removeFactory(factory);

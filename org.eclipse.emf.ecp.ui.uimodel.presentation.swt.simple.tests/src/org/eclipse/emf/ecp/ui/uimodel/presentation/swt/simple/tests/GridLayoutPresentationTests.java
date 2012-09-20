@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests;
 
 import junit.framework.Assert;
@@ -18,6 +28,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.ILayoutPresent
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.SimpleSwtRenderer;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal.AbstractSWTWidgetPresenter;
+import org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal.GridLayoutPresentation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -29,6 +40,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the {@link GridLayoutPresentation}.
+ */
 @SuppressWarnings("restriction")
 public class GridLayoutPresentationTests {
 
@@ -36,14 +50,24 @@ public class GridLayoutPresentationTests {
 	private Display display = Display.getCurrent();
 	private Shell shell;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		shell = new Shell(display);
 		shell.setLayout(new FillLayout());
 	}
 
+	/**
+	 * Test rendering issues.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_unrender_layout_and_render_byModel() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -166,8 +190,15 @@ public class GridLayoutPresentationTests {
 
 	}
 
+	/**
+	 * Test the getChildren method.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getChildren() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -219,8 +250,14 @@ public class GridLayoutPresentationTests {
 
 	}
 
+	/**
+	 * Tests the containsChildren method.
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_containsChildren() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -283,8 +320,588 @@ public class GridLayoutPresentationTests {
 		Assert.assertTrue(presLayout.contains(presText2));
 	}
 
+	/**
+	 * Tests the order of children after remove and add.
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_remove_add() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(yText3);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// remove text1
+		//
+		yGridlayout.getElements().remove(yText1);
+		Assert.assertFalse(presText1.isRendered());
+
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+
+		Assert.assertEquals(presText2, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(1));
+
+		// add text1 again
+		//
+		yGridlayout.getElements().add(yText1);
+		Assert.assertTrue(presText1.isRendered());
+
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[2]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(2));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(1));
+	}
+
+	/**
+	 * Tests the order of children after insert.
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_insert() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+
+		//
+		// create text3 and insert at index 1
+		//
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(1, yText3);
+
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[2]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(2));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(1));
+	}
+
+	/**
+	 * Tests the order of children after adding a child twice.
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_insert_twice() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		try {
+			yGridlayout.getElements().add(0, yText2);
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+	}
+
+	/**
+	 * Test the order of children after a move in the same parent.
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_move_inSameParent() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(yText3);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// move text1 to index 1
+		//
+		yGridlayout.getElements().move(1, yText1);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+	}
+
+	/**
+	 * Tests the order of children after a move to a different parent.
+	 * @throws Exception
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	@Test
+	public void test_orderOfChildren_move_toDifferentParent() throws Exception {
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout1
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout1 = factory.createYGridLayout();
+		yView.setContent(yGridlayout1);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout1.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout1.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout1.getElements().add(yText3);
+
+		// the target gridLayout1_1
+		YUiGridLayout yGridlayout1_1 = factory.createYGridLayout();
+		yGridlayout1.getElements().add(yGridlayout1_1);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart1 = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout1);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+		IUiGridLayoutEditpart layoutEditpart1_1 = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout1_1);
+
+		ILayoutPresentation<Control> presLayout1 = layoutEditpart1.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+		ILayoutPresentation<Control> presLayout1_1 = layoutEditpart1_1.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout1.getWidget());
+		Composite composite_gl_1_1 = (Composite) unwrap(presLayout1_1.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+		Assert.assertEquals(presLayout1_1.getWidget(), composite.getChildren()[3]);
+		Assert.assertEquals(0, composite_gl_1_1.getChildren().length);
+
+		Assert.assertEquals(presText1, presLayout1.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout1.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout1.getChildren().get(2));
+		Assert.assertEquals(presLayout1_1, presLayout1.getChildren().get(3));
+
+		// move text1 for yGridlayout1 to yGridlayout1_1
+		//
+		yGridlayout1_1.getElements().add(yText1);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presLayout1_1.getWidget(), composite.getChildren()[2]);
+		Assert.assertEquals(presText1.getWidget(), composite_gl_1_1.getChildren()[0]);
+
+		Assert.assertEquals(presText2, presLayout1.getChildren().get(0));
+		Assert.assertEquals(presText3, presLayout1.getChildren().get(1));
+		Assert.assertEquals(presLayout1_1.getWidget(), composite.getChildren()[2]);
+		Assert.assertEquals(presText1, presLayout1_1.getChildren().get(0));
+	}
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Test the order of children after a renderChildren(true).
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_renderChildren_forceTrue() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(yText3);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// unrender text1
+		//
+		presText1.unrender();
+		Assert.assertEquals(2, composite.getChildren().length);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+
+		// NOTE: Unrender does not remove the elements!
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// render again
+		presLayout.renderChildren(true);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+	}
+
+	/**
+	 * Tests order of children.
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_renderChildren_forceFalse_1() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(yText3);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// unrender text1
+		//
+		presText1.unrender();
+		Assert.assertEquals(2, composite.getChildren().length);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+
+		// NOTE: Unrender does not remove the elements!
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		presLayout.renderChildren(false);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+	}
+
+	/**
+	 * Tests the order of children.
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_renderChildren_forceFalse_2() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(yText3);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// unrender text1
+		//
+		presText2.unrender();
+		Assert.assertEquals(2, composite.getChildren().length);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[1]);
+
+		// NOTE: Unrender does not remove the elements!
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		presLayout.renderChildren(false);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+	}
+
+	/**
+	 * Test the order of children.
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_orderOfChildren_renderChildren_forceFalse_3() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText1
+		// .........> yText2
+		// .........> yText3
+		YUiView yView = factory.createYView();
+		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		yView.setContent(yGridlayout);
+		YUiTextField yText1 = factory.createYTextField();
+		yGridlayout.getElements().add(yText1);
+		YUiTextField yText2 = factory.createYTextField();
+		yGridlayout.getElements().add(yText2);
+		YUiTextField yText3 = factory.createYTextField();
+		yGridlayout.getElements().add(yText3);
+
+		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		// layout
+		IUiGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
+		IUiTextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
+		IUiTextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
+		IUiTextFieldEditpart text3Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText3);
+
+		ILayoutPresentation<Control> presLayout = layoutEditpart.getPresentation();
+		IWidgetPresentation<Control> presText1 = text1Editpart.getPresentation();
+		IWidgetPresentation<Control> presText2 = text2Editpart.getPresentation();
+		IWidgetPresentation<Control> presText3 = text3Editpart.getPresentation();
+
+		Composite composite = (Composite) unwrap(presLayout.getWidget());
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+		// unrender text1
+		//
+		presText3.unrender();
+		Assert.assertEquals(2, composite.getChildren().length);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+
+		presLayout.renderChildren(false);
+		Assert.assertEquals(presText1.getWidget(), composite.getChildren()[0]);
+		Assert.assertEquals(presText2.getWidget(), composite.getChildren()[1]);
+		Assert.assertEquals(presText3.getWidget(), composite.getChildren()[2]);
+
+		Assert.assertEquals(presText1, presLayout.getChildren().get(0));
+		Assert.assertEquals(presText2, presLayout.getChildren().get(1));
+		Assert.assertEquals(presText3, presLayout.getChildren().get(2));
+
+	}
+
+	/**
+	 * Tests the renderChildren(false).
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_renderChildren_forceFalse() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -316,8 +933,14 @@ public class GridLayoutPresentationTests {
 		Assert.assertSame(text, newText);
 	}
 
+	/**
+	 * Test the renderChildren(true).
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_renderChildren_forceTrue() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -351,8 +974,14 @@ public class GridLayoutPresentationTests {
 		Assert.assertNotSame(text, newText);
 	}
 
+	/**
+	 * Tests the internal structur of the control.
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_InternalStructure() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yText
@@ -395,8 +1024,14 @@ public class GridLayoutPresentationTests {
 		Assert.assertEquals(-1, data.widthHint);
 	}
 
+	/**
+	 * Tests the internal structure of css classes and IDs.
+	 * @throws Exception
+	 */
 	@Test
-	public void test_InternalStructure__CSS_Class() throws Exception {
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_InternalStructure__CSS() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yText
@@ -453,6 +1088,11 @@ public class GridLayoutPresentationTests {
 		return control;
 	}
 
+	/**
+	 * Returns the control for the given model element.
+	 * @param yView model element
+	 * @return control
+	 */
 	protected Control getControl(YUiElement yView) {
 		IUiElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
 

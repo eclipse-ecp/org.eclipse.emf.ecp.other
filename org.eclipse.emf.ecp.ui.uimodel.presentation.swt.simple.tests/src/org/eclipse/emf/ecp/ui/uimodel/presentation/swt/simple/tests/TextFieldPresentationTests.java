@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests;
 
 import junit.framework.Assert;
@@ -16,6 +26,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditp
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.SimpleSwtRenderer;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal.AbstractSWTWidgetPresenter;
+import org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal.TextFieldPresentation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -28,6 +39,9 @@ import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the {@link TextFieldPresentation}.
+ */
 @SuppressWarnings("restriction")
 public class TextFieldPresentationTests {
 
@@ -35,14 +49,24 @@ public class TextFieldPresentationTests {
 	private Display display = Display.getCurrent();
 	private Shell shell;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		shell = new Shell(display);
 		shell.setLayout(new FillLayout());
 	}
 
+	/**
+	 * Tests rendering issues.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_isRendered_unrender_byModel() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
@@ -66,8 +90,15 @@ public class TextFieldPresentationTests {
 		Assert.assertFalse(presentation.isDisposed());
 	}
 
+	/**
+	 * Tests the internal structure.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_InternalStructure() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yText
@@ -110,8 +141,15 @@ public class TextFieldPresentationTests {
 		Assert.assertEquals(-1, data.widthHint);
 	}
 
+	/**
+	 * Test the internal structure based on CSS.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
-	public void test_InternalStructure__CSS_Class() throws Exception {
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_InternalStructure__CSS() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yText
@@ -166,6 +204,12 @@ public class TextFieldPresentationTests {
 		return control;
 	}
 
+	/**
+	 * Returns the control for the given model element.
+	 * 
+	 * @param yView model element
+	 * @return control
+	 */
 	protected Control getControl(YUiElement yView) {
 		IUiElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
 

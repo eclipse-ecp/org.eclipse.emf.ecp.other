@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2012 Florian Pirchner and others
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
 import java.util.Map;
@@ -18,6 +17,9 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
 
+/**
+ * Implementation of the {@link IViewContext}.
+ */
 public class ViewContext extends DisposableContext implements IViewContext {
 
 	private final IUiViewEditpart viewEditpart;
@@ -26,6 +28,11 @@ public class ViewContext extends DisposableContext implements IViewContext {
 
 	private boolean rendered;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param viewEditpart The view editpart
+	 */
 	public ViewContext(IUiViewEditpart viewEditpart) {
 		this.viewEditpart = viewEditpart;
 		this.viewEditpart.setContext(this);
@@ -44,8 +51,7 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	/**
 	 * Sets the URI that is used to determine the UI kit that should be used to render the UI.
 	 * 
-	 * @param presentationURI
-	 * @throws IllegalArgumentException if was already rendered.
+	 * @param presentationURI URI selecting the UI-Kit
 	 */
 	public void setPresentationURI(String presentationURI) {
 		checkDisposed();
@@ -102,7 +108,8 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter) throws ContextException {
+	public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter)
+		throws ContextException {
 		checkDisposed();
 
 		if (rootLayout == null) {
@@ -149,7 +156,7 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		try {
 			viewEditpart.dispose();
 		} finally {
-			
+
 		}
 	}
 }

@@ -1,17 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2012 Florian Pirchner and others
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
-import java.beans.PropertyChangeSupport;
 import java.util.List;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
@@ -26,20 +24,20 @@ public interface IViewSetContext extends IDisposable {
 	/**
 	 * Returns the {@link IUiViewSetEditpart} that is related with this context.
 	 * 
-	 * @return
+	 * @return viewSetEditpart
 	 */
 	IUiViewSetEditpart getViewSetEditpart();
 
 	/**
 	 * Returns a list of contained view contexts.
 	 * 
-	 * @return
+	 * @return viewContexts
 	 */
 	List<IViewContext> getViewContexts();
 
 	/**
 	 * Returns a value bean. It can be used to store transient values related to the current view. All returned beans
-	 * should offer {@link PropertyChangeSupport}.<br>
+	 * should offer PropertyChangeSupport.<br>
 	 * If an instance of a value bean for the given selector could be found, it will be returned. Otherwise a new bean
 	 * will be created an registered.
 	 * <p>
@@ -49,7 +47,7 @@ public interface IViewSetContext extends IDisposable {
 	 * may be used.
 	 * 
 	 * @param selector The selector string to identify the value bean instance.
-	 * @return
+	 * @return valueBean
 	 */
 	IValueBean getValueBean(String selector);
 
@@ -67,7 +65,7 @@ public interface IViewSetContext extends IDisposable {
 	 * Returns a value bean that contains the main domain model element. Every time a new domain model is set to the
 	 * returned value bean, all observing ui elements will become notified.
 	 * 
-	 * @return
+	 * @return rootBean
 	 */
 	IValueBean getRootBean();
 

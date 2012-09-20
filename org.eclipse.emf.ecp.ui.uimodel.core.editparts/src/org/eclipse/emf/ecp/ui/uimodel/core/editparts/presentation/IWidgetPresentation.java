@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2012 Florian Pirchner and others
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
@@ -16,6 +15,8 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
 /**
  * Widget presenter are used to create and provide widgets that will be assembled to an UI.<br>
  * Implementations are UI-kit specific.
+ * 
+ * @param <C>
  */
 public interface IWidgetPresentation<C> extends IDisposable {
 
@@ -45,7 +46,7 @@ public interface IWidgetPresentation<C> extends IDisposable {
 	/**
 	 * Returns true, if the ui element of the presentation was rendered.
 	 * 
-	 * @return
+	 * @return rendered
 	 */
 	boolean isRendered();
 

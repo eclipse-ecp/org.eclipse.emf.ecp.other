@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
@@ -9,16 +19,26 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.ViewSetContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiViewSetEditpart;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tetst the {@link UiViewSetEditpart}.
+ * 
+ * @author admin
+ * 
+ */
 @SuppressWarnings("restriction")
 public class UiViewSetEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		editpartManager.clear();
@@ -27,8 +47,13 @@ public class UiViewSetEditpartTest {
 			.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
 
+	/**
+	 * Tests the context.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_context() {
+		// END SUPRESS CATCH EXCEPTION
 		IUiViewSetEditpart viewSetEditpart = (IUiViewSetEditpart) editpartManager.createEditpart(
 			UiModelPackage.eNS_URI, IUiViewSetEditpart.class);
 		Assert.assertNull(viewSetEditpart.getContext());
@@ -38,8 +63,13 @@ public class UiViewSetEditpartTest {
 		Assert.assertSame(viewSetEditpart, context.getViewSetEditpart());
 	}
 
+	/**
+	 * Tests add and remove of views.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_addAndRemoveView() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> viewSet
 		// ......> view1
@@ -94,8 +124,13 @@ public class UiViewSetEditpartTest {
 
 	}
 
+	/**
+	 * Tests the move from embedded elements by the model.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_moveEmbedded_byModel() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> viewSet1
 		// ......> view1
@@ -119,8 +154,13 @@ public class UiViewSetEditpartTest {
 		Assert.assertEquals(1, viewSet2Editpart.getViews().size());
 	}
 
+	/**
+	 * Tests the move of embedded elements by the editpart.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_moveEmbedded_byEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> viewSet1
 		// ......> view1
@@ -145,8 +185,13 @@ public class UiViewSetEditpartTest {
 		Assert.assertEquals(1, viewSet2Editpart.getViews().size());
 	}
 
+	/**
+	 * Tests the unmodifiable state of the views.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getViews_unmodifyable() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet1 = modelFactory.createYUiViewSet();
 		YUiView view1 = modelFactory.createYUiView();
 		IUiViewSetEditpart viewSet1Editpart = editpartManager.getEditpart(viewSet1);
@@ -155,12 +200,19 @@ public class UiViewSetEditpartTest {
 		try {
 			viewSet1Editpart.getViews().add(view1Editpart);
 			Assert.fail("Must be unmodifieable");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 	}
 
+	/**
+	 * Tests the disposal of views.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_disposeView() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> viewSet1
 		// ......> view1
@@ -184,8 +236,13 @@ public class UiViewSetEditpartTest {
 		Assert.assertNull(view1.getRoot());
 	}
 
+	/**
+	 * Tests the dispose.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> viewSet1
 		// ......> view1
@@ -211,34 +268,44 @@ public class UiViewSetEditpartTest {
 				}
 			});
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			viewSet1Editpart.addView(view1Editpart);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 		try {
 			viewSet1Editpart.getViews();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			viewSet1Editpart.getId();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			viewSet1Editpart.getModel();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
@@ -249,14 +316,18 @@ public class UiViewSetEditpartTest {
 				}
 			});
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			viewSet1Editpart.removeView(view1Editpart);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 

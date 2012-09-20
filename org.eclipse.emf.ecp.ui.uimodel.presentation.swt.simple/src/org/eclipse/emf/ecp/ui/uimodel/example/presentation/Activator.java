@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation;
 
@@ -14,21 +14,36 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
 /**
- * Activator of the bundle
+ * Activator of the bundle.
  */
 public class Activator implements BundleActivator {
 
 	private static BundleContext context;
 
+	/**
+	 * Returns the context.
+	 * 
+	 * @return context
+	 */
 	public static BundleContext getContext() {
 		return context;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void start(BundleContext bundleContext) throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		Activator.context = bundleContext;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void stop(BundleContext bundleContext) throws Exception {
+		// END SUPRESS CATCH EXCEPTION
 		Activator.context = null;
 	}
 

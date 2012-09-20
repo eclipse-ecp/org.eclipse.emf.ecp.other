@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.context;
 
 import org.eclipse.emf.ecore.resource.Resource;
@@ -33,6 +32,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the {@link ViewSetContext}.
+ */
 @SuppressWarnings("restriction")
 public class ViewSetContextTest {
 
@@ -43,6 +45,9 @@ public class ViewSetContextTest {
 	private ViewContext view2Context;
 	private ViewSetContext viewSetContext;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
@@ -73,7 +78,9 @@ public class ViewSetContextTest {
 	 * Tests {@link IViewContext#getValueBean(String)} and {@link IViewContext#registerValueBean(String, IValueBean)}.
 	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_valueBeans() {
+		// END SUPRESS CATCH EXCEPTION
 		IValueBean valueBean1 = new IValueBean() {
 			@Override
 			public void setValue(Object value) {
@@ -117,8 +124,13 @@ public class ViewSetContextTest {
 		Assert.assertSame(valueBean2, view1Context.getValueBean("bean1"));
 	}
 
+	/**
+	 * Tests the disposal.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
+		// END SUPRESS CATCH EXCEPTION
 		Assert.assertFalse(viewSetContext.isDisposed());
 		viewSetContext.dispose();
 		Assert.assertTrue(viewSetContext.isDisposed());
@@ -126,31 +138,41 @@ public class ViewSetContextTest {
 		try {
 			viewSetContext.addDisposeListener(null);
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			viewSetContext.getViewContexts();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			viewSetContext.getViewSetEditpart();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			viewSetContext.getRootBean();
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			viewSetContext.getValueBean("test");
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
@@ -165,18 +187,27 @@ public class ViewSetContextTest {
 				}
 			});
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 
 		try {
 			viewSetContext.removeDisposeListener(null);
 			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 	}
 
+	/**
+	 * Tests the dispose listeners.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose_listener() {
+		// END SUPRESS CATCH EXCEPTION
 		final int[] counter = new int[1];
 		IDisposable.Listener listener = new IDisposable.Listener() {
 			@Override
@@ -190,8 +221,13 @@ public class ViewSetContextTest {
 		Assert.assertEquals(1, counter[0]);
 	}
 
+	/**
+	 * Tests that dispose also disposes the child containments.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose_delegateToViewsEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		Assert.assertFalse(viewSetContext.isDisposed());
 		Assert.assertFalse(view1Context.isDisposed());
 		Assert.assertFalse(view2Context.isDisposed());
@@ -204,16 +240,26 @@ public class ViewSetContextTest {
 		Assert.assertTrue(view2Context.isDisposed());
 	}
 
+	/**
+	 * Tests the getViewSetEditpart method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getViewSetEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 		IUiViewSetEditpart viewSetEditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
 			IUiViewSetEditpart.class);
 		ViewSetContext context = new ViewSetContext(viewSetEditPart);
 		Assert.assertSame(viewSetEditPart, context.getViewSetEditpart());
 	}
 
+	/**
+	 * Tests the getViewContexts method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getViewContexts() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 
 		// viewSet
@@ -265,8 +311,13 @@ public class ViewSetContextTest {
 
 	}
 
+	/**
+	 * Tests the disposal of the view contexts and that they corretly treath the viewsetContext.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_disposeViewContexts() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 
 		// viewSet
@@ -313,8 +364,13 @@ public class ViewSetContextTest {
 
 	}
 
+	/**
+	 * Tests the move views between viewSetContexts.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_moveViews_testContexts() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiViewSet viewSet1 = modelFactory.createYUiViewSet();
 		YUiViewSet viewSet2 = modelFactory.createYUiViewSet();
 
@@ -374,8 +430,13 @@ public class ViewSetContextTest {
 		Assert.assertSame(viewSet2Context, viewContext2.getParentContext());
 	}
 
+	/**
+	 * Tests setting the same instance twice.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_newInstance() {
+		// ENDIF SUPRESS CATCH EXCEPTION
 		// ...........> field2
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);

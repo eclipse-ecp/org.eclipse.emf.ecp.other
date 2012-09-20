@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal;
 
@@ -21,31 +21,32 @@ public interface IDisposable {
 	/**
 	 * Returns true, if this object was disposed.
 	 * 
-	 * @return
+	 * @return disposed
 	 */
-	abstract boolean isDisposed();
+	boolean isDisposed();
 
 	/**
 	 * If called, the element will be disposed. All created ui elements will be
 	 * removed from its parent and this class will be prepared for garbage
 	 * collection.<br>
-	 * NO further use is possible. Creation of a new element required.</p>
+	 * NO further use is possible. Creation of a new element required.
+	 * <p>
 	 * Calling this method twice is allowed.
 	 */
-	abstract void dispose();
+	void dispose();
 
 	/**
 	 * Adds a listener which will be notified if the object was disposed.<br>
 	 * Adding a listener twice has no effect.
 	 * 
-	 * @param listener
+	 * @param listener Listener to be added
 	 */
 	void addDisposeListener(IDisposable.Listener listener);
 
 	/**
 	 * Remove the dispose listener.
 	 * 
-	 * @param listener
+	 * @param listener Listener to be removed
 	 */
 	void removeDisposeListener(IDisposable.Listener listener);
 
@@ -57,7 +58,7 @@ public interface IDisposable {
 		/**
 		 * Throws a {@link DisposeException} if the given object is disposed.
 		 * 
-		 * @param disposable
+		 * @param disposable The disposable object
 		 */
 		public static void checkDisposed(IDisposable disposable) {
 			if (disposable != null && disposable.isDisposed()) {
@@ -73,6 +74,11 @@ public interface IDisposable {
 
 		private static final long serialVersionUID = 23566849649196005L;
 
+		/**
+		 * Constructor.
+		 * 
+		 * @param o Any kind of object.
+		 */
 		public DisposeException(Object o) {
 			super(o.toString());
 		}
@@ -81,11 +87,11 @@ public interface IDisposable {
 	/**
 	 * A listener that is notified if the observed object was disposed.
 	 */
-	public static interface Listener {
+	public interface Listener {
 		/**
 		 * Is called if the object was disposed.
 		 * 
-		 * @param notifier
+		 * @param notifier The object sending the dispose event.
 		 */
 		void notifyDisposed(IDisposable notifier);
 	}

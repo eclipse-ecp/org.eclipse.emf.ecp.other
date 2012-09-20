@@ -1,6 +1,5 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +7,7 @@
  * 
  * Contributors:
  * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
@@ -32,6 +31,11 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	private Composite controlBase;
 	private Text control;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param editpart The editpart of that presenter
+	 */
 	public TextFieldPresentation(IUiElementEditpart editpart) {
 		this.editpart = (IUiTextFieldEditpart) editpart;
 		this.modelAccess = new ModelAccess((YUiTextField) editpart.getModel());
@@ -40,7 +44,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	/**
 	 * Returns the view context.
 	 * 
-	 * @return
+	 * @return viewContext
 	 */
 	protected IViewContext getViewContext() {
 		return editpart.getView().getContext();
@@ -49,7 +53,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	/**
 	 * Returns the editpart the presenter will render for.
 	 * 
-	 * @return
+	 * @return editpart
 	 */
 	public IUiElementEditpart getEditpart() {
 		return editpart;
@@ -113,6 +117,9 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		unrender();
 	}
 
+	/**
+	 * A helper class.
+	 */
 	private static class ModelAccess {
 		private final YUiTextField yText;
 

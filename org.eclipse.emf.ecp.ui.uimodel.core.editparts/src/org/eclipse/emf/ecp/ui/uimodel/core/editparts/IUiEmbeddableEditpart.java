@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
@@ -19,15 +19,24 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresent
  */
 public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 
-	public static final String PROP_PARENT = "parent";
-	public static final String PROP_CSSCLASS = "cssClass";
-	public static final String PROP_CSSID = "cssID";
+	/**
+	 * Name for "parent" property.
+	 */
+	String PROP_PARENT = "parent";
+	/**
+	 * Name for "cssClass" property.
+	 */
+	String PROP_CSSCLASS = "cssClass";
+	/**
+	 * Name for "cssID" property.
+	 */
+	String PROP_CSSID = "cssID";
 
 	/**
 	 * Returns the parent of this embeddable edit part.<br>
 	 * Will be <code>null</code> for the layout that is attached to the view as content.
 	 * 
-	 * @return
+	 * @return editpart The parent editpart
 	 */
 	IUiLayoutEditpart getParent();
 
@@ -35,14 +44,15 @@ public interface IUiEmbeddableEditpart extends IUiElementEditpart {
 	 * Returns the view edit part of this embeddable edit part.<br>
 	 * May be <code>null</code> as far as this element and no of its parents are attached to a view.
 	 * 
-	 * @return
+	 * @return editpart The view editpart
 	 */
 	IUiViewEditpart getView();
 
 	/**
-	 * Returns the widget presenter for the edit part.
+	 * Returns the widget presentation for the edit part.
 	 * 
-	 * @return
+	 * @param <A> An instance of {@link IWidgetPresentation}
+	 * @return presentation The presentation of that editpart used to render the UI.
 	 */
 	<A extends IWidgetPresentation<?>> A getPresentation();
 

@@ -1,6 +1,5 @@
-/*******************************************************************************
- * Copyright (c) 2011 Florian Pirchner
- * 
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +7,7 @@
  * 
  * Contributors:
  * Florian Pirchner - initial API and implementation
- *******************************************************************************/
+ */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation;
 
 import java.util.Map;
@@ -27,19 +26,25 @@ import org.eclipse.swt.widgets.Composite;
  */
 public class SimpleSwtRenderer implements IRenderer {
 
+	/**
+	 * URI specifying the simple SWT presentation.
+	 */
 	public static final String UI_KIT_URI = "http://eclipse.org/emfclient/example";
 	/**
 	 * The CSS files may be passed as Set<URL> to the renderer.
 	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public static final String RENDERING_OPTION__CSS_FILES = "org.eclipse.emf.ecp.ui.uimodel.example.presentation.cssFileURLs";
+
+	// END SUPRESS CATCH EXCEPTION
 
 	/**
 	 * Renders the UI for the given composite and UI model.
 	 * 
-	 * @param composite
-	 * @param yView
+	 * @param composite The composite the should be the parent for the rendered UI
+	 * @param yView The view model.
 	 * @param options rendering options
-	 * @throws ContextException
+	 * @throws ContextException e
 	 */
 	public void render(Composite composite, YUiView yView, Map<String, Object> options) throws ContextException {
 		IUiViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
@@ -49,10 +54,10 @@ public class SimpleSwtRenderer implements IRenderer {
 	/**
 	 * Renders the UI for the given composite and edit part.
 	 * 
-	 * @param composite
-	 * @param viewEditpart
+	 * @param composite The composite the should be the parent for the rendered UI
+	 * @param viewEditpart The viewEditPart that should become rendered
 	 * @param options rendering options
-	 * @throws ContextException
+	 * @throws ContextException e
 	 */
 	public void render(Composite composite, IUiViewEditpart viewEditpart, Map<String, Object> options)
 		throws ContextException {

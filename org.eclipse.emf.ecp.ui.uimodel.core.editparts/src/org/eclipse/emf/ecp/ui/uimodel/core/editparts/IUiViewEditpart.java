@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts;
 
@@ -20,33 +20,41 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentat
  */
 public interface IUiViewEditpart extends IUiElementEditpart {
 
-	public static final String PROP_CONTENT = "content";
+	/**
+	 * Name for "content" property.
+	 */
+	String PROP_CONTENT = "content";
 
 	/**
 	 * Returns the view context. It offers access to more view related information.
 	 * 
-	 * @return
+	 * @return context The view context
 	 */
 	IViewContext getContext();
 
 	/**
 	 * Sets the view context. It offers access to more view related information.
 	 * 
+	 * @param context The view context
+	 * 
 	 * @throws RuntimeException if the context changes and the editpart was already rendered.
 	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	void setContext(IViewContext context) throws RuntimeException;
+
+	// END SUPRESS CATCH EXCEPTION
 
 	/**
 	 * Returns the name of the view.
 	 * 
-	 * @return
+	 * @return name The name of the view.
 	 */
 	String getName();
 
 	/**
 	 * Is called to set the content of the view.
 	 * 
-	 * @param content
+	 * @param content The content of the view.
 	 */
 	void setContent(IUiEmbeddableEditpart content);
 
@@ -60,14 +68,15 @@ public interface IUiViewEditpart extends IUiElementEditpart {
 	/**
 	 * Returns the parent of that edit part.
 	 * 
-	 * @return
+	 * @return parent The view set edit part.
 	 */
 	IUiViewSetEditpart getParent();
 
 	/**
 	 * Returns the view presenter for the edit part.
 	 * 
-	 * @return
+	 * @param <A> An instance of {@link IViewPresentation}
+	 * @return presentation The presentation used to render the UI.
 	 */
 	<A extends IViewPresentation<?>> A getPresentation();
 

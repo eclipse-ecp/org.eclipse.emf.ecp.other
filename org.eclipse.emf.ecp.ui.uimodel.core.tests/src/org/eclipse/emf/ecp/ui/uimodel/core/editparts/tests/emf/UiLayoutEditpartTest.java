@@ -1,3 +1,13 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
@@ -14,12 +24,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Tests the ui layout edit part.
+ */
 @SuppressWarnings("restriction")
 public class UiLayoutEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		editpartManager.clear();
@@ -28,7 +44,11 @@ public class UiLayoutEditpartTest {
 			.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
 
+	/**
+	 * Tests the parent property.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_parent() {
 		// ...> layout1
 		// ......> field1
@@ -52,8 +72,15 @@ public class UiLayoutEditpartTest {
 		Assert.assertNull(layout1_1.getParent());
 	}
 
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Tests adding and removing embeddeables.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_addAndRemove_Embedded() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> layout
 		// ......> field1
@@ -118,8 +145,13 @@ public class UiLayoutEditpartTest {
 
 	}
 
+	/**
+	 * Test the move of embedded elements by the model.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_moveEmbedded_byModel() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> layout1
 		// ......> field1
@@ -145,8 +177,13 @@ public class UiLayoutEditpartTest {
 		Assert.assertEquals(1, layout2Editpart.getElements().size());
 	}
 
+	/**
+	 * Tests the move of embeddables by the edit parts.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_moveEmbedded_byEditpart() {
+		// END SUPRESS CATCH EXCEPTION
 
 		// ...> layout1
 		// ......> field1
@@ -174,8 +211,13 @@ public class UiLayoutEditpartTest {
 		Assert.assertEquals(1, layout2Editpart.getElements().size());
 	}
 
+	/**
+	 * Tests the getView method.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getView() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> view1
 		// ......> layout1
 		// .........> field1
@@ -207,8 +249,13 @@ public class UiLayoutEditpartTest {
 
 	}
 
+	/**
+	 * Tests the unmodifyable state of getElements collection.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getElements_unmodifyable() {
+		// END SUPRESS CATCH EXCEPTION
 		YUiLayout layout1 = modelFactory.createYUiLayout();
 		YUiField field1 = modelFactory.createYUiField();
 		IUiLayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
@@ -217,12 +264,19 @@ public class UiLayoutEditpartTest {
 		try {
 			layout1Editpart.getElements().add(field1Editpart);
 			Assert.fail("Must be unmodifieable");
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 		}
 	}
 
+	/**
+	 * Tests the disposal of embedded elements.
+	 */
 	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_disposeEmbedded() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> layout1
 		// ......> field1
 		YUiLayout layout1 = modelFactory.createYUiLayout();
@@ -245,8 +299,13 @@ public class UiLayoutEditpartTest {
 		Assert.assertNull(field1.getParent());
 	}
 
+	/**
+	 * Tests the disposal of edit parts.
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_dispose() {
+		// END SUPRESS CATCH EXCEPTION
 		// ...> layout1
 		// ......> field1
 		YUiLayout layout1 = modelFactory.createYUiLayout();
@@ -271,48 +330,62 @@ public class UiLayoutEditpartTest {
 				}
 			});
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			layout1Editpart.addElement(field1Editpart);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 		try {
 			layout1Editpart.getElements();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			layout1Editpart.getId();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			layout1Editpart.getModel();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			layout1Editpart.getParent();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			layout1Editpart.getView();
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
@@ -323,14 +396,18 @@ public class UiLayoutEditpartTest {
 				}
 			});
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 
 		try {
 			layout1Editpart.removeElement(field1Editpart);
 			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
 	}

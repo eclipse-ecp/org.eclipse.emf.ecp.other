@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- * Florian Pirchner - initial API and implementation
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl;
 
@@ -22,16 +22,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * See {@link UiElementEditpart}
+ * See {@link UiElementEditpart}.
  * 
  * @param <M>
  */
 public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiElementEditpart<M> implements
 	IUiEmbeddableEditpart {
 
-	private static final Logger logger = LoggerFactory.getLogger(UiEmbeddableEditpart.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UiEmbeddableEditpart.class);
 	private IWidgetPresentation<?> presentation;
 
+	/**
+	 * The default constructor.
+	 */
 	protected UiEmbeddableEditpart() {
 	}
 
@@ -49,16 +52,17 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiEl
 		YUiView yView = getModel().getView();
 		return yView != null ? (IUiViewEditpart) getEditpart(yView) : null;
 	}
-	
+
 	/**
 	 * Returns the instance of the presentation, but does not load it.
-	 * @return
+	 * 
+	 * @param <A> An instance of {@link IWidgetPresentation}
+	 * @return presentation
 	 */
 	@SuppressWarnings("unchecked")
-	protected <A extends IWidgetPresentation<?>> A internal_getPresentation() {
+	protected <A extends IWidgetPresentation<?>> A internalGetPresentation() {
 		return (A) presentation;
 	}
-
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -75,7 +79,7 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends UiEl
 	protected <A extends IWidgetPresentation<?>> A createPresenter() {
 		IUiViewEditpart viewEditPart = getView();
 		if (viewEditPart == null) {
-			logger.info("View is null");
+			LOGGER.info("View is null");
 			return null;
 		}
 		return DelegatingPresenterFactory.getInstance().createPresentation(viewEditPart.getContext(), this);
