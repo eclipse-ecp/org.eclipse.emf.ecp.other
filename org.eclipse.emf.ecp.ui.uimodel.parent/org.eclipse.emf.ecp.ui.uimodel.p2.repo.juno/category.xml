@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.emf.ecp.ui.uimodel.feature.core_0.0.1.qualifier.jar" id="org.eclipse.emf.ecp.ui.uimodel.feature.core" version="0.0.1.qualifier">
+      <category name="ecp-uimodel-features"/>
+   </feature>
+   <feature url="features/org.eclipse.emf.ecp.ui.uimodel.feature.presentation.swt.simple_0.0.1.qualifier.jar" id="org.eclipse.emf.ecp.ui.uimodel.feature.presentation.swt.simple" version="0.0.1.qualifier">
+      <category name="ecp-uimodel-features"/>
+   </feature>
+   <category-def name="ecp-uimodel-features" label="ECP UiModel features"/>
+</site>

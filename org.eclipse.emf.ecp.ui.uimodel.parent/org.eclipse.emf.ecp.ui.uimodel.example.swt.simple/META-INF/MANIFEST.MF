@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple
+Bundle-SymbolicName: org.eclipse.emf.ecp.ui.uimodel.example.swt.simple;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.e4.ui.css.swt;bundle-version="0.10.1",
+ org.eclipse.emf.ecp.ui.uimodel.css.swt;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple;bundle-version="0.0.1",
+ org.eclipse.swt;bundle-version="3.100.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
