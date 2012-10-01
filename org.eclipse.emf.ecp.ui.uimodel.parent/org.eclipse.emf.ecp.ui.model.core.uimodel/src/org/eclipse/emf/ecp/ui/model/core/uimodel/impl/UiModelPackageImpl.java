@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -21,11 +22,14 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,6 +100,27 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * @generated
 	 */
 	private EClass yUiSpacingableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiHeightableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiWidthableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum yUiUnitEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -334,6 +359,69 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiHeightable() {
+		return yUiHeightableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiHeightable_Height() {
+		return (EAttribute)yUiHeightableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiHeightable_HeightUnit() {
+		return (EAttribute)yUiHeightableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiWidthable() {
+		return yUiWidthableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiWidthable_Width() {
+		return (EAttribute)yUiWidthableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiWidthable_WidthUnit() {
+		return (EAttribute)yUiWidthableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getYUiUnit() {
+		return yUiUnitEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UiModelFactory getUiModelFactory() {
 		return (UiModelFactory)getEFactoryInstance();
 	}
@@ -384,6 +472,17 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		yUiSpacingableEClass = createEClass(YUI_SPACINGABLE);
 		createEAttribute(yUiSpacingableEClass, YUI_SPACINGABLE__SPACING);
+
+		yUiHeightableEClass = createEClass(YUI_HEIGHTABLE);
+		createEAttribute(yUiHeightableEClass, YUI_HEIGHTABLE__HEIGHT);
+		createEAttribute(yUiHeightableEClass, YUI_HEIGHTABLE__HEIGHT_UNIT);
+
+		yUiWidthableEClass = createEClass(YUI_WIDTHABLE);
+		createEAttribute(yUiWidthableEClass, YUI_WIDTHABLE__WIDTH);
+		createEAttribute(yUiWidthableEClass, YUI_WIDTHABLE__WIDTH_UNIT);
+
+		// Create enums
+		yUiUnitEEnum = createEEnum(YUI_UNIT);
 	}
 
 	/**
@@ -455,6 +554,19 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 
 		initEClass(yUiSpacingableEClass, YUiSpacingable.class, "YUiSpacingable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYUiSpacingable_Spacing(), ecorePackage.getEBoolean(), "spacing", null, 0, 1, YUiSpacingable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiHeightableEClass, YUiHeightable.class, "YUiHeightable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiHeightable_Height(), ecorePackage.getEInt(), "height", null, 0, 1, YUiHeightable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiHeightable_HeightUnit(), this.getYUiUnit(), "heightUnit", null, 0, 1, YUiHeightable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiWidthableEClass, YUiWidthable.class, "YUiWidthable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiWidthable_Width(), ecorePackage.getEInt(), "width", null, 0, 1, YUiWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiWidthable_WidthUnit(), this.getYUiUnit(), "widthUnit", null, 0, 1, YUiWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(yUiUnitEEnum, YUiUnit.class, "YUiUnit");
+		addEEnumLiteral(yUiUnitEEnum, YUiUnit.PIXEL);
+		addEEnumLiteral(yUiUnitEEnum, YUiUnit.EM);
 
 		// Create resource
 		createResource(eNS_URI);

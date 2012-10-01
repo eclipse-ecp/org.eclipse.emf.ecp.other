@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -451,6 +452,90 @@ public interface UiModelPackage extends EPackage {
 	int YUI_SPACINGABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable <em>YUi Heightable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiHeightable()
+	 * @generated
+	 */
+	int YUI_HEIGHTABLE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HEIGHTABLE__HEIGHT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Height Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HEIGHTABLE__HEIGHT_UNIT = 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Heightable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HEIGHTABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable <em>YUi Widthable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiWidthable()
+	 * @generated
+	 */
+	int YUI_WIDTHABLE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_WIDTHABLE__WIDTH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Width Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_WIDTHABLE__WIDTH_UNIT = 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Widthable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_WIDTHABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit <em>YUi Unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiUnit()
+	 * @generated
+	 */
+	int YUI_UNIT = 11;
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement <em>YUi Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -651,6 +736,80 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getYUiSpacingable_Spacing();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable <em>YUi Heightable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Heightable</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable
+	 * @generated
+	 */
+	EClass getYUiHeightable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable#getHeight()
+	 * @see #getYUiHeightable()
+	 * @generated
+	 */
+	EAttribute getYUiHeightable_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable#getHeightUnit <em>Height Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height Unit</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable#getHeightUnit()
+	 * @see #getYUiHeightable()
+	 * @generated
+	 */
+	EAttribute getYUiHeightable_HeightUnit();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable <em>YUi Widthable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Widthable</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable
+	 * @generated
+	 */
+	EClass getYUiWidthable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable#getWidth()
+	 * @see #getYUiWidthable()
+	 * @generated
+	 */
+	EAttribute getYUiWidthable_Width();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable#getWidthUnit <em>Width Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width Unit</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable#getWidthUnit()
+	 * @see #getYUiWidthable()
+	 * @generated
+	 */
+	EAttribute getYUiWidthable_WidthUnit();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit <em>YUi Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>YUi Unit</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit
+	 * @generated
+	 */
+	EEnum getYUiUnit();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -841,6 +1000,68 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YUI_SPACINGABLE__SPACING = eINSTANCE.getYUiSpacingable_Spacing();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable <em>YUi Heightable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiHeightable()
+		 * @generated
+		 */
+		EClass YUI_HEIGHTABLE = eINSTANCE.getYUiHeightable();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_HEIGHTABLE__HEIGHT = eINSTANCE.getYUiHeightable_Height();
+
+		/**
+		 * The meta object literal for the '<em><b>Height Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_HEIGHTABLE__HEIGHT_UNIT = eINSTANCE.getYUiHeightable_HeightUnit();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable <em>YUi Widthable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiWidthable()
+		 * @generated
+		 */
+		EClass YUI_WIDTHABLE = eINSTANCE.getYUiWidthable();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_WIDTHABLE__WIDTH = eINSTANCE.getYUiWidthable_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Width Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_WIDTHABLE__WIDTH_UNIT = eINSTANCE.getYUiWidthable_WidthUnit();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit <em>YUi Unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiUnit()
+		 * @generated
+		 */
+		EEnum YUI_UNIT = eINSTANCE.getYUiUnit();
 
 	}
 

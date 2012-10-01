@@ -15,6 +15,9 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiEmbeddableEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.ILayoutPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
@@ -42,10 +45,44 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 
 	private List<IWidgetPresentation<?>> children;
 
+	private final IUiLayoutEditpart editpart;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param editpart the editpart
+	 */
+	public AbstractSWTLayoutPresenter(IUiLayoutEditpart editpart) {
+		this.editpart = editpart;
+	}
+
+	/**
+	 * Returns the editpart the presenter will render for.
+	 * 
+	 * @return the editpart
+	 */
+	protected IUiLayoutEditpart getEditpart() {
+		return editpart;
+	}
+
+	@Override
+	public Object getModel() {
+		return getEditpart().getModel();
+	}
+
+	/**
+	 * Returns the view context.
+	 * 
+	 * @return viewContext
+	 */
+	protected IViewContext getViewContext() {
+		return getEditpart().getView().getContext();
+	}
+
 	@Override
 	public List<IWidgetPresentation<?>> getChildren() {
-		return children != null ? Collections.unmodifiableList(children) : Collections
-			.<IWidgetPresentation<?>> emptyList();
+		ensureChildren();
+		return Collections.unmodifiableList(children);
 	}
 
 	@Override
@@ -70,7 +107,9 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * 
 	 * @param presentation The presentation to be added
 	 */
-	protected abstract void internalAdd(IWidgetPresentation<?> presentation);
+	protected void internalAdd(IWidgetPresentation<?> presentation) {
+
+	}
 
 	@Override
 	public void remove(IWidgetPresentation<?> presentation) {
@@ -89,7 +128,9 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * 
 	 * @param presentation The presentation to be removed
 	 */
-	protected abstract void internalRemove(IWidgetPresentation<?> presentation);
+	protected void internalRemove(IWidgetPresentation<?> presentation) {
+
+	}
 
 	@Override
 	public void insert(IWidgetPresentation<?> presentation, int index) {
@@ -113,7 +154,9 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * @param presentation The presentation to be inserted
 	 * @param index The index where the presentation should be inserted
 	 */
-	protected abstract void internalInsert(IWidgetPresentation<?> presentation, int index);
+	protected void internalInsert(IWidgetPresentation<?> presentation, int index) {
+
+	}
 
 	@Override
 	public void move(IWidgetPresentation<?> presentation, int index) {
@@ -141,7 +184,9 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * @param oldIndex The old index where the control was located.
 	 * @param newIndex The new index where the control should be located after the move operation.
 	 */
-	protected abstract void internalMove(IWidgetPresentation<?> presentation, int oldIndex, int newIndex);
+	protected void internalMove(IWidgetPresentation<?> presentation, int oldIndex, int newIndex) {
+
+	}
 
 	/**
 	 * Ensures, that the children collection exists.
@@ -149,6 +194,9 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	protected void ensureChildren() {
 		if (children == null) {
 			children = new ArrayList<IWidgetPresentation<?>>();
+			for (IUiEmbeddableEditpart child : editpart.getElements()) {
+				children.add(child.getPresentation());
+			}
 		}
 	}
 

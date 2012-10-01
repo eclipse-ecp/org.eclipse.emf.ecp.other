@@ -5,6 +5,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,8 +17,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getAlignment <em>Alignment</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontal <em>Grab Horizontal</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVertical <em>Grab Vertical</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getSpanInfo <em>Span Info</em>}</li>
  * </ul>
  * </p>
@@ -62,6 +63,9 @@ public interface YUiGridLayoutCellStyle extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The alignment of the ui element relative to its grid cell.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Alignment</em>' attribute.
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment
 	 * @see #setAlignment(YUiAlignment)
@@ -83,56 +87,56 @@ public interface YUiGridLayoutCellStyle extends EObject {
 	void setAlignment(YUiAlignment value);
 
 	/**
-	 * Returns the value of the '<em><b>Grab Horizontal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Grab Horizontal Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Grab Horizontal</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Grab Horizontal</em>' attribute.
-	 * @see #setGrabHorizontal(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_GrabHorizontal()
+	 * <!-- begin-model-doc -->
+	 * If true, then the element will increase its width to 100% of the available width.
+	 * Otherwise, the element will decrease its width to its preferred one.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Grab Horizontal Space</em>' attribute.
+	 * @see #setGrabHorizontalSpace(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_GrabHorizontalSpace()
 	 * @model
 	 * @generated
 	 */
-	boolean isGrabHorizontal();
+	boolean isGrabHorizontalSpace();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontal <em>Grab Horizontal</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Grab Horizontal</em>' attribute.
-	 * @see #isGrabHorizontal()
+	 * @param value the new value of the '<em>Grab Horizontal Space</em>' attribute.
+	 * @see #isGrabHorizontalSpace()
 	 * @generated
 	 */
-	void setGrabHorizontal(boolean value);
+	void setGrabHorizontalSpace(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Grab Vertical</b></em>' attribute.
+	 * Returns the value of the '<em><b>Grab Vertical Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Grab Vertical</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Grab Vertical</em>' attribute.
-	 * @see #setGrabVertical(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_GrabVertical()
+	 * <!-- begin-model-doc -->
+	 * If true, then the element will increase its height to 100% of the available height.
+	 * Otherwise, the element will decrease its height to its preferred one.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Grab Vertical Space</em>' attribute.
+	 * @see #setGrabVerticalSpace(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_GrabVerticalSpace()
 	 * @model
 	 * @generated
 	 */
-	boolean isGrabVertical();
+	boolean isGrabVerticalSpace();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVertical <em>Grab Vertical</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVerticalSpace <em>Grab Vertical Space</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Grab Vertical</em>' attribute.
-	 * @see #isGrabVertical()
+	 * @param value the new value of the '<em>Grab Vertical Space</em>' attribute.
+	 * @see #isGrabVerticalSpace()
 	 * @generated
 	 */
-	void setGrabVertical(boolean value);
+	void setGrabVerticalSpace(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Span Info</b></em>' containment reference.

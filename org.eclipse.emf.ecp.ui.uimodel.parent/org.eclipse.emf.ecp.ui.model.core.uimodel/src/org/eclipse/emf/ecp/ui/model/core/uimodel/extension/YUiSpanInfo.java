@@ -32,6 +32,9 @@ public interface YUiSpanInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The column index of the cell that should contain the Upper-Left-Edge of the element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Column From</em>' attribute.
 	 * @see #setColumnFrom(int)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiSpanInfo_ColumnFrom()
@@ -58,6 +61,9 @@ public interface YUiSpanInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The row index of the cell that should contain the Upper-Left-Edge of the element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Row From</em>' attribute.
 	 * @see #setRowFrom(int)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiSpanInfo_RowFrom()
@@ -84,6 +90,9 @@ public interface YUiSpanInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The column index of the cell that should contain the Lower-Right-Edge of the element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Column To</em>' attribute.
 	 * @see #setColumnTo(int)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiSpanInfo_ColumnTo()
@@ -110,6 +119,9 @@ public interface YUiSpanInfo extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The row index of the cell that should contain the Lower-Right-Edge of the element.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Row To</em>' attribute.
 	 * @see #setRowTo(int)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiSpanInfo_RowTo()

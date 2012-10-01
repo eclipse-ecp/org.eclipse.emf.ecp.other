@@ -40,15 +40,6 @@ public interface UimodelExtensionFactory extends EFactory {
 	YUiGridLayout createYUiGridLayout();
 
 	/**
-	 * Returns a new object of class '<em>YUi Grid Layout Cell</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YUi Grid Layout Cell</em>'.
-	 * @generated
-	 */
-	YUiGridLayoutCell createYUiGridLayoutCell();
-
-	/**
 	 * Returns a new object of class '<em>YUi Grid Layout Cell Style</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

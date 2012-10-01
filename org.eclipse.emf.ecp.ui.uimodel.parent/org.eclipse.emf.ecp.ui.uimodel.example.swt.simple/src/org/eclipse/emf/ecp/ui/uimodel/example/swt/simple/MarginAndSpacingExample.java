@@ -51,27 +51,27 @@ public class MarginAndSpacingExample implements IApplication {
 		// .........> yText4
 		// .........> yText5
 		// .........> yText6
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("marginAndSpacingExample");
 		yView.setMargin(true);
 
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setMargin(true);
 		yGridLayout.setSpacing(true);
 
 		yView.setContent(yGridLayout);
-		YUiTextField yText1 = factory.createYTextField();
+		YUiTextField yText1 = factory.createTextField();
 		yGridLayout.getElements().add(yText1);
-		YUiTextField yText2 = factory.createYTextField();
+		YUiTextField yText2 = factory.createTextField();
 		yGridLayout.getElements().add(yText2);
-		YUiTextField yText3 = factory.createYTextField();
+		YUiTextField yText3 = factory.createTextField();
 		yGridLayout.getElements().add(yText3);
-		YUiTextField yText4 = factory.createYTextField();
+		YUiTextField yText4 = factory.createTextField();
 		yGridLayout.getElements().add(yText4);
-		YUiTextField yText5 = factory.createYTextField();
+		YUiTextField yText5 = factory.createTextField();
 		yGridLayout.getElements().add(yText5);
-		YUiTextField yText6 = factory.createYTextField();
+		YUiTextField yText6 = factory.createTextField();
 		yGridLayout.getElements().add(yText6);
 
 		// create the rendering options

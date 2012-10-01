@@ -12,11 +12,14 @@
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
 import org.eclipse.e4.ui.css.swt.CSSSWTConstants;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiEmbeddableEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.css.core.dom.properties.css2.CssConstants;
 import org.eclipse.swt.SWT;
@@ -24,6 +27,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This presenter is responsible to render a text field on the given layout.
@@ -31,7 +36,8 @@ import org.eclipse.swt.widgets.Control;
 @SuppressWarnings("restriction")
 public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
-	private final IUiLayoutEditpart editpart;
+	private static final Logger LOGGER = LoggerFactory.getLogger(GridLayoutPresentation.class);
+
 	private GridLayout layout;
 	private Composite controlBase;
 	private Composite control;
@@ -39,29 +45,12 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
 	/**
 	 * The constructor.
+	 * 
 	 * @param editpart The editpart of that presentation.
 	 */
 	public GridLayoutPresentation(IUiElementEditpart editpart) {
-		this.editpart = (IUiLayoutEditpart) editpart;
+		super((IUiLayoutEditpart) editpart);
 		this.modelAccess = new ModelAccess((YUiGridLayout) editpart.getModel());
-	}
-
-	/**
-	 * Returns the view context.
-	 * 
-	 * @return viewContext
-	 */
-	protected IViewContext getViewContext() {
-		return editpart.getView().getContext();
-	}
-
-	/**
-	 * Returns the editpart the presenter will render for.
-	 * 
-	 * @return editpart
-	 */
-	public IUiLayoutEditpart getEditpart() {
-		return editpart;
 	}
 
 	@Override
@@ -83,7 +72,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			if (modelAccess.isCssIdValid()) {
 				setCSSId(control, modelAccess.getCssID());
 			} else {
-				setCSSId(control, editpart.getId());
+				setCSSId(control, getEditpart().getId());
 			}
 
 			if (modelAccess.isCssClassValid()) {
@@ -135,33 +124,20 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	public void renderChildren(boolean force) {
 		if (force) {
 			unrenderChildren();
-
-			for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
-				IWidgetPresentation<?> presentation = childEditpart.getPresentation();
-				if (!contains(presentation)) {
-					// will be rendered automatically after add
-					super.add(presentation);
-				} else {
-					// render the widget
-					createChildWidget(presentation);
-				}
+			for (IWidgetPresentation<?> presentation : getChildren()) {
+				// render the widget
+				createChildWidget(presentation);
 			}
 		} else {
 			// ensure, that the widget is inserted into its correct position
 			//
 			int index = -1;
-			for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
-				IWidgetPresentation<?> presentation = childEditpart.getPresentation();
+			for (IWidgetPresentation<?> presentation : getChildren()) {
 				index++;
 				if (presentation.isRendered()) {
 					continue;
 				}
-				if (!contains(presentation)) {
-					// will be rendered automatically after add
-					super.add(presentation);
-				} else {
-					internalInsert(presentation, index);
-				}
+				internalInsert(presentation, index);
 			}
 		}
 	}
@@ -170,8 +146,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	 * Will unrender all children.
 	 */
 	protected void unrenderChildren() {
-		for (IUiEmbeddableEditpart childEditpart : editpart.getElements()) {
-			IWidgetPresentation<?> presentation = childEditpart.getPresentation();
+		for (IWidgetPresentation<?> presentation : getChildren()) {
 			if (presentation.isRendered()) {
 				presentation.unrender();
 			}
@@ -190,8 +165,170 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			return null;
 		}
 		Control childControl = (Control) childPresentation.createWidget(control);
-		childControl.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, false, false));
+		childControl.setLayoutData(createGridData(findCellstyleFor(childPresentation)));
 		return childControl;
+	}
+
+	/**
+	 * Returns the cell style for the given presentation.
+	 * 
+	 * @param childPresentation the presentation
+	 * @return cellStyle
+	 */
+	protected YUiGridLayoutCellStyle findCellstyleFor(IWidgetPresentation<?> childPresentation) {
+		YUiEmbeddable yEmbeddable = (YUiEmbeddable) childPresentation.getModel();
+		YUiGridLayoutCellStyle result = null;
+		for (YUiGridLayoutCellStyle yStyle : modelAccess.getCellStyles()) {
+			if (yStyle.getTarget() == yEmbeddable) {
+				result = yStyle;
+				break;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Creates an instance of grid data an adds defaults to it.
+	 * 
+	 * @param yStyle the cell style
+	 * @return the grid data for the component
+	 */
+	protected GridData createGridData(YUiGridLayoutCellStyle yStyle) {
+		GridData data = new GridData();
+
+		// calculate the spanning of the element
+		//
+		int col1 = -1;
+		int row1 = -1;
+		int col2 = -1;
+		int row2 = -1;
+		if (yStyle != null) {
+			YUiSpanInfo ySpanInfo = yStyle.getSpanInfo();
+			if (ySpanInfo != null) {
+				col1 = ySpanInfo.getColumnFrom();
+				row1 = ySpanInfo.getRowFrom();
+				col2 = ySpanInfo.getColumnTo();
+				row2 = ySpanInfo.getRowTo();
+			}
+		}
+
+		if (col1 >= 0 && row1 >= 0 && col1 <= col2 && row1 <= row2) {
+			data.horizontalSpan = col2 - col1;
+			data.verticalSpan = row2 - row1;
+		} else {
+			LOGGER.warn("Invalid span: col1 {}, row1 {}, col2 {}, row2{}", new Object[] { col1, row1, col2, row2 });
+		}
+
+		if (yStyle != null) {
+			if (yStyle.isGrabHorizontalSpace()) {
+				data.grabExcessHorizontalSpace = true;
+			}
+
+			if (yStyle.isGrabVerticalSpace()) {
+				data.grabExcessVerticalSpace = true;
+			}
+		}
+
+		if (modelAccess.isPackHorizontal()) {
+			data.horizontalAlignment = SWT.FILL;
+			data.grabExcessHorizontalSpace = false;
+		} else {
+			data.horizontalAlignment = SWT.FILL;
+			data.grabExcessHorizontalSpace = true;
+		}
+
+		if (modelAccess.isPackVertical()) {
+			data.verticalAlignment = SWT.BEGINNING;
+			data.grabExcessVerticalSpace = false;
+		} else {
+			data.verticalAlignment = SWT.FILL;
+			data.grabExcessVerticalSpace = true;
+		}
+
+		return data;
+	}
+
+	/**
+	 * Sets the alignment to the component.
+	 * 
+	 * @param yAlignment the alignment
+	 * @param data grid data
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	protected void applyAlignment(YUiAlignment yAlignment, GridData data) {
+		// END SUPRESS CATCH EXCEPTION
+		if (yAlignment != null) {
+			switch (yAlignment) {
+			case BOTTOM_CENTER:
+				data.verticalAlignment = SWT.BOTTOM;
+				data.horizontalAlignment = SWT.CENTER;
+				break;
+			case BOTTOM_FILL:
+				data.verticalAlignment = SWT.BOTTOM;
+				data.horizontalAlignment = SWT.FILL;
+				break;
+			case BOTTOM_LEFT:
+				data.verticalAlignment = SWT.BOTTOM;
+				data.horizontalAlignment = SWT.LEFT;
+				break;
+			case BOTTOM_RIGHT:
+				data.verticalAlignment = SWT.BOTTOM;
+				data.horizontalAlignment = SWT.RIGHT;
+				break;
+			case MIDDLE_CENTER:
+				data.verticalAlignment = SWT.CENTER;
+				data.horizontalAlignment = SWT.CENTER;
+				break;
+			case MIDDLE_FILL:
+				data.verticalAlignment = SWT.CENTER;
+				data.horizontalAlignment = SWT.FILL;
+				break;
+			case MIDDLE_LEFT:
+				data.verticalAlignment = SWT.CENTER;
+				data.horizontalAlignment = SWT.LEFT;
+				break;
+			case MIDDLE_RIGHT:
+				data.verticalAlignment = SWT.CENTER;
+				data.horizontalAlignment = SWT.RIGHT;
+				break;
+			case TOP_CENTER:
+				data.verticalAlignment = SWT.TOP;
+				data.horizontalAlignment = SWT.CENTER;
+				break;
+			case TOP_FILL:
+				data.verticalAlignment = SWT.TOP;
+				data.horizontalAlignment = SWT.FILL;
+				break;
+			case TOP_LEFT:
+				data.verticalAlignment = SWT.TOP;
+				data.horizontalAlignment = SWT.LEFT;
+				break;
+			case TOP_RIGHT:
+				data.verticalAlignment = SWT.TOP;
+				data.horizontalAlignment = SWT.RIGHT;
+				break;
+			case FILL_CENTER:
+				data.verticalAlignment = SWT.FILL;
+				data.horizontalAlignment = SWT.CENTER;
+				break;
+			case FILL_FILL:
+				data.verticalAlignment = SWT.FILL;
+				data.horizontalAlignment = SWT.FILL;
+				break;
+			case FILL_LEFT:
+				data.verticalAlignment = SWT.FILL;
+				data.horizontalAlignment = SWT.LEFT;
+				break;
+			case FILL_RIGHT:
+				data.verticalAlignment = SWT.FILL;
+				data.horizontalAlignment = SWT.RIGHT;
+				break;
+			default:
+				data.verticalAlignment = SWT.CENTER;
+				data.horizontalAlignment = SWT.LEFT;
+				break;
+			}
+		}
 	}
 
 	@Override
@@ -318,5 +455,30 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			int columns = yLayout.getColumns();
 			return columns <= 0 ? 2 : columns;
 		}
+
+		/**
+		 * @return
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getCellStyles()
+		 */
+		public EList<YUiGridLayoutCellStyle> getCellStyles() {
+			return yLayout.getCellStyles();
+		}
+
+		/**
+		 * @return
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackHorizontal()
+		 */
+		public boolean isPackHorizontal() {
+			return yLayout.isPackHorizontal();
+		}
+
+		/**
+		 * @return
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackVertical()
+		 */
+		public boolean isPackVertical() {
+			return yLayout.isPackVertical();
+		}
+
 	}
 }

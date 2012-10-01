@@ -63,6 +63,11 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 		this.editpart = editpart;
 		this.modelAccess = new ModelAccess((YUiView) editpart.getModel());
 	}
+	
+	@Override
+	public Object getModel() {
+		return editpart.getModel();
+	}
 
 	/**
 	 * Returns the editpart the presenter will render for.

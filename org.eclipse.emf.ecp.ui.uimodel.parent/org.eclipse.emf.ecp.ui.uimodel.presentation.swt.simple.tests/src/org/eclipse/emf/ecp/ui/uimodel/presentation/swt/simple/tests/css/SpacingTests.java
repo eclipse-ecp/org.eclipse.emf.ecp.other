@@ -63,9 +63,9 @@ public class SpacingTests {
 	public void test_spacing_gridlayout_settingFalse_noCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("spacingtests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setSpacing(false);
 		yView.setContent(yGridLayout);
@@ -98,9 +98,9 @@ public class SpacingTests {
 	public void test_spacing_gridlayout_settingTrue_noCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("spacingtests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setSpacing(true);
 		yView.setContent(yGridLayout);
@@ -134,9 +134,9 @@ public class SpacingTests {
 	public void test_spacing_gridlayout_settingFalse_withCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("spacingtests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setSpacing(false);
 		yView.setContent(yGridLayout);
@@ -171,9 +171,9 @@ public class SpacingTests {
 	public void test_spacing_gridlayout_settingTrue_withCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("spacingtests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setSpacing(true);
 		yView.setContent(yGridLayout);

@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *    Florian Pirchner - initial API and implementation
+ * Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation;
 
@@ -19,6 +19,14 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
  * @param <C>
  */
 public interface IWidgetPresentation<C> extends IDisposable {
+
+	/**
+	 * Returns the model associated with this presenter.<br>
+	 * Or <code>null</code> if the presenter is not based on a model.
+	 * 
+	 * @return the model or <code>null</code>
+	 */
+	Object getModel();
 
 	/**
 	 * Is called to create the widget described by the presenter. If an usable instance is

@@ -26,7 +26,6 @@ import org.eclipse.swt.widgets.Text;
  */
 public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
-	private final IUiTextFieldEditpart editpart;
 	private final ModelAccess modelAccess;
 	private Composite controlBase;
 	private Text control;
@@ -37,26 +36,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @param editpart The editpart of that presenter
 	 */
 	public TextFieldPresentation(IUiElementEditpart editpart) {
-		this.editpart = (IUiTextFieldEditpart) editpart;
+		super((IUiTextFieldEditpart) editpart);
 		this.modelAccess = new ModelAccess((YUiTextField) editpart.getModel());
-	}
-
-	/**
-	 * Returns the view context.
-	 * 
-	 * @return viewContext
-	 */
-	protected IViewContext getViewContext() {
-		return editpart.getView().getContext();
-	}
-
-	/**
-	 * Returns the editpart the presenter will render for.
-	 * 
-	 * @return editpart
-	 */
-	public IUiElementEditpart getEditpart() {
-		return editpart;
 	}
 
 	/**
@@ -74,7 +55,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			if (modelAccess.isCssIdValid()) {
 				setCSSId(control, modelAccess.getCssID());
 			} else {
-				setCSSId(control, editpart.getId());
+				setCSSId(control, getEditpart().getId());
 			}
 
 			if (modelAccess.isCssClassValid()) {

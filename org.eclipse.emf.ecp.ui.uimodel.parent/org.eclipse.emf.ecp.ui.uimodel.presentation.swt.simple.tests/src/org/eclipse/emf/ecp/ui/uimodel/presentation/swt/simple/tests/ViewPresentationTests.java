@@ -74,12 +74,12 @@ public class ViewPresentationTests {
 		// ......> yGridLayout
 		// .........> yText1
 		// .........> yText2
-		YUiView yView = factory.createYView();
-		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		YUiView yView = factory.createView();
+		YUiGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YUiTextField yText1 = factory.createYTextField();
+		YUiTextField yText1 = factory.createTextField();
 		yGridlayout.getElements().add(yText1);
-		YUiTextField yText2 = factory.createYTextField();
+		YUiTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
@@ -132,8 +132,8 @@ public class ViewPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
-		YUiView yView = factory.createYView();
-		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		YUiView yView = factory.createView();
+		YUiGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
@@ -178,8 +178,8 @@ public class ViewPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
-		YUiView yView = factory.createYView();
-		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		YUiView yView = factory.createView();
+		YUiGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
@@ -229,7 +229,7 @@ public class ViewPresentationTests {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
 		renderer.render(shell, yView, null);
@@ -278,7 +278,7 @@ public class ViewPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yText
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssID("ID_0815");
 		yView.setCssClass("anyOtherClass");
 
@@ -312,7 +312,7 @@ public class ViewPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yText
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
 		renderer.render(shell, yView, null);

@@ -11,6 +11,8 @@
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiEmbeddableEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ui.uimodel.example.presentation.IConstants;
@@ -28,14 +30,48 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public static final String CSS_CLASS__CONTROL_BASE = IConstants.CSS_CLASS__CONTROL_BASE;
 	// END SUPRESS CATCH EXCEPTION
-	
+
 	/**
 	 * See {@link IConstants#CSS_CLASS__CONTROL}.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public static final String CSS_CLASS__CONTROL = IConstants.CSS_CLASS__CONTROL;
 	// END SUPRESS CATCH EXCEPTION
-	
+
+	private final IUiEmbeddableEditpart editpart;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param editpart the editpart
+	 */
+	public AbstractSWTWidgetPresenter(IUiEmbeddableEditpart editpart) {
+		this.editpart = editpart;
+	}
+
+	/**
+	 * Returns the editpart the presenter will render for.
+	 * 
+	 * @return the editpart
+	 */
+	protected IUiEmbeddableEditpart getEditpart() {
+		return editpart;
+	}
+
+	@Override
+	public Object getModel() {
+		return getEditpart().getModel();
+	}
+
+	/**
+	 * Returns the view context.
+	 * 
+	 * @return viewContext
+	 */
+	protected IViewContext getViewContext() {
+		return getEditpart().getView().getContext();
+	}
+
 	/**
 	 * Sets the CSS id at the control.
 	 * 

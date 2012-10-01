@@ -65,10 +65,10 @@ public class MarginTests {
 	public void test_margin_view_settingFalse_noCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
 		yView.setMargin(false);
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yView.setContent(yGridLayout);
 
 		try {
@@ -98,11 +98,11 @@ public class MarginTests {
 	public void test_margin_view_settingTrue_noCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
 		// difference to test_margin_view_settingFalse_noCSS
 		yView.setMargin(true);
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yView.setContent(yGridLayout);
 
 		try {
@@ -133,10 +133,10 @@ public class MarginTests {
 	public void test_margin_view_settingFalse_withCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
 		yView.setMargin(false);
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yView.setContent(yGridLayout);
 
 		try {
@@ -169,11 +169,11 @@ public class MarginTests {
 	public void test_margin_view_settingTrue_withCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
 		// difference to test_margin_view_settingFalse_noCSS
 		yView.setMargin(true);
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yView.setContent(yGridLayout);
 
 		try {
@@ -203,9 +203,9 @@ public class MarginTests {
 	public void test_margin_gridlayout_settingFalse_noCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setMargin(false);
 		yView.setContent(yGridLayout);
@@ -237,9 +237,9 @@ public class MarginTests {
 	public void test_margin_gridlayout_settingTrue_noCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setMargin(true);
 		yView.setContent(yGridLayout);
@@ -272,9 +272,9 @@ public class MarginTests {
 	public void test_margin_gridlayout_settingFalse_withCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setMargin(false);
 		yView.setContent(yGridLayout);
@@ -309,9 +309,9 @@ public class MarginTests {
 	public void test_margin_gridlayout_settingTrue_withCSS() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 		yView.setCssClass("margintests");
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yGridLayout.setCssClass("gridlayout");
 		yGridLayout.setMargin(true);
 		yView.setContent(yGridLayout);

@@ -145,6 +145,18 @@ public class UiModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UiModelPackage.YUI_HEIGHTABLE: {
+				YUiHeightable yUiHeightable = (YUiHeightable)theEObject;
+				T result = caseYUiHeightable(yUiHeightable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.YUI_WIDTHABLE: {
+				YUiWidthable yUiWidthable = (YUiWidthable)theEObject;
+				T result = caseYUiWidthable(yUiWidthable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -281,6 +293,36 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiSpacingable(YUiSpacingable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Heightable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Heightable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiHeightable(YUiHeightable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Widthable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Widthable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiWidthable(YUiWidthable object) {
 		return null;
 	}
 

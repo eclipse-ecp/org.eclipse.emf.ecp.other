@@ -59,7 +59,6 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 		switch (eClass.getClassifierID()) {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD: return createYUiTextField();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT: return createYUiGridLayout();
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL: return createYUiGridLayoutCell();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE: return createYUiGridLayoutCellStyle();
 			case UimodelExtensionPackage.YUI_SPAN_INFO: return createYUiSpanInfo();
 			default:
@@ -115,16 +114,6 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public YUiGridLayout createYUiGridLayout() {
 		YUiGridLayoutImpl yUiGridLayout = new YUiGridLayoutImpl();
 		return yUiGridLayout;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YUiGridLayoutCell createYUiGridLayoutCell() {
-		YUiGridLayoutCellImpl yUiGridLayoutCell = new YUiGridLayoutCellImpl();
-		return yUiGridLayoutCell;
 	}
 
 	/**

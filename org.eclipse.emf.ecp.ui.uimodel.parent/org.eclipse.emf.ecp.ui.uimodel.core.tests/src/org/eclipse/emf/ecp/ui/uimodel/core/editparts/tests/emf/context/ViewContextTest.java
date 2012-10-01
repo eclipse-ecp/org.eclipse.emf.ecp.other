@@ -575,7 +575,11 @@ public class ViewContextTest {
 
 		@Override
 		public IWidgetPresentation getContent() {
-			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Object getModel() {
 			return null;
 		}
 	}

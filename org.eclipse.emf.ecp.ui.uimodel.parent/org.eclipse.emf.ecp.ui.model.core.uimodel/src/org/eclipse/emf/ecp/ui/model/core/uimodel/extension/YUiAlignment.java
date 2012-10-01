@@ -146,7 +146,31 @@ public enum YUiAlignment implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILL_FILL(12, "FILL_FILL", "FILL_FILL");
+	FILL_FILL(12, "FILL_FILL", "FILL_FILL"), /**
+	 * The '<em><b>FILL LEFT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILL_LEFT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILL_LEFT(13, "FILL_LEFT", "FILL_LEFT"), /**
+	 * The '<em><b>FILL CENTER</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILL_CENTER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILL_CENTER(14, "FILL_CENTER", "FILL_CENTER"), /**
+	 * The '<em><b>FILL RIGHT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILL_RIGHT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILL_RIGHT(15, "FILL_RIGHT", "FILL_RIGHT");
 
 	/**
 	 * The '<em><b>BOTTOM LEFT</b></em>' literal value.
@@ -344,6 +368,51 @@ public enum YUiAlignment implements Enumerator {
 	public static final int FILL_FILL_VALUE = 12;
 
 	/**
+	 * The '<em><b>FILL LEFT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>FILL LEFT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILL_LEFT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILL_LEFT_VALUE = 13;
+
+	/**
+	 * The '<em><b>FILL CENTER</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>FILL CENTER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILL_CENTER
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILL_CENTER_VALUE = 14;
+
+	/**
+	 * The '<em><b>FILL RIGHT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>FILL RIGHT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILL_RIGHT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILL_RIGHT_VALUE = 15;
+
+	/**
 	 * An array of all the '<em><b>YUi Alignment</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -364,6 +433,9 @@ public enum YUiAlignment implements Enumerator {
 			TOP_RIGHT,
 			TOP_FILL,
 			FILL_FILL,
+			FILL_LEFT,
+			FILL_CENTER,
+			FILL_RIGHT,
 		};
 
 	/**
@@ -427,6 +499,9 @@ public enum YUiAlignment implements Enumerator {
 			case TOP_RIGHT_VALUE: return TOP_RIGHT;
 			case TOP_FILL_VALUE: return TOP_FILL;
 			case FILL_FILL_VALUE: return FILL_FILL;
+			case FILL_LEFT_VALUE: return FILL_LEFT;
+			case FILL_CENTER_VALUE: return FILL_CENTER;
+			case FILL_RIGHT_VALUE: return FILL_RIGHT;
 		}
 		return null;
 	}

@@ -6,15 +6,42 @@
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
         eType="#//YUiGridLayoutCellStyle" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of columns the GridLayout should contain.&#x9;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, then all child elements will reduce its width to their preferred width.&#xA;If false, then all child elements will increase their width to 100% of the available width. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, then all child elements will reduce its height to their preferred height.&#xA;If false, then all child elements will increase their height to 100% of the available height."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayoutCell"/>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayoutCellStyle">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
         eType="ecore:EClass uimodel.ecore#//YUiEmbeddable"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YUiAlignment"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YUiAlignment">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The alignment of the ui element relative to its grid cell."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabHorizontalSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, then the element will increase its width to 100% of the available width.&#xA;Otherwise, the element will decrease its width to its preferred one."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grabVerticalSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If true, then the element will increase its height to 100% of the available height.&#xA;Otherwise, the element will decrease its height to its preferred one."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="spanInfo" eType="#//YUiSpanInfo"
         containment="true"/>
   </eClassifiers>
@@ -32,11 +59,30 @@
     <eLiterals name="TOP_RIGHT" value="10" literal="TOP_RIGHT"/>
     <eLiterals name="TOP_FILL" value="11" literal="TOP_FILL"/>
     <eLiterals name="FILL_FILL" value="12" literal="FILL_FILL"/>
+    <eLiterals name="FILL_LEFT" value="13" literal="FILL_LEFT"/>
+    <eLiterals name="FILL_CENTER" value="14" literal="FILL_CENTER"/>
+    <eLiterals name="FILL_RIGHT" value="15" literal="FILL_RIGHT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiSpanInfo">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The column index of the cell that should contain the Upper-Left-Edge of the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The row index of the cell that should contain the Upper-Left-Edge of the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The column index of the cell that should contain the Lower-Right-Edge of the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The row index of the cell that should contain the Lower-Right-Edge of the element."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

@@ -187,32 +187,31 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_GRID_LAYOUT__COLUMNS = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Pack Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_GRID_LAYOUT__PACK_HORIZONTAL = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Pack Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_GRID_LAYOUT__PACK_VERTICAL = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>YUi Grid Layout</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_GRID_LAYOUT_FEATURE_COUNT = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellImpl <em>YUi Grid Layout Cell</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiGridLayoutCell()
-	 * @generated
-	 */
-	int YUI_GRID_LAYOUT_CELL = 2;
-
-	/**
-	 * The number of structural features of the '<em>YUi Grid Layout Cell</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YUI_GRID_LAYOUT_CELL_FEATURE_COUNT = 0;
+	int YUI_GRID_LAYOUT_FEATURE_COUNT = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl <em>YUi Grid Layout Cell Style</em>}' class.
@@ -222,7 +221,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiGridLayoutCellStyle()
 	 * @generated
 	 */
-	int YUI_GRID_LAYOUT_CELL_STYLE = 3;
+	int YUI_GRID_LAYOUT_CELL_STYLE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -243,22 +242,22 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Grab Horizontal</b></em>' attribute.
+	 * The feature id for the '<em><b>Grab Horizontal Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL = 2;
+	int YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Grab Vertical</b></em>' attribute.
+	 * The feature id for the '<em><b>Grab Vertical Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL = 3;
+	int YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Span Info</b></em>' containment reference.
@@ -286,7 +285,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiSpanInfo()
 	 * @generated
 	 */
-	int YUI_SPAN_INFO = 4;
+	int YUI_SPAN_INFO = 3;
 
 	/**
 	 * The feature id for the '<em><b>Column From</b></em>' attribute.
@@ -341,7 +340,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiAlignment()
 	 * @generated
 	 */
-	int YUI_ALIGNMENT = 5;
+	int YUI_ALIGNMENT = 4;
 
 
 	/**
@@ -387,14 +386,26 @@ public interface UimodelExtensionPackage extends EPackage {
 	EAttribute getYUiGridLayout_Columns();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCell <em>YUi Grid Layout Cell</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackHorizontal <em>Pack Horizontal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YUi Grid Layout Cell</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCell
+	 * @return the meta object for the attribute '<em>Pack Horizontal</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackHorizontal()
+	 * @see #getYUiGridLayout()
 	 * @generated
 	 */
-	EClass getYUiGridLayoutCell();
+	EAttribute getYUiGridLayout_PackHorizontal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackVertical <em>Pack Vertical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pack Vertical</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackVertical()
+	 * @see #getYUiGridLayout()
+	 * @generated
+	 */
+	EAttribute getYUiGridLayout_PackVertical();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle <em>YUi Grid Layout Cell Style</em>}'.
@@ -429,26 +440,26 @@ public interface UimodelExtensionPackage extends EPackage {
 	EAttribute getYUiGridLayoutCellStyle_Alignment();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontal <em>Grab Horizontal</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Grab Horizontal</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontal()
+	 * @return the meta object for the attribute '<em>Grab Horizontal Space</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontalSpace()
 	 * @see #getYUiGridLayoutCellStyle()
 	 * @generated
 	 */
-	EAttribute getYUiGridLayoutCellStyle_GrabHorizontal();
+	EAttribute getYUiGridLayoutCellStyle_GrabHorizontalSpace();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVertical <em>Grab Vertical</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVerticalSpace <em>Grab Vertical Space</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Grab Vertical</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVertical()
+	 * @return the meta object for the attribute '<em>Grab Vertical Space</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVerticalSpace()
 	 * @see #getYUiGridLayoutCellStyle()
 	 * @generated
 	 */
-	EAttribute getYUiGridLayoutCellStyle_GrabVertical();
+	EAttribute getYUiGridLayoutCellStyle_GrabVerticalSpace();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getSpanInfo <em>Span Info</em>}'.
@@ -580,14 +591,19 @@ public interface UimodelExtensionPackage extends EPackage {
 		 */
 		EAttribute YUI_GRID_LAYOUT__COLUMNS = eINSTANCE.getYUiGridLayout_Columns();
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellImpl <em>YUi Grid Layout Cell</em>}' class.
+		 * The meta object literal for the '<em><b>Pack Horizontal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiGridLayoutCell()
 		 * @generated
 		 */
-		EClass YUI_GRID_LAYOUT_CELL = eINSTANCE.getYUiGridLayoutCell();
+		EAttribute YUI_GRID_LAYOUT__PACK_HORIZONTAL = eINSTANCE.getYUiGridLayout_PackHorizontal();
+		/**
+		 * The meta object literal for the '<em><b>Pack Vertical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_GRID_LAYOUT__PACK_VERTICAL = eINSTANCE.getYUiGridLayout_PackVertical();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl <em>YUi Grid Layout Cell Style</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -612,19 +628,19 @@ public interface UimodelExtensionPackage extends EPackage {
 		 */
 		EAttribute YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT = eINSTANCE.getYUiGridLayoutCellStyle_Alignment();
 		/**
-		 * The meta object literal for the '<em><b>Grab Horizontal</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Grab Horizontal Space</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL = eINSTANCE.getYUiGridLayoutCellStyle_GrabHorizontal();
+		EAttribute YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE = eINSTANCE.getYUiGridLayoutCellStyle_GrabHorizontalSpace();
 		/**
-		 * The meta object literal for the '<em><b>Grab Vertical</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Grab Vertical Space</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL = eINSTANCE.getYUiGridLayoutCellStyle_GrabVertical();
+		EAttribute YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE = eINSTANCE.getYUiGridLayoutCellStyle_GrabVerticalSpace();
 		/**
 		 * The meta object literal for the '<em><b>Span Info</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->

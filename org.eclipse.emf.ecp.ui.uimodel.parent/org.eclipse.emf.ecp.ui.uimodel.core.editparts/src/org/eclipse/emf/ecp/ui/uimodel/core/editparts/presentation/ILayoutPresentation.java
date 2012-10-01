@@ -45,7 +45,7 @@ public interface ILayoutPresentation<C> extends IWidgetPresentation<C> {
 	void dispose();
 
 	/**
-	 * Returns an unmodifiable list containing all child presentations.
+	 * Returns a list containing all child presentations.
 	 * 
 	 * @return children
 	 */

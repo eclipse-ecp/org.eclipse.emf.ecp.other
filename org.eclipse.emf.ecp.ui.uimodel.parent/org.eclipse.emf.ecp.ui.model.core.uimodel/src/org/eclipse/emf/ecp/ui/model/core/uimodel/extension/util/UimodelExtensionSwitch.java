@@ -12,6 +12,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
@@ -95,12 +96,6 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL: {
-				YUiGridLayoutCell yUiGridLayoutCell = (YUiGridLayoutCell)theEObject;
-				T result = caseYUiGridLayoutCell(yUiGridLayoutCell);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE: {
 				YUiGridLayoutCellStyle yUiGridLayoutCellStyle = (YUiGridLayoutCellStyle)theEObject;
 				T result = caseYUiGridLayoutCellStyle(yUiGridLayoutCellStyle);
@@ -144,21 +139,6 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiGridLayout(YUiGridLayout object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YUi Grid Layout Cell</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YUi Grid Layout Cell</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseYUiGridLayoutCell(YUiGridLayoutCell object) {
 		return null;
 	}
 

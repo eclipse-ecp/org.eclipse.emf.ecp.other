@@ -116,6 +116,14 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 				return createYUiSpacingableAdapter();
 			}
 			@Override
+			public Adapter caseYUiHeightable(YUiHeightable object) {
+				return createYUiHeightableAdapter();
+			}
+			@Override
+			public Adapter caseYUiWidthable(YUiWidthable object) {
+				return createYUiWidthableAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -258,6 +266,34 @@ public class UiModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiSpacingableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable <em>YUi Heightable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiHeightable
+	 * @generated
+	 */
+	public Adapter createYUiHeightableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable <em>YUi Widthable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable
+	 * @generated
+	 */
+	public Adapter createYUiWidthableAdapter() {
 		return null;
 	}
 

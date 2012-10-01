@@ -71,7 +71,7 @@ public class BuildViewTests {
 	public void build_View() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> yView
-		YUiView yView = factory.createYView();
+		YUiView yView = factory.createView();
 
 		Assert.assertEquals(0, shell.getChildren().length);
 		try {
@@ -104,8 +104,8 @@ public class BuildViewTests {
 		// build the view model
 		// ...> yView
 		// ......> yText
-		YUiView yView = factory.createYView();
-		YUiTextField yTeyt = factory.createYTextField();
+		YUiView yView = factory.createView();
+		YUiTextField yTeyt = factory.createTextField();
 		yView.setContent(yTeyt);
 
 		Assert.assertEquals(0, shell.getChildren().length);
@@ -142,8 +142,8 @@ public class BuildViewTests {
 		// build the view model
 		// ...> yView
 		// ......> yText
-		YUiView yView = factory.createYView();
-		YUiTextField yTeyt = factory.createYTextField();
+		YUiView yView = factory.createView();
+		YUiTextField yTeyt = factory.createTextField();
 		yView.setContent(yTeyt);
 
 		Assert.assertEquals(0, shell.getChildren().length);
@@ -180,12 +180,12 @@ public class BuildViewTests {
 		// ......> yGridLayout
 		// .........> yText1
 		// .........> yText2
-		YUiView yView = factory.createYView();
-		YUiGridLayout yGridLayout = factory.createYGridLayout();
+		YUiView yView = factory.createView();
+		YUiGridLayout yGridLayout = factory.createGridLayout();
 		yView.setContent(yGridLayout);
-		YUiTextField yText1 = factory.createYTextField();
+		YUiTextField yText1 = factory.createTextField();
 		yGridLayout.getElements().add(yText1);
-		YUiTextField yText2 = factory.createYTextField();
+		YUiTextField yText2 = factory.createTextField();
 		yGridLayout.getElements().add(yText2);
 
 		Assert.assertEquals(0, shell.getChildren().length);
@@ -216,7 +216,7 @@ public class BuildViewTests {
 	public void test_newInstance() {
 		// END SUPRESS CATCH EXCEPTION
 		// ...........> field2
-		YUiView view1 = factory.createYView();
+		YUiView view1 = factory.createView();
 		IUiViewEditpart view1EditPart = DelegatingEditPartManager.getInstance().getEditpart(view1);
 
 		// contexts null

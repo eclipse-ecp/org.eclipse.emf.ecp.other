@@ -71,10 +71,10 @@ public class TextFieldPresentationTests {
 		// ...> yView
 		// ......> yGridLayout
 		// .........> yText
-		YUiView yView = factory.createYView();
-		YUiGridLayout yGridlayout = factory.createYGridLayout();
+		YUiView yView = factory.createView();
+		YUiGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YUiTextField yText = factory.createYTextField();
+		YUiTextField yText = factory.createTextField();
 		yGridlayout.getElements().add(yText);
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
@@ -102,8 +102,8 @@ public class TextFieldPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yText
-		YUiView yView = factory.createYView();
-		YUiTextField yText = factory.createYTextField();
+		YUiView yView = factory.createView();
+		YUiTextField yText = factory.createTextField();
 		yView.setContent(yText);
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
@@ -153,14 +153,14 @@ public class TextFieldPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yText
-		YUiView yView = factory.createYView();
-		YUiGridLayout yLayout = factory.createYGridLayout();
+		YUiView yView = factory.createView();
+		YUiGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YUiTextField yText1 = factory.createYTextField();
+		YUiTextField yText1 = factory.createTextField();
 		yText1.setCssID("ID_0815");
 		yText1.setCssClass("anyOtherClass");
 		yLayout.getElements().add(yText1);
-		YUiTextField yText2 = factory.createYTextField();
+		YUiTextField yText2 = factory.createTextField();
 		yLayout.getElements().add(yText2);
 
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
