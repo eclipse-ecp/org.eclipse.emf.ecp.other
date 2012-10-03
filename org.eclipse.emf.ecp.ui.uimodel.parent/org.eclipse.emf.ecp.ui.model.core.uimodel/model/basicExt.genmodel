@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/org.eclipse.emf.ecp.ui.model.core.uimodel/src"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ui.model.core.uimodel/src"
     modelPluginID="org.eclipse.emf.ecp.ui.model.core.uimodel" modelName="BasicExt"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="uimodel.genmodel#//uimodel">
+    usedGenPackages="uimodel.genmodel#//uimodel datatypes.genmodel#//datatypes">
   <foreignModel>basicExt.ecore</foreignModel>
   <genPackages prefix="UimodelExtension" basePackage="org.eclipse.emf.ecp.ui.model.core.uimodel"
       disposableProviderFactory="true" ecorePackage="basicExt.ecore#/">
-    <genClasses ecoreClass="basicExt.ecore#//YUiTextField"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="basicExt.ecore#//YUiAlignment">
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/BOTTOM_LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/BOTTOM_CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/BOTTOM_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/BOTTOM_FILL"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/MIDDLE_LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/MIDDLE_CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/MIDDLE_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/MIDDLE_FILL"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/TOP_LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/TOP_CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/TOP_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/TOP_FILL"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/FILL_FILL"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/FILL_LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/FILL_CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/FILL_RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="basicExt.ecore#//YUiAlignment/UNDEFINED"/>
+    </genEnums>
+    <genClasses ecoreClass="basicExt.ecore#//YUiTextField">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference basicExt.ecore#//YUiTextField/datadescription"/>
+    </genClasses>
+    <genClasses ecoreClass="basicExt.ecore#//YUiGridLayout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference basicExt.ecore#//YUiGridLayout/cellStyles"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiGridLayout/columns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiGridLayout/packContentHorizontal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiGridLayout/packContentVertical"/>
+    </genClasses>
+    <genClasses ecoreClass="basicExt.ecore#//YUiGridLayoutCellStyle">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference basicExt.ecore#//YUiGridLayoutCellStyle/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiGridLayoutCellStyle/alignment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference basicExt.ecore#//YUiGridLayoutCellStyle/spanInfo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiGridLayoutCellStyle/packHorizontal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiGridLayoutCellStyle/packVertical"/>
+    </genClasses>
+    <genClasses ecoreClass="basicExt.ecore#//YUiSpanInfo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiSpanInfo/columnFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiSpanInfo/rowFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiSpanInfo/columnTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute basicExt.ecore#//YUiSpanInfo/rowTo"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

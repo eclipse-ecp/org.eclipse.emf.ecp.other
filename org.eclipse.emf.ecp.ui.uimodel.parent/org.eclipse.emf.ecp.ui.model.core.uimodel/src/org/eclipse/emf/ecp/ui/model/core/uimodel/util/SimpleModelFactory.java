@@ -1,5 +1,7 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.util;
 
+import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
@@ -115,4 +117,14 @@ public class SimpleModelFactory {
 	public YUiViewSet createViewSet() {
 		return UiModelFactory.eINSTANCE.createYUiViewSet();
 	}
+
+	/**
+	 * Creates the text datadescription
+	 * 
+	 * @return
+	 */
+	public YTextDDesc createTextDatadescription() {
+		return DatatypesFactory.eINSTANCE.createYTextDDesc();
+	}
+
 }

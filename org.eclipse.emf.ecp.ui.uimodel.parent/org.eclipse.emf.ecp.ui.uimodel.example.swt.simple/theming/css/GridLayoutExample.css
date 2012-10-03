@@ -1,0 +1,12 @@
+.gridLayoutExample {
+	margin-left: 20;
+	margin-top: 20;
+	border: 4px red;
+}
+
+.gridLayoutExample .gridlayout {
+	margin-left: 40;
+	margin-top: 40;
+	spacing-horizontal: 20;
+	spacing-vertical: 30;
+}

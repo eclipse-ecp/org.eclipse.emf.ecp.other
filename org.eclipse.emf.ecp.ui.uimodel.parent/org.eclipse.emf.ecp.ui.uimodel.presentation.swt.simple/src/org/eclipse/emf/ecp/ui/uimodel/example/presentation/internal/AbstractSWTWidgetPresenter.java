@@ -38,6 +38,13 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	public static final String CSS_CLASS__CONTROL = IConstants.CSS_CLASS__CONTROL;
 	// END SUPRESS CATCH EXCEPTION
 
+	/**
+	 * See {@link IConstants#CSS_CLASS__LABEL}.
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public static final String CSS_CLASS__LABEL = IConstants.CSS_CLASS__LABEL;
+	// END SUPRESS CATCH EXCEPTION
+	
 	private final IUiEmbeddableEditpart editpart;
 
 	/**

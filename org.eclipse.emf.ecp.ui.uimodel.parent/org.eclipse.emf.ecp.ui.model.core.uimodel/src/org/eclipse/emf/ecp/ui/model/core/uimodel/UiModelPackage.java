@@ -535,6 +535,7 @@ public interface UiModelPackage extends EPackage {
 	 */
 	int YUI_UNIT = 11;
 
+
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement <em>YUi Element</em>}'.
 	 * <!-- begin-user-doc -->
@@ -598,6 +599,17 @@ public interface UiModelPackage extends EPackage {
 	EClass getYUiView();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getRoot <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Root</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getRoot()
+	 * @see #getYUiView()
+	 * @generated
+	 */
+	EReference getYUiView_Root();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getViewName <em>View Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,17 +651,6 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYUiViewSet_Views();
-
-	/**
-	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Root</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView#getRoot()
-	 * @see #getYUiView()
-	 * @generated
-	 */
-	EReference getYUiView_Root();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable <em>YUi Embeddable</em>}'.
@@ -888,6 +889,14 @@ public interface UiModelPackage extends EPackage {
 		EClass YUI_VIEW = eINSTANCE.getYUiView();
 
 		/**
+		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_VIEW__ROOT = eINSTANCE.getYUiView_Root();
+
+		/**
 		 * The meta object literal for the '<em><b>View Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -920,14 +929,6 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_VIEW_SET__VIEWS = eINSTANCE.getYUiViewSet_Views();
-
-		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference YUI_VIEW__ROOT = eINSTANCE.getYUiView_Root();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiEmbeddableImpl <em>YUi Embeddable</em>}' class.

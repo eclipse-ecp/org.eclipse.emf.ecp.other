@@ -242,6 +242,15 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYUiView_Root() {
+		return (EReference)yUiViewEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getYUiView_ViewName() {
 		return (EAttribute)yUiViewEClass.getEStructuralFeatures().get(1);
 	}
@@ -271,15 +280,6 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 */
 	public EReference getYUiViewSet_Views() {
 		return (EReference)yUiViewSetEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getYUiView_Root() {
-		return (EReference)yUiViewEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**

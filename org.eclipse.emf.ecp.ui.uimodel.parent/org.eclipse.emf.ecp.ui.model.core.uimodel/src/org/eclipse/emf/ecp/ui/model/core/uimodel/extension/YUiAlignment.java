@@ -170,7 +170,15 @@ public enum YUiAlignment implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILL_RIGHT(15, "FILL_RIGHT", "FILL_RIGHT");
+	FILL_RIGHT(15, "FILL_RIGHT", "FILL_RIGHT"), /**
+	 * The '<em><b>UNDEFINED</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNDEFINED_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UNDEFINED(16, "UNDEFINED", "UNDEFINED");
 
 	/**
 	 * The '<em><b>BOTTOM LEFT</b></em>' literal value.
@@ -413,6 +421,21 @@ public enum YUiAlignment implements Enumerator {
 	public static final int FILL_RIGHT_VALUE = 15;
 
 	/**
+	 * The '<em><b>UNDEFINED</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>UNDEFINED</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #UNDEFINED
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int UNDEFINED_VALUE = 16;
+
+	/**
 	 * An array of all the '<em><b>YUi Alignment</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,6 +459,7 @@ public enum YUiAlignment implements Enumerator {
 			FILL_LEFT,
 			FILL_CENTER,
 			FILL_RIGHT,
+			UNDEFINED,
 		};
 
 	/**
@@ -502,6 +526,7 @@ public enum YUiAlignment implements Enumerator {
 			case FILL_LEFT_VALUE: return FILL_LEFT;
 			case FILL_CENTER_VALUE: return FILL_CENTER;
 			case FILL_RIGHT_VALUE: return FILL_RIGHT;
+			case UNDEFINED_VALUE: return UNDEFINED;
 		}
 		return null;
 	}

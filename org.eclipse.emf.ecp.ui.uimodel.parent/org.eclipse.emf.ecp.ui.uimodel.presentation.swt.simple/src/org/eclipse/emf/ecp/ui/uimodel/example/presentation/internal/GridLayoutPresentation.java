@@ -58,6 +58,11 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(1, true));
+			if (modelAccess.isCssIdValid()) {
+				setCSSId(controlBase, modelAccess.getCssID());
+			} else {
+				setCSSId(controlBase, getEditpart().getId());
+			}
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
 
 			if (modelAccess.isMargin()) {
@@ -66,14 +71,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
 			control = new Composite(controlBase, SWT.NONE);
 			control.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-			layout = new GridLayout(modelAccess.getColumns(), true);
+			layout = new GridLayout(modelAccess.getColumns(), false);
 			control.setLayout(layout);
-
-			if (modelAccess.isCssIdValid()) {
-				setCSSId(control, modelAccess.getCssID());
-			} else {
-				setCSSId(control, getEditpart().getId());
-			}
 
 			if (modelAccess.isCssClassValid()) {
 				setCSSClass(control, modelAccess.getCssClass());
@@ -165,7 +164,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			return null;
 		}
 		Control childControl = (Control) childPresentation.createWidget(control);
-		childControl.setLayoutData(createGridData(findCellstyleFor(childPresentation)));
+		childControl.setLayoutData(createGridDataForChild(findCellstyleFor(childPresentation)));
 		return childControl;
 	}
 
@@ -193,7 +192,9 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	 * @param yStyle the cell style
 	 * @return the grid data for the component
 	 */
-	protected GridData createGridData(YUiGridLayoutCellStyle yStyle) {
+	// BEGIN SUPRESS CATCH EXCEPTION
+	protected GridData createGridDataForChild(YUiGridLayoutCellStyle yStyle) {
+		// END SUPRESS CATCH EXCEPTION
 		GridData data = new GridData();
 
 		// calculate the spanning of the element
@@ -212,37 +213,34 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			}
 		}
 
-		if (col1 >= 0 && row1 >= 0 && col1 <= col2 && row1 <= row2) {
-			data.horizontalSpan = col2 - col1;
-			data.verticalSpan = row2 - row1;
+		if (col1 >= 0 && row1 >= 0 && (col1 < col2 || row1 < row2)) {
+			data.horizontalSpan = col2 - col1 + 1;
+			data.verticalSpan = row2 - row1 + 1;
 		} else {
 			LOGGER.warn("Invalid span: col1 {}, row1 {}, col2 {}, row2{}", new Object[] { col1, row1, col2, row2 });
 		}
 
-		if (yStyle != null) {
-			if (yStyle.isGrabHorizontalSpace()) {
-				data.grabExcessHorizontalSpace = true;
+		// calculate and apply the alignment to be used
+		//
+		YUiAlignment yAlignment = yStyle != null && yStyle.getAlignment() != null ? yStyle.getAlignment() : null;
+		if (yAlignment != null) {
+			// apply the alignment as specified
+			applyAlignment(data, yAlignment);
+		} else {
+			// use default
+			yAlignment = YUiAlignment.TOP_LEFT;
+
+			if (!modelAccess.isPackContentVertical()) {
+				// ensure that vertical alignment is FILL
+				yAlignment = mapToVerticalFill(yAlignment);
+			}
+			if (!modelAccess.isPackContentHorizontal()) {
+				// ensure that horizontal alignment is FILL
+				yAlignment = mapToHorizontalFill(yAlignment);
 			}
 
-			if (yStyle.isGrabVerticalSpace()) {
-				data.grabExcessVerticalSpace = true;
-			}
-		}
-
-		if (modelAccess.isPackHorizontal()) {
-			data.horizontalAlignment = SWT.FILL;
-			data.grabExcessHorizontalSpace = false;
-		} else {
-			data.horizontalAlignment = SWT.FILL;
-			data.grabExcessHorizontalSpace = true;
-		}
-
-		if (modelAccess.isPackVertical()) {
-			data.verticalAlignment = SWT.BEGINNING;
-			data.grabExcessVerticalSpace = false;
-		} else {
-			data.verticalAlignment = SWT.FILL;
-			data.grabExcessVerticalSpace = true;
+			// apply the alignment
+			applyAlignment(data, yAlignment);
 		}
 
 		return data;
@@ -251,12 +249,17 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Sets the alignment to the component.
 	 * 
-	 * @param yAlignment the alignment
 	 * @param data grid data
+	 * @param yAlignment the alignment
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
-	protected void applyAlignment(YUiAlignment yAlignment, GridData data) {
+	protected void applyAlignment(GridData data, YUiAlignment yAlignment) {
 		// END SUPRESS CATCH EXCEPTION
+
+		// reset the grab excess space settings
+		data.grabExcessHorizontalSpace = false;
+		data.grabExcessVerticalSpace = false;
+
 		if (yAlignment != null) {
 			switch (yAlignment) {
 			case BOTTOM_CENTER:
@@ -266,6 +269,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			case BOTTOM_FILL:
 				data.verticalAlignment = SWT.BOTTOM;
 				data.horizontalAlignment = SWT.FILL;
+				data.grabExcessHorizontalSpace = true;
 				break;
 			case BOTTOM_LEFT:
 				data.verticalAlignment = SWT.BOTTOM;
@@ -282,6 +286,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			case MIDDLE_FILL:
 				data.verticalAlignment = SWT.CENTER;
 				data.horizontalAlignment = SWT.FILL;
+				data.grabExcessHorizontalSpace = true;
 				break;
 			case MIDDLE_LEFT:
 				data.verticalAlignment = SWT.CENTER;
@@ -298,6 +303,7 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			case TOP_FILL:
 				data.verticalAlignment = SWT.TOP;
 				data.horizontalAlignment = SWT.FILL;
+				data.grabExcessHorizontalSpace = true;
 				break;
 			case TOP_LEFT:
 				data.verticalAlignment = SWT.TOP;
@@ -309,26 +315,107 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 				break;
 			case FILL_CENTER:
 				data.verticalAlignment = SWT.FILL;
+				data.grabExcessVerticalSpace = true;
 				data.horizontalAlignment = SWT.CENTER;
 				break;
 			case FILL_FILL:
 				data.verticalAlignment = SWT.FILL;
+				data.grabExcessVerticalSpace = true;
 				data.horizontalAlignment = SWT.FILL;
+				data.grabExcessHorizontalSpace = true;
 				break;
 			case FILL_LEFT:
 				data.verticalAlignment = SWT.FILL;
+				data.grabExcessVerticalSpace = true;
 				data.horizontalAlignment = SWT.LEFT;
 				break;
 			case FILL_RIGHT:
 				data.verticalAlignment = SWT.FILL;
+				data.grabExcessVerticalSpace = true;
 				data.horizontalAlignment = SWT.RIGHT;
 				break;
 			default:
-				data.verticalAlignment = SWT.CENTER;
-				data.horizontalAlignment = SWT.LEFT;
+				// nothing to do
 				break;
 			}
 		}
+	}
+
+	/**
+	 * Maps the vertical part of the alignment to FILL.
+	 * 
+	 * @param yAlignment the alignment
+	 * @return alignment the mapped alignment
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	protected YUiAlignment mapToVerticalFill(YUiAlignment yAlignment) {
+		// END SUPRESS CATCH EXCEPTION
+		if (yAlignment != null) {
+			switch (yAlignment) {
+			case BOTTOM_CENTER:
+			case MIDDLE_CENTER:
+			case TOP_CENTER:
+				return YUiAlignment.FILL_CENTER;
+			case BOTTOM_FILL:
+			case MIDDLE_FILL:
+			case TOP_FILL:
+				return YUiAlignment.FILL_FILL;
+			case BOTTOM_LEFT:
+			case MIDDLE_LEFT:
+			case TOP_LEFT:
+				return YUiAlignment.FILL_LEFT;
+			case BOTTOM_RIGHT:
+			case MIDDLE_RIGHT:
+			case TOP_RIGHT:
+				return YUiAlignment.FILL_RIGHT;
+			case FILL_FILL:
+			case FILL_LEFT:
+			case FILL_RIGHT:
+			case FILL_CENTER:
+				return YUiAlignment.FILL_FILL;
+			default:
+				break;
+			}
+		}
+		return YUiAlignment.FILL_FILL;
+	}
+
+	/**
+	 * Maps the horizontal part of the alignment to FILL.
+	 * 
+	 * @param yAlignment the alignment
+	 * @return alignment the mapped alignment
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	protected YUiAlignment mapToHorizontalFill(YUiAlignment yAlignment) {
+		// END SUPRESS CATCH EXCEPTION
+		if (yAlignment != null) {
+			switch (yAlignment) {
+			case BOTTOM_CENTER:
+			case BOTTOM_FILL:
+			case BOTTOM_LEFT:
+			case BOTTOM_RIGHT:
+				return YUiAlignment.BOTTOM_FILL;
+			case MIDDLE_CENTER:
+			case MIDDLE_FILL:
+			case MIDDLE_LEFT:
+			case MIDDLE_RIGHT:
+				return YUiAlignment.MIDDLE_FILL;
+			case TOP_CENTER:
+			case TOP_FILL:
+			case TOP_LEFT:
+			case TOP_RIGHT:
+				return YUiAlignment.TOP_FILL;
+			case FILL_FILL:
+			case FILL_LEFT:
+			case FILL_RIGHT:
+			case FILL_CENTER:
+				return YUiAlignment.FILL_FILL;
+			default:
+				break;
+			}
+		}
+		return YUiAlignment.FILL_FILL;
 	}
 
 	@Override
@@ -466,18 +553,18 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
 		/**
 		 * @return
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackHorizontal()
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical()
 		 */
-		public boolean isPackHorizontal() {
-			return yLayout.isPackHorizontal();
+		public boolean isPackContentHorizontal() {
+			return yLayout.isPackContentHorizontal();
 		}
 
 		/**
 		 * @return
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackVertical()
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical()
 		 */
-		public boolean isPackVertical() {
-			return yLayout.isPackVertical();
+		public boolean isPackContentVertical() {
+			return yLayout.isPackContentVertical();
 		}
 
 	}

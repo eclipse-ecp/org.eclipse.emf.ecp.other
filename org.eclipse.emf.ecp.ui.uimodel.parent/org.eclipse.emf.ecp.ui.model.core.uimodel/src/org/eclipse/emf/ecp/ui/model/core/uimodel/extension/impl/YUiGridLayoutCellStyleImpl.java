@@ -4,16 +4,11 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
-
-import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
@@ -28,9 +23,9 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#getAlignment <em>Alignment</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#getSpanInfo <em>Span Info</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#isPackHorizontal <em>Pack Horizontal</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutCellStyleImpl#isPackVertical <em>Pack Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,7 +50,7 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 	 * @generated
 	 * @ordered
 	 */
-	protected static final YUiAlignment ALIGNMENT_EDEFAULT = YUiAlignment.BOTTOM_LEFT;
+	protected static final YUiAlignment ALIGNMENT_EDEFAULT = YUiAlignment.UNDEFINED;
 
 	/**
 	 * The cached value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
@@ -68,46 +63,6 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 	protected YUiAlignment alignment = ALIGNMENT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isGrabHorizontalSpace() <em>Grab Horizontal Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isGrabHorizontalSpace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean GRAB_HORIZONTAL_SPACE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isGrabHorizontalSpace() <em>Grab Horizontal Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isGrabHorizontalSpace()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean grabHorizontalSpace = GRAB_HORIZONTAL_SPACE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isGrabVerticalSpace() <em>Grab Vertical Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isGrabVerticalSpace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean GRAB_VERTICAL_SPACE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isGrabVerticalSpace() <em>Grab Vertical Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isGrabVerticalSpace()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean grabVerticalSpace = GRAB_VERTICAL_SPACE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getSpanInfo() <em>Span Info</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +71,46 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 	 * @ordered
 	 */
 	protected YUiSpanInfo spanInfo;
+
+	/**
+	 * The default value of the '{@link #isPackHorizontal() <em>Pack Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPackHorizontal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PACK_HORIZONTAL_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isPackHorizontal() <em>Pack Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPackHorizontal()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean packHorizontal = PACK_HORIZONTAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPackVertical() <em>Pack Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPackVertical()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PACK_VERTICAL_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isPackVertical() <em>Pack Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPackVertical()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean packVertical = PACK_VERTICAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +129,48 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 	@Override
 	protected EClass eStaticClass() {
 		return UimodelExtensionPackage.Literals.YUI_GRID_LAYOUT_CELL_STYLE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPackHorizontal() {
+		return packHorizontal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackHorizontal(boolean newPackHorizontal) {
+		boolean oldPackHorizontal = packHorizontal;
+		packHorizontal = newPackHorizontal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_HORIZONTAL, oldPackHorizontal, packHorizontal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPackVertical() {
+		return packVertical;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackVertical(boolean newPackVertical) {
+		boolean oldPackVertical = packVertical;
+		packVertical = newPackVertical;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_VERTICAL, oldPackVertical, packVertical));
 	}
 
 	/**
@@ -193,48 +230,6 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 		alignment = newAlignment == null ? ALIGNMENT_EDEFAULT : newAlignment;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT, oldAlignment, alignment));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isGrabHorizontalSpace() {
-		return grabHorizontalSpace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGrabHorizontalSpace(boolean newGrabHorizontalSpace) {
-		boolean oldGrabHorizontalSpace = grabHorizontalSpace;
-		grabHorizontalSpace = newGrabHorizontalSpace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE, oldGrabHorizontalSpace, grabHorizontalSpace));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isGrabVerticalSpace() {
-		return grabVerticalSpace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGrabVerticalSpace(boolean newGrabVerticalSpace) {
-		boolean oldGrabVerticalSpace = grabVerticalSpace;
-		grabVerticalSpace = newGrabVerticalSpace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE, oldGrabVerticalSpace, grabVerticalSpace));
 	}
 
 	/**
@@ -307,12 +302,12 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 				return basicGetTarget();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT:
 				return getAlignment();
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE:
-				return isGrabHorizontalSpace();
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE:
-				return isGrabVerticalSpace();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO:
 				return getSpanInfo();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_HORIZONTAL:
+				return isPackHorizontal();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_VERTICAL:
+				return isPackVertical();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,14 +326,14 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT:
 				setAlignment((YUiAlignment)newValue);
 				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE:
-				setGrabHorizontalSpace((Boolean)newValue);
-				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE:
-				setGrabVerticalSpace((Boolean)newValue);
-				return;
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO:
 				setSpanInfo((YUiSpanInfo)newValue);
+				return;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_HORIZONTAL:
+				setPackHorizontal((Boolean)newValue);
+				return;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_VERTICAL:
+				setPackVertical((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -358,14 +353,14 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT:
 				setAlignment(ALIGNMENT_EDEFAULT);
 				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE:
-				setGrabHorizontalSpace(GRAB_HORIZONTAL_SPACE_EDEFAULT);
-				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE:
-				setGrabVerticalSpace(GRAB_VERTICAL_SPACE_EDEFAULT);
-				return;
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO:
 				setSpanInfo((YUiSpanInfo)null);
+				return;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_HORIZONTAL:
+				setPackHorizontal(PACK_HORIZONTAL_EDEFAULT);
+				return;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_VERTICAL:
+				setPackVertical(PACK_VERTICAL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -383,12 +378,12 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 				return target != null;
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT:
 				return alignment != ALIGNMENT_EDEFAULT;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_HORIZONTAL_SPACE:
-				return grabHorizontalSpace != GRAB_HORIZONTAL_SPACE_EDEFAULT;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__GRAB_VERTICAL_SPACE:
-				return grabVerticalSpace != GRAB_VERTICAL_SPACE_EDEFAULT;
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO:
 				return spanInfo != null;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_HORIZONTAL:
+				return packHorizontal != PACK_HORIZONTAL_EDEFAULT;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE__PACK_VERTICAL:
+				return packVertical != PACK_VERTICAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -405,10 +400,10 @@ public class YUiGridLayoutCellStyleImpl extends EObjectImpl implements YUiGridLa
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alignment: ");
 		result.append(alignment);
-		result.append(", grabHorizontalSpace: ");
-		result.append(grabHorizontalSpace);
-		result.append(", grabVerticalSpace: ");
-		result.append(grabVerticalSpace);
+		result.append(", packHorizontal: ");
+		result.append(packHorizontal);
+		result.append(", packVertical: ");
+		result.append(packVertical);
 		result.append(')');
 		return result.toString();
 	}

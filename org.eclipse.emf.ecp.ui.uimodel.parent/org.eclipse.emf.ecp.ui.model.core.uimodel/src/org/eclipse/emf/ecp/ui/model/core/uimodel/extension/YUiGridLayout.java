@@ -3,7 +3,6 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
@@ -18,8 +17,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getCellStyles <em>Cell Styles</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackHorizontal <em>Pack Horizontal</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackVertical <em>Pack Vertical</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentHorizontal <em>Pack Content Horizontal</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical <em>Pack Content Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,57 +73,55 @@ public interface YUiGridLayout extends YUiLayout, YUiSpacingable, YUiMarginable 
 	void setColumns(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Pack Horizontal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Pack Content Horizontal</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, then all child elements will reduce its width to their preferred width.
-	 * If false, then all child elements will increase their width to 100% of the available width. 
+	 * If true, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. It overrides the #packHorizontal property of the cell style.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pack Horizontal</em>' attribute.
-	 * @see #setPackHorizontal(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_PackHorizontal()
+	 * @return the value of the '<em>Pack Content Horizontal</em>' attribute.
+	 * @see #setPackContentHorizontal(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_PackContentHorizontal()
 	 * @model default="true"
 	 * @generated
 	 */
-	boolean isPackHorizontal();
+	boolean isPackContentHorizontal();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackHorizontal <em>Pack Horizontal</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentHorizontal <em>Pack Content Horizontal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pack Horizontal</em>' attribute.
-	 * @see #isPackHorizontal()
+	 * @param value the new value of the '<em>Pack Content Horizontal</em>' attribute.
+	 * @see #isPackContentHorizontal()
 	 * @generated
 	 */
-	void setPackHorizontal(boolean value);
+	void setPackContentHorizontal(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Pack Vertical</b></em>' attribute.
+	 * Returns the value of the '<em><b>Pack Content Vertical</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, then all child elements will reduce its height to their preferred height.
-	 * If false, then all child elements will increase their height to 100% of the available height.
+	 * If true, then the height of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. It overrides the #packVertical property of the cell style.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pack Vertical</em>' attribute.
-	 * @see #setPackVertical(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_PackVertical()
+	 * @return the value of the '<em>Pack Content Vertical</em>' attribute.
+	 * @see #setPackContentVertical(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_PackContentVertical()
 	 * @model default="true"
 	 * @generated
 	 */
-	boolean isPackVertical();
+	boolean isPackContentVertical();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackVertical <em>Pack Vertical</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical <em>Pack Content Vertical</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pack Vertical</em>' attribute.
-	 * @see #isPackVertical()
+	 * @param value the new value of the '<em>Pack Content Vertical</em>' attribute.
+	 * @see #isPackContentVertical()
 	 * @generated
 	 */
-	void setPackVertical(boolean value);
+	void setPackContentVertical(boolean value);
 
 } // YUiGridLayout

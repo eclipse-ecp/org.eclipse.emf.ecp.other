@@ -7,7 +7,10 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipse.emf.ecp.ui.model.core.uimodel,
+Export-Package: org.eclipse.emf.ecp.ui.model.core.datatypes,
+ org.eclipse.emf.ecp.ui.model.core.datatypes.impl;x-internal:=true,
+ org.eclipse.emf.ecp.ui.model.core.datatypes.util,
+ org.eclipse.emf.ecp.ui.model.core.uimodel,
  org.eclipse.emf.ecp.ui.model.core.uimodel.extension,
  org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;x-internal:=true,
  org.eclipse.emf.ecp.ui.model.core.uimodel.extension.util,

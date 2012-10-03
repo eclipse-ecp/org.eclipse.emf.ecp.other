@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *    Florian Pirchner - initial API and implementation
+ * Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation;
 
@@ -30,5 +30,12 @@ public interface IConstants {
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public static final String CSS_CLASS__CONTROL = "control";
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * This CSS class is applied to the label of a presentation.
+	 */
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public static final String CSS_CLASS__LABEL = "label";
 	// END SUPRESS CATCH EXCEPTION
 }

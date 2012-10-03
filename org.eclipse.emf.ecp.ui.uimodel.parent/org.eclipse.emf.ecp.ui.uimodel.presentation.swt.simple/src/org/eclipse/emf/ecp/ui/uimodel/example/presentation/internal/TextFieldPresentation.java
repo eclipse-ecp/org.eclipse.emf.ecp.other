@@ -12,13 +12,13 @@ package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 /**
@@ -28,7 +28,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
 	private final ModelAccess modelAccess;
 	private Composite controlBase;
-	private Text control;
+	private Text text;
+	private Label label;
 
 	/**
 	 * Constructor.
@@ -47,21 +48,31 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	public Control createWidget(Object parent) {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
-			controlBase.setLayout(new GridLayout(1, true));
+			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-
-			control = new Text(controlBase, SWT.BORDER);
-			control.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 			if (modelAccess.isCssIdValid()) {
-				setCSSId(control, modelAccess.getCssID());
+				setCSSId(controlBase, modelAccess.getCssID());
 			} else {
-				setCSSId(control, getEditpart().getId());
+				setCSSId(controlBase, getEditpart().getId());
 			}
 
+			label = new Label(controlBase, SWT.NONE);
+			label.setText("huhuhuhuhuhu");
+			GridData labelGd = new GridData(SWT.BEGINNING, SWT.TOP, false, true);
+			label.setLayoutData(labelGd);
+			setCSSClass(label, CSS_CLASS__LABEL);
+
+			text = new Text(controlBase, SWT.BORDER);
+			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+
 			if (modelAccess.isCssClassValid()) {
-				setCSSClass(control, modelAccess.getCssClass());
+				setCSSClass(text, modelAccess.getCssClass());
 			} else {
-				setCSSClass(control, CSS_CLASS__CONTROL);
+				setCSSClass(text, CSS_CLASS__CONTROL);
+			}
+
+			if (modelAccess.isLabelValid()) {
+				label.setText(modelAccess.getLabel());
 			}
 		}
 		return controlBase;
@@ -85,7 +96,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			control = null;
+			text = null;
 		}
 	}
 
@@ -141,6 +152,24 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		 */
 		public boolean isCssIdValid() {
 			return getCssID() != null && !getCssID().equals("");
+		}
+
+		/**
+		 * Returns true, if the label is valid.
+		 * 
+		 * @return
+		 */
+		public boolean isLabelValid() {
+			return yText.getDatadescription() != null && yText.getDatadescription().getLabel() != null;
+		}
+
+		/**
+		 * Returns the label.
+		 * 
+		 * @return
+		 */
+		public String getLabel() {
+			return yText.getDatadescription().getLabel();
 		}
 	}
 }

@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.Example1"
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.MarginAndSpacingExample"
          point="org.eclipse.core.runtime.applications">
       <application
             cardinality="singleton-global"
@@ -11,6 +11,18 @@
          <run
                class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.MarginAndSpacingExample">
          </run>
-      </application>
+       </application>
    </extension>
+   <extension
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutExample">
+         </run>
+      </application>
+    </extension>
 </plugin>

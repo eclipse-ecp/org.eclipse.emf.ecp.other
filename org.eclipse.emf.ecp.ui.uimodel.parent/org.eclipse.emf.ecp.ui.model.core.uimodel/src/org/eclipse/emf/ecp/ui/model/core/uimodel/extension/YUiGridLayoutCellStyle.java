@@ -3,9 +3,7 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,9 +15,9 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiWidthable;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getAlignment <em>Alignment</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVerticalSpace <em>Grab Vertical Space</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getSpanInfo <em>Span Info</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackHorizontal <em>Pack Horizontal</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackVertical <em>Pack Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +54,7 @@ public interface YUiGridLayoutCellStyle extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Alignment</b></em>' attribute.
+	 * The default value is <code>"UNDEFINED"</code>.
 	 * The literals are from the enumeration {@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -70,7 +69,7 @@ public interface YUiGridLayoutCellStyle extends EObject {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment
 	 * @see #setAlignment(YUiAlignment)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_Alignment()
-	 * @model
+	 * @model default="UNDEFINED"
 	 * @generated
 	 */
 	YUiAlignment getAlignment();
@@ -85,58 +84,6 @@ public interface YUiGridLayoutCellStyle extends EObject {
 	 * @generated
 	 */
 	void setAlignment(YUiAlignment value);
-
-	/**
-	 * Returns the value of the '<em><b>Grab Horizontal Space</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If true, then the element will increase its width to 100% of the available width.
-	 * Otherwise, the element will decrease its width to its preferred one.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Grab Horizontal Space</em>' attribute.
-	 * @see #setGrabHorizontalSpace(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_GrabHorizontalSpace()
-	 * @model
-	 * @generated
-	 */
-	boolean isGrabHorizontalSpace();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabHorizontalSpace <em>Grab Horizontal Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Grab Horizontal Space</em>' attribute.
-	 * @see #isGrabHorizontalSpace()
-	 * @generated
-	 */
-	void setGrabHorizontalSpace(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Grab Vertical Space</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If true, then the element will increase its height to 100% of the available height.
-	 * Otherwise, the element will decrease its height to its preferred one.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Grab Vertical Space</em>' attribute.
-	 * @see #setGrabVerticalSpace(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_GrabVerticalSpace()
-	 * @model
-	 * @generated
-	 */
-	boolean isGrabVerticalSpace();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isGrabVerticalSpace <em>Grab Vertical Space</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Grab Vertical Space</em>' attribute.
-	 * @see #isGrabVerticalSpace()
-	 * @generated
-	 */
-	void setGrabVerticalSpace(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Span Info</b></em>' containment reference.
@@ -163,5 +110,57 @@ public interface YUiGridLayoutCellStyle extends EObject {
 	 * @generated
 	 */
 	void setSpanInfo(YUiSpanInfo value);
+
+	/**
+	 * Returns the value of the '<em><b>Pack Horizontal</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, then the width of the target element associated with that style will be decreased to its preferred width or its miminum width.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Pack Horizontal</em>' attribute.
+	 * @see #setPackHorizontal(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_PackHorizontal()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isPackHorizontal();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackHorizontal <em>Pack Horizontal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pack Horizontal</em>' attribute.
+	 * @see #isPackHorizontal()
+	 * @generated
+	 */
+	void setPackHorizontal(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Pack Vertical</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If true, then the height of the target element associated with that style will be decreased to its preferred height or its miminum height.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Pack Vertical</em>' attribute.
+	 * @see #setPackVertical(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_PackVertical()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isPackVertical();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackVertical <em>Pack Vertical</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pack Vertical</em>' attribute.
+	 * @see #isPackVertical()
+	 * @generated
+	 */
+	void setPackVertical(boolean value);
 
 } // YUiGridLayoutCellStyle
