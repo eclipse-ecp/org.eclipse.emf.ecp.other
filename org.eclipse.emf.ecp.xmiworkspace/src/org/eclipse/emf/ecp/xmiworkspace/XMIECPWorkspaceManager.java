@@ -1,8 +1,13 @@
-/**
- * <copyright> Copyright (c) 2008-2009 Jonas Helming, Maximilian Koegel. All rights reserved. This program and the
- * accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this
- * distribution, and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
- */
+/*******************************************************************************
+ * Copyright (c) 2008-2011 Chair for Applied Software Engineering,
+ * Technische Universitaet Muenchen.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ ******************************************************************************/
 package org.eclipse.emf.ecp.xmiworkspace;
 
 import java.io.File;
@@ -38,11 +43,6 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 public class XMIECPWorkspaceManager extends ECPWorkspaceImpl implements
 		ECPWorkspace {
 
-	/**
-	 * Transactional domain.
-	 */
-	private static final String TRANSACTIONAL_EDITINGDOMAIN_ID = "org.unicase.EditingDomain";
-
 	private static ECPWorkspace workspace;
 
 	/**
@@ -67,16 +67,7 @@ public class XMIECPWorkspaceManager extends ECPWorkspaceImpl implements
 		ResourceSet resourceSetImpl = editingDomain.getResourceSet();
 		Resource resource = resourceSetImpl.createResource(URI
 				.createFileURI(path));
-		EList<EObject> contents = null;
-		try {
-			if (!new File(path).exists()) {
-				resource.save(null);
-			}
-			resource.load(Collections.EMPTY_MAP);
-			contents = resource.getContents();
-		} catch (IOException e) {
-			throw new XMIWorkspaceException("Failed to load workspace!", e);
-		}
+		EList<EObject> contents = loadResource(path, resource);
 
 		if (contents.size() == 0) {
 			workspace = WorkSpaceModelFactory.eINSTANCE.createECPWorkspace();
@@ -119,6 +110,24 @@ public class XMIECPWorkspaceManager extends ECPWorkspaceImpl implements
 			workspace.setActiveProject(workspace.getProjects().get(0));
 		}
 		return workspace;
+	}
+
+	private static EList<EObject> loadResource(String path, Resource resource)
+		throws XMIWorkspaceException {
+		
+		EList<EObject> contents = null;
+		
+		try {
+			if (!new File(path).exists()) {
+				resource.save(null);
+			}
+			resource.load(Collections.EMPTY_MAP);
+			resource.getContents();
+		} catch (IOException e) {
+			throw new XMIWorkspaceException("Failed to load workspace!", e);
+		}
+		
+		return contents;
 	}
 
 	/**

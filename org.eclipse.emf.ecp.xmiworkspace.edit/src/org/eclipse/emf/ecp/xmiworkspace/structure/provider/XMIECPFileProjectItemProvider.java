@@ -1,7 +1,12 @@
 /**
- * <copyright> Copyright (c) 2008-2009 Jonas Helming, Maximilian Koegel. All rights reserved. This program and the
- * accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this
- * distribution, and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * Copyright (c) 2008-2011 Chair for Applied Software Engineering,
+ * Technische Universitaet Muenchen.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
  */
 package org.eclipse.emf.ecp.xmiworkspace.structure.provider;
 
@@ -227,6 +232,8 @@ public class XMIECPFileProjectItemProvider
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
+	 * @param notification
+	 * 			the notification being fired
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -253,6 +260,8 @@ public class XMIECPFileProjectItemProvider
 			case StructurePackage.XMIECP_FILE_PROJECT__XMI_FILE_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			default:
+				break;
 		}
 		super.notifyChanged(notification);
 	}
