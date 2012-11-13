@@ -4,6 +4,7 @@
     nsPrefix="basicextension">
   <eClassifiers xsi:type="ecore:EClass" name="YUiTextField" eSuperTypes="uimodel.ecore#//YUiField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YTextDDesc"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindsTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
@@ -13,16 +14,16 @@
         <details key="documentation" value="The number of columns the GridLayout should contain.&#x9;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packContentHorizontal"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. It overrides the #packHorizontal property of the cell style."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packContentVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, then the height of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. It overrides the #packVertical property of the cell style."/>
+        <details key="documentation" value="If false, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. If no alignment is defined for a child, this setting will become its default.&#xA;Eg if child has not a alignment, the horizontal alignment will become FILL if fillHorizontal is true. Otherwise the ui-kit default will be used as the horizontal alignment."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If false, then the width of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. If no alignment is defined for a child, this setting will become its default.&#xA;Eg if child has not a alignment, the vertical alignment will become FILL if fillVertical is true. Otherwise the ui-kit default will be used as the vertical alignment."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -37,18 +38,6 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="spanInfo" eType="#//YUiSpanInfo"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, then the width of the target element associated with that style will be decreased to its preferred width or its miminum width."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="If true, then the height of the target element associated with that style will be decreased to its preferred height or its miminum height."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="YUiAlignment">
     <eLiterals name="BOTTOM_LEFT"/>
@@ -90,5 +79,9 @@
         <details key="documentation" value="The row index of the cell that should contain the Lower-Right-Edge of the element."/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTable" eSuperTypes="uimodel.ecore#//YUiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiLabel" eSuperTypes="uimodel.ecore#//YUiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YLabelDDesc"/>
   </eClassifiers>
 </ecore:EPackage>

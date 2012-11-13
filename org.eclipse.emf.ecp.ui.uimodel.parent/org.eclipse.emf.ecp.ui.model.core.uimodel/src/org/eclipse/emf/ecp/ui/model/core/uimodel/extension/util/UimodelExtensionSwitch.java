@@ -110,6 +110,26 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UimodelExtensionPackage.YUI_TABLE: {
+				YUiTable yUiTable = (YUiTable)theEObject;
+				T result = caseYUiTable(yUiTable);
+				if (result == null) result = caseYUiField(yUiTable);
+				if (result == null) result = caseYUiEmbeddable(yUiTable);
+				if (result == null) result = caseYUiElement(yUiTable);
+				if (result == null) result = caseYUiCssAble(yUiTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_LABEL: {
+				YUiLabel yUiLabel = (YUiLabel)theEObject;
+				T result = caseYUiLabel(yUiLabel);
+				if (result == null) result = caseYUiField(yUiLabel);
+				if (result == null) result = caseYUiEmbeddable(yUiLabel);
+				if (result == null) result = caseYUiElement(yUiLabel);
+				if (result == null) result = caseYUiCssAble(yUiLabel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -171,6 +191,36 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiSpanInfo(YUiSpanInfo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Table</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiTable(YUiTable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiLabel(YUiLabel object) {
 		return null;
 	}
 

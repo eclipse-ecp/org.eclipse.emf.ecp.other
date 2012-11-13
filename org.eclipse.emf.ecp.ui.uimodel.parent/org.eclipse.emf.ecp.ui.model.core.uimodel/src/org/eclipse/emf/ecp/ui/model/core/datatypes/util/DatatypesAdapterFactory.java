@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.*;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
@@ -88,6 +89,10 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYTextDDesc(YTextDDesc object) {
 				return createYTextDDescAdapter();
+			}
+			@Override
+			public Adapter caseYLabelDDesc(YLabelDDesc object) {
+				return createYLabelDDescAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -176,6 +181,20 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYTextDDescAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc <em>YLabel DDesc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc
+	 * @generated
+	 */
+	public Adapter createYLabelDDescAdapter() {
 		return null;
 	}
 

@@ -31,8 +31,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiLayoutImpl;
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#isMargin <em>Margin</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#getCellStyles <em>Cell Styles</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#isPackContentHorizontal <em>Pack Content Horizontal</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#isPackContentVertical <em>Pack Content Vertical</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#isFillHorizontal <em>Fill Horizontal</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiGridLayoutImpl#isFillVertical <em>Fill Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,44 +110,44 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 	protected int columns = COLUMNS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isPackContentHorizontal() <em>Pack Content Horizontal</em>}' attribute.
+	 * The default value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isPackContentHorizontal()
+	 * @see #isFillHorizontal()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PACK_CONTENT_HORIZONTAL_EDEFAULT = true;
+	protected static final boolean FILL_HORIZONTAL_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isPackContentHorizontal() <em>Pack Content Horizontal</em>}' attribute.
+	 * The cached value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isPackContentHorizontal()
+	 * @see #isFillHorizontal()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean packContentHorizontal = PACK_CONTENT_HORIZONTAL_EDEFAULT;
+	protected boolean fillHorizontal = FILL_HORIZONTAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isPackContentVertical() <em>Pack Content Vertical</em>}' attribute.
+	 * The default value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isPackContentVertical()
+	 * @see #isFillVertical()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PACK_CONTENT_VERTICAL_EDEFAULT = true;
+	protected static final boolean FILL_VERTICAL_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #isPackContentVertical() <em>Pack Content Vertical</em>}' attribute.
+	 * The cached value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isPackContentVertical()
+	 * @see #isFillVertical()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean packContentVertical = PACK_CONTENT_VERTICAL_EDEFAULT;
+	protected boolean fillVertical = FILL_VERTICAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,8 +248,8 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPackContentHorizontal() {
-		return packContentHorizontal;
+	public boolean isFillHorizontal() {
+		return fillHorizontal;
 	}
 
 	/**
@@ -257,11 +257,11 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPackContentHorizontal(boolean newPackContentHorizontal) {
-		boolean oldPackContentHorizontal = packContentHorizontal;
-		packContentHorizontal = newPackContentHorizontal;
+	public void setFillHorizontal(boolean newFillHorizontal) {
+		boolean oldFillHorizontal = fillHorizontal;
+		fillHorizontal = newFillHorizontal;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_HORIZONTAL, oldPackContentHorizontal, packContentHorizontal));
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_HORIZONTAL, oldFillHorizontal, fillHorizontal));
 	}
 
 	/**
@@ -269,8 +269,8 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPackContentVertical() {
-		return packContentVertical;
+	public boolean isFillVertical() {
+		return fillVertical;
 	}
 
 	/**
@@ -278,11 +278,11 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPackContentVertical(boolean newPackContentVertical) {
-		boolean oldPackContentVertical = packContentVertical;
-		packContentVertical = newPackContentVertical;
+	public void setFillVertical(boolean newFillVertical) {
+		boolean oldFillVertical = fillVertical;
+		fillVertical = newFillVertical;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_VERTICAL, oldPackContentVertical, packContentVertical));
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_VERTICAL, oldFillVertical, fillVertical));
 	}
 
 	/**
@@ -315,10 +315,10 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 				return getCellStyles();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT__COLUMNS:
 				return getColumns();
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_HORIZONTAL:
-				return isPackContentHorizontal();
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_VERTICAL:
-				return isPackContentVertical();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_HORIZONTAL:
+				return isFillHorizontal();
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_VERTICAL:
+				return isFillVertical();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -345,11 +345,11 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT__COLUMNS:
 				setColumns((Integer)newValue);
 				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_HORIZONTAL:
-				setPackContentHorizontal((Boolean)newValue);
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_HORIZONTAL:
+				setFillHorizontal((Boolean)newValue);
 				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_VERTICAL:
-				setPackContentVertical((Boolean)newValue);
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_VERTICAL:
+				setFillVertical((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -375,11 +375,11 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT__COLUMNS:
 				setColumns(COLUMNS_EDEFAULT);
 				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_HORIZONTAL:
-				setPackContentHorizontal(PACK_CONTENT_HORIZONTAL_EDEFAULT);
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_HORIZONTAL:
+				setFillHorizontal(FILL_HORIZONTAL_EDEFAULT);
 				return;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_VERTICAL:
-				setPackContentVertical(PACK_CONTENT_VERTICAL_EDEFAULT);
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_VERTICAL:
+				setFillVertical(FILL_VERTICAL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -401,10 +401,10 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 				return cellStyles != null && !cellStyles.isEmpty();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT__COLUMNS:
 				return columns != COLUMNS_EDEFAULT;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_HORIZONTAL:
-				return packContentHorizontal != PACK_CONTENT_HORIZONTAL_EDEFAULT;
-			case UimodelExtensionPackage.YUI_GRID_LAYOUT__PACK_CONTENT_VERTICAL:
-				return packContentVertical != PACK_CONTENT_VERTICAL_EDEFAULT;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_HORIZONTAL:
+				return fillHorizontal != FILL_HORIZONTAL_EDEFAULT;
+			case UimodelExtensionPackage.YUI_GRID_LAYOUT__FILL_VERTICAL:
+				return fillVertical != FILL_VERTICAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -469,10 +469,10 @@ public class YUiGridLayoutImpl extends YUiLayoutImpl implements YUiGridLayout {
 		result.append(margin);
 		result.append(", columns: ");
 		result.append(columns);
-		result.append(", packContentHorizontal: ");
-		result.append(packContentHorizontal);
-		result.append(", packContentVertical: ");
-		result.append(packContentVertical);
+		result.append(", fillHorizontal: ");
+		result.append(fillHorizontal);
+		result.append(", fillVertical: ");
+		result.append(fillVertical);
 		result.append(')');
 		return result.toString();
 	}

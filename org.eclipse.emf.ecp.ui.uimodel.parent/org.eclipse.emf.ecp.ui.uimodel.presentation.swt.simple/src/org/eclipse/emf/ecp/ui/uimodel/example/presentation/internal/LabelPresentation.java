@@ -10,35 +10,34 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiLabelEditpart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
-public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
+public class LabelPresentation extends AbstractSWTWidgetPresenter {
 
 	private final ModelAccess modelAccess;
 	private Composite controlBase;
-	private Text text;
 	private Label label;
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param editpart The editpart of that presenter
+	 * @param editpart
+	 *            The editpart of that presenter
 	 */
-	public TextFieldPresentation(IUiElementEditpart editpart) {
-		super((IUiTextFieldEditpart) editpart);
-		this.modelAccess = new ModelAccess((YUiTextField) editpart.getModel());
+	public LabelPresentation(IUiElementEditpart editpart) {
+		super((IUiLabelEditpart) editpart);
+		this.modelAccess = new ModelAccess((YUiLabel) editpart.getModel());
 	}
 
 	/**
@@ -48,7 +47,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	public Control createWidget(Object parent) {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
-			controlBase.setLayout(new GridLayout(2, false));
+			controlBase.setLayout(new GridLayout(1, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
 			if (modelAccess.isCssIdValid()) {
 				setCSSId(controlBase, modelAccess.getCssID());
@@ -57,17 +56,14 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			}
 
 			label = new Label(controlBase, SWT.NONE);
-			GridData labelGd = new GridData(SWT.BEGINNING, SWT.TOP, false, true);
-			label.setLayoutData(labelGd);
+			label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+
 			setCSSClass(label, CSS_CLASS__LABEL);
 
-			text = new Text(controlBase, SWT.BORDER);
-			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
 			if (modelAccess.isCssClassValid()) {
-				setCSSClass(text, modelAccess.getCssClass());
+				setCSSClass(label, modelAccess.getCssClass());
 			} else {
-				setCSSClass(text, CSS_CLASS__CONTROL);
+				setCSSClass(label, CSS_CLASS__CONTROL);
 			}
 
 			if (modelAccess.isLabelValid()) {
@@ -95,7 +91,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			text = null;
+			label = null;
 		}
 	}
 
@@ -112,11 +108,11 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * A helper class.
 	 */
 	private static class ModelAccess {
-		private final YUiTextField yText;
+		private final YUiLabel yUiLabel;
 
-		public ModelAccess(YUiTextField yText) {
+		public ModelAccess(YUiLabel yUiLabel) {
 			super();
-			this.yText = yText;
+			this.yUiLabel = yUiLabel;
 		}
 
 		/**
@@ -124,7 +120,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssClass()
 		 */
 		public String getCssClass() {
-			return yText.getCssClass();
+			return yUiLabel.getCssClass();
 		}
 
 		/**
@@ -141,7 +137,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssID()
 		 */
 		public String getCssID() {
-			return yText.getCssID();
+			return yUiLabel.getCssID();
 		}
 
 		/**
@@ -159,7 +155,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		 * @return
 		 */
 		public boolean isLabelValid() {
-			return yText.getDatadescription() != null && yText.getDatadescription().getLabel() != null;
+			return yUiLabel.getDatadescription() != null
+					&& yUiLabel.getDatadescription().getLabel() != null;
 		}
 
 		/**
@@ -168,7 +165,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		 * @return
 		 */
 		public String getLabel() {
-			return yText.getDatadescription().getLabel();
+			return yUiLabel.getDatadescription().getLabel();
 		}
 	}
 }

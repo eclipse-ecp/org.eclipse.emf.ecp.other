@@ -367,6 +367,70 @@ public interface DatatypesPackage extends EPackage {
 	int YTEXT_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl <em>YLabel DDesc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYLabelDDesc()
+	 * @generated
+	 */
+	int YLABEL_DDESC = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL_DDESC__ID = YDT_DATADESCRIPTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
+
+	/**
+	 * The number of structural features of the '<em>YLabel DDesc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase <em>YDt Base</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -527,6 +591,16 @@ public interface DatatypesPackage extends EPackage {
 	EReference getYTextDDesc_Datatype();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc <em>YLabel DDesc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YLabel DDesc</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc
+	 * @generated
+	 */
+	EClass getYLabelDDesc();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -677,6 +751,16 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YTEXT_DDESC__DATATYPE = eINSTANCE.getYTextDDesc_Datatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl <em>YLabel DDesc</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYLabelDDesc()
+		 * @generated
+		 */
+		EClass YLABEL_DDESC = eINSTANCE.getYLabelDDesc();
 
 	}
 

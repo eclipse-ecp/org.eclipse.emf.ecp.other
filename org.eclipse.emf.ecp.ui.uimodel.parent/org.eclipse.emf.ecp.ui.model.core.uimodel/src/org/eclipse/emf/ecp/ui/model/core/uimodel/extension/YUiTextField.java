@@ -14,6 +14,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getBindsTo <em>Binds To</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,4 +49,30 @@ public interface YUiTextField extends YUiField {
 	 * @generated
 	 */
 	void setDatadescription(YTextDDesc value);
+
+	/**
+	 * Returns the value of the '<em><b>Binds To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Binds To</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Binds To</em>' attribute.
+	 * @see #setBindsTo(String)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiTextField_BindsTo()
+	 * @model
+	 * @generated
+	 */
+	String getBindsTo();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getBindsTo <em>Binds To</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Binds To</em>' attribute.
+	 * @see #getBindsTo()
+	 * @generated
+	 */
+	void setBindsTo(String value);
 } // YUiTextField

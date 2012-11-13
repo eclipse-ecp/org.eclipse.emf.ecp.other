@@ -14,14 +14,26 @@
        </application>
    </extension>
    <extension
-         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutExample"
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutTextExample"
          point="org.eclipse.core.runtime.applications">
         <application
             cardinality="singleton-global" 
             thread="main"
             visible="true">
          <run
-           class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutExample">
+           class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutTextExample">
+         </run>
+      </application>
+    </extension>
+       <extension
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutLabelExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutLabelExample">
          </run>
       </application>
     </extension>

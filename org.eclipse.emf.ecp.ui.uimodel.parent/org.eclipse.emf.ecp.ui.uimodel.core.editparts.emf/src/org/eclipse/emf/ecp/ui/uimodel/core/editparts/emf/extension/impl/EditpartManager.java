@@ -14,22 +14,28 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiGridLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiLabelEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTableEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 
 /**
- * An implementation of IEditPartManager for eObjects with nsURI=http://eclipse.org/emf/emfclient/uimodel.
+ * An implementation of IEditPartManager for eObjects with
+ * nsURI=http://eclipse.org/emf/emfclient/uimodel.
  */
 public class EditpartManager extends AbstractEditpartManager {
 
 	@Override
 	public boolean isFor(Object element) {
 		if (element instanceof EObject) {
-			String uriString = ((EObject) element).eClass().getEPackage().getNsURI();
+			String uriString = ((EObject) element).eClass().getEPackage()
+					.getNsURI();
 			return uriString.equals(UimodelExtensionPackage.eNS_URI);
 		} else if (element instanceof String) {
 			return element.equals(UimodelExtensionPackage.eNS_URI);
@@ -39,12 +45,17 @@ public class EditpartManager extends AbstractEditpartManager {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <A extends IUiElementEditpart> A createEditpart(Object selector, Class<A> editPartClazz) {
+	public <A extends IUiElementEditpart> A createEditpart(Object selector,
+			Class<A> editPartClazz) {
 		UiElementEditpart<YUiElement> result = null;
 		if (editPartClazz.isAssignableFrom(IUiTextFieldEditpart.class)) {
 			result = createNewInstance(UiTextFieldEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IUiGridLayoutEditpart.class)) {
 			result = createNewInstance(UiGridLayoutEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiTableEditpart.class)) {
+			result = createNewInstance(UiTableEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiLabelEditpart.class)) {
+			result = createNewInstance(UiLabelEditpart.class);
 		}
 
 		if (result != null) {
@@ -57,8 +68,10 @@ public class EditpartManager extends AbstractEditpartManager {
 	/**
 	 * Creates a new instance of the edit part.
 	 * 
-	 * @param <A> an instance of {@link IUiElementEditpart}
-	 * @param yElement the model element
+	 * @param <A>
+	 *            an instance of {@link IUiElementEditpart}
+	 * @param yElement
+	 *            the model element
 	 * @return editpart
 	 */
 	@SuppressWarnings("unchecked")
@@ -71,6 +84,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(UiTextFieldEditpart.class);
 		} else if (yElement instanceof YUiGridLayout) {
 			result = createNewInstance(UiGridLayoutEditpart.class);
+		} else if (yElement instanceof YUiTable) {
+			result = createNewInstance(UiTableEditpart.class);
+		} else if (yElement instanceof YUiLabel) {
+			result = createNewInstance(UiLabelEditpart.class);
 		}
 
 		if (result != null) {
@@ -83,13 +100,18 @@ public class EditpartManager extends AbstractEditpartManager {
 	/**
 	 * Returns a new instance of the type.
 	 * 
-	 * @param type The type of the editpart for which an instance should be created.
+	 * @param type
+	 *            The type of the editpart for which an instance should be
+	 *            created.
 	 * @return editPart
-	 * @throws InstantiationException e
-	 * @throws IllegalAccessException e
+	 * @throws InstantiationException
+	 *             e
+	 * @throws IllegalAccessException
+	 *             e
 	 */
-	protected IUiElementEditpart newInstance(Class<? extends IUiElementEditpart> type) throws InstantiationException,
-		IllegalAccessException {
+	protected IUiElementEditpart newInstance(
+			Class<? extends IUiElementEditpart> type)
+			throws InstantiationException, IllegalAccessException {
 		return type.newInstance();
 	}
 }

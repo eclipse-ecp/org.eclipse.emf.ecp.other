@@ -23,4 +23,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="YTextDDesc" eSuperTypes="#//YDtDatadescription">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="#//YTextDType"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YLabelDDesc" eSuperTypes="#//YDtDatadescription"/>
 </ecore:EPackage>

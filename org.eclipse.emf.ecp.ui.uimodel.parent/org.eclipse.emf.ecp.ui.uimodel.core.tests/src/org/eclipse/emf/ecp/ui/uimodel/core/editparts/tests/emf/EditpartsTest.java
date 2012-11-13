@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewSetContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.IResourceManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -1100,6 +1102,27 @@ public class EditpartsTest {
 		@Override
 		public boolean isRendered() {
 			return rendered;
+		}
+
+		@Override
+		public void registerPresentation(String id,
+				IWidgetPresentation<?> widget) throws RuntimeException {
+			
+		}
+
+		@Override
+		public void unregisterPresentation(String id) {
+			
+		}
+
+		@Override
+		public <C> IWidgetPresentation<C> getPresentation(String id) {
+			return null;
+		}
+
+		@Override
+		public Set<String> getPresentationIds() {
+			return null;
 		}
 	}
 }

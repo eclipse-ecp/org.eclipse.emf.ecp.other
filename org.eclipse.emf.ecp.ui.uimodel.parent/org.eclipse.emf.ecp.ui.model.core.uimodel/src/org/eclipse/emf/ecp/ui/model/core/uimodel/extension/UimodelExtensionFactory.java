@@ -58,6 +58,24 @@ public interface UimodelExtensionFactory extends EFactory {
 	YUiSpanInfo createYUiSpanInfo();
 
 	/**
+	 * Returns a new object of class '<em>YUi Table</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Table</em>'.
+	 * @generated
+	 */
+	YUiTable createYUiTable();
+
+	/**
+	 * Returns a new object of class '<em>YUi Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Label</em>'.
+	 * @generated
+	 */
+	YUiLabel createYUiLabel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

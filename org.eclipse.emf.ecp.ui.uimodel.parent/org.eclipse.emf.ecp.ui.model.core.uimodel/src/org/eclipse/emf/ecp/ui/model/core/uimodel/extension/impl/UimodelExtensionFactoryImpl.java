@@ -65,6 +65,8 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT: return createYUiGridLayout();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE: return createYUiGridLayoutCellStyle();
 			case UimodelExtensionPackage.YUI_SPAN_INFO: return createYUiSpanInfo();
+			case UimodelExtensionPackage.YUI_TABLE: return createYUiTable();
+			case UimodelExtensionPackage.YUI_LABEL: return createYUiLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -138,6 +140,26 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public YUiSpanInfo createYUiSpanInfo() {
 		YUiSpanInfoImpl yUiSpanInfo = new YUiSpanInfoImpl();
 		return yUiSpanInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiTable createYUiTable() {
+		YUiTableImpl yUiTable = new YUiTableImpl();
+		return yUiTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiLabel createYUiLabel() {
+		YUiLabelImpl yUiLabel = new YUiLabelImpl();
+		return yUiLabel;
 	}
 
 	/**

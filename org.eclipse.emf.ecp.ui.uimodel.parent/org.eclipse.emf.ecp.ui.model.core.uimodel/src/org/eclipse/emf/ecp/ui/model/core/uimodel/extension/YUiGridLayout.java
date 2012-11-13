@@ -17,8 +17,8 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getCellStyles <em>Cell Styles</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentHorizontal <em>Pack Content Horizontal</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical <em>Pack Content Vertical</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isFillHorizontal <em>Fill Horizontal</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isFillVertical <em>Fill Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,55 +73,57 @@ public interface YUiGridLayout extends YUiLayout, YUiSpacingable, YUiMarginable 
 	void setColumns(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Pack Content Horizontal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Fill Horizontal</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. It overrides the #packHorizontal property of the cell style.
+	 * If false, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. If no alignment is defined for a child, this setting will become its default.
+	 * Eg if child has not a alignment, the horizontal alignment will become FILL if fillHorizontal is true. Otherwise the ui-kit default will be used as the horizontal alignment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pack Content Horizontal</em>' attribute.
-	 * @see #setPackContentHorizontal(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_PackContentHorizontal()
+	 * @return the value of the '<em>Fill Horizontal</em>' attribute.
+	 * @see #setFillHorizontal(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_FillHorizontal()
 	 * @model default="true"
 	 * @generated
 	 */
-	boolean isPackContentHorizontal();
+	boolean isFillHorizontal();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentHorizontal <em>Pack Content Horizontal</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isFillHorizontal <em>Fill Horizontal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pack Content Horizontal</em>' attribute.
-	 * @see #isPackContentHorizontal()
+	 * @param value the new value of the '<em>Fill Horizontal</em>' attribute.
+	 * @see #isFillHorizontal()
 	 * @generated
 	 */
-	void setPackContentHorizontal(boolean value);
+	void setFillHorizontal(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Pack Content Vertical</b></em>' attribute.
+	 * Returns the value of the '<em><b>Fill Vertical</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * If true, then the height of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. It overrides the #packVertical property of the cell style.
+	 * If false, then the width of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. If no alignment is defined for a child, this setting will become its default.
+	 * Eg if child has not a alignment, the vertical alignment will become FILL if fillVertical is true. Otherwise the ui-kit default will be used as the vertical alignment.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pack Content Vertical</em>' attribute.
-	 * @see #setPackContentVertical(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_PackContentVertical()
+	 * @return the value of the '<em>Fill Vertical</em>' attribute.
+	 * @see #setFillVertical(boolean)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayout_FillVertical()
 	 * @model default="true"
 	 * @generated
 	 */
-	boolean isPackContentVertical();
+	boolean isFillVertical();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical <em>Pack Content Vertical</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isFillVertical <em>Fill Vertical</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pack Content Vertical</em>' attribute.
-	 * @see #isPackContentVertical()
+	 * @param value the new value of the '<em>Fill Vertical</em>' attribute.
+	 * @see #isFillVertical()
 	 * @generated
 	 */
-	void setPackContentVertical(boolean value);
+	void setFillVertical(boolean value);
 
 } // YUiGridLayout

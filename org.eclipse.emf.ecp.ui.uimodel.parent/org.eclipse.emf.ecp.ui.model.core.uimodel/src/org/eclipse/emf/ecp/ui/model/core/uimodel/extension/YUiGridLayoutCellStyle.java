@@ -16,8 +16,6 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getAlignment <em>Alignment</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#getSpanInfo <em>Span Info</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackHorizontal <em>Pack Horizontal</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackVertical <em>Pack Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,57 +108,5 @@ public interface YUiGridLayoutCellStyle extends EObject {
 	 * @generated
 	 */
 	void setSpanInfo(YUiSpanInfo value);
-
-	/**
-	 * Returns the value of the '<em><b>Pack Horizontal</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If true, then the width of the target element associated with that style will be decreased to its preferred width or its miminum width.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pack Horizontal</em>' attribute.
-	 * @see #setPackHorizontal(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_PackHorizontal()
-	 * @model default="true"
-	 * @generated
-	 */
-	boolean isPackHorizontal();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackHorizontal <em>Pack Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pack Horizontal</em>' attribute.
-	 * @see #isPackHorizontal()
-	 * @generated
-	 */
-	void setPackHorizontal(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Pack Vertical</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If true, then the height of the target element associated with that style will be decreased to its preferred height or its miminum height.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Pack Vertical</em>' attribute.
-	 * @see #setPackVertical(boolean)
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiGridLayoutCellStyle_PackVertical()
-	 * @model default="true"
-	 * @generated
-	 */
-	boolean isPackVertical();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle#isPackVertical <em>Pack Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pack Vertical</em>' attribute.
-	 * @see #isPackVertical()
-	 * @generated
-	 */
-	void setPackVertical(boolean value);
 
 } // YUiGridLayoutCellStyle

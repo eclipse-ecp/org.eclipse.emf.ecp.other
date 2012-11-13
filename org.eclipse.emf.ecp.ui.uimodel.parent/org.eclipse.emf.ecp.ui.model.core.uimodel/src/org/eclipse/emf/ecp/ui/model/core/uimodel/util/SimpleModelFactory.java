@@ -1,6 +1,7 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.util;
 
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
@@ -9,6 +10,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
@@ -101,6 +103,15 @@ public class SimpleModelFactory {
 	}
 
 	/**
+	 * Creates an instance of {@link YUiLabel}
+	 * 
+	 * @return
+	 */
+	public YUiLabel createLabel() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiLabel();
+	}
+	
+	/**
 	 * Creates an instance of {@link YUiView}
 	 * 
 	 * @return
@@ -125,6 +136,15 @@ public class SimpleModelFactory {
 	 */
 	public YTextDDesc createTextDatadescription() {
 		return DatatypesFactory.eINSTANCE.createYTextDDesc();
+	}
+	
+	/**
+	 * Creates the text datadescription
+	 * 
+	 * @return
+	 */
+	public YLabelDDesc createLabelDatadescription() {
+		return DatatypesFactory.eINSTANCE.createYLabelDDesc();
 	}
 
 }

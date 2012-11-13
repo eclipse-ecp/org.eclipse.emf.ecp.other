@@ -19,6 +19,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiFieldImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextFieldImpl#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextFieldImpl#getBindsTo <em>Binds To</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,6 +35,25 @@ public class YUiTextFieldImpl extends YUiFieldImpl implements YUiTextField {
 	 * @ordered
 	 */
 	protected YTextDDesc datadescription;
+
+	/**
+	 * The default value of the '{@link #getBindsTo() <em>Binds To</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindsTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BINDS_TO_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getBindsTo() <em>Binds To</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBindsTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected String bindsTo = BINDS_TO_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,12 +117,35 @@ public class YUiTextFieldImpl extends YUiFieldImpl implements YUiTextField {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getBindsTo() {
+		return bindsTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBindsTo(String newBindsTo) {
+		String oldBindsTo = bindsTo;
+		bindsTo = newBindsTo;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_TEXT_FIELD__BINDS_TO, oldBindsTo, bindsTo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
+			case UimodelExtensionPackage.YUI_TEXT_FIELD__BINDS_TO:
+				return getBindsTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,6 +160,9 @@ public class YUiTextFieldImpl extends YUiFieldImpl implements YUiTextField {
 		switch (featureID) {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD__DATADESCRIPTION:
 				setDatadescription((YTextDDesc)newValue);
+				return;
+			case UimodelExtensionPackage.YUI_TEXT_FIELD__BINDS_TO:
+				setBindsTo((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,6 +179,9 @@ public class YUiTextFieldImpl extends YUiFieldImpl implements YUiTextField {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD__DATADESCRIPTION:
 				setDatadescription((YTextDDesc)null);
 				return;
+			case UimodelExtensionPackage.YUI_TEXT_FIELD__BINDS_TO:
+				setBindsTo(BINDS_TO_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -147,8 +196,26 @@ public class YUiTextFieldImpl extends YUiFieldImpl implements YUiTextField {
 		switch (featureID) {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD__DATADESCRIPTION:
 				return datadescription != null;
+			case UimodelExtensionPackage.YUI_TEXT_FIELD__BINDS_TO:
+				return BINDS_TO_EDEFAULT == null ? bindsTo != null : !BINDS_TO_EDEFAULT.equals(bindsTo);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (bindsTo: ");
+		result.append(bindsTo);
+		result.append(')');
+		return result.toString();
 	}
 
 } //YUiTextFieldImpl

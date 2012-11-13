@@ -10,28 +10,38 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Implementation of the {@link IViewContext}.
  */
 public class ViewContext extends DisposableContext implements IViewContext {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(ViewContext.class);
+
 	private final IUiViewEditpart viewEditpart;
 	private Object rootLayout;
 	private String presentationURI;
 
 	private boolean rendered;
+	private Map<String, IWidgetPresentation<?>> presentations = new HashMap<String, IWidgetPresentation<?>>();
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param viewEditpart The view editpart
+	 * @param viewEditpart
+	 *            The view editpart
 	 */
 	public ViewContext(IUiViewEditpart viewEditpart) {
 		this.viewEditpart = viewEditpart;
@@ -49,9 +59,11 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	}
 
 	/**
-	 * Sets the URI that is used to determine the UI kit that should be used to render the UI.
+	 * Sets the URI that is used to determine the UI kit that should be used to
+	 * render the UI.
 	 * 
-	 * @param presentationURI URI selecting the UI-Kit
+	 * @param presentationURI
+	 *            URI selecting the UI-Kit
 	 */
 	public void setPresentationURI(String presentationURI) {
 		checkDisposed();
@@ -108,8 +120,8 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter)
-		throws ContextException {
+	public void render(String presentationURI, Object rootLayout,
+			Map<String, Object> parameter) throws ContextException {
 		checkDisposed();
 
 		if (rootLayout == null) {
@@ -158,5 +170,37 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		} finally {
 
 		}
+	}
+
+	// TODO add unit tests
+	@Override
+	public void registerPresentation(String id, IWidgetPresentation<?> widget)
+			throws RuntimeException {
+		if (presentations.containsKey(id)) {
+			logger.error(String.format(
+					"Already a widget registered under the id %s", id));
+			throw new RuntimeException(String.format(
+					"Already a widget registered under the id %s", id));
+		}
+		presentations.put(id, widget);
+	}
+
+	// TODO add unit tests
+	@Override
+	public void unregisterPresentation(String id) {
+		presentations.remove(id);
+	}
+
+	// TODO add unit tests
+	@SuppressWarnings("unchecked")
+	@Override
+	public <C> IWidgetPresentation<C> getPresentation(String id) {
+		return (IWidgetPresentation<C>) presentations.get(id);
+	}
+
+	// TODO add unit tests
+	@Override
+	public Set<String> getPresentationIds() {
+		return presentations.keySet();
 	}
 }

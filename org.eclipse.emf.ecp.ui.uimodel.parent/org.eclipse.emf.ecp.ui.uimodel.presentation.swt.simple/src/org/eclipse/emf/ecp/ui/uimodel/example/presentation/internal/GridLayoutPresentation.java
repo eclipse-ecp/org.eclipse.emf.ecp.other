@@ -36,7 +36,8 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("restriction")
 public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(GridLayoutPresentation.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(GridLayoutPresentation.class);
 
 	private GridLayout layout;
 	private Composite controlBase;
@@ -46,7 +47,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * The constructor.
 	 * 
-	 * @param editpart The editpart of that presentation.
+	 * @param editpart
+	 *            The editpart of that presentation.
 	 */
 	public GridLayoutPresentation(IUiElementEditpart editpart) {
 		super((IUiLayoutEditpart) editpart);
@@ -66,7 +68,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
 
 			if (modelAccess.isMargin()) {
-				controlBase.setData(CSSSWTConstants.MARGIN_WRAPPER_KEY, CSSSWTConstants.MARGIN_WRAPPER_KEY);
+				controlBase.setData(CSSSWTConstants.MARGIN_WRAPPER_KEY,
+						CSSSWTConstants.MARGIN_WRAPPER_KEY);
 			}
 
 			control = new Composite(controlBase, SWT.NONE);
@@ -81,7 +84,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			}
 
 			if (modelAccess.isSpacing()) {
-				control.setData(CssConstants.SPACING_ENABLED, CssConstants.SPACING_ENABLED);
+				control.setData(CssConstants.SPACING_ENABLED,
+						CssConstants.SPACING_ENABLED);
 			}
 
 			renderChildren(false);
@@ -153,29 +157,35 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	}
 
 	/**
-	 * Is called to create the widget for the given presentation. If the presentation is not rendered yet, null will be
-	 * returned.
+	 * Is called to create the widget for the given presentation. If the
+	 * presentation is not rendered yet, null will be returned.
 	 * 
-	 * @param childPresentation The presentation that should become a child presentation
+	 * @param childPresentation
+	 *            The presentation that should become a child presentation
 	 * @return childWidget
 	 */
 	protected Control createChildWidget(IWidgetPresentation<?> childPresentation) {
 		if (!isRendered()) {
 			return null;
 		}
-		Control childControl = (Control) childPresentation.createWidget(control);
-		childControl.setLayoutData(createGridDataForChild(findCellstyleFor(childPresentation)));
+		Control childControl = (Control) childPresentation
+				.createWidget(control);
+		childControl
+				.setLayoutData(createGridDataForChild(findCellstyleFor(childPresentation)));
 		return childControl;
 	}
 
 	/**
 	 * Returns the cell style for the given presentation.
 	 * 
-	 * @param childPresentation the presentation
+	 * @param childPresentation
+	 *            the presentation
 	 * @return cellStyle
 	 */
-	protected YUiGridLayoutCellStyle findCellstyleFor(IWidgetPresentation<?> childPresentation) {
-		YUiEmbeddable yEmbeddable = (YUiEmbeddable) childPresentation.getModel();
+	protected YUiGridLayoutCellStyle findCellstyleFor(
+			IWidgetPresentation<?> childPresentation) {
+		YUiEmbeddable yEmbeddable = (YUiEmbeddable) childPresentation
+				.getModel();
 		YUiGridLayoutCellStyle result = null;
 		for (YUiGridLayoutCellStyle yStyle : modelAccess.getCellStyles()) {
 			if (yStyle.getTarget() == yEmbeddable) {
@@ -189,7 +199,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Creates an instance of grid data an adds defaults to it.
 	 * 
-	 * @param yStyle the cell style
+	 * @param yStyle
+	 *            the cell style
 	 * @return the grid data for the component
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -217,12 +228,14 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			data.horizontalSpan = col2 - col1 + 1;
 			data.verticalSpan = row2 - row1 + 1;
 		} else {
-			LOGGER.warn("Invalid span: col1 {}, row1 {}, col2 {}, row2{}", new Object[] { col1, row1, col2, row2 });
+			LOGGER.warn("Invalid span: col1 {}, row1 {}, col2 {}, row2{}",
+					new Object[] { col1, row1, col2, row2 });
 		}
 
 		// calculate and apply the alignment to be used
 		//
-		YUiAlignment yAlignment = yStyle != null && yStyle.getAlignment() != null ? yStyle.getAlignment() : null;
+		YUiAlignment yAlignment = yStyle != null
+				&& yStyle.getAlignment() != null ? yStyle.getAlignment() : null;
 		if (yAlignment != null) {
 			// apply the alignment as specified
 			applyAlignment(data, yAlignment);
@@ -230,11 +243,11 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			// use default
 			yAlignment = YUiAlignment.TOP_LEFT;
 
-			if (!modelAccess.isPackContentVertical()) {
+			if (modelAccess.isFillVertical()) {
 				// ensure that vertical alignment is FILL
 				yAlignment = mapToVerticalFill(yAlignment);
 			}
-			if (!modelAccess.isPackContentHorizontal()) {
+			if (modelAccess.isFillHorizontal()) {
 				// ensure that horizontal alignment is FILL
 				yAlignment = mapToHorizontalFill(yAlignment);
 			}
@@ -249,8 +262,10 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Sets the alignment to the component.
 	 * 
-	 * @param data grid data
-	 * @param yAlignment the alignment
+	 * @param data
+	 *            grid data
+	 * @param yAlignment
+	 *            the alignment
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
 	protected void applyAlignment(GridData data, YUiAlignment yAlignment) {
@@ -344,7 +359,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Maps the vertical part of the alignment to FILL.
 	 * 
-	 * @param yAlignment the alignment
+	 * @param yAlignment
+	 *            the alignment
 	 * @return alignment the mapped alignment
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -383,7 +399,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	/**
 	 * Maps the horizontal part of the alignment to FILL.
 	 * 
-	 * @param yAlignment the alignment
+	 * @param yAlignment
+	 *            the alignment
 	 * @return alignment the mapped alignment
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -436,8 +453,9 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 		Control childControl = (Control) createChildWidget(presentation);
 		Control[] children = control.getChildren();
 		if (index > children.length) {
-			throw new RuntimeException(String.format("Insert at index %d not possible. Children count = %d", index,
-				children.length));
+			throw new RuntimeException(String.format(
+					"Insert at index %d not possible. Children count = %d",
+					index, children.length));
 		}
 
 		if (index == children.length - 1) {
@@ -450,10 +468,12 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 	}
 
 	@Override
-	protected void internalMove(IWidgetPresentation<?> presentation, int oldIndex, int newIndex) {
+	protected void internalMove(IWidgetPresentation<?> presentation,
+			int oldIndex, int newIndex) {
 
 		if (!presentation.isRendered()) {
-			throw new RuntimeException("Presentation is not rendered yet. Move not possible.");
+			throw new RuntimeException(
+					"Presentation is not rendered yet. Move not possible.");
 		}
 
 		if (oldIndex == newIndex) {
@@ -467,7 +487,8 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 			Control nextControl = children[newIndex];
 			childControl.moveAbove(nextControl);
 		} else {
-			// determine the previous control, and move the given control after it.
+			// determine the previous control, and move the given control after
+			// it.
 			Control previousControl = children[newIndex];
 			childControl.moveBelow(previousControl);
 		}
@@ -553,18 +574,18 @@ public class GridLayoutPresentation extends AbstractSWTLayoutPresenter {
 
 		/**
 		 * @return
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical()
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isFillVertical()
 		 */
-		public boolean isPackContentHorizontal() {
-			return yLayout.isPackContentHorizontal();
+		public boolean isFillHorizontal() {
+			return yLayout.isFillHorizontal();
 		}
 
 		/**
 		 * @return
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isPackContentVertical()
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout#isFillVertical()
 		 */
-		public boolean isPackContentVertical() {
-			return yLayout.isPackContentVertical();
+		public boolean isFillVertical() {
+			return yLayout.isFillVertical();
 		}
 
 	}

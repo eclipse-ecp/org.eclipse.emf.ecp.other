@@ -93,6 +93,14 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 				return createYUiSpanInfoAdapter();
 			}
 			@Override
+			public Adapter caseYUiTable(YUiTable object) {
+				return createYUiTableAdapter();
+			}
+			@Override
+			public Adapter caseYUiLabel(YUiLabel object) {
+				return createYUiLabelAdapter();
+			}
+			@Override
 			public Adapter caseYUiElement(YUiElement object) {
 				return createYUiElementAdapter();
 			}
@@ -193,6 +201,34 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiSpanInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable <em>YUi Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable
+	 * @generated
+	 */
+	public Adapter createYUiTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel <em>YUi Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel
+	 * @generated
+	 */
+	public Adapter createYUiLabelAdapter() {
 		return null;
 	}
 

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.*;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
@@ -60,6 +61,7 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 			case DatatypesPackage.YTEXT_DTYPE: return createYTextDType();
 			case DatatypesPackage.YDT_DATADESCRIPTION: return createYDtDatadescription();
 			case DatatypesPackage.YTEXT_DDESC: return createYTextDDesc();
+			case DatatypesPackage.YLABEL_DDESC: return createYLabelDDesc();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +95,16 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public YTextDDesc createYTextDDesc() {
 		YTextDDescImpl yTextDDesc = new YTextDDescImpl();
 		return yTextDDesc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YLabelDDesc createYLabelDDesc() {
+		YLabelDDescImpl yLabelDDesc = new YLabelDDescImpl();
+		return yLabelDDesc;
 	}
 
 	/**

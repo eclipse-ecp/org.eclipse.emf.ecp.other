@@ -12,6 +12,7 @@ import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType;
 
@@ -56,6 +57,13 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	private EClass yTextDDescEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yLabelDDescEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -258,6 +266,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYLabelDDesc() {
+		return yLabelDDescEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatatypesFactory getDatatypesFactory() {
 		return (DatatypesFactory)getEFactoryInstance();
 	}
@@ -300,6 +317,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		yTextDDescEClass = createEClass(YTEXT_DDESC);
 		createEReference(yTextDDescEClass, YTEXT_DDESC__DATATYPE);
+
+		yLabelDDescEClass = createEClass(YLABEL_DDESC);
 	}
 
 	/**
@@ -334,6 +353,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		yDtDatatypeEClass.getESuperTypes().add(this.getYDtBase());
 		yDtDatadescriptionEClass.getESuperTypes().add(this.getYDtBase());
 		yTextDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
+		yLabelDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yDtBaseEClass, YDtBase.class, "YDtBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -355,6 +375,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		initEClass(yTextDDescEClass, YTextDDesc.class, "YTextDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTextDDesc_Datatype(), this.getYTextDType(), null, "datatype", null, 0, 1, YTextDDesc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yLabelDDescEClass, YLabelDDesc.class, "YLabelDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
