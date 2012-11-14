@@ -3,10 +3,8 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
-
 import org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiFieldImpl;
 
 /**

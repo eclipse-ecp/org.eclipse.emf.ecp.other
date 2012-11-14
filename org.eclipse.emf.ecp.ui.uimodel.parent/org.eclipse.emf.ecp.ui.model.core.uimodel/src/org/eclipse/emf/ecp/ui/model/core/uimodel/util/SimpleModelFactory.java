@@ -1,17 +1,21 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.util;
 
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 public class SimpleModelFactory {
@@ -37,12 +41,16 @@ public class SimpleModelFactory {
 	/**
 	 * Creates an instance of {@link YUiGridLayoutCellStyle}.
 	 * 
-	 * @param yComponent set as target
-	 * @param yLayout style added to this layout
+	 * @param yComponent
+	 *            set as target
+	 * @param yLayout
+	 *            style added to this layout
 	 * @return
 	 */
-	public YUiGridLayoutCellStyle createGridLayoutCellStyle(YUiEmbeddable yComponent, YUiGridLayout yLayout) {
-		YUiGridLayoutCellStyle yStyle = UimodelExtensionFactory.eINSTANCE.createYUiGridLayoutCellStyle();
+	public YUiGridLayoutCellStyle createGridLayoutCellStyle(
+			YUiEmbeddable yComponent, YUiGridLayout yLayout) {
+		YUiGridLayoutCellStyle yStyle = UimodelExtensionFactory.eINSTANCE
+				.createYUiGridLayoutCellStyle();
 		yStyle.setTarget(yComponent);
 		yLayout.getCellStyles().add(yStyle);
 		return yStyle;
@@ -60,28 +68,38 @@ public class SimpleModelFactory {
 	/**
 	 * Creates an instance of {@link YUiSpanInfo}
 	 * 
-	 * @param yStyle The style where the span info should be added to
-	 * @param col1 From / To column
-	 * @param row1 From / To row
+	 * @param yStyle
+	 *            The style where the span info should be added to
+	 * @param col1
+	 *            From / To column
+	 * @param row1
+	 *            From / To row
 	 * 
 	 * @return
 	 */
-	public YUiSpanInfo createSpanInfo(YUiGridLayoutCellStyle yStyle, int col1, int row1) {
+	public YUiSpanInfo createSpanInfo(YUiGridLayoutCellStyle yStyle, int col1,
+			int row1) {
 		return createSpanInfo(yStyle, col1, row1, col1, row1);
 	}
 
 	/**
 	 * Creates an instance of {@link YUiSpanInfo}
 	 * 
-	 * @param yStyle The style where the span info should be added to
-	 * @param col1 From column
-	 * @param row1 From row
-	 * @param col2 To column
-	 * @param row2 To row
+	 * @param yStyle
+	 *            The style where the span info should be added to
+	 * @param col1
+	 *            From column
+	 * @param row1
+	 *            From row
+	 * @param col2
+	 *            To column
+	 * @param row2
+	 *            To row
 	 * 
 	 * @return
 	 */
-	public YUiSpanInfo createSpanInfo(YUiGridLayoutCellStyle yStyle, int col1, int row1, int col2, int row2) {
+	public YUiSpanInfo createSpanInfo(YUiGridLayoutCellStyle yStyle, int col1,
+			int row1, int col2, int row2) {
 		YUiSpanInfo yInfo = createSpanInfo();
 		yStyle.setSpanInfo(yInfo);
 
@@ -103,6 +121,15 @@ public class SimpleModelFactory {
 	}
 
 	/**
+	 * Creates an instance of {@link YUiTextArea}
+	 * 
+	 * @return
+	 */
+	public YUiTextArea createTextArea() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiTextArea();
+	}
+
+	/**
 	 * Creates an instance of {@link YUiLabel}
 	 * 
 	 * @return
@@ -110,7 +137,16 @@ public class SimpleModelFactory {
 	public YUiLabel createLabel() {
 		return UimodelExtensionFactory.eINSTANCE.createYUiLabel();
 	}
-	
+
+	/**
+	 * Creates an instance of {@link YUiCheckBox}
+	 * 
+	 * @return
+	 */
+	public YUiCheckBox createCheckBox() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiCheckBox();
+	}
+
 	/**
 	 * Creates an instance of {@link YUiView}
 	 * 
@@ -137,7 +173,25 @@ public class SimpleModelFactory {
 	public YTextDDesc createTextDatadescription() {
 		return DatatypesFactory.eINSTANCE.createYTextDDesc();
 	}
-	
+
+	/**
+	 * Creates an instance of {@link YCheckBoxDDesc}
+	 * 
+	 * @return
+	 */
+	public YCheckBoxDDesc createCheckBoxDatadescription() {
+		return DatatypesFactory.eINSTANCE.createYCheckBoxDDesc();
+	}
+
+	/**
+	 * Creates the text area datadescription
+	 * 
+	 * @return
+	 */
+	public YTextAreaDDesc createTextAreaDatadescription() {
+		return DatatypesFactory.eINSTANCE.createYTextAreaDDesc();
+	}
+
 	/**
 	 * Creates the text datadescription
 	 * 

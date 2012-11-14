@@ -9,10 +9,13 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType;
 
@@ -64,6 +67,27 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	private EClass yLabelDDescEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yTextAreaDTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yTextAreaDDescEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yCheckBoxDDescEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -275,6 +299,51 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYTextAreaDType() {
+		return yTextAreaDTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYTextAreaDType_Required() {
+		return (EAttribute)yTextAreaDTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYTextAreaDDesc() {
+		return yTextAreaDDescEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYTextAreaDDesc_Datatype() {
+		return (EReference)yTextAreaDDescEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYCheckBoxDDesc() {
+		return yCheckBoxDDescEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatatypesFactory getDatatypesFactory() {
 		return (DatatypesFactory)getEFactoryInstance();
 	}
@@ -319,6 +388,14 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		createEReference(yTextDDescEClass, YTEXT_DDESC__DATATYPE);
 
 		yLabelDDescEClass = createEClass(YLABEL_DDESC);
+
+		yTextAreaDTypeEClass = createEClass(YTEXT_AREA_DTYPE);
+		createEAttribute(yTextAreaDTypeEClass, YTEXT_AREA_DTYPE__REQUIRED);
+
+		yTextAreaDDescEClass = createEClass(YTEXT_AREA_DDESC);
+		createEReference(yTextAreaDDescEClass, YTEXT_AREA_DDESC__DATATYPE);
+
+		yCheckBoxDDescEClass = createEClass(YCHECK_BOX_DDESC);
 	}
 
 	/**
@@ -354,6 +431,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		yDtDatadescriptionEClass.getESuperTypes().add(this.getYDtBase());
 		yTextDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
 		yLabelDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
+		yTextAreaDTypeEClass.getESuperTypes().add(this.getYDtDatatype());
+		yTextAreaDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
+		yCheckBoxDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yDtBaseEClass, YDtBase.class, "YDtBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -377,6 +457,14 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEReference(getYTextDDesc_Datatype(), this.getYTextDType(), null, "datatype", null, 0, 1, YTextDDesc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yLabelDDescEClass, YLabelDDesc.class, "YLabelDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yTextAreaDTypeEClass, YTextAreaDType.class, "YTextAreaDType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYTextAreaDType_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, YTextAreaDType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yTextAreaDDescEClass, YTextAreaDDesc.class, "YTextAreaDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYTextAreaDDesc_Datatype(), this.getYTextAreaDType(), null, "datatype", null, 0, 1, YTextAreaDDesc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yCheckBoxDDescEClass, YCheckBoxDDesc.class, "YCheckBoxDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

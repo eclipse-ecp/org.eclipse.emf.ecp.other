@@ -13,16 +13,20 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiCheckboxEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiGridLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiLabelEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTableEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextAreaEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 
 /**
@@ -56,6 +60,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(UiTableEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IUiLabelEditpart.class)) {
 			result = createNewInstance(UiLabelEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiTextAreaEditpart.class)) {
+			result = createNewInstance(UiTextAreaEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IUiCheckboxEditpart.class)) {
+			result = createNewInstance(UiCheckBoxEditpart.class);
 		}
 
 		if (result != null) {
@@ -88,6 +96,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(UiTableEditpart.class);
 		} else if (yElement instanceof YUiLabel) {
 			result = createNewInstance(UiLabelEditpart.class);
+		} else if (yElement instanceof YUiTextArea) {
+			result = createNewInstance(UiTextAreaEditpart.class);
+		} else if (yElement instanceof YUiCheckBox) {
+			result = createNewInstance(UiCheckBoxEditpart.class);
 		}
 
 		if (result != null) {

@@ -431,6 +431,198 @@ public interface DatatypesPackage extends EPackage {
 	int YLABEL_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl <em>YText Area DType</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDType()
+	 * @generated
+	 */
+	int YTEXT_AREA_DTYPE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DTYPE__ID = YDT_DATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DTYPE__NAME = YDT_DATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DTYPE__DESCRIPTION = YDT_DATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DTYPE__REQUIRED = YDT_DATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YText Area DType</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DTYPE_FEATURE_COUNT = YDT_DATATYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl <em>YText Area DDesc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDDesc()
+	 * @generated
+	 */
+	int YTEXT_AREA_DDESC = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC__ID = YDT_DATADESCRIPTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC__DATATYPE = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YText Area DDesc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl <em>YCheck Box DDesc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYCheckBoxDDesc()
+	 * @generated
+	 */
+	int YCHECK_BOX_DDESC = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DDESC__ID = YDT_DATADESCRIPTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
+
+	/**
+	 * The number of structural features of the '<em>YCheck Box DDesc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase <em>YDt Base</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -601,6 +793,58 @@ public interface DatatypesPackage extends EPackage {
 	EClass getYLabelDDesc();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType <em>YText Area DType</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YText Area DType</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType
+	 * @generated
+	 */
+	EClass getYTextAreaDType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType#isRequired()
+	 * @see #getYTextAreaDType()
+	 * @generated
+	 */
+	EAttribute getYTextAreaDType_Required();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc <em>YText Area DDesc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YText Area DDesc</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc
+	 * @generated
+	 */
+	EClass getYTextAreaDDesc();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc#getDatatype()
+	 * @see #getYTextAreaDDesc()
+	 * @generated
+	 */
+	EReference getYTextAreaDDesc_Datatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc <em>YCheck Box DDesc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YCheck Box DDesc</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc
+	 * @generated
+	 */
+	EClass getYCheckBoxDDesc();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -761,6 +1005,52 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YLABEL_DDESC = eINSTANCE.getYLabelDDesc();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl <em>YText Area DType</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDType()
+		 * @generated
+		 */
+		EClass YTEXT_AREA_DTYPE = eINSTANCE.getYTextAreaDType();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTEXT_AREA_DTYPE__REQUIRED = eINSTANCE.getYTextAreaDType_Required();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl <em>YText Area DDesc</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDDesc()
+		 * @generated
+		 */
+		EClass YTEXT_AREA_DDESC = eINSTANCE.getYTextAreaDDesc();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTEXT_AREA_DDESC__DATATYPE = eINSTANCE.getYTextAreaDDesc_Datatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl <em>YCheck Box DDesc</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYCheckBoxDDesc()
+		 * @generated
+		 */
+		EClass YCHECK_BOX_DDESC = eINSTANCE.getYCheckBoxDDesc();
 
 	}
 

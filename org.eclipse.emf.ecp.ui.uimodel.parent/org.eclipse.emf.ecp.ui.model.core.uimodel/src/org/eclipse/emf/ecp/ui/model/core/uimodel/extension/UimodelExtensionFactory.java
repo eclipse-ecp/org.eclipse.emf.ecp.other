@@ -76,6 +76,24 @@ public interface UimodelExtensionFactory extends EFactory {
 	YUiLabel createYUiLabel();
 
 	/**
+	 * Returns a new object of class '<em>YUi Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Text Area</em>'.
+	 * @generated
+	 */
+	YUiTextArea createYUiTextArea();
+
+	/**
+	 * Returns a new object of class '<em>YUi Check Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Check Box</em>'.
+	 * @generated
+	 */
+	YUiCheckBox createYUiCheckBox();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

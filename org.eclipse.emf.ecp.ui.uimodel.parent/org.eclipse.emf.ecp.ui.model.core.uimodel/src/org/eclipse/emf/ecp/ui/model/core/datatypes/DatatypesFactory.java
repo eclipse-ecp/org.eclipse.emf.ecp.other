@@ -58,6 +58,33 @@ public interface DatatypesFactory extends EFactory {
 	YLabelDDesc createYLabelDDesc();
 
 	/**
+	 * Returns a new object of class '<em>YText Area DType</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YText Area DType</em>'.
+	 * @generated
+	 */
+	YTextAreaDType createYTextAreaDType();
+
+	/**
+	 * Returns a new object of class '<em>YText Area DDesc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YText Area DDesc</em>'.
+	 * @generated
+	 */
+	YTextAreaDDesc createYTextAreaDDesc();
+
+	/**
+	 * Returns a new object of class '<em>YCheck Box DDesc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YCheck Box DDesc</em>'.
+	 * @generated
+	 */
+	YCheckBoxDDesc createYCheckBoxDDesc();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

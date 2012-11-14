@@ -84,4 +84,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="YUiLabel" eSuperTypes="uimodel.ecore#//YUiField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YLabelDDesc"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTextArea" eSuperTypes="uimodel.ecore#//YUiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YTextAreaDDesc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiCheckBox" eSuperTypes="uimodel.ecore#//YUiField">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YCheckBoxDDesc"/>
+  </eClassifiers>
 </ecore:EPackage>

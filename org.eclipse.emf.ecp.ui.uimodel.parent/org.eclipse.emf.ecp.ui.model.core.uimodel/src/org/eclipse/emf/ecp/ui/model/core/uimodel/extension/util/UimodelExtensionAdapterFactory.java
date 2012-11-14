@@ -101,6 +101,14 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 				return createYUiLabelAdapter();
 			}
 			@Override
+			public Adapter caseYUiTextArea(YUiTextArea object) {
+				return createYUiTextAreaAdapter();
+			}
+			@Override
+			public Adapter caseYUiCheckBox(YUiCheckBox object) {
+				return createYUiCheckBoxAdapter();
+			}
+			@Override
 			public Adapter caseYUiElement(YUiElement object) {
 				return createYUiElementAdapter();
 			}
@@ -229,6 +237,34 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea <em>YUi Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea
+	 * @generated
+	 */
+	public Adapter createYUiTextAreaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox <em>YUi Check Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox
+	 * @generated
+	 */
+	public Adapter createYUiCheckBoxAdapter() {
 		return null;
 	}
 

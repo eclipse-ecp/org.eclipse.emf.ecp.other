@@ -130,6 +130,26 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UimodelExtensionPackage.YUI_TEXT_AREA: {
+				YUiTextArea yUiTextArea = (YUiTextArea)theEObject;
+				T result = caseYUiTextArea(yUiTextArea);
+				if (result == null) result = caseYUiField(yUiTextArea);
+				if (result == null) result = caseYUiEmbeddable(yUiTextArea);
+				if (result == null) result = caseYUiElement(yUiTextArea);
+				if (result == null) result = caseYUiCssAble(yUiTextArea);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_CHECK_BOX: {
+				YUiCheckBox yUiCheckBox = (YUiCheckBox)theEObject;
+				T result = caseYUiCheckBox(yUiCheckBox);
+				if (result == null) result = caseYUiField(yUiCheckBox);
+				if (result == null) result = caseYUiEmbeddable(yUiCheckBox);
+				if (result == null) result = caseYUiElement(yUiCheckBox);
+				if (result == null) result = caseYUiCssAble(yUiCheckBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -221,6 +241,36 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiLabel(YUiLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Text Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Text Area</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiTextArea(YUiTextArea object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Check Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Check Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiCheckBox(YUiCheckBox object) {
 		return null;
 	}
 

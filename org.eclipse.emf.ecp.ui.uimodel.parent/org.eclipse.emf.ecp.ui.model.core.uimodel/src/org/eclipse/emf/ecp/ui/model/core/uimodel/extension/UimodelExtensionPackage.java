@@ -434,6 +434,116 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_LABEL_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl <em>YUi Text Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiTextArea()
+	 * @generated
+	 */
+	int YUI_TEXT_AREA = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__ID = UiModelPackage.YUI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__DATADESCRIPTION = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YUi Text Area</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl <em>YUi Check Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiCheckBox()
+	 * @generated
+	 */
+	int YUI_CHECK_BOX = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__ID = UiModelPackage.YUI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__DATADESCRIPTION = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YUi Check Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,7 +551,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiAlignment()
 	 * @generated
 	 */
-	int YUI_ALIGNMENT = 6;
+	int YUI_ALIGNMENT = 8;
 
 
 	/**
@@ -659,6 +769,48 @@ public interface UimodelExtensionPackage extends EPackage {
 	EReference getYUiLabel_Datadescription();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea <em>YUi Text Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Text Area</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea
+	 * @generated
+	 */
+	EClass getYUiTextArea();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea#getDatadescription()
+	 * @see #getYUiTextArea()
+	 * @generated
+	 */
+	EReference getYUiTextArea_Datadescription();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox <em>YUi Check Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Check Box</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox
+	 * @generated
+	 */
+	EClass getYUiCheckBox();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatadescription()
+	 * @see #getYUiCheckBox()
+	 * @generated
+	 */
+	EReference getYUiCheckBox_Datadescription();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -842,6 +994,38 @@ public interface UimodelExtensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_LABEL__DATADESCRIPTION = eINSTANCE.getYUiLabel_Datadescription();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl <em>YUi Text Area</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiTextArea()
+		 * @generated
+		 */
+		EClass YUI_TEXT_AREA = eINSTANCE.getYUiTextArea();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_TEXT_AREA__DATADESCRIPTION = eINSTANCE.getYUiTextArea_Datadescription();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl <em>YUi Check Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiCheckBox()
+		 * @generated
+		 */
+		EClass YUI_CHECK_BOX = eINSTANCE.getYUiCheckBox();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_CHECK_BOX__DATADESCRIPTION = eINSTANCE.getYUiCheckBox_Datadescription();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}' enum.
 		 * <!-- begin-user-doc -->

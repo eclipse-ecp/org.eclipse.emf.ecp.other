@@ -13,11 +13,13 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
@@ -65,6 +67,20 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * @generated
 	 */
 	private EClass yUiLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiTextAreaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiCheckBoxEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +339,42 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiTextArea() {
+		return yUiTextAreaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiTextArea_Datadescription() {
+		return (EReference)yUiTextAreaEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiCheckBox() {
+		return yUiCheckBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiCheckBox_Datadescription() {
+		return (EReference)yUiCheckBoxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUiAlignment() {
 		return yUiAlignmentEEnum;
 	}
@@ -381,6 +433,12 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		yUiLabelEClass = createEClass(YUI_LABEL);
 		createEReference(yUiLabelEClass, YUI_LABEL__DATADESCRIPTION);
 
+		yUiTextAreaEClass = createEClass(YUI_TEXT_AREA);
+		createEReference(yUiTextAreaEClass, YUI_TEXT_AREA__DATADESCRIPTION);
+
+		yUiCheckBoxEClass = createEClass(YUI_CHECK_BOX);
+		createEReference(yUiCheckBoxEClass, YUI_CHECK_BOX__DATADESCRIPTION);
+
 		// Create enums
 		yUiAlignmentEEnum = createEEnum(YUI_ALIGNMENT);
 	}
@@ -423,6 +481,8 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
 		yUiTableEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
 		yUiLabelEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
+		yUiTextAreaEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
+		yUiCheckBoxEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yUiTextFieldEClass, YUiTextField.class, "YUiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -450,6 +510,12 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 
 		initEClass(yUiLabelEClass, YUiLabel.class, "YUiLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYUiLabel_Datadescription(), theDatatypesPackage.getYLabelDDesc(), null, "datadescription", null, 0, 1, YUiLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiTextAreaEClass, YUiTextArea.class, "YUiTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiTextArea_Datadescription(), theDatatypesPackage.getYTextAreaDDesc(), null, "datadescription", null, 0, 1, YUiTextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiCheckBoxEClass, YUiCheckBox.class, "YUiCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiCheckBox_Datadescription(), theDatatypesPackage.getYCheckBoxDDesc(), null, "datadescription", null, 0, 1, YUiCheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUiAlignmentEEnum, YUiAlignment.class, "YUiAlignment");

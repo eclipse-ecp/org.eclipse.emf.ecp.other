@@ -8,13 +8,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
@@ -67,6 +70,8 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 			case UimodelExtensionPackage.YUI_SPAN_INFO: return createYUiSpanInfo();
 			case UimodelExtensionPackage.YUI_TABLE: return createYUiTable();
 			case UimodelExtensionPackage.YUI_LABEL: return createYUiLabel();
+			case UimodelExtensionPackage.YUI_TEXT_AREA: return createYUiTextArea();
+			case UimodelExtensionPackage.YUI_CHECK_BOX: return createYUiCheckBox();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -160,6 +165,26 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public YUiLabel createYUiLabel() {
 		YUiLabelImpl yUiLabel = new YUiLabelImpl();
 		return yUiLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiTextArea createYUiTextArea() {
+		YUiTextAreaImpl yUiTextArea = new YUiTextAreaImpl();
+		return yUiTextArea;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiCheckBox createYUiCheckBox() {
+		YUiCheckBoxImpl yUiCheckBox = new YUiCheckBoxImpl();
+		return yUiCheckBox;
 	}
 
 	/**

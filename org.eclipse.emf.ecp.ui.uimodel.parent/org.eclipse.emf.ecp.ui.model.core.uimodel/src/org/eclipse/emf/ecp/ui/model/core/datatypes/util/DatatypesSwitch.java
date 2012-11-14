@@ -114,6 +114,30 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatypesPackage.YTEXT_AREA_DTYPE: {
+				YTextAreaDType yTextAreaDType = (YTextAreaDType)theEObject;
+				T result = caseYTextAreaDType(yTextAreaDType);
+				if (result == null) result = caseYDtDatatype(yTextAreaDType);
+				if (result == null) result = caseYDtBase(yTextAreaDType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatypesPackage.YTEXT_AREA_DDESC: {
+				YTextAreaDDesc yTextAreaDDesc = (YTextAreaDDesc)theEObject;
+				T result = caseYTextAreaDDesc(yTextAreaDDesc);
+				if (result == null) result = caseYDtDatadescription(yTextAreaDDesc);
+				if (result == null) result = caseYDtBase(yTextAreaDDesc);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatypesPackage.YCHECK_BOX_DDESC: {
+				YCheckBoxDDesc yCheckBoxDDesc = (YCheckBoxDDesc)theEObject;
+				T result = caseYCheckBoxDDesc(yCheckBoxDDesc);
+				if (result == null) result = caseYDtDatadescription(yCheckBoxDDesc);
+				if (result == null) result = caseYDtBase(yCheckBoxDDesc);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -205,6 +229,51 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYLabelDDesc(YLabelDDesc object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YText Area DType</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YText Area DType</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTextAreaDType(YTextAreaDType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YText Area DDesc</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YText Area DDesc</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTextAreaDDesc(YTextAreaDDesc object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCheck Box DDesc</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCheck Box DDesc</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYCheckBoxDDesc(YCheckBoxDDesc object) {
 		return null;
 	}
 

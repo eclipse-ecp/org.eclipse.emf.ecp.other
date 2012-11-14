@@ -37,4 +37,28 @@
          </run>
       </application>
     </extension>
+     <extension
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutTextAreaExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutTextAreaExample">
+         </run>
+      </application>
+    </extension>
+        <extension
+         id="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutCheckboxExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ui.uimodel.example.swt.simple.GridLayoutCheckboxExample">
+         </run>
+      </application>
+    </extension>
 </plugin>

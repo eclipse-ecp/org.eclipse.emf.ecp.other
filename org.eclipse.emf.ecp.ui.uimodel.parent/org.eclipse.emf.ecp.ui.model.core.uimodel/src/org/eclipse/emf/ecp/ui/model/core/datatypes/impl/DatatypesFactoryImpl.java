@@ -62,6 +62,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 			case DatatypesPackage.YDT_DATADESCRIPTION: return createYDtDatadescription();
 			case DatatypesPackage.YTEXT_DDESC: return createYTextDDesc();
 			case DatatypesPackage.YLABEL_DDESC: return createYLabelDDesc();
+			case DatatypesPackage.YTEXT_AREA_DTYPE: return createYTextAreaDType();
+			case DatatypesPackage.YTEXT_AREA_DDESC: return createYTextAreaDDesc();
+			case DatatypesPackage.YCHECK_BOX_DDESC: return createYCheckBoxDDesc();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +108,36 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public YLabelDDesc createYLabelDDesc() {
 		YLabelDDescImpl yLabelDDesc = new YLabelDDescImpl();
 		return yLabelDDesc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YTextAreaDType createYTextAreaDType() {
+		YTextAreaDTypeImpl yTextAreaDType = new YTextAreaDTypeImpl();
+		return yTextAreaDType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YTextAreaDDesc createYTextAreaDDesc() {
+		YTextAreaDDescImpl yTextAreaDDesc = new YTextAreaDDescImpl();
+		return yTextAreaDDesc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YCheckBoxDDesc createYCheckBoxDDesc() {
+		YCheckBoxDDescImpl yCheckBoxDDesc = new YCheckBoxDDescImpl();
+		return yCheckBoxDDesc;
 	}
 
 	/**

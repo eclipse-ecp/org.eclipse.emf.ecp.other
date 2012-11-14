@@ -14,7 +14,9 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiCheckboxEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiLabelEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextAreaEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
@@ -46,6 +48,10 @@ public class PresenterFactory implements IPresentationFactory {
 			presentation = (A) new GridLayoutPresentation(editpart);
 		} else if (editpart instanceof IUiLabelEditpart) {
 			presentation = (A) new LabelPresentation(editpart);
+		} else if (editpart instanceof IUiTextAreaEditpart) {
+			presentation = (A) new TextAreaPresentation(editpart);
+		} else if (editpart instanceof IUiCheckboxEditpart) {
+			presentation = (A) new CheckBoxPresentation(editpart);
 		}
 
 		if (presentation == null) {
