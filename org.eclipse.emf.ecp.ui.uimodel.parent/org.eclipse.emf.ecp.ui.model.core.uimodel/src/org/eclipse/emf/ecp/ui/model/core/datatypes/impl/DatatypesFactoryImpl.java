@@ -7,12 +7,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.*;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,13 +61,13 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DatatypesPackage.YTEXT_DTYPE: return createYTextDType();
-			case DatatypesPackage.YDT_DATADESCRIPTION: return createYDtDatadescription();
-			case DatatypesPackage.YTEXT_DDESC: return createYTextDDesc();
-			case DatatypesPackage.YLABEL_DDESC: return createYLabelDDesc();
-			case DatatypesPackage.YTEXT_AREA_DTYPE: return createYTextAreaDType();
-			case DatatypesPackage.YTEXT_AREA_DDESC: return createYTextAreaDDesc();
-			case DatatypesPackage.YCHECK_BOX_DDESC: return createYCheckBoxDDesc();
+			case DatatypesPackage.YTEXT_DATATYPE: return createYTextDatatype();
+			case DatatypesPackage.YDATADESCRIPTION: return createYDatadescription();
+			case DatatypesPackage.YTEXT_AREA_DATATYPE: return createYTextAreaDatatype();
+			case DatatypesPackage.YNUMERIC_DATATYPE: return createYNumericDatatype();
+			case DatatypesPackage.YDECIMAL_DATATYPE: return createYDecimalDatatype();
+			case DatatypesPackage.YTABLE_DATATYPE: return createYTableDatatype();
+			case DatatypesPackage.YCHECK_BOX_DATATYPE: return createYCheckBoxDatatype();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,9 +78,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTextDType createYTextDType() {
-		YTextDTypeImpl yTextDType = new YTextDTypeImpl();
-		return yTextDType;
+	public YTextDatatype createYTextDatatype() {
+		YTextDatatypeImpl yTextDatatype = new YTextDatatypeImpl();
+		return yTextDatatype;
 	}
 
 	/**
@@ -85,9 +88,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YDtDatadescription createYDtDatadescription() {
-		YDtDatadescriptionImpl yDtDatadescription = new YDtDatadescriptionImpl();
-		return yDtDatadescription;
+	public YDatadescription createYDatadescription() {
+		YDatadescriptionImpl yDatadescription = new YDatadescriptionImpl();
+		return yDatadescription;
 	}
 
 	/**
@@ -95,9 +98,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTextDDesc createYTextDDesc() {
-		YTextDDescImpl yTextDDesc = new YTextDDescImpl();
-		return yTextDDesc;
+	public YTextAreaDatatype createYTextAreaDatatype() {
+		YTextAreaDatatypeImpl yTextAreaDatatype = new YTextAreaDatatypeImpl();
+		return yTextAreaDatatype;
 	}
 
 	/**
@@ -105,9 +108,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YLabelDDesc createYLabelDDesc() {
-		YLabelDDescImpl yLabelDDesc = new YLabelDDescImpl();
-		return yLabelDDesc;
+	public YNumericDatatype createYNumericDatatype() {
+		YNumericDatatypeImpl yNumericDatatype = new YNumericDatatypeImpl();
+		return yNumericDatatype;
 	}
 
 	/**
@@ -115,9 +118,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTextAreaDType createYTextAreaDType() {
-		YTextAreaDTypeImpl yTextAreaDType = new YTextAreaDTypeImpl();
-		return yTextAreaDType;
+	public YDecimalDatatype createYDecimalDatatype() {
+		YDecimalDatatypeImpl yDecimalDatatype = new YDecimalDatatypeImpl();
+		return yDecimalDatatype;
 	}
 
 	/**
@@ -125,9 +128,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTextAreaDDesc createYTextAreaDDesc() {
-		YTextAreaDDescImpl yTextAreaDDesc = new YTextAreaDDescImpl();
-		return yTextAreaDDesc;
+	public YTableDatatype createYTableDatatype() {
+		YTableDatatypeImpl yTableDatatype = new YTableDatatypeImpl();
+		return yTableDatatype;
 	}
 
 	/**
@@ -135,9 +138,9 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YCheckBoxDDesc createYCheckBoxDDesc() {
-		YCheckBoxDDescImpl yCheckBoxDDesc = new YCheckBoxDDescImpl();
-		return yCheckBoxDDesc;
+	public YCheckBoxDatatype createYCheckBoxDatatype() {
+		YCheckBoxDatatypeImpl yCheckBoxDatatype = new YCheckBoxDatatypeImpl();
+		return yCheckBoxDatatype;
 	}
 
 	/**

@@ -7,24 +7,34 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiFieldImpl;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Label</b></em>'.
+ * An implementation of the model object '<em><b>YUi Decimal Field</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl#getDatadescription <em>Datadescription</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
+public class YUiDecimalFieldImpl extends YUiInputImpl implements YUiDecimalField {
+	/**
+	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatatype()
+	 * @generated
+	 * @ordered
+	 */
+	protected YDecimalDatatype datatype;
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -40,7 +50,7 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected YUiLabelImpl() {
+	protected YUiDecimalFieldImpl() {
 		super();
 	}
 
@@ -51,7 +61,45 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UimodelExtensionPackage.Literals.YUI_LABEL;
+		return UimodelExtensionPackage.Literals.YUI_DECIMAL_FIELD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDecimalDatatype getDatatype() {
+		if (datatype != null && datatype.eIsProxy()) {
+			InternalEObject oldDatatype = (InternalEObject)datatype;
+			datatype = (YDecimalDatatype)eResolveProxy(oldDatatype);
+			if (datatype != oldDatatype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATATYPE, oldDatatype, datatype));
+			}
+		}
+		return datatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDecimalDatatype basicGetDatatype() {
+		return datatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatatype(YDecimalDatatype newDatatype) {
+		YDecimalDatatype oldDatatype = datatype;
+		datatype = newDatatype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATATYPE, oldDatatype, datatype));
 	}
 
 	/**
@@ -65,7 +113,7 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelExtensionPackage.YUI_LABEL__DATADESCRIPTION, oldDatadescription, datadescription));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATADESCRIPTION, oldDatadescription, datadescription));
 			}
 		}
 		return datadescription;
@@ -89,7 +137,7 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 		YDatadescription oldDatadescription = datadescription;
 		datadescription = newDatadescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_LABEL__DATADESCRIPTION, oldDatadescription, datadescription));
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATADESCRIPTION, oldDatadescription, datadescription));
 	}
 
 	/**
@@ -100,7 +148,10 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UimodelExtensionPackage.YUI_LABEL__DATADESCRIPTION:
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATATYPE:
+				if (resolve) return getDatatype();
+				return basicGetDatatype();
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
 		}
@@ -115,7 +166,10 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UimodelExtensionPackage.YUI_LABEL__DATADESCRIPTION:
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATATYPE:
+				setDatatype((YDecimalDatatype)newValue);
+				return;
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
 				return;
 		}
@@ -130,7 +184,10 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UimodelExtensionPackage.YUI_LABEL__DATADESCRIPTION:
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATATYPE:
+				setDatatype((YDecimalDatatype)null);
+				return;
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
 		}
@@ -145,10 +202,12 @@ public class YUiLabelImpl extends YUiFieldImpl implements YUiLabel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UimodelExtensionPackage.YUI_LABEL__DATADESCRIPTION:
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATATYPE:
+				return datatype != null;
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD__DATADESCRIPTION:
 				return datadescription != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //YUiLabelImpl
+} //YUiDecimalFieldImpl

@@ -1,10 +1,7 @@
 package org.eclipse.emf.ecp.ui.model.core.uimodel.util;
 
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
@@ -164,41 +161,13 @@ public class SimpleModelFactory {
 	public YUiViewSet createViewSet() {
 		return UiModelFactory.eINSTANCE.createYUiViewSet();
 	}
-
+	
 	/**
-	 * Creates the text datadescription
-	 * 
+	 * Creates an instance of {@link YDatadescription}
 	 * @return
 	 */
-	public YTextDDesc createTextDatadescription() {
-		return DatatypesFactory.eINSTANCE.createYTextDDesc();
+	public YDatadescription createDatadescription(){
+		return DatatypesFactory.eINSTANCE.createYDatadescription();
 	}
-
-	/**
-	 * Creates an instance of {@link YCheckBoxDDesc}
-	 * 
-	 * @return
-	 */
-	public YCheckBoxDDesc createCheckBoxDatadescription() {
-		return DatatypesFactory.eINSTANCE.createYCheckBoxDDesc();
-	}
-
-	/**
-	 * Creates the text area datadescription
-	 * 
-	 * @return
-	 */
-	public YTextAreaDDesc createTextAreaDatadescription() {
-		return DatatypesFactory.eINSTANCE.createYTextAreaDDesc();
-	}
-
-	/**
-	 * Creates the text datadescription
-	 * 
-	 * @return
-	 */
-	public YLabelDDesc createLabelDatadescription() {
-		return DatatypesFactory.eINSTANCE.createYLabelDDesc();
-	}
-
+	
 }

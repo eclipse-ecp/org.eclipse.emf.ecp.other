@@ -2,9 +2,8 @@
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc;
-
-import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +14,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatatype <em>Datatype</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,7 +22,7 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
  * @model
  * @generated
  */
-public interface YUiCheckBox extends YUiField {
+public interface YUiCheckBox extends YUiInput {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -32,12 +32,12 @@ public interface YUiCheckBox extends YUiField {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datadescription</em>' reference.
-	 * @see #setDatadescription(YCheckBoxDDesc)
+	 * @see #setDatadescription(YDatadescription)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiCheckBox_Datadescription()
 	 * @model
 	 * @generated
 	 */
-	YCheckBoxDDesc getDatadescription();
+	YDatadescription getDatadescription();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatadescription <em>Datadescription</em>}' reference.
@@ -47,6 +47,32 @@ public interface YUiCheckBox extends YUiField {
 	 * @see #getDatadescription()
 	 * @generated
 	 */
-	void setDatadescription(YCheckBoxDDesc value);
+	void setDatadescription(YDatadescription value);
+
+	/**
+	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Datatype</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datatype</em>' reference.
+	 * @see #setDatatype(YCheckBoxDatatype)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiCheckBox_Datatype()
+	 * @model
+	 * @generated
+	 */
+	YCheckBoxDatatype getDatatype();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatatype <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Datatype</em>' reference.
+	 * @see #getDatatype()
+	 * @generated
+	 */
+	void setDatatype(YCheckBoxDatatype value);
 
 } // YUiCheckBox

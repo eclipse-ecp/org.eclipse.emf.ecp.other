@@ -94,6 +94,24 @@ public interface UimodelExtensionFactory extends EFactory {
 	YUiCheckBox createYUiCheckBox();
 
 	/**
+	 * Returns a new object of class '<em>YUi Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Decimal Field</em>'.
+	 * @generated
+	 */
+	YUiDecimalField createYUiDecimalField();
+
+	/**
+	 * Returns a new object of class '<em>YUi Numeric Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Numeric Field</em>'.
+	 * @generated
+	 */
+	YUiNumericField createYUiNumericField();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

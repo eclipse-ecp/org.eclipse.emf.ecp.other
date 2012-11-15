@@ -6,13 +6,16 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.*;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,36 +78,36 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYDtBaseAdapter();
 			}
 			@Override
-			public Adapter caseYTextDType(YTextDType object) {
-				return createYTextDTypeAdapter();
+			public Adapter caseYTextDatatype(YTextDatatype object) {
+				return createYTextDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYDtDatatype(YDtDatatype object) {
-				return createYDtDatatypeAdapter();
+			public Adapter caseYDatatype(YDatatype object) {
+				return createYDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYDtDatadescription(YDtDatadescription object) {
-				return createYDtDatadescriptionAdapter();
+			public Adapter caseYDatadescription(YDatadescription object) {
+				return createYDatadescriptionAdapter();
 			}
 			@Override
-			public Adapter caseYTextDDesc(YTextDDesc object) {
-				return createYTextDDescAdapter();
+			public Adapter caseYTextAreaDatatype(YTextAreaDatatype object) {
+				return createYTextAreaDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYLabelDDesc(YLabelDDesc object) {
-				return createYLabelDDescAdapter();
+			public Adapter caseYNumericDatatype(YNumericDatatype object) {
+				return createYNumericDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYTextAreaDType(YTextAreaDType object) {
-				return createYTextAreaDTypeAdapter();
+			public Adapter caseYDecimalDatatype(YDecimalDatatype object) {
+				return createYDecimalDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYTextAreaDDesc(YTextAreaDDesc object) {
-				return createYTextAreaDDescAdapter();
+			public Adapter caseYTableDatatype(YTableDatatype object) {
+				return createYTableDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYCheckBoxDDesc(YCheckBoxDDesc object) {
-				return createYCheckBoxDDescAdapter();
+			public Adapter caseYCheckBoxDatatype(YCheckBoxDatatype object) {
+				return createYCheckBoxDatatypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -141,114 +144,114 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType <em>YText DType</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype <em>YText Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype
 	 * @generated
 	 */
-	public Adapter createYTextDTypeAdapter() {
+	public Adapter createYTextDatatypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype <em>YDt Datatype</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype <em>YDatatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype
 	 * @generated
 	 */
-	public Adapter createYDtDatatypeAdapter() {
+	public Adapter createYDatatypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription <em>YDt Datadescription</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription <em>YDatadescription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription
 	 * @generated
 	 */
-	public Adapter createYDtDatadescriptionAdapter() {
+	public Adapter createYDatadescriptionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc <em>YText DDesc</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype <em>YText Area Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype
 	 * @generated
 	 */
-	public Adapter createYTextDDescAdapter() {
+	public Adapter createYTextAreaDatatypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc <em>YLabel DDesc</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype <em>YNumeric Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype
 	 * @generated
 	 */
-	public Adapter createYLabelDDescAdapter() {
+	public Adapter createYNumericDatatypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType <em>YText Area DType</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype <em>YDecimal Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype
 	 * @generated
 	 */
-	public Adapter createYTextAreaDTypeAdapter() {
+	public Adapter createYDecimalDatatypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc <em>YText Area DDesc</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype <em>YTable Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype
 	 * @generated
 	 */
-	public Adapter createYTextAreaDDescAdapter() {
+	public Adapter createYTableDatatypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc <em>YCheck Box DDesc</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype <em>YCheck Box Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype
 	 * @generated
 	 */
-	public Adapter createYCheckBoxDDescAdapter() {
+	public Adapter createYCheckBoxDatatypeAdapter() {
 		return null;
 	}
 

@@ -22,67 +22,67 @@ public interface DatatypesFactory extends EFactory {
 	DatatypesFactory eINSTANCE = org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>YText DType</em>'.
+	 * Returns a new object of class '<em>YText Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YText DType</em>'.
+	 * @return a new object of class '<em>YText Datatype</em>'.
 	 * @generated
 	 */
-	YTextDType createYTextDType();
+	YTextDatatype createYTextDatatype();
 
 	/**
-	 * Returns a new object of class '<em>YDt Datadescription</em>'.
+	 * Returns a new object of class '<em>YDatadescription</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YDt Datadescription</em>'.
+	 * @return a new object of class '<em>YDatadescription</em>'.
 	 * @generated
 	 */
-	YDtDatadescription createYDtDatadescription();
+	YDatadescription createYDatadescription();
 
 	/**
-	 * Returns a new object of class '<em>YText DDesc</em>'.
+	 * Returns a new object of class '<em>YText Area Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YText DDesc</em>'.
+	 * @return a new object of class '<em>YText Area Datatype</em>'.
 	 * @generated
 	 */
-	YTextDDesc createYTextDDesc();
+	YTextAreaDatatype createYTextAreaDatatype();
 
 	/**
-	 * Returns a new object of class '<em>YLabel DDesc</em>'.
+	 * Returns a new object of class '<em>YNumeric Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YLabel DDesc</em>'.
+	 * @return a new object of class '<em>YNumeric Datatype</em>'.
 	 * @generated
 	 */
-	YLabelDDesc createYLabelDDesc();
+	YNumericDatatype createYNumericDatatype();
 
 	/**
-	 * Returns a new object of class '<em>YText Area DType</em>'.
+	 * Returns a new object of class '<em>YDecimal Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YText Area DType</em>'.
+	 * @return a new object of class '<em>YDecimal Datatype</em>'.
 	 * @generated
 	 */
-	YTextAreaDType createYTextAreaDType();
+	YDecimalDatatype createYDecimalDatatype();
 
 	/**
-	 * Returns a new object of class '<em>YText Area DDesc</em>'.
+	 * Returns a new object of class '<em>YTable Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YText Area DDesc</em>'.
+	 * @return a new object of class '<em>YTable Datatype</em>'.
 	 * @generated
 	 */
-	YTextAreaDDesc createYTextAreaDDesc();
+	YTableDatatype createYTableDatatype();
 
 	/**
-	 * Returns a new object of class '<em>YCheck Box DDesc</em>'.
+	 * Returns a new object of class '<em>YCheck Box Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YCheck Box DDesc</em>'.
+	 * @return a new object of class '<em>YCheck Box Datatype</em>'.
 	 * @generated
 	 */
-	YCheckBoxDDesc createYCheckBoxDDesc();
+	YCheckBoxDatatype createYCheckBoxDatatype();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -2,8 +2,7 @@
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
-
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
 
 /**
@@ -32,12 +31,12 @@ public interface YUiLabel extends YUiField {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datadescription</em>' reference.
-	 * @see #setDatadescription(YLabelDDesc)
+	 * @see #setDatadescription(YDatadescription)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiLabel_Datadescription()
 	 * @model
 	 * @generated
 	 */
-	YLabelDDesc getDatadescription();
+	YDatadescription getDatadescription();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel#getDatadescription <em>Datadescription</em>}' reference.
@@ -47,6 +46,6 @@ public interface YUiLabel extends YUiField {
 	 * @see #getDatadescription()
 	 * @generated
 	 */
-	void setDatadescription(YLabelDDesc value);
+	void setDatadescription(YDatadescription value);
 
 } // YUiLabel

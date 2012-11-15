@@ -5,13 +5,16 @@ package org.eclipse.emf.ecp.ui.model.core.datatypes.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.*;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,65 +79,66 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YTEXT_DTYPE: {
-				YTextDType yTextDType = (YTextDType)theEObject;
-				T result = caseYTextDType(yTextDType);
-				if (result == null) result = caseYDtDatatype(yTextDType);
-				if (result == null) result = caseYDtBase(yTextDType);
+			case DatatypesPackage.YTEXT_DATATYPE: {
+				YTextDatatype yTextDatatype = (YTextDatatype)theEObject;
+				T result = caseYTextDatatype(yTextDatatype);
+				if (result == null) result = caseYDatatype(yTextDatatype);
+				if (result == null) result = caseYDtBase(yTextDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YDT_DATATYPE: {
-				YDtDatatype yDtDatatype = (YDtDatatype)theEObject;
-				T result = caseYDtDatatype(yDtDatatype);
-				if (result == null) result = caseYDtBase(yDtDatatype);
+			case DatatypesPackage.YDATATYPE: {
+				YDatatype yDatatype = (YDatatype)theEObject;
+				T result = caseYDatatype(yDatatype);
+				if (result == null) result = caseYDtBase(yDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YDT_DATADESCRIPTION: {
-				YDtDatadescription yDtDatadescription = (YDtDatadescription)theEObject;
-				T result = caseYDtDatadescription(yDtDatadescription);
-				if (result == null) result = caseYDtBase(yDtDatadescription);
+			case DatatypesPackage.YDATADESCRIPTION: {
+				YDatadescription yDatadescription = (YDatadescription)theEObject;
+				T result = caseYDatadescription(yDatadescription);
+				if (result == null) result = caseYDtBase(yDatadescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YTEXT_DDESC: {
-				YTextDDesc yTextDDesc = (YTextDDesc)theEObject;
-				T result = caseYTextDDesc(yTextDDesc);
-				if (result == null) result = caseYDtDatadescription(yTextDDesc);
-				if (result == null) result = caseYDtBase(yTextDDesc);
+			case DatatypesPackage.YTEXT_AREA_DATATYPE: {
+				YTextAreaDatatype yTextAreaDatatype = (YTextAreaDatatype)theEObject;
+				T result = caseYTextAreaDatatype(yTextAreaDatatype);
+				if (result == null) result = caseYDatatype(yTextAreaDatatype);
+				if (result == null) result = caseYDtBase(yTextAreaDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YLABEL_DDESC: {
-				YLabelDDesc yLabelDDesc = (YLabelDDesc)theEObject;
-				T result = caseYLabelDDesc(yLabelDDesc);
-				if (result == null) result = caseYDtDatadescription(yLabelDDesc);
-				if (result == null) result = caseYDtBase(yLabelDDesc);
+			case DatatypesPackage.YNUMERIC_DATATYPE: {
+				YNumericDatatype yNumericDatatype = (YNumericDatatype)theEObject;
+				T result = caseYNumericDatatype(yNumericDatatype);
+				if (result == null) result = caseYDatatype(yNumericDatatype);
+				if (result == null) result = caseYDtBase(yNumericDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YTEXT_AREA_DTYPE: {
-				YTextAreaDType yTextAreaDType = (YTextAreaDType)theEObject;
-				T result = caseYTextAreaDType(yTextAreaDType);
-				if (result == null) result = caseYDtDatatype(yTextAreaDType);
-				if (result == null) result = caseYDtBase(yTextAreaDType);
+			case DatatypesPackage.YDECIMAL_DATATYPE: {
+				YDecimalDatatype yDecimalDatatype = (YDecimalDatatype)theEObject;
+				T result = caseYDecimalDatatype(yDecimalDatatype);
+				if (result == null) result = caseYNumericDatatype(yDecimalDatatype);
+				if (result == null) result = caseYDatatype(yDecimalDatatype);
+				if (result == null) result = caseYDtBase(yDecimalDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YTEXT_AREA_DDESC: {
-				YTextAreaDDesc yTextAreaDDesc = (YTextAreaDDesc)theEObject;
-				T result = caseYTextAreaDDesc(yTextAreaDDesc);
-				if (result == null) result = caseYDtDatadescription(yTextAreaDDesc);
-				if (result == null) result = caseYDtBase(yTextAreaDDesc);
+			case DatatypesPackage.YTABLE_DATATYPE: {
+				YTableDatatype yTableDatatype = (YTableDatatype)theEObject;
+				T result = caseYTableDatatype(yTableDatatype);
+				if (result == null) result = caseYDatatype(yTableDatatype);
+				if (result == null) result = caseYDtBase(yTableDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DatatypesPackage.YCHECK_BOX_DDESC: {
-				YCheckBoxDDesc yCheckBoxDDesc = (YCheckBoxDDesc)theEObject;
-				T result = caseYCheckBoxDDesc(yCheckBoxDDesc);
-				if (result == null) result = caseYDtDatadescription(yCheckBoxDDesc);
-				if (result == null) result = caseYDtBase(yCheckBoxDDesc);
+			case DatatypesPackage.YCHECK_BOX_DATATYPE: {
+				YCheckBoxDatatype yCheckBoxDatatype = (YCheckBoxDatatype)theEObject;
+				T result = caseYCheckBoxDatatype(yCheckBoxDatatype);
+				if (result == null) result = caseYDatatype(yCheckBoxDatatype);
+				if (result == null) result = caseYDtBase(yCheckBoxDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,122 +162,122 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YText DType</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YText Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YText DType</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YText Datatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYTextDType(YTextDType object) {
+	public T caseYTextDatatype(YTextDatatype object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YDt Datatype</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YDatatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YDt Datatype</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YDatatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYDtDatatype(YDtDatatype object) {
+	public T caseYDatatype(YDatatype object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YDt Datadescription</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YDatadescription</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YDt Datadescription</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YDatadescription</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYDtDatadescription(YDtDatadescription object) {
+	public T caseYDatadescription(YDatadescription object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YText DDesc</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YText Area Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YText DDesc</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YText Area Datatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYTextDDesc(YTextDDesc object) {
+	public T caseYTextAreaDatatype(YTextAreaDatatype object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YLabel DDesc</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YNumeric Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YLabel DDesc</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YNumeric Datatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYLabelDDesc(YLabelDDesc object) {
+	public T caseYNumericDatatype(YNumericDatatype object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YText Area DType</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YDecimal Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YText Area DType</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YDecimal Datatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYTextAreaDType(YTextAreaDType object) {
+	public T caseYDecimalDatatype(YDecimalDatatype object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YText Area DDesc</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YTable Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YText Area DDesc</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YTable Datatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYTextAreaDDesc(YTextAreaDDesc object) {
+	public T caseYTableDatatype(YTableDatatype object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YCheck Box DDesc</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YCheck Box Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YCheck Box DDesc</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YCheck Box Datatype</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYCheckBoxDDesc(YCheckBoxDDesc object) {
+	public T caseYCheckBoxDatatype(YCheckBoxDatatype object) {
 		return null;
 	}
 

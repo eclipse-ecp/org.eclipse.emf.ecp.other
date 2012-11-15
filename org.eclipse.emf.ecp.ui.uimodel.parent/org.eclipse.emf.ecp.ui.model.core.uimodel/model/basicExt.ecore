@@ -2,9 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="extension" nsURI="http://eclipse.org/emf/emfclient/uimodel/basicExtension"
     nsPrefix="basicextension">
-  <eClassifiers xsi:type="ecore:EClass" name="YUiTextField" eSuperTypes="uimodel.ecore#//YUiField">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YTextDDesc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTextField" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YTextDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindsTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
@@ -80,14 +81,33 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiTable" eSuperTypes="uimodel.ecore#//YUiField"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTable" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YTableDatatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiLabel" eSuperTypes="uimodel.ecore#//YUiField">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YLabelDDesc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiTextArea" eSuperTypes="uimodel.ecore#//YUiField">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YTextAreaDDesc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTextArea" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YTextAreaDatatype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiCheckBox" eSuperTypes="uimodel.ecore#//YUiField">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YCheckBoxDDesc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiCheckBox" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YCheckBoxDatatype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiInput" abstract="true" eSuperTypes="uimodel.ecore#//YUiField">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiDecimalField" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YDecimalDatatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiNumericField" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YNumericDatatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
 </ecore:EPackage>

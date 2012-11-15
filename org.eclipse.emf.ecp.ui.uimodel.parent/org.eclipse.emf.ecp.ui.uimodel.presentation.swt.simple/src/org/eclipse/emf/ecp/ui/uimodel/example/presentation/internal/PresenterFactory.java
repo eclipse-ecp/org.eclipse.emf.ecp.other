@@ -15,7 +15,9 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiLayoutEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiCheckboxEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiDecimalFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiLabelEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiNumericFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextAreaEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IPresentationFactory;
@@ -52,6 +54,10 @@ public class PresenterFactory implements IPresentationFactory {
 			presentation = (A) new TextAreaPresentation(editpart);
 		} else if (editpart instanceof IUiCheckboxEditpart) {
 			presentation = (A) new CheckBoxPresentation(editpart);
+		} else if (editpart instanceof IUiNumericFieldEditpart) {
+			presentation = (A) new NumericFieldPresentation(editpart);
+		} else if (editpart instanceof IUiDecimalFieldEditpart) {
+			presentation = (A) new DecimalFieldPresentation(editpart);
 		}
 
 		if (presentation == null) {

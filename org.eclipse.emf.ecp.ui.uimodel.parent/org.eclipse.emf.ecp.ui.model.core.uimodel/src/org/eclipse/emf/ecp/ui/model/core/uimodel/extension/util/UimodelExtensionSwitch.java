@@ -14,9 +14,16 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
@@ -79,6 +86,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 			case UimodelExtensionPackage.YUI_TEXT_FIELD: {
 				YUiTextField yUiTextField = (YUiTextField)theEObject;
 				T result = caseYUiTextField(yUiTextField);
+				if (result == null) result = caseYUiInput(yUiTextField);
 				if (result == null) result = caseYUiField(yUiTextField);
 				if (result == null) result = caseYUiEmbeddable(yUiTextField);
 				if (result == null) result = caseYUiElement(yUiTextField);
@@ -113,6 +121,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 			case UimodelExtensionPackage.YUI_TABLE: {
 				YUiTable yUiTable = (YUiTable)theEObject;
 				T result = caseYUiTable(yUiTable);
+				if (result == null) result = caseYUiInput(yUiTable);
 				if (result == null) result = caseYUiField(yUiTable);
 				if (result == null) result = caseYUiEmbeddable(yUiTable);
 				if (result == null) result = caseYUiElement(yUiTable);
@@ -133,6 +142,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 			case UimodelExtensionPackage.YUI_TEXT_AREA: {
 				YUiTextArea yUiTextArea = (YUiTextArea)theEObject;
 				T result = caseYUiTextArea(yUiTextArea);
+				if (result == null) result = caseYUiInput(yUiTextArea);
 				if (result == null) result = caseYUiField(yUiTextArea);
 				if (result == null) result = caseYUiEmbeddable(yUiTextArea);
 				if (result == null) result = caseYUiElement(yUiTextArea);
@@ -143,10 +153,43 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 			case UimodelExtensionPackage.YUI_CHECK_BOX: {
 				YUiCheckBox yUiCheckBox = (YUiCheckBox)theEObject;
 				T result = caseYUiCheckBox(yUiCheckBox);
+				if (result == null) result = caseYUiInput(yUiCheckBox);
 				if (result == null) result = caseYUiField(yUiCheckBox);
 				if (result == null) result = caseYUiEmbeddable(yUiCheckBox);
 				if (result == null) result = caseYUiElement(yUiCheckBox);
 				if (result == null) result = caseYUiCssAble(yUiCheckBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_INPUT: {
+				YUiInput yUiInput = (YUiInput)theEObject;
+				T result = caseYUiInput(yUiInput);
+				if (result == null) result = caseYUiField(yUiInput);
+				if (result == null) result = caseYUiEmbeddable(yUiInput);
+				if (result == null) result = caseYUiElement(yUiInput);
+				if (result == null) result = caseYUiCssAble(yUiInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD: {
+				YUiDecimalField yUiDecimalField = (YUiDecimalField)theEObject;
+				T result = caseYUiDecimalField(yUiDecimalField);
+				if (result == null) result = caseYUiInput(yUiDecimalField);
+				if (result == null) result = caseYUiField(yUiDecimalField);
+				if (result == null) result = caseYUiEmbeddable(yUiDecimalField);
+				if (result == null) result = caseYUiElement(yUiDecimalField);
+				if (result == null) result = caseYUiCssAble(yUiDecimalField);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_NUMERIC_FIELD: {
+				YUiNumericField yUiNumericField = (YUiNumericField)theEObject;
+				T result = caseYUiNumericField(yUiNumericField);
+				if (result == null) result = caseYUiInput(yUiNumericField);
+				if (result == null) result = caseYUiField(yUiNumericField);
+				if (result == null) result = caseYUiEmbeddable(yUiNumericField);
+				if (result == null) result = caseYUiElement(yUiNumericField);
+				if (result == null) result = caseYUiCssAble(yUiNumericField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -271,6 +314,51 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiCheckBox(YUiCheckBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiInput(YUiInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Decimal Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Decimal Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiDecimalField(YUiDecimalField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Numeric Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Numeric Field</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiNumericField(YUiNumericField object) {
 		return null;
 	}
 

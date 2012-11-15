@@ -8,13 +8,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
@@ -72,6 +75,8 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 			case UimodelExtensionPackage.YUI_LABEL: return createYUiLabel();
 			case UimodelExtensionPackage.YUI_TEXT_AREA: return createYUiTextArea();
 			case UimodelExtensionPackage.YUI_CHECK_BOX: return createYUiCheckBox();
+			case UimodelExtensionPackage.YUI_DECIMAL_FIELD: return createYUiDecimalField();
+			case UimodelExtensionPackage.YUI_NUMERIC_FIELD: return createYUiNumericField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -185,6 +190,26 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public YUiCheckBox createYUiCheckBox() {
 		YUiCheckBoxImpl yUiCheckBox = new YUiCheckBoxImpl();
 		return yUiCheckBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiDecimalField createYUiDecimalField() {
+		YUiDecimalFieldImpl yUiDecimalField = new YUiDecimalFieldImpl();
+		return yUiDecimalField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiNumericField createYUiNumericField() {
+		YUiNumericFieldImpl yUiNumericField = new YUiNumericFieldImpl();
+		return yUiNumericField;
 	}
 
 	/**

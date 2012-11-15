@@ -2,8 +2,8 @@
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,8 +13,9 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getBindsTo <em>Binds To</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatadescription <em>Datadescription</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,7 +23,33 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
  * @model
  * @generated
  */
-public interface YUiTextField extends YUiField {
+public interface YUiTextField extends YUiInput {
+
+	/**
+	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Datatype</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datatype</em>' reference.
+	 * @see #setDatatype(YTextDatatype)
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiTextField_Datatype()
+	 * @model
+	 * @generated
+	 */
+	YTextDatatype getDatatype();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatatype <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Datatype</em>' reference.
+	 * @see #getDatatype()
+	 * @generated
+	 */
+	void setDatatype(YTextDatatype value);
 
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
@@ -33,12 +60,12 @@ public interface YUiTextField extends YUiField {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datadescription</em>' reference.
-	 * @see #setDatadescription(YTextDDesc)
+	 * @see #setDatadescription(YDatadescription)
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage#getYUiTextField_Datadescription()
 	 * @model
 	 * @generated
 	 */
-	YTextDDesc getDatadescription();
+	YDatadescription getDatadescription();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatadescription <em>Datadescription</em>}' reference.
@@ -48,7 +75,7 @@ public interface YUiTextField extends YUiField {
 	 * @see #getDatadescription()
 	 * @generated
 	 */
-	void setDatadescription(YTextDDesc value);
+	void setDatadescription(YDatadescription value);
 
 	/**
 	 * Returns the value of the '<em><b>Binds To</b></em>' attribute.

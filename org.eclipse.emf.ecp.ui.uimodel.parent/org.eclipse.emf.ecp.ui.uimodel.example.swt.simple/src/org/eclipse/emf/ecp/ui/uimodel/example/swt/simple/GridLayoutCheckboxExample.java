@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
@@ -173,7 +173,7 @@ public class GridLayoutCheckboxExample implements IApplication {
 	protected YUiCheckBox newCheckBox(String label) {
 		YUiCheckBox field = factory.createCheckBox();
 		if (label != null) {
-			YCheckBoxDDesc dtd = factory.createCheckBoxDatadescription();
+			YDatadescription dtd = factory.createDatadescription();
 			field.setDatadescription(dtd);
 			dtd.setLabel(label);
 		}

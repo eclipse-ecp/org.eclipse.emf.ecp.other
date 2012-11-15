@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTextFieldEditpart;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -26,19 +28,21 @@ import org.eclipse.swt.widgets.Text;
  */
 public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
-	private final ModelAccess modelAccess;
+	private final YUiTextField yTextField;
 	private Composite controlBase;
 	private Text text;
 	private Label label;
+	private ITextRidget textRidget;
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param editpart The editpart of that presenter
+	 * @param editpart
+	 *            The editpart of that presenter
 	 */
 	public TextFieldPresentation(IUiElementEditpart editpart) {
 		super((IUiTextFieldEditpart) editpart);
-		this.modelAccess = new ModelAccess((YUiTextField) editpart.getModel());
+		this.yTextField = (YUiTextField) editpart.getModel();
 	}
 
 	/**
@@ -50,8 +54,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (modelAccess.isCssIdValid()) {
-				setCSSId(controlBase, modelAccess.getCssID());
+			if (Util.isCssIdValid(yTextField)) {
+				setCSSId(controlBase, Util.getCssID(yTextField));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
@@ -62,19 +66,31 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			setCSSClass(label, CSS_CLASS__LABEL);
 
 			text = new Text(controlBase, SWT.BORDER);
+			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
 			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-			if (modelAccess.isCssClassValid()) {
-				setCSSClass(text, modelAccess.getCssClass());
-			} else {
-				setCSSClass(text, CSS_CLASS__CONTROL);
-			}
-
-			if (modelAccess.isLabelValid()) {
-				label.setText(modelAccess.getLabel());
-			}
+			// update style attributes
+			//
+			updateStyle();
 		}
 		return controlBase;
+	}
+
+	/**
+	 * Updates the control style attributes.
+	 */
+	private void updateStyle() {
+		if (isLabelValid()) {
+			label.setText(getLabel());
+		}
+
+		if (Util.isCssClassValid(yTextField)) {
+			setCSSClass(text, Util.getCssClass(yTextField));
+		} else {
+			setCSSClass(text, CSS_CLASS__CONTROL);
+		}
+
+		Util.updateMarkableRidget(textRidget, yTextField);
 	}
 
 	@Override
@@ -88,6 +104,25 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	}
 
 	/**
+	 * Returns true, if the label is valid.
+	 * 
+	 * @return
+	 */
+	public boolean isLabelValid() {
+		return yTextField.getDatadescription() != null
+				&& yTextField.getDatadescription().getLabel() != null;
+	}
+
+	/**
+	 * Returns the label.
+	 * 
+	 * @return
+	 */
+	public String getLabel() {
+		return yTextField.getDatadescription().getLabel();
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -96,6 +131,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			controlBase.dispose();
 			controlBase = null;
 			text = null;
+			textRidget = null;
 		}
 	}
 
@@ -106,69 +142,5 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	protected void internalDispose() {
 		// unrender the ui control
 		unrender();
-	}
-
-	/**
-	 * A helper class.
-	 */
-	private static class ModelAccess {
-		private final YUiTextField yText;
-
-		public ModelAccess(YUiTextField yText) {
-			super();
-			this.yText = yText;
-		}
-
-		/**
-		 * @return
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssClass()
-		 */
-		public String getCssClass() {
-			return yText.getCssClass();
-		}
-
-		/**
-		 * Returns true, if the css class is not null and not empty.
-		 * 
-		 * @return
-		 */
-		public boolean isCssClassValid() {
-			return getCssClass() != null && !getCssClass().equals("");
-		}
-
-		/**
-		 * @return
-		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble#getCssID()
-		 */
-		public String getCssID() {
-			return yText.getCssID();
-		}
-
-		/**
-		 * Returns true, if the css id is not null and not empty.
-		 * 
-		 * @return
-		 */
-		public boolean isCssIdValid() {
-			return getCssID() != null && !getCssID().equals("");
-		}
-
-		/**
-		 * Returns true, if the label is valid.
-		 * 
-		 * @return
-		 */
-		public boolean isLabelValid() {
-			return yText.getDatadescription() != null && yText.getDatadescription().getLabel() != null;
-		}
-
-		/**
-		 * Returns the label.
-		 * 
-		 * @return
-		 */
-		public String getLabel() {
-			return yText.getDatadescription().getLabel();
-		}
 	}
 }

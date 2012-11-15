@@ -5,7 +5,6 @@ package org.eclipse.emf.ecp.ui.model.core.datatypes;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,14 +101,14 @@ public interface DatatypesPackage extends EPackage {
 	int YDT_BASE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype <em>YDt Datatype</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype <em>YDatatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDtDatatype()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDatatype()
 	 * @generated
 	 */
-	int YDT_DATATYPE = 2;
+	int YDATATYPE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -118,7 +117,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATATYPE__ID = YDT_BASE__ID;
+	int YDATATYPE__ID = YDT_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -127,7 +126,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATATYPE__NAME = YDT_BASE__NAME;
+	int YDATATYPE__NAME = YDT_BASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -136,26 +135,26 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATATYPE__DESCRIPTION = YDT_BASE__DESCRIPTION;
+	int YDATATYPE__DESCRIPTION = YDT_BASE__DESCRIPTION;
 
 	/**
-	 * The number of structural features of the '<em>YDt Datatype</em>' class.
+	 * The number of structural features of the '<em>YDatatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATATYPE_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 0;
+	int YDATATYPE_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDTypeImpl <em>YText DType</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl <em>YText Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDTypeImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextDType()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextDatatype()
 	 * @generated
 	 */
-	int YTEXT_DTYPE = 1;
+	int YTEXT_DATATYPE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -164,7 +163,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE__ID = YDT_DATATYPE__ID;
+	int YTEXT_DATATYPE__ID = YDATATYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -173,7 +172,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE__NAME = YDT_DATATYPE__NAME;
+	int YTEXT_DATATYPE__NAME = YDATATYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -182,16 +181,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE__DESCRIPTION = YDT_DATATYPE__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_DTYPE__REQUIRED = YDT_DATATYPE_FEATURE_COUNT + 0;
+	int YTEXT_DATATYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Maxlength</b></em>' attribute.
@@ -200,7 +190,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE__MAXLENGTH = YDT_DATATYPE_FEATURE_COUNT + 1;
+	int YTEXT_DATATYPE__MAXLENGTH = YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Minlength</b></em>' attribute.
@@ -209,7 +199,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE__MINLENGTH = YDT_DATATYPE_FEATURE_COUNT + 2;
+	int YTEXT_DATATYPE__MINLENGTH = YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Regexpression</b></em>' attribute.
@@ -218,26 +208,26 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE__REGEXPRESSION = YDT_DATATYPE_FEATURE_COUNT + 3;
+	int YTEXT_DATATYPE__REGEXPRESSION = YDATATYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>YText DType</em>' class.
+	 * The number of structural features of the '<em>YText Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DTYPE_FEATURE_COUNT = YDT_DATATYPE_FEATURE_COUNT + 4;
+	int YTEXT_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl <em>YDt Datadescription</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDatadescriptionImpl <em>YDatadescription</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDtDatadescription()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDatadescriptionImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDatadescription()
 	 * @generated
 	 */
-	int YDT_DATADESCRIPTION = 3;
+	int YDATADESCRIPTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -246,7 +236,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATADESCRIPTION__ID = YDT_BASE__ID;
+	int YDATADESCRIPTION__ID = YDT_BASE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -255,7 +245,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATADESCRIPTION__NAME = YDT_BASE__NAME;
+	int YDATADESCRIPTION__NAME = YDT_BASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -264,7 +254,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATADESCRIPTION__DESCRIPTION = YDT_BASE__DESCRIPTION;
+	int YDATADESCRIPTION__DESCRIPTION = YDT_BASE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -273,7 +263,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATADESCRIPTION__LABEL = YDT_BASE_FEATURE_COUNT + 0;
+	int YDATADESCRIPTION__LABEL = YDT_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
@@ -282,26 +272,26 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATADESCRIPTION__LABEL_I1_8N_KEY = YDT_BASE_FEATURE_COUNT + 1;
+	int YDATADESCRIPTION__LABEL_I1_8N_KEY = YDT_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>YDt Datadescription</em>' class.
+	 * The number of structural features of the '<em>YDatadescription</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_DATADESCRIPTION_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 2;
+	int YDATADESCRIPTION_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDDescImpl <em>YText DDesc</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl <em>YText Area Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDDescImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextDDesc()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDatatype()
 	 * @generated
 	 */
-	int YTEXT_DDESC = 4;
+	int YTEXT_AREA_DATATYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -310,7 +300,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DDESC__ID = YDT_DATADESCRIPTION__ID;
+	int YTEXT_AREA_DATATYPE__ID = YDATATYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -319,7 +309,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+	int YTEXT_AREA_DATATYPE__NAME = YDATATYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -328,53 +318,26 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+	int YTEXT_AREA_DATATYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The number of structural features of the '<em>YText Area Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+	int YTEXT_AREA_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YNumericDatatypeImpl <em>YNumeric Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
-
-	/**
-	 * The feature id for the '<em><b>Datatype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_DDESC__DATATYPE = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>YText DDesc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl <em>YLabel DDesc</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYLabelDDesc()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YNumericDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYNumericDatatype()
 	 * @generated
 	 */
-	int YLABEL_DDESC = 5;
+	int YNUMERIC_DATATYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -383,7 +346,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_DDESC__ID = YDT_DATADESCRIPTION__ID;
+	int YNUMERIC_DATATYPE__ID = YDATATYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -392,7 +355,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+	int YNUMERIC_DATATYPE__NAME = YDATATYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -401,44 +364,44 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+	int YNUMERIC_DATATYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+	int YNUMERIC_DATATYPE__GROUPING = YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
+	int YNUMERIC_DATATYPE__MARK_NEGATIVE = YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>YLabel DDesc</em>' class.
+	 * The number of structural features of the '<em>YNumeric Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
+	int YNUMERIC_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl <em>YText Area DType</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDecimalDatatypeImpl <em>YDecimal Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDType()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDecimalDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDecimalDatatype()
 	 * @generated
 	 */
-	int YTEXT_AREA_DTYPE = 6;
+	int YDECIMAL_DATATYPE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -447,7 +410,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DTYPE__ID = YDT_DATATYPE__ID;
+	int YDECIMAL_DATATYPE__ID = YNUMERIC_DATATYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -456,7 +419,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DTYPE__NAME = YDT_DATATYPE__NAME;
+	int YDECIMAL_DATATYPE__NAME = YNUMERIC_DATATYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -465,35 +428,53 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DTYPE__DESCRIPTION = YDT_DATATYPE__DESCRIPTION;
+	int YDECIMAL_DATATYPE__DESCRIPTION = YNUMERIC_DATATYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DTYPE__REQUIRED = YDT_DATATYPE_FEATURE_COUNT + 0;
+	int YDECIMAL_DATATYPE__GROUPING = YNUMERIC_DATATYPE__GROUPING;
 
 	/**
-	 * The number of structural features of the '<em>YText Area DType</em>' class.
+	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DTYPE_FEATURE_COUNT = YDT_DATATYPE_FEATURE_COUNT + 1;
+	int YDECIMAL_DATATYPE__MARK_NEGATIVE = YNUMERIC_DATATYPE__MARK_NEGATIVE;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl <em>YText Area DDesc</em>}' class.
+	 * The feature id for the '<em><b>Precision</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDDesc()
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_DATATYPE__PRECISION = YNUMERIC_DATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YDecimal Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_DATATYPE_FEATURE_COUNT = YNUMERIC_DATATYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTableDatatypeImpl <em>YTable Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTableDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTableDatatype()
 	 * @generated
 	 */
-	int YTEXT_AREA_DDESC = 7;
+	int YTABLE_DATATYPE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -502,7 +483,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DDESC__ID = YDT_DATADESCRIPTION__ID;
+	int YTABLE_DATATYPE__ID = YDATATYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -511,7 +492,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+	int YTABLE_DATATYPE__NAME = YDATATYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -520,53 +501,26 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+	int YTABLE_DATATYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The number of structural features of the '<em>YTable Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+	int YTABLE_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDatatypeImpl <em>YCheck Box Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
-
-	/**
-	 * The feature id for the '<em><b>Datatype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA_DDESC__DATATYPE = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>YText Area DDesc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl <em>YCheck Box DDesc</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYCheckBoxDDesc()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYCheckBoxDatatype()
 	 * @generated
 	 */
-	int YCHECK_BOX_DDESC = 8;
+	int YCHECK_BOX_DATATYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -575,7 +529,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX_DDESC__ID = YDT_DATADESCRIPTION__ID;
+	int YCHECK_BOX_DATATYPE__ID = YDATATYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -584,7 +538,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX_DDESC__NAME = YDT_DATADESCRIPTION__NAME;
+	int YCHECK_BOX_DATATYPE__NAME = YDATATYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -593,34 +547,17 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX_DDESC__DESCRIPTION = YDT_DATADESCRIPTION__DESCRIPTION;
+	int YCHECK_BOX_DATATYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The number of structural features of the '<em>YCheck Box Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX_DDESC__LABEL = YDT_DATADESCRIPTION__LABEL;
+	int YCHECK_BOX_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Label I1 8n Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX_DDESC__LABEL_I1_8N_KEY = YDT_DATADESCRIPTION__LABEL_I1_8N_KEY;
-
-	/**
-	 * The number of structural features of the '<em>YCheck Box DDesc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX_DDESC_FEATURE_COUNT = YDT_DATADESCRIPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase <em>YDt Base</em>}'.
@@ -666,183 +603,172 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getYDtBase_Description();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType <em>YText DType</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype <em>YText Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YText DType</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType
+	 * @return the meta object for class '<em>YText Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype
 	 * @generated
 	 */
-	EClass getYTextDType();
+	EClass getYTextDatatype();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#isRequired <em>Required</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#isRequired()
-	 * @see #getYTextDType()
-	 * @generated
-	 */
-	EAttribute getYTextDType_Required();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#getMaxlength <em>Maxlength</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype#getMaxlength <em>Maxlength</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Maxlength</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#getMaxlength()
-	 * @see #getYTextDType()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype#getMaxlength()
+	 * @see #getYTextDatatype()
 	 * @generated
 	 */
-	EAttribute getYTextDType_Maxlength();
+	EAttribute getYTextDatatype_Maxlength();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#getMinlength <em>Minlength</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype#getMinlength <em>Minlength</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Minlength</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#getMinlength()
-	 * @see #getYTextDType()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype#getMinlength()
+	 * @see #getYTextDatatype()
 	 * @generated
 	 */
-	EAttribute getYTextDType_Minlength();
+	EAttribute getYTextDatatype_Minlength();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#getRegexpression <em>Regexpression</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype#getRegexpression <em>Regexpression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Regexpression</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType#getRegexpression()
-	 * @see #getYTextDType()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype#getRegexpression()
+	 * @see #getYTextDatatype()
 	 * @generated
 	 */
-	EAttribute getYTextDType_Regexpression();
+	EAttribute getYTextDatatype_Regexpression();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype <em>YDt Datatype</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype <em>YDatatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YDt Datatype</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype
+	 * @return the meta object for class '<em>YDatatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype
 	 * @generated
 	 */
-	EClass getYDtDatatype();
+	EClass getYDatatype();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription <em>YDt Datadescription</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription <em>YDatadescription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YDt Datadescription</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription
+	 * @return the meta object for class '<em>YDatadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription
 	 * @generated
 	 */
-	EClass getYDtDatadescription();
+	EClass getYDatadescription();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription#getLabel <em>Label</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription#getLabel()
-	 * @see #getYDtDatadescription()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription#getLabel()
+	 * @see #getYDatadescription()
 	 * @generated
 	 */
-	EAttribute getYDtDatadescription_Label();
+	EAttribute getYDatadescription_Label();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription#getLabelI18nKey <em>Label I1 8n Key</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription#getLabelI18nKey <em>Label I1 8n Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Label I1 8n Key</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription#getLabelI18nKey()
-	 * @see #getYDtDatadescription()
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription#getLabelI18nKey()
+	 * @see #getYDatadescription()
 	 * @generated
 	 */
-	EAttribute getYDtDatadescription_LabelI18nKey();
+	EAttribute getYDatadescription_LabelI18nKey();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc <em>YText DDesc</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype <em>YText Area Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YText DDesc</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc
+	 * @return the meta object for class '<em>YText Area Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype
 	 * @generated
 	 */
-	EClass getYTextDDesc();
+	EClass getYTextAreaDatatype();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc#getDatatype <em>Datatype</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype <em>YNumeric Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Datatype</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc#getDatatype()
-	 * @see #getYTextDDesc()
+	 * @return the meta object for class '<em>YNumeric Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype
 	 * @generated
 	 */
-	EReference getYTextDDesc_Datatype();
+	EClass getYNumericDatatype();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc <em>YLabel DDesc</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype#isGrouping <em>Grouping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YLabel DDesc</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc
+	 * @return the meta object for the attribute '<em>Grouping</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype#isGrouping()
+	 * @see #getYNumericDatatype()
 	 * @generated
 	 */
-	EClass getYLabelDDesc();
+	EAttribute getYNumericDatatype_Grouping();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType <em>YText Area DType</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype#isMarkNegative <em>Mark Negative</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YText Area DType</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType
+	 * @return the meta object for the attribute '<em>Mark Negative</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype#isMarkNegative()
+	 * @see #getYNumericDatatype()
 	 * @generated
 	 */
-	EClass getYTextAreaDType();
+	EAttribute getYNumericDatatype_MarkNegative();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType#isRequired <em>Required</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype <em>YDecimal Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType#isRequired()
-	 * @see #getYTextAreaDType()
+	 * @return the meta object for class '<em>YDecimal Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype
 	 * @generated
 	 */
-	EAttribute getYTextAreaDType_Required();
+	EClass getYDecimalDatatype();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc <em>YText Area DDesc</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype#getPrecision <em>Precision</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YText Area DDesc</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc
+	 * @return the meta object for the attribute '<em>Precision</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype#getPrecision()
+	 * @see #getYDecimalDatatype()
 	 * @generated
 	 */
-	EClass getYTextAreaDDesc();
+	EAttribute getYDecimalDatatype_Precision();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc#getDatatype <em>Datatype</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype <em>YTable Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Datatype</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc#getDatatype()
-	 * @see #getYTextAreaDDesc()
+	 * @return the meta object for class '<em>YTable Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype
 	 * @generated
 	 */
-	EReference getYTextAreaDDesc_Datatype();
+	EClass getYTableDatatype();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc <em>YCheck Box DDesc</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype <em>YCheck Box Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YCheck Box DDesc</em>'.
-	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc
+	 * @return the meta object for class '<em>YCheck Box Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype
 	 * @generated
 	 */
-	EClass getYCheckBoxDDesc();
+	EClass getYCheckBoxDatatype();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -901,22 +827,14 @@ public interface DatatypesPackage extends EPackage {
 		EAttribute YDT_BASE__DESCRIPTION = eINSTANCE.getYDtBase_Description();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDTypeImpl <em>YText DType</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl <em>YText Datatype</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDTypeImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextDType()
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextDatatype()
 		 * @generated
 		 */
-		EClass YTEXT_DTYPE = eINSTANCE.getYTextDType();
-
-		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YTEXT_DTYPE__REQUIRED = eINSTANCE.getYTextDType_Required();
+		EClass YTEXT_DATATYPE = eINSTANCE.getYTextDatatype();
 
 		/**
 		 * The meta object literal for the '<em><b>Maxlength</b></em>' attribute feature.
@@ -924,7 +842,7 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YTEXT_DTYPE__MAXLENGTH = eINSTANCE.getYTextDType_Maxlength();
+		EAttribute YTEXT_DATATYPE__MAXLENGTH = eINSTANCE.getYTextDatatype_Maxlength();
 
 		/**
 		 * The meta object literal for the '<em><b>Minlength</b></em>' attribute feature.
@@ -932,7 +850,7 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YTEXT_DTYPE__MINLENGTH = eINSTANCE.getYTextDType_Minlength();
+		EAttribute YTEXT_DATATYPE__MINLENGTH = eINSTANCE.getYTextDatatype_Minlength();
 
 		/**
 		 * The meta object literal for the '<em><b>Regexpression</b></em>' attribute feature.
@@ -940,27 +858,27 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YTEXT_DTYPE__REGEXPRESSION = eINSTANCE.getYTextDType_Regexpression();
+		EAttribute YTEXT_DATATYPE__REGEXPRESSION = eINSTANCE.getYTextDatatype_Regexpression();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype <em>YDt Datatype</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype <em>YDatatype</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDtDatatype()
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDatatype()
 		 * @generated
 		 */
-		EClass YDT_DATATYPE = eINSTANCE.getYDtDatatype();
+		EClass YDATATYPE = eINSTANCE.getYDatatype();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl <em>YDt Datadescription</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDatadescriptionImpl <em>YDatadescription</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDtDatadescription()
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDatadescriptionImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDatadescription()
 		 * @generated
 		 */
-		EClass YDT_DATADESCRIPTION = eINSTANCE.getYDtDatadescription();
+		EClass YDATADESCRIPTION = eINSTANCE.getYDatadescription();
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -968,7 +886,7 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YDT_DATADESCRIPTION__LABEL = eINSTANCE.getYDtDatadescription_Label();
+		EAttribute YDATADESCRIPTION__LABEL = eINSTANCE.getYDatadescription_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>Label I1 8n Key</b></em>' attribute feature.
@@ -976,81 +894,81 @@ public interface DatatypesPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YDT_DATADESCRIPTION__LABEL_I1_8N_KEY = eINSTANCE.getYDtDatadescription_LabelI18nKey();
+		EAttribute YDATADESCRIPTION__LABEL_I1_8N_KEY = eINSTANCE.getYDatadescription_LabelI18nKey();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDDescImpl <em>YText DDesc</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl <em>YText Area Datatype</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDDescImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextDDesc()
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDatatype()
 		 * @generated
 		 */
-		EClass YTEXT_DDESC = eINSTANCE.getYTextDDesc();
+		EClass YTEXT_AREA_DATATYPE = eINSTANCE.getYTextAreaDatatype();
 
 		/**
-		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YNumericDatatypeImpl <em>YNumeric Datatype</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YNumericDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYNumericDatatype()
 		 * @generated
 		 */
-		EReference YTEXT_DDESC__DATATYPE = eINSTANCE.getYTextDDesc_Datatype();
+		EClass YNUMERIC_DATATYPE = eINSTANCE.getYNumericDatatype();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl <em>YLabel DDesc</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YLabelDDescImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYLabelDDesc()
-		 * @generated
-		 */
-		EClass YLABEL_DDESC = eINSTANCE.getYLabelDDesc();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl <em>YText Area DType</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDType()
-		 * @generated
-		 */
-		EClass YTEXT_AREA_DTYPE = eINSTANCE.getYTextAreaDType();
-
-		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Grouping</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YTEXT_AREA_DTYPE__REQUIRED = eINSTANCE.getYTextAreaDType_Required();
+		EAttribute YNUMERIC_DATATYPE__GROUPING = eINSTANCE.getYNumericDatatype_Grouping();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl <em>YText Area DDesc</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDDescImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTextAreaDDesc()
-		 * @generated
-		 */
-		EClass YTEXT_AREA_DDESC = eINSTANCE.getYTextAreaDDesc();
-
-		/**
-		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Mark Negative</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference YTEXT_AREA_DDESC__DATATYPE = eINSTANCE.getYTextAreaDDesc_Datatype();
+		EAttribute YNUMERIC_DATATYPE__MARK_NEGATIVE = eINSTANCE.getYNumericDatatype_MarkNegative();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl <em>YCheck Box DDesc</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDecimalDatatypeImpl <em>YDecimal Datatype</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDDescImpl
-		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYCheckBoxDDesc()
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDecimalDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYDecimalDatatype()
 		 * @generated
 		 */
-		EClass YCHECK_BOX_DDESC = eINSTANCE.getYCheckBoxDDesc();
+		EClass YDECIMAL_DATATYPE = eINSTANCE.getYDecimalDatatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDECIMAL_DATATYPE__PRECISION = eINSTANCE.getYDecimalDatatype_Precision();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTableDatatypeImpl <em>YTable Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTableDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYTableDatatype()
+		 * @generated
+		 */
+		EClass YTABLE_DATATYPE = eINSTANCE.getYTableDatatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDatatypeImpl <em>YCheck Box Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YCheckBoxDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYCheckBoxDatatype()
+		 * @generated
+		 */
+		EClass YCHECK_BOX_DATATYPE = eINSTANCE.getYCheckBoxDatatype();
 
 	}
 

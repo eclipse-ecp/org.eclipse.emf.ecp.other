@@ -58,6 +58,88 @@ public interface UimodelExtensionPackage extends EPackage {
 	UimodelExtensionPackage eINSTANCE = org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiInputImpl <em>YUi Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiInputImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiInput()
+	 * @generated
+	 */
+	int YUI_INPUT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__ID = UiModelPackage.YUI_FIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__READONLY = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__ENABLED = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__REQUIRED = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT__VISIBLE = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>YUi Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_INPUT_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 4;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextFieldImpl <em>YUi Text Field</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,7 +156,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_FIELD__ID = UiModelPackage.YUI_FIELD__ID;
+	int YUI_TEXT_FIELD__ID = YUI_INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -83,7 +165,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_FIELD__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+	int YUI_TEXT_FIELD__CSS_CLASS = YUI_INPUT__CSS_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -92,16 +174,52 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_FIELD__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+	int YUI_TEXT_FIELD__CSS_ID = YUI_INPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_FIELD__DATADESCRIPTION = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+	int YUI_TEXT_FIELD__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_FIELD__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_FIELD__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_FIELD__VISIBLE = YUI_INPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_FIELD__DATATYPE = YUI_INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Binds To</b></em>' attribute.
@@ -110,7 +228,16 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_FIELD__BINDS_TO = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
+	int YUI_TEXT_FIELD__BINDS_TO = YUI_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_FIELD__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>YUi Text Field</em>' class.
@@ -119,7 +246,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_FIELD_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 2;
+	int YUI_TEXT_FIELD_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 3;
 
 
 	/**
@@ -349,7 +476,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TABLE__ID = UiModelPackage.YUI_FIELD__ID;
+	int YUI_TABLE__ID = YUI_INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -358,7 +485,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TABLE__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+	int YUI_TABLE__CSS_CLASS = YUI_INPUT__CSS_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -367,7 +494,61 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TABLE__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+	int YUI_TABLE__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TABLE__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TABLE__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TABLE__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TABLE__VISIBLE = YUI_INPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TABLE__DATATYPE = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TABLE__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YUi Table</em>' class.
@@ -376,7 +557,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TABLE_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+	int YUI_TABLE_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl <em>YUi Label</em>}' class.
@@ -450,7 +631,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_AREA__ID = UiModelPackage.YUI_FIELD__ID;
+	int YUI_TEXT_AREA__ID = YUI_INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -459,7 +640,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_AREA__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+	int YUI_TEXT_AREA__CSS_CLASS = YUI_INPUT__CSS_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -468,7 +649,43 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_AREA__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+	int YUI_TEXT_AREA__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__VISIBLE = YUI_INPUT__VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -477,7 +694,16 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_AREA__DATADESCRIPTION = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+	int YUI_TEXT_AREA__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_TEXT_AREA__DATATYPE = YUI_INPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YUi Text Area</em>' class.
@@ -486,7 +712,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_TEXT_AREA_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
+	int YUI_TEXT_AREA_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl <em>YUi Check Box</em>}' class.
@@ -505,7 +731,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_CHECK_BOX__ID = UiModelPackage.YUI_FIELD__ID;
+	int YUI_CHECK_BOX__ID = YUI_INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -514,7 +740,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_CHECK_BOX__CSS_CLASS = UiModelPackage.YUI_FIELD__CSS_CLASS;
+	int YUI_CHECK_BOX__CSS_CLASS = YUI_INPUT__CSS_CLASS;
 
 	/**
 	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
@@ -523,7 +749,43 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_CHECK_BOX__CSS_ID = UiModelPackage.YUI_FIELD__CSS_ID;
+	int YUI_CHECK_BOX__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__VISIBLE = YUI_INPUT__VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -532,7 +794,16 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_CHECK_BOX__DATADESCRIPTION = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 0;
+	int YUI_CHECK_BOX__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_CHECK_BOX__DATATYPE = YUI_INPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YUi Check Box</em>' class.
@@ -541,7 +812,207 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YUI_CHECK_BOX_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
+	int YUI_CHECK_BOX_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl <em>YUi Numeric Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiNumericField()
+	 * @generated
+	 */
+	int YUI_NUMERIC_FIELD = 10;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl <em>YUi Decimal Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiDecimalField()
+	 * @generated
+	 */
+	int YUI_DECIMAL_FIELD = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__ID = YUI_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__CSS_CLASS = YUI_INPUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__VISIBLE = YUI_INPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__DATATYPE = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Decimal Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_DECIMAL_FIELD_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__ID = YUI_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__CSS_CLASS = YUI_INPUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__VISIBLE = YUI_INPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__DATATYPE = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Numeric Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_NUMERIC_FIELD_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}' enum.
@@ -551,7 +1022,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiAlignment()
 	 * @generated
 	 */
-	int YUI_ALIGNMENT = 8;
+	int YUI_ALIGNMENT = 11;
 
 
 	/**
@@ -563,6 +1034,17 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYUiTextField();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatatype()
+	 * @see #getYUiTextField()
+	 * @generated
+	 */
+	EReference getYUiTextField_Datatype();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField#getDatadescription <em>Datadescription</em>}'.
@@ -748,6 +1230,28 @@ public interface UimodelExtensionPackage extends EPackage {
 	EClass getYUiTable();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable#getDatatype()
+	 * @see #getYUiTable()
+	 * @generated
+	 */
+	EReference getYUiTable_Datatype();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable#getDatadescription()
+	 * @see #getYUiTable()
+	 * @generated
+	 */
+	EReference getYUiTable_Datadescription();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel <em>YUi Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -790,6 +1294,17 @@ public interface UimodelExtensionPackage extends EPackage {
 	EReference getYUiTextArea_Datadescription();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea#getDatatype()
+	 * @see #getYUiTextArea()
+	 * @generated
+	 */
+	EReference getYUiTextArea_Datatype();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox <em>YUi Check Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -809,6 +1324,135 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYUiCheckBox_Datadescription();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox#getDatatype()
+	 * @see #getYUiCheckBox()
+	 * @generated
+	 */
+	EReference getYUiCheckBox_Datatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput <em>YUi Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Input</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput
+	 * @generated
+	 */
+	EClass getYUiInput();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isReadonly <em>Readonly</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Readonly</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isReadonly()
+	 * @see #getYUiInput()
+	 * @generated
+	 */
+	EAttribute getYUiInput_Readonly();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isEnabled <em>Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enabled</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isEnabled()
+	 * @see #getYUiInput()
+	 * @generated
+	 */
+	EAttribute getYUiInput_Enabled();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isRequired()
+	 * @see #getYUiInput()
+	 * @generated
+	 */
+	EAttribute getYUiInput_Required();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isVisible <em>Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Visible</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput#isVisible()
+	 * @see #getYUiInput()
+	 * @generated
+	 */
+	EAttribute getYUiInput_Visible();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField <em>YUi Decimal Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Decimal Field</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField
+	 * @generated
+	 */
+	EClass getYUiDecimalField();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField#getDatatype()
+	 * @see #getYUiDecimalField()
+	 * @generated
+	 */
+	EReference getYUiDecimalField_Datatype();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField#getDatadescription()
+	 * @see #getYUiDecimalField()
+	 * @generated
+	 */
+	EReference getYUiDecimalField_Datadescription();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField <em>YUi Numeric Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Numeric Field</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField
+	 * @generated
+	 */
+	EClass getYUiNumericField();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField#getDatatype()
+	 * @see #getYUiNumericField()
+	 * @generated
+	 */
+	EReference getYUiNumericField_Datatype();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField#getDatadescription()
+	 * @see #getYUiNumericField()
+	 * @generated
+	 */
+	EReference getYUiNumericField_Datadescription();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}'.
@@ -851,6 +1495,13 @@ public interface UimodelExtensionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YUI_TEXT_FIELD = eINSTANCE.getYUiTextField();
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_TEXT_FIELD__DATATYPE = eINSTANCE.getYUiTextField_Datatype();
 		/**
 		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
@@ -979,6 +1630,20 @@ public interface UimodelExtensionPackage extends EPackage {
 		 */
 		EClass YUI_TABLE = eINSTANCE.getYUiTable();
 		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_TABLE__DATATYPE = eINSTANCE.getYUiTable_Datatype();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_TABLE__DATADESCRIPTION = eINSTANCE.getYUiTable_Datadescription();
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl <em>YUi Label</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1011,6 +1676,13 @@ public interface UimodelExtensionPackage extends EPackage {
 		 */
 		EReference YUI_TEXT_AREA__DATADESCRIPTION = eINSTANCE.getYUiTextArea_Datadescription();
 		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_TEXT_AREA__DATATYPE = eINSTANCE.getYUiTextArea_Datatype();
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl <em>YUi Check Box</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1026,6 +1698,96 @@ public interface UimodelExtensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_CHECK_BOX__DATADESCRIPTION = eINSTANCE.getYUiCheckBox_Datadescription();
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_CHECK_BOX__DATATYPE = eINSTANCE.getYUiCheckBox_Datatype();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiInputImpl <em>YUi Input</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiInputImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiInput()
+		 * @generated
+		 */
+		EClass YUI_INPUT = eINSTANCE.getYUiInput();
+		/**
+		 * The meta object literal for the '<em><b>Readonly</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_INPUT__READONLY = eINSTANCE.getYUiInput_Readonly();
+		/**
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_INPUT__ENABLED = eINSTANCE.getYUiInput_Enabled();
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_INPUT__REQUIRED = eINSTANCE.getYUiInput_Required();
+		/**
+		 * The meta object literal for the '<em><b>Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_INPUT__VISIBLE = eINSTANCE.getYUiInput_Visible();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl <em>YUi Decimal Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiDecimalField()
+		 * @generated
+		 */
+		EClass YUI_DECIMAL_FIELD = eINSTANCE.getYUiDecimalField();
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_DECIMAL_FIELD__DATATYPE = eINSTANCE.getYUiDecimalField_Datatype();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_DECIMAL_FIELD__DATADESCRIPTION = eINSTANCE.getYUiDecimalField_Datadescription();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl <em>YUi Numeric Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiNumericField()
+		 * @generated
+		 */
+		EClass YUI_NUMERIC_FIELD = eINSTANCE.getYUiNumericField();
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_NUMERIC_FIELD__DATATYPE = eINSTANCE.getYUiNumericField_Datatype();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_NUMERIC_FIELD__DATADESCRIPTION = eINSTANCE.getYUiNumericField_Datadescription();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}' enum.
 		 * <!-- begin-user-doc -->

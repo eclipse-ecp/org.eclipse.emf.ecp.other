@@ -3,32 +3,28 @@
 package org.eclipse.emf.ecp.ui.model.core.datatypes.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YText Area DType</b></em>'.
+ * An implementation of the model object '<em><b>YText Area Datatype</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDTypeImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextAreaDatatypeImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
+public class YTextAreaDatatypeImpl extends EObjectImpl implements YTextAreaDatatype {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,31 +86,11 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean REQUIRED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRequired()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean required = REQUIRED_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected YTextAreaDTypeImpl() {
+	protected YTextAreaDatatypeImpl() {
 		super();
 	}
 
@@ -125,7 +101,7 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatatypesPackage.Literals.YTEXT_AREA_DTYPE;
+		return DatatypesPackage.Literals.YTEXT_AREA_DATATYPE;
 	}
 
 	/**
@@ -146,7 +122,7 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DTYPE__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DATATYPE__ID, oldId, id));
 	}
 
 	/**
@@ -167,7 +143,7 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DTYPE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DATATYPE__NAME, oldName, name));
 	}
 
 	/**
@@ -188,28 +164,7 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DTYPE__DESCRIPTION, oldDescription, description));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isRequired() {
-		return required;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRequired(boolean newRequired) {
-		boolean oldRequired = required;
-		required = newRequired;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DTYPE__REQUIRED, oldRequired, required));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_AREA_DATATYPE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -220,14 +175,12 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatypesPackage.YTEXT_AREA_DTYPE__ID:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__ID:
 				return getId();
-			case DatatypesPackage.YTEXT_AREA_DTYPE__NAME:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__NAME:
 				return getName();
-			case DatatypesPackage.YTEXT_AREA_DTYPE__DESCRIPTION:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__DESCRIPTION:
 				return getDescription();
-			case DatatypesPackage.YTEXT_AREA_DTYPE__REQUIRED:
-				return isRequired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,17 +193,14 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatypesPackage.YTEXT_AREA_DTYPE__ID:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__ID:
 				setId((String)newValue);
 				return;
-			case DatatypesPackage.YTEXT_AREA_DTYPE__NAME:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__NAME:
 				setName((String)newValue);
 				return;
-			case DatatypesPackage.YTEXT_AREA_DTYPE__DESCRIPTION:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__DESCRIPTION:
 				setDescription((String)newValue);
-				return;
-			case DatatypesPackage.YTEXT_AREA_DTYPE__REQUIRED:
-				setRequired((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -264,17 +214,14 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.YTEXT_AREA_DTYPE__ID:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case DatatypesPackage.YTEXT_AREA_DTYPE__NAME:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DatatypesPackage.YTEXT_AREA_DTYPE__DESCRIPTION:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case DatatypesPackage.YTEXT_AREA_DTYPE__REQUIRED:
-				setRequired(REQUIRED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -288,14 +235,12 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.YTEXT_AREA_DTYPE__ID:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case DatatypesPackage.YTEXT_AREA_DTYPE__NAME:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatatypesPackage.YTEXT_AREA_DTYPE__DESCRIPTION:
+			case DatatypesPackage.YTEXT_AREA_DATATYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case DatatypesPackage.YTEXT_AREA_DTYPE__REQUIRED:
-				return required != REQUIRED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -316,10 +261,8 @@ public class YTextAreaDTypeImpl extends EObjectImpl implements YTextAreaDType {
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", required: ");
-		result.append(required);
 		result.append(')');
 		return result.toString();
 	}
 
-} //YTextAreaDTypeImpl
+} //YTextAreaDatatypeImpl

@@ -15,9 +15,16 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiMarginable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiSpacingable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
 
 /**
@@ -107,6 +114,18 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYUiCheckBox(YUiCheckBox object) {
 				return createYUiCheckBoxAdapter();
+			}
+			@Override
+			public Adapter caseYUiInput(YUiInput object) {
+				return createYUiInputAdapter();
+			}
+			@Override
+			public Adapter caseYUiDecimalField(YUiDecimalField object) {
+				return createYUiDecimalFieldAdapter();
+			}
+			@Override
+			public Adapter caseYUiNumericField(YUiNumericField object) {
+				return createYUiNumericFieldAdapter();
 			}
 			@Override
 			public Adapter caseYUiElement(YUiElement object) {
@@ -265,6 +284,48 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiCheckBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput <em>YUi Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput
+	 * @generated
+	 */
+	public Adapter createYUiInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField <em>YUi Decimal Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField
+	 * @generated
+	 */
+	public Adapter createYUiDecimalFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField <em>YUi Numeric Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField
+	 * @generated
+	 */
+	public Adapter createYUiNumericFieldAdapter() {
 		return null;
 	}
 

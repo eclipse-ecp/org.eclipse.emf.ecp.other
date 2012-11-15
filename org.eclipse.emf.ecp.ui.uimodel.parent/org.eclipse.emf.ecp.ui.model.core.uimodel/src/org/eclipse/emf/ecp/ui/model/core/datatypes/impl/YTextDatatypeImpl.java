@@ -7,26 +7,27 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YDt Datadescription</b></em>'.
+ * An implementation of the model object '<em><b>YText Datatype</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YDtDatadescriptionImpl#getLabelI18nKey <em>Label I1 8n Key</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl#getMaxlength <em>Maxlength</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl#getMinlength <em>Minlength</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YTextDatatypeImpl#getRegexpression <em>Regexpression</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescription {
+public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,51 +89,71 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The default value of the '{@link #getMaxlength() <em>Maxlength</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getMaxlength()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final int MAXLENGTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getMaxlength() <em>Maxlength</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getMaxlength()
 	 * @generated
 	 * @ordered
 	 */
-	protected String label = LABEL_EDEFAULT;
+	protected int maxlength = MAXLENGTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLabelI18nKey() <em>Label I1 8n Key</em>}' attribute.
+	 * The default value of the '{@link #getMinlength() <em>Minlength</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabelI18nKey()
+	 * @see #getMinlength()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_I1_8N_KEY_EDEFAULT = null;
+	protected static final int MINLENGTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getLabelI18nKey() <em>Label I1 8n Key</em>}' attribute.
+	 * The cached value of the '{@link #getMinlength() <em>Minlength</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabelI18nKey()
+	 * @see #getMinlength()
 	 * @generated
 	 * @ordered
 	 */
-	protected String labelI18nKey = LABEL_I1_8N_KEY_EDEFAULT;
+	protected int minlength = MINLENGTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRegexpression() <em>Regexpression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegexpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REGEXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRegexpression() <em>Regexpression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegexpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String regexpression = REGEXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected YDtDatadescriptionImpl() {
+	protected YTextDatatypeImpl() {
 		super();
 	}
 
@@ -143,7 +164,7 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DatatypesPackage.Literals.YDT_DATADESCRIPTION;
+		return DatatypesPackage.Literals.YTEXT_DATATYPE;
 	}
 
 	/**
@@ -164,7 +185,7 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YDT_DATADESCRIPTION__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_DATATYPE__ID, oldId, id));
 	}
 
 	/**
@@ -185,7 +206,7 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YDT_DATADESCRIPTION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_DATATYPE__NAME, oldName, name));
 	}
 
 	/**
@@ -206,7 +227,7 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YDT_DATADESCRIPTION__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_DATATYPE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -214,8 +235,8 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
+	public int getMaxlength() {
+		return maxlength;
 	}
 
 	/**
@@ -223,11 +244,11 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
+	public void setMaxlength(int newMaxlength) {
+		int oldMaxlength = maxlength;
+		maxlength = newMaxlength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YDT_DATADESCRIPTION__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_DATATYPE__MAXLENGTH, oldMaxlength, maxlength));
 	}
 
 	/**
@@ -235,8 +256,8 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabelI18nKey() {
-		return labelI18nKey;
+	public int getMinlength() {
+		return minlength;
 	}
 
 	/**
@@ -244,11 +265,32 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabelI18nKey(String newLabelI18nKey) {
-		String oldLabelI18nKey = labelI18nKey;
-		labelI18nKey = newLabelI18nKey;
+	public void setMinlength(int newMinlength) {
+		int oldMinlength = minlength;
+		minlength = newMinlength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YDT_DATADESCRIPTION__LABEL_I1_8N_KEY, oldLabelI18nKey, labelI18nKey));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_DATATYPE__MINLENGTH, oldMinlength, minlength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRegexpression() {
+		return regexpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRegexpression(String newRegexpression) {
+		String oldRegexpression = regexpression;
+		regexpression = newRegexpression;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION, oldRegexpression, regexpression));
 	}
 
 	/**
@@ -259,16 +301,18 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DatatypesPackage.YDT_DATADESCRIPTION__ID:
+			case DatatypesPackage.YTEXT_DATATYPE__ID:
 				return getId();
-			case DatatypesPackage.YDT_DATADESCRIPTION__NAME:
+			case DatatypesPackage.YTEXT_DATATYPE__NAME:
 				return getName();
-			case DatatypesPackage.YDT_DATADESCRIPTION__DESCRIPTION:
+			case DatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				return getDescription();
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL:
-				return getLabel();
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL_I1_8N_KEY:
-				return getLabelI18nKey();
+			case DatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
+				return getMaxlength();
+			case DatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
+				return getMinlength();
+			case DatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
+				return getRegexpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -281,20 +325,23 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatypesPackage.YDT_DATADESCRIPTION__ID:
+			case DatatypesPackage.YTEXT_DATATYPE__ID:
 				setId((String)newValue);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__NAME:
+			case DatatypesPackage.YTEXT_DATATYPE__NAME:
 				setName((String)newValue);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__DESCRIPTION:
+			case DatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL:
-				setLabel((String)newValue);
+			case DatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
+				setMaxlength((Integer)newValue);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL_I1_8N_KEY:
-				setLabelI18nKey((String)newValue);
+			case DatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
+				setMinlength((Integer)newValue);
+				return;
+			case DatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
+				setRegexpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,20 +355,23 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.YDT_DATADESCRIPTION__ID:
+			case DatatypesPackage.YTEXT_DATATYPE__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__NAME:
+			case DatatypesPackage.YTEXT_DATATYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__DESCRIPTION:
+			case DatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case DatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
+				setMaxlength(MAXLENGTH_EDEFAULT);
 				return;
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL_I1_8N_KEY:
-				setLabelI18nKey(LABEL_I1_8N_KEY_EDEFAULT);
+			case DatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
+				setMinlength(MINLENGTH_EDEFAULT);
+				return;
+			case DatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
+				setRegexpression(REGEXPRESSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -335,16 +385,18 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DatatypesPackage.YDT_DATADESCRIPTION__ID:
+			case DatatypesPackage.YTEXT_DATATYPE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case DatatypesPackage.YDT_DATADESCRIPTION__NAME:
+			case DatatypesPackage.YTEXT_DATATYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DatatypesPackage.YDT_DATADESCRIPTION__DESCRIPTION:
+			case DatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-			case DatatypesPackage.YDT_DATADESCRIPTION__LABEL_I1_8N_KEY:
-				return LABEL_I1_8N_KEY_EDEFAULT == null ? labelI18nKey != null : !LABEL_I1_8N_KEY_EDEFAULT.equals(labelI18nKey);
+			case DatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
+				return maxlength != MAXLENGTH_EDEFAULT;
+			case DatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
+				return minlength != MINLENGTH_EDEFAULT;
+			case DatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
+				return REGEXPRESSION_EDEFAULT == null ? regexpression != null : !REGEXPRESSION_EDEFAULT.equals(regexpression);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -365,12 +417,14 @@ public class YDtDatadescriptionImpl extends EObjectImpl implements YDtDatadescri
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", label: ");
-		result.append(label);
-		result.append(", labelI18nKey: ");
-		result.append(labelI18nKey);
+		result.append(", maxlength: ");
+		result.append(maxlength);
+		result.append(", minlength: ");
+		result.append(minlength);
+		result.append(", regexpression: ");
+		result.append(regexpression);
 		result.append(')');
 		return result.toString();
 	}
 
-} //YDtDatadescriptionImpl
+} //YTextDatatypeImpl

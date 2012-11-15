@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
@@ -173,7 +173,7 @@ public class GridLayoutTextAreaExample implements IApplication {
 	protected YUiTextArea newTextArea(String label) {
 		YUiTextArea field = factory.createTextArea();
 		if (label != null) {
-			YTextAreaDDesc dtd = factory.createTextAreaDatadescription();
+			YDatadescription dtd = factory.createDatadescription();
 			field.setDatadescription(dtd);
 			dtd.setLabel(label);
 		}

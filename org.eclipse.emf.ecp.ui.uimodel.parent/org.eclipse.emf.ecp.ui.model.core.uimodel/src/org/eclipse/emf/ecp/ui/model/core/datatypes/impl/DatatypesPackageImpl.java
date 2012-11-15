@@ -5,19 +5,18 @@ package org.eclipse.emf.ecp.ui.model.core.datatypes.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatadescription;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtDatatype;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YLabelDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDType;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDDesc;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDType;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,56 +37,56 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yTextDTypeEClass = null;
+	private EClass yTextDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yDtDatatypeEClass = null;
+	private EClass yDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yDtDatadescriptionEClass = null;
+	private EClass yDatadescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yTextDDescEClass = null;
+	private EClass yTextAreaDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yLabelDDescEClass = null;
+	private EClass yNumericDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yTextAreaDTypeEClass = null;
+	private EClass yDecimalDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yTextAreaDDescEClass = null;
+	private EClass yTableDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yCheckBoxDDescEClass = null;
+	private EClass yCheckBoxDatatypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -191,8 +190,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYTextDType() {
-		return yTextDTypeEClass;
+	public EClass getYTextDatatype() {
+		return yTextDatatypeEClass;
 	}
 
 	/**
@@ -200,8 +199,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTextDType_Required() {
-		return (EAttribute)yTextDTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYTextDatatype_Maxlength() {
+		return (EAttribute)yTextDatatypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -209,8 +208,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTextDType_Maxlength() {
-		return (EAttribute)yTextDTypeEClass.getEStructuralFeatures().get(1);
+	public EAttribute getYTextDatatype_Minlength() {
+		return (EAttribute)yTextDatatypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -218,8 +217,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTextDType_Minlength() {
-		return (EAttribute)yTextDTypeEClass.getEStructuralFeatures().get(2);
+	public EAttribute getYTextDatatype_Regexpression() {
+		return (EAttribute)yTextDatatypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -227,8 +226,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTextDType_Regexpression() {
-		return (EAttribute)yTextDTypeEClass.getEStructuralFeatures().get(3);
+	public EClass getYDatatype() {
+		return yDatatypeEClass;
 	}
 
 	/**
@@ -236,8 +235,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYDtDatatype() {
-		return yDtDatatypeEClass;
+	public EClass getYDatadescription() {
+		return yDatadescriptionEClass;
 	}
 
 	/**
@@ -245,8 +244,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYDtDatadescription() {
-		return yDtDatadescriptionEClass;
+	public EAttribute getYDatadescription_Label() {
+		return (EAttribute)yDatadescriptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -254,8 +253,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDtDatadescription_Label() {
-		return (EAttribute)yDtDatadescriptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYDatadescription_LabelI18nKey() {
+		return (EAttribute)yDatadescriptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -263,8 +262,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDtDatadescription_LabelI18nKey() {
-		return (EAttribute)yDtDatadescriptionEClass.getEStructuralFeatures().get(1);
+	public EClass getYTextAreaDatatype() {
+		return yTextAreaDatatypeEClass;
 	}
 
 	/**
@@ -272,8 +271,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYTextDDesc() {
-		return yTextDDescEClass;
+	public EClass getYNumericDatatype() {
+		return yNumericDatatypeEClass;
 	}
 
 	/**
@@ -281,8 +280,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getYTextDDesc_Datatype() {
-		return (EReference)yTextDDescEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYNumericDatatype_Grouping() {
+		return (EAttribute)yNumericDatatypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -290,8 +289,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYLabelDDesc() {
-		return yLabelDDescEClass;
+	public EAttribute getYNumericDatatype_MarkNegative() {
+		return (EAttribute)yNumericDatatypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -299,8 +298,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYTextAreaDType() {
-		return yTextAreaDTypeEClass;
+	public EClass getYDecimalDatatype() {
+		return yDecimalDatatypeEClass;
 	}
 
 	/**
@@ -308,8 +307,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTextAreaDType_Required() {
-		return (EAttribute)yTextAreaDTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYDecimalDatatype_Precision() {
+		return (EAttribute)yDecimalDatatypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -317,8 +316,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYTextAreaDDesc() {
-		return yTextAreaDDescEClass;
+	public EClass getYTableDatatype() {
+		return yTableDatatypeEClass;
 	}
 
 	/**
@@ -326,17 +325,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getYTextAreaDDesc_Datatype() {
-		return (EReference)yTextAreaDDescEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getYCheckBoxDDesc() {
-		return yCheckBoxDDescEClass;
+	public EClass getYCheckBoxDatatype() {
+		return yCheckBoxDatatypeEClass;
 	}
 
 	/**
@@ -372,30 +362,29 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		createEAttribute(yDtBaseEClass, YDT_BASE__NAME);
 		createEAttribute(yDtBaseEClass, YDT_BASE__DESCRIPTION);
 
-		yTextDTypeEClass = createEClass(YTEXT_DTYPE);
-		createEAttribute(yTextDTypeEClass, YTEXT_DTYPE__REQUIRED);
-		createEAttribute(yTextDTypeEClass, YTEXT_DTYPE__MAXLENGTH);
-		createEAttribute(yTextDTypeEClass, YTEXT_DTYPE__MINLENGTH);
-		createEAttribute(yTextDTypeEClass, YTEXT_DTYPE__REGEXPRESSION);
+		yTextDatatypeEClass = createEClass(YTEXT_DATATYPE);
+		createEAttribute(yTextDatatypeEClass, YTEXT_DATATYPE__MAXLENGTH);
+		createEAttribute(yTextDatatypeEClass, YTEXT_DATATYPE__MINLENGTH);
+		createEAttribute(yTextDatatypeEClass, YTEXT_DATATYPE__REGEXPRESSION);
 
-		yDtDatatypeEClass = createEClass(YDT_DATATYPE);
+		yDatatypeEClass = createEClass(YDATATYPE);
 
-		yDtDatadescriptionEClass = createEClass(YDT_DATADESCRIPTION);
-		createEAttribute(yDtDatadescriptionEClass, YDT_DATADESCRIPTION__LABEL);
-		createEAttribute(yDtDatadescriptionEClass, YDT_DATADESCRIPTION__LABEL_I1_8N_KEY);
+		yDatadescriptionEClass = createEClass(YDATADESCRIPTION);
+		createEAttribute(yDatadescriptionEClass, YDATADESCRIPTION__LABEL);
+		createEAttribute(yDatadescriptionEClass, YDATADESCRIPTION__LABEL_I1_8N_KEY);
 
-		yTextDDescEClass = createEClass(YTEXT_DDESC);
-		createEReference(yTextDDescEClass, YTEXT_DDESC__DATATYPE);
+		yTextAreaDatatypeEClass = createEClass(YTEXT_AREA_DATATYPE);
 
-		yLabelDDescEClass = createEClass(YLABEL_DDESC);
+		yNumericDatatypeEClass = createEClass(YNUMERIC_DATATYPE);
+		createEAttribute(yNumericDatatypeEClass, YNUMERIC_DATATYPE__GROUPING);
+		createEAttribute(yNumericDatatypeEClass, YNUMERIC_DATATYPE__MARK_NEGATIVE);
 
-		yTextAreaDTypeEClass = createEClass(YTEXT_AREA_DTYPE);
-		createEAttribute(yTextAreaDTypeEClass, YTEXT_AREA_DTYPE__REQUIRED);
+		yDecimalDatatypeEClass = createEClass(YDECIMAL_DATATYPE);
+		createEAttribute(yDecimalDatatypeEClass, YDECIMAL_DATATYPE__PRECISION);
 
-		yTextAreaDDescEClass = createEClass(YTEXT_AREA_DDESC);
-		createEReference(yTextAreaDDescEClass, YTEXT_AREA_DDESC__DATATYPE);
+		yTableDatatypeEClass = createEClass(YTABLE_DATATYPE);
 
-		yCheckBoxDDescEClass = createEClass(YCHECK_BOX_DDESC);
+		yCheckBoxDatatypeEClass = createEClass(YCHECK_BOX_DATATYPE);
 	}
 
 	/**
@@ -426,14 +415,14 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		yTextDTypeEClass.getESuperTypes().add(this.getYDtDatatype());
-		yDtDatatypeEClass.getESuperTypes().add(this.getYDtBase());
-		yDtDatadescriptionEClass.getESuperTypes().add(this.getYDtBase());
-		yTextDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
-		yLabelDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
-		yTextAreaDTypeEClass.getESuperTypes().add(this.getYDtDatatype());
-		yTextAreaDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
-		yCheckBoxDDescEClass.getESuperTypes().add(this.getYDtDatadescription());
+		yTextDatatypeEClass.getESuperTypes().add(this.getYDatatype());
+		yDatatypeEClass.getESuperTypes().add(this.getYDtBase());
+		yDatadescriptionEClass.getESuperTypes().add(this.getYDtBase());
+		yTextAreaDatatypeEClass.getESuperTypes().add(this.getYDatatype());
+		yNumericDatatypeEClass.getESuperTypes().add(this.getYDatatype());
+		yDecimalDatatypeEClass.getESuperTypes().add(this.getYNumericDatatype());
+		yTableDatatypeEClass.getESuperTypes().add(this.getYDatatype());
+		yCheckBoxDatatypeEClass.getESuperTypes().add(this.getYDatatype());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yDtBaseEClass, YDtBase.class, "YDtBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -441,30 +430,29 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEAttribute(getYDtBase_Name(), ecorePackage.getEString(), "name", null, 0, 1, YDtBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDtBase_Description(), ecorePackage.getEString(), "description", null, 0, 1, YDtBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yTextDTypeEClass, YTextDType.class, "YTextDType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYTextDType_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, YTextDType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTextDType_Maxlength(), ecorePackage.getEInt(), "maxlength", null, 0, 1, YTextDType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTextDType_Minlength(), ecorePackage.getEInt(), "minlength", null, 0, 1, YTextDType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTextDType_Regexpression(), ecorePackage.getEString(), "regexpression", null, 0, 1, YTextDType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYTextDatatype_Maxlength(), ecorePackage.getEInt(), "maxlength", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTextDatatype_Minlength(), ecorePackage.getEInt(), "minlength", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTextDatatype_Regexpression(), ecorePackage.getEString(), "regexpression", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yDtDatatypeEClass, YDtDatatype.class, "YDtDatatype", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yDatatypeEClass, YDatatype.class, "YDatatype", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yDtDatadescriptionEClass, YDtDatadescription.class, "YDtDatadescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYDtDatadescription_Label(), ecorePackage.getEString(), "label", null, 0, 1, YDtDatadescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYDtDatadescription_LabelI18nKey(), ecorePackage.getEString(), "labelI18nKey", null, 0, 1, YDtDatadescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yDatadescriptionEClass, YDatadescription.class, "YDatadescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYDatadescription_Label(), ecorePackage.getEString(), "label", null, 0, 1, YDatadescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDatadescription_LabelI18nKey(), ecorePackage.getEString(), "labelI18nKey", null, 0, 1, YDatadescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yTextDDescEClass, YTextDDesc.class, "YTextDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYTextDDesc_Datatype(), this.getYTextDType(), null, "datatype", null, 0, 1, YTextDDesc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class, "YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yLabelDDescEClass, YLabelDDesc.class, "YLabelDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yNumericDatatypeEClass, YNumericDatatype.class, "YNumericDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYNumericDatatype_Grouping(), ecorePackage.getEBoolean(), "grouping", null, 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYNumericDatatype_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", null, 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yTextAreaDTypeEClass, YTextAreaDType.class, "YTextAreaDType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYTextAreaDType_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, YTextAreaDType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yDecimalDatatypeEClass, YDecimalDatatype.class, "YDecimalDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYDecimalDatatype_Precision(), ecorePackage.getEInt(), "precision", null, 0, 1, YDecimalDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yTextAreaDDescEClass, YTextAreaDDesc.class, "YTextAreaDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYTextAreaDDesc_Datatype(), this.getYTextAreaDType(), null, "datatype", null, 0, 1, YTextAreaDDesc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yTableDatatypeEClass, YTableDatatype.class, "YTableDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yCheckBoxDDescEClass, YCheckBoxDDesc.class, "YCheckBoxDDesc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yCheckBoxDatatypeEClass, YCheckBoxDatatype.class, "YCheckBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

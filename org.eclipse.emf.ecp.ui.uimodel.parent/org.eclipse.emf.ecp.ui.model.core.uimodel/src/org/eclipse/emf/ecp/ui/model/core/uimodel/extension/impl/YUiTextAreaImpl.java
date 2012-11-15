@@ -6,10 +6,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDDesc;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiFieldImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,12 +19,13 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.impl.YUiFieldImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl#getDatatype <em>Datatype</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
+public class YUiTextAreaImpl extends YUiInputImpl implements YUiTextArea {
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -33,7 +34,17 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 	 * @generated
 	 * @ordered
 	 */
-	protected YTextAreaDDesc datadescription;
+	protected YDatadescription datadescription;
+
+	/**
+	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatatype()
+	 * @generated
+	 * @ordered
+	 */
+	protected YTextAreaDatatype datatype;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,10 +70,10 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTextAreaDDesc getDatadescription() {
+	public YDatadescription getDatadescription() {
 		if (datadescription != null && datadescription.eIsProxy()) {
 			InternalEObject oldDatadescription = (InternalEObject)datadescription;
-			datadescription = (YTextAreaDDesc)eResolveProxy(oldDatadescription);
+			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelExtensionPackage.YUI_TEXT_AREA__DATADESCRIPTION, oldDatadescription, datadescription));
@@ -76,7 +87,7 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTextAreaDDesc basicGetDatadescription() {
+	public YDatadescription basicGetDatadescription() {
 		return datadescription;
 	}
 
@@ -85,11 +96,49 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDatadescription(YTextAreaDDesc newDatadescription) {
-		YTextAreaDDesc oldDatadescription = datadescription;
+	public void setDatadescription(YDatadescription newDatadescription) {
+		YDatadescription oldDatadescription = datadescription;
 		datadescription = newDatadescription;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_TEXT_AREA__DATADESCRIPTION, oldDatadescription, datadescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YTextAreaDatatype getDatatype() {
+		if (datatype != null && datatype.eIsProxy()) {
+			InternalEObject oldDatatype = (InternalEObject)datatype;
+			datatype = (YTextAreaDatatype)eResolveProxy(oldDatatype);
+			if (datatype != oldDatatype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UimodelExtensionPackage.YUI_TEXT_AREA__DATATYPE, oldDatatype, datatype));
+			}
+		}
+		return datatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YTextAreaDatatype basicGetDatatype() {
+		return datatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatatype(YTextAreaDatatype newDatatype) {
+		YTextAreaDatatype oldDatatype = datatype;
+		datatype = newDatatype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UimodelExtensionPackage.YUI_TEXT_AREA__DATATYPE, oldDatatype, datatype));
 	}
 
 	/**
@@ -103,6 +152,9 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 			case UimodelExtensionPackage.YUI_TEXT_AREA__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
+			case UimodelExtensionPackage.YUI_TEXT_AREA__DATATYPE:
+				if (resolve) return getDatatype();
+				return basicGetDatatype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,7 +168,10 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case UimodelExtensionPackage.YUI_TEXT_AREA__DATADESCRIPTION:
-				setDatadescription((YTextAreaDDesc)newValue);
+				setDatadescription((YDatadescription)newValue);
+				return;
+			case UimodelExtensionPackage.YUI_TEXT_AREA__DATATYPE:
+				setDatatype((YTextAreaDatatype)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,7 +186,10 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case UimodelExtensionPackage.YUI_TEXT_AREA__DATADESCRIPTION:
-				setDatadescription((YTextAreaDDesc)null);
+				setDatadescription((YDatadescription)null);
+				return;
+			case UimodelExtensionPackage.YUI_TEXT_AREA__DATATYPE:
+				setDatatype((YTextAreaDatatype)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -147,6 +205,8 @@ public class YUiTextAreaImpl extends YUiFieldImpl implements YUiTextArea {
 		switch (featureID) {
 			case UimodelExtensionPackage.YUI_TEXT_AREA__DATADESCRIPTION:
 				return datadescription != null;
+			case UimodelExtensionPackage.YUI_TEXT_AREA__DATATYPE:
+				return datatype != null;
 		}
 		return super.eIsSet(featureID);
 	}

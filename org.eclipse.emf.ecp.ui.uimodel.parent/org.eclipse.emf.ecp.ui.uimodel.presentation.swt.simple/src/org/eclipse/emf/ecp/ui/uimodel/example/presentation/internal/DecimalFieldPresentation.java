@@ -10,29 +10,30 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.example.presentation.internal;
 
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiCheckboxEditpart;
-import org.eclipse.riena.ui.ridgets.IToggleButtonRidget;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiNumericFieldEditpart;
+import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
+import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 
 /**
- * This presenter is responsible to render a checkBox field on the given layout.
+ * This presenter is responsible to render a text field on the given layout.
  */
-public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
+public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YUiCheckBox yCheckBox;
+	private final YUiDecimalField yDecimalTextField;
 	private Composite controlBase;
-	private Button checkBox;
+	private Text decimalText;
 	private Label label;
-	private IToggleButtonRidget checkBoxRidget;
+	private IDecimalTextRidget decimalRidget;
 
 	/**
 	 * Constructor.
@@ -40,9 +41,9 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 * @param editpart
 	 *            The editpart of that presenter
 	 */
-	public CheckBoxPresentation(IUiElementEditpart editpart) {
-		super((IUiCheckboxEditpart) editpart);
-		this.yCheckBox = (YUiCheckBox) editpart.getModel();
+	public DecimalFieldPresentation(IUiElementEditpart editpart) {
+		super((IUiNumericFieldEditpart) editpart);
+		this.yDecimalTextField = (YUiDecimalField) editpart.getModel();
 	}
 
 	/**
@@ -54,22 +55,24 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (Util.isCssIdValid(yCheckBox)) {
-				setCSSId(controlBase, Util.getCssID(yCheckBox));
+			if (Util.isCssIdValid(yDecimalTextField)) {
+				setCSSId(controlBase, Util.getCssID(yDecimalTextField));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
 
 			label = new Label(controlBase, SWT.NONE);
-			label.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false,
-					false));
+			GridData labelGd = new GridData(SWT.BEGINNING, SWT.TOP, false, true);
+			label.setLayoutData(labelGd);
 			setCSSClass(label, CSS_CLASS__LABEL);
 
-			checkBox = new Button(controlBase, SWT.CHECK);
-			checkBox.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false,
-					false));
-			checkBoxRidget = (IToggleButtonRidget) SwtRidgetFactory
-					.createRidget(checkBox);
+			decimalText = new Text(controlBase, SWT.BORDER);
+			decimalText.setData(UIControlsFactory.KEY_TYPE,
+					UIControlsFactory.TYPE_NUMERIC);
+			decimalRidget = (IDecimalTextRidget) SwtRidgetFactory
+					.createRidget(decimalText);
+			decimalText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,
+					true));
 
 			// update style attributes
 			//
@@ -86,13 +89,14 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 			label.setText(getLabel());
 		}
 
-		if (Util.isCssClassValid(yCheckBox)) {
-			setCSSClass(checkBox, Util.getCssClass(yCheckBox));
+		if (Util.isCssClassValid(yDecimalTextField)) {
+			setCSSClass(decimalText, Util.getCssClass(yDecimalTextField));
 		} else {
-			setCSSClass(checkBox, CSS_CLASS__CONTROL);
+			setCSSClass(decimalText, CSS_CLASS__CONTROL);
 		}
 
-		Util.updateMarkableRidget(checkBoxRidget, yCheckBox);
+		Util.updateMarkableRidget(decimalRidget, yDecimalTextField);
+		Util.updateDecimalRidget(decimalRidget, yDecimalTextField.getDatatype());
 	}
 
 	@Override
@@ -111,8 +115,8 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public boolean isLabelValid() {
-		return yCheckBox.getDatadescription() != null
-				&& yCheckBox.getDatadescription().getLabel() != null;
+		return yDecimalTextField.getDatadescription() != null
+				&& yDecimalTextField.getDatadescription().getLabel() != null;
 	}
 
 	/**
@@ -121,7 +125,7 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public String getLabel() {
-		return yCheckBox.getDatadescription().getLabel();
+		return yDecimalTextField.getDatadescription().getLabel();
 	}
 
 	/**
@@ -132,8 +136,8 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			checkBox = null;
-			checkBoxRidget = null;
+			decimalText = null;
+			decimalRidget = null;
 		}
 	}
 
