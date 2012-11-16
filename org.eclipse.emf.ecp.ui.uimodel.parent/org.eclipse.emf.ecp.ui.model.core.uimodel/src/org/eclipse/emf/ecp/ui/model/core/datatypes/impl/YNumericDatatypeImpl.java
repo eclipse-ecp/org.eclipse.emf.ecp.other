@@ -95,7 +95,7 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean GROUPING_EDEFAULT = false;
+	protected static final boolean GROUPING_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
@@ -115,7 +115,7 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MARK_NEGATIVE_EDEFAULT = false;
+	protected static final boolean MARK_NEGATIVE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isMarkNegative() <em>Mark Negative</em>}' attribute.

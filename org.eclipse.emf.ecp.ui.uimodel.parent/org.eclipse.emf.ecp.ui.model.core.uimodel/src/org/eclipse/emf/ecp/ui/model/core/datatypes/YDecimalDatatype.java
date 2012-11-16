@@ -22,6 +22,7 @@ package org.eclipse.emf.ecp.ui.model.core.datatypes;
 public interface YDecimalDatatype extends YNumericDatatype {
 	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.
+	 * The default value is <code>"2"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Precision</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface YDecimalDatatype extends YNumericDatatype {
 	 * @return the value of the '<em>Precision</em>' attribute.
 	 * @see #setPrecision(int)
 	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage#getYDecimalDatatype_Precision()
-	 * @model
+	 * @model default="2"
 	 * @generated
 	 */
 	int getPrecision();

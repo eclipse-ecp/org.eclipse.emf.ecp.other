@@ -30,7 +30,7 @@ public class YDecimalDatatypeImpl extends YNumericDatatypeImpl implements YDecim
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PRECISION_EDEFAULT = 0;
+	protected static final int PRECISION_EDEFAULT = 2;
 
 	/**
 	 * The cached value of the '{@link #getPrecision() <em>Precision</em>}' attribute.

@@ -444,11 +444,11 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class, "YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yNumericDatatypeEClass, YNumericDatatype.class, "YNumericDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYNumericDatatype_Grouping(), ecorePackage.getEBoolean(), "grouping", null, 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYNumericDatatype_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", null, 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYNumericDatatype_Grouping(), ecorePackage.getEBoolean(), "grouping", "true", 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYNumericDatatype_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "true", 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDecimalDatatypeEClass, YDecimalDatatype.class, "YDecimalDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYDecimalDatatype_Precision(), ecorePackage.getEInt(), "precision", null, 0, 1, YDecimalDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDecimalDatatype_Precision(), ecorePackage.getEInt(), "precision", "2", 0, 1, YDecimalDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yTableDatatypeEClass, YTableDatatype.class, "YTableDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

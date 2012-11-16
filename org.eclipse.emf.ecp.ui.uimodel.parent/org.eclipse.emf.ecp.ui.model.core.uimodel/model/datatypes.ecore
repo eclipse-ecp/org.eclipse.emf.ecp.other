@@ -21,11 +21,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YTextAreaDatatype" eSuperTypes="#//YDatatype"/>
   <eClassifiers xsi:type="ecore:EClass" name="YNumericDatatype" eSuperTypes="#//YDatatype">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="markNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="grouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="markNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YDecimalDatatype" eSuperTypes="#//YNumericDatatype">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YTableDatatype" eSuperTypes="#//YDatatype"/>
   <eClassifiers xsi:type="ecore:EClass" name="YCheckBoxDatatype" eSuperTypes="#//YDatatype"/>

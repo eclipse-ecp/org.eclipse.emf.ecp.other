@@ -23,6 +23,7 @@ package org.eclipse.emf.ecp.ui.model.core.datatypes;
 public interface YNumericDatatype extends YDatatype {
 	/**
 	 * Returns the value of the '<em><b>Grouping</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Grouping</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface YNumericDatatype extends YDatatype {
 	 * @return the value of the '<em>Grouping</em>' attribute.
 	 * @see #setGrouping(boolean)
 	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage#getYNumericDatatype_Grouping()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isGrouping();
@@ -49,6 +50,7 @@ public interface YNumericDatatype extends YDatatype {
 
 	/**
 	 * Returns the value of the '<em><b>Mark Negative</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mark Negative</em>' attribute isn't clear,
@@ -58,7 +60,7 @@ public interface YNumericDatatype extends YDatatype {
 	 * @return the value of the '<em>Mark Negative</em>' attribute.
 	 * @see #setMarkNegative(boolean)
 	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage#getYNumericDatatype_MarkNegative()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isMarkNegative();
