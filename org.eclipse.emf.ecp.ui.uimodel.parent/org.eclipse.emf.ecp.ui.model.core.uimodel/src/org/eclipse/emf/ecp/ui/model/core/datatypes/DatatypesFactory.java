@@ -85,6 +85,24 @@ public interface DatatypesFactory extends EFactory {
 	YCheckBoxDatatype createYCheckBoxDatatype();
 
 	/**
+	 * Returns a new object of class '<em>YCombo Box Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YCombo Box Datatype</em>'.
+	 * @generated
+	 */
+	YComboBoxDatatype createYComboBoxDatatype();
+
+	/**
+	 * Returns a new object of class '<em>YList Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YList Data Type</em>'.
+	 * @generated
+	 */
+	YListDataType createYListDataType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

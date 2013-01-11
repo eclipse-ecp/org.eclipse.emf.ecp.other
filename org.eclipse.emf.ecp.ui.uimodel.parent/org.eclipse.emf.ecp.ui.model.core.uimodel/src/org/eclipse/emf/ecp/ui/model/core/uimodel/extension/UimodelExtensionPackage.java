@@ -65,7 +65,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiInput()
 	 * @generated
 	 */
-	int YUI_INPUT = 8;
+	int YUI_INPUT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -405,6 +405,16 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_GRID_LAYOUT_CELL_STYLE_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutCellStyleImpl <em>YUi Horizontal Layout Cell Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutCellStyleImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiHorizontalLayoutCellStyle()
+	 * @generated
+	 */
+	int YUI_HORIZONTAL_LAYOUT_CELL_STYLE = 4;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiSpanInfoImpl <em>YUi Span Info</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,7 +422,333 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiSpanInfo()
 	 * @generated
 	 */
-	int YUI_SPAN_INFO = 3;
+	int YUI_SPAN_INFO = 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTableImpl <em>YUi Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTableImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiTable()
+	 * @generated
+	 */
+	int YUI_TABLE = 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl <em>YUi Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiLabel()
+	 * @generated
+	 */
+	int YUI_LABEL = 9;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl <em>YUi Text Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiTextArea()
+	 * @generated
+	 */
+	int YUI_TEXT_AREA = 10;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl <em>YUi Check Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiCheckBox()
+	 * @generated
+	 */
+	int YUI_CHECK_BOX = 11;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl <em>YUi Numeric Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiNumericField()
+	 * @generated
+	 */
+	int YUI_NUMERIC_FIELD = 14;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl <em>YUi Decimal Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiDecimalField()
+	 * @generated
+	 */
+	int YUI_DECIMAL_FIELD = 13;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiComboBoxImpl <em>YUi Combo Box</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiComboBoxImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiComboBox()
+	 * @generated
+	 */
+	int YUI_COMBO_BOX = 15;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiListImpl <em>YUi List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiListImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiList()
+	 * @generated
+	 */
+	int YUI_LIST = 16;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutImpl <em>YUi Horizontal Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiHorizontalLayout()
+	 * @generated
+	 */
+	int YUI_HORIZONTAL_LAYOUT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__ID = UiModelPackage.YUI_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__CSS_CLASS = UiModelPackage.YUI_LAYOUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__CSS_ID = UiModelPackage.YUI_LAYOUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__ELEMENTS = UiModelPackage.YUI_LAYOUT__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__SPACING = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__MARGIN = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Cell Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__CELL_STYLES = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Fill Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>YUi Horizontal Layout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT_FEATURE_COUNT = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT_CELL_STYLE__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT_CELL_STYLE__ALIGNMENT = 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Horizontal Layout Cell Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_HORIZONTAL_LAYOUT_CELL_STYLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutImpl <em>YUi Vertical Layout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiVerticalLayout()
+	 * @generated
+	 */
+	int YUI_VERTICAL_LAYOUT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__ID = UiModelPackage.YUI_LAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__CSS_CLASS = UiModelPackage.YUI_LAYOUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__CSS_ID = UiModelPackage.YUI_LAYOUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__ELEMENTS = UiModelPackage.YUI_LAYOUT__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__SPACING = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__MARGIN = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Cell Styles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__CELL_STYLES = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Fill Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT__FILL_VERTICAL = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>YUi Vertical Layout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT_FEATURE_COUNT = UiModelPackage.YUI_LAYOUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutCellStyleImpl <em>YUi Vertical Layout Cell Style</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutCellStyleImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiVerticalLayoutCellStyle()
+	 * @generated
+	 */
+	int YUI_VERTICAL_LAYOUT_CELL_STYLE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT_CELL_STYLE__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Alignment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT_CELL_STYLE__ALIGNMENT = 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Vertical Layout Cell Style</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_VERTICAL_LAYOUT_CELL_STYLE_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Column From</b></em>' attribute.
@@ -458,16 +794,6 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_SPAN_INFO_FEATURE_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTableImpl <em>YUi Table</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTableImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiTable()
-	 * @generated
-	 */
-	int YUI_TABLE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -560,16 +886,6 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_TABLE_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl <em>YUi Label</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiLabelImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiLabel()
-	 * @generated
-	 */
-	int YUI_LABEL = 5;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -613,16 +929,6 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_LABEL_FEATURE_COUNT = UiModelPackage.YUI_FIELD_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl <em>YUi Text Area</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiTextAreaImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiTextArea()
-	 * @generated
-	 */
-	int YUI_TEXT_AREA = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -715,16 +1021,6 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_TEXT_AREA_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl <em>YUi Check Box</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiCheckBoxImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiCheckBox()
-	 * @generated
-	 */
-	int YUI_CHECK_BOX = 7;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -813,26 +1109,6 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @ordered
 	 */
 	int YUI_CHECK_BOX_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl <em>YUi Numeric Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiNumericFieldImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiNumericField()
-	 * @generated
-	 */
-	int YUI_NUMERIC_FIELD = 10;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl <em>YUi Decimal Field</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiDecimalFieldImpl
-	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiDecimalField()
-	 * @generated
-	 */
-	int YUI_DECIMAL_FIELD = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1015,6 +1291,186 @@ public interface UimodelExtensionPackage extends EPackage {
 	int YUI_NUMERIC_FIELD_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__ID = YUI_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__CSS_CLASS = YUI_INPUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__VISIBLE = YUI_INPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX__DATATYPE = YUI_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi Combo Box</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_COMBO_BOX_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__ID = YUI_INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__CSS_CLASS = YUI_INPUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__CSS_ID = YUI_INPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__READONLY = YUI_INPUT__READONLY;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__ENABLED = YUI_INPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__REQUIRED = YUI_INPUT__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__VISIBLE = YUI_INPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__DATADESCRIPTION = YUI_INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST__DATATYPE = YUI_INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YUi List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_LIST_FEATURE_COUNT = YUI_INPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1022,7 +1478,7 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiAlignment()
 	 * @generated
 	 */
-	int YUI_ALIGNMENT = 11;
+	int YUI_ALIGNMENT = 17;
 
 
 	/**
@@ -1164,6 +1620,102 @@ public interface UimodelExtensionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYUiGridLayoutCellStyle_SpanInfo();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle <em>YUi Horizontal Layout Cell Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Horizontal Layout Cell Style</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle
+	 * @generated
+	 */
+	EClass getYUiHorizontalLayoutCellStyle();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle#getTarget()
+	 * @see #getYUiHorizontalLayoutCellStyle()
+	 * @generated
+	 */
+	EReference getYUiHorizontalLayoutCellStyle_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle#getAlignment()
+	 * @see #getYUiHorizontalLayoutCellStyle()
+	 * @generated
+	 */
+	EAttribute getYUiHorizontalLayoutCellStyle_Alignment();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout <em>YUi Vertical Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Vertical Layout</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout
+	 * @generated
+	 */
+	EClass getYUiVerticalLayout();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout#getCellStyles <em>Cell Styles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cell Styles</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout#getCellStyles()
+	 * @see #getYUiVerticalLayout()
+	 * @generated
+	 */
+	EReference getYUiVerticalLayout_CellStyles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout#isFillVertical <em>Fill Vertical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Vertical</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout#isFillVertical()
+	 * @see #getYUiVerticalLayout()
+	 * @generated
+	 */
+	EAttribute getYUiVerticalLayout_FillVertical();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle <em>YUi Vertical Layout Cell Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Vertical Layout Cell Style</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle
+	 * @generated
+	 */
+	EClass getYUiVerticalLayoutCellStyle();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle#getTarget()
+	 * @see #getYUiVerticalLayoutCellStyle()
+	 * @generated
+	 */
+	EReference getYUiVerticalLayoutCellStyle_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle#getAlignment <em>Alignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alignment</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle#getAlignment()
+	 * @see #getYUiVerticalLayoutCellStyle()
+	 * @generated
+	 */
+	EAttribute getYUiVerticalLayoutCellStyle_Alignment();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo <em>YUi Span Info</em>}'.
@@ -1455,6 +2007,102 @@ public interface UimodelExtensionPackage extends EPackage {
 	EReference getYUiNumericField_Datadescription();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox <em>YUi Combo Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Combo Box</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox
+	 * @generated
+	 */
+	EClass getYUiComboBox();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox#getDatadescription()
+	 * @see #getYUiComboBox()
+	 * @generated
+	 */
+	EReference getYUiComboBox_Datadescription();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox#getDatatype()
+	 * @see #getYUiComboBox()
+	 * @generated
+	 */
+	EReference getYUiComboBox_Datatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList <em>YUi List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi List</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList
+	 * @generated
+	 */
+	EClass getYUiList();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList#getDatadescription()
+	 * @see #getYUiList()
+	 * @generated
+	 */
+	EReference getYUiList_Datadescription();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList#getDatatype()
+	 * @see #getYUiList()
+	 * @generated
+	 */
+	EReference getYUiList_Datatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout <em>YUi Horizontal Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Horizontal Layout</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout
+	 * @generated
+	 */
+	EClass getYUiHorizontalLayout();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout#getCellStyles <em>Cell Styles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cell Styles</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout#getCellStyles()
+	 * @see #getYUiHorizontalLayout()
+	 * @generated
+	 */
+	EReference getYUiHorizontalLayout_CellStyles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout#isFillHorizontal <em>Fill Horizontal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fill Horizontal</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout#isFillHorizontal()
+	 * @see #getYUiHorizontalLayout()
+	 * @generated
+	 */
+	EAttribute getYUiHorizontalLayout_FillHorizontal();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1583,6 +2231,75 @@ public interface UimodelExtensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO = eINSTANCE.getYUiGridLayoutCellStyle_SpanInfo();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutCellStyleImpl <em>YUi Horizontal Layout Cell Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutCellStyleImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiHorizontalLayoutCellStyle()
+		 * @generated
+		 */
+		EClass YUI_HORIZONTAL_LAYOUT_CELL_STYLE = eINSTANCE.getYUiHorizontalLayoutCellStyle();
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_HORIZONTAL_LAYOUT_CELL_STYLE__TARGET = eINSTANCE.getYUiHorizontalLayoutCellStyle_Target();
+		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_HORIZONTAL_LAYOUT_CELL_STYLE__ALIGNMENT = eINSTANCE.getYUiHorizontalLayoutCellStyle_Alignment();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutImpl <em>YUi Vertical Layout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiVerticalLayout()
+		 * @generated
+		 */
+		EClass YUI_VERTICAL_LAYOUT = eINSTANCE.getYUiVerticalLayout();
+		/**
+		 * The meta object literal for the '<em><b>Cell Styles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_VERTICAL_LAYOUT__CELL_STYLES = eINSTANCE.getYUiVerticalLayout_CellStyles();
+		/**
+		 * The meta object literal for the '<em><b>Fill Vertical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_VERTICAL_LAYOUT__FILL_VERTICAL = eINSTANCE.getYUiVerticalLayout_FillVertical();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutCellStyleImpl <em>YUi Vertical Layout Cell Style</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiVerticalLayoutCellStyleImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiVerticalLayoutCellStyle()
+		 * @generated
+		 */
+		EClass YUI_VERTICAL_LAYOUT_CELL_STYLE = eINSTANCE.getYUiVerticalLayoutCellStyle();
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_VERTICAL_LAYOUT_CELL_STYLE__TARGET = eINSTANCE.getYUiVerticalLayoutCellStyle_Target();
+		/**
+		 * The meta object literal for the '<em><b>Alignment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_VERTICAL_LAYOUT_CELL_STYLE__ALIGNMENT = eINSTANCE.getYUiVerticalLayoutCellStyle_Alignment();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiSpanInfoImpl <em>YUi Span Info</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1788,6 +2505,75 @@ public interface UimodelExtensionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YUI_NUMERIC_FIELD__DATADESCRIPTION = eINSTANCE.getYUiNumericField_Datadescription();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiComboBoxImpl <em>YUi Combo Box</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiComboBoxImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiComboBox()
+		 * @generated
+		 */
+		EClass YUI_COMBO_BOX = eINSTANCE.getYUiComboBox();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_COMBO_BOX__DATADESCRIPTION = eINSTANCE.getYUiComboBox_Datadescription();
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_COMBO_BOX__DATATYPE = eINSTANCE.getYUiComboBox_Datatype();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiListImpl <em>YUi List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiListImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiList()
+		 * @generated
+		 */
+		EClass YUI_LIST = eINSTANCE.getYUiList();
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_LIST__DATADESCRIPTION = eINSTANCE.getYUiList_Datadescription();
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_LIST__DATATYPE = eINSTANCE.getYUiList_Datatype();
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutImpl <em>YUi Horizontal Layout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.YUiHorizontalLayoutImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl.UimodelExtensionPackageImpl#getYUiHorizontalLayout()
+		 * @generated
+		 */
+		EClass YUI_HORIZONTAL_LAYOUT = eINSTANCE.getYUiHorizontalLayout();
+		/**
+		 * The meta object literal for the '<em><b>Cell Styles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YUI_HORIZONTAL_LAYOUT__CELL_STYLES = eINSTANCE.getYUiHorizontalLayout_CellStyles();
+		/**
+		 * The meta object literal for the '<em><b>Fill Horizontal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getYUiHorizontalLayout_FillHorizontal();
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment <em>YUi Alignment</em>}' enum.
 		 * <!-- begin-user-doc -->

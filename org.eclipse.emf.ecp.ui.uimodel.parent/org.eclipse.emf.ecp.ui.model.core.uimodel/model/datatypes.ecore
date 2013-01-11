@@ -32,4 +32,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YTableDatatype" eSuperTypes="#//YDatatype"/>
   <eClassifiers xsi:type="ecore:EClass" name="YCheckBoxDatatype" eSuperTypes="#//YDatatype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YComboBoxDatatype" eSuperTypes="#//YDatatype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YListDataType" eSuperTypes="#//YDatatype"/>
 </ecore:EPackage>

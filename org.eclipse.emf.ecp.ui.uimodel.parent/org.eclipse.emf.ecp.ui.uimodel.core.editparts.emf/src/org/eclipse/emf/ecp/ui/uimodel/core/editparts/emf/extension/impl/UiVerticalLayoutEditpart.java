@@ -11,20 +11,18 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiFieldEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiCheckboxEditpart;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiLayoutEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiVerticalLayoutEditpart;
 
 /**
- * The implementation of the IUiCheckBoxEditpart.
+ * The implementation of the IUigridLayoutEditpart.
  */
-public class UiCheckBoxEditpart extends UiFieldEditpart<YUiCheckBox> implements
-		IUiCheckboxEditpart {
+public class UiVerticalLayoutEditpart extends UiLayoutEditpart<YUiVerticalLayout> implements IUiVerticalLayoutEditpart {
 
 	@Override
-	protected YUiCheckBox createModel() {
-		return (YUiCheckBox) UimodelExtensionFactory.eINSTANCE
-				.createYUiCheckBox();
+	protected YUiVerticalLayout createModel() {
+		return (YUiVerticalLayout) UimodelExtensionFactory.eINSTANCE.createYUiVerticalLayout();
 	}
 
 }

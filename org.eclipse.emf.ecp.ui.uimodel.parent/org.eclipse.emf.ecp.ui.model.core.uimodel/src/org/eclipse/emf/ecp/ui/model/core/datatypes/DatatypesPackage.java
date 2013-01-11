@@ -560,6 +560,100 @@ public interface DatatypesPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YComboBoxDatatypeImpl <em>YCombo Box Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YComboBoxDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYComboBoxDatatype()
+	 * @generated
+	 */
+	int YCOMBO_BOX_DATATYPE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX_DATATYPE__ID = YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX_DATATYPE__NAME = YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX_DATATYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YCombo Box Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YListDataTypeImpl <em>YList Data Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YListDataTypeImpl
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYListDataType()
+	 * @generated
+	 */
+	int YLIST_DATA_TYPE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_DATA_TYPE__ID = YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_DATA_TYPE__NAME = YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_DATA_TYPE__DESCRIPTION = YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YList Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_DATA_TYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase <em>YDt Base</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -771,6 +865,26 @@ public interface DatatypesPackage extends EPackage {
 	EClass getYCheckBoxDatatype();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YComboBoxDatatype <em>YCombo Box Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YCombo Box Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YComboBoxDatatype
+	 * @generated
+	 */
+	EClass getYComboBoxDatatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YListDataType <em>YList Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YList Data Type</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YListDataType
+	 * @generated
+	 */
+	EClass getYListDataType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -969,6 +1083,26 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YCHECK_BOX_DATATYPE = eINSTANCE.getYCheckBoxDatatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YComboBoxDatatypeImpl <em>YCombo Box Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YComboBoxDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYComboBoxDatatype()
+		 * @generated
+		 */
+		EClass YCOMBO_BOX_DATATYPE = eINSTANCE.getYComboBoxDatatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YListDataTypeImpl <em>YList Data Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YListDataTypeImpl
+		 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.impl.DatatypesPackageImpl#getYListDataType()
+		 * @generated
+		 */
+		EClass YLIST_DATA_TYPE = eINSTANCE.getYListDataType();
 
 	}
 

@@ -11,20 +11,20 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl;
 
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
-import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiFieldEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiCheckboxEditpart;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiListEditpart;
 
 /**
  * The implementation of the IUiCheckBoxEditpart.
  */
-public class UiCheckBoxEditpart extends UiFieldEditpart<YUiCheckBox> implements
-		IUiCheckboxEditpart {
+public class UiListEditpart extends UiFieldEditpart<YUiList> implements
+		IUiListEditpart {
 
 	@Override
-	protected YUiCheckBox createModel() {
-		return (YUiCheckBox) UimodelExtensionFactory.eINSTANCE
-				.createYUiCheckBox();
+	protected YUiList createModel() {
+		return (YUiList) UimodelExtensionFactory.eINSTANCE
+				.createYUiList();
 	}
 
 }

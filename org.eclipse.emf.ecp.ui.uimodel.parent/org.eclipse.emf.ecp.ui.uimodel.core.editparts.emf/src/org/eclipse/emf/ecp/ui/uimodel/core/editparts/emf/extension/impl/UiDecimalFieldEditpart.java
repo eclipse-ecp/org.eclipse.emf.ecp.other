@@ -16,7 +16,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiDecimalFieldEditpart;
 
 /**
- * The implementation of the IUiTextFieldEditpart.
+ * The implementation of the IUiDecimalFieldEditpart.
  */
 public class UiDecimalFieldEditpart extends UiFieldEditpart<YUiDecimalField>
 		implements IUiDecimalFieldEditpart {

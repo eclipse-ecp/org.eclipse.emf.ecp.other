@@ -112,6 +112,42 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UimodelExtensionPackage.YUI_HORIZONTAL_LAYOUT: {
+				YUiHorizontalLayout yUiHorizontalLayout = (YUiHorizontalLayout)theEObject;
+				T result = caseYUiHorizontalLayout(yUiHorizontalLayout);
+				if (result == null) result = caseYUiLayout(yUiHorizontalLayout);
+				if (result == null) result = caseYUiSpacingable(yUiHorizontalLayout);
+				if (result == null) result = caseYUiMarginable(yUiHorizontalLayout);
+				if (result == null) result = caseYUiEmbeddable(yUiHorizontalLayout);
+				if (result == null) result = caseYUiElement(yUiHorizontalLayout);
+				if (result == null) result = caseYUiCssAble(yUiHorizontalLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_HORIZONTAL_LAYOUT_CELL_STYLE: {
+				YUiHorizontalLayoutCellStyle yUiHorizontalLayoutCellStyle = (YUiHorizontalLayoutCellStyle)theEObject;
+				T result = caseYUiHorizontalLayoutCellStyle(yUiHorizontalLayoutCellStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_VERTICAL_LAYOUT: {
+				YUiVerticalLayout yUiVerticalLayout = (YUiVerticalLayout)theEObject;
+				T result = caseYUiVerticalLayout(yUiVerticalLayout);
+				if (result == null) result = caseYUiLayout(yUiVerticalLayout);
+				if (result == null) result = caseYUiSpacingable(yUiVerticalLayout);
+				if (result == null) result = caseYUiMarginable(yUiVerticalLayout);
+				if (result == null) result = caseYUiEmbeddable(yUiVerticalLayout);
+				if (result == null) result = caseYUiElement(yUiVerticalLayout);
+				if (result == null) result = caseYUiCssAble(yUiVerticalLayout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_VERTICAL_LAYOUT_CELL_STYLE: {
+				YUiVerticalLayoutCellStyle yUiVerticalLayoutCellStyle = (YUiVerticalLayoutCellStyle)theEObject;
+				T result = caseYUiVerticalLayoutCellStyle(yUiVerticalLayoutCellStyle);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UimodelExtensionPackage.YUI_SPAN_INFO: {
 				YUiSpanInfo yUiSpanInfo = (YUiSpanInfo)theEObject;
 				T result = caseYUiSpanInfo(yUiSpanInfo);
@@ -193,6 +229,28 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UimodelExtensionPackage.YUI_COMBO_BOX: {
+				YUiComboBox yUiComboBox = (YUiComboBox)theEObject;
+				T result = caseYUiComboBox(yUiComboBox);
+				if (result == null) result = caseYUiInput(yUiComboBox);
+				if (result == null) result = caseYUiField(yUiComboBox);
+				if (result == null) result = caseYUiEmbeddable(yUiComboBox);
+				if (result == null) result = caseYUiElement(yUiComboBox);
+				if (result == null) result = caseYUiCssAble(yUiComboBox);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UimodelExtensionPackage.YUI_LIST: {
+				YUiList yUiList = (YUiList)theEObject;
+				T result = caseYUiList(yUiList);
+				if (result == null) result = caseYUiInput(yUiList);
+				if (result == null) result = caseYUiField(yUiList);
+				if (result == null) result = caseYUiEmbeddable(yUiList);
+				if (result == null) result = caseYUiElement(yUiList);
+				if (result == null) result = caseYUiCssAble(yUiList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -239,6 +297,51 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiGridLayoutCellStyle(YUiGridLayoutCellStyle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Horizontal Layout Cell Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Horizontal Layout Cell Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiHorizontalLayoutCellStyle(YUiHorizontalLayoutCellStyle object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Vertical Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Vertical Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiVerticalLayout(YUiVerticalLayout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Vertical Layout Cell Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Vertical Layout Cell Style</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiVerticalLayoutCellStyle(YUiVerticalLayoutCellStyle object) {
 		return null;
 	}
 
@@ -359,6 +462,51 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiNumericField(YUiNumericField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Combo Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Combo Box</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiComboBox(YUiComboBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi List</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi List</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiList(YUiList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Horizontal Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Horizontal Layout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiHorizontalLayout(YUiHorizontalLayout object) {
 		return null;
 	}
 

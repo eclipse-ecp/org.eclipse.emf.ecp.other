@@ -16,7 +16,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiTableEditpart;
 
 /**
- * The implementation of the IUiTextFieldEditpart.
+ * The implementation of the IUiTableEditpart.
  */
 public class UiTableEditpart extends UiFieldEditpart<YUiTable> implements
 		IUiTableEditpart {

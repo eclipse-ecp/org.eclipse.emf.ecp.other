@@ -21,4 +21,20 @@
             genModel="model/uimodel.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated basicExt -->
+      <package
+            uri="http://eclipse.org/emf/emfclient/uimodel/basicExtension"
+            class="org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage"
+            genModel="model/basicExt.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated datatypes -->
+      <package
+            uri="http://eclipse.org/emf/emfclient/uimodel/datatypes"
+            class="org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"/>
+   </extension>
+
 </plugin>

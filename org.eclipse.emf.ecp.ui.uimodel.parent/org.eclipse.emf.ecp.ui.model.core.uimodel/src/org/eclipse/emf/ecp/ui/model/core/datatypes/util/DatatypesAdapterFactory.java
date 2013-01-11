@@ -111,6 +111,14 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYCheckBoxDatatypeAdapter();
 			}
 			@Override
+			public Adapter caseYComboBoxDatatype(YComboBoxDatatype object) {
+				return createYComboBoxDatatypeAdapter();
+			}
+			@Override
+			public Adapter caseYListDataType(YListDataType object) {
+				return createYListDataTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -253,6 +261,34 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYCheckBoxDatatypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YComboBoxDatatype <em>YCombo Box Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YComboBoxDatatype
+	 * @generated
+	 */
+	public Adapter createYComboBoxDatatypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.YListDataType <em>YList Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.datatypes.YListDataType
+	 * @generated
+	 */
+	public Adapter createYListDataTypeAdapter() {
 		return null;
 	}
 

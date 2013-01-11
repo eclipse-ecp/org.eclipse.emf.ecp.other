@@ -16,7 +16,7 @@ import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiFieldEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension.IUiNumericFieldEditpart;
 
 /**
- * The implementation of the IUiTextFieldEditpart.
+ * The implementation of the IUiNumericFieldEditpart.
  */
 public class UiNumericFieldEditpart extends UiFieldEditpart<YUiNumericField>
 		implements IUiNumericFieldEditpart {

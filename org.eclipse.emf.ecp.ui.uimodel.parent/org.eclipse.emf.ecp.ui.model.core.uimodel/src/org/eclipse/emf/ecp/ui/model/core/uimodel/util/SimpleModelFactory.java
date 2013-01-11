@@ -8,12 +8,19 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiView;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiViewSet;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle;
 
 public class SimpleModelFactory {
 
@@ -48,6 +55,78 @@ public class SimpleModelFactory {
 			YUiEmbeddable yComponent, YUiGridLayout yLayout) {
 		YUiGridLayoutCellStyle yStyle = UimodelExtensionFactory.eINSTANCE
 				.createYUiGridLayoutCellStyle();
+		yStyle.setTarget(yComponent);
+		yLayout.getCellStyles().add(yStyle);
+		return yStyle;
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiHorizontalLayout}
+	 * 
+	 * @return
+	 */
+	public YUiHorizontalLayout createHorizontalLayout() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiHorizontalLayout();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiHorizontalLayoutCellStyle}
+	 * 
+	 * @return
+	 */
+	public YUiHorizontalLayoutCellStyle createHorizontalLayoutCellStyle() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiHorizontalLayoutCellStyle();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiHorizontalLayoutCellStyle}.
+	 * 
+	 * @param yComponent
+	 *            set as target
+	 * @param yLayout
+	 *            style added to this layout
+	 * @return
+	 */
+	public YUiHorizontalLayoutCellStyle createHorizontalLayoutCellStyle(
+			YUiEmbeddable yComponent, YUiHorizontalLayout yLayout) {
+		YUiHorizontalLayoutCellStyle yStyle = UimodelExtensionFactory.eINSTANCE
+				.createYUiHorizontalLayoutCellStyle();
+		yStyle.setTarget(yComponent);
+		yLayout.getCellStyles().add(yStyle);
+		return yStyle;
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiVerticalLayout}
+	 * 
+	 * @return
+	 */
+	public YUiVerticalLayout createVerticalLayout() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiVerticalLayout();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiVerticalLayoutCellStyle}
+	 * 
+	 * @return
+	 */
+	public YUiVerticalLayoutCellStyle createVerticalLayoutCellStyle() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiVerticalLayoutCellStyle();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiVerticalLayoutCellStyle}.
+	 * 
+	 * @param yComponent
+	 *            set as target
+	 * @param yLayout
+	 *            style added to this layout
+	 * @return
+	 */
+	public YUiVerticalLayoutCellStyle createVerticalLayoutCellStyle(
+			YUiEmbeddable yComponent, YUiVerticalLayout yLayout) {
+		YUiVerticalLayoutCellStyle yStyle = UimodelExtensionFactory.eINSTANCE
+				.createYUiVerticalLayoutCellStyle();
 		yStyle.setTarget(yComponent);
 		yLayout.getCellStyles().add(yStyle);
 		return yStyle;
@@ -142,6 +221,33 @@ public class SimpleModelFactory {
 	 */
 	public YUiCheckBox createCheckBox() {
 		return UimodelExtensionFactory.eINSTANCE.createYUiCheckBox();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiComboBox}
+	 * 
+	 * @return
+	 */
+	public YUiComboBox createComboBox() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiComboBox();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiList}
+	 * 
+	 * @return
+	 */
+	public YUiList createList() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiList();
+	}
+	
+	/**
+	 * Creates an instance of {@link YUiTable}
+	 * 
+	 * @return
+	 */
+	public YUiTable createTable() {
+		return UimodelExtensionFactory.eINSTANCE.createYUiTable();
 	}
 
 	/**

@@ -9,10 +9,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YComboBoxDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YDtBase;
+import org.eclipse.emf.ecp.ui.model.core.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YNumericDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ui.model.core.datatypes.YTextAreaDatatype;
@@ -87,6 +89,20 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	private EClass yCheckBoxDatatypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yComboBoxDatatypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yListDataTypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -334,6 +350,24 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYComboBoxDatatype() {
+		return yComboBoxDatatypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYListDataType() {
+		return yListDataTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DatatypesFactory getDatatypesFactory() {
 		return (DatatypesFactory)getEFactoryInstance();
 	}
@@ -385,6 +419,10 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		yTableDatatypeEClass = createEClass(YTABLE_DATATYPE);
 
 		yCheckBoxDatatypeEClass = createEClass(YCHECK_BOX_DATATYPE);
+
+		yComboBoxDatatypeEClass = createEClass(YCOMBO_BOX_DATATYPE);
+
+		yListDataTypeEClass = createEClass(YLIST_DATA_TYPE);
 	}
 
 	/**
@@ -423,6 +461,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		yDecimalDatatypeEClass.getESuperTypes().add(this.getYNumericDatatype());
 		yTableDatatypeEClass.getESuperTypes().add(this.getYDatatype());
 		yCheckBoxDatatypeEClass.getESuperTypes().add(this.getYDatatype());
+		yComboBoxDatatypeEClass.getESuperTypes().add(this.getYDatatype());
+		yListDataTypeEClass.getESuperTypes().add(this.getYDatatype());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yDtBaseEClass, YDtBase.class, "YDtBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -453,6 +493,10 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEClass(yTableDatatypeEClass, YTableDatatype.class, "YTableDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yCheckBoxDatatypeEClass, YCheckBoxDatatype.class, "YCheckBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yComboBoxDatatypeEClass, YComboBoxDatatype.class, "YComboBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yListDataTypeEClass, YListDataType.class, "YListDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

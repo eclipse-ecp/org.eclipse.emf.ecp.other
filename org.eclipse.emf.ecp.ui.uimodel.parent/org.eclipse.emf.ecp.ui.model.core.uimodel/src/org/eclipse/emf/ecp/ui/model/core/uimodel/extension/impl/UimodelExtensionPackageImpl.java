@@ -5,6 +5,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -14,16 +15,22 @@ import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionFacto
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiAlignment;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiInput;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiSpanInfo;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,6 +58,27 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * @generated
 	 */
 	private EClass yUiGridLayoutCellStyleEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiHorizontalLayoutCellStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiVerticalLayoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiVerticalLayoutCellStyleEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,6 +133,27 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * @generated
 	 */
 	private EClass yUiNumericFieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiComboBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yUiHorizontalLayoutEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,6 +342,87 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 */
 	public EReference getYUiGridLayoutCellStyle_SpanInfo() {
 		return (EReference)yUiGridLayoutCellStyleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiHorizontalLayoutCellStyle() {
+		return yUiHorizontalLayoutCellStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiHorizontalLayoutCellStyle_Target() {
+		return (EReference)yUiHorizontalLayoutCellStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiHorizontalLayoutCellStyle_Alignment() {
+		return (EAttribute)yUiHorizontalLayoutCellStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiVerticalLayout() {
+		return yUiVerticalLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiVerticalLayout_CellStyles() {
+		return (EReference)yUiVerticalLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiVerticalLayout_FillVertical() {
+		return (EAttribute)yUiVerticalLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiVerticalLayoutCellStyle() {
+		return yUiVerticalLayoutCellStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiVerticalLayoutCellStyle_Target() {
+		return (EReference)yUiVerticalLayoutCellStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiVerticalLayoutCellStyle_Alignment() {
+		return (EAttribute)yUiVerticalLayoutCellStyleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -543,6 +673,87 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiComboBox() {
+		return yUiComboBoxEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiComboBox_Datadescription() {
+		return (EReference)yUiComboBoxEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiComboBox_Datatype() {
+		return (EReference)yUiComboBoxEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiList() {
+		return yUiListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiList_Datadescription() {
+		return (EReference)yUiListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiList_Datatype() {
+		return (EReference)yUiListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYUiHorizontalLayout() {
+		return yUiHorizontalLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYUiHorizontalLayout_CellStyles() {
+		return (EReference)yUiHorizontalLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiHorizontalLayout_FillHorizontal() {
+		return (EAttribute)yUiHorizontalLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUiAlignment() {
 		return yUiAlignmentEEnum;
 	}
@@ -591,6 +802,22 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		createEAttribute(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__ALIGNMENT);
 		createEReference(yUiGridLayoutCellStyleEClass, YUI_GRID_LAYOUT_CELL_STYLE__SPAN_INFO);
 
+		yUiHorizontalLayoutEClass = createEClass(YUI_HORIZONTAL_LAYOUT);
+		createEReference(yUiHorizontalLayoutEClass, YUI_HORIZONTAL_LAYOUT__CELL_STYLES);
+		createEAttribute(yUiHorizontalLayoutEClass, YUI_HORIZONTAL_LAYOUT__FILL_HORIZONTAL);
+
+		yUiHorizontalLayoutCellStyleEClass = createEClass(YUI_HORIZONTAL_LAYOUT_CELL_STYLE);
+		createEReference(yUiHorizontalLayoutCellStyleEClass, YUI_HORIZONTAL_LAYOUT_CELL_STYLE__TARGET);
+		createEAttribute(yUiHorizontalLayoutCellStyleEClass, YUI_HORIZONTAL_LAYOUT_CELL_STYLE__ALIGNMENT);
+
+		yUiVerticalLayoutEClass = createEClass(YUI_VERTICAL_LAYOUT);
+		createEReference(yUiVerticalLayoutEClass, YUI_VERTICAL_LAYOUT__CELL_STYLES);
+		createEAttribute(yUiVerticalLayoutEClass, YUI_VERTICAL_LAYOUT__FILL_VERTICAL);
+
+		yUiVerticalLayoutCellStyleEClass = createEClass(YUI_VERTICAL_LAYOUT_CELL_STYLE);
+		createEReference(yUiVerticalLayoutCellStyleEClass, YUI_VERTICAL_LAYOUT_CELL_STYLE__TARGET);
+		createEAttribute(yUiVerticalLayoutCellStyleEClass, YUI_VERTICAL_LAYOUT_CELL_STYLE__ALIGNMENT);
+
 		yUiSpanInfoEClass = createEClass(YUI_SPAN_INFO);
 		createEAttribute(yUiSpanInfoEClass, YUI_SPAN_INFO__COLUMN_FROM);
 		createEAttribute(yUiSpanInfoEClass, YUI_SPAN_INFO__ROW_FROM);
@@ -625,6 +852,14 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		yUiNumericFieldEClass = createEClass(YUI_NUMERIC_FIELD);
 		createEReference(yUiNumericFieldEClass, YUI_NUMERIC_FIELD__DATATYPE);
 		createEReference(yUiNumericFieldEClass, YUI_NUMERIC_FIELD__DATADESCRIPTION);
+
+		yUiComboBoxEClass = createEClass(YUI_COMBO_BOX);
+		createEReference(yUiComboBoxEClass, YUI_COMBO_BOX__DATADESCRIPTION);
+		createEReference(yUiComboBoxEClass, YUI_COMBO_BOX__DATATYPE);
+
+		yUiListEClass = createEClass(YUI_LIST);
+		createEReference(yUiListEClass, YUI_LIST__DATADESCRIPTION);
+		createEReference(yUiListEClass, YUI_LIST__DATATYPE);
 
 		// Create enums
 		yUiAlignmentEEnum = createEEnum(YUI_ALIGNMENT);
@@ -666,6 +901,12 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiLayout());
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiSpacingable());
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
+		yUiHorizontalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiLayout());
+		yUiHorizontalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiSpacingable());
+		yUiHorizontalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
+		yUiVerticalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiLayout());
+		yUiVerticalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiSpacingable());
+		yUiVerticalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
 		yUiTableEClass.getESuperTypes().add(this.getYUiInput());
 		yUiLabelEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
 		yUiTextAreaEClass.getESuperTypes().add(this.getYUiInput());
@@ -673,6 +914,8 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		yUiInputEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
 		yUiDecimalFieldEClass.getESuperTypes().add(this.getYUiInput());
 		yUiNumericFieldEClass.getESuperTypes().add(this.getYUiInput());
+		yUiComboBoxEClass.getESuperTypes().add(this.getYUiInput());
+		yUiListEClass.getESuperTypes().add(this.getYUiInput());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yUiTextFieldEClass, YUiTextField.class, "YUiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -690,6 +933,25 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		initEReference(getYUiGridLayoutCellStyle_Target(), theUiModelPackage.getYUiEmbeddable(), null, "target", null, 1, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYUiGridLayoutCellStyle_Alignment(), this.getYUiAlignment(), "alignment", "UNDEFINED", 0, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYUiGridLayoutCellStyle_SpanInfo(), this.getYUiSpanInfo(), null, "spanInfo", null, 0, 1, YUiGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiHorizontalLayoutEClass, YUiHorizontalLayout.class, "YUiHorizontalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiHorizontalLayout_CellStyles(), this.getYUiHorizontalLayoutCellStyle(), null, "cellStyles", null, 0, -1, YUiHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiHorizontalLayout_FillHorizontal(), ecorePackage.getEBoolean(), "fillHorizontal", "true", 0, 1, YUiHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(yUiHorizontalLayoutEClass, this.getYUiHorizontalLayoutCellStyle(), "getCellStyle", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theUiModelPackage.getYUiEmbeddable(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yUiHorizontalLayoutCellStyleEClass, YUiHorizontalLayoutCellStyle.class, "YUiHorizontalLayoutCellStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiHorizontalLayoutCellStyle_Target(), theUiModelPackage.getYUiEmbeddable(), null, "target", null, 1, 1, YUiHorizontalLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiHorizontalLayoutCellStyle_Alignment(), this.getYUiAlignment(), "alignment", "UNDEFINED", 0, 1, YUiHorizontalLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiVerticalLayoutEClass, YUiVerticalLayout.class, "YUiVerticalLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiVerticalLayout_CellStyles(), this.getYUiVerticalLayoutCellStyle(), null, "cellStyles", null, 0, -1, YUiVerticalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiVerticalLayout_FillVertical(), ecorePackage.getEBoolean(), "fillVertical", "true", 0, 1, YUiVerticalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiVerticalLayoutCellStyleEClass, YUiVerticalLayoutCellStyle.class, "YUiVerticalLayoutCellStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiVerticalLayoutCellStyle_Target(), theUiModelPackage.getYUiEmbeddable(), null, "target", null, 1, 1, YUiVerticalLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYUiVerticalLayoutCellStyle_Alignment(), this.getYUiAlignment(), "alignment", "UNDEFINED", 0, 1, YUiVerticalLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiSpanInfoEClass, YUiSpanInfo.class, "YUiSpanInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYUiSpanInfo_ColumnFrom(), ecorePackage.getEInt(), "columnFrom", null, 0, 1, YUiSpanInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -725,6 +987,14 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		initEClass(yUiNumericFieldEClass, YUiNumericField.class, "YUiNumericField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYUiNumericField_Datatype(), theDatatypesPackage.getYNumericDatatype(), null, "datatype", null, 0, 1, YUiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYUiNumericField_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YUiNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiComboBoxEClass, YUiComboBox.class, "YUiComboBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiComboBox_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YUiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYUiComboBox_Datatype(), theDatatypesPackage.getYComboBoxDatatype(), null, "datatype", null, 0, 1, YUiComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yUiListEClass, YUiList.class, "YUiList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYUiList_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YUiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYUiList_Datatype(), theDatatypesPackage.getYListDataType(), null, "datatype", null, 0, 1, YUiList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUiAlignmentEEnum, YUiAlignment.class, "YUiAlignment");

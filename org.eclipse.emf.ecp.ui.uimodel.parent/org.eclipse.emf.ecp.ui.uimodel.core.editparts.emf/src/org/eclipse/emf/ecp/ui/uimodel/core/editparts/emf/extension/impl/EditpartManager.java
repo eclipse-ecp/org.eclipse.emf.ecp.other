@@ -14,13 +14,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.UimodelExtensionPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiCheckBox;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiDecimalField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiGridLayout;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiLabel;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiNumericField;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextArea;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiTextField;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiElementEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.UiElementEditpart;
@@ -102,6 +106,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(UiTextFieldEditpart.class);
 		} else if (yElement instanceof YUiGridLayout) {
 			result = createNewInstance(UiGridLayoutEditpart.class);
+		} else if (yElement instanceof YUiHorizontalLayout) {
+			result = createNewInstance(UiHorizontalLayoutEditpart.class);
+		} else if (yElement instanceof YUiVerticalLayout) {
+			result = createNewInstance(UiVerticalLayoutEditpart.class);
 		} else if (yElement instanceof YUiTable) {
 			result = createNewInstance(UiTableEditpart.class);
 		} else if (yElement instanceof YUiLabel) {
@@ -110,6 +118,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(UiTextAreaEditpart.class);
 		} else if (yElement instanceof YUiCheckBox) {
 			result = createNewInstance(UiCheckBoxEditpart.class);
+		} else if (yElement instanceof YUiComboBox) {
+			result = createNewInstance(UiComboBoxEditpart.class);
+		} else if (yElement instanceof YUiList) {
+			result = createNewInstance(UiListEditpart.class);
 		} else if (yElement instanceof YUiNumericField) {
 			result = createNewInstance(UiNumericFieldEditpart.class);
 		} else if (yElement instanceof YUiDecimalField) {

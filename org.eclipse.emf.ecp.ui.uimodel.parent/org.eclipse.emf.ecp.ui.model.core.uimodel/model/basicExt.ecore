@@ -40,6 +40,49 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="spanInfo" eType="#//YUiSpanInfo"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiHorizontalLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
+    <eOperations name="getCellStyle" eType="#//YUiHorizontalLayoutCellStyle">
+      <eParameters name="element" eType="ecore:EClass uimodel.ecore#//YUiEmbeddable"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
+        eType="#//YUiHorizontalLayoutCellStyle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillHorizontal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If false, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. If no alignment is defined for a child, this setting will become its default.&#xA;Eg if child has not a alignment, the horizontal alignment will become FILL if fillHorizontal is true. Otherwise the ui-kit default will be used as the horizontal alignment."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiHorizontalLayoutCellStyle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="ecore:EClass uimodel.ecore#//YUiEmbeddable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YUiAlignment"
+        defaultValueLiteral="UNDEFINED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The alignment of the ui element relative to its grid cell."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiVerticalLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
+        eType="#//YUiVerticalLayoutCellStyle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If false, then the width of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. If no alignment is defined for a child, this setting will become its default.&#xA;Eg if child has not a alignment, the vertical alignment will become FILL if fillVertical is true. Otherwise the ui-kit default will be used as the vertical alignment."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiVerticalLayoutCellStyle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="ecore:EClass uimodel.ecore#//YUiEmbeddable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YUiAlignment"
+        defaultValueLiteral="UNDEFINED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The alignment of the ui element relative to its grid cell."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="YUiAlignment">
     <eLiterals name="BOTTOM_LEFT"/>
     <eLiterals name="BOTTOM_CENTER" value="1" literal="BOTTOM_CENTER"/>
@@ -109,5 +152,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="YUiNumericField" eSuperTypes="#//YUiInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YNumericDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiComboBox" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YComboBoxDatatype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiList" eSuperTypes="#//YUiInput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YListDataType"/>
   </eClassifiers>
 </ecore:EPackage>

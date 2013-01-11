@@ -49,6 +49,33 @@ public interface UimodelExtensionFactory extends EFactory {
 	YUiGridLayoutCellStyle createYUiGridLayoutCellStyle();
 
 	/**
+	 * Returns a new object of class '<em>YUi Horizontal Layout Cell Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Horizontal Layout Cell Style</em>'.
+	 * @generated
+	 */
+	YUiHorizontalLayoutCellStyle createYUiHorizontalLayoutCellStyle();
+
+	/**
+	 * Returns a new object of class '<em>YUi Vertical Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Vertical Layout</em>'.
+	 * @generated
+	 */
+	YUiVerticalLayout createYUiVerticalLayout();
+
+	/**
+	 * Returns a new object of class '<em>YUi Vertical Layout Cell Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Vertical Layout Cell Style</em>'.
+	 * @generated
+	 */
+	YUiVerticalLayoutCellStyle createYUiVerticalLayoutCellStyle();
+
+	/**
 	 * Returns a new object of class '<em>YUi Span Info</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +137,33 @@ public interface UimodelExtensionFactory extends EFactory {
 	 * @generated
 	 */
 	YUiNumericField createYUiNumericField();
+
+	/**
+	 * Returns a new object of class '<em>YUi Combo Box</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Combo Box</em>'.
+	 * @generated
+	 */
+	YUiComboBox createYUiComboBox();
+
+	/**
+	 * Returns a new object of class '<em>YUi List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi List</em>'.
+	 * @generated
+	 */
+	YUiList createYUiList();
+
+	/**
+	 * Returns a new object of class '<em>YUi Horizontal Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YUi Horizontal Layout</em>'.
+	 * @generated
+	 */
+	YUiHorizontalLayout createYUiHorizontalLayout();
 
 	/**
 	 * Returns the package supported by this factory.

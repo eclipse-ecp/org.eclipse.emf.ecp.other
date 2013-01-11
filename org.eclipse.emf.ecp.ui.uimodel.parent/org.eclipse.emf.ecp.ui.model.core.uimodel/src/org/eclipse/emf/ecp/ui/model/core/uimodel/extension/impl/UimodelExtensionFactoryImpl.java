@@ -70,6 +70,10 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 			case UimodelExtensionPackage.YUI_TEXT_FIELD: return createYUiTextField();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT: return createYUiGridLayout();
 			case UimodelExtensionPackage.YUI_GRID_LAYOUT_CELL_STYLE: return createYUiGridLayoutCellStyle();
+			case UimodelExtensionPackage.YUI_HORIZONTAL_LAYOUT: return createYUiHorizontalLayout();
+			case UimodelExtensionPackage.YUI_HORIZONTAL_LAYOUT_CELL_STYLE: return createYUiHorizontalLayoutCellStyle();
+			case UimodelExtensionPackage.YUI_VERTICAL_LAYOUT: return createYUiVerticalLayout();
+			case UimodelExtensionPackage.YUI_VERTICAL_LAYOUT_CELL_STYLE: return createYUiVerticalLayoutCellStyle();
 			case UimodelExtensionPackage.YUI_SPAN_INFO: return createYUiSpanInfo();
 			case UimodelExtensionPackage.YUI_TABLE: return createYUiTable();
 			case UimodelExtensionPackage.YUI_LABEL: return createYUiLabel();
@@ -77,6 +81,8 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 			case UimodelExtensionPackage.YUI_CHECK_BOX: return createYUiCheckBox();
 			case UimodelExtensionPackage.YUI_DECIMAL_FIELD: return createYUiDecimalField();
 			case UimodelExtensionPackage.YUI_NUMERIC_FIELD: return createYUiNumericField();
+			case UimodelExtensionPackage.YUI_COMBO_BOX: return createYUiComboBox();
+			case UimodelExtensionPackage.YUI_LIST: return createYUiList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -147,6 +153,36 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public YUiHorizontalLayoutCellStyle createYUiHorizontalLayoutCellStyle() {
+		YUiHorizontalLayoutCellStyleImpl yUiHorizontalLayoutCellStyle = new YUiHorizontalLayoutCellStyleImpl();
+		return yUiHorizontalLayoutCellStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiVerticalLayout createYUiVerticalLayout() {
+		YUiVerticalLayoutImpl yUiVerticalLayout = new YUiVerticalLayoutImpl();
+		return yUiVerticalLayout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiVerticalLayoutCellStyle createYUiVerticalLayoutCellStyle() {
+		YUiVerticalLayoutCellStyleImpl yUiVerticalLayoutCellStyle = new YUiVerticalLayoutCellStyleImpl();
+		return yUiVerticalLayoutCellStyle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YUiSpanInfo createYUiSpanInfo() {
 		YUiSpanInfoImpl yUiSpanInfo = new YUiSpanInfoImpl();
 		return yUiSpanInfo;
@@ -210,6 +246,36 @@ public class UimodelExtensionFactoryImpl extends EFactoryImpl implements Uimodel
 	public YUiNumericField createYUiNumericField() {
 		YUiNumericFieldImpl yUiNumericField = new YUiNumericFieldImpl();
 		return yUiNumericField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiComboBox createYUiComboBox() {
+		YUiComboBoxImpl yUiComboBox = new YUiComboBoxImpl();
+		return yUiComboBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiList createYUiList() {
+		YUiListImpl yUiList = new YUiListImpl();
+		return yUiList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YUiHorizontalLayout createYUiHorizontalLayout() {
+		YUiHorizontalLayoutImpl yUiHorizontalLayout = new YUiHorizontalLayoutImpl();
+		return yUiHorizontalLayout;
 	}
 
 	/**

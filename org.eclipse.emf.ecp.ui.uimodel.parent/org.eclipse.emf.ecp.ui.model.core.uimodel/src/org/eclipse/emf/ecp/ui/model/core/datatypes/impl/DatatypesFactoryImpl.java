@@ -69,6 +69,8 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 			case DatatypesPackage.YDECIMAL_DATATYPE: return createYDecimalDatatype();
 			case DatatypesPackage.YTABLE_DATATYPE: return createYTableDatatype();
 			case DatatypesPackage.YCHECK_BOX_DATATYPE: return createYCheckBoxDatatype();
+			case DatatypesPackage.YCOMBO_BOX_DATATYPE: return createYComboBoxDatatype();
+			case DatatypesPackage.YLIST_DATA_TYPE: return createYListDataType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -142,6 +144,26 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public YCheckBoxDatatype createYCheckBoxDatatype() {
 		YCheckBoxDatatypeImpl yCheckBoxDatatype = new YCheckBoxDatatypeImpl();
 		return yCheckBoxDatatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YComboBoxDatatype createYComboBoxDatatype() {
+		YComboBoxDatatypeImpl yComboBoxDatatype = new YComboBoxDatatypeImpl();
+		return yComboBoxDatatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YListDataType createYListDataType() {
+		YListDataTypeImpl yListDataType = new YListDataTypeImpl();
+		return yListDataType;
 	}
 
 	/**

@@ -143,6 +143,22 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatypesPackage.YCOMBO_BOX_DATATYPE: {
+				YComboBoxDatatype yComboBoxDatatype = (YComboBoxDatatype)theEObject;
+				T result = caseYComboBoxDatatype(yComboBoxDatatype);
+				if (result == null) result = caseYDatatype(yComboBoxDatatype);
+				if (result == null) result = caseYDtBase(yComboBoxDatatype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatypesPackage.YLIST_DATA_TYPE: {
+				YListDataType yListDataType = (YListDataType)theEObject;
+				T result = caseYListDataType(yListDataType);
+				if (result == null) result = caseYDatatype(yListDataType);
+				if (result == null) result = caseYDtBase(yListDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -279,6 +295,36 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYCheckBoxDatatype(YCheckBoxDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCombo Box Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCombo Box Datatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYComboBoxDatatype(YComboBoxDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YList Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YList Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYListDataType(YListDataType object) {
 		return null;
 	}
 

@@ -96,6 +96,22 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 				return createYUiGridLayoutCellStyleAdapter();
 			}
 			@Override
+			public Adapter caseYUiHorizontalLayout(YUiHorizontalLayout object) {
+				return createYUiHorizontalLayoutAdapter();
+			}
+			@Override
+			public Adapter caseYUiHorizontalLayoutCellStyle(YUiHorizontalLayoutCellStyle object) {
+				return createYUiHorizontalLayoutCellStyleAdapter();
+			}
+			@Override
+			public Adapter caseYUiVerticalLayout(YUiVerticalLayout object) {
+				return createYUiVerticalLayoutAdapter();
+			}
+			@Override
+			public Adapter caseYUiVerticalLayoutCellStyle(YUiVerticalLayoutCellStyle object) {
+				return createYUiVerticalLayoutCellStyleAdapter();
+			}
+			@Override
 			public Adapter caseYUiSpanInfo(YUiSpanInfo object) {
 				return createYUiSpanInfoAdapter();
 			}
@@ -126,6 +142,14 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYUiNumericField(YUiNumericField object) {
 				return createYUiNumericFieldAdapter();
+			}
+			@Override
+			public Adapter caseYUiComboBox(YUiComboBox object) {
+				return createYUiComboBoxAdapter();
+			}
+			@Override
+			public Adapter caseYUiList(YUiList object) {
+				return createYUiListAdapter();
 			}
 			@Override
 			public Adapter caseYUiElement(YUiElement object) {
@@ -214,6 +238,48 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiGridLayoutCellStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle <em>YUi Horizontal Layout Cell Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayoutCellStyle
+	 * @generated
+	 */
+	public Adapter createYUiHorizontalLayoutCellStyleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout <em>YUi Vertical Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayout
+	 * @generated
+	 */
+	public Adapter createYUiVerticalLayoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle <em>YUi Vertical Layout Cell Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiVerticalLayoutCellStyle
+	 * @generated
+	 */
+	public Adapter createYUiVerticalLayoutCellStyleAdapter() {
 		return null;
 	}
 
@@ -326,6 +392,48 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiNumericFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox <em>YUi Combo Box</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiComboBox
+	 * @generated
+	 */
+	public Adapter createYUiComboBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList <em>YUi List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiList
+	 * @generated
+	 */
+	public Adapter createYUiListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout <em>YUi Horizontal Layout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.extension.YUiHorizontalLayout
+	 * @generated
+	 */
+	public Adapter createYUiHorizontalLayoutAdapter() {
 		return null;
 	}
 
