@@ -8,14 +8,10 @@
 
 	<properties>
 		<next-release>0.0.2-SNAPSHOT</next-release>
-		<tycho-version>0.15.0</tycho-version>
+		<tycho-version>0.16.0</tycho-version>
 
-		<eclipse-p2>http://download.eclipse.org/releases/juno</eclipse-p2>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<orbit-p2>http://download.eclipse.org/tools/orbit/downloads/drops/R20120526062928/repository/</orbit-p2>
-		<m2e-buildhelper-p2>http://repository.tesla.io:8081/nexus/content/sites/m2e.extras/m2eclipse-buildhelper/0.15.0/N/0.15.0.201207090124/</m2e-buildhelper-p2>
-		<m2e-tycho-p2>http://repository.tesla.io:8081/nexus/content/sites/m2e.extras/m2eclipse-tycho/0.6.0/N/0.6.0.201207302152/</m2e-tycho-p2>
 	</properties>
 
 	<developers>
@@ -67,19 +63,6 @@
 				<module>org.eclipse.emf.ecp.ui.uimodel.core.tests</module>
 				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests</module>
 			</modules>
-			<repositories>
-				<repository>
-					<id>lastest_ecp_built_p2</id>
-					<url>file://${basedir}/../org.eclipse.emf.ecp.ui.uimodel.p2.repo.juno/target/repository</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>true</enabled>
-					</snapshots>
-					<layout>p2</layout>
-				</repository>
-			</repositories>
 		</profile>
 		<profile>
 			<id>p2-juno</id>
@@ -88,10 +71,138 @@
 			</activation>
 			<build>
 				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.eclipse.emf.ecp.ui.uimodel</groupId>
+									<artifactId>org.eclipse.emf.ecp.ui.uimodel.target.juno</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
 			</build>
 			<modules>
 				<!-- exclusive for P2 -->
-				<module>org.eclipse.emf.ecp.ui.uimodel.p2.repo.juno</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.p2</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.target.juno</module>
+
+				<!-- P2 features -->
+				<module>org.eclipse.emf.ecp.ui.uimodel.feature.core</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.feature.presentation.swt.simple</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>org.eclipse.emf.ecp.ui.model.core.uimodel</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf</module>
+
+
+				<module>org.eclipse.emf.ecp.ui.uimodel.css.core</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.css.swt</module>
+
+				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.example.swt.simple</module>
+
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.tests</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests</module>
+				<!-- P2 bundles -->
+			</modules>
+		</profile>
+		<profile>
+			<id>p2-kepler</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.eclipse.emf.ecp.ui.uimodel</groupId>
+									<artifactId>org.eclipse.emf.ecp.ui.uimodel.target.kepler</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<!-- exclusive for P2 -->
+				<module>org.eclipse.emf.ecp.ui.uimodel.p2</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.target.kepler</module>
+
+				<!-- P2 features -->
+				<module>org.eclipse.emf.ecp.ui.uimodel.feature.core</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.feature.presentation.swt.simple</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>org.eclipse.emf.ecp.ui.model.core.uimodel</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf</module>
+
+
+				<module>org.eclipse.emf.ecp.ui.uimodel.css.core</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.css.swt</module>
+
+				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.example.swt.simple</module>
+
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.tests</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests</module>
+				<!-- P2 bundles -->
+			</modules>
+		</profile>
+		<profile>
+			<id>p2-juno-core</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.eclipse.emf.ecp.ui.uimodel</groupId>
+									<artifactId>org.eclipse.emf.ecp.ui.uimodel.target.juno</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<!-- exclusive for P2 -->
+				<module>org.eclipse.emf.ecp.ui.uimodel.p2</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.target.juno</module>
 
 				<!-- P2 features -->
 				<module>org.eclipse.emf.ecp.ui.uimodel.feature.core</module>
@@ -101,71 +212,57 @@
 				<module>org.eclipse.emf.ecp.ui.model.core.uimodel</module>
 				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts</module>
 				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.core.tests</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.css.core</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.css.swt</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.example.swt.simple</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.presentation.swt.simple.tests</module>
-				<module>org.eclipse.emf.ecp.ui.uimodel.feature.presentation.swt.simple</module>
+				<!-- P2 bundles -->
+			</modules>
+		</profile>
+		<profile>
+			<id>p2-kepler-core</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>verify</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- <resolver>p2</resolver> -->
+							<!-- <pomDependencies>consider</pomDependencies> -->
+							<ignoreTychoRepositories>true</ignoreTychoRepositories>
+							<target>
+								<artifact>
+									<groupId>org.eclipse.emf.ecp.ui.uimodel</groupId>
+									<artifactId>org.eclipse.emf.ecp.ui.uimodel.target.kepler</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<!-- exclusive for P2 -->
+				<module>org.eclipse.emf.ecp.ui.uimodel.p2</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.target.kepler</module>
+
+				<!-- P2 features -->
+				<module>org.eclipse.emf.ecp.ui.uimodel.feature.core</module>
+				<!-- end P2 features -->
+
+				<!-- P2 bundles -->
+				<module>org.eclipse.emf.ecp.ui.model.core.uimodel</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts</module>
+				<module>org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf</module>
 				<!-- P2 bundles -->
 			</modules>
 		</profile>
 	</profiles>
 
-
-	<repositories>
-		<repository>
-			<id>m2e-buildhelper</id>
-			<url>${m2e-buildhelper-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>m2e-tycho</id>
-			<url>${m2e-tycho-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>Orbit</id>
-			<url>${orbit-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>Eclipse</id>
-			<url>${eclipse-p2}</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<layout>p2</layout>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-	</pluginRepositories>
-
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -185,6 +282,11 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
 			</plugin>
 		</plugins>
 
@@ -208,15 +310,7 @@
 						<target>1.6</target>
 					</configuration>
 				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>target-platform-configuration</artifactId>
-					<version>${tycho-version}</version>
-					<configuration>
-						<resolver>p2</resolver>
-						<pomDependencies>consider</pomDependencies>
-					</configuration>
-				</plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -224,6 +318,19 @@
 					<configuration>
 						<encoding>UTF-8</encoding>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<executions>
+						<execution>
+							<id>plugin-source</id>
+							<goals>
+								<goal>plugin-source</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
@@ -256,10 +363,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<modules>
-		<module>org.eclipse.emf.ecp.ui.uimodel.feature.core</module>
-		<module>
-			org.eclipse.emf.ecp.ui.uimodel.feature.presentation.swt.simple
-		</module>
-	</modules>
 </project>
