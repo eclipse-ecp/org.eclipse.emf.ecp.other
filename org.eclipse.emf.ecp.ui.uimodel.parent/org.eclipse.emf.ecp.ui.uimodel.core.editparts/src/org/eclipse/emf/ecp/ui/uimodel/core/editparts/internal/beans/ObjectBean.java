@@ -14,5 +14,12 @@ package org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans;
  * A subclass of {@link AbstractBean}.
  */
 public class ObjectBean extends AbstractBean {
+	
+	public ObjectBean() {
+	}
+	
+	public ObjectBean(Object value) {
+		super(value);
+	}
 
 }

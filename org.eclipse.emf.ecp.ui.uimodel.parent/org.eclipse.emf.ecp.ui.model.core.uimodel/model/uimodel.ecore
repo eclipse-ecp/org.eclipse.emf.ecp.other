@@ -47,4 +47,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="widthUnit" eType="#//YUiUnit"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YUiBindable" abstract="true" interface="true">
+    <eOperations name="getValueBindingURI" eType="#//YUiURI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueBindingURIString"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="YUiURI" instanceClassName="java.net.URI"/>
 </ecore:EPackage>

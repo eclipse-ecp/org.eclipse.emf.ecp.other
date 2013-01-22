@@ -10,8 +10,11 @@ Export-Package: org.eclipse.emf.ecp.ui.uimodel.core.editparts,
  org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal,
  org.eclipse.emf.ecp.ui.uimodel.core.editparts.extension,
  org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans;x-internal:=true,
- org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation,
+ org.eclipse.emf.ecp.ui.uimodel.core.editparts.uri
 Import-Package: org.osgi.service.component;version="1.2.0",
  org.slf4j
 Service-Component: OSGI-INF/editPartManager.xml, OSGI-INF/presenterFactory.xml 
 Bundle-ActivationPolicy: lazy
+Require-Bundle: org.apache.commons.beanutils;bundle-version="1.8.0",
+ org.apache.commons.logging;bundle-version="1.1.1"

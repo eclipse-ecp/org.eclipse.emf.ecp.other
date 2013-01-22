@@ -251,16 +251,7 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 	 * @generated
 	 */
 	public EReference getYUiTextField_Datadescription() {
-		return (EReference)yUiTextFieldEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYUiTextField_BindsTo() {
-		return (EAttribute)yUiTextFieldEClass.getEStructuralFeatures().get(1);
+		return (EReference)yUiTextFieldEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -788,7 +779,6 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		// Create classes and their features
 		yUiTextFieldEClass = createEClass(YUI_TEXT_FIELD);
 		createEReference(yUiTextFieldEClass, YUI_TEXT_FIELD__DATATYPE);
-		createEAttribute(yUiTextFieldEClass, YUI_TEXT_FIELD__BINDS_TO);
 		createEReference(yUiTextFieldEClass, YUI_TEXT_FIELD__DATADESCRIPTION);
 
 		yUiGridLayoutEClass = createEClass(YUI_GRID_LAYOUT);
@@ -889,8 +879,8 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
 		UiModelPackage theUiModelPackage = (UiModelPackage)EPackage.Registry.INSTANCE.getEPackage(UiModelPackage.eNS_URI);
+		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -898,6 +888,7 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 
 		// Add supertypes to classes
 		yUiTextFieldEClass.getESuperTypes().add(this.getYUiInput());
+		yUiTextFieldEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiLayout());
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiSpacingable());
 		yUiGridLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
@@ -908,19 +899,26 @@ public class UimodelExtensionPackageImpl extends EPackageImpl implements Uimodel
 		yUiVerticalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiSpacingable());
 		yUiVerticalLayoutEClass.getESuperTypes().add(theUiModelPackage.getYUiMarginable());
 		yUiTableEClass.getESuperTypes().add(this.getYUiInput());
+		yUiTableEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiLabelEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
+		yUiLabelEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiTextAreaEClass.getESuperTypes().add(this.getYUiInput());
+		yUiTextAreaEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiCheckBoxEClass.getESuperTypes().add(this.getYUiInput());
+		yUiCheckBoxEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiInputEClass.getESuperTypes().add(theUiModelPackage.getYUiField());
 		yUiDecimalFieldEClass.getESuperTypes().add(this.getYUiInput());
+		yUiDecimalFieldEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiNumericFieldEClass.getESuperTypes().add(this.getYUiInput());
+		yUiNumericFieldEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiComboBoxEClass.getESuperTypes().add(this.getYUiInput());
+		yUiComboBoxEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 		yUiListEClass.getESuperTypes().add(this.getYUiInput());
+		yUiListEClass.getESuperTypes().add(theUiModelPackage.getYUiBindable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yUiTextFieldEClass, YUiTextField.class, "YUiTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYUiTextField_Datatype(), theDatatypesPackage.getYTextDatatype(), null, "datatype", null, 0, 1, YUiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYUiTextField_BindsTo(), ecorePackage.getEString(), "bindsTo", null, 0, 1, YUiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYUiTextField_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YUiTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yUiGridLayoutEClass, YUiGridLayout.class, "YUiGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

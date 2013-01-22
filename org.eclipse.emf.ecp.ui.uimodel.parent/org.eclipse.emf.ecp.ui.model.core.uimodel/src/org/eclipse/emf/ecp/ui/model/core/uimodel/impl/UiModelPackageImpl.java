@@ -10,14 +10,17 @@
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.impl;
 
+import java.net.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
@@ -120,7 +123,21 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yUiBindableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum yUiUnitEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType yUiURIEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -413,8 +430,35 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYUiBindable() {
+		return yUiBindableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYUiBindable_ValueBindingURIString() {
+		return (EAttribute)yUiBindableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUiUnit() {
 		return yUiUnitEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getYUiURI() {
+		return yUiURIEDataType;
 	}
 
 	/**
@@ -481,8 +525,14 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		createEAttribute(yUiWidthableEClass, YUI_WIDTHABLE__WIDTH);
 		createEAttribute(yUiWidthableEClass, YUI_WIDTHABLE__WIDTH_UNIT);
 
+		yUiBindableEClass = createEClass(YUI_BINDABLE);
+		createEAttribute(yUiBindableEClass, YUI_BINDABLE__VALUE_BINDING_URI_STRING);
+
 		// Create enums
 		yUiUnitEEnum = createEEnum(YUI_UNIT);
+
+		// Create data types
+		yUiURIEDataType = createEDataType(YUI_URI);
 	}
 
 	/**
@@ -563,10 +613,18 @@ public class UiModelPackageImpl extends EPackageImpl implements UiModelPackage {
 		initEAttribute(getYUiWidthable_Width(), ecorePackage.getEInt(), "width", null, 0, 1, YUiWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYUiWidthable_WidthUnit(), this.getYUiUnit(), "widthUnit", null, 0, 1, YUiWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(yUiBindableEClass, YUiBindable.class, "YUiBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYUiBindable_ValueBindingURIString(), ecorePackage.getEString(), "valueBindingURIString", null, 0, 1, YUiBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(yUiBindableEClass, this.getYUiURI(), "getValueBindingURI", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(yUiUnitEEnum, YUiUnit.class, "YUiUnit");
 		addEEnumLiteral(yUiUnitEEnum, YUiUnit.PIXEL);
 		addEEnumLiteral(yUiUnitEEnum, YUiUnit.EM);
+
+		// Initialize data types
+		initEDataType(yUiURIEDataType, URI.class, "YUiURI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

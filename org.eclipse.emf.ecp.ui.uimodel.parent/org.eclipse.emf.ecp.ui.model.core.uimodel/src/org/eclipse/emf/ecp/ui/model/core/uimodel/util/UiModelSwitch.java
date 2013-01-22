@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
@@ -158,6 +159,12 @@ public class UiModelSwitch<T> extends Switch<T> {
 			case UiModelPackage.YUI_WIDTHABLE: {
 				YUiWidthable yUiWidthable = (YUiWidthable)theEObject;
 				T result = caseYUiWidthable(yUiWidthable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UiModelPackage.YUI_BINDABLE: {
+				YUiBindable yUiBindable = (YUiBindable)theEObject;
+				T result = caseYUiBindable(yUiBindable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -327,6 +334,21 @@ public class UiModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiWidthable(YUiWidthable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiBindable(YUiBindable object) {
 		return null;
 	}
 

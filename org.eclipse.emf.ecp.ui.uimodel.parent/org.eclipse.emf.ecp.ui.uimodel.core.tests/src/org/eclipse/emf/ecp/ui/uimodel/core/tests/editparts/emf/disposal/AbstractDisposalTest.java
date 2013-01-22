@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.disposal;
+package org.eclipse.emf.ecp.ui.uimodel.core.tests.editparts.emf.disposal;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;

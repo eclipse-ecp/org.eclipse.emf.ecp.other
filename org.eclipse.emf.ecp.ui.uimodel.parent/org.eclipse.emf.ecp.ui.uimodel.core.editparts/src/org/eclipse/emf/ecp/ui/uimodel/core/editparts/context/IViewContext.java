@@ -11,18 +11,17 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.IDisposable;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 
 /**
  * Context containing information about the current {@link IUiViewEditpart}
- * instance.
+ * instance.<br>
+ * Not intended to be subclassed.
  */
-public interface IViewContext extends IDisposable {
+public interface IViewContext extends IDisposable, IAccessible {
 
 	/**
 	 * Returns the URI that specifies the UI kit to be used.
@@ -47,24 +46,6 @@ public interface IViewContext extends IDisposable {
 	IViewSetContext getParentContext();
 
 	/**
-	 * Returns a value bean. It can be used to store transient values related to
-	 * the current view. All returned beans should offer PropertyChangeSupport.<br>
-	 * If an instance of a value bean for the given selector could be found, it
-	 * will be returned. Otherwise a new bean will be created an registered.
-	 * <p>
-	 * A common use case for value beans would be the sharing of a selected
-	 * value. For instance a selection event on a list may write the selection
-	 * to a value bean (selector="my.personlist.selection"). And a detail
-	 * component can observe this instance of the value bean and reflect its
-	 * values. To observe the value change eclipse data binding may be used.
-	 * 
-	 * @param selector
-	 *            The selector string to identify the value bean instance.
-	 * @return valueBean
-	 */
-	IValueBean getValueBean(String selector);
-
-	/**
 	 * Registers an instance of value bean to the context. It can be accessed by
 	 * the selector. See also {@link IValueBean} or
 	 * {@link #getValueBean(String) getValueBean}.
@@ -75,7 +56,7 @@ public interface IViewContext extends IDisposable {
 	 *            The value bean.
 	 * @return
 	 */
-	void registerValueBean(String selector, IValueBean bean);
+	void registerBean(String selector, IValueBean bean);
 
 	/**
 	 * Returns the root layout where all UI elements should be child elements
@@ -84,15 +65,6 @@ public interface IViewContext extends IDisposable {
 	 * @return rootLayout
 	 */
 	Object getRootLayout();
-
-	/**
-	 * Returns a value bean that contains the main domain model element. Every
-	 * time a new domain model is set to the returned value bean, all observing
-	 * ui elements will become notified.
-	 * 
-	 * @return rootBean
-	 */
-	IValueBean getRootBean();
 
 	/**
 	 * Renders the UI based on the {@link IUiViewEditpart} and the given
@@ -120,38 +92,5 @@ public interface IViewContext extends IDisposable {
 	 * @return rendered
 	 */
 	boolean isRendered();
-
-	/**
-	 * Registers the widget presentation under the given id.
-	 * 
-	 * @param id
-	 * @param widget
-	 * @throws RuntimeException
-	 *             If already a widget was registered under that id
-	 */
-	void registerPresentation(String id, IWidgetPresentation<?> widget)
-			throws RuntimeException;
-
-	/**
-	 * Unregisters the widget presentation by the given id.
-	 * 
-	 * @param id
-	 */
-	void unregisterPresentation(String id);
-
-	/**
-	 * Returns the the presentation by its id, or <code>null</code> if no
-	 * presentation could be found.
-	 * 
-	 * @param id
-	 */
-	<C> IWidgetPresentation<C> getPresentation(String id);
-
-	/**
-	 * Returns a set containing the ids of all registered presentations.
-	 * 
-	 * @return
-	 */
-	Set<String> getPresentationIds();
 
 }

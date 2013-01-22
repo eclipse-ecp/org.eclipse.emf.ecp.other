@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf.context;
+package org.eclipse.emf.ecp.ui.uimodel.core.tests.editparts.emf.context;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -51,31 +51,40 @@ public class ViewSetContextTest {
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		resourceSet.getPackageRegistry().put(UiModelPackage.eNS_URI, UiModelPackage.eINSTANCE);
+		resourceSet
+				.getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
+						new XMIResourceFactoryImpl());
+		resourceSet.getPackageRegistry().put(UiModelPackage.eNS_URI,
+				UiModelPackage.eINSTANCE);
 
-		DelegatingEditPartManager manager = DelegatingEditPartManager.getInstance();
+		DelegatingEditPartManager manager = DelegatingEditPartManager
+				.getInstance();
 		manager.clear();
 		manager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
 		manager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 
-		IUiViewEditpart viewEditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
-			IUiViewEditpart.class);
+		IUiViewEditpart viewEditPart = editpartManager.createEditpart(
+				"http://eclipse.org/emf/emfclient/uimodel",
+				IUiViewEditpart.class);
 		view1Context = new ViewContext(viewEditPart);
-		IUiViewEditpart view2EditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
-			IUiViewEditpart.class);
+		IUiViewEditpart view2EditPart = editpartManager.createEditpart(
+				"http://eclipse.org/emf/emfclient/uimodel",
+				IUiViewEditpart.class);
 		view2Context = new ViewContext(view2EditPart);
 
-		IUiViewSetEditpart viewSetEditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
-			IUiViewSetEditpart.class);
+		IUiViewSetEditpart viewSetEditPart = editpartManager.createEditpart(
+				"http://eclipse.org/emf/emfclient/uimodel",
+				IUiViewSetEditpart.class);
 		viewSetContext = new ViewSetContext(viewSetEditPart);
 		viewSetEditPart.addView(viewEditPart);
 		viewSetEditPart.addView(view2EditPart);
 	}
 
 	/**
-	 * Tests {@link IViewContext#getValueBean(String)} and {@link IViewContext#registerValueBean(String, IValueBean)}.
+	 * Tests {@link IViewContext#getBean(String)} and
+	 * {@link IViewContext#registerBean(String, IValueBean)}.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -111,17 +120,99 @@ public class ViewSetContextTest {
 
 		// test internal create bean
 		//
-		Assert.assertNotNull(view1Context.getValueBean("bean1"));
-		Assert.assertTrue(view1Context.getValueBean("bean1") instanceof ObjectBean);
+		Assert.assertNotNull(view1Context.getBean("bean1"));
+		Assert.assertTrue(view1Context.getBean("bean1") instanceof ObjectBean);
 
 		// tests registering bean
 		//
-		view1Context.registerValueBean("bean1", valueBean1);
-		Assert.assertSame(valueBean1, view1Context.getValueBean("bean1"));
+		view1Context.registerBean("bean1", valueBean1);
+		Assert.assertSame(valueBean1, view1Context.getBean("bean1"));
 
-		view1Context.registerValueBean("bean1", valueBean2);
-		Assert.assertNotSame(valueBean1, view1Context.getValueBean("bean1"));
-		Assert.assertSame(valueBean2, view1Context.getValueBean("bean1"));
+		view1Context.registerBean("bean1", valueBean2);
+		Assert.assertNotSame(valueBean1, view1Context.getBean("bean1"));
+		Assert.assertSame(valueBean2, view1Context.getBean("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewSetContext#getBean(String)} and
+	 * {@link IViewSetContext#registerBean(String, IValueBean)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_valueBeans_viewSet() {
+		// END SUPRESS CATCH EXCEPTION
+		IValueBean valueBean1 = new IValueBean() {
+			@Override
+			public void setValue(Object value) {
+			}
+
+			@Override
+			public Object getValue() {
+				return null;
+			}
+		};
+
+		IValueBean valueBean2 = new IValueBean() {
+			@Override
+			public void setValue(Object value) {
+			}
+
+			@Override
+			public Object getValue() {
+				return null;
+			}
+		};
+
+		// tests root bean
+		//
+		IValueBean rootbean = viewSetContext.getRootBean();
+		Assert.assertNotNull(rootbean);
+		Assert.assertSame(rootbean, viewSetContext.getRootBean());
+
+		// test internal create bean
+		//
+		Assert.assertNotNull(viewSetContext.getBean("bean1"));
+		Assert.assertTrue(viewSetContext.getBean("bean1") instanceof ObjectBean);
+
+		// tests registering bean
+		//
+		viewSetContext.registerBean("bean1", valueBean1);
+		Assert.assertSame(valueBean1, viewSetContext.getBean("bean1"));
+
+		viewSetContext.registerBean("bean1", valueBean2);
+		Assert.assertNotSame(valueBean1, viewSetContext.getBean("bean1"));
+		Assert.assertSame(valueBean2, viewSetContext.getBean("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewSetContext#getService(String)} and
+	 * {@link IViewSetContext#registerService(String, IValueBean)} and
+	 * {@link IViewSetContext#unregisterService(String)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_services() {
+		// END SUPRESS CATCH EXCEPTION
+		Object service1 = new Object();
+		Object service2 = new Object();
+
+		// test null
+		//
+		Assert.assertNull(viewSetContext.getService("service1"));
+
+		// tests registering bean
+		//
+		viewSetContext.registerService("service1", service1);
+		Assert.assertSame(service1, viewSetContext.getService("service1"));
+		viewSetContext.registerService("service2", service2);
+		Assert.assertSame(service2, viewSetContext.getService("service2"));
+
+		viewSetContext.unregisterService("service1");
+		Assert.assertNull(viewSetContext.getService("service1"));
+		Assert.assertSame(service2, viewSetContext.getService("service2"));
+
+		viewSetContext.unregisterService("service2");
+		Assert.assertNull(viewSetContext.getService("service2"));
 	}
 
 	/**
@@ -168,7 +259,7 @@ public class ViewSetContextTest {
 		}
 
 		try {
-			viewSetContext.getValueBean("test");
+			viewSetContext.getBean("test");
 			Assert.fail("must throw exception");
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -176,7 +267,7 @@ public class ViewSetContextTest {
 		}
 
 		try {
-			viewSetContext.registerValueBean("test", new IValueBean() {
+			viewSetContext.registerBean("test", new IValueBean() {
 				@Override
 				public void setValue(Object value) {
 				}
@@ -186,6 +277,30 @@ public class ViewSetContextTest {
 					return null;
 				}
 			});
+			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+		}
+
+		try {
+			viewSetContext.getService("test");
+			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+		}
+
+		try {
+			viewSetContext.registerService("test", new Object());
+			Assert.fail("must throw exception");
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+		}
+
+		try {
+			viewSetContext.unregisterService("test");
 			Assert.fail("must throw exception");
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -247,8 +362,9 @@ public class ViewSetContextTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getViewSetEditpart() {
 		// END SUPRESS CATCH EXCEPTION
-		IUiViewSetEditpart viewSetEditPart = editpartManager.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
-			IUiViewSetEditpart.class);
+		IUiViewSetEditpart viewSetEditPart = editpartManager.createEditpart(
+				"http://eclipse.org/emf/emfclient/uimodel",
+				IUiViewSetEditpart.class);
 		ViewSetContext context = new ViewSetContext(viewSetEditPart);
 		Assert.assertSame(viewSetEditPart, context.getViewSetEditpart());
 	}
@@ -274,7 +390,8 @@ public class ViewSetContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		IUiViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IUiViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -312,7 +429,8 @@ public class ViewSetContextTest {
 	}
 
 	/**
-	 * Tests the disposal of the view contexts and that they corretly treath the viewsetContext.
+	 * Tests the disposal of the view contexts and that they corretly treath the
+	 * viewsetContext.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -332,7 +450,8 @@ public class ViewSetContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		IUiViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IUiViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -386,8 +505,10 @@ public class ViewSetContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewSet1EditPart = editpartManager.getEditpart(viewSet1);
-		IUiViewSetEditpart viewSet2EditPart = editpartManager.getEditpart(viewSet2);
+		IUiViewSetEditpart viewSet1EditPart = editpartManager
+				.getEditpart(viewSet1);
+		IUiViewSetEditpart viewSet2EditPart = editpartManager
+				.getEditpart(viewSet2);
 		IUiViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IUiViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -439,7 +560,8 @@ public class ViewSetContextTest {
 		// ENDIF SUPRESS CATCH EXCEPTION
 		// ...........> field2
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 
 		// contexts null
 		//

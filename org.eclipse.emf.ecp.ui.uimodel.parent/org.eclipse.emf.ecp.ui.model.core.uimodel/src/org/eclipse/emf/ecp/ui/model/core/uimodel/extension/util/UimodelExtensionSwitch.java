@@ -5,6 +5,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel.extension.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
@@ -87,6 +88,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiTextField yUiTextField = (YUiTextField)theEObject;
 				T result = caseYUiTextField(yUiTextField);
 				if (result == null) result = caseYUiInput(yUiTextField);
+				if (result == null) result = caseYUiBindable(yUiTextField);
 				if (result == null) result = caseYUiField(yUiTextField);
 				if (result == null) result = caseYUiEmbeddable(yUiTextField);
 				if (result == null) result = caseYUiElement(yUiTextField);
@@ -158,6 +160,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiTable yUiTable = (YUiTable)theEObject;
 				T result = caseYUiTable(yUiTable);
 				if (result == null) result = caseYUiInput(yUiTable);
+				if (result == null) result = caseYUiBindable(yUiTable);
 				if (result == null) result = caseYUiField(yUiTable);
 				if (result == null) result = caseYUiEmbeddable(yUiTable);
 				if (result == null) result = caseYUiElement(yUiTable);
@@ -169,6 +172,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiLabel yUiLabel = (YUiLabel)theEObject;
 				T result = caseYUiLabel(yUiLabel);
 				if (result == null) result = caseYUiField(yUiLabel);
+				if (result == null) result = caseYUiBindable(yUiLabel);
 				if (result == null) result = caseYUiEmbeddable(yUiLabel);
 				if (result == null) result = caseYUiElement(yUiLabel);
 				if (result == null) result = caseYUiCssAble(yUiLabel);
@@ -179,6 +183,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiTextArea yUiTextArea = (YUiTextArea)theEObject;
 				T result = caseYUiTextArea(yUiTextArea);
 				if (result == null) result = caseYUiInput(yUiTextArea);
+				if (result == null) result = caseYUiBindable(yUiTextArea);
 				if (result == null) result = caseYUiField(yUiTextArea);
 				if (result == null) result = caseYUiEmbeddable(yUiTextArea);
 				if (result == null) result = caseYUiElement(yUiTextArea);
@@ -190,6 +195,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiCheckBox yUiCheckBox = (YUiCheckBox)theEObject;
 				T result = caseYUiCheckBox(yUiCheckBox);
 				if (result == null) result = caseYUiInput(yUiCheckBox);
+				if (result == null) result = caseYUiBindable(yUiCheckBox);
 				if (result == null) result = caseYUiField(yUiCheckBox);
 				if (result == null) result = caseYUiEmbeddable(yUiCheckBox);
 				if (result == null) result = caseYUiElement(yUiCheckBox);
@@ -211,6 +217,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiDecimalField yUiDecimalField = (YUiDecimalField)theEObject;
 				T result = caseYUiDecimalField(yUiDecimalField);
 				if (result == null) result = caseYUiInput(yUiDecimalField);
+				if (result == null) result = caseYUiBindable(yUiDecimalField);
 				if (result == null) result = caseYUiField(yUiDecimalField);
 				if (result == null) result = caseYUiEmbeddable(yUiDecimalField);
 				if (result == null) result = caseYUiElement(yUiDecimalField);
@@ -222,6 +229,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiNumericField yUiNumericField = (YUiNumericField)theEObject;
 				T result = caseYUiNumericField(yUiNumericField);
 				if (result == null) result = caseYUiInput(yUiNumericField);
+				if (result == null) result = caseYUiBindable(yUiNumericField);
 				if (result == null) result = caseYUiField(yUiNumericField);
 				if (result == null) result = caseYUiEmbeddable(yUiNumericField);
 				if (result == null) result = caseYUiElement(yUiNumericField);
@@ -233,6 +241,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiComboBox yUiComboBox = (YUiComboBox)theEObject;
 				T result = caseYUiComboBox(yUiComboBox);
 				if (result == null) result = caseYUiInput(yUiComboBox);
+				if (result == null) result = caseYUiBindable(yUiComboBox);
 				if (result == null) result = caseYUiField(yUiComboBox);
 				if (result == null) result = caseYUiEmbeddable(yUiComboBox);
 				if (result == null) result = caseYUiElement(yUiComboBox);
@@ -244,6 +253,7 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 				YUiList yUiList = (YUiList)theEObject;
 				T result = caseYUiList(yUiList);
 				if (result == null) result = caseYUiInput(yUiList);
+				if (result == null) result = caseYUiBindable(yUiList);
 				if (result == null) result = caseYUiField(yUiList);
 				if (result == null) result = caseYUiEmbeddable(yUiList);
 				if (result == null) result = caseYUiElement(yUiList);
@@ -567,6 +577,21 @@ public class UimodelExtensionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYUiField(YUiField object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YUi Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YUi Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYUiBindable(YUiBindable object) {
 		return null;
 	}
 

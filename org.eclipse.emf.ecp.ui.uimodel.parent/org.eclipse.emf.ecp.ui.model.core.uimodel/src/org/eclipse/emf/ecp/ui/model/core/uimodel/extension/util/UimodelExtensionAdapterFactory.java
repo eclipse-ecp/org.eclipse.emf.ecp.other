@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiCssAble;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiElement;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiEmbeddable;
@@ -166,6 +167,10 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYUiField(YUiField object) {
 				return createYUiFieldAdapter();
+			}
+			@Override
+			public Adapter caseYUiBindable(YUiBindable object) {
+				return createYUiBindableAdapter();
 			}
 			@Override
 			public Adapter caseYUiLayout(YUiLayout object) {
@@ -490,6 +495,20 @@ public class UimodelExtensionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYUiFieldAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable <em>YUi Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable
+	 * @generated
+	 */
+	public Adapter createYUiBindableAdapter() {
 		return null;
 	}
 

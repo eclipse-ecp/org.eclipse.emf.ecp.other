@@ -10,15 +10,11 @@
  */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IViewPresentation;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.presentation.IWidgetPresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +23,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ViewContext extends DisposableContext implements IViewContext {
 
+	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory
 			.getLogger(ViewContext.class);
 
@@ -35,7 +32,6 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	private String presentationURI;
 
 	private boolean rendered;
-	private Map<String, IWidgetPresentation<?>> presentations = new HashMap<String, IWidgetPresentation<?>>();
 
 	/**
 	 * Constructor.
@@ -110,16 +106,6 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IValueBean getRootBean() {
-		checkDisposed();
-
-		return getValueBean("http://eclipse.org/emf/emfclient/uimodel/view/rootbean");
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void render(String presentationURI, Object rootLayout,
 			Map<String, Object> parameter) throws ContextException {
 		checkDisposed();
@@ -170,37 +156,5 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		} finally {
 
 		}
-	}
-
-	// TODO add unit tests
-	@Override
-	public void registerPresentation(String id, IWidgetPresentation<?> widget)
-			throws RuntimeException {
-		if (presentations.containsKey(id)) {
-			logger.error(String.format(
-					"Already a widget registered under the id %s", id));
-			throw new RuntimeException(String.format(
-					"Already a widget registered under the id %s", id));
-		}
-		presentations.put(id, widget);
-	}
-
-	// TODO add unit tests
-	@Override
-	public void unregisterPresentation(String id) {
-		presentations.remove(id);
-	}
-
-	// TODO add unit tests
-	@SuppressWarnings("unchecked")
-	@Override
-	public <C> IWidgetPresentation<C> getPresentation(String id) {
-		return (IWidgetPresentation<C>) presentations.get(id);
-	}
-
-	// TODO add unit tests
-	@Override
-	public Set<String> getPresentationIds() {
-		return presentations.keySet();
 	}
 }

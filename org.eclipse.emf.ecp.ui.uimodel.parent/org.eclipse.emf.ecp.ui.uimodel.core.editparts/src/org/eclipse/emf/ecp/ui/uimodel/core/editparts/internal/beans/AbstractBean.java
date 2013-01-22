@@ -22,6 +22,13 @@ public class AbstractBean implements IValueBean {
 	private final PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 	private Object value;
 
+	public AbstractBean() {
+	}
+	
+	public AbstractBean(Object value) {
+		this.value = value;
+	}
+
 	/**
 	 * Adds the given property change listener to the change support.
 	 * 

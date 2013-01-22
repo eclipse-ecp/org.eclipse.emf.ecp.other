@@ -1,4 +1,12 @@
 /**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.model.core.datatypes;
 
@@ -558,7 +566,6 @@ public interface DatatypesPackage extends EPackage {
 	 */
 	int YCHECK_BOX_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YComboBoxDatatypeImpl <em>YCombo Box Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -604,7 +611,6 @@ public interface DatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCOMBO_BOX_DATATYPE_FEATURE_COUNT = YDATATYPE_FEATURE_COUNT + 0;
-
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.datatypes.impl.YListDataTypeImpl <em>YList Data Type</em>}' class.

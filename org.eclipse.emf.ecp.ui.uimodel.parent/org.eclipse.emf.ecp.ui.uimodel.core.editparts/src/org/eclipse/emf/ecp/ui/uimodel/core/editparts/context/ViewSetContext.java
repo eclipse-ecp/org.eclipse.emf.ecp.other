@@ -11,22 +11,16 @@
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.context;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewEditpart;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.IUiViewSetEditpart;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
-import org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans.ObjectBean;
 
 /**
  * Implementation of {@link IViewSetContext}.
  */
 public class ViewSetContext extends DisposableContext implements IViewSetContext {
 
-	private Map<String, IValueBean> valueBeans = Collections.synchronizedMap(new HashMap<String, IValueBean>());
 	private final IUiViewSetEditpart editPart;
 
 	/**
@@ -69,31 +63,6 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IValueBean getValueBean(String selector) {
-		checkDisposed();
-
-		synchronized (valueBeans) {
-			if (!valueBeans.containsKey(selector)) {
-				valueBeans.put(selector, new ObjectBean());
-			}
-		}
-		return valueBeans.get(selector);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IValueBean getRootBean() {
-		checkDisposed();
-
-		return getValueBean("org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.viewset.rootbean");
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public void internalDispose() {
 		try {
 			List<IViewContext> temp = getViewContexts();
@@ -101,8 +70,8 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 				childContext.dispose();
 			}
 
-			valueBeans = null;
 		} finally {
 		}
 	}
+
 }

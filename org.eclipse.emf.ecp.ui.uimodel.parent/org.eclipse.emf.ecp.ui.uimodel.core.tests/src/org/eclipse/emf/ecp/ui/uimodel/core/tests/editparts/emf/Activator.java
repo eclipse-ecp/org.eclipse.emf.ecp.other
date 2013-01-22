@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
+package org.eclipse.emf.ecp.ui.uimodel.core.tests.editparts.emf;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

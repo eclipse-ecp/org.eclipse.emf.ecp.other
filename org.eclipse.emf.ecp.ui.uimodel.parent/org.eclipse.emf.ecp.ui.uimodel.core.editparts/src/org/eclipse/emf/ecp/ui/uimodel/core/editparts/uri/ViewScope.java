@@ -1,46 +1,59 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
+ */
 package org.eclipse.emf.ecp.ui.uimodel.core.editparts.uri;
 
-import java.net.URI;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IAccessible;
+import org.eclipse.emf.ecp.ui.uimodel.core.editparts.context.IViewContext;
 
-public class ViewScope implements IScope {
+public class ViewScope extends AccessibleScope {
 
-	public static final String SEGMENT = "view://";
-	protected IScope following;
+	public static final String SCHEMA = "view";
+	private static final String URI_SEGMENT = SCHEMA + "://";
 
-	public URI toURI() {
-		return URI.create(append(""));
+	public ViewScope() {
+		super(URI_SEGMENT);
 	}
 
 	/**
-	 * Creates a bean scope for the given selector.
+	 * Accesses the object in the given context that is described by the uri of
+	 * this scope.
 	 * 
-	 * @param selector
+	 * @param context
 	 * @return
 	 */
-	BeanScope bean(String selector) {
-		BeanScope following = new BeanScope(this, selector);
-		this.following = following;
-		return following;
+	public Object access(IViewContext context) {
+		if (beanScope != null) {
+			return beanScope.access(context);
+		} else if (serviceScope != null) {
+			return serviceScope.access(context);
+		}
+
+		return null;
 	}
 
 	/**
-	 * Creates a service scope for the given selector.
+	 * Accesses the object in the given context that is described by the uri of
+	 * this scope.
 	 * 
-	 * @param selector
+	 * @param context
 	 * @return
 	 */
-	ServiceScope service(String selector) {
-		ServiceScope following = new ServiceScope(this, selector);
-		this.following = following;
-		return following;
-	}
+	public Object access(IAccessible accessible) {
 
-	@Override
-	public String append(String lefthandToken) {
-		StringBuilder builder = new StringBuilder(lefthandToken);
-		builder.append(SEGMENT);
-		builder.append(following.append(builder.toString()));
-		return builder.toString();
-	}
+		if (!(accessible instanceof IViewContext)) {
+			throw new IllegalStateException(String.format(
+					"%s is not a legal accessible!", accessible.getClass()
+							.getName()));
+		}
 
+		return access((IViewContext) accessible);
+	}
 }

@@ -17,51 +17,93 @@ import java.util.Map;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.beans.IValueBean;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ui.uimodel.core.editparts.internal.beans.ObjectBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Base implementation for a disposable context.
  */
-public abstract class DisposableContext extends AbstractDisposable {
+public abstract class DisposableContext extends AbstractDisposable implements
+		IBeanRegistry, IServiceRegistry {
 
-	private Map<String, IValueBean> valueBeans = Collections.synchronizedMap(new HashMap<String, IValueBean>());
+	private static final Logger logger = LoggerFactory
+			.getLogger(DisposableContext.class);
+
+	private Map<String, IValueBean> valueBeans = Collections
+			.synchronizedMap(new HashMap<String, IValueBean>());
+
+	private Map<String, Object> services = Collections
+			.synchronizedMap(new HashMap<String, Object>());
 
 	/**
-	 * Returns a value bean. It can be used to store transient values related to the current view. All returned beans
-	 * should offer PropertyChangeSupport.<br>
-	 * If an instance of a value bean for the given selector could be found, it will be returned. Otherwise a new bean
-	 * will be created an registered.
+	 * Returns a value bean. It can be used to store transient values related to
+	 * the current view. All returned beans should offer PropertyChangeSupport.<br>
+	 * If an instance of a value bean for the given selector could be found, it
+	 * will be returned. Otherwise a new bean will be created an registered.
 	 * <p>
-	 * A common use case for value beans would be the sharing of a selected value. For instance a selection event on a
-	 * list may write the selection to a value bean (selector="my.personlist.selection"). And a detail component can
-	 * observe this instance of the value bean and reflect its values. To observe the value change eclipse data binding
-	 * may be used.
+	 * A common use case for value beans would be the sharing of a selected
+	 * value. For instance a selection event on a list may write the selection
+	 * to a value bean (selector="my.personlist.selection"). And a detail
+	 * component can observe this instance of the value bean and reflect its
+	 * values. To observe the value change eclipse data binding may be used.
 	 * 
-	 * @param selector The selector string to identify the value bean instance.
+	 * @param selector
+	 *            The selector string to identify the value bean instance.
 	 * @return selector
 	 */
-	public IValueBean getValueBean(String selector) {
+	public IValueBean getBean(String selector) {
 		checkDisposed();
 
 		synchronized (valueBeans) {
 			if (!valueBeans.containsKey(selector)) {
-				registerValueBean(selector, new ObjectBean());
+				registerBean(selector, new ObjectBean());
 			}
 		}
 		return valueBeans.get(selector);
 	}
 
 	/**
-	 * Registers an instance of value bean to the context. It can be accessed by the selector.
-	 * See also {@link IValueBean} or {@link #getValueBean(String) getValueBean}.
+	 * Registers an instance of value bean to the context. It can be accessed by
+	 * the selector. See also {@link IValueBean} or
+	 * {@link #getValueBean(String) getValueBean}.
 	 * 
-	 * @param selector The selector string to identify the value bean instance.
-	 * @param bean The value bean.
+	 * @param selector
+	 *            The selector string to identify the value bean instance.
+	 * @param bean
+	 *            The value bean.
 	 * @return
 	 */
-	public void registerValueBean(String selector, IValueBean bean) {
+	public void registerBean(String selector, IValueBean bean) {
 		checkDisposed();
-
+		logger.debug("Bean registered: {}", selector);
 		valueBeans.put(selector, bean);
+	}
+
+	public void registerService(String selector, Object service) {
+		checkDisposed();
+		logger.debug("Service registered: {}", selector);
+		services.put(selector, service);
+	}
+
+	public void unregisterService(String selector) {
+		checkDisposed();
+		logger.debug("Service unregistered: {}", selector);
+		services.remove(selector);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public IValueBean getRootBean() {
+		checkDisposed();
+		return getBean(ROOTBEAN_SELECTOR);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <S> S getService(String selector) {
+		checkDisposed();
+		return (S) services.get(selector);
 	}
 
 	/**
@@ -73,10 +115,14 @@ public abstract class DisposableContext extends AbstractDisposable {
 			return;
 		}
 
+		internalDispose();
+
 		try {
 			valueBeans = null;
+			services = null;
 		} finally {
 			super.dispose();
 		}
 	}
+
 }

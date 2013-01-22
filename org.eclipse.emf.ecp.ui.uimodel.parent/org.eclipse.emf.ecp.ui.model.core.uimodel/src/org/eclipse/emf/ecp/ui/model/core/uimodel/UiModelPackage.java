@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ui.model.core.uimodel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -526,6 +527,34 @@ public interface UiModelPackage extends EPackage {
 	int YUI_WIDTHABLE_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable <em>YUi Bindable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiBindable()
+	 * @generated
+	 */
+	int YUI_BINDABLE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_BINDABLE__VALUE_BINDING_URI_STRING = 0;
+
+	/**
+	 * The number of structural features of the '<em>YUi Bindable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YUI_BINDABLE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit <em>YUi Unit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -533,7 +562,18 @@ public interface UiModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiUnit()
 	 * @generated
 	 */
-	int YUI_UNIT = 11;
+	int YUI_UNIT = 12;
+
+
+	/**
+	 * The meta object id for the '<em>YUi URI</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.net.URI
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiURI()
+	 * @generated
+	 */
+	int YUI_URI = 13;
 
 
 	/**
@@ -801,6 +841,27 @@ public interface UiModelPackage extends EPackage {
 	EAttribute getYUiWidthable_WidthUnit();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable <em>YUi Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YUi Bindable</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable
+	 * @generated
+	 */
+	EClass getYUiBindable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable#getValueBindingURIString <em>Value Binding URI String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Binding URI String</em>'.
+	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable#getValueBindingURIString()
+	 * @see #getYUiBindable()
+	 * @generated
+	 */
+	EAttribute getYUiBindable_ValueBindingURIString();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit <em>YUi Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -809,6 +870,17 @@ public interface UiModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getYUiUnit();
+
+	/**
+	 * Returns the meta object for data type '{@link java.net.URI <em>YUi URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>YUi URI</em>'.
+	 * @see java.net.URI
+	 * @model instanceClass="java.net.URI"
+	 * @generated
+	 */
+	EDataType getYUiURI();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1055,6 +1127,24 @@ public interface UiModelPackage extends EPackage {
 		EAttribute YUI_WIDTHABLE__WIDTH_UNIT = eINSTANCE.getYUiWidthable_WidthUnit();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable <em>YUi Bindable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YUiBindable
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiBindable()
+		 * @generated
+		 */
+		EClass YUI_BINDABLE = eINSTANCE.getYUiBindable();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Binding URI String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YUI_BINDABLE__VALUE_BINDING_URI_STRING = eINSTANCE.getYUiBindable_ValueBindingURIString();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ui.model.core.uimodel.YUiUnit <em>YUi Unit</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1063,6 +1153,16 @@ public interface UiModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum YUI_UNIT = eINSTANCE.getYUiUnit();
+
+		/**
+		 * The meta object literal for the '<em>YUi URI</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.net.URI
+		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.impl.UiModelPackageImpl#getYUiURI()
+		 * @generated
+		 */
+		EDataType YUI_URI = eINSTANCE.getYUiURI();
 
 	}
 

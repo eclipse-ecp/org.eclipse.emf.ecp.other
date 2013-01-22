@@ -110,7 +110,6 @@ public abstract class UiEmbeddableEditpart<M extends YUiEmbeddable> extends
 			// dispose the presenter
 			//
 			if (presentation != null) {
-				view.getContext().unregisterPresentation(getId());
 				presentation.dispose();
 				presentation = null;
 			}

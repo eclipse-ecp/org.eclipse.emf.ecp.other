@@ -1,4 +1,12 @@
 /**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
@@ -27,10 +35,6 @@ public interface YUiSpanInfo extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Column From</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Column From</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The column index of the cell that should contain the Upper-Left-Edge of the element.
@@ -56,10 +60,6 @@ public interface YUiSpanInfo extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Row From</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Row From</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The row index of the cell that should contain the Upper-Left-Edge of the element.
@@ -85,10 +85,6 @@ public interface YUiSpanInfo extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Column To</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Column To</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The column index of the cell that should contain the Lower-Right-Edge of the element.
@@ -114,10 +110,6 @@ public interface YUiSpanInfo extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Row To</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Row To</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The row index of the cell that should contain the Lower-Right-Edge of the element.

@@ -1,4 +1,12 @@
 /**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.extension;
 
@@ -146,7 +154,9 @@ public enum YUiAlignment implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILL_FILL(12, "FILL_FILL", "FILL_FILL"), /**
+	FILL_FILL(12, "FILL_FILL", "FILL_FILL"),
+
+	/**
 	 * The '<em><b>FILL LEFT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,7 +164,9 @@ public enum YUiAlignment implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILL_LEFT(13, "FILL_LEFT", "FILL_LEFT"), /**
+	FILL_LEFT(13, "FILL_LEFT", "FILL_LEFT"),
+
+	/**
 	 * The '<em><b>FILL CENTER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,7 +174,9 @@ public enum YUiAlignment implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILL_CENTER(14, "FILL_CENTER", "FILL_CENTER"), /**
+	FILL_CENTER(14, "FILL_CENTER", "FILL_CENTER"),
+
+	/**
 	 * The '<em><b>FILL RIGHT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,7 +184,9 @@ public enum YUiAlignment implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILL_RIGHT(15, "FILL_RIGHT", "FILL_RIGHT"), /**
+	FILL_RIGHT(15, "FILL_RIGHT", "FILL_RIGHT"),
+
+	/**
 	 * The '<em><b>UNDEFINED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

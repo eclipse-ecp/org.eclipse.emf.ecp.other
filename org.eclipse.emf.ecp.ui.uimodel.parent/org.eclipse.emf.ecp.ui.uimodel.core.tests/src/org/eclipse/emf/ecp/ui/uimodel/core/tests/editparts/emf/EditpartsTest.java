@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ui.uimodel.core.editparts.tests.emf;
+package org.eclipse.emf.ecp.ui.uimodel.core.tests.editparts.emf;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -53,7 +53,8 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class EditpartsTest {
 
-	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
+	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
+			.getInstance();
 	private ResourceSetImpl resourceSet;
 	private UiModelFactory modelFactory = UiModelFactory.eINSTANCE;
 
@@ -63,14 +64,19 @@ public class EditpartsTest {
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		resourceSet.getPackageRegistry().put(UiModelPackage.eNS_URI, UiModelPackage.eINSTANCE);
+		resourceSet
+				.getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
+						new XMIResourceFactoryImpl());
+		resourceSet.getPackageRegistry().put(UiModelPackage.eNS_URI,
+				UiModelPackage.eINSTANCE);
 
 		editpartManager.clear();
-		editpartManager.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
 		editpartManager
-			.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
+				.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.impl.EditpartManager());
+		editpartManager
+				.addFactory(new org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager());
 	}
 
 	/**
@@ -81,7 +87,8 @@ public class EditpartsTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_SingletonEdipartPerEObjectInstance__FirstAccessByParentEditpart() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
 
@@ -109,19 +116,24 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		// view1
 		IUiViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart.getContent();
+		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart
+				.getContent();
 		// field1
-		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart.getElements().get(0);
+		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart
+				.getElements().get(0);
 		// view 2
 		IUiViewEditpart view2Editpart = viewSetEditPart.getViews().get(1);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart.getContent();
+		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart
+				.getContent();
 		// field2
-		IUiFieldEditpart field2Editpart = (IUiFieldEditpart) layout2Editpart.getElements().get(0);
+		IUiFieldEditpart field2Editpart = (IUiFieldEditpart) layout2Editpart
+				.getElements().get(0);
 
 		// ensure that the eObject of the edit part is the same
 		// as the eObject from the ui model
@@ -136,13 +148,20 @@ public class EditpartsTest {
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(viewSetEditPart, UiElementEditpart.findEditPartFor(viewSet));
-		Assert.assertSame(view1Editpart, UiElementEditpart.findEditPartFor(view1));
-		Assert.assertSame(layout1Editpart, UiElementEditpart.findEditPartFor(layout1));
-		Assert.assertSame(field1Editpart, UiElementEditpart.findEditPartFor(field1));
-		Assert.assertSame(view2Editpart, UiElementEditpart.findEditPartFor(view2));
-		Assert.assertSame(layout2Editpart, UiElementEditpart.findEditPartFor(layout2));
-		Assert.assertSame(field2Editpart, UiElementEditpart.findEditPartFor(field2));
+		Assert.assertSame(viewSetEditPart,
+				UiElementEditpart.findEditPartFor(viewSet));
+		Assert.assertSame(view1Editpart,
+				UiElementEditpart.findEditPartFor(view1));
+		Assert.assertSame(layout1Editpart,
+				UiElementEditpart.findEditPartFor(layout1));
+		Assert.assertSame(field1Editpart,
+				UiElementEditpart.findEditPartFor(field1));
+		Assert.assertSame(view2Editpart,
+				UiElementEditpart.findEditPartFor(view2));
+		Assert.assertSame(layout2Editpart,
+				UiElementEditpart.findEditPartFor(layout2));
+		Assert.assertSame(field2Editpart,
+				UiElementEditpart.findEditPartFor(field2));
 
 		// ensure that the editpartManager also returns the singleton instance
 		//
@@ -157,14 +176,16 @@ public class EditpartsTest {
 
 	/**
 	 * Tests that only one editpart instance is created for one model instance.<br>
-	 * It's the same as {@link #test_SingletonEdipartPerEObjectInstance()} but the editpartManager.getEditpart(object)
-	 * first accesses the editpart. Afterwards it is determined by the edit parts parent.
+	 * It's the same as {@link #test_SingletonEdipartPerEObjectInstance()} but
+	 * the editpartManager.getEditpart(object) first accesses the editpart.
+	 * Afterwards it is determined by the edit parts parent.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_SingletonEdipartPerEObjectInstance__FirstAccessByEditpartManager() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
 
@@ -192,17 +213,20 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		// view1
 		IUiViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
+		IUiLayoutEditpart layout1Editpart = editpartManager
+				.getEditpart(layout1);
 		// field1
 		IUiFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
 		// view 2
 		IUiViewEditpart view2Editpart = editpartManager.getEditpart(view2);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = editpartManager.getEditpart(layout2);
+		IUiLayoutEditpart layout2Editpart = editpartManager
+				.getEditpart(layout2);
 		// field2
 		IUiFieldEditpart field2Editpart = editpartManager.getEditpart(field2);
 
@@ -219,13 +243,20 @@ public class EditpartsTest {
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(viewSetEditPart, UiElementEditpart.findEditPartFor(viewSet));
-		Assert.assertSame(view1Editpart, UiElementEditpart.findEditPartFor(view1));
-		Assert.assertSame(layout1Editpart, UiElementEditpart.findEditPartFor(layout1));
-		Assert.assertSame(field1Editpart, UiElementEditpart.findEditPartFor(field1));
-		Assert.assertSame(view2Editpart, UiElementEditpart.findEditPartFor(view2));
-		Assert.assertSame(layout2Editpart, UiElementEditpart.findEditPartFor(layout2));
-		Assert.assertSame(field2Editpart, UiElementEditpart.findEditPartFor(field2));
+		Assert.assertSame(viewSetEditPart,
+				UiElementEditpart.findEditPartFor(viewSet));
+		Assert.assertSame(view1Editpart,
+				UiElementEditpart.findEditPartFor(view1));
+		Assert.assertSame(layout1Editpart,
+				UiElementEditpart.findEditPartFor(layout1));
+		Assert.assertSame(field1Editpart,
+				UiElementEditpart.findEditPartFor(field1));
+		Assert.assertSame(view2Editpart,
+				UiElementEditpart.findEditPartFor(view2));
+		Assert.assertSame(layout2Editpart,
+				UiElementEditpart.findEditPartFor(layout2));
+		Assert.assertSame(field2Editpart,
+				UiElementEditpart.findEditPartFor(field2));
 
 		// ensure that the editpart parents also returns the singleton instance
 		//
@@ -239,8 +270,9 @@ public class EditpartsTest {
 	}
 
 	/**
-	 * Creates an ui model without the use of an emf model, but afterwards tests whether the emf model was internally
-	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}
+	 * Creates an ui model without the use of an emf model, but afterwards tests
+	 * whether the emf model was internally prepared properly. The uri of the
+	 * orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -258,24 +290,31 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewsetEditPart = editpartManager.createEditpart(selector, IUiViewSetEditpart.class);
+		IUiViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
+				selector, IUiViewSetEditpart.class);
 		// view1
-		IUiViewEditpart view1Editpart = editpartManager.createEditpart(selector, IUiViewEditpart.class);
+		IUiViewEditpart view1Editpart = editpartManager.createEditpart(
+				selector, IUiViewEditpart.class);
 		viewsetEditPart.addView(view1Editpart);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = editpartManager.createEditpart(selector, IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout1Editpart = editpartManager.createEditpart(
+				selector, IUiLayoutEditpart.class);
 		view1Editpart.setContent(layout1Editpart);
 		// field1
-		IUiFieldEditpart field1Editpart = editpartManager.createEditpart(selector, IUiFieldEditpart.class);
+		IUiFieldEditpart field1Editpart = editpartManager.createEditpart(
+				selector, IUiFieldEditpart.class);
 		layout1Editpart.addElement(field1Editpart);
 		// view 2
-		IUiViewEditpart view2Editpart = editpartManager.createEditpart(selector, IUiViewEditpart.class);
+		IUiViewEditpart view2Editpart = editpartManager.createEditpart(
+				selector, IUiViewEditpart.class);
 		viewsetEditPart.addView(view2Editpart);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(selector, IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				selector, IUiLayoutEditpart.class);
 		view2Editpart.setContent(layout2Editpart);
 		// field2
-		IUiFieldEditpart field2Editpart = editpartManager.createEditpart(selector, IUiFieldEditpart.class);
+		IUiFieldEditpart field2Editpart = editpartManager.createEditpart(
+				selector, IUiFieldEditpart.class);
 		layout2Editpart.addElement(field2Editpart);
 
 		YUiViewSet viewSet = (YUiViewSet) viewsetEditPart.getModel();
@@ -300,30 +339,42 @@ public class EditpartsTest {
 		// TODO should views added to a orphan resource?
 		// // test the uris of the model elements
 		// //
-		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, viewSet.eResource().getURI()
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// viewSet.eResource().getURI()
 		// .toString());
 		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
 		// view1.eResource().getURI().toString());
-		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, layout1.eResource().getURI()
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// layout1.eResource().getURI()
 		// .toString());
 		// Assert
-		// .assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, field1.eResource().getURI().toString());
+		// .assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// field1.eResource().getURI().toString());
 		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
 		// view2.eResource().getURI().toString());
-		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, layout2.eResource().getURI()
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// layout2.eResource().getURI()
 		// .toString());
 		// Assert
-		// .assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, field2.eResource().getURI().toString());
+		// .assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// field2.eResource().getURI().toString());
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(viewsetEditPart, UiElementEditpart.findEditPartFor(viewSet));
-		Assert.assertSame(view1Editpart, UiElementEditpart.findEditPartFor(view1));
-		Assert.assertSame(layout1Editpart, UiElementEditpart.findEditPartFor(layout1));
-		Assert.assertSame(field1Editpart, UiElementEditpart.findEditPartFor(field1));
-		Assert.assertSame(view2Editpart, UiElementEditpart.findEditPartFor(view2));
-		Assert.assertSame(layout2Editpart, UiElementEditpart.findEditPartFor(layout2));
-		Assert.assertSame(field2Editpart, UiElementEditpart.findEditPartFor(field2));
+		Assert.assertSame(viewsetEditPart,
+				UiElementEditpart.findEditPartFor(viewSet));
+		Assert.assertSame(view1Editpart,
+				UiElementEditpart.findEditPartFor(view1));
+		Assert.assertSame(layout1Editpart,
+				UiElementEditpart.findEditPartFor(layout1));
+		Assert.assertSame(field1Editpart,
+				UiElementEditpart.findEditPartFor(field1));
+		Assert.assertSame(view2Editpart,
+				UiElementEditpart.findEditPartFor(view2));
+		Assert.assertSame(layout2Editpart,
+				UiElementEditpart.findEditPartFor(layout2));
+		Assert.assertSame(field2Editpart,
+				UiElementEditpart.findEditPartFor(field2));
 
 		// ensure that the editpartManager also returns the singleton instance
 		//
@@ -371,7 +422,8 @@ public class EditpartsTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getParent_WithEMFModel() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
 
@@ -399,19 +451,24 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		// view1
 		IUiViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart.getContent();
+		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart
+				.getContent();
 		// field1
-		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart.getElements().get(0);
+		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart
+				.getElements().get(0);
 		// view 2
 		IUiViewEditpart view2Editpart = viewSetEditPart.getViews().get(1);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart.getContent();
+		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart
+				.getContent();
 		// field2
-		IUiFieldEditpart field2Editpart = (IUiFieldEditpart) layout2Editpart.getElements().get(0);
+		IUiFieldEditpart field2Editpart = (IUiFieldEditpart) layout2Editpart
+				.getElements().get(0);
 
 		// ensure that the eObject of the edit part is the same
 		// as the eObject from the ui model
@@ -446,24 +503,31 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewsetEditPart = editpartManager.createEditpart(selector, IUiViewSetEditpart.class);
+		IUiViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
+				selector, IUiViewSetEditpart.class);
 		// view1
-		IUiViewEditpart view1Editpart = editpartManager.createEditpart(selector, IUiViewEditpart.class);
+		IUiViewEditpart view1Editpart = editpartManager.createEditpart(
+				selector, IUiViewEditpart.class);
 		viewsetEditPart.addView(view1Editpart);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = editpartManager.createEditpart(selector, IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout1Editpart = editpartManager.createEditpart(
+				selector, IUiLayoutEditpart.class);
 		view1Editpart.setContent(layout1Editpart);
 		// field1
-		IUiFieldEditpart field1Editpart = editpartManager.createEditpart(selector, IUiFieldEditpart.class);
+		IUiFieldEditpart field1Editpart = editpartManager.createEditpart(
+				selector, IUiFieldEditpart.class);
 		layout1Editpart.addElement(field1Editpart);
 		// view 2
-		IUiViewEditpart view2Editpart = editpartManager.createEditpart(selector, IUiViewEditpart.class);
+		IUiViewEditpart view2Editpart = editpartManager.createEditpart(
+				selector, IUiViewEditpart.class);
 		viewsetEditPart.addView(view2Editpart);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(selector, IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				selector, IUiLayoutEditpart.class);
 		view2Editpart.setContent(layout2Editpart);
 		// field2
-		IUiFieldEditpart field2Editpart = editpartManager.createEditpart(selector, IUiFieldEditpart.class);
+		IUiFieldEditpart field2Editpart = editpartManager.createEditpart(
+				selector, IUiFieldEditpart.class);
 		layout2Editpart.addElement(field2Editpart);
 
 		// check the parents of the edit parts
@@ -490,7 +554,8 @@ public class EditpartsTest {
 	@Test
 	public void test_getView_WithEMFModel() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
 
@@ -518,19 +583,24 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		// view1
 		IUiViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart.getContent();
+		IUiLayoutEditpart layout1Editpart = (IUiLayoutEditpart) view1Editpart
+				.getContent();
 		// field1
-		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart.getElements().get(0);
+		IUiFieldEditpart field1Editpart = (IUiFieldEditpart) layout1Editpart
+				.getElements().get(0);
 		// view 2
 		IUiViewEditpart view2Editpart = viewSetEditPart.getViews().get(1);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart.getContent();
+		IUiLayoutEditpart layout2Editpart = (IUiLayoutEditpart) view2Editpart
+				.getContent();
 		// field2
-		IUiFieldEditpart field2Editpart = (IUiFieldEditpart) layout2Editpart.getElements().get(0);
+		IUiFieldEditpart field2Editpart = (IUiFieldEditpart) layout2Editpart
+				.getElements().get(0);
 
 		// checks that all the edit parts are returning the proper view
 		//
@@ -564,24 +634,31 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiViewSetEditpart viewsetEditPart = editpartManager.createEditpart(selector, IUiViewSetEditpart.class);
+		IUiViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
+				selector, IUiViewSetEditpart.class);
 		// view1
-		IUiViewEditpart view1Editpart = editpartManager.createEditpart(selector, IUiViewEditpart.class);
+		IUiViewEditpart view1Editpart = editpartManager.createEditpart(
+				selector, IUiViewEditpart.class);
 		viewsetEditPart.addView(view1Editpart);
 		// layout1
-		IUiLayoutEditpart layout1Editpart = editpartManager.createEditpart(selector, IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout1Editpart = editpartManager.createEditpart(
+				selector, IUiLayoutEditpart.class);
 		view1Editpart.setContent(layout1Editpart);
 		// field1
-		IUiFieldEditpart field1Editpart = editpartManager.createEditpart(selector, IUiFieldEditpart.class);
+		IUiFieldEditpart field1Editpart = editpartManager.createEditpart(
+				selector, IUiFieldEditpart.class);
 		layout1Editpart.addElement(field1Editpart);
 		// view 2
-		IUiViewEditpart view2Editpart = editpartManager.createEditpart(selector, IUiViewEditpart.class);
+		IUiViewEditpart view2Editpart = editpartManager.createEditpart(
+				selector, IUiViewEditpart.class);
 		viewsetEditPart.addView(view2Editpart);
 		// layout2
-		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(selector, IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				selector, IUiLayoutEditpart.class);
 		view2Editpart.setContent(layout2Editpart);
 		// field2
-		IUiFieldEditpart field2Editpart = editpartManager.createEditpart(selector, IUiFieldEditpart.class);
+		IUiFieldEditpart field2Editpart = editpartManager.createEditpart(
+				selector, IUiFieldEditpart.class);
 		layout2Editpart.addElement(field2Editpart);
 
 		// checks that all the edit parts are returning the proper view
@@ -608,19 +685,22 @@ public class EditpartsTest {
 
 	/**
 	 * Tests that only one editpart instance is created for one model instance.<br>
-	 * It's the same as {@link #test_SingletonEdipartPerEObjectInstance()} but the editpartManager.getEditpart(object)
-	 * first accesses the editpart. Afterwards it is determined by the edit parts parent.
+	 * It's the same as {@link #test_SingletonEdipartPerEObjectInstance()} but
+	 * the editpartManager.getEditpart(object) first accesses the editpart.
+	 * Afterwards it is determined by the edit parts parent.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
 	public void test_ExtensionModel() {
 		// END SUPRESS CATCH EXCEPTION
-		YUiTextField textField = UimodelExtensionFactory.eINSTANCE.createYUiTextField();
+		YUiTextField textField = UimodelExtensionFactory.eINSTANCE
+				.createYUiTextField();
 
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiEmbeddableEditpart textEditPart = editpartManager.getEditpart(textField);
+		IUiEmbeddableEditpart textEditPart = editpartManager
+				.getEditpart(textField);
 
 		// ensure that the eObject of the edit part is the same
 		// as the eObject from the ui model
@@ -629,7 +709,8 @@ public class EditpartsTest {
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(textEditPart, UiElementEditpart.findEditPartFor(textField));
+		Assert.assertSame(textEditPart,
+				UiElementEditpart.findEditPartFor(textField));
 
 		// ensure that the editpart parents also returns the singleton instance
 		//
@@ -637,8 +718,9 @@ public class EditpartsTest {
 	}
 
 	/**
-	 * Creates an ui model without the use of an emf model, but afterwards tests whether the emf model was internally
-	 * prepared properly. The uri of the orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}.
+	 * Creates an ui model without the use of an emf model, but afterwards tests
+	 * whether the emf model was internally prepared properly. The uri of the
+	 * orphan elements is {@link IResourceManager#ORPHAN_VIEW_RESOURCE_URI}.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
 	@Test
@@ -650,7 +732,8 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IUiFieldEditpart textFieldEditPart = editpartManager.createEditpart(selector, IUiTextFieldEditpart.class);
+		IUiFieldEditpart textFieldEditPart = editpartManager.createEditpart(
+				selector, IUiTextFieldEditpart.class);
 		YUiTextField yTextField = (YUiTextField) textFieldEditPart.getModel();
 
 		// ensure that the eObject of the edit part is the same
@@ -661,16 +744,19 @@ public class EditpartsTest {
 		// TODO should views be added to an orphan resource?
 		// // test the uris of the model elements
 		// //
-		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING, yTextField.eResource().getURI()
+		// Assert.assertEquals(IResourceSetManager.ORPHAN_VIEW_RESOURCE_URI_STRING,
+		// yTextField.eResource().getURI()
 		// .toString());
 
 		// ensure that the editpart can be accessed by its model element
 		//
-		Assert.assertSame(textFieldEditPart, UiElementEditpart.findEditPartFor(yTextField));
+		Assert.assertSame(textFieldEditPart,
+				UiElementEditpart.findEditPartFor(yTextField));
 
 		// ensure that the editpartManager also returns the singleton instance
 		//
-		Assert.assertSame(textFieldEditPart, editpartManager.getEditpart(yTextField));
+		Assert.assertSame(textFieldEditPart,
+				editpartManager.getEditpart(yTextField));
 	}
 
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -681,7 +767,8 @@ public class EditpartsTest {
 		//
 		final YUiLayout yLayout = modelFactory.createYUiLayout();
 		Assert.assertNull(yLayout.getId());
-		final IUiLayoutEditpart layoutEditPart = editpartManager.getEditpart(yLayout);
+		final IUiLayoutEditpart layoutEditPart = editpartManager
+				.getEditpart(yLayout);
 		Assert.assertEquals(yLayout.getId(), layoutEditPart.getId());
 		Assert.assertNotNull(yLayout.getId());
 
@@ -697,7 +784,8 @@ public class EditpartsTest {
 		//
 		final YUiLayout yLayout2 = modelFactory.createYUiLayout();
 		yLayout2.setId("Huhuhu");
-		final IUiLayoutEditpart layoutEditPart2 = editpartManager.getEditpart(yLayout2);
+		final IUiLayoutEditpart layoutEditPart2 = editpartManager
+				.getEditpart(yLayout2);
 		Assert.assertEquals(yLayout2.getId(), layoutEditPart2.getId());
 		Assert.assertEquals("Huhuhu", yLayout2.getId());
 
@@ -711,8 +799,8 @@ public class EditpartsTest {
 
 		// Create an edit part without an model element
 		//
-		final IUiLayoutEditpart layoutEditPart3 = editpartManager.createEditpart(UiModelPackage.eNS_URI,
-			IUiLayoutEditpart.class);
+		final IUiLayoutEditpart layoutEditPart3 = editpartManager
+				.createEditpart(UiModelPackage.eNS_URI, IUiLayoutEditpart.class);
 		final YUiLayout yLayout3 = (YUiLayout) layoutEditPart3.getModel();
 		Assert.assertEquals(yLayout3.getId(), layoutEditPart3.getId());
 		Assert.assertNotNull(yLayout3.getId());
@@ -733,7 +821,8 @@ public class EditpartsTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_Dispose_Containements() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YUiViewSet viewSet = modelFactory.createYUiViewSet();
 		resource.getContents().add(viewSet);
 
@@ -760,12 +849,15 @@ public class EditpartsTest {
 
 		// access the editparts the editpartManager
 		//
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 		IUiViewEditpart view1Editpart = editpartManager.getEditpart(view1);
-		IUiLayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
+		IUiLayoutEditpart layout1Editpart = editpartManager
+				.getEditpart(layout1);
 		IUiFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
 		IUiViewEditpart view2Editpart = editpartManager.getEditpart(view2);
-		IUiLayoutEditpart layout2Editpart = editpartManager.getEditpart(layout2);
+		IUiLayoutEditpart layout2Editpart = editpartManager
+				.getEditpart(layout2);
 		IUiFieldEditpart field2Editpart = editpartManager.getEditpart(field2);
 
 		Assert.assertFalse(viewSetEditPart.isDisposed());
@@ -808,32 +900,39 @@ public class EditpartsTest {
 
 		// access the editparts the editpartManager
 		//
-		IUiViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
+		IUiViewSetEditpart viewSetEditPart = editpartManager
+				.getEditpart(viewSet);
 
 		Assert.assertEquals(2, viewSetEditPart.getViews().size());
-		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart
+				.getViews().size());
 
 		// add 3rd view by model
 		YUiView view3 = modelFactory.createYUiView();
 		viewSet.getViews().add(view3);
 		Assert.assertEquals(3, viewSetEditPart.getViews().size());
-		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart
+				.getViews().size());
 
 		// add 4th view by edit part
-		IUiViewEditpart view4Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI, IUiViewEditpart.class);
+		IUiViewEditpart view4Editpart = editpartManager.createEditpart(
+				UiModelPackage.eNS_URI, IUiViewEditpart.class);
 		viewSetEditPart.addView(view4Editpart);
 		Assert.assertEquals(4, viewSetEditPart.getViews().size());
-		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart
+				.getViews().size());
 
 		// remove 3rd view by model
 		viewSet.getViews().remove(view3);
 		Assert.assertEquals(3, viewSetEditPart.getViews().size());
-		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart
+				.getViews().size());
 
 		// remove 4rd view by edit part
 		viewSetEditPart.removeView(view4Editpart);
 		Assert.assertEquals(2, viewSetEditPart.getViews().size());
-		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart.getViews().size());
+		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart
+				.getViews().size());
 	}
 
 	/**
@@ -847,7 +946,8 @@ public class EditpartsTest {
 		// ...> layout1
 		YUiView view = modelFactory.createYUiView();
 		IUiViewEditpart viewEditPart = editpartManager.getEditpart(view);
-		NotificationObserver observer = new NotificationObserver(IUiViewEditpart.PROP_CONTENT, viewEditPart);
+		NotificationObserver observer = new NotificationObserver(
+				IUiViewEditpart.PROP_CONTENT, viewEditPart);
 
 		Assert.assertNull(view.getContent());
 		Assert.assertNull(viewEditPart.getContent());
@@ -856,21 +956,24 @@ public class EditpartsTest {
 		YUiLayout layout1 = modelFactory.createYUiLayout();
 		view.setContent(layout1);
 		Assert.assertSame(layout1, view.getContent());
-		Assert.assertSame(editpartManager.getEditpart(layout1), viewEditPart.getContent());
+		Assert.assertSame(editpartManager.getEditpart(layout1),
+				viewEditPart.getContent());
 		Assert.assertTrue(observer.isCalled());
 		Assert.assertNull(observer.getEvent().getOldValue());
-		Assert.assertEquals(viewEditPart.getContent(), observer.getEvent().getNewValue());
+		Assert.assertEquals(viewEditPart.getContent(), observer.getEvent()
+				.getNewValue());
 
 		// set other layout by edit part
 		observer.reset();
 
-		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI,
-			IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				UiModelPackage.eNS_URI, IUiLayoutEditpart.class);
 		viewEditPart.setContent(layout2Editpart);
 		Assert.assertSame(layout2Editpart.getModel(), view.getContent());
 		Assert.assertSame(layout2Editpart, viewEditPart.getContent());
 		Assert.assertTrue(observer.isCalled());
-		Assert.assertEquals(editpartManager.getEditpart(layout1), observer.getEvent().getOldValue());
+		Assert.assertEquals(editpartManager.getEditpart(layout1), observer
+				.getEvent().getOldValue());
 		Assert.assertEquals(layout2Editpart, observer.getEvent().getNewValue());
 	}
 
@@ -893,33 +996,39 @@ public class EditpartsTest {
 
 		// access the editparts by the editpartManager
 		//
-		IUiLayoutEditpart rootLayoutEditPart = editpartManager.getEditpart(rootLayout);
+		IUiLayoutEditpart rootLayoutEditPart = editpartManager
+				.getEditpart(rootLayout);
 
 		Assert.assertEquals(2, rootLayoutEditPart.getElements().size());
-		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart
+				.getElements().size());
 
 		// add 3rd field by model
 		YUiField field3 = modelFactory.createYUiField();
 		rootLayout.getElements().add(field3);
 		Assert.assertEquals(3, rootLayoutEditPart.getElements().size());
-		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart
+				.getElements().size());
 
 		// add 4th layout by edit part
-		IUiLayoutEditpart layout4Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI,
-			IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout4Editpart = editpartManager.createEditpart(
+				UiModelPackage.eNS_URI, IUiLayoutEditpart.class);
 		rootLayoutEditPart.addElement(layout4Editpart);
 		Assert.assertEquals(4, rootLayoutEditPart.getElements().size());
-		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart
+				.getElements().size());
 
 		// remove 3rd layout by model
 		rootLayout.getElements().remove(field3);
 		Assert.assertEquals(3, rootLayoutEditPart.getElements().size());
-		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart
+				.getElements().size());
 
 		// remove 4rd layout by edit part
 		rootLayoutEditPart.removeElement(layout4Editpart);
 		Assert.assertEquals(2, rootLayoutEditPart.getElements().size());
-		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart.getElements().size());
+		Assert.assertEquals(rootLayout.getElements().size(), rootLayoutEditPart
+				.getElements().size());
 	}
 
 	/**
@@ -931,7 +1040,8 @@ public class EditpartsTest {
 		// END SUPRESS CATCH EXCEPTION
 		YUiView view = modelFactory.createYUiView();
 		IUiViewEditpart viewEditPart = editpartManager.getEditpart(view);
-		NotificationObserver observer = new NotificationObserver(IUiViewEditpart.PROP_CONTENT, viewEditPart);
+		NotificationObserver observer = new NotificationObserver(
+				IUiViewEditpart.PROP_CONTENT, viewEditPart);
 		Assert.assertFalse(observer.isCalled());
 
 		// core test
@@ -939,7 +1049,8 @@ public class EditpartsTest {
 		observer.reset();
 		Assert.assertFalse(observer.isCalled());
 
-		observer.propertyChange(new PropertyChangeEvent(this, "Test", null, null));
+		observer.propertyChange(new PropertyChangeEvent(this, "Test", null,
+				null));
 		Assert.assertTrue(observer.isCalled());
 
 		observer.reset();
@@ -957,8 +1068,8 @@ public class EditpartsTest {
 		observer.reset();
 		Assert.assertFalse(observer.isCalled());
 
-		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(UiModelPackage.eNS_URI,
-			IUiLayoutEditpart.class);
+		IUiLayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				UiModelPackage.eNS_URI, IUiLayoutEditpart.class);
 		viewEditPart.setContent(layout2Editpart);
 		Assert.assertTrue(observer.isCalled());
 	}
@@ -1014,7 +1125,8 @@ public class EditpartsTest {
 		private PropertyChangeEvent event;
 
 		public NotificationObserver(String property, IUiElementEditpart editpart) {
-			((UiElementEditpart<?>) editpart).addPropertyChangeListener(property, this);
+			((UiElementEditpart<?>) editpart).addPropertyChangeListener(
+					property, this);
 		}
 
 		@Override
@@ -1075,12 +1187,12 @@ public class EditpartsTest {
 		}
 
 		@Override
-		public IValueBean getValueBean(String selector) {
+		public IValueBean getBean(String selector) {
 			return null;
 		}
 
 		@Override
-		public void registerValueBean(String selector, IValueBean bean) {
+		public void registerBean(String selector, IValueBean bean) {
 		}
 
 		@Override
@@ -1094,8 +1206,8 @@ public class EditpartsTest {
 		}
 
 		@Override
-		public void render(String presentationURI, Object rootLayout, Map<String, Object> parameter)
-			throws ContextException {
+		public void render(String presentationURI, Object rootLayout,
+				Map<String, Object> parameter) throws ContextException {
 
 		}
 
@@ -1105,24 +1217,18 @@ public class EditpartsTest {
 		}
 
 		@Override
-		public void registerPresentation(String id,
-				IWidgetPresentation<?> widget) throws RuntimeException {
-			
-		}
-
-		@Override
-		public void unregisterPresentation(String id) {
-			
-		}
-
-		@Override
-		public <C> IWidgetPresentation<C> getPresentation(String id) {
+		public <S> S getService(String selector) {
 			return null;
 		}
 
 		@Override
-		public Set<String> getPresentationIds() {
-			return null;
+		public void registerService(String selector, Object service) {
+
+		}
+
+		@Override
+		public void unregisterService(String selector) {
+
 		}
 	}
 }

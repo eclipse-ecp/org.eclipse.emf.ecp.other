@@ -10,12 +10,14 @@
  */
 package org.eclipse.emf.ecp.ui.model.core.uimodel.impl;
 
+import java.net.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ui.model.core.uimodel.*;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelFactory;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.UiModelPackage;
 import org.eclipse.emf.ecp.ui.model.core.uimodel.YUiField;
@@ -87,6 +89,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 		switch (eDataType.getClassifierID()) {
 			case UiModelPackage.YUI_UNIT:
 				return createYUiUnitFromString(eDataType, initialValue);
+			case UiModelPackage.YUI_URI:
+				return createYUiURIFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -102,6 +106,8 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 		switch (eDataType.getClassifierID()) {
 			case UiModelPackage.YUI_UNIT:
 				return convertYUiUnitToString(eDataType, instanceValue);
+			case UiModelPackage.YUI_URI:
+				return convertYUiURIToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -165,6 +171,24 @@ public class UiModelFactoryImpl extends EFactoryImpl implements UiModelFactory {
 	 */
 	public String convertYUiUnitToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI createYUiURIFromString(EDataType eDataType, String initialValue) {
+		return (URI)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYUiURIToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

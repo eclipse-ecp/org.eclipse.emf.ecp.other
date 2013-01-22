@@ -2,9 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="extension" nsURI="http://eclipse.org/emf/emfclient/uimodel/basicExtension"
     nsPrefix="basicextension">
-  <eClassifiers xsi:type="ecore:EClass" name="YUiTextField" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTextField" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YTextDatatype"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindsTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YUiGridLayout" eSuperTypes="uimodel.ecore#//YUiLayout uimodel.ecore#//YUiSpacingable uimodel.ecore#//YUiMarginable">
@@ -124,18 +123,18 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiTable" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTable" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YTableDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiLabel" eSuperTypes="uimodel.ecore#//YUiField">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiLabel" eSuperTypes="uimodel.ecore#//YUiField uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiTextArea" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiTextArea" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YTextAreaDatatype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiCheckBox" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiCheckBox" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YCheckBoxDatatype"/>
   </eClassifiers>
@@ -145,19 +144,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiDecimalField" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiDecimalField" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YDecimalDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiNumericField" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiNumericField" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YNumericDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiComboBox" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiComboBox" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YComboBoxDatatype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YUiList" eSuperTypes="#//YUiInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YUiList" eSuperTypes="#//YUiInput uimodel.ecore#//YUiBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass datatypes.ecore#//YListDataType"/>
   </eClassifiers>
