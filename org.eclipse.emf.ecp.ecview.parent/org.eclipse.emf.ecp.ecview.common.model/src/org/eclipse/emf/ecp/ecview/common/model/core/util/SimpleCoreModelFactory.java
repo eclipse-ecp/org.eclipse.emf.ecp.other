@@ -6,7 +6,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
-public class SimpleModelFactory {
+public class SimpleCoreModelFactory {
 
 	/**
 	 * Creates an instance of {@link YView}
