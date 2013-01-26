@@ -1,0 +1,239 @@
+/**
+ * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * Florian Pirchner - initial API and implementation
+ */
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests.css;
+
+import java.awt.Composite;
+import java.awt.GridLayout;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ContextException;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.ui.core.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
+import org.eclipse.emf.ecp.ecview.ui.core.model.core.util.SimpleModelFactory;
+import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests.Activator;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Tests the CSS spacings.
+ */
+public class SpacingTests {
+
+	private SimpleModelFactory factory = new SimpleModelFactory();
+	private Display display = Display.getCurrent();
+	private Shell shell;
+
+	/**
+	 * Setup.
+	 */
+	@Before
+	public void setup() {
+		shell = new Shell(display);
+		shell.setLayout(new FillLayout());
+	}
+
+	/**
+	 * Tests the spacing.<br>
+	 * yView.setSpacing(false);
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_spacing_gridlayout_settingFalse_noCSS() {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> yView
+		YView yView = factory.createView();
+		yView.setCssClass("spacingtests");
+		YGridLayout yGridLayout = factory.createGridLayout();
+		yGridLayout.setCssClass("gridlayout");
+		yGridLayout.setSpacing(false);
+		yView.setContent(yGridLayout);
+
+		try {
+			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			renderer.render(shell, yView, null);
+		} catch (ContextException e) {
+			Assert.fail();
+		}
+
+		Composite layoutComposite = (Composite) unwrap(getControl(yGridLayout));
+		GridLayout layout = (GridLayout) layoutComposite.getLayout();
+		Assert.assertEquals(5, layout.horizontalSpacing);
+		Assert.assertEquals(5, layout.verticalSpacing);
+		Assert.assertEquals(0, layout.marginBottom);
+		Assert.assertEquals(0, layout.marginLeft);
+		Assert.assertEquals(0, layout.marginRight);
+		Assert.assertEquals(0, layout.marginTop);
+		Assert.assertEquals(5, layout.marginHeight);
+		Assert.assertEquals(5, layout.marginWidth);
+	}
+
+	/**
+	 * Tests the spacing.<br>
+	 * yView.setSpacing(true);
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_spacing_gridlayout_settingTrue_noCSS() {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> yView
+		YView yView = factory.createView();
+		yView.setCssClass("spacingtests");
+		YGridLayout yGridLayout = factory.createGridLayout();
+		yGridLayout.setCssClass("gridlayout");
+		yGridLayout.setSpacing(true);
+		yView.setContent(yGridLayout);
+
+		try {
+			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			renderer.render(shell, yView, null);
+		} catch (ContextException e) {
+			Assert.fail();
+		}
+
+		Composite layoutComposite = (Composite) unwrap(getControl(yGridLayout));
+		GridLayout layout = (GridLayout) layoutComposite.getLayout();
+		Assert.assertEquals(5, layout.horizontalSpacing);
+		Assert.assertEquals(5, layout.verticalSpacing);
+		Assert.assertEquals(0, layout.marginBottom);
+		Assert.assertEquals(0, layout.marginLeft);
+		Assert.assertEquals(0, layout.marginRight);
+		Assert.assertEquals(0, layout.marginTop);
+		Assert.assertEquals(5, layout.marginHeight);
+		Assert.assertEquals(5, layout.marginWidth);
+	}
+
+	/**
+	 * Tests the spacing.<br>
+	 * yView.setSpacing(false);<br>
+	 * createCssOptions() is used
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_spacing_gridlayout_settingFalse_withCSS() {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> yView
+		YView yView = factory.createView();
+		yView.setCssClass("spacingtests");
+		YGridLayout yGridLayout = factory.createGridLayout();
+		yGridLayout.setCssClass("gridlayout");
+		yGridLayout.setSpacing(false);
+		yView.setContent(yGridLayout);
+
+		try {
+			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			renderer.render(shell, yView, createCssOptions());
+		} catch (ContextException e) {
+			Assert.fail();
+		}
+
+		Composite layoutComposite = (Composite) unwrap(getControl(yGridLayout));
+		GridLayout layout = (GridLayout) layoutComposite.getLayout();
+
+		Assert.assertEquals(5, layout.horizontalSpacing);
+		Assert.assertEquals(5, layout.verticalSpacing);
+		Assert.assertEquals(0, layout.marginBottom);
+		Assert.assertEquals(0, layout.marginLeft);
+		Assert.assertEquals(0, layout.marginRight);
+		Assert.assertEquals(0, layout.marginTop);
+		Assert.assertEquals(5, layout.marginHeight);
+		Assert.assertEquals(5, layout.marginWidth);
+	}
+
+	/**
+	 * Tests the spacing.<br>
+	 * yView.setSpacing(true);<br>
+	 * createCssOptions() is used
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_spacing_gridlayout_settingTrue_withCSS() {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> yView
+		YView yView = factory.createView();
+		yView.setCssClass("spacingtests");
+		YGridLayout yGridLayout = factory.createGridLayout();
+		yGridLayout.setCssClass("gridlayout");
+		yGridLayout.setSpacing(true);
+		yView.setContent(yGridLayout);
+
+		try {
+			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			renderer.render(shell, yView, createCssOptions());
+		} catch (ContextException e) {
+			Assert.fail();
+		}
+
+		Composite layoutComposite = (Composite) unwrap(getControl(yGridLayout));
+		GridLayout layout = (GridLayout) layoutComposite.getLayout();
+		Assert.assertEquals(50, layout.horizontalSpacing);
+		Assert.assertEquals(60, layout.verticalSpacing);
+		Assert.assertEquals(0, layout.marginBottom);
+		Assert.assertEquals(0, layout.marginLeft);
+		Assert.assertEquals(0, layout.marginRight);
+		Assert.assertEquals(0, layout.marginTop);
+		Assert.assertEquals(5, layout.marginHeight);
+		Assert.assertEquals(5, layout.marginWidth);
+	}
+
+	/**
+	 * Unwraps the control from its parent composite.
+	 * 
+	 * @param control
+	 * @return
+	 */
+	private Control unwrap(Control control) {
+		if (control instanceof Composite) {
+			Composite composite = (Composite) control;
+			return composite.getChildren()[0];
+		}
+		return control;
+	}
+
+	/**
+	 * Returns the control for the given model element.
+	 * 
+	 * @param yView model element.
+	 * @return control
+	 */
+	protected Control getControl(YElement yView) {
+		IElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
+
+		IWidgetPresentation<Control> presentation = null;
+		if (editpart instanceof IViewEditpart) {
+			presentation = ((IViewEditpart) editpart).getPresentation();
+		} else {
+			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
+		}
+		Control widget = presentation.getWidget();
+		return widget;
+	}
+
+	/**
+	 * Creates the CSSOptions.
+	 * 
+	 * @return CSSOptions
+	 */
+	protected Map<String, Object> createCssOptions() {
+		Map<String, Object> options = new HashMap<String, Object>();
+		options.put(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES,
+			Collections.singleton(Activator.getContext().getBundle().getEntry("/theming/css/spacingTests.css")));
+		return options;
+	}
+}

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="org.eclipse.emf.ecp.ui.uimodel.core.editparts.extensioneditpartmanager">
-   <implementation class="org.eclipse.emf.ecp.ui.uimodel.core.editparts.emf.extension.impl.EditpartManager"/>
-   <service>
-      <provide interface="org.eclipse.emf.ecp.ui.uimodel.core.editparts.IEditPartManager"/>
-   </service>
-</scr:component>

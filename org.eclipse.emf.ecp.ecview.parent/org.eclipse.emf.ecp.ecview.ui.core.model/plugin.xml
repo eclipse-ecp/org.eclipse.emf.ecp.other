@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://eclipse.org/emf/ecp/ecview/core"
+            class="org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage"
+            genModel="model/core.genmodel"/>
+   </extension>
+   
+  <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://eclipse.org/emf/ecp/ecview/datatypes"
+            class="org.eclipse.emf.ecp.ecview.ui.core.model.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"/>
+   </extension>
+   
+  <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://eclipse.org/emf/ecp/ecview/extension"
+            class="org.eclipse.emf.ecp.ecview.ui.core.model.extension.ExtensionModelPackage"
+            genModel="model/extension.genmodel"/>
+   </extension>
+
+</plugin>
