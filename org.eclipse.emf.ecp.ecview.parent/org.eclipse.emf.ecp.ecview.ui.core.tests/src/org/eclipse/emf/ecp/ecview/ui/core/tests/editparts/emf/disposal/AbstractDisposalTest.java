@@ -10,8 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.disposal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.AbstractDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.junit.Assert;
 import org.junit.Test;
 

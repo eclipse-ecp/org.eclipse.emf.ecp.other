@@ -16,19 +16,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YField;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpartProvider;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpartProvider;
+import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,24 +49,31 @@ public class EditpartManagerTest {
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
-			.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-		resourceSet.getPackageRegistry().put(CoreModelPackage.eNS_URI, CoreModelPackage.eINSTANCE);
+		resourceSet
+				.getResourceFactoryRegistry()
+				.getExtensionToFactoryMap()
+				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
+						new XMIResourceFactoryImpl());
+		resourceSet.getPackageRegistry().put(CoreModelPackage.eNS_URI,
+				CoreModelPackage.eINSTANCE);
 
-		DelegatingEditPartManager manager = DelegatingEditPartManager.getInstance();
+		DelegatingEditPartManager manager = DelegatingEditPartManager
+				.getInstance();
 		manager.clear();
-		manager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
-		manager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+		manager.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
+		manager.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 	}
 
 	/**
-	 * Tests that the editpart manager always returns the same instance on calling getInstance().
+	 * Tests that the editpart manager always returns the same instance on
+	 * calling getInstance().
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getInstance() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
 		resource.getContents().add(viewSet);
 
@@ -128,7 +135,8 @@ public class EditpartManagerTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_findEditpart() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
 		resource.getContents().add(viewSet);
 
@@ -174,13 +182,15 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Tests that the findEditpart(modelObject) will find the same instance as getInstance.
+	 * Tests that the findEditpart(modelObject) will find the same instance as
+	 * getInstance.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_findEditpart_afterGetEditpart() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
 		resource.getContents().add(viewSet);
 
@@ -226,17 +236,21 @@ public class EditpartManagerTest {
 
 		// ensure that the editpartManager also finds the singleton instance
 		//
-		Assert.assertSame(viewsetEditPart, editpartManager.findEditpart(viewSet));
+		Assert.assertSame(viewsetEditPart,
+				editpartManager.findEditpart(viewSet));
 		Assert.assertSame(view1Editpart, editpartManager.findEditpart(view1));
-		Assert.assertSame(layout1Editpart, editpartManager.findEditpart(layout1));
+		Assert.assertSame(layout1Editpart,
+				editpartManager.findEditpart(layout1));
 		Assert.assertSame(field1Editpart, editpartManager.findEditpart(field1));
 		Assert.assertSame(view2Editpart, editpartManager.findEditpart(view2));
-		Assert.assertSame(layout2Editpart, editpartManager.findEditpart(layout2));
+		Assert.assertSame(layout2Editpart,
+				editpartManager.findEditpart(layout2));
 		Assert.assertSame(field2Editpart, editpartManager.findEditpart(field2));
 	}
 
 	/**
-	 * Tests that the findEditpart(modelObject) finds the edit part that was created by createEditpart.
+	 * Tests that the findEditpart(modelObject) finds the edit part that was
+	 * created by createEditpart.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -247,19 +261,26 @@ public class EditpartManagerTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(selector, IViewSetEditpart.class);
+		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
+				selector, IViewSetEditpart.class);
 		// view1
-		IViewEditpart view1Editpart = editpartManager.createEditpart(selector, IViewEditpart.class);
+		IViewEditpart view1Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		// layout1
-		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(selector, ILayoutEditpart.class);
+		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(
+				selector, ILayoutEditpart.class);
 		// field1
-		IFieldEditpart field1Editpart = editpartManager.createEditpart(selector, IFieldEditpart.class);
+		IFieldEditpart field1Editpart = editpartManager.createEditpart(
+				selector, IFieldEditpart.class);
 		// view 2
-		IViewEditpart view2Editpart = editpartManager.createEditpart(selector, IViewEditpart.class);
+		IViewEditpart view2Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		// layout2
-		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(selector, ILayoutEditpart.class);
+		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				selector, ILayoutEditpart.class);
 		// field2
-		IFieldEditpart field2Editpart = editpartManager.createEditpart(selector, IFieldEditpart.class);
+		IFieldEditpart field2Editpart = editpartManager.createEditpart(
+				selector, IFieldEditpart.class);
 
 		YViewSet viewSet = (YViewSet) viewsetEditPart.getModel();
 		YView view1 = (YView) view1Editpart.getModel();
@@ -271,24 +292,29 @@ public class EditpartManagerTest {
 
 		// ensure that the editpartManager also finds the singleton instance
 		//
-		Assert.assertSame(viewsetEditPart, editpartManager.findEditpart(viewSet));
+		Assert.assertSame(viewsetEditPart,
+				editpartManager.findEditpart(viewSet));
 		Assert.assertSame(view1Editpart, editpartManager.findEditpart(view1));
-		Assert.assertSame(layout1Editpart, editpartManager.findEditpart(layout1));
+		Assert.assertSame(layout1Editpart,
+				editpartManager.findEditpart(layout1));
 		Assert.assertSame(field1Editpart, editpartManager.findEditpart(field1));
 		Assert.assertSame(view2Editpart, editpartManager.findEditpart(view2));
-		Assert.assertSame(layout2Editpart, editpartManager.findEditpart(layout2));
+		Assert.assertSame(layout2Editpart,
+				editpartManager.findEditpart(layout2));
 		Assert.assertSame(field2Editpart, editpartManager.findEditpart(field2));
 	}
 
 	/**
-	 * Tests that no ADDITIONAL {@link IElementEditpartProvider} is registered on the model object for calling
-	 * getEditpart(modelObject). Just one for the first create.
+	 * Tests that no ADDITIONAL {@link IElementEditpartProvider} is registered
+	 * on the model object for calling getEditpart(modelObject). Just one for
+	 * the first create.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getInstance_justOneAdapterInstanceRegistered() {
 		// END SUPRESS CATCH EXCEPTION
-		Resource resource = resourceSet.createResource(URI.createURI("http://eclipse.org/emf/emfclient/uimodel"));
+		Resource resource = resourceSet.createResource(URI
+				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
 		resource.getContents().add(viewSet);
 
@@ -361,19 +387,26 @@ public class EditpartManagerTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(selector, IViewSetEditpart.class);
+		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
+				selector, IViewSetEditpart.class);
 		// view1
-		IViewEditpart view1Editpart = editpartManager.createEditpart(selector, IViewEditpart.class);
+		IViewEditpart view1Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		// layout1
-		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(selector, ILayoutEditpart.class);
+		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(
+				selector, ILayoutEditpart.class);
 		// field1
-		IFieldEditpart field1Editpart = editpartManager.createEditpart(selector, IFieldEditpart.class);
+		IFieldEditpart field1Editpart = editpartManager.createEditpart(
+				selector, IFieldEditpart.class);
 		// view 2
-		IViewEditpart view2Editpart = editpartManager.createEditpart(selector, IViewEditpart.class);
+		IViewEditpart view2Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		// layout2
-		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(selector, ILayoutEditpart.class);
+		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(
+				selector, ILayoutEditpart.class);
 		// field2
-		IFieldEditpart field2Editpart = editpartManager.createEditpart(selector, IFieldEditpart.class);
+		IFieldEditpart field2Editpart = editpartManager.createEditpart(
+				selector, IFieldEditpart.class);
 
 		Assert.assertNotNull(viewsetEditPart);
 		Assert.assertNotNull(viewsetEditPart.getModel());
@@ -392,12 +425,14 @@ public class EditpartManagerTest {
 	}
 
 	/**
-	 * Asserts that the number of added editpartProvider adapter equals the given one.
+	 * Asserts that the number of added editpartProvider adapter equals the
+	 * given one.
 	 * 
 	 * @param expectedCount
 	 * @param eObject
 	 */
-	private void assertIUiElementEditpartProviderCount(int expectedCount, EObject eObject) {
+	private void assertIUiElementEditpartProviderCount(int expectedCount,
+			EObject eObject) {
 		int count = 0;
 		for (Adapter adapter : eObject.eAdapters()) {
 			if (adapter instanceof IElementEditpartProvider) {

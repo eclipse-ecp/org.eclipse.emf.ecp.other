@@ -10,16 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
 
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.ViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +30,8 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class UiViewEditpartTest {
 
-	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
+	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
+			.getInstance();
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
@@ -39,9 +40,10 @@ public class UiViewEditpartTest {
 	@Before
 	public void setup() {
 		editpartManager.clear();
-		editpartManager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
 		editpartManager
-			.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
+		editpartManager
+				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 	}
 
 	/**
@@ -51,8 +53,8 @@ public class UiViewEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_context() {
 		// END SUPRESS CATCH EXCEPTION
-		IViewEditpart viewEditpart = (IViewEditpart) editpartManager.createEditpart(CoreModelPackage.eNS_URI,
-			IViewEditpart.class);
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
 		Assert.assertNull(viewEditpart.getContext());
 
 		ViewContext context = new ViewContext(viewEditpart);

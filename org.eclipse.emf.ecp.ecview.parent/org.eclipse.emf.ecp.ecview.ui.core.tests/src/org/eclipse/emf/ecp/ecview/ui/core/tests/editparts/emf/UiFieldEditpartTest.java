@@ -10,13 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
 
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YField;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +30,8 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class UiFieldEditpartTest {
 
-	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
+	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
+			.getInstance();
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
@@ -39,9 +40,10 @@ public class UiFieldEditpartTest {
 	@Before
 	public void setup() {
 		editpartManager.clear();
-		editpartManager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
 		editpartManager
-			.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
+		editpartManager
+				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 	}
 
 	/**

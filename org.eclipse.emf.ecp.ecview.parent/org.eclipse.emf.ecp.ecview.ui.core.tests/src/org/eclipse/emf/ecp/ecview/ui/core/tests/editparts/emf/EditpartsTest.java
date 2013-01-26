@@ -18,29 +18,29 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.beans.IValueBean;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ContextException;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.common.IResourceManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.ElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.IResourceManager;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YField;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.ExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.ExtensionModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -72,9 +72,9 @@ public class EditpartsTest {
 
 		editpartManager.clear();
 		editpartManager
-				.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
+				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
 		editpartManager
-				.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 	}
 
 	/**
@@ -114,8 +114,7 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		// view1
 		IViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
@@ -148,14 +147,12 @@ public class EditpartsTest {
 		//
 		Assert.assertSame(viewSetEditPart,
 				ElementEditpart.findEditPartFor(viewSet));
-		Assert.assertSame(view1Editpart,
-				ElementEditpart.findEditPartFor(view1));
+		Assert.assertSame(view1Editpart, ElementEditpart.findEditPartFor(view1));
 		Assert.assertSame(layout1Editpart,
 				ElementEditpart.findEditPartFor(layout1));
 		Assert.assertSame(field1Editpart,
 				ElementEditpart.findEditPartFor(field1));
-		Assert.assertSame(view2Editpart,
-				ElementEditpart.findEditPartFor(view2));
+		Assert.assertSame(view2Editpart, ElementEditpart.findEditPartFor(view2));
 		Assert.assertSame(layout2Editpart,
 				ElementEditpart.findEditPartFor(layout2));
 		Assert.assertSame(field2Editpart,
@@ -211,20 +208,17 @@ public class EditpartsTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		// view1
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		// layout1
-		ILayoutEditpart layout1Editpart = editpartManager
-				.getEditpart(layout1);
+		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 		// field1
 		IFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
 		// view 2
 		IViewEditpart view2Editpart = editpartManager.getEditpart(view2);
 		// layout2
-		ILayoutEditpart layout2Editpart = editpartManager
-				.getEditpart(layout2);
+		ILayoutEditpart layout2Editpart = editpartManager.getEditpart(layout2);
 		// field2
 		IFieldEditpart field2Editpart = editpartManager.getEditpart(field2);
 
@@ -243,14 +237,12 @@ public class EditpartsTest {
 		//
 		Assert.assertSame(viewSetEditPart,
 				ElementEditpart.findEditPartFor(viewSet));
-		Assert.assertSame(view1Editpart,
-				ElementEditpart.findEditPartFor(view1));
+		Assert.assertSame(view1Editpart, ElementEditpart.findEditPartFor(view1));
 		Assert.assertSame(layout1Editpart,
 				ElementEditpart.findEditPartFor(layout1));
 		Assert.assertSame(field1Editpart,
 				ElementEditpart.findEditPartFor(field1));
-		Assert.assertSame(view2Editpart,
-				ElementEditpart.findEditPartFor(view2));
+		Assert.assertSame(view2Editpart, ElementEditpart.findEditPartFor(view2));
 		Assert.assertSame(layout2Editpart,
 				ElementEditpart.findEditPartFor(layout2));
 		Assert.assertSame(field2Editpart,
@@ -291,8 +283,8 @@ public class EditpartsTest {
 		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
 				selector, IViewSetEditpart.class);
 		// view1
-		IViewEditpart view1Editpart = editpartManager.createEditpart(
-				selector, IViewEditpart.class);
+		IViewEditpart view1Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		viewsetEditPart.addView(view1Editpart);
 		// layout1
 		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(
@@ -303,8 +295,8 @@ public class EditpartsTest {
 				selector, IFieldEditpart.class);
 		layout1Editpart.addElement(field1Editpart);
 		// view 2
-		IViewEditpart view2Editpart = editpartManager.createEditpart(
-				selector, IViewEditpart.class);
+		IViewEditpart view2Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		viewsetEditPart.addView(view2Editpart);
 		// layout2
 		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(
@@ -361,14 +353,12 @@ public class EditpartsTest {
 		//
 		Assert.assertSame(viewsetEditPart,
 				ElementEditpart.findEditPartFor(viewSet));
-		Assert.assertSame(view1Editpart,
-				ElementEditpart.findEditPartFor(view1));
+		Assert.assertSame(view1Editpart, ElementEditpart.findEditPartFor(view1));
 		Assert.assertSame(layout1Editpart,
 				ElementEditpart.findEditPartFor(layout1));
 		Assert.assertSame(field1Editpart,
 				ElementEditpart.findEditPartFor(field1));
-		Assert.assertSame(view2Editpart,
-				ElementEditpart.findEditPartFor(view2));
+		Assert.assertSame(view2Editpart, ElementEditpart.findEditPartFor(view2));
 		Assert.assertSame(layout2Editpart,
 				ElementEditpart.findEditPartFor(layout2));
 		Assert.assertSame(field2Editpart,
@@ -449,8 +439,7 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		// view1
 		IViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
@@ -504,8 +493,8 @@ public class EditpartsTest {
 		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
 				selector, IViewSetEditpart.class);
 		// view1
-		IViewEditpart view1Editpart = editpartManager.createEditpart(
-				selector, IViewEditpart.class);
+		IViewEditpart view1Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		viewsetEditPart.addView(view1Editpart);
 		// layout1
 		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(
@@ -516,8 +505,8 @@ public class EditpartsTest {
 				selector, IFieldEditpart.class);
 		layout1Editpart.addElement(field1Editpart);
 		// view 2
-		IViewEditpart view2Editpart = editpartManager.createEditpart(
-				selector, IViewEditpart.class);
+		IViewEditpart view2Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		viewsetEditPart.addView(view2Editpart);
 		// layout2
 		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(
@@ -581,8 +570,7 @@ public class EditpartsTest {
 		// access the editparts from their parents
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		// view1
 		IViewEditpart view1Editpart = viewSetEditPart.getViews().get(0);
 		// layout1
@@ -635,8 +623,8 @@ public class EditpartsTest {
 		IViewSetEditpart viewsetEditPart = editpartManager.createEditpart(
 				selector, IViewSetEditpart.class);
 		// view1
-		IViewEditpart view1Editpart = editpartManager.createEditpart(
-				selector, IViewEditpart.class);
+		IViewEditpart view1Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		viewsetEditPart.addView(view1Editpart);
 		// layout1
 		ILayoutEditpart layout1Editpart = editpartManager.createEditpart(
@@ -647,8 +635,8 @@ public class EditpartsTest {
 				selector, IFieldEditpart.class);
 		layout1Editpart.addElement(field1Editpart);
 		// view 2
-		IViewEditpart view2Editpart = editpartManager.createEditpart(
-				selector, IViewEditpart.class);
+		IViewEditpart view2Editpart = editpartManager.createEditpart(selector,
+				IViewEditpart.class);
 		viewsetEditPart.addView(view2Editpart);
 		// layout2
 		ILayoutEditpart layout2Editpart = editpartManager.createEditpart(
@@ -797,9 +785,8 @@ public class EditpartsTest {
 
 		// Create an edit part without an model element
 		//
-		final ILayoutEditpart layoutEditPart3 = editpartManager
-				.createEditpart(CoreModelPackage.eNS_URI,
-						ILayoutEditpart.class);
+		final ILayoutEditpart layoutEditPart3 = editpartManager.createEditpart(
+				CoreModelPackage.eNS_URI, ILayoutEditpart.class);
 		final YLayout yLayout3 = (YLayout) layoutEditPart3.getModel();
 		Assert.assertEquals(yLayout3.getId(), layoutEditPart3.getId());
 		Assert.assertNotNull(yLayout3.getId());
@@ -848,15 +835,12 @@ public class EditpartsTest {
 
 		// access the editparts the editpartManager
 		//
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
-		ILayoutEditpart layout1Editpart = editpartManager
-				.getEditpart(layout1);
+		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 		IFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
 		IViewEditpart view2Editpart = editpartManager.getEditpart(view2);
-		ILayoutEditpart layout2Editpart = editpartManager
-				.getEditpart(layout2);
+		ILayoutEditpart layout2Editpart = editpartManager.getEditpart(layout2);
 		IFieldEditpart field2Editpart = editpartManager.getEditpart(field2);
 
 		Assert.assertFalse(viewSetEditPart.isDisposed());
@@ -899,8 +883,7 @@ public class EditpartsTest {
 
 		// access the editparts the editpartManager
 		//
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 
 		Assert.assertEquals(2, viewSetEditPart.getViews().size());
 		Assert.assertEquals(viewSet.getViews().size(), viewSetEditPart
@@ -1124,8 +1107,8 @@ public class EditpartsTest {
 		private PropertyChangeEvent event;
 
 		public NotificationObserver(String property, IElementEditpart editpart) {
-			((ElementEditpart<?>) editpart).addPropertyChangeListener(
-					property, this);
+			((ElementEditpart<?>) editpart).addPropertyChangeListener(property,
+					this);
 		}
 
 		@Override

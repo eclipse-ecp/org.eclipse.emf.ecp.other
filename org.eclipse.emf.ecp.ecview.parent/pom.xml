@@ -102,13 +102,16 @@
 				<!-- end P2 features -->
 
 				<!-- P2 bundles -->
-				<module>org.eclipse.emf.ecp.ecview.ui.core.model</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.core.editparts</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.core.editparts.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.common</module>
+				<module>org.eclipse.emf.ecp.ecview.common.editparts.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.common.model</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.editparts</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.editparts.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
+			
 
-
-				<module>org.eclipse.emf.ecp.ecview.ui.css.core</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.css.swt</module>
+				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.core</module>
+				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.swt</module>
 
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.example.swt.simple</module>
@@ -155,9 +158,12 @@
 				<!-- end P2 features -->
 
 				<!-- P2 bundles -->
-				<module>org.eclipse.emf.ecp.ecview.ui.core.model</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.core.editparts</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.core.editparts.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.common</module>
+				<module>org.eclipse.emf.ecp.ecview.common.editparts.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.common.model</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.editparts</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.editparts.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
 				<!-- P2 bundles -->
 			</modules>
 		</profile>

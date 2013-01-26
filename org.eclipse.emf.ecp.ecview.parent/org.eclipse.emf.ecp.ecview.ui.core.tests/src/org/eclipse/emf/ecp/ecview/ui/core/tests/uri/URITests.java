@@ -17,18 +17,18 @@ import junit.framework.Assert;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.common.ResourceManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.internal.beans.ObjectBean;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.uri.URIHelper;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.uri.ViewScope;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.uri.ViewsetScope;
+import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.ResourceManager;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
+import org.eclipse.emf.ecp.ecview.common.uri.ViewScope;
+import org.eclipse.emf.ecp.ecview.common.uri.ViewsetScope;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -60,11 +60,11 @@ public class URITests {
 		DelegatingEditPartManager manager = DelegatingEditPartManager
 				.getInstance();
 		manager.clear();
-		manager.addFactory(new EditpartManager());
+		manager.addDelegate(new EditpartManager());
 
-		IViewEditpart viewEditPart = editpartManager.createEditpart(
-				"http://eclipse.org/emf/emfclient/uimodel",
-				IViewEditpart.class);
+		IViewEditpart viewEditPart = editpartManager
+				.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
+						IViewEditpart.class);
 		IViewSetEditpart viewSetEditPart = editpartManager.createEditpart(
 				"http://eclipse.org/emf/emfclient/uimodel",
 				IViewSetEditpart.class);

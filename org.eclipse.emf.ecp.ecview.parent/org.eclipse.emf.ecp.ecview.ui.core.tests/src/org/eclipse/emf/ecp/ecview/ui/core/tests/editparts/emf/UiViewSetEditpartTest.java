@@ -10,16 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
 
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.ViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +33,8 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class UiViewSetEditpartTest {
 
-	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
+	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
+			.getInstance();
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
@@ -42,9 +43,10 @@ public class UiViewSetEditpartTest {
 	@Before
 	public void setup() {
 		editpartManager.clear();
-		editpartManager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
 		editpartManager
-			.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
+		editpartManager
+				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 	}
 
 	/**
@@ -54,8 +56,9 @@ public class UiViewSetEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_context() {
 		// END SUPRESS CATCH EXCEPTION
-		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager.createEditpart(
-			CoreModelPackage.eNS_URI, IViewSetEditpart.class);
+		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI,
+						IViewSetEditpart.class);
 		Assert.assertNull(viewSetEditpart.getContext());
 
 		ViewSetContext context = new ViewSetContext(viewSetEditpart);
@@ -76,7 +79,8 @@ public class UiViewSetEditpartTest {
 		YViewSet viewSet = modelFactory.createYViewSet();
 		YView view1 = modelFactory.createYView();
 		viewSet.getViews().add(view1);
-		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager
+				.getEditpart(viewSet);
 		Assert.assertEquals(1, viewSetEditpart.getViews().size());
 
 		// ...> viewSet
@@ -97,7 +101,8 @@ public class UiViewSetEditpartTest {
 		// ......> view2
 		// ......> view3
 		// add by edit part
-		IViewEditpart view3Editpart = editpartManager.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+		IViewEditpart view3Editpart = editpartManager.createEditpart(
+				CoreModelPackage.eNS_URI, IViewEditpart.class);
 		viewSetEditpart.addView(view3Editpart);
 		Assert.assertEquals(3, viewSetEditpart.getViews().size());
 
@@ -139,8 +144,10 @@ public class UiViewSetEditpartTest {
 		YView view1 = modelFactory.createYView();
 		YViewSet viewSet2 = modelFactory.createYViewSet();
 		viewSet1.getViews().add(view1);
-		IViewSetEditpart viewSet1Editpart = (IViewSetEditpart) editpartManager.getEditpart(viewSet1);
-		IViewSetEditpart viewSet2Editpart = (IViewSetEditpart) editpartManager.getEditpart(viewSet2);
+		IViewSetEditpart viewSet1Editpart = (IViewSetEditpart) editpartManager
+				.getEditpart(viewSet1);
+		IViewSetEditpart viewSet2Editpart = (IViewSetEditpart) editpartManager
+				.getEditpart(viewSet2);
 		Assert.assertEquals(1, viewSet1Editpart.getViews().size());
 		Assert.assertEquals(0, viewSet2Editpart.getViews().size());
 
@@ -169,9 +176,11 @@ public class UiViewSetEditpartTest {
 		YView view1 = modelFactory.createYView();
 		YViewSet viewSet2 = modelFactory.createYViewSet();
 		viewSet1.getViews().add(view1);
-		IViewSetEditpart viewSet1Editpart = editpartManager.getEditpart(viewSet1);
+		IViewSetEditpart viewSet1Editpart = editpartManager
+				.getEditpart(viewSet1);
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
-		IViewSetEditpart viewSet2Editpart = editpartManager.getEditpart(viewSet2);
+		IViewSetEditpart viewSet2Editpart = editpartManager
+				.getEditpart(viewSet2);
 		Assert.assertEquals(1, viewSet1Editpart.getViews().size());
 		Assert.assertEquals(0, viewSet2Editpart.getViews().size());
 
@@ -194,7 +203,8 @@ public class UiViewSetEditpartTest {
 		// END SUPRESS CATCH EXCEPTION
 		YViewSet viewSet1 = modelFactory.createYViewSet();
 		YView view1 = modelFactory.createYView();
-		IViewSetEditpart viewSet1Editpart = editpartManager.getEditpart(viewSet1);
+		IViewSetEditpart viewSet1Editpart = editpartManager
+				.getEditpart(viewSet1);
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 
 		try {
@@ -219,7 +229,8 @@ public class UiViewSetEditpartTest {
 		YViewSet viewSet1 = modelFactory.createYViewSet();
 		YView view1 = modelFactory.createYView();
 		viewSet1.getViews().add(view1);
-		IViewSetEditpart viewSet1Editpart = editpartManager.getEditpart(viewSet1);
+		IViewSetEditpart viewSet1Editpart = editpartManager
+				.getEditpart(viewSet1);
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 
 		Assert.assertEquals(1, viewSet1Editpart.getViews().size());
@@ -249,7 +260,8 @@ public class UiViewSetEditpartTest {
 		YViewSet viewSet1 = modelFactory.createYViewSet();
 		YView view1 = modelFactory.createYView();
 		viewSet1.getViews().add(view1);
-		IViewSetEditpart viewSet1Editpart = editpartManager.getEditpart(viewSet1);
+		IViewSetEditpart viewSet1Editpart = editpartManager
+				.getEditpart(viewSet1);
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 
 		Assert.assertFalse(viewSet1Editpart.isDisposed());

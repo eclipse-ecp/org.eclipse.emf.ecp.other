@@ -15,31 +15,31 @@ import java.util.Map;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YField;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.beans.IValueBean;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ContextException;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.internal.beans.ObjectBean;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.DelegatingPresenterFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IPresentationFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IViewPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory;
+import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
+import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,7 +74,7 @@ public class ViewContextTest {
 		DelegatingEditPartManager manager = DelegatingEditPartManager
 				.getInstance();
 		manager.clear();
-		manager.addFactory(new EditpartManager());
+		manager.addDelegate(new EditpartManager());
 
 		IViewEditpart viewEditPart = editpartManager.createEditpart(
 				"http://eclipse.org/emf/emfclient/uimodel",
@@ -435,7 +435,7 @@ public class ViewContextTest {
 	public void test_render() {
 		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
-		presenterFactory.addFactory(new PresenterFactory());
+		presenterFactory.addDelegate(new PresenterFactory());
 		Assert.assertFalse(context.isRendered());
 
 		try {
@@ -495,7 +495,7 @@ public class ViewContextTest {
 	public void test_render_presentationURINull() {
 		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
-		presenterFactory.addFactory(new PresenterFactory());
+		presenterFactory.addDelegate(new PresenterFactory());
 		try {
 			context.render(null, new Object(), null);
 		} catch (ContextException e) {

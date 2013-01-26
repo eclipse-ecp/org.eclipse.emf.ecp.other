@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Editparts
+Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.extension.editparts
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.service.component;version="1.2.0",
+ org.slf4j
+Service-Component: OSGI-INF/editPartManager.xml, OSGI-INF/presenterFactory.xml 
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.emf.ecp.ecview.ui.core.editparts.extension
+Require-Bundle: org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1";visibility:=reexport

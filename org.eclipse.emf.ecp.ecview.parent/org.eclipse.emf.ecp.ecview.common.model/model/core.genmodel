@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.common.model/src" modelPluginID="org.eclipse.emf.ecp.ecview.common.model"
+    modelName="Core" modelPluginClass="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>core.ecore</foreignModel>
+  <genPackages prefix="CoreModel" basePackage="org.eclipse.emf.ecp.ecview.common.model"
+      disposableProviderFactory="true" ecorePackage="core.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="core.ecore#//YUnit">
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//YUnit/Pixel"/>
+      <genEnumLiterals ecoreEnumLiteral="core.ecore#//YUnit/Em"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="core.ecore#//YURI"/>
+    <genClasses image="false" ecoreClass="core.ecore#//YElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YLayout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YLayout/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YField"/>
+    <genClasses ecoreClass="core.ecore#//YView">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//YView/root"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YView/viewName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YView/content"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YViewSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YViewSet/views"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YEmbeddable">
+      <genOperations ecoreOperation="core.ecore#//YEmbeddable/getParent"/>
+      <genOperations ecoreOperation="core.ecore#//YEmbeddable/getView"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YCssAble">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YCssAble/cssClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YCssAble/cssID"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YMarginable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YMarginable/margin"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YSpacingable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YSpacingable/spacing"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YHeightable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YHeightable/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YHeightable/heightUnit"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YWidthable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YWidthable/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YWidthable/widthUnit"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YBindable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YBindable/valueBindingURIString"/>
+      <genOperations ecoreOperation="core.ecore#//YBindable/getValueBindingURI"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

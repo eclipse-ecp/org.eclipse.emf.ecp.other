@@ -13,21 +13,21 @@ package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.context;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.beans.IValueBean;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewSetContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.internal.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,16 +62,16 @@ public class ViewSetContextTest {
 		DelegatingEditPartManager manager = DelegatingEditPartManager
 				.getInstance();
 		manager.clear();
-		manager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
-		manager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+		manager.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
+		manager.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 
-		IViewEditpart viewEditPart = editpartManager.createEditpart(
-				"http://eclipse.org/emf/emfclient/uimodel",
-				IViewEditpart.class);
+		IViewEditpart viewEditPart = editpartManager
+				.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
+						IViewEditpart.class);
 		view1Context = new ViewContext(viewEditPart);
-		IViewEditpart view2EditPart = editpartManager.createEditpart(
-				"http://eclipse.org/emf/emfclient/uimodel",
-				IViewEditpart.class);
+		IViewEditpart view2EditPart = editpartManager
+				.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
+						IViewEditpart.class);
 		view2Context = new ViewContext(view2EditPart);
 
 		IViewSetEditpart viewSetEditPart = editpartManager.createEditpart(
@@ -390,8 +390,7 @@ public class ViewSetContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		IViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -450,8 +449,7 @@ public class ViewSetContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		IViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -560,8 +558,7 @@ public class ViewSetContextTest {
 		// ENDIF SUPRESS CATCH EXCEPTION
 		// ...........> field2
 		YViewSet viewSet = modelFactory.createYViewSet();
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 
 		// contexts null
 		//

@@ -10,16 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
 
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YField;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +30,8 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class UiLayoutEditpartTest {
 
-	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager.getInstance();
+	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
+			.getInstance();
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
@@ -39,9 +40,10 @@ public class UiLayoutEditpartTest {
 	@Before
 	public void setup() {
 		editpartManager.clear();
-		editpartManager.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.impl.EditpartManager());
 		editpartManager
-			.addFactory(new org.eclipse.emf.ecp.ecview.ui.core.editparts.emf.extension.impl.EditpartManager());
+				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
+		editpartManager
+				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
 	}
 
 	/**
@@ -56,7 +58,8 @@ public class UiLayoutEditpartTest {
 		YLayout layout1_1 = modelFactory.createYLayout();
 		layout1.getElements().add(layout1_1);
 		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
-		ILayoutEditpart layout1_1Editpart = editpartManager.getEditpart(layout1_1);
+		ILayoutEditpart layout1_1Editpart = editpartManager
+				.getEditpart(layout1_1);
 
 		Assert.assertEquals(1, layout1Editpart.getElements().size());
 		Assert.assertSame(layout1Editpart, layout1_1Editpart.getParent());
@@ -87,7 +90,8 @@ public class UiLayoutEditpartTest {
 		YLayout layout = modelFactory.createYLayout();
 		YField field1 = modelFactory.createYField();
 		layout.getElements().add(field1);
-		ILayoutEditpart layoutEditpart = (ILayoutEditpart) editpartManager.getEditpart(layout);
+		ILayoutEditpart layoutEditpart = (ILayoutEditpart) editpartManager
+				.getEditpart(layout);
 		Assert.assertEquals(1, layoutEditpart.getElements().size());
 		Assert.assertSame(layout, field1.getParent());
 
@@ -111,8 +115,8 @@ public class UiLayoutEditpartTest {
 		// ......> field2
 		// ......> field3
 		// add by edit part
-		IFieldEditpart field3Editpart = editpartManager
-			.createEditpart(CoreModelPackage.eNS_URI, IFieldEditpart.class);
+		IFieldEditpart field3Editpart = editpartManager.createEditpart(
+				CoreModelPackage.eNS_URI, IFieldEditpart.class);
 		layoutEditpart.addElement(field3Editpart);
 		Assert.assertSame(layoutEditpart, field3Editpart.getParent());
 		Assert.assertEquals(3, layoutEditpart.getElements().size());
@@ -160,8 +164,10 @@ public class UiLayoutEditpartTest {
 		YField field1 = modelFactory.createYField();
 		YLayout layout2 = modelFactory.createYLayout();
 		layout1.getElements().add(field1);
-		ILayoutEditpart layout1Editpart = (ILayoutEditpart) editpartManager.getEditpart(layout1);
-		ILayoutEditpart layout2Editpart = (ILayoutEditpart) editpartManager.getEditpart(layout2);
+		ILayoutEditpart layout1Editpart = (ILayoutEditpart) editpartManager
+				.getEditpart(layout1);
+		ILayoutEditpart layout2Editpart = (ILayoutEditpart) editpartManager
+				.getEditpart(layout2);
 		Assert.assertEquals(1, layout1Editpart.getElements().size());
 		Assert.assertEquals(0, layout2Editpart.getElements().size());
 		Assert.assertSame(layout1, field1.getParent());
