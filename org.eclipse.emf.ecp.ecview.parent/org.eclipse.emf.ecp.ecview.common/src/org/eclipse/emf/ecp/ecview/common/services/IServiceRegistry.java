@@ -15,6 +15,9 @@ package org.eclipse.emf.ecp.ecview.common.services;
  * Not intended to be subclassed.
  */
 public interface IServiceRegistry {
+	
+	public static final String SERVICE__BINDING_MANAGER = "org.eclipse.emf.ecp.ecview.common.services.bindingmanager";
+	
 
 	/**
 	 * Returns a service. It can be used to store transient values related to

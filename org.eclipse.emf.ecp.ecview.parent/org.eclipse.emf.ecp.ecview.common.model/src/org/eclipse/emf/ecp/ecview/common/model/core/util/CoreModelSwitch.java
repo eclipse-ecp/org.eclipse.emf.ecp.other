@@ -84,6 +84,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYEmbeddable(yLayout);
 				if (result == null) result = caseYElement(yLayout);
 				if (result == null) result = caseYCssAble(yLayout);
+				if (result == null) result = caseYVisibleable(yLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -91,8 +92,11 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				YField yField = (YField)theEObject;
 				T result = caseYField(yField);
 				if (result == null) result = caseYEmbeddable(yField);
+				if (result == null) result = caseYEditable(yField);
+				if (result == null) result = caseYEnable(yField);
 				if (result == null) result = caseYElement(yField);
 				if (result == null) result = caseYCssAble(yField);
+				if (result == null) result = caseYVisibleable(yField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,6 +121,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				T result = caseYEmbeddable(yEmbeddable);
 				if (result == null) result = caseYElement(yEmbeddable);
 				if (result == null) result = caseYCssAble(yEmbeddable);
+				if (result == null) result = caseYVisibleable(yEmbeddable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -153,6 +158,24 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YBINDABLE: {
 				YBindable yBindable = (YBindable)theEObject;
 				T result = caseYBindable(yBindable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YVISIBLEABLE: {
+				YVisibleable yVisibleable = (YVisibleable)theEObject;
+				T result = caseYVisibleable(yVisibleable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YEDITABLE: {
+				YEditable yEditable = (YEditable)theEObject;
+				T result = caseYEditable(yEditable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YENABLE: {
+				YEnable yEnable = (YEnable)theEObject;
+				T result = caseYEnable(yEnable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,6 +360,51 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYBindable(YBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YVisibleable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YVisibleable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYVisibleable(YVisibleable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEditable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEditable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEditable(YEditable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEnable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEnable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEnable(YEnable object) {
 		return null;
 	}
 

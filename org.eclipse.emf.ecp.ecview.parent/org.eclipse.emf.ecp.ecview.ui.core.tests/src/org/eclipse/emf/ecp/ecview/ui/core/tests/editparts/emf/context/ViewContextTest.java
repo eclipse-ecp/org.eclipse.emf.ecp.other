@@ -729,6 +729,11 @@ public class ViewContextTest {
 		public Object getModel() {
 			return null;
 		}
+
+		@Override
+		public IViewContext getViewContext() {
+			return null;
+		}
 	}
 
 	private static class Person {

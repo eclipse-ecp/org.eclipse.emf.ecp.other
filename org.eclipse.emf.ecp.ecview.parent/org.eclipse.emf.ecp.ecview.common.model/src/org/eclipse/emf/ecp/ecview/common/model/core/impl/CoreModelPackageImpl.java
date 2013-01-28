@@ -23,8 +23,10 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YUnit;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
 
 /**
@@ -125,6 +128,27 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EClass yBindableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yVisibleableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yEditableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yEnableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -449,6 +473,87 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYVisibleable() {
+		return yVisibleableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYVisibleable_InitialVisible() {
+		return (EAttribute)yVisibleableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYVisibleable_Visible() {
+		return (EAttribute)yVisibleableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYEditable() {
+		return yEditableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYEditable_InitialEditable() {
+		return (EAttribute)yEditableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYEditable_Editable() {
+		return (EAttribute)yEditableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYEnable() {
+		return yEnableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYEnable_InitialEnabled() {
+		return (EAttribute)yEnableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYEnable_Enabled() {
+		return (EAttribute)yEnableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUnit() {
 		return yUnitEEnum;
 	}
@@ -529,6 +634,18 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yBindableEClass = createEClass(YBINDABLE);
 		createEAttribute(yBindableEClass, YBINDABLE__VALUE_BINDING_URI_STRING);
 
+		yVisibleableEClass = createEClass(YVISIBLEABLE);
+		createEAttribute(yVisibleableEClass, YVISIBLEABLE__INITIAL_VISIBLE);
+		createEAttribute(yVisibleableEClass, YVISIBLEABLE__VISIBLE);
+
+		yEditableEClass = createEClass(YEDITABLE);
+		createEAttribute(yEditableEClass, YEDITABLE__INITIAL_EDITABLE);
+		createEAttribute(yEditableEClass, YEDITABLE__EDITABLE);
+
+		yEnableEClass = createEClass(YENABLE);
+		createEAttribute(yEnableEClass, YENABLE__INITIAL_ENABLED);
+		createEAttribute(yEnableEClass, YENABLE__ENABLED);
+
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
 
@@ -566,12 +683,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		// Add supertypes to classes
 		yLayoutEClass.getESuperTypes().add(this.getYEmbeddable());
 		yFieldEClass.getESuperTypes().add(this.getYEmbeddable());
+		yFieldEClass.getESuperTypes().add(this.getYEditable());
+		yFieldEClass.getESuperTypes().add(this.getYEnable());
 		yViewEClass.getESuperTypes().add(this.getYElement());
 		yViewEClass.getESuperTypes().add(this.getYCssAble());
 		yViewEClass.getESuperTypes().add(this.getYMarginable());
 		yViewSetEClass.getESuperTypes().add(this.getYElement());
 		yEmbeddableEClass.getESuperTypes().add(this.getYElement());
 		yEmbeddableEClass.getESuperTypes().add(this.getYCssAble());
+		yEmbeddableEClass.getESuperTypes().add(this.getYVisibleable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yElementEClass, YElement.class, "YElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -618,6 +738,18 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEAttribute(getYBindable_ValueBindingURIString(), ecorePackage.getEString(), "valueBindingURIString", null, 0, 1, YBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yBindableEClass, this.getYURI(), "getValueBindingURI", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yVisibleableEClass, YVisibleable.class, "YVisibleable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYVisibleable_InitialVisible(), ecorePackage.getEBoolean(), "initialVisible", null, 0, 1, YVisibleable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYVisibleable_Visible(), ecorePackage.getEBoolean(), "visible", null, 0, 1, YVisibleable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(yEditableEClass, YEditable.class, "YEditable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYEditable_InitialEditable(), ecorePackage.getEBoolean(), "initialEditable", null, 0, 1, YEditable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYEditable_Editable(), ecorePackage.getEBoolean(), "editable", null, 0, 1, YEditable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(yEnableEClass, YEnable.class, "YEnable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYEnable_InitialEnabled(), ecorePackage.getEBoolean(), "initialEnabled", null, 0, 1, YEnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYEnable_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 0, 1, YEnable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

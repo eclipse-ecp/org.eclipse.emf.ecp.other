@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getCssClass <em>Css Class</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getCssID <em>Css ID</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#isInitialVisible <em>Initial Visible</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#isVisible <em>Visible</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +95,43 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 	 * @ordered
 	 */
 	protected String cssID = CSS_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInitialVisible() <em>Initial Visible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitialVisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INITIAL_VISIBLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isInitialVisible() <em>Initial Visible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitialVisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean initialVisible = INITIAL_VISIBLE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isVisible() <em>Visible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VISIBLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isVisible() <em>Visible</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVisible()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean visible = VISIBLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,6 +218,48 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInitialVisible() {
+		return initialVisible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialVisible(boolean newInitialVisible) {
+		boolean oldInitialVisible = initialVisible;
+		initialVisible = newInitialVisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE, oldInitialVisible, initialVisible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isVisible() {
+		return visible;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVisible(boolean newVisible) {
+		boolean oldVisible = visible;
+		visible = newVisible;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE__VISIBLE, oldVisible, visible));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -219,6 +301,10 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 				return getCssClass();
 			case CoreModelPackage.YEMBEDDABLE__CSS_ID:
 				return getCssID();
+			case CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE:
+				return isInitialVisible();
+			case CoreModelPackage.YEMBEDDABLE__VISIBLE:
+				return isVisible();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -239,6 +325,12 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 				return;
 			case CoreModelPackage.YEMBEDDABLE__CSS_ID:
 				setCssID((String)newValue);
+				return;
+			case CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE:
+				setInitialVisible((Boolean)newValue);
+				return;
+			case CoreModelPackage.YEMBEDDABLE__VISIBLE:
+				setVisible((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -261,6 +353,12 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 			case CoreModelPackage.YEMBEDDABLE__CSS_ID:
 				setCssID(CSS_ID_EDEFAULT);
 				return;
+			case CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE:
+				setInitialVisible(INITIAL_VISIBLE_EDEFAULT);
+				return;
+			case CoreModelPackage.YEMBEDDABLE__VISIBLE:
+				setVisible(VISIBLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -279,6 +377,10 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
 			case CoreModelPackage.YEMBEDDABLE__CSS_ID:
 				return CSS_ID_EDEFAULT == null ? cssID != null : !CSS_ID_EDEFAULT.equals(cssID);
+			case CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE:
+				return initialVisible != INITIAL_VISIBLE_EDEFAULT;
+			case CoreModelPackage.YEMBEDDABLE__VISIBLE:
+				return visible != VISIBLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -297,6 +399,13 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 				default: return -1;
 			}
 		}
+		if (baseClass == YVisibleable.class) {
+			switch (derivedFeatureID) {
+				case CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE: return CoreModelPackage.YVISIBLEABLE__INITIAL_VISIBLE;
+				case CoreModelPackage.YEMBEDDABLE__VISIBLE: return CoreModelPackage.YVISIBLEABLE__VISIBLE;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -311,6 +420,13 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 			switch (baseFeatureID) {
 				case CoreModelPackage.YCSS_ABLE__CSS_CLASS: return CoreModelPackage.YEMBEDDABLE__CSS_CLASS;
 				case CoreModelPackage.YCSS_ABLE__CSS_ID: return CoreModelPackage.YEMBEDDABLE__CSS_ID;
+				default: return -1;
+			}
+		}
+		if (baseClass == YVisibleable.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YVISIBLEABLE__INITIAL_VISIBLE: return CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE;
+				case CoreModelPackage.YVISIBLEABLE__VISIBLE: return CoreModelPackage.YEMBEDDABLE__VISIBLE;
 				default: return -1;
 			}
 		}
@@ -333,6 +449,10 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 		result.append(cssClass);
 		result.append(", cssID: ");
 		result.append(cssID);
+		result.append(", initialVisible: ");
+		result.append(initialVisible);
+		result.append(", visible: ");
+		result.append(visible);
 		result.append(')');
 		return result.toString();
 	}

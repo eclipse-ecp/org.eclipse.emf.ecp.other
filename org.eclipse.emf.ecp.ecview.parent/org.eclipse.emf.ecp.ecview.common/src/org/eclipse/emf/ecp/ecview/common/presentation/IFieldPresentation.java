@@ -8,18 +8,14 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.model.core;
-
+package org.eclipse.emf.ecp.ecview.common.presentation;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YUi Field</b></em>'.
- * <!-- end-user-doc -->
- *
- *
- * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYField()
- * @model
- * @generated
+ * FieldPresentations are elements that display information but can not embed
+ * any further widgets like layouts.
+ * 
+ * @param <C>
  */
-public interface YField extends YEmbeddable, YEditable, YEnable {
-} // YUiField
+public interface IFieldPresentation<C> extends IWidgetPresentation<C> {
+
+}

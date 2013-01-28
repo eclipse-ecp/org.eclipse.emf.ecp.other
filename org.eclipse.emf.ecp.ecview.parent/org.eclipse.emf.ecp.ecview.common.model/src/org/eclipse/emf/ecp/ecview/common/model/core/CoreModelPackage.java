@@ -131,13 +131,31 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE__CSS_ID = YELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE__INITIAL_VISIBLE = YELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE__VISIBLE = YELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>YEmbeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 2;
+	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl <em>YLayout</em>}' class.
@@ -175,6 +193,24 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLAYOUT__CSS_ID = YEMBEDDABLE__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLAYOUT__INITIAL_VISIBLE = YEMBEDDABLE__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLAYOUT__VISIBLE = YEMBEDDABLE__VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -232,13 +268,67 @@ public interface CoreModelPackage extends EPackage {
 	int YFIELD__CSS_ID = YEMBEDDABLE__CSS_ID;
 
 	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__INITIAL_VISIBLE = YEMBEDDABLE__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__VISIBLE = YEMBEDDABLE__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__INITIAL_EDITABLE = YEMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__EDITABLE = YEMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__INITIAL_ENABLED = YEMBEDDABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__ENABLED = YEMBEDDABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>YField</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 0;
+	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.
@@ -555,6 +645,117 @@ public interface CoreModelPackage extends EPackage {
 	int YBINDABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYVisibleable()
+	 * @generated
+	 */
+	int YVISIBLEABLE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBLEABLE__INITIAL_VISIBLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBLEABLE__VISIBLE = 1;
+
+	/**
+	 * The number of structural features of the '<em>YVisibleable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBLEABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable <em>YEditable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEditable()
+	 * @generated
+	 */
+	int YEDITABLE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEDITABLE__INITIAL_EDITABLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEDITABLE__EDITABLE = 1;
+
+	/**
+	 * The number of structural features of the '<em>YEditable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEDITABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable <em>YEnable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEnable()
+	 * @generated
+	 */
+	int YENABLE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENABLE__INITIAL_ENABLED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENABLE__ENABLED = 1;
+
+	/**
+	 * The number of structural features of the '<em>YEnable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENABLE_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,7 +763,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 12;
+	int YUNIT = 15;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -572,7 +773,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 13;
+	int YURI = 16;
 
 
 	/**
@@ -861,6 +1062,102 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYBindable_ValueBindingURIString();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YVisibleable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable
+	 * @generated
+	 */
+	EClass getYVisibleable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable#isInitialVisible <em>Initial Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Visible</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable#isInitialVisible()
+	 * @see #getYVisibleable()
+	 * @generated
+	 */
+	EAttribute getYVisibleable_InitialVisible();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable#isVisible <em>Visible</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Visible</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable#isVisible()
+	 * @see #getYVisibleable()
+	 * @generated
+	 */
+	EAttribute getYVisibleable_Visible();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable <em>YEditable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YEditable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable
+	 * @generated
+	 */
+	EClass getYEditable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable#isInitialEditable <em>Initial Editable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Editable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable#isInitialEditable()
+	 * @see #getYEditable()
+	 * @generated
+	 */
+	EAttribute getYEditable_InitialEditable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable#isEditable <em>Editable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Editable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable#isEditable()
+	 * @see #getYEditable()
+	 * @generated
+	 */
+	EAttribute getYEditable_Editable();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable <em>YEnable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YEnable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable
+	 * @generated
+	 */
+	EClass getYEnable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable#isInitialEnabled <em>Initial Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Enabled</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable#isInitialEnabled()
+	 * @see #getYEnable()
+	 * @generated
+	 */
+	EAttribute getYEnable_InitialEnabled();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable#isEnabled <em>Enabled</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enabled</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable#isEnabled()
+	 * @see #getYEnable()
+	 * @generated
+	 */
+	EAttribute getYEnable_Enabled();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1142,6 +1439,84 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YBINDABLE__VALUE_BINDING_URI_STRING = eINSTANCE.getYBindable_ValueBindingURIString();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYVisibleable()
+		 * @generated
+		 */
+		EClass YVISIBLEABLE = eINSTANCE.getYVisibleable();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YVISIBLEABLE__INITIAL_VISIBLE = eINSTANCE.getYVisibleable_InitialVisible();
+
+		/**
+		 * The meta object literal for the '<em><b>Visible</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YVISIBLEABLE__VISIBLE = eINSTANCE.getYVisibleable_Visible();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable <em>YEditable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEditable()
+		 * @generated
+		 */
+		EClass YEDITABLE = eINSTANCE.getYEditable();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Editable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YEDITABLE__INITIAL_EDITABLE = eINSTANCE.getYEditable_InitialEditable();
+
+		/**
+		 * The meta object literal for the '<em><b>Editable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YEDITABLE__EDITABLE = eINSTANCE.getYEditable_Editable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable <em>YEnable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEnable()
+		 * @generated
+		 */
+		EClass YENABLE = eINSTANCE.getYEnable();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YENABLE__INITIAL_ENABLED = eINSTANCE.getYEnable_InitialEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YENABLE__ENABLED = eINSTANCE.getYEnable_Enabled();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

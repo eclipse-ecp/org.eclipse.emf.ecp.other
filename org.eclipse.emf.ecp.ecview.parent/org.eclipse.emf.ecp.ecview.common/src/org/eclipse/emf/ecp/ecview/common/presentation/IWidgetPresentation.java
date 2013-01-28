@@ -10,10 +10,12 @@
  */
 package org.eclipse.emf.ecp.ecview.common.presentation;
 
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 
 /**
- * Widget presenter are used to create and provide widgets that will be assembled to an UI.<br>
+ * Widget presenter are used to create and provide widgets that will be
+ * assembled to an UI.<br>
  * Implementations are UI-kit specific.
  * 
  * @param <C>
@@ -29,25 +31,29 @@ public interface IWidgetPresentation<C> extends IDisposable {
 	Object getModel();
 
 	/**
-	 * Is called to create the widget described by the presenter. If an usable instance is
-	 * present then it has to be returned. Whether the child is added to the parent depends on the underlying UI-Kit.
+	 * Is called to create the widget described by the presenter. If an usable
+	 * instance is present then it has to be returned. Whether the child is
+	 * added to the parent depends on the underlying UI-Kit.
 	 * 
-	 * @param parent the parent where the widget should be placed in
+	 * @param parent
+	 *            the parent where the widget should be placed in
 	 * @return the created widget
 	 */
 	C createWidget(Object parent);
 
 	/**
-	 * Is called to return the widget created by that presenter. If an usable instance is
-	 * present then it has to be returned. This method should never create new instances of a widget.
+	 * Is called to return the widget created by that presenter. If an usable
+	 * instance is present then it has to be returned. This method should never
+	 * create new instances of a widget.
 	 * 
 	 * @return the created widget
 	 */
 	C getWidget();
 
 	/**
-	 * The widget presenter will unrender its widget. It does not necessarily have to dispose the widget but can do so.
-	 * The kind of operation that will be processed depends on the underlying UI-Kit.
+	 * The widget presenter will unrender its widget. It does not necessarily
+	 * have to dispose the widget but can do so. The kind of operation that will
+	 * be processed depends on the underlying UI-Kit.
 	 */
 	void unrender();
 
@@ -57,5 +63,12 @@ public interface IWidgetPresentation<C> extends IDisposable {
 	 * @return rendered
 	 */
 	boolean isRendered();
+
+	/**
+	 * Returns the view context that is responsible for the given context.
+	 * 
+	 * @return
+	 */
+	IViewContext getViewContext();
 
 }

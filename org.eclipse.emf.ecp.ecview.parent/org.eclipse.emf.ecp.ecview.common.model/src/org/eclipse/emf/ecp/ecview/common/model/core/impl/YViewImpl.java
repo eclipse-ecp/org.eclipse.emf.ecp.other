@@ -328,7 +328,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	 */
 	public YViewSet getRoot() {
 		if (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT) return null;
-		return (YViewSet)eContainer();
+		return (YViewSet)eInternalContainer();
 	}
 
 	/**
