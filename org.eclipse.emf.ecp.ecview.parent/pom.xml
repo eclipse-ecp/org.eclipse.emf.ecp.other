@@ -272,4 +272,9 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<modules>
+		<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
+		<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
+		<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
+	</modules>
 </project>

@@ -8,25 +8,19 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.beans;
+package org.eclipse.emf.ecp.ecview.databinding.tests.bean.model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
- * A default implementation of value bean. Offerns {@link PropertyChangeSupport}
- * .
+ * Default implementation of value bean. Offerns {@link PropertyChangeSupport}.
  */
-public class AbstractBean implements IValueBean {
+public class AbstractBean {
 	private final PropertyChangeSupport changeSupport = new PropertyChangeSupport(
 			this);
-	private Object value;
 
 	public AbstractBean() {
-	}
-
-	public AbstractBean(Object value) {
-		this.value = value;
 	}
 
 	/**
@@ -98,15 +92,4 @@ public class AbstractBean implements IValueBean {
 		changeSupport.firePropertyChange(property, oldValue, newValue);
 	}
 
-	@Override
-	public Object getValue() {
-		return value;
-	}
-
-	@Override
-	public void setValue(Object value) {
-		// BEGIN SUPRESS CATCH EXCEPTION
-		firePropertyChanged("value", this.value, this.value = value);
-		// END SUPRESS CATCH EXCEPTION
-	}
 }

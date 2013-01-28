@@ -10,13 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.context;
 
+import java.beans.Beans;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
-import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
@@ -76,67 +76,167 @@ public class ViewContextTest {
 		manager.clear();
 		manager.addDelegate(new EditpartManager());
 
-		IViewEditpart viewEditPart = editpartManager.createEditpart(
-				"http://eclipse.org/emf/emfclient/uimodel",
-				IViewEditpart.class);
+		IViewEditpart viewEditPart = editpartManager
+				.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
+						IViewEditpart.class);
 		context = new ViewContext(viewEditPart);
 
 	}
 
 	/**
 	 * Tests {@link IViewContext#getBean(String)} and
-	 * {@link IViewContext#registerBean(String, IValueBean)}.
+	 * {@link IViewContext#setBean(String, Object)}.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_valueBeans() {
 		// END SUPRESS CATCH EXCEPTION
-		IValueBean valueBean1 = new IValueBean() {
-			@Override
-			public void setValue(Object value) {
-			}
-
-			@Override
-			public Object getValue() {
-				return null;
-			}
-		};
-
-		IValueBean valueBean2 = new IValueBean() {
-			@Override
-			public void setValue(Object value) {
-			}
-
-			@Override
-			public Object getValue() {
-				return null;
-			}
-		};
+		Object bean1 = new Object();
+		Object bean2 = new Object();
 
 		// tests root bean
 		//
-		IValueBean rootbean = context.getRootBean();
-		Assert.assertNotNull(rootbean);
-		Assert.assertSame(rootbean, context.getRootBean());
-
 		// test internal create bean
 		//
-		Assert.assertNotNull(context.getBean("bean1"));
-		Assert.assertTrue(context.getBean("bean1") instanceof ObjectBean);
+		Assert.assertNull(context.getBean("bean1"));
 
 		// tests registering bean
 		//
-		context.registerBean("bean1", valueBean1);
-		Assert.assertSame(valueBean1, context.getBean("bean1"));
+		context.setBean("bean1", bean1);
+		Assert.assertSame(bean1, context.getBean("bean1"));
 
-		context.registerBean("bean1", valueBean2);
-		Assert.assertNotSame(valueBean1, context.getBean("bean1"));
-		Assert.assertSame(valueBean2, context.getBean("bean1"));
+		context.setBean("bean1", bean2);
+		Assert.assertSame(bean2, context.getBean("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewContext#getBeanSlot(String)} and
+	 * {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_slot() {
+		// END SUPRESS CATCH EXCEPTION
+		Object bean1 = new Object();
+		Object bean2 = new Object();
+
+		// test internal create bean
+		//
+		Assert.assertNull(context.getBeanSlot("bean1"));
+		ISlot slot = context.createBeanSlot("bean1", Object.class);
+		Assert.assertNull(slot.getValue());
+
+		// tests registering bean
+		//
+		context.setBean("bean1", bean1);
+		Assert.assertSame(bean1, context.getBeanSlot("bean1").getValue());
+		Assert.assertSame(bean1, slot.getValue());
+		Assert.assertSame(slot, context.getBeanSlot("bean1"));
+
+		context.setBean("bean1", bean2);
+		Assert.assertSame(bean2, context.getBeanSlot("bean1").getValue());
+		Assert.assertSame(bean2, slot.getValue());
+		Assert.assertSame(slot, context.getBeanSlot("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewContext#createBeanSlot(String, Class)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_createSlot() {
+		// END SUPRESS CATCH EXCEPTION
+		Person person1 = new Person();
+		Person person2 = new Person();
+
+		Assert.assertNull(context.getBeanSlot("person"));
+
+		ISlot slot = context.createBeanSlot("person", Person.class);
+		Assert.assertSame(Person.class, slot.getValueType());
+
+		Assert.assertNull(slot.getValue());
+
+		// tests registering bean
+		//
+		context.setBean("person", person1);
+		Assert.assertSame(person1, slot.getValue());
+
+		context.setBean("person", person2);
+		Assert.assertSame(person2, slot.getValue());
+	}
+
+	/**
+	 * Tests {@link IViewContext#createBeanSlot(String, Class)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean() {
+		// END SUPRESS CATCH EXCEPTION
+		Person person = new Person();
+
+		Assert.assertNull(context.getBeanSlot("person"));
+
+		context.setBean("person", person);
+		ISlot slot = context.getBeanSlot("person");
+		Assert.assertSame(Person.class, slot.getValueType());
+		Assert.assertSame(person, slot.getValue());
+
+	}
+
+	/**
+	 * Tests {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean_Null_NoSlot() {
+		// END SUPRESS CATCH EXCEPTION
+
+		try {
+			context.setBean("person", null);
+			Assert.fail("not allowed to set null values if no slot exists!");
+		} catch (IllegalArgumentException e) {
+		}
+	}
+
+	/**
+	 * Tests {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean_Null() {
+		// END SUPRESS CATCH EXCEPTION
+		context.createBeanSlot("person", Person.class);
+
+		// is valid to set null value
+		context.setBean("person", null);
+	}
+
+	/**
+	 * Tests {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean_MatchingTypes() {
+
+		Person person = new Person();
+
+		// END SUPRESS CATCH EXCEPTION
+		context.createBeanSlot("person", Person.class);
+
+		// is valid to set null value
+		context.setBean("person", person);
+		context.setBean("person", null);
+		context.setBean("person", new PersonExtended());
+		try {
+			context.setBean("person", new Object());
+			Assert.fail("Type can not be set. Does not match contained type!");
+		} catch (Exception e) {
+		}
 	}
 
 	/**
 	 * Tests {@link IViewContext#getService(String)} and
-	 * {@link IViewContext#registerService(String, IValueBean)} and
+	 * {@link IViewContext#registerService(String, ISlot)} and
 	 * {@link IViewContext#unregisterService(String)}.
 	 */
 	@Test
@@ -201,14 +301,6 @@ public class ViewContextTest {
 		}
 
 		try {
-			context.getRootBean();
-			Assert.fail("must throw exception");
-			// BEGIN SUPRESS CATCH EXCEPTION
-		} catch (Exception e) {
-			// END SUPRESS CATCH EXCEPTION
-		}
-
-		try {
 			context.getRootLayout();
 			Assert.fail("must throw exception");
 			// BEGIN SUPRESS CATCH EXCEPTION
@@ -241,16 +333,7 @@ public class ViewContextTest {
 		}
 
 		try {
-			context.registerBean("test", new IValueBean() {
-				@Override
-				public void setValue(Object value) {
-				}
-
-				@Override
-				public Object getValue() {
-					return null;
-				}
-			});
+			context.setBean("test", new Object());
 			Assert.fail("must throw exception");
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -347,8 +430,7 @@ public class ViewContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		IViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -399,8 +481,7 @@ public class ViewContextTest {
 		// view1
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		// layout1
-		ILayoutEditpart layout1Editpart = editpartManager
-				.getEditpart(layout1);
+		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 		// field1
 		IFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
 
@@ -420,9 +501,9 @@ public class ViewContextTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getViewEditpart() {
 		// END SUPRESS CATCH EXCEPTION
-		IViewEditpart viewEditPart = editpartManager.createEditpart(
-				"http://eclipse.org/emf/emfclient/uimodel",
-				IViewEditpart.class);
+		IViewEditpart viewEditPart = editpartManager
+				.createEditpart("http://eclipse.org/emf/emfclient/uimodel",
+						IViewEditpart.class);
 		ViewContext context = new ViewContext(viewEditPart);
 		Assert.assertSame(viewEditPart, context.getViewEditpart());
 	}
@@ -524,8 +605,7 @@ public class ViewContextTest {
 		// access the editparts the editpartManager
 		//
 		// viewSet
-		IViewSetEditpart viewSetEditPart = editpartManager
-				.getEditpart(viewSet);
+		IViewSetEditpart viewSetEditPart = editpartManager.getEditpart(viewSet);
 		IViewEditpart view1EditPart = editpartManager.getEditpart(view1);
 		IViewEditpart view2EditPart = editpartManager.getEditpart(view2);
 
@@ -649,5 +729,29 @@ public class ViewContextTest {
 		public Object getModel() {
 			return null;
 		}
+	}
+
+	private static class Person {
+		private String name;
+
+		/**
+		 * @return the name
+		 */
+		public String getName() {
+			return name;
+		}
+
+		/**
+		 * @param name
+		 *            the name to set
+		 */
+		public void setName(String name) {
+			this.name = name;
+		}
+
+	}
+
+	private static class PersonExtended extends Person {
+
 	}
 }

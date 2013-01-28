@@ -28,6 +28,25 @@ public abstract class AccessibleScope extends AbstractScope {
 		setURISegment(schema);
 	}
 
+	/**
+	 * Replaces the fragment token that is used to access the bean in the slot.
+	 * <p>
+	 * For instance: <br>
+	 * <code>value.person.address</code> will be changed to
+	 * <code>person.address</code>
+	 * 
+	 * @param beanFragment
+	 * @return
+	 */
+	public static String removeSlotValueFragmentToken(String beanFragment) {
+		if (beanFragment.startsWith("value.")) {
+			beanFragment = beanFragment.replaceFirst("value.", "");
+		} else if (beanFragment.equals("value")) {
+			beanFragment = "";
+		}
+		return beanFragment;
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends AccessibleScope> A root() {
@@ -143,7 +162,8 @@ public abstract class AccessibleScope extends AbstractScope {
 	public String getBeanFragment() {
 		if (beanScope != null) {
 			FragmentScope fragmentScope = beanScope.getFragmentScope();
-			return fragmentScope != null ? fragmentScope.getURISegment() : "";
+			return fragmentScope != null ? fragmentScope.getFragmentContent()
+					: "";
 		}
 		return "";
 	}
@@ -159,7 +179,7 @@ public abstract class AccessibleScope extends AbstractScope {
 	}
 
 	public String toString() {
-		return getURISegment();
+		return toFullURI().toString();
 	}
 
 }

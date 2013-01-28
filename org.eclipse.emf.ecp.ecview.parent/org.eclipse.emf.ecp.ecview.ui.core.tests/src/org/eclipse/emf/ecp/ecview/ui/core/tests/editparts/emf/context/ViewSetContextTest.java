@@ -13,8 +13,7 @@ package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.context;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
-import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
@@ -84,109 +83,222 @@ public class ViewSetContextTest {
 
 	/**
 	 * Tests {@link IViewContext#getBean(String)} and
-	 * {@link IViewContext#registerBean(String, IValueBean)}.
+	 * {@link IViewContext#setBean(String, Object)}.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_valueBeans() {
 		// END SUPRESS CATCH EXCEPTION
-		IValueBean valueBean1 = new IValueBean() {
-			@Override
-			public void setValue(Object value) {
-			}
-
-			@Override
-			public Object getValue() {
-				return null;
-			}
-		};
-
-		IValueBean valueBean2 = new IValueBean() {
-			@Override
-			public void setValue(Object value) {
-			}
-
-			@Override
-			public Object getValue() {
-				return null;
-			}
-		};
+		Object bean1 = new Object();
+		Object bean2 = new Object();
 
 		// tests root bean
 		//
-		IValueBean rootbean = view1Context.getRootBean();
-		Assert.assertNotNull(rootbean);
-		Assert.assertSame(rootbean, view1Context.getRootBean());
-
 		// test internal create bean
 		//
-		Assert.assertNotNull(view1Context.getBean("bean1"));
-		Assert.assertTrue(view1Context.getBean("bean1") instanceof ObjectBean);
+		Assert.assertNull(viewSetContext.getBean("bean1"));
 
 		// tests registering bean
 		//
-		view1Context.registerBean("bean1", valueBean1);
-		Assert.assertSame(valueBean1, view1Context.getBean("bean1"));
+		viewSetContext.setBean("bean1", bean1);
+		Assert.assertSame(bean1, viewSetContext.getBean("bean1"));
 
-		view1Context.registerBean("bean1", valueBean2);
-		Assert.assertNotSame(valueBean1, view1Context.getBean("bean1"));
-		Assert.assertSame(valueBean2, view1Context.getBean("bean1"));
+		viewSetContext.setBean("bean1", bean2);
+		Assert.assertSame(bean2, viewSetContext.getBean("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewContext#getBeanSlot(String)} and
+	 * {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_slot() {
+		// END SUPRESS CATCH EXCEPTION
+		Object bean1 = new Object();
+		Object bean2 = new Object();
+
+		// tests root bean
+		//
+		// test internal create bean
+		//
+		Assert.assertNull(viewSetContext.getBeanSlot("bean1"));
+		viewSetContext.createBeanSlot("bean1", Object.class);
+		Assert.assertNotNull(viewSetContext.getBeanSlot("bean1"));
+
+		ISlot wrapper = viewSetContext.getBeanSlot("bean1");
+		Assert.assertNull(wrapper.getValue());
+
+		// tests registering bean
+		//
+		viewSetContext.setBean("bean1", bean1);
+		Assert.assertSame(bean1, viewSetContext.getBeanSlot("bean1").getValue());
+		Assert.assertSame(bean1, wrapper.getValue());
+		Assert.assertSame(wrapper, viewSetContext.getBeanSlot("bean1"));
+
+		viewSetContext.setBean("bean1", bean2);
+		Assert.assertSame(bean2, viewSetContext.getBeanSlot("bean1").getValue());
+		Assert.assertSame(bean2, wrapper.getValue());
+		Assert.assertSame(wrapper, viewSetContext.getBeanSlot("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewContext#createBeanSlot(String, Class)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_createSlot() {
+		// END SUPRESS CATCH EXCEPTION
+		Person person1 = new Person();
+		Person person2 = new Person();
+
+		Assert.assertNull(viewSetContext.getBeanSlot("person"));
+
+		ISlot slot = viewSetContext.createBeanSlot("person", Person.class);
+		Assert.assertSame(Person.class, slot.getValueType());
+
+		Assert.assertNull(slot.getValue());
+
+		// tests registering bean
+		//
+		viewSetContext.setBean("person", person1);
+		Assert.assertSame(person1, slot.getValue());
+
+		viewSetContext.setBean("person", person2);
+		Assert.assertSame(person2, slot.getValue());
+	}
+
+	/**
+	 * Tests {@link IViewContext#createBeanSlot(String, Class)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean() {
+		// END SUPRESS CATCH EXCEPTION
+		Person person = new Person();
+
+		Assert.assertNull(viewSetContext.getBeanSlot("person"));
+
+		viewSetContext.setBean("person", person);
+		ISlot slot = viewSetContext.getBeanSlot("person");
+		Assert.assertSame(Person.class, slot.getValueType());
+		Assert.assertSame(person, slot.getValue());
+
+	}
+
+	/**
+	 * Tests {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean_Null_NoSlot() {
+		// END SUPRESS CATCH EXCEPTION
+
+		try {
+			viewSetContext.setBean("person", null);
+			Assert.fail("not allowed to set null values if no slot exists!");
+		} catch (IllegalArgumentException e) {
+		}
+	}
+
+	/**
+	 * Tests {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean_Null() {
+		// END SUPRESS CATCH EXCEPTION
+		viewSetContext.createBeanSlot("person", Person.class);
+
+		// is valid to set null value
+		viewSetContext.setBean("person", null);
+	}
+
+	/**
+	 * Tests {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBean_MatchingTypes() {
+
+		Person person = new Person();
+
+		// END SUPRESS CATCH EXCEPTION
+		viewSetContext.createBeanSlot("person", Person.class);
+
+		// is valid to set null value
+		viewSetContext.setBean("person", person);
+		viewSetContext.setBean("person", null);
+		viewSetContext.setBean("person", new PersonExtended());
+		try {
+			viewSetContext.setBean("person", new Object());
+			Assert.fail("Type can not be set. Does not match contained type!");
+		} catch (Exception e) {
+		}
 	}
 
 	/**
 	 * Tests {@link IViewSetContext#getBean(String)} and
-	 * {@link IViewSetContext#registerBean(String, IValueBean)}.
+	 * {@link IViewSetContext#setBean(String, Object)}.
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_valueBeans_viewSet() {
 		// END SUPRESS CATCH EXCEPTION
-		IValueBean valueBean1 = new IValueBean() {
-			@Override
-			public void setValue(Object value) {
-			}
-
-			@Override
-			public Object getValue() {
-				return null;
-			}
-		};
-
-		IValueBean valueBean2 = new IValueBean() {
-			@Override
-			public void setValue(Object value) {
-			}
-
-			@Override
-			public Object getValue() {
-				return null;
-			}
-		};
+		Object bean1 = new Object();
+		Object bean2 = new Object();
 
 		// tests root bean
 		//
-		IValueBean rootbean = viewSetContext.getRootBean();
-		Assert.assertNotNull(rootbean);
-		Assert.assertSame(rootbean, viewSetContext.getRootBean());
-
 		// test internal create bean
 		//
-		Assert.assertNotNull(viewSetContext.getBean("bean1"));
-		Assert.assertTrue(viewSetContext.getBean("bean1") instanceof ObjectBean);
+		Assert.assertNull(viewSetContext.getBean("bean1"));
 
 		// tests registering bean
 		//
-		viewSetContext.registerBean("bean1", valueBean1);
-		Assert.assertSame(valueBean1, viewSetContext.getBean("bean1"));
+		viewSetContext.setBean("bean1", bean1);
+		Assert.assertSame(bean1, viewSetContext.getBean("bean1"));
 
-		viewSetContext.registerBean("bean1", valueBean2);
-		Assert.assertNotSame(valueBean1, viewSetContext.getBean("bean1"));
-		Assert.assertSame(valueBean2, viewSetContext.getBean("bean1"));
+		viewSetContext.setBean("bean1", bean2);
+		Assert.assertSame(bean2, viewSetContext.getBean("bean1"));
+	}
+
+	/**
+	 * Tests {@link IViewContext#getBeanSlot(String)} and
+	 * {@link IViewContext#setBean(String, Object)}.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_slot_viewSet() {
+		// END SUPRESS CATCH EXCEPTION
+		Object bean1 = new Object();
+		Object bean2 = new Object();
+
+		// tests root bean
+		//
+		// test internal create bean
+		//
+		Assert.assertNull(viewSetContext.getBeanSlot("bean1"));
+		ISlot wrapper = viewSetContext.createBeanSlot("bean1", Object.class);
+		Assert.assertNotNull(viewSetContext.getBeanSlot("bean1"));
+		Assert.assertNull(wrapper.getValue());
+
+		// tests registering bean
+		//
+		viewSetContext.setBean("bean1", bean1);
+		Assert.assertSame(bean1, viewSetContext.getBeanSlot("bean1").getValue());
+		Assert.assertSame(bean1, wrapper.getValue());
+		Assert.assertSame(wrapper, viewSetContext.getBeanSlot("bean1"));
+
+		viewSetContext.setBean("bean1", bean2);
+		Assert.assertSame(bean2, viewSetContext.getBeanSlot("bean1").getValue());
+		Assert.assertSame(bean2, wrapper.getValue());
+		Assert.assertSame(wrapper, viewSetContext.getBeanSlot("bean1"));
 	}
 
 	/**
 	 * Tests {@link IViewSetContext#getService(String)} and
-	 * {@link IViewSetContext#registerService(String, IValueBean)} and
+	 * {@link IViewSetContext#registerService(String, ISlot)} and
 	 * {@link IViewSetContext#unregisterService(String)}.
 	 */
 	@Test
@@ -251,14 +363,6 @@ public class ViewSetContextTest {
 		}
 
 		try {
-			viewSetContext.getRootBean();
-			Assert.fail("must throw exception");
-			// BEGIN SUPRESS CATCH EXCEPTION
-		} catch (Exception e) {
-			// END SUPRESS CATCH EXCEPTION
-		}
-
-		try {
 			viewSetContext.getBean("test");
 			Assert.fail("must throw exception");
 			// BEGIN SUPRESS CATCH EXCEPTION
@@ -267,16 +371,7 @@ public class ViewSetContextTest {
 		}
 
 		try {
-			viewSetContext.registerBean("test", new IValueBean() {
-				@Override
-				public void setValue(Object value) {
-				}
-
-				@Override
-				public Object getValue() {
-					return null;
-				}
-			});
+			viewSetContext.setBean("test", new Object());
 			Assert.fail("must throw exception");
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -581,4 +676,27 @@ public class ViewSetContextTest {
 		}
 	}
 
+	private static class Person {
+		private String name;
+
+		/**
+		 * @return the name
+		 */
+		public String getName() {
+			return name;
+		}
+
+		/**
+		 * @param name
+		 *            the name to set
+		 */
+		public void setName(String name) {
+			this.name = name;
+		}
+
+	}
+
+	private static class PersonExtended extends Person {
+
+	}
 }

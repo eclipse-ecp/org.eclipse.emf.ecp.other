@@ -74,6 +74,15 @@ public class FragmentScope extends AbstractScope {
 		return result;
 	}
 
+	/**
+	 * Returns the URISegment but removing the first #.
+	 * 
+	 * @return
+	 */
+	public String getFragmentContent() {
+		return getURISegment().replace("#", "");
+	}
+
 	public String toString() {
 		return toURIString();
 	}

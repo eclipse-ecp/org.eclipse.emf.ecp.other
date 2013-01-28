@@ -34,6 +34,13 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	private boolean rendered;
 
 	/**
+	 * Default Constructor for tests only! Do not use.
+	 */
+	protected ViewContext() {
+		this.viewEditpart = null;
+	}
+
+	/**
 	 * Constructor.
 	 * 
 	 * @param viewEditpart

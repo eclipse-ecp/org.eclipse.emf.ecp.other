@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.common.beans;
 
-
 /**
  * The bean registry. <br>
  * Not intended to be subclassed.
@@ -20,43 +19,68 @@ public interface IBeanRegistry {
 	public static final String ROOTBEAN_SELECTOR = "http://eclipse.org/emf/emfclient/uimodel/view/rootbean";
 
 	/**
-	 * Returns a value bean. It can be used to store transient values related to
-	 * the current view. All returned beans should offer PropertyChangeSupport.<br>
-	 * If an instance of a value bean for the given selector could be found, it
-	 * will be returned. Otherwise a new bean will be created an registered.
+	 * Returns a bean for the given selector. It can be used to store transient
+	 * values related to the current view. All returned beans should offer
+	 * PropertyChangeSupport.<br>
+	 * If an instance of a bean for the given selector could be found, it will
+	 * be returned. Otherwise <code>null</code> will be returned.
 	 * <p>
-	 * A common use case for value beans would be the sharing of a selected
-	 * value. For instance a selection event on a list may write the selection
-	 * to a value bean (selector="my.personlist.selection"). And a detail
-	 * component can observe this instance of the value bean and reflect its
-	 * values. To observe the value change eclipse data binding may be used.
+	 * A common use case for beans would be the sharing of a selected value. For
+	 * instance a selection event on a list may write the selection to the
+	 * context (selector="my.personlist.selection"). And a detail component can
+	 * observe the wrapper of the bean instance (see
+	 * {@link #getBeanSlot(String)} and reflect its values. To observe the value
+	 * change of bean wrapper eclipse data binding may be used.
 	 * 
 	 * @param selector
-	 *            The selector string to identify the value bean instance.
+	 *            The selector string to identify the bean instance.
 	 * @return valueBean
 	 */
-	public abstract IValueBean getBean(String selector);
+	public abstract Object getBean(String selector);
 
 	/**
-	 * Returns a value bean that contains the main domain model element. Every
-	 * time a new domain model is set to the returned value bean, all observing
-	 * ui elements will become notified.
+	 * Registers an instance of the bean to the context. It can be accessed by
+	 * the selector. See also {@link #getBean(String) getBean}.
+	 * <p>
+	 * If not bean slot was created for the selector, then it will be created
+	 * automatically if the bean is not <code>null</code>. If the bean is
+	 * <code>null</code> no slot can be created since its type is not known.<br>
+	 * If a bean slot exists, then the type of the bean has to be assignable to
+	 * the valuetype of the slot.
 	 * 
-	 * @return rootBean
+	 * @param selector
+	 *            The selector string to identify the bean instance.
+	 * @param bean
+	 *            The bean.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if the bean is <code>null</code> or the type of the bean is
+	 *             not assignable to the valueType of the slot.
 	 */
-	IValueBean getRootBean();
+	void setBean(String selector, Object bean);
 
 	/**
-	 * Registers an instance of value bean to the context. It can be accessed by
-	 * the selector. See also {@link IValueBean} or {@link #getBean(String)
-	 * getValueBean}.
+	 * Returns the bean slot that is used internally to store the bean. <br>
+	 * If an instance of a slot for the given selector could be found it will be
+	 * returned. Otherwise a new slot will be created and registered.
+	 * <p>
 	 * 
 	 * @param selector
 	 *            The selector string to identify the value bean instance.
-	 * @param bean
-	 *            The value bean.
+	 * @return slot
+	 */
+	public abstract ISlot getBeanSlot(String selector);
+
+	/**
+	 * Creates a new bean slot at the registry. If the slot already exists, that
+	 * instance will be returned.
+	 * 
+	 * @param selector
+	 *            The selector string to identify the bean instance.
+	 * @param type
+	 *            The type of the bean. Must not be <code>null</code>
 	 * @return
 	 */
-	void registerBean(String selector, IValueBean bean);
+	ISlot createBeanSlot(String selector, Class<?> type);
 
 }

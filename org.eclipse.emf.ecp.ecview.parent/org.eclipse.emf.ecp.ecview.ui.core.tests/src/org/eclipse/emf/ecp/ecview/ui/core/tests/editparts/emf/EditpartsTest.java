@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
@@ -1169,21 +1169,16 @@ public class EditpartsTest {
 		}
 
 		@Override
-		public IValueBean getBean(String selector) {
+		public Object getBean(String selector) {
 			return null;
 		}
 
 		@Override
-		public void registerBean(String selector, IValueBean bean) {
+		public void setBean(String selector, Object bean) {
 		}
 
 		@Override
 		public Object getRootLayout() {
-			return null;
-		}
-
-		@Override
-		public IValueBean getRootBean() {
 			return null;
 		}
 
@@ -1211,6 +1206,16 @@ public class EditpartsTest {
 		@Override
 		public void unregisterService(String selector) {
 
+		}
+
+		@Override
+		public ISlot getBeanSlot(String selector) {
+			return null;
+		}
+
+		@Override
+		public ISlot createBeanSlot(String selector, Class<?> type) {
+			return null;
 		}
 	}
 }

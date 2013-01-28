@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.databinding.tests/src"
+    modelPluginID="org.eclipse.emf.ecp.ecview.databinding.tests" modelName="Model"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="Testmodel" basePackage="org.eclipse.emf.ecp.ecview.databinding.tests.emf"
+      disposableProviderFactory="true" ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//Person">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Person/address"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Address">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Address/country"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Country">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Country/isoCode"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

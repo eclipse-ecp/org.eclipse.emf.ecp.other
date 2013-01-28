@@ -11,13 +11,14 @@
 package org.eclipse.emf.ecp.ecview.common.beans;
 
 /**
- * A subclass of {@link AbstractBean}.
+ * A subclass of {@link AbstractSlot}.
  */
-public class ObjectBean extends AbstractBean {
-	
-	public ObjectBean() {
+public class ObjectBean extends AbstractSlot {
+
+	public ObjectBean(Class<?> valueType) {
+		super(valueType);
 	}
-	
+
 	public ObjectBean(Object value) {
 		super(value);
 	}

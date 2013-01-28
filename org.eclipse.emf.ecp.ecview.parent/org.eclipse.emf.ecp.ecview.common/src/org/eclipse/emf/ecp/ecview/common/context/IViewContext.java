@@ -13,7 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.context;
 import java.util.Map;
 
 import org.eclipse.emf.ecp.ecview.common.IAccessible;
-import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 
@@ -48,7 +48,7 @@ public interface IViewContext extends IDisposable, IAccessible {
 
 	/**
 	 * Registers an instance of value bean to the context. It can be accessed by
-	 * the selector. See also {@link IValueBean} or
+	 * the selector. See also {@link ISlot} or
 	 * {@link #getValueBean(String) getValueBean}.
 	 * 
 	 * @param selector
@@ -57,7 +57,7 @@ public interface IViewContext extends IDisposable, IAccessible {
 	 *            The value bean.
 	 * @return
 	 */
-	void registerBean(String selector, IValueBean bean);
+	void setBean(String selector, Object bean);
 
 	/**
 	 * Returns the root layout where all UI elements should be child elements

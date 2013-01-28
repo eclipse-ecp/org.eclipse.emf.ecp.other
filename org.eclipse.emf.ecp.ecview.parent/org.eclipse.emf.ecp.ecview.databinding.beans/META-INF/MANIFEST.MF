@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Beans
+Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.databinding.beans
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.databinding.beans;bundle-version="1.2.200";visibility:=reexport,
+ org.eclipse.core.databinding.observable;bundle-version="1.4.1";visibility:=reexport,
+ org.eclipse.core.databinding.property;bundle-version="1.4.200";visibility:=reexport,
+ org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1",
+ org.apache.commons.beanutils;bundle-version="1.8.0";visibility:=reexport
+Service-Component: OSGI-INF/bindingDelegate.xml
+Export-Package: org.eclipse.emf.ecp.ecview.databinding.beans;x-internal:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

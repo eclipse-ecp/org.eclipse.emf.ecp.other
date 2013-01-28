@@ -17,7 +17,7 @@ import junit.framework.Assert;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -190,7 +190,8 @@ public class URITests {
 
 		// test segments
 		//
-		Assert.assertEquals("view://", viewScope.toString());
+		Assert.assertEquals("view://bean/org.my.bean#value.name",
+				viewScope.toString());
 
 		// bean
 		Assert.assertEquals("view://bean/org.my.bean", viewScope.getBeanScope()
@@ -219,7 +220,8 @@ public class URITests {
 
 		// test segments
 		//
-		Assert.assertEquals("view://", viewScope.toString());
+		Assert.assertEquals("view://service/org.my.service",
+				viewScope.toString());
 
 		Assert.assertEquals("view://service/org.my.service", viewScope
 				.getServiceScope().toString());
@@ -337,12 +339,10 @@ public class URITests {
 	public void test_view_accessBean() {
 		String name = "Name";
 		Person person = new Person(name);
-		ObjectBean wrapperBean = new ObjectBean(person);
+		context.setBean("org.my.bean", person);
 
-		context.registerBean("org.my.bean", wrapperBean);
-
-		Assert.assertSame(wrapperBean,
-				URIHelper.toScope("view://bean/org.my.bean").access(context));
+		Assert.assertSame(context.getBeanSlot("org.my.bean"), URIHelper
+				.toScope("view://bean/org.my.bean").access(context));
 		Assert.assertSame(
 				person,
 				URIHelper.toScope("view://bean/org.my.bean#value").access(
@@ -351,7 +351,72 @@ public class URITests {
 				"Name",
 				URIHelper.toScope("view://bean/org.my.bean#value.name").access(
 						context));
+	}
 
+	/**
+	 * Tests the access of beans by the bean scope.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_view_beanScope() {
+		String name = "Name";
+		Person person = new Person(name);
+		context.setBean("org.my.bean", person);
+		ISlot slot = context.getBeanSlot("org.my.bean");
+
+		Assert.assertSame(slot, URIHelper.toScope("view://bean/org.my.bean")
+				.getBeanScope().access(context));
+		Assert.assertSame(person,
+				URIHelper.toScope("view://bean/org.my.bean#value")
+						.getBeanScope().access(context));
+		Assert.assertEquals("Name",
+				URIHelper.toScope("view://bean/org.my.bean#value.name")
+						.getBeanScope().access(context));
+	}
+
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Tests the access of beans by the bean scope.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_view_beanScope_accessBean() {
+		String name = "Name";
+		Person person = new Person(name);
+		context.setBean("org.my.bean", person);
+
+		Assert.assertSame(person, URIHelper.toScope("view://bean/org.my.bean")
+				.getBeanScope().accessBean(context));
+		Assert.assertSame(person,
+				URIHelper.toScope("view://bean/org.my.bean#value")
+						.getBeanScope().accessBean(context));
+		Assert.assertEquals(person,
+				URIHelper.toScope("view://bean/org.my.bean#value.name")
+						.getBeanScope().accessBean(context));
+	}
+
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Tests the access of beans by the bean scope.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_view_beanScope_accessBeanSlot() {
+		String name = "Name";
+		Person person = new Person(name);
+		context.setBean("org.my.bean", person);
+		ISlot slot = context.getBeanSlot("org.my.bean");
+
+		Assert.assertSame(slot, URIHelper.toScope("view://bean/org.my.bean")
+				.getBeanScope().accessBeanSlot(context));
+		Assert.assertSame(slot,
+				URIHelper.toScope("view://bean/org.my.bean#value")
+						.getBeanScope().accessBeanSlot(context));
+		Assert.assertEquals(slot,
+				URIHelper.toScope("view://bean/org.my.bean#value.name")
+						.getBeanScope().accessBeanSlot(context));
 	}
 
 	// END SUPRESS CATCH EXCEPTION
@@ -492,7 +557,8 @@ public class URITests {
 
 		// test segments
 		//
-		Assert.assertEquals("viewset://", viewsetScope.toString());
+		Assert.assertEquals("viewset://bean/org.my.bean#value.name",
+				viewsetScope.toString());
 
 		// bean
 		Assert.assertEquals("viewset://bean/org.my.bean", viewsetScope
@@ -521,7 +587,8 @@ public class URITests {
 
 		// test segments
 		//
-		Assert.assertEquals("viewset://", viewsetScope.toString());
+		Assert.assertEquals("viewset://service/org.my.service",
+				viewsetScope.toString());
 
 		Assert.assertEquals("viewset://service/org.my.service", viewsetScope
 				.getServiceScope().toString());
@@ -641,14 +708,11 @@ public class URITests {
 	public void test_viewset_accessBean() {
 		String name = "Name";
 		Person person = new Person(name);
-		ObjectBean wrapperBean = new ObjectBean(person);
+		viewSetContext.setBean("org.my.bean", person);
+		ISlot slot = viewSetContext.getBeanSlot("org.my.bean");
 
-		viewSetContext.registerBean("org.my.bean", wrapperBean);
-
-		Assert.assertSame(
-				wrapperBean,
-				URIHelper.toScope("viewset://bean/org.my.bean").access(
-						viewSetContext));
+		Assert.assertSame(slot, URIHelper.toScope("viewset://bean/org.my.bean")
+				.access(viewSetContext));
 		Assert.assertSame(
 				person,
 				URIHelper.toScope("viewset://bean/org.my.bean#value").access(
@@ -656,7 +720,71 @@ public class URITests {
 		Assert.assertEquals("Name",
 				URIHelper.toScope("viewset://bean/org.my.bean#value.name")
 						.access(viewSetContext));
+	}
 
+	/**
+	 * Tests the access of beans by the bean scope.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_viewset_beanScope() {
+		String name = "Name";
+		Person person = new Person(name);
+		viewSetContext.setBean("org.my.bean", person);
+		ISlot slot = viewSetContext.getBeanSlot("org.my.bean");
+
+		Assert.assertSame(slot, URIHelper.toScope("view://bean/org.my.bean")
+				.getBeanScope().access(viewSetContext));
+		Assert.assertSame(person,
+				URIHelper.toScope("view://bean/org.my.bean#value")
+						.getBeanScope().access(viewSetContext));
+		Assert.assertEquals("Name",
+				URIHelper.toScope("view://bean/org.my.bean#value.name")
+						.getBeanScope().access(viewSetContext));
+	}
+
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Tests the access of beans by the bean scope.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_viewset_beanScope_accessBean() {
+		String name = "Name";
+		Person person = new Person(name);
+		viewSetContext.setBean("org.my.bean", person);
+		Assert.assertSame(person, URIHelper.toScope("view://bean/org.my.bean")
+				.getBeanScope().accessBean(viewSetContext));
+		Assert.assertSame(person,
+				URIHelper.toScope("view://bean/org.my.bean#value")
+						.getBeanScope().accessBean(viewSetContext));
+		Assert.assertEquals(person,
+				URIHelper.toScope("view://bean/org.my.bean#value.name")
+						.getBeanScope().accessBean(viewSetContext));
+	}
+
+	// END SUPRESS CATCH EXCEPTION
+
+	/**
+	 * Tests the access of beans by the bean scope.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_viewset_beanScope_accessBeanSlot() {
+		String name = "Name";
+		Person person = new Person(name);
+		viewSetContext.setBean("org.my.bean", person);
+		ISlot slot = viewSetContext.getBeanSlot("org.my.bean");
+
+		Assert.assertSame(slot, URIHelper.toScope("view://bean/org.my.bean")
+				.getBeanScope().accessBeanSlot(viewSetContext));
+		Assert.assertSame(slot,
+				URIHelper.toScope("view://bean/org.my.bean#value")
+						.getBeanScope().accessBeanSlot(viewSetContext));
+		Assert.assertEquals(slot,
+				URIHelper.toScope("view://bean/org.my.bean#value.name")
+						.getBeanScope().accessBeanSlot(viewSetContext));
 	}
 
 	// END SUPRESS CATCH EXCEPTION

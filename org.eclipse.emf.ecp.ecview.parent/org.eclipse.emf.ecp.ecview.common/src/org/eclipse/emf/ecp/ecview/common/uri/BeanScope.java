@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.uri;
 import java.net.URI;
 
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 
 public class BeanScope extends AbstractScope {
 
@@ -69,26 +70,49 @@ public class BeanScope extends AbstractScope {
 		if (fragment == null || fragment.equals("")) {
 			return null;
 		}
+
 		fragmentScope = new FragmentScope(this, fragment);
 		return fragmentScope;
 	}
 
 	/**
 	 * Accesses the object in the given context that is described by the uri
-	 * segment of this scope.
+	 * segment of this scope. Also delegates to fragment scope if exists.
 	 * 
 	 * @param context
 	 * @return
 	 */
 	public Object access(IBeanRegistry accessible) {
 		Object result = null;
-		Object bean = accessible.getBean(selector);
+		Object bean = accessible.getBeanSlot(selector);
 		if (fragmentScope != null) {
 			result = fragmentScope.access(bean);
 		} else {
 			result = bean;
 		}
 		return result;
+	}
+
+	/**
+	 * Accesses the bean slot in the given context and returns its value. URI
+	 * fragments are ignored.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public Object accessBean(IBeanRegistry accessible) {
+		return accessBeanSlot(accessible).getValue();
+	}
+
+	/**
+	 * Accesses the bean slot in the given context and returns it. URI fragments
+	 * are ignored.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public ISlot accessBeanSlot(IBeanRegistry accessible) {
+		return accessible.getBeanSlot(selector);
 	}
 
 	/**

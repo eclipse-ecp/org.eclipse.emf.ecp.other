@@ -11,12 +11,17 @@
 package org.eclipse.emf.ecp.ecview.common.beans;
 
 /**
- * An abstraction for a value bean. It can keep a value. The implementation should be bindable with eclipse databinding
- * and offer PropertyChangeSupport.
+ * An abstraction for a slot in the context. Slots can keep a value and maybe in
+ * future other things too. The implementation should be bindable with eclipse
+ * databinding and offer PropertyChangeSupport.
  * <p>
- * For a use case see IViewContext#getValueBean(String, Class).
+ * For a use case see IViewContext#getBeanSlot(String, Class). <br>
+ * 
+ * @noimplement Not to be implemented by clients.
  */
-public interface IValueBean {
+public interface ISlot {
+
+	public static final String PROP_VALUE = "value";
 
 	/**
 	 * Returns the given value.
@@ -28,8 +33,16 @@ public interface IValueBean {
 	/**
 	 * Sets the given value.
 	 * 
-	 * @param value The value to be set
+	 * @param value
+	 *            The value to be set
 	 */
 	void setValue(Object value);
+
+	/**
+	 * Returns the type of the value.
+	 * 
+	 * @return
+	 */
+	Class<?> getValueType();
 
 }

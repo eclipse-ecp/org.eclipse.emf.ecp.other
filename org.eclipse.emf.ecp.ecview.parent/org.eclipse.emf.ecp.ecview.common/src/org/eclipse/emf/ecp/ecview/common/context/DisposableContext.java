@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
-import org.eclipse.emf.ecp.ecview.common.beans.IValueBean;
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
@@ -31,54 +31,65 @@ public abstract class DisposableContext extends AbstractDisposable implements
 	private static final Logger logger = LoggerFactory
 			.getLogger(DisposableContext.class);
 
-	private Map<String, IValueBean> valueBeans = Collections
-			.synchronizedMap(new HashMap<String, IValueBean>());
+	private Map<String, ISlot> valueBeans = Collections
+			.synchronizedMap(new HashMap<String, ISlot>());
 
 	private Map<String, Object> services = Collections
 			.synchronizedMap(new HashMap<String, Object>());
 
 	/**
-	 * Returns a value bean. It can be used to store transient values related to
-	 * the current view. All returned beans should offer PropertyChangeSupport.<br>
-	 * If an instance of a value bean for the given selector could be found, it
-	 * will be returned. Otherwise a new bean will be created an registered.
-	 * <p>
-	 * A common use case for value beans would be the sharing of a selected
-	 * value. For instance a selection event on a list may write the selection
-	 * to a value bean (selector="my.personlist.selection"). And a detail
-	 * component can observe this instance of the value bean and reflect its
-	 * values. To observe the value change eclipse data binding may be used.
-	 * 
-	 * @param selector
-	 *            The selector string to identify the value bean instance.
-	 * @return selector
+	 * {@inheritDoc}
 	 */
-	public IValueBean getBean(String selector) {
+	public Object getBean(String selector) {
 		checkDisposed();
 
-		synchronized (valueBeans) {
-			if (!valueBeans.containsKey(selector)) {
-				registerBean(selector, new ObjectBean());
-			}
-		}
-		return valueBeans.get(selector);
+		ISlot slot = getBeanSlot(selector);
+		return slot != null ? slot.getValue() : null;
 	}
 
 	/**
-	 * Registers an instance of value bean to the context. It can be accessed by
-	 * the selector. See also {@link IValueBean} or
-	 * {@link #getValueBean(String) getValueBean}.
-	 * 
-	 * @param selector
-	 *            The selector string to identify the value bean instance.
-	 * @param bean
-	 *            The value bean.
-	 * @return
+	 * {@inheritDoc}
 	 */
-	public void registerBean(String selector, IValueBean bean) {
+	public void setBean(String selector, Object bean) {
 		checkDisposed();
+
+		ISlot slot = getBeanSlot(selector);
+		if (slot == null && bean == null) {
+			throw new IllegalArgumentException(
+					"Can not create a slot for bean that is null!");
+		}
+
+		if (slot == null) {
+			slot = createBeanSlot(selector, bean.getClass());
+		} else {
+			if (bean != null
+					&& !slot.getValueType().isAssignableFrom(bean.getClass())) {
+				throw new IllegalArgumentException(String.format(
+						"%s is not a valid class for slot with type %s", bean
+								.getClass().getName(), slot.getValueType()
+								.getName()));
+			}
+		}
+
+		valueBeans.get(selector).setValue(bean);
 		logger.debug("Bean registered: {}", selector);
-		valueBeans.put(selector, bean);
+	}
+
+	@Override
+	public ISlot getBeanSlot(String selector) {
+		checkDisposed();
+
+		return valueBeans.get(selector);
+	}
+
+	@Override
+	public ISlot createBeanSlot(String selector, Class<?> type) {
+		ISlot slot = getBeanSlot(selector);
+		if (slot == null) {
+			slot = new ObjectBean(type);
+			valueBeans.put(selector, slot);
+		}
+		return slot;
 	}
 
 	public void registerService(String selector, Object service) {
@@ -91,14 +102,6 @@ public abstract class DisposableContext extends AbstractDisposable implements
 		checkDisposed();
 		logger.debug("Service unregistered: {}", selector);
 		services.remove(selector);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public IValueBean getRootBean() {
-		checkDisposed();
-		return getBean(ROOTBEAN_SELECTOR);
 	}
 
 	@SuppressWarnings("unchecked")
