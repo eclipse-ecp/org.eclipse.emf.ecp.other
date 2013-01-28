@@ -42,6 +42,19 @@ public class BeanBindingDelegateTests {
 	}
 
 	/**
+	 * Tests the binding of bean slot.
+	 */
+	@Test
+	public void test_bindSlot() {
+		Person person = Person.newInstance("AT");
+		context.setBean("input", person);
+
+		IObservableValue value = binder.observeValue(context,
+				URI.create("view://bean/input"));
+		Assert.assertNull(value);
+	}
+
+	/**
 	 * Tests the binding of values.
 	 */
 	@Test
@@ -68,19 +81,15 @@ public class BeanBindingDelegateTests {
 	 * Tests what happens if a binding is done, but no bean slot was prepared so
 	 * far.
 	 */
+	@SuppressWarnings("unused")
 	@Test
 	public void test_bindValue_NoSlotAvailable() {
-		IObservableValue value = binder.observeValue(context,
-				URI.create("view://bean/input#value"));
-
-		changed = false;
-		value.addValueChangeListener(new IValueChangeListener() {
-			@Override
-			public void handleValueChange(ValueChangeEvent event) {
-				changed = true;
-			}
-		});
-		Assert.assertTrue(changed);
+		try {
+			IObservableValue value = binder.observeValue(context,
+					URI.create("view://bean/input#value"));
+			Assert.fail();
+		} catch (IllegalArgumentException e) {
+		}
 	}
 
 	/**
@@ -176,13 +185,6 @@ public class BeanBindingDelegateTests {
 		address.setCountry(another);
 		person.setAddress(address);
 		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-	}
-
-	@Test
-	public void test_bindValue_observeDetail() {
-		Person person = Person.newInstance("AT");
-
 	}
 
 	private static class TestRealm extends Realm {

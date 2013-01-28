@@ -42,6 +42,19 @@ public class PojoBindingDelegateTests {
 	}
 
 	/**
+	 * Tests the binding of bean slot.
+	 */
+	@Test
+	public void test_bindSlot() {
+		Person person = Person.newInstance("AT");
+		context.setBean("input", person);
+
+		IObservableValue value = binder.observeValue(context,
+				URI.create("view://bean/input"));
+		Assert.assertNull(value);
+	}
+
+	/**
 	 * Tests the binding of values.
 	 */
 	@Test
@@ -51,6 +64,7 @@ public class PojoBindingDelegateTests {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value"));
+		Assert.assertSame(person, value.getValue());
 
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
@@ -61,26 +75,22 @@ public class PojoBindingDelegateTests {
 		});
 
 		context.getBeanSlot("input").setValue(new Person());
-		Assert.assertTrue(changed);
+		Assert.assertFalse(changed);
 	}
 
 	/**
 	 * Tests what happens if a binding is done, but no bean slot was prepared so
 	 * far.
 	 */
+	@SuppressWarnings("unused")
 	@Test
 	public void test_bindValue_NoSlotAvailable() {
-		IObservableValue value = binder.observeValue(context,
-				URI.create("view://bean/input#value"));
-
-		changed = false;
-		value.addValueChangeListener(new IValueChangeListener() {
-			@Override
-			public void handleValueChange(ValueChangeEvent event) {
-				changed = true;
-			}
-		});
-		Assert.assertTrue(changed);
+		try {
+			IObservableValue value = binder.observeValue(context,
+					URI.create("view://bean/input#value"));
+			Assert.fail();
+		} catch (IllegalArgumentException e) {
+		}
 	}
 
 	/**
@@ -93,6 +103,7 @@ public class PojoBindingDelegateTests {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address"));
+		Assert.assertSame(person.getAddress(), value.getValue());
 
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
@@ -101,8 +112,11 @@ public class PojoBindingDelegateTests {
 				changed = true;
 			}
 		});
+
 		context.setBean("input", new Person());
-		Assert.assertTrue(changed);
+
+		// Pojo-Binding does not notified observables
+		Assert.assertFalse(changed);
 	}
 
 	/**
@@ -112,10 +126,10 @@ public class PojoBindingDelegateTests {
 	public void test_bindValue_nested_target() {
 		Person person = Person.newInstance("AT");
 		context.setBean("input", person);
-
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address.country.isoCode"));
-
+		Assert.assertSame("AT", value.getValue());
+		
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -125,7 +139,7 @@ public class PojoBindingDelegateTests {
 		});
 
 		person.getAddress().getCountry().setIsoCode("EN");
-		Assert.assertTrue(changed);
+		Assert.assertFalse(changed);
 	}
 
 	/**
@@ -138,7 +152,8 @@ public class PojoBindingDelegateTests {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address.country.isoCode"));
-
+		Assert.assertSame("AT", value.getValue());
+		
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -155,9 +170,12 @@ public class PojoBindingDelegateTests {
 		address.setCountry(country);
 
 		person.setAddress(address);
-		Assert.assertTrue(changed);
+		Assert.assertFalse(changed);
 	}
 
+	/**
+	 * Tests bind value of nested property
+	 */
 	@Test
 	public void test_bindValue_nested_property() {
 		Person person = Person.newInstance("AT");
@@ -176,12 +194,6 @@ public class PojoBindingDelegateTests {
 		address.setCountry(another);
 		person.setAddress(address);
 		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-	}
-
-	@Test
-	public void test_bindValue_observeDetail() {
-		Person person = Person.newInstance("AT");
 
 	}
 

@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.databinding.beans;
 import java.net.URI;
 
 import org.eclipse.core.databinding.beans.PojoObservables;
+import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
@@ -53,21 +54,33 @@ public class PojoBindingDelegate extends BaseBindingDelegate {
 			throw new IllegalArgumentException("Bean slot must be available!");
 		}
 
-		// observe master
-		//
-		IObservableValue slotObservable = PojoObservables.observeValue(realm,
-				slot, ISlot.PROP_VALUE);
+		String beanFragment = scope.getBeanFragment();
 
-		// normalize bean fragment
-		String beanFragment = AccessibleScope
-				.removeSlotValueFragmentToken(scope.getBeanFragment());
+		// if value-property was references inside the slot, then return the
+		// observable
+		if (beanFragment.equals(ISlot.PROP_VALUE)) {
+			return PojoObservables.observeValue(realm, slot, ISlot.PROP_VALUE);
+		} else {
+			// normalize bean fragment
+			beanFragment = AccessibleScope
+					.removeSlotValueFragmentToken(beanFragment);
+			if (beanFragment.equals("")) {
+				// if no bean fragment was specified, then the bean slot is
+				// addressed and it can not be observed since it is stable.
+				return null;
+			} else {
+				// observe master
+				//
+				IObservableValue slotObservable = PojoObservables.observeValue(
+						realm, slot, ISlot.PROP_VALUE);
 
-		// observe detail
-		//
-		IObservableValue observableValue = PojoObservables.observeDetailValue(
-				slotObservable, beanFragment, null);
-
-		return observableValue;
+				// observe detail
+				//
+				// from PojoObservables.observeDetailValue...
+				return PojoProperties.value(slot.getValueType(), beanFragment,
+						null).observeDetail(slotObservable);
+			}
+		}
 	}
 
 }
