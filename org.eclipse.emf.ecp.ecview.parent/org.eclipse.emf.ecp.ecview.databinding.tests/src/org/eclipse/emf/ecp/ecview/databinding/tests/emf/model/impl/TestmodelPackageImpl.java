@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelFactory;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
@@ -27,21 +27,21 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass personEClass = null;
+	private EClass tPersonEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass addressEClass = null;
+	private EClass tAddressEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass countryEClass = null;
+	private EClass tCountryEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -109,8 +109,8 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPerson() {
-		return personEClass;
+	public EClass getTPerson() {
+		return tPersonEClass;
 	}
 
 	/**
@@ -118,8 +118,8 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPerson_Address() {
-		return (EReference)personEClass.getEStructuralFeatures().get(0);
+	public EReference getTPerson_Address() {
+		return (EReference)tPersonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -127,8 +127,8 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAddress() {
-		return addressEClass;
+	public EClass getTAddress() {
+		return tAddressEClass;
 	}
 
 	/**
@@ -136,8 +136,8 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAddress_Country() {
-		return (EReference)addressEClass.getEStructuralFeatures().get(0);
+	public EReference getTAddress_Country() {
+		return (EReference)tAddressEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -145,8 +145,8 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCountry() {
-		return countryEClass;
+	public EClass getTCountry() {
+		return tCountryEClass;
 	}
 
 	/**
@@ -154,8 +154,8 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCountry_IsoCode() {
-		return (EAttribute)countryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTCountry_IsoCode() {
+		return (EAttribute)tCountryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -186,14 +186,14 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 		isCreated = true;
 
 		// Create classes and their features
-		personEClass = createEClass(PERSON);
-		createEReference(personEClass, PERSON__ADDRESS);
+		tPersonEClass = createEClass(TPERSON);
+		createEReference(tPersonEClass, TPERSON__ADDRESS);
 
-		addressEClass = createEClass(ADDRESS);
-		createEReference(addressEClass, ADDRESS__COUNTRY);
+		tAddressEClass = createEClass(TADDRESS);
+		createEReference(tAddressEClass, TADDRESS__COUNTRY);
 
-		countryEClass = createEClass(COUNTRY);
-		createEAttribute(countryEClass, COUNTRY__ISO_CODE);
+		tCountryEClass = createEClass(TCOUNTRY);
+		createEAttribute(tCountryEClass, TCOUNTRY__ISO_CODE);
 	}
 
 	/**
@@ -226,14 +226,14 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPerson_Address(), this.getAddress(), null, "address", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(tPersonEClass, TPerson.class, "TPerson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTPerson_Address(), this.getTAddress(), null, "address", null, 0, 1, TPerson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(addressEClass, Address.class, "Address", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAddress_Country(), this.getCountry(), null, "country", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(tAddressEClass, TAddress.class, "TAddress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTAddress_Country(), this.getTCountry(), null, "country", null, 0, 1, TAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(countryEClass, Country.class, "Country", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCountry_IsoCode(), ecorePackage.getEString(), "isoCode", null, 0, 1, Country.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(tCountryEClass, TCountry.class, "TCountry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTCountry_IsoCode(), ecorePackage.getEString(), "isoCode", null, 0, 1, TCountry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.binding;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,7 @@ import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +35,8 @@ public final class ContextObservables {
 			.getLogger(ContextObservables.class);
 	private static ContextObservables instance = new ContextObservables();
 
-	private final List<IContextBindingDelegate> delegates = Collections
-			.synchronizedList(new ArrayList<IContextBindingDelegate>());
+	private final List<DelegateInfo> delegateInfos = Collections
+			.synchronizedList(new ArrayList<DelegateInfo>());
 
 	private ContextObservables() {
 	}
@@ -49,10 +51,10 @@ public final class ContextObservables {
 	}
 
 	/**
-	 * Removes all factories. Should only be used very carefully
+	 * Removes all delegate. Should only be used very carefully.
 	 */
 	public void clear() {
-		delegates.clear();
+		delegateInfos.clear();
 	}
 
 	/**
@@ -110,11 +112,9 @@ public final class ContextObservables {
 	 */
 	protected IObservableValue doObserveValue(IViewContext context,
 			URI bindingURI) {
-		for (IContextBindingDelegate delegate : delegates
-				.toArray(new IContextBindingDelegate[delegates.size()])) {
-			if (delegate.isFor(context, bindingURI)) {
-				return delegate.observeValue(context, bindingURI);
-			}
+		IContextBindingDelegate delegate = getDelegate(context, bindingURI);
+		if (delegate != null) {
+			return delegate.observeValue(context, bindingURI);
 		}
 		LOGGER.error("No proper binding delegate found for element {}",
 				bindingURI);
@@ -138,11 +138,9 @@ public final class ContextObservables {
 	 */
 	protected IObservableValue doObserveValue(Realm realm,
 			IViewContext context, URI bindingURI) {
-		for (IContextBindingDelegate delegate : delegates
-				.toArray(new IContextBindingDelegate[delegates.size()])) {
-			if (delegate.isFor(context, bindingURI)) {
-				return delegate.observeValue(realm, context, bindingURI);
-			}
+		IContextBindingDelegate delegate = getDelegate(context, bindingURI);
+		if (delegate != null) {
+			return delegate.observeValue(realm, context, bindingURI);
 		}
 		LOGGER.error("No proper binding delegate found for element {}",
 				bindingURI);
@@ -150,15 +148,84 @@ public final class ContextObservables {
 	}
 
 	/**
-	 * Adds a new delegate to the manager.
+	 * Returns the delegate for the given information.
 	 * 
+	 * @param context
+	 * @param bindingURI
+	 * @return
+	 */
+	public IContextBindingDelegate getDelegate(IViewContext context,
+			URI bindingURI) {
+		for (DelegateInfo info : delegateInfos
+				.toArray(new DelegateInfo[delegateInfos.size()])) {
+			IContextBindingDelegate delegate = info.delegate;
+			if (delegate.isFor(context, bindingURI)) {
+				return delegate;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Adds a new delegate to the manager. The lower the sequence the earlier
+	 * the delegate will be used.
+	 * 
+	 * @param sequence
+	 *            the sequence of the delegate
 	 * @param delegate
 	 *            delegate to be added
 	 */
-	public void addDelegate(IContextBindingDelegate delegate) {
-		if (!delegates.contains(delegate)) {
-			delegates.add(delegate);
+	public void addDelegate(int sequence, IContextBindingDelegate delegate) {
+		if (!containsDelegate(delegate)) {
+			delegateInfos.add(new DelegateInfo(sequence, delegate));
+			Collections.sort(delegateInfos);
 		}
+	}
+
+	/**
+	 * Returns the sequence for the given delegate.
+	 * 
+	 * @param delegate
+	 * @return
+	 */
+	public int getSequence(IContextBindingDelegate delegate) {
+		DelegateInfo info = findDelegateInfo(delegate);
+		return info != null ? info.sequence : -1;
+	}
+
+	/**
+	 * Returns true if the delegate is contained in the list of delegate infos.
+	 * 
+	 * @param delegate
+	 * @return
+	 */
+	protected boolean containsDelegate(IContextBindingDelegate delegate) {
+		synchronized (delegateInfos) {
+			for (DelegateInfo info : delegateInfos) {
+				if (info.delegate == delegate) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Returns the delegate info if the delegate is contained in the list of
+	 * delegate infos. Otherwise returns <code>null</code>.
+	 * 
+	 * @param info
+	 * @return
+	 */
+	protected DelegateInfo findDelegateInfo(IContextBindingDelegate delegate) {
+		synchronized (delegateInfos) {
+			for (DelegateInfo info : delegateInfos) {
+				if (info.delegate == delegate) {
+					return info;
+				}
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -171,7 +238,16 @@ public final class ContextObservables {
 		if (delegate == null) {
 			return;
 		}
-		delegates.remove(delegate);
+		synchronized (delegateInfos) {
+			for (Iterator<DelegateInfo> iterator = delegateInfos.iterator(); iterator
+					.hasNext();) {
+				DelegateInfo info = (DelegateInfo) iterator.next();
+				if (info.delegate == delegate) {
+					iterator.remove();
+					return;
+				}
+			}
+		}
 	}
 
 	/**
@@ -210,9 +286,17 @@ public final class ContextObservables {
 		 * 
 		 * @param delegate
 		 *            Manager to be added.
+		 * @param properties
+		 *            OSGi service properties.
 		 */
-		protected void addDelegate(IContextBindingDelegate delegate) {
-			ContextObservables.getInstance().addDelegate(delegate);
+		protected void addDelegate(IContextBindingDelegate delegate,
+				Map<String, ?> properties) {
+			int sequence = IServiceRegistry.PROPERTY__DEFAULT_SQUENCE;
+			if (properties.containsKey(IServiceRegistry.PROPERTY__SQUENCE)) {
+				sequence = (Integer) properties
+						.get(IServiceRegistry.PROPERTY__SQUENCE);
+			}
+			ContextObservables.getInstance().addDelegate(sequence, delegate);
 		}
 
 		/**
@@ -223,6 +307,22 @@ public final class ContextObservables {
 		 */
 		protected void removeDelegate(IContextBindingDelegate delegate) {
 			ContextObservables.getInstance().removeDelegate(delegate);
+		}
+	}
+
+	private static class DelegateInfo implements Comparable<DelegateInfo> {
+		private final int sequence;
+		private final IContextBindingDelegate delegate;
+
+		private DelegateInfo(int sequence, IContextBindingDelegate delegate) {
+			super();
+			this.sequence = sequence;
+			this.delegate = delegate;
+		}
+
+		@Override
+		public int compareTo(DelegateInfo o) {
+			return sequence - o.sequence;
 		}
 	}
 }

@@ -8,16 +8,16 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.databinding.tests.bean.model;
+package org.eclipse.emf.ecp.ecview.databinding.tests.pojo.model;
 
-public class Person extends AbstractBean {
+public class PPerson {
 
-	private Address address;
+	private PAddress address;
 
 	/**
 	 * @return the address
 	 */
-	public Address getAddress() {
+	public PAddress getAddress() {
 		return address;
 	}
 
@@ -25,8 +25,8 @@ public class Person extends AbstractBean {
 	 * @param address
 	 *            the address to set
 	 */
-	public void setAddress(Address address) {
-		firePropertyChanged("address", this.address, this.address = address);
+	public void setAddress(PAddress address) {
+		this.address = address;
 	}
 
 	/**
@@ -36,11 +36,11 @@ public class Person extends AbstractBean {
 	 * @param isoCode
 	 * @return
 	 */
-	public static Person newInstance(String isoCode) {
-		Person person = new Person();
-		Address address = new Address();
+	public static PPerson newInstance(String isoCode) {
+		PPerson person = new PPerson();
+		PAddress address = new PAddress();
 		person.setAddress(address);
-		Country country = new Country();
+		PCountry country = new PCountry();
 		country.setIsoCode(isoCode);
 		address.setCountry(country);
 		return person;

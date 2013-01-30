@@ -68,16 +68,16 @@ public class TestmodelAdapterFactory extends AdapterFactoryImpl {
 	protected TestmodelSwitch<Adapter> modelSwitch =
 		new TestmodelSwitch<Adapter>() {
 			@Override
-			public Adapter casePerson(Person object) {
-				return createPersonAdapter();
+			public Adapter caseTPerson(TPerson object) {
+				return createTPersonAdapter();
 			}
 			@Override
-			public Adapter caseAddress(Address object) {
-				return createAddressAdapter();
+			public Adapter caseTAddress(TAddress object) {
+				return createTAddressAdapter();
 			}
 			@Override
-			public Adapter caseCountry(Country object) {
-				return createCountryAdapter();
+			public Adapter caseTCountry(TCountry object) {
+				return createTCountryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -100,44 +100,44 @@ public class TestmodelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person <em>Person</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson <em>TPerson</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson
 	 * @generated
 	 */
-	public Adapter createPersonAdapter() {
+	public Adapter createTPersonAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address <em>Address</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress <em>TAddress</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress
 	 * @generated
 	 */
-	public Adapter createAddressAdapter() {
+	public Adapter createTAddressAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country <em>Country</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry <em>TCountry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry
 	 * @generated
 	 */
-	public Adapter createCountryAdapter() {
+	public Adapter createTCountryAdapter() {
 		return null;
 	}
 

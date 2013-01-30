@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.beans;
 
+import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
 import java.net.URI;
 
@@ -50,10 +51,21 @@ public class BeanBindingDelegate extends BaseBindingDelegate {
 	 * @return
 	 */
 	protected boolean hasPropertyChangeSupport(Class<?> valueType) {
-		for (Method method : valueType.getDeclaredMethods()) {
-			if (method.getName().equals("addPropertyChangeListener")) {
+		@SuppressWarnings("unused")
+		Method method = null;
+		try {
+			try {
+				method = valueType.getMethod("addPropertyChangeListener",
+						new Class[] { String.class,
+								PropertyChangeListener.class });
+				return true;
+			} catch (NoSuchMethodException e) {
+				method = valueType.getMethod("addPropertyChangeListener",
+						new Class[] { PropertyChangeListener.class });
 				return true;
 			}
+		} catch (SecurityException e) {
+		} catch (NoSuchMethodException e) {
 		}
 		return false;
 	}

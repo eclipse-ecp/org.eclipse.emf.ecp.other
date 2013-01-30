@@ -6,21 +6,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Person</b></em>'.
+ * A representation of the model object '<em><b>TPerson</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person#getAddress <em>Address</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage#getPerson()
+ * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage#getTPerson()
  * @model
  * @generated
  */
-public interface Person extends EObject {
+public interface TPerson extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Address</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -30,21 +30,21 @@ public interface Person extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Address</em>' reference.
-	 * @see #setAddress(Address)
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage#getPerson_Address()
+	 * @see #setAddress(TAddress)
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage#getTPerson_Address()
 	 * @model
 	 * @generated
 	 */
-	Address getAddress();
+	TAddress getAddress();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person#getAddress <em>Address</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson#getAddress <em>Address</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Address</em>' reference.
 	 * @see #getAddress()
 	 * @generated
 	 */
-	void setAddress(Address value);
+	void setAddress(TAddress value);
 
-} // Person
+} // TPerson

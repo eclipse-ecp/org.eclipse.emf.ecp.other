@@ -5,45 +5,53 @@ package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Person</b></em>'.
+ * An implementation of the model object '<em><b>TCountry</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.PersonImpl#getAddress <em>Address</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl#getIsoCode <em>Iso Code</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
+public class TCountryImpl extends MinimalEObjectImpl.Container implements TCountry {
 	/**
-	 * The cached value of the '{@link #getAddress() <em>Address</em>}' reference.
+	 * The default value of the '{@link #getIsoCode() <em>Iso Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAddress()
+	 * @see #getIsoCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected Address address;
+	protected static final String ISO_CODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIsoCode() <em>Iso Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsoCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String isoCode = ISO_CODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PersonImpl() {
+	protected TCountryImpl() {
 		super();
 	}
 
@@ -54,7 +62,7 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TestmodelPackage.Literals.PERSON;
+		return TestmodelPackage.Literals.TCOUNTRY;
 	}
 
 	/**
@@ -62,16 +70,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Address getAddress() {
-		if (address != null && address.eIsProxy()) {
-			InternalEObject oldAddress = (InternalEObject)address;
-			address = (Address)eResolveProxy(oldAddress);
-			if (address != oldAddress) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestmodelPackage.PERSON__ADDRESS, oldAddress, address));
-			}
-		}
-		return address;
+	public String getIsoCode() {
+		return isoCode;
 	}
 
 	/**
@@ -79,20 +79,11 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Address basicGetAddress() {
-		return address;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAddress(Address newAddress) {
-		Address oldAddress = address;
-		address = newAddress;
+	public void setIsoCode(String newIsoCode) {
+		String oldIsoCode = isoCode;
+		isoCode = newIsoCode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TestmodelPackage.PERSON__ADDRESS, oldAddress, address));
+			eNotify(new ENotificationImpl(this, Notification.SET, TestmodelPackage.TCOUNTRY__ISO_CODE, oldIsoCode, isoCode));
 	}
 
 	/**
@@ -103,9 +94,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TestmodelPackage.PERSON__ADDRESS:
-				if (resolve) return getAddress();
-				return basicGetAddress();
+			case TestmodelPackage.TCOUNTRY__ISO_CODE:
+				return getIsoCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,8 +108,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TestmodelPackage.PERSON__ADDRESS:
-				setAddress((Address)newValue);
+			case TestmodelPackage.TCOUNTRY__ISO_CODE:
+				setIsoCode((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +123,8 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TestmodelPackage.PERSON__ADDRESS:
-				setAddress((Address)null);
+			case TestmodelPackage.TCOUNTRY__ISO_CODE:
+				setIsoCode(ISO_CODE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,10 +138,26 @@ public class PersonImpl extends MinimalEObjectImpl.Container implements Person {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TestmodelPackage.PERSON__ADDRESS:
-				return address != null;
+			case TestmodelPackage.TCOUNTRY__ISO_CODE:
+				return ISO_CODE_EDEFAULT == null ? isoCode != null : !ISO_CODE_EDEFAULT.equals(isoCode);
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //PersonImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isoCode: ");
+		result.append(isoCode);
+		result.append(')');
+		return result.toString();
+	}
+
+} //TCountryImpl

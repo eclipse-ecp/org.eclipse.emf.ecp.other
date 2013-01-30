@@ -15,9 +15,20 @@ package org.eclipse.emf.ecp.ecview.common.services;
  * Not intended to be subclassed.
  */
 public interface IServiceRegistry {
-	
+
 	public static final String SERVICE__BINDING_MANAGER = "org.eclipse.emf.ecp.ecview.common.services.bindingmanager";
-	
+
+	/**
+	 * Defines the sequence of a service. It defined i which order the services
+	 * are called. Lower sequences will be called first. See
+	 * {@link #PROPERTY__DEFAULT_SQUENCE}.
+	 */
+	public static final String PROPERTY__SQUENCE = "service.sequence";
+
+	/**
+	 * Defines the default sequence used.
+	 */
+	public static final int PROPERTY__DEFAULT_SQUENCE = 100;
 
 	/**
 	 * Returns a service. It can be used to store transient values related to

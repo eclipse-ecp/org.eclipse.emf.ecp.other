@@ -10,40 +10,40 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Address</b></em>'.
+ * An implementation of the model object '<em><b>TPerson</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.AddressImpl#getCountry <em>Country</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TPersonImpl#getAddress <em>Address</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AddressImpl extends MinimalEObjectImpl.Container implements Address {
+public class TPersonImpl extends MinimalEObjectImpl.Container implements TPerson {
 	/**
-	 * The cached value of the '{@link #getCountry() <em>Country</em>}' reference.
+	 * The cached value of the '{@link #getAddress() <em>Address</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCountry()
+	 * @see #getAddress()
 	 * @generated
 	 * @ordered
 	 */
-	protected Country country;
+	protected TAddress address;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AddressImpl() {
+	protected TPersonImpl() {
 		super();
 	}
 
@@ -54,7 +54,7 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return TestmodelPackage.Literals.ADDRESS;
+		return TestmodelPackage.Literals.TPERSON;
 	}
 
 	/**
@@ -62,16 +62,16 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Country getCountry() {
-		if (country != null && country.eIsProxy()) {
-			InternalEObject oldCountry = (InternalEObject)country;
-			country = (Country)eResolveProxy(oldCountry);
-			if (country != oldCountry) {
+	public TAddress getAddress() {
+		if (address != null && address.eIsProxy()) {
+			InternalEObject oldAddress = (InternalEObject)address;
+			address = (TAddress)eResolveProxy(oldAddress);
+			if (address != oldAddress) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestmodelPackage.ADDRESS__COUNTRY, oldCountry, country));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TestmodelPackage.TPERSON__ADDRESS, oldAddress, address));
 			}
 		}
-		return country;
+		return address;
 	}
 
 	/**
@@ -79,8 +79,8 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Country basicGetCountry() {
-		return country;
+	public TAddress basicGetAddress() {
+		return address;
 	}
 
 	/**
@@ -88,11 +88,11 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCountry(Country newCountry) {
-		Country oldCountry = country;
-		country = newCountry;
+	public void setAddress(TAddress newAddress) {
+		TAddress oldAddress = address;
+		address = newAddress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TestmodelPackage.ADDRESS__COUNTRY, oldCountry, country));
+			eNotify(new ENotificationImpl(this, Notification.SET, TestmodelPackage.TPERSON__ADDRESS, oldAddress, address));
 	}
 
 	/**
@@ -103,9 +103,9 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TestmodelPackage.ADDRESS__COUNTRY:
-				if (resolve) return getCountry();
-				return basicGetCountry();
+			case TestmodelPackage.TPERSON__ADDRESS:
+				if (resolve) return getAddress();
+				return basicGetAddress();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,8 +118,8 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TestmodelPackage.ADDRESS__COUNTRY:
-				setCountry((Country)newValue);
+			case TestmodelPackage.TPERSON__ADDRESS:
+				setAddress((TAddress)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +133,8 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TestmodelPackage.ADDRESS__COUNTRY:
-				setCountry((Country)null);
+			case TestmodelPackage.TPERSON__ADDRESS:
+				setAddress((TAddress)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,10 +148,10 @@ public class AddressImpl extends MinimalEObjectImpl.Container implements Address
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TestmodelPackage.ADDRESS__COUNTRY:
-				return country != null;
+			case TestmodelPackage.TPERSON__ADDRESS:
+				return address != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //AddressImpl
+} //TPersonImpl

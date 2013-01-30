@@ -27,7 +27,7 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	 */
 	public static TestmodelFactory init() {
 		try {
-			TestmodelFactory theTestmodelFactory = (TestmodelFactory)EPackage.Registry.INSTANCE.getEFactory(TestmodelPackage.eNS_URI);
+			TestmodelFactory theTestmodelFactory = (TestmodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/emf/ecp/ecview/databinding/emf/test"); 
 			if (theTestmodelFactory != null) {
 				return theTestmodelFactory;
 			}
@@ -56,9 +56,9 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case TestmodelPackage.PERSON: return createPerson();
-			case TestmodelPackage.ADDRESS: return createAddress();
-			case TestmodelPackage.COUNTRY: return createCountry();
+			case TestmodelPackage.TPERSON: return createTPerson();
+			case TestmodelPackage.TADDRESS: return createTAddress();
+			case TestmodelPackage.TCOUNTRY: return createTCountry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -69,9 +69,9 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Person createPerson() {
-		PersonImpl person = new PersonImpl();
-		return person;
+	public TPerson createTPerson() {
+		TPersonImpl tPerson = new TPersonImpl();
+		return tPerson;
 	}
 
 	/**
@@ -79,9 +79,9 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Address createAddress() {
-		AddressImpl address = new AddressImpl();
-		return address;
+	public TAddress createTAddress() {
+		TAddressImpl tAddress = new TAddressImpl();
+		return tAddress;
 	}
 
 	/**
@@ -89,9 +89,9 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Country createCountry() {
-		CountryImpl country = new CountryImpl();
-		return country;
+	public TCountry createTCountry() {
+		TCountryImpl tCountry = new TCountryImpl();
+		return tCountry;
 	}
 
 	/**

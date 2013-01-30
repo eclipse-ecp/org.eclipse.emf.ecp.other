@@ -57,14 +57,14 @@ public interface TestmodelPackage extends EPackage {
 	TestmodelPackage eINSTANCE = org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.PersonImpl <em>Person</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TPersonImpl <em>TPerson</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.PersonImpl
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getPerson()
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TPersonImpl
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTPerson()
 	 * @generated
 	 */
-	int PERSON = 0;
+	int TPERSON = 0;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' reference.
@@ -73,35 +73,35 @@ public interface TestmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON__ADDRESS = 0;
+	int TPERSON__ADDRESS = 0;
 
 	/**
-	 * The number of structural features of the '<em>Person</em>' class.
+	 * The number of structural features of the '<em>TPerson</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON_FEATURE_COUNT = 1;
+	int TPERSON_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Person</em>' class.
+	 * The number of operations of the '<em>TPerson</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSON_OPERATION_COUNT = 0;
+	int TPERSON_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.AddressImpl <em>Address</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TAddressImpl <em>TAddress</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.AddressImpl
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getAddress()
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TAddressImpl
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTAddress()
 	 * @generated
 	 */
-	int ADDRESS = 1;
+	int TADDRESS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' reference.
@@ -110,35 +110,35 @@ public interface TestmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS__COUNTRY = 0;
+	int TADDRESS__COUNTRY = 0;
 
 	/**
-	 * The number of structural features of the '<em>Address</em>' class.
+	 * The number of structural features of the '<em>TAddress</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS_FEATURE_COUNT = 1;
+	int TADDRESS_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Address</em>' class.
+	 * The number of operations of the '<em>TAddress</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADDRESS_OPERATION_COUNT = 0;
+	int TADDRESS_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.CountryImpl <em>Country</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl <em>TCountry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.CountryImpl
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getCountry()
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTCountry()
 	 * @generated
 	 */
-	int COUNTRY = 2;
+	int TCOUNTRY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Iso Code</b></em>' attribute.
@@ -147,89 +147,89 @@ public interface TestmodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY__ISO_CODE = 0;
+	int TCOUNTRY__ISO_CODE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Country</em>' class.
+	 * The number of structural features of the '<em>TCountry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY_FEATURE_COUNT = 1;
+	int TCOUNTRY_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Country</em>' class.
+	 * The number of operations of the '<em>TCountry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTRY_OPERATION_COUNT = 0;
+	int TCOUNTRY_OPERATION_COUNT = 0;
 
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person <em>Person</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson <em>TPerson</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Person</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person
+	 * @return the meta object for class '<em>TPerson</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson
 	 * @generated
 	 */
-	EClass getPerson();
+	EClass getTPerson();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person#getAddress <em>Address</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson#getAddress <em>Address</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Address</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person#getAddress()
-	 * @see #getPerson()
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson#getAddress()
+	 * @see #getTPerson()
 	 * @generated
 	 */
-	EReference getPerson_Address();
+	EReference getTPerson_Address();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address <em>Address</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress <em>TAddress</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Address</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address
+	 * @return the meta object for class '<em>TAddress</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress
 	 * @generated
 	 */
-	EClass getAddress();
+	EClass getTAddress();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address#getCountry <em>Country</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress#getCountry <em>Country</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Country</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address#getCountry()
-	 * @see #getAddress()
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress#getCountry()
+	 * @see #getTAddress()
 	 * @generated
 	 */
-	EReference getAddress_Country();
+	EReference getTAddress_Country();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country <em>Country</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry <em>TCountry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Country</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country
+	 * @return the meta object for class '<em>TCountry</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry
 	 * @generated
 	 */
-	EClass getCountry();
+	EClass getTCountry();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country#getIsoCode <em>Iso Code</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry#getIsoCode <em>Iso Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Iso Code</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country#getIsoCode()
-	 * @see #getCountry()
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry#getIsoCode()
+	 * @see #getTCountry()
 	 * @generated
 	 */
-	EAttribute getCountry_IsoCode();
+	EAttribute getTCountry_IsoCode();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -255,14 +255,14 @@ public interface TestmodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.PersonImpl <em>Person</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TPersonImpl <em>TPerson</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.PersonImpl
-		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getPerson()
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TPersonImpl
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTPerson()
 		 * @generated
 		 */
-		EClass PERSON = eINSTANCE.getPerson();
+		EClass TPERSON = eINSTANCE.getTPerson();
 
 		/**
 		 * The meta object literal for the '<em><b>Address</b></em>' reference feature.
@@ -270,17 +270,17 @@ public interface TestmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PERSON__ADDRESS = eINSTANCE.getPerson_Address();
+		EReference TPERSON__ADDRESS = eINSTANCE.getTPerson_Address();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.AddressImpl <em>Address</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TAddressImpl <em>TAddress</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.AddressImpl
-		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getAddress()
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TAddressImpl
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTAddress()
 		 * @generated
 		 */
-		EClass ADDRESS = eINSTANCE.getAddress();
+		EClass TADDRESS = eINSTANCE.getTAddress();
 
 		/**
 		 * The meta object literal for the '<em><b>Country</b></em>' reference feature.
@@ -288,17 +288,17 @@ public interface TestmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ADDRESS__COUNTRY = eINSTANCE.getAddress_Country();
+		EReference TADDRESS__COUNTRY = eINSTANCE.getTAddress_Country();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.CountryImpl <em>Country</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl <em>TCountry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.CountryImpl
-		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getCountry()
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTCountry()
 		 * @generated
 		 */
-		EClass COUNTRY = eINSTANCE.getCountry();
+		EClass TCOUNTRY = eINSTANCE.getTCountry();
 
 		/**
 		 * The meta object literal for the '<em><b>Iso Code</b></em>' attribute feature.
@@ -306,7 +306,7 @@ public interface TestmodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COUNTRY__ISO_CODE = eINSTANCE.getCountry_IsoCode();
+		EAttribute TCOUNTRY__ISO_CODE = eINSTANCE.getTCountry_IsoCode();
 
 	}
 

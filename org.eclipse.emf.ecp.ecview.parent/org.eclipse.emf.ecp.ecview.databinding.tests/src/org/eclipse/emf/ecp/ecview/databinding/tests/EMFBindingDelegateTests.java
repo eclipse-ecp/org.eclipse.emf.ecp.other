@@ -14,16 +14,15 @@ import java.net.URI;
 
 import junit.framework.Assert;
 
-import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.databinding.emf.EMFBindingDelegate;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Address;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Country;
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.Person;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,7 +47,7 @@ public class EMFBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue() {
-		Person person = newPerson("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(Realm.getDefault(),
@@ -73,17 +72,10 @@ public class EMFBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_NoSlotAvailable() {
-		IObservableValue value = binder.observeValue(context,
-				URI.create("view://bean/input#value"));
-
-		changed = false;
-		value.addValueChangeListener(new IValueChangeListener() {
-			@Override
-			public void handleValueChange(ValueChangeEvent event) {
-				changed = true;
-			}
-		});
-		Assert.assertTrue(changed);
+		try {
+			binder.observeValue(context, URI.create("view://bean/input#value"));
+		} catch (IllegalArgumentException e) {
+		}
 	}
 
 	/**
@@ -91,7 +83,7 @@ public class EMFBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested() {
-		Person person = Person.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -104,7 +96,30 @@ public class EMFBindingDelegateTests {
 				changed = true;
 			}
 		});
-		context.setBean("input", new Person());
+		context.setBean("input", newPerson("DE"));
+		Assert.assertTrue(changed);
+	}
+
+	/**
+	 * Test changing the bean in the slot.
+	 */
+	@Test
+	public void test_bindValue_nested2() {
+		TPerson person = newPerson("AT");
+		context.setBean("input", person);
+
+		IObservableValue value = binder.observeValue(context,
+				URI.create("view://bean/input#value.address.country.isoCode"));
+
+		changed = false;
+		value.addValueChangeListener(new IValueChangeListener() {
+			@Override
+			public void handleValueChange(ValueChangeEvent event) {
+				changed = true;
+			}
+		});
+
+		person.getAddress().getCountry().setIsoCode("DE");
 		Assert.assertTrue(changed);
 	}
 
@@ -113,7 +128,7 @@ public class EMFBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_target() {
-		Person person = Person.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -136,7 +151,7 @@ public class EMFBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_middleOfChain() {
-		Person person = Person.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -152,40 +167,13 @@ public class EMFBindingDelegateTests {
 
 		// change the address in person
 		//
-		Address address = new Address();
-		Country country = new Country();
+		TAddress address = factory.createTAddress();
+		TCountry country = factory.createTCountry();
 		country.setIsoCode("EN");
 		address.setCountry(country);
 
 		person.setAddress(address);
 		Assert.assertTrue(changed);
-	}
-
-	@Test
-	public void test_bindValue_nested_property() {
-		Person person = Person.newInstance("AT");
-		IObservableValue value = BeanProperties.value(Person.class,
-				"address.country").observe(person);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-		Country other = new Country();
-		other.setIsoCode("Other");
-		person.getAddress().setCountry(other);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-		Address address = new Address();
-		Country another = new Country();
-		another.setIsoCode("Another");
-		address.setCountry(another);
-		person.setAddress(address);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-	}
-
-	@Test
-	public void test_bindValue_observeDetail() {
-		Person person = Person.newInstance("AT");
-
 	}
 
 	/**
@@ -195,11 +183,11 @@ public class EMFBindingDelegateTests {
 	 * @param isoCode
 	 * @return
 	 */
-	public Person newPerson(String isoCode) {
-		Person person = factory.createPerson();
-		Address address = factory.createAddress();
+	public TPerson newPerson(String isoCode) {
+		TPerson person = factory.createTPerson();
+		TAddress address = factory.createTAddress();
 		person.setAddress(address);
-		Country country = factory.createCountry();
+		TCountry country = factory.createTCountry();
 		country.setIsoCode(isoCode);
 		address.setCountry(country);
 		return person;

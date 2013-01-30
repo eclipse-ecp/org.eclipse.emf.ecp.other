@@ -22,31 +22,31 @@ public interface TestmodelFactory extends EFactory {
 	TestmodelFactory eINSTANCE = org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Person</em>'.
+	 * Returns a new object of class '<em>TPerson</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Person</em>'.
+	 * @return a new object of class '<em>TPerson</em>'.
 	 * @generated
 	 */
-	Person createPerson();
+	TPerson createTPerson();
 
 	/**
-	 * Returns a new object of class '<em>Address</em>'.
+	 * Returns a new object of class '<em>TAddress</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Address</em>'.
+	 * @return a new object of class '<em>TAddress</em>'.
 	 * @generated
 	 */
-	Address createAddress();
+	TAddress createTAddress();
 
 	/**
-	 * Returns a new object of class '<em>Country</em>'.
+	 * Returns a new object of class '<em>TCountry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Country</em>'.
+	 * @return a new object of class '<em>TCountry</em>'.
 	 * @generated
 	 */
-	Country createCountry();
+	TCountry createTCountry();
 
 	/**
 	 * Returns the package supported by this factory.

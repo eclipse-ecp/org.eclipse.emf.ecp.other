@@ -66,21 +66,21 @@ public class TestmodelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case TestmodelPackage.PERSON: {
-				Person person = (Person)theEObject;
-				T result = casePerson(person);
+			case TestmodelPackage.TPERSON: {
+				TPerson tPerson = (TPerson)theEObject;
+				T result = caseTPerson(tPerson);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TestmodelPackage.ADDRESS: {
-				Address address = (Address)theEObject;
-				T result = caseAddress(address);
+			case TestmodelPackage.TADDRESS: {
+				TAddress tAddress = (TAddress)theEObject;
+				T result = caseTAddress(tAddress);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TestmodelPackage.COUNTRY: {
-				Country country = (Country)theEObject;
-				T result = caseCountry(country);
+			case TestmodelPackage.TCOUNTRY: {
+				TCountry tCountry = (TCountry)theEObject;
+				T result = caseTCountry(tCountry);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,47 +89,47 @@ public class TestmodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Person</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>TPerson</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Person</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>TPerson</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePerson(Person object) {
+	public T caseTPerson(TPerson object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Address</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>TAddress</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Address</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>TAddress</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAddress(Address object) {
+	public T caseTAddress(TAddress object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Country</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>TCountry</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Country</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>TCountry</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCountry(Country object) {
+	public T caseTCountry(TCountry object) {
 		return null;
 	}
 

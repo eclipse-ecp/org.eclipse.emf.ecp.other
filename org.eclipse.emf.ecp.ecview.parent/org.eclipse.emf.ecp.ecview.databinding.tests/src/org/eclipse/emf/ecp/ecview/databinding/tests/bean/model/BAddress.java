@@ -10,23 +10,23 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests.bean.model;
 
-public class Country extends AbstractBean {
+public class BAddress extends AbstractBean {
 
-	private String isoCode;
+	private BCountry country;
 
 	/**
-	 * @return the isoCode
+	 * @return the country
 	 */
-	public String getIsoCode() {
-		return isoCode;
+	public BCountry getCountry() {
+		return country;
 	}
 
 	/**
-	 * @param isoCode
-	 *            the isoCode to set
+	 * @param country
+	 *            the country to set
 	 */
-	public void setIsoCode(String isoCode) {
-		firePropertyChanged("isoCode", this.isoCode, this.isoCode = isoCode);
+	public void setCountry(BCountry country) {
+		firePropertyChanged("country", this.country, this.country = country);
 	}
 
 }

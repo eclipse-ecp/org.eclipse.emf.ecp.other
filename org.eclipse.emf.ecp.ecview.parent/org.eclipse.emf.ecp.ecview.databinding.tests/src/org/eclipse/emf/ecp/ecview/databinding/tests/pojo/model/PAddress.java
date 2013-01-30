@@ -8,16 +8,16 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.databinding.tests.bean.model;
+package org.eclipse.emf.ecp.ecview.databinding.tests.pojo.model;
 
-public class Address extends AbstractBean {
+public class PAddress {
 
-	private Country country;
+	private PCountry country;
 
 	/**
 	 * @return the country
 	 */
-	public Country getCountry() {
+	public PCountry getCountry() {
 		return country;
 	}
 
@@ -25,8 +25,8 @@ public class Address extends AbstractBean {
 	 * @param country
 	 *            the country to set
 	 */
-	public void setCountry(Country country) {
-		firePropertyChanged("country", this.country, this.country = country);
+	public void setCountry(PCountry country) {
+		this.country = country;
 	}
 
 }

@@ -2,13 +2,13 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://eclipse.org/emf/ecp/ecview/databinding/emf/test"
     nsPrefix="model">
-  <eClassifiers xsi:type="ecore:EClass" name="Person">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TPerson">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//TAddress"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Address">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="country" eType="#//Country"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TAddress">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="country" eType="#//TCountry"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Country">
+  <eClassifiers xsi:type="ecore:EClass" name="TCountry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isoCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

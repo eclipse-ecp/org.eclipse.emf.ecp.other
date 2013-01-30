@@ -17,7 +17,6 @@ import java.util.List;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.emf.ecore.EClass;
@@ -82,14 +81,13 @@ public class EMFBindingDelegate extends BaseBindingDelegate {
 			observabelValue = BeansObservables.observeValue(realm, slot,
 					ISlot.PROP_VALUE);
 		} else {
-
 			EObject eObject = (EObject) slot.getValue();
 
 			// build the feature path
 			//
 			EClass eClass = eObject.eClass();
 			List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
-			String[] properties = beanFragment.split("//.");
+			String[] properties = beanFragment.split("\\.");
 			for (String property : properties) {
 				EStructuralFeature feature = eClass
 						.getEStructuralFeature(property);
@@ -111,10 +109,10 @@ public class EMFBindingDelegate extends BaseBindingDelegate {
 
 			// observe detail
 			//
-			IObservableValue masterObservable = BeansObservables.observeValue(realm, slot,
-					ISlot.PROP_VALUE);
-			EMFObservables.observeDetailValue(Realm.getDefault(), masterObservable, eStructuralFeature);
-			observabelValue = EMFProperties.value(path).observe(eObject);
+			IObservableValue masterObservable = BeansObservables.observeValue(
+					realm, slot, ISlot.PROP_VALUE);
+			observabelValue = EMFProperties.value(path).observeDetail(
+					masterObservable);
 		}
 		return observabelValue;
 	}

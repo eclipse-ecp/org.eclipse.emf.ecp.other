@@ -21,9 +21,9 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.databinding.beans.PojoBindingDelegate;
-import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.Address;
-import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.Country;
-import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.Person;
+import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BPerson;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +46,7 @@ public class PojoBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindSlot() {
-		Person person = Person.newInstance("AT");
+		BPerson person = BPerson.newInstance("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -59,7 +59,7 @@ public class PojoBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue() {
-		Person person = Person.newInstance("AT");
+		BPerson person = BPerson.newInstance("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -74,7 +74,7 @@ public class PojoBindingDelegateTests {
 			}
 		});
 
-		context.getBeanSlot("input").setValue(new Person());
+		context.getBeanSlot("input").setValue(new BPerson());
 		Assert.assertFalse(changed);
 	}
 
@@ -98,7 +98,7 @@ public class PojoBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested() {
-		Person person = Person.newInstance("AT");
+		BPerson person = BPerson.newInstance("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -113,7 +113,7 @@ public class PojoBindingDelegateTests {
 			}
 		});
 
-		context.setBean("input", new Person());
+		context.setBean("input", new BPerson());
 
 		// Pojo-Binding does not notified observables
 		Assert.assertFalse(changed);
@@ -124,7 +124,7 @@ public class PojoBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_target() {
-		Person person = Person.newInstance("AT");
+		BPerson person = BPerson.newInstance("AT");
 		context.setBean("input", person);
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address.country.isoCode"));
@@ -147,7 +147,7 @@ public class PojoBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_middleOfChain() {
-		Person person = Person.newInstance("AT");
+		BPerson person = BPerson.newInstance("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -164,8 +164,8 @@ public class PojoBindingDelegateTests {
 
 		// change the address in person
 		//
-		Address address = new Address();
-		Country country = new Country();
+		BAddress address = new BAddress();
+		BCountry country = new BCountry();
 		country.setIsoCode("EN");
 		address.setCountry(country);
 
@@ -178,18 +178,18 @@ public class PojoBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_property() {
-		Person person = Person.newInstance("AT");
-		IObservableValue value = BeanProperties.value(Person.class,
+		BPerson person = BPerson.newInstance("AT");
+		IObservableValue value = BeanProperties.value(BPerson.class,
 				"address.country").observe(person);
 		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
 
-		Country other = new Country();
+		BCountry other = new BCountry();
 		other.setIsoCode("Other");
 		person.getAddress().setCountry(other);
 		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
 
-		Address address = new Address();
-		Country another = new Country();
+		BAddress address = new BAddress();
+		BCountry another = new BCountry();
 		another.setIsoCode("Another");
 		address.setCountry(another);
 		person.setAddress(address);
