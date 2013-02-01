@@ -97,8 +97,8 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.target.kepler</module>
 
 				<!-- P2 features -->
-				<module>org.eclipse.emf.ecp.ecview.ui.feature.core</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.feature.presentation.swt.simple</module>
+				<module>org.eclipse.emf.ecp.ecview.feature.core</module>
+				<module>org.eclipse.emf.ecp.ecview.feature.ui.presentation.swt.simple</module>
 				<!-- end P2 features -->
 
 				<!-- P2 bundles -->
@@ -108,6 +108,10 @@
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts.emf</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
+				
+				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
 			
 
 				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.core</module>
@@ -154,7 +158,7 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.target.kepler</module>
 
 				<!-- P2 features -->
-				<module>org.eclipse.emf.ecp.ecview.ui.feature.core</module>
+				<module>org.eclipse.emf.ecp.ecview.feature.core</module>
 				<!-- end P2 features -->
 
 				<!-- P2 bundles -->
@@ -164,6 +168,10 @@
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts.emf</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
+				
+				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
 				<!-- P2 bundles -->
 			</modules>
 		</profile>
@@ -272,9 +280,4 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<modules>
-		<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
-		<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
-		<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
-	</modules>
 </project>

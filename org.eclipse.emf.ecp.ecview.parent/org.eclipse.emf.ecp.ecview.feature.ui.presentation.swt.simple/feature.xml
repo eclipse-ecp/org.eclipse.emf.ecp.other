@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.emf.ecp.ecview.ui.feature.presentation.swt.simple"
+      id="org.eclipse.emf.ecp.ecview.feature.ui.presentation.swt.simple"
       label="%featureName"
       version="0.0.1.qualifier"
       provider-name="%providerName">

@@ -5,6 +5,6 @@
     <artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>org.eclipse.emf.ecp.ecview.ui.feature.presentation.swt.simple</artifactId>
+  <artifactId>org.eclipse.emf.ecp.ecview.feature.ui.presentation.swt.simple</artifactId>
   <packaging>eclipse-feature</packaging>
 </project>
