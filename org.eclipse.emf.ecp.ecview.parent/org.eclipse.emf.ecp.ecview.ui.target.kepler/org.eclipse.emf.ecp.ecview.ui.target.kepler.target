@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="75">
+<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="76">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20121217-0429"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.slf4j.api" version="1.6.4.v20120130-2120"/>
 <unit id="ch.qos.logback.core.source" version="1.0.0.v20111214-2030"/>
@@ -26,6 +22,11 @@
 <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
 <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120726065500/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.sdk" version="4.3.0.I20121214-0730"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20121217-0429"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 </locations>
 </target>

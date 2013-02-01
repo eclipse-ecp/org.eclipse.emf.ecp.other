@@ -135,7 +135,7 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> impl
 
 	/**
 	 * {@inheritDoc}
-	 */
+	 */ 
 	protected void handleModelAdd(int featureId, Notification notification) {
 		checkDisposed();
 

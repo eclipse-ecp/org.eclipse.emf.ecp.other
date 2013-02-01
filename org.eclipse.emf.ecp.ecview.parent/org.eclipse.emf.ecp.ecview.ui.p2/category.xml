@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.emf.ecp.ecview.ui.feature.core_0.0.1.qualifier.jar" id="org.eclipse.emf.ecp.ecview.ui.feature.core" version="0.0.1.qualifier">
+   <feature url="features/org.eclipse.emf.ecp.ecview.feature.core_0.0.1.qualifier.jar" id="org.eclipse.emf.ecp.ecview.feature.core" version="0.0.1.qualifier">
       <category name="ecp-uimodel-features"/>
    </feature>
    <category-def name="ecp-uimodel-features" label="ECP UiModel features"/>

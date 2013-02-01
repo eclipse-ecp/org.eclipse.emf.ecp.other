@@ -45,7 +45,7 @@ public class URITests {
 
 	/**
 	 * Setup.
-	 */
+	 */ 
 	@Before
 	public void setup() {
 		resourceSet = new ResourceSetImpl();
