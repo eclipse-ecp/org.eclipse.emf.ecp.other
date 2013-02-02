@@ -11,9 +11,6 @@
 	<description>UiModel P2 Repository</description>
 	<packaging>eclipse-repository</packaging>
 
-	<!-- <properties> -->
-	<!-- <ecview.p2.target.folder>${project.basedir}/test</ecview.p2.target.folder> -->
-	<!-- </properties> -->
 	<build>
 		<plugins>
 			<plugin>
