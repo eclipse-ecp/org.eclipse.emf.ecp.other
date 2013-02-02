@@ -217,6 +217,11 @@
 			<id>tycho-snapshots</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
 		</pluginRepository>
+		<pluginRepository>
+			<!-- used to find XMLTask jar -->
+			<id>atlassian</id>
+			<url>http://repository.atlassian.com/maven2/</url>
+		</pluginRepository>
 	</pluginRepositories>
 
 	<build>

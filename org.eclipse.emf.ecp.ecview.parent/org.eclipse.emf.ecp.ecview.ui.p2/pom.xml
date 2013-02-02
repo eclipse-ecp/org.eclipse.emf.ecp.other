@@ -1,12 +1,45 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
-    <artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>org.eclipse.emf.ecp.ecview.ui.p2</artifactId>
-  <name>UiModel P2</name>
-  <description>UiModel P2 Repository</description>
-  <packaging>eclipse-repository</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
+		<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.eclipse.emf.ecp.ecview.ui.p2</artifactId>
+	<name>UiModel P2</name>
+	<description>UiModel P2 Repository</description>
+	<packaging>eclipse-repository</packaging>
+
+	<!-- <properties> -->
+	<!-- <ecview.p2.target.folder>${project.basedir}/test</ecview.p2.target.folder> -->
+	<!-- </properties> -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<configuration>
+							<tasks>
+								<echo>------------------------------------------------</echo>
+								<echo>Copying repository to ${ecview.p2.target.folder}</echo>
+								<echo>------------------------------------------------</echo>
+								<delete includeEmptyDirs="true">
+									<fileset dir="${ecview.p2.target.folder}" includes="**/*" />
+								</delete>
+								<copy todir="${ecview.p2.target.folder}">
+									<fileset dir="${project.basedir}/target/repository" />
+								</copy>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
