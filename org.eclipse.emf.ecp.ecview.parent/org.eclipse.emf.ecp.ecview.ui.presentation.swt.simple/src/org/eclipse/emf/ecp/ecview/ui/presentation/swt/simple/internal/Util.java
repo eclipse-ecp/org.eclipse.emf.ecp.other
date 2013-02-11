@@ -27,10 +27,10 @@ public class Util {
 	 */
 	public static void updateMarkableRidget(IMarkableRidget ridget,
 			YInput yInput) {
-		ridget.setEnabled(yInput.isEnabled());
+		ridget.setEnabled(yInput.isInitialEnabled());
 		ridget.setMandatory(yInput.isRequired());
 		ridget.setOutputOnly(yInput.isReadonly());
-		ridget.setVisible(yInput.isVisible());
+		ridget.setVisible(yInput.isInitialVisible());
 	}
 
 	/**

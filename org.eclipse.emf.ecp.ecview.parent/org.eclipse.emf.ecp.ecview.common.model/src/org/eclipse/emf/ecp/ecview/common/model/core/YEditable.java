@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface YEditable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Initial Editable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Editable</em>' attribute isn't clear,
@@ -33,7 +34,7 @@ public interface YEditable extends EObject {
 	 * @return the value of the '<em>Initial Editable</em>' attribute.
 	 * @see #setInitialEditable(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEditable_InitialEditable()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isInitialEditable();

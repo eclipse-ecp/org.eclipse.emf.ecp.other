@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface YEnable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Initial Enabled</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Enabled</em>' attribute isn't clear,
@@ -33,7 +34,7 @@ public interface YEnable extends EObject {
 	 * @return the value of the '<em>Initial Enabled</em>' attribute.
 	 * @see #setInitialEnabled(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEnable_InitialEnabled()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isInitialEnabled();

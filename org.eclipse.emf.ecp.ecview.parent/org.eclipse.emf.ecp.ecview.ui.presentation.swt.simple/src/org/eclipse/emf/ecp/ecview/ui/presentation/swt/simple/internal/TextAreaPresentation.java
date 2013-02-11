@@ -11,7 +11,7 @@
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.Text;
  */
 public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YTextField yTextField;
+	private final YTextArea yTextField;
 	private Composite controlBase;
 	private Text text;
 	private Label label;
@@ -42,7 +42,7 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	public TextAreaPresentation(IElementEditpart editpart) {
 		super((ITextAreaEditpart) editpart);
-		this.yTextField = (YTextField) editpart.getModel();
+		this.yTextField = (YTextArea) editpart.getModel();
 	}
 
 	/**

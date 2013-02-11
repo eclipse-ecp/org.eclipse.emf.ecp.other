@@ -740,15 +740,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		addEOperation(yBindableEClass, this.getYURI(), "getValueBindingURI", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yVisibleableEClass, YVisibleable.class, "YVisibleable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYVisibleable_InitialVisible(), ecorePackage.getEBoolean(), "initialVisible", null, 0, 1, YVisibleable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYVisibleable_InitialVisible(), ecorePackage.getEBoolean(), "initialVisible", "true", 0, 1, YVisibleable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYVisibleable_Visible(), ecorePackage.getEBoolean(), "visible", null, 0, 1, YVisibleable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEditableEClass, YEditable.class, "YEditable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYEditable_InitialEditable(), ecorePackage.getEBoolean(), "initialEditable", null, 0, 1, YEditable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYEditable_InitialEditable(), ecorePackage.getEBoolean(), "initialEditable", "true", 0, 1, YEditable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYEditable_Editable(), ecorePackage.getEBoolean(), "editable", null, 0, 1, YEditable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEnableEClass, YEnable.class, "YEnable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYEnable_InitialEnabled(), ecorePackage.getEBoolean(), "initialEnabled", null, 0, 1, YEnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYEnable_InitialEnabled(), ecorePackage.getEBoolean(), "initialEnabled", "true", 0, 1, YEnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYEnable_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 0, 1, YEnable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

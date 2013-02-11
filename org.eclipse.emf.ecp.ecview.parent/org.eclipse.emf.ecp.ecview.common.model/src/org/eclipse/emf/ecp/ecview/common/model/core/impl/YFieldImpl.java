@@ -43,7 +43,7 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean INITIAL_EDITABLE_EDEFAULT = false;
+	protected static final boolean INITIAL_EDITABLE_EDEFAULT = true;
 	/**
 	 * The cached value of the '{@link #isInitialEditable() <em>Initial Editable</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean INITIAL_ENABLED_EDEFAULT = false;
+	protected static final boolean INITIAL_ENABLED_EDEFAULT = true;
 	/**
 	 * The cached value of the '{@link #isInitialEnabled() <em>Initial Enabled</em>}' attribute.
 	 * <!-- begin-user-doc -->

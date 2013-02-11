@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface YVisibleable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Initial Visible</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Visible</em>' attribute isn't clear,
@@ -33,7 +34,7 @@ public interface YVisibleable extends EObject {
 	 * @return the value of the '<em>Initial Visible</em>' attribute.
 	 * @see #setInitialVisible(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYVisibleable_InitialVisible()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isInitialVisible();

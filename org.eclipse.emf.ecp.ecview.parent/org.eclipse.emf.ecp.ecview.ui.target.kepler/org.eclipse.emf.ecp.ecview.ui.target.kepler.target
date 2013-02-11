@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="78">
+<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="79">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.slf4j.api" version="1.6.4.v20120130-2120"/>
@@ -33,6 +33,7 @@
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.riena.build.feature.sdk.feature.group" version="4.0.0.v20120611_4_0_0_0"/>
 <unit id="org.eclipse.riena.build.feature.core.sdk.feature.group" version="4.0.0.v20120611_4_0_0_0"/>
 <repository location="http://download.eclipse.org/rt/riena/4.0.0.0/update"/>
 </location>

@@ -104,7 +104,7 @@ public abstract class YEmbeddableImpl extends EObjectImpl implements YEmbeddable
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean INITIAL_VISIBLE_EDEFAULT = false;
+	protected static final boolean INITIAL_VISIBLE_EDEFAULT = true;
 	/**
 	 * The cached value of the '{@link #isInitialVisible() <em>Initial Visible</em>}' attribute.
 	 * <!-- begin-user-doc -->
