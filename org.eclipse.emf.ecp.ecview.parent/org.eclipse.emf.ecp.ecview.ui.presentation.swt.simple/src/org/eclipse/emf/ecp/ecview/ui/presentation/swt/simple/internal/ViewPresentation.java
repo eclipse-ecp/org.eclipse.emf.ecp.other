@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,14 +21,16 @@ import org.eclipse.e4.ui.css.core.engine.CSSErrorHandler;
 import org.eclipse.e4.ui.css.swt.CSSSWTConstants;
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.e4.ui.css.swt.engine.CSSSWTEngineImpl;
-import org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.IConstants;
-import org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.AbstractDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IViewPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.Activator;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IConstants;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -42,9 +44,11 @@ import org.slf4j.LoggerFactory;
  * This presenter is responsible to render a text field on the given layout.
  */
 @SuppressWarnings("restriction")
-public class ViewPresentation extends AbstractDisposable implements IViewPresentation<Control> {
+public class ViewPresentation extends AbstractDisposable implements
+		IViewPresentation<Control> {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ViewPresentation.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(ViewPresentation.class);
 
 	private ModelAccess modelAccess;
 	private final IViewEditpart editpart;
@@ -56,16 +60,22 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 	/**
 	 * Constructor.
 	 * 
-	 * @param editpart The editpart for that presentation.
+	 * @param editpart
+	 *            The editpart for that presentation.
 	 */
 	public ViewPresentation(IViewEditpart editpart) {
 		this.editpart = editpart;
 		this.modelAccess = new ModelAccess((YView) editpart.getModel());
 	}
-	
+
 	@Override
 	public Object getModel() {
 		return editpart.getModel();
+	}
+	
+	@Override
+	public IViewContext getViewContext() {
+		return editpart.getContext();
 	}
 
 	/**
@@ -91,8 +101,9 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 
 		// apply CSS style
 		if (cssEngine == null) {
-			setupCSSEngine(options != null ? (Set<URL>) options.get(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES)
-				: Collections.<URL> emptySet());
+			setupCSSEngine(options != null ? (Set<URL>) options
+					.get(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES)
+					: Collections.<URL> emptySet());
 		}
 		applyCssStyle();
 	}
@@ -107,13 +118,16 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 	/**
 	 * Instantiates the CSS engine.
 	 * 
-	 * @param cssFiles The cssFiles to be used
+	 * @param cssFiles
+	 *            The cssFiles to be used
 	 */
 	protected void setupCSSEngine(Set<URL> cssFiles) {
 		cssEngine = new CSSSWTEngineImpl(controlBase.getDisplay());
-		try {
-			cssEngine.parseStyleSheet(Activator.getContext().getBundle().getEntry("/theming/css/theme.css")
-				.openStream());
+		try { 
+			cssEngine
+					.parseStyleSheet(Activator
+							.getContext().getBundle()
+							.getEntry("/theming/css/theme.css").openStream());
 			if (cssFiles != null) {
 				for (URL url : cssFiles) {
 					cssEngine.parseStyleSheet(url.openStream());
@@ -138,7 +152,8 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 		}
 
 		if (contentPresentation != null) {
-			Control contentControl = (Control) contentPresentation.createWidget(control);
+			Control contentControl = (Control) contentPresentation
+					.createWidget(control);
 			contentControl.setLayoutData(null);
 		} else {
 			LOGGER.warn("Content is null");
@@ -163,13 +178,15 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 			// create control base with grid layout to enable margins
 			//
 			controlBase = new Composite((Composite) parent, SWT.NONE);
-			WidgetElement.setCSSClass(controlBase, IConstants.CSS_CLASS__CONTROL_BASE);
+			WidgetElement.setCSSClass(controlBase,
+					IConstants.CSS_CLASS__CONTROL_BASE);
 
 			GridLayout layout = new GridLayout(1, true);
 			controlBase.setLayout(layout);
 
 			if (modelAccess.isMargin()) {
-				controlBase.setData(CSSSWTConstants.MARGIN_WRAPPER_KEY, CSSSWTConstants.MARGIN_WRAPPER_KEY);
+				controlBase.setData(CSSSWTConstants.MARGIN_WRAPPER_KEY,
+						CSSSWTConstants.MARGIN_WRAPPER_KEY);
 			}
 
 			// create the control with grid data to fill out whole area
@@ -187,7 +204,8 @@ public class ViewPresentation extends AbstractDisposable implements IViewPresent
 			if (modelAccess.isCssClassValid()) {
 				WidgetElement.setCSSClass(control, modelAccess.getCssClass());
 			} else {
-				WidgetElement.setCSSClass(control, IConstants.CSS_CLASS__CONTROL);
+				WidgetElement.setCSSClass(control,
+						IConstants.CSS_CLASS__CONTROL);
 			}
 
 			// render the content

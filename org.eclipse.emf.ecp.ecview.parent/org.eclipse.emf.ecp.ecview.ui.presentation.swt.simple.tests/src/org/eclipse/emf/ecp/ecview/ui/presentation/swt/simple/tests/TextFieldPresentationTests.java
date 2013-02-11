@@ -10,23 +10,33 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
 
-import java.awt.Composite;
-import java.awt.GridLayout;
-import java.awt.Label;
-
 import junit.framework.Assert;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
+import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.util.SimpleModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.AbstractSWTWidgetPresenter;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.TextFieldPresentation;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,7 +46,7 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class TextFieldPresentationTests {
 
-	private SimpleModelFactory factory = new SimpleModelFactory();
+	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
 	private Shell shell;
 
@@ -71,8 +81,10 @@ public class TextFieldPresentationTests {
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart.getPresentation();
+		ITextFieldEditpart textEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yText);
+		IWidgetPresentation<Control> presentation = textEditpart
+				.getPresentation();
 		Assert.assertTrue(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 
@@ -100,10 +112,12 @@ public class TextFieldPresentationTests {
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart.getPresentation();
+		ITextFieldEditpart textEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yText);
+		IWidgetPresentation<Control> presentation = textEditpart
+				.getPresentation();
 		Composite baseComposite = (Composite) presentation.getWidget();
-		
+
 		Label label = (Label) unwrapLabel(baseComposite);
 		Text text = (Text) unwrapText(baseComposite);
 
@@ -132,7 +146,7 @@ public class TextFieldPresentationTests {
 		Assert.assertEquals(0, labelData.verticalIndent);
 		Assert.assertEquals(1, labelData.verticalSpan);
 		Assert.assertEquals(-1, labelData.widthHint);
-		
+
 		GridData data = (GridData) text.getLayoutData();
 		Assert.assertEquals(SWT.FILL, data.horizontalAlignment);
 		Assert.assertEquals(SWT.FILL, data.verticalAlignment);
@@ -173,13 +187,19 @@ public class TextFieldPresentationTests {
 		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart text1Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText1);
-		ITextFieldEditpart text2Editpart = DelegatingEditPartManager.getInstance().getEditpart(yText2);
-		IWidgetPresentation<Control> text1Presentation = text1Editpart.getPresentation();
-		IWidgetPresentation<Control> text2Presentation = text2Editpart.getPresentation();
-		Composite text1BaseComposite = (Composite) text1Presentation.getWidget();
-		Composite text2BaseComposite = (Composite) text2Presentation.getWidget();
-		
+		ITextFieldEditpart text1Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yText1);
+		ITextFieldEditpart text2Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yText2);
+		IWidgetPresentation<Control> text1Presentation = text1Editpart
+				.getPresentation();
+		IWidgetPresentation<Control> text2Presentation = text2Editpart
+				.getPresentation();
+		Composite text1BaseComposite = (Composite) text1Presentation
+				.getWidget();
+		Composite text2BaseComposite = (Composite) text2Presentation
+				.getWidget();
+
 		Label label1 = (Label) unwrapLabel(text1BaseComposite);
 		Text text1 = (Text) unwrapText(text1BaseComposite);
 		Label label2 = (Label) unwrapLabel(text2BaseComposite);
@@ -187,26 +207,30 @@ public class TextFieldPresentationTests {
 
 		// assert css class
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-			WidgetElement.getCSSClass(text1BaseComposite));
+				WidgetElement.getCSSClass(text1BaseComposite));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-			WidgetElement.getCSSClass(text2BaseComposite));
-		
+				WidgetElement.getCSSClass(text2BaseComposite));
+
 		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(text1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL, WidgetElement.getCSSClass(text2));
-		
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL, WidgetElement.getCSSClass(label1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL, WidgetElement.getCSSClass(label2));
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+				WidgetElement.getCSSClass(text2));
+
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
+				WidgetElement.getCSSClass(label1));
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
+				WidgetElement.getCSSClass(label2));
 
 		// assert css id
 		Assert.assertEquals("ID_0815", WidgetElement.getID(text1BaseComposite));
 		Assert.assertNull(WidgetElement.getID(text1));
-		Assert.assertEquals(text2Editpart.getId(), WidgetElement.getID(text2BaseComposite));
+		Assert.assertEquals(text2Editpart.getId(),
+				WidgetElement.getID(text2BaseComposite));
 		Assert.assertNull(WidgetElement.getID(text2));
-		
+
 		Assert.assertNull(WidgetElement.getID(label1));
 		Assert.assertNull(WidgetElement.getID(label2));
 	}
-	
+
 	/**
 	 * Unwraps the label from its parent composite.
 	 * 
@@ -238,11 +262,13 @@ public class TextFieldPresentationTests {
 	/**
 	 * Returns the control for the given model element.
 	 * 
-	 * @param yView model element
+	 * @param yView
+	 *            model element
 	 * @return control
 	 */
 	protected Control getControl(YElement yView) {
-		IElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
+		IElementEditpart editpart = DelegatingEditPartManager.getInstance()
+				.getEditpart(yView);
 
 		IWidgetPresentation<Control> presentation = null;
 		if (editpart instanceof IViewEditpart) {

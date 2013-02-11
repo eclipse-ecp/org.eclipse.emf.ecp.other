@@ -10,18 +10,24 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
 
-import java.awt.Composite;
-
 import junit.framework.Assert;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ContextException;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.util.SimpleModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,7 +36,7 @@ import org.junit.Test;
  */
 public class BuildViewTests {
 
-	private SimpleModelFactory factory = new SimpleModelFactory();
+	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
 	private Shell shell;
 

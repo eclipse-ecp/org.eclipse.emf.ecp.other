@@ -8,11 +8,11 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YLabel;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;

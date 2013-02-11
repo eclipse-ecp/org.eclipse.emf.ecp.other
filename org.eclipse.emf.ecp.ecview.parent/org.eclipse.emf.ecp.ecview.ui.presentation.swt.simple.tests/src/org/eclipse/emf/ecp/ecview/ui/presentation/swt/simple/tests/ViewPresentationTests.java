@@ -10,24 +10,34 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
 
-import java.awt.Composite;
-import java.awt.GridLayout;
-
 import junit.framework.Assert;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
+import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.presentation.ILayoutPresentation;
+import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.ILayoutPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IViewPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.util.SimpleModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IConstants;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.AbstractSWTWidgetPresenter;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.ViewPresentation;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,7 +47,7 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class ViewPresentationTests {
 
-	private SimpleModelFactory factory = new SimpleModelFactory();
+	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
 	private Shell shell;
 

@@ -8,29 +8,31 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
+import org.eclipse.riena.ui.ridgets.IToggleButtonRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 
 /**
- * This presenter is responsible to render a text field on the given layout.
+ * This presenter is responsible to render a checkBox field on the given layout.
  */
-public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
+public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YTextField yTextField;
+	private final YCheckBox yCheckBox;
 	private Composite controlBase;
-	private Text text;
+	private Button checkBox;
 	private Label label;
-	private ITextRidget textRidget;
+	private IToggleButtonRidget checkBoxRidget;
 
 	/**
 	 * Constructor.
@@ -38,9 +40,9 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 * @param editpart
 	 *            The editpart of that presenter
 	 */
-	public TextAreaPresentation(IElementEditpart editpart) {
-		super((ITextAreaEditpart) editpart);
-		this.yTextField = (YTextField) editpart.getModel();
+	public CheckBoxPresentation(IElementEditpart editpart) {
+		super((ICheckboxEditpart) editpart);
+		this.yCheckBox = (YCheckBox) editpart.getModel();
 	}
 
 	/**
@@ -52,21 +54,22 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (Util.isCssIdValid(yTextField)) {
-				setCSSId(controlBase, Util.getCssID(yTextField));
+			if (Util.isCssIdValid(yCheckBox)) {
+				setCSSId(controlBase, Util.getCssID(yCheckBox));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
 
 			label = new Label(controlBase, SWT.NONE);
-			GridData labelGd = new GridData(SWT.BEGINNING, SWT.TOP, false, true);
-			label.setLayoutData(labelGd);
+			label.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false,
+					false));
 			setCSSClass(label, CSS_CLASS__LABEL);
 
-			text = new Text(controlBase, SWT.BORDER | SWT.MULTI | SWT.WRAP
-					| SWT.H_SCROLL | SWT.V_SCROLL);
-			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
+			checkBox = new Button(controlBase, SWT.CHECK);
+			checkBox.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false,
+					false));
+			checkBoxRidget = (IToggleButtonRidget) SwtRidgetFactory
+					.createRidget(checkBox);
 
 			// update style attributes
 			//
@@ -83,13 +86,13 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 			label.setText(getLabel());
 		}
 
-		if (Util.isCssClassValid(yTextField)) {
-			setCSSClass(text, Util.getCssClass(yTextField));
+		if (Util.isCssClassValid(yCheckBox)) {
+			setCSSClass(checkBox, Util.getCssClass(yCheckBox));
 		} else {
-			setCSSClass(text, CSS_CLASS__CONTROL);
+			setCSSClass(checkBox, CSS_CLASS__CONTROL);
 		}
 
-		Util.updateMarkableRidget(textRidget, yTextField);
+		Util.updateMarkableRidget(checkBoxRidget, yCheckBox);
 	}
 
 	@Override
@@ -108,8 +111,8 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public boolean isLabelValid() {
-		return yTextField.getDatadescription() != null
-				&& yTextField.getDatadescription().getLabel() != null;
+		return yCheckBox.getDatadescription() != null
+				&& yCheckBox.getDatadescription().getLabel() != null;
 	}
 
 	/**
@@ -118,7 +121,7 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public String getLabel() {
-		return yTextField.getDatadescription().getLabel();
+		return yCheckBox.getDatadescription().getLabel();
 	}
 
 	/**
@@ -129,8 +132,8 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			text = null;
-			textRidget = null;
+			checkBox = null;
+			checkBoxRidget = null;
 		}
 	}
 

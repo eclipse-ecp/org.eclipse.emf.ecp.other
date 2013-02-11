@@ -8,20 +8,20 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
-import org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.IConstants;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.disposal.AbstractDisposable;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.ILayoutPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.presentation.ILayoutPresentation;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IConstants;
 import org.eclipse.swt.widgets.Control;
 
 /**
@@ -75,7 +75,7 @@ public abstract class AbstractSWTLayoutPresenter extends AbstractDisposable impl
 	 * 
 	 * @return viewContext
 	 */
-	protected IViewContext getViewContext() {
+	public IViewContext getViewContext() {
 		return getEditpart().getView().getContext();
 	}
 

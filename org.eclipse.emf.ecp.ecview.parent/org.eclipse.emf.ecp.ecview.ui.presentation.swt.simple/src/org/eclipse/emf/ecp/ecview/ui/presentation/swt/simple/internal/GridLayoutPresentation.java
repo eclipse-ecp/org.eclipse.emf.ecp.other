@@ -9,18 +9,18 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  *******************************************************************************/
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
 import org.eclipse.e4.ui.css.swt.CSSSWTConstants;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.ILayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YEmbeddable;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YAlignment;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YSpanInfo;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.ui.css.core.dom.properties.css2.CssConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;

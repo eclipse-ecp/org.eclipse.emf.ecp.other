@@ -16,14 +16,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.ecp.ecview.ui.core.datatypes.YDatadescription;
-import org.eclipse.emf.ecp.ecview.ui.core.model.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YAlignment;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
-import org.eclipse.emf.ecp.ecview.ui.core.model.util.SimpleModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.example.presentation.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.layout.FillLayout;
@@ -35,7 +35,7 @@ import org.eclipse.swt.widgets.Shell;
  */
 public class GridLayoutTextExample implements IApplication {
 
-	private SimpleModelFactory factory = new SimpleModelFactory();
+	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 
 	@Override
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -129,7 +129,8 @@ public class GridLayoutTextExample implements IApplication {
 		//
 		Map<String, Object> options = new HashMap<String, Object>();
 		Set<URL> cssFiles = new HashSet<URL>();
-		cssFiles.add(Activator.getContext().getBundle().getEntry("/theming/css/GridLayoutExample.css"));
+		cssFiles.add(Activator.getContext().getBundle()
+				.getEntry("/theming/css/GridLayoutExample.css"));
 		options.put(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES, cssFiles);
 
 		// render view
@@ -151,18 +152,22 @@ public class GridLayoutTextExample implements IApplication {
 	/**
 	 * Creates a new cell style.
 	 * 
-	 * @param yGridLayout the grid layout
-	 * @param yText1 the text
+	 * @param yGridLayout
+	 *            the grid layout
+	 * @param yText1
+	 *            the text
 	 * @return a new cell style
 	 */
-	protected YGridLayoutCellStyle createCellStyle(YGridLayout yGridLayout, YTextField yText1) {
+	protected YGridLayoutCellStyle createCellStyle(YGridLayout yGridLayout,
+			YTextField yText1) {
 		return factory.createGridLayoutCellStyle(yText1, yGridLayout);
 	}
 
 	/**
 	 * Creates a new text field.
 	 * 
-	 * @param label the label to show
+	 * @param label
+	 *            the label to show
 	 * @return textField
 	 */
 	protected YTextField newText(String label) {

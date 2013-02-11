@@ -16,14 +16,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.util.SimpleModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.datatypes.YDatadescription;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YAlignment;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YCheckBox;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.layout.FillLayout;
@@ -35,7 +35,7 @@ import org.eclipse.swt.widgets.Shell;
  */
 public class GridLayoutCheckboxExample implements IApplication {
 
-	private SimpleModelFactory factory = new SimpleModelFactory();
+	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 
 	@Override
 	// BEGIN SUPRESS CATCH EXCEPTION

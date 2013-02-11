@@ -8,16 +8,17 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple;
 
 import java.util.Map;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ContextException;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.presentation.IRenderer;
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.presentation.IRenderer;
 import org.eclipse.swt.widgets.Composite;
 
 /**
@@ -45,7 +46,7 @@ public class SimpleSwtRenderer implements IRenderer {
 	 * @param options rendering options
 	 * @throws ContextException e
 	 */
-	public void render(Composite composite, YUiView yView, Map<String, Object> options) throws ContextException {
+	public void render(Composite composite, YView yView, Map<String, Object> options) throws ContextException {
 		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
 		render(composite, viewEditpart, options);
 	}

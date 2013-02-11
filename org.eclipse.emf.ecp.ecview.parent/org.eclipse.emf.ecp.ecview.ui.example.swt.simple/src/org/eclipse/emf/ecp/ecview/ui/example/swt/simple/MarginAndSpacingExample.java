@@ -16,11 +16,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.YView;
-import org.eclipse.emf.ecp.ecview.ui.core.model.core.util.SimpleModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.layout.FillLayout;
@@ -32,7 +32,7 @@ import org.eclipse.swt.widgets.Shell;
  */
 public class MarginAndSpacingExample implements IApplication {
 
-	private SimpleModelFactory factory = new SimpleModelFactory();
+	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 
 	@Override
 	// BEGIN SUPRESS CATCH EXCEPTION
@@ -78,7 +78,8 @@ public class MarginAndSpacingExample implements IApplication {
 		//
 		Map<String, Object> options = new HashMap<String, Object>();
 		Set<URL> cssFiles = new HashSet<URL>();
-		cssFiles.add(Activator.getContext().getBundle().getEntry("/theming/css/example.css"));
+		cssFiles.add(Activator.getContext().getBundle()
+				.getEntry("/theming/css/example.css"));
 		options.put(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES, cssFiles);
 
 		// render view

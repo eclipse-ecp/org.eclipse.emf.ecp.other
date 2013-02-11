@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple;
 
 /**
  * Constants about the swt simple presentation.

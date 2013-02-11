@@ -8,11 +8,14 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
+import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
+import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -24,13 +27,13 @@ import org.eclipse.swt.widgets.Text;
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
-public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
+public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YTextField yTextField;
+	private final YDecimalField yDecimalTextField;
 	private Composite controlBase;
-	private Text text;
+	private Text decimalText;
 	private Label label;
-	private ITextRidget textRidget;
+	private IDecimalTextRidget decimalRidget;
 
 	/**
 	 * Constructor.
@@ -38,9 +41,9 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @param editpart
 	 *            The editpart of that presenter
 	 */
-	public TextFieldPresentation(IElementEditpart editpart) {
-		super((ITextFieldEditpart) editpart);
-		this.yTextField = (YTextField) editpart.getModel();
+	public DecimalFieldPresentation(IElementEditpart editpart) {
+		super((INumericFieldEditpart) editpart);
+		this.yDecimalTextField = (YDecimalField) editpart.getModel();
 	}
 
 	/**
@@ -52,8 +55,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (Util.isCssIdValid(yTextField)) {
-				setCSSId(controlBase, Util.getCssID(yTextField));
+			if (Util.isCssIdValid(yDecimalTextField)) {
+				setCSSId(controlBase, Util.getCssID(yDecimalTextField));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
@@ -63,9 +66,13 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			label.setLayoutData(labelGd);
 			setCSSClass(label, CSS_CLASS__LABEL);
 
-			text = new Text(controlBase, SWT.BORDER);
-			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
-			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+			decimalText = new Text(controlBase, SWT.BORDER);
+			decimalText.setData(UIControlsFactory.KEY_TYPE,
+					UIControlsFactory.TYPE_NUMERIC);
+			decimalRidget = (IDecimalTextRidget) SwtRidgetFactory
+					.createRidget(decimalText);
+			decimalText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,
+					true));
 
 			// update style attributes
 			//
@@ -82,13 +89,14 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			label.setText(getLabel());
 		}
 
-		if (Util.isCssClassValid(yTextField)) {
-			setCSSClass(text, Util.getCssClass(yTextField));
+		if (Util.isCssClassValid(yDecimalTextField)) {
+			setCSSClass(decimalText, Util.getCssClass(yDecimalTextField));
 		} else {
-			setCSSClass(text, CSS_CLASS__CONTROL);
+			setCSSClass(decimalText, CSS_CLASS__CONTROL);
 		}
 
-		Util.updateMarkableRidget(textRidget, yTextField);
+		Util.updateMarkableRidget(decimalRidget, yDecimalTextField);
+		Util.updateDecimalRidget(decimalRidget, yDecimalTextField.getDatatype());
 	}
 
 	@Override
@@ -107,8 +115,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public boolean isLabelValid() {
-		return yTextField.getDatadescription() != null
-				&& yTextField.getDatadescription().getLabel() != null;
+		return yDecimalTextField.getDatadescription() != null
+				&& yDecimalTextField.getDatadescription().getLabel() != null;
 	}
 
 	/**
@@ -117,7 +125,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public String getLabel() {
-		return yTextField.getDatadescription().getLabel();
+		return yDecimalTextField.getDatadescription().getLabel();
 	}
 
 	/**
@@ -128,8 +136,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			text = null;
-			textRidget = null;
+			decimalText = null;
+			decimalRidget = null;
 		}
 	}
 

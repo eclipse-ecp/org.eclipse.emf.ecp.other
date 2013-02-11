@@ -8,11 +8,14 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.model.datatypes.YDecimalDatatype;
-import org.eclipse.emf.ecp.ecview.ui.core.model.datatypes.YNumericDatatype;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YInput;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
+import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
+import org.eclipse.riena.ui.ridgets.IMarkableRidget;
+import org.eclipse.riena.ui.ridgets.INumericTextRidget;
 
 public class Util {
 

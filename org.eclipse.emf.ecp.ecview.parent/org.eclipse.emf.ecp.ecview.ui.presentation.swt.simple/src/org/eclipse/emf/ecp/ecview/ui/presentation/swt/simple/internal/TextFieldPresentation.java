@@ -8,29 +8,31 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YCheckBox;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 
 /**
- * This presenter is responsible to render a checkBox field on the given layout.
+ * This presenter is responsible to render a text field on the given layout.
  */
-public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
+public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YCheckBox yCheckBox;
+	private final YTextField yTextField;
 	private Composite controlBase;
-	private Button checkBox;
+	private Text text;
 	private Label label;
-	private IToggleButtonRidget checkBoxRidget;
+	private ITextRidget textRidget;
 
 	/**
 	 * Constructor.
@@ -38,9 +40,9 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 * @param editpart
 	 *            The editpart of that presenter
 	 */
-	public CheckBoxPresentation(IElementEditpart editpart) {
-		super((ICheckboxEditpart) editpart);
-		this.yCheckBox = (YCheckBox) editpart.getModel();
+	public TextFieldPresentation(IElementEditpart editpart) {
+		super((ITextFieldEditpart) editpart);
+		this.yTextField = (YTextField) editpart.getModel();
 	}
 
 	/**
@@ -52,22 +54,20 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (Util.isCssIdValid(yCheckBox)) {
-				setCSSId(controlBase, Util.getCssID(yCheckBox));
+			if (Util.isCssIdValid(yTextField)) {
+				setCSSId(controlBase, Util.getCssID(yTextField));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
 
 			label = new Label(controlBase, SWT.NONE);
-			label.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false,
-					false));
+			GridData labelGd = new GridData(SWT.BEGINNING, SWT.TOP, false, true);
+			label.setLayoutData(labelGd);
 			setCSSClass(label, CSS_CLASS__LABEL);
 
-			checkBox = new Button(controlBase, SWT.CHECK);
-			checkBox.setLayoutData(new GridData(SWT.BEGINNING, SWT.TOP, false,
-					false));
-			checkBoxRidget = (IToggleButtonRidget) SwtRidgetFactory
-					.createRidget(checkBox);
+			text = new Text(controlBase, SWT.BORDER);
+			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
+			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
 			// update style attributes
 			//
@@ -84,13 +84,13 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 			label.setText(getLabel());
 		}
 
-		if (Util.isCssClassValid(yCheckBox)) {
-			setCSSClass(checkBox, Util.getCssClass(yCheckBox));
+		if (Util.isCssClassValid(yTextField)) {
+			setCSSClass(text, Util.getCssClass(yTextField));
 		} else {
-			setCSSClass(checkBox, CSS_CLASS__CONTROL);
+			setCSSClass(text, CSS_CLASS__CONTROL);
 		}
 
-		Util.updateMarkableRidget(checkBoxRidget, yCheckBox);
+		Util.updateMarkableRidget(textRidget, yTextField);
 	}
 
 	@Override
@@ -109,8 +109,8 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public boolean isLabelValid() {
-		return yCheckBox.getDatadescription() != null
-				&& yCheckBox.getDatadescription().getLabel() != null;
+		return yTextField.getDatadescription() != null
+				&& yTextField.getDatadescription().getLabel() != null;
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public String getLabel() {
-		return yCheckBox.getDatadescription().getLabel();
+		return yTextField.getDatadescription().getLabel();
 	}
 
 	/**
@@ -130,8 +130,8 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			checkBox = null;
-			checkBoxRidget = null;
+			text = null;
+			textRidget = null;
 		}
 	}
 

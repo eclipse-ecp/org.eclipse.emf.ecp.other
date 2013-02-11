@@ -8,11 +8,13 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.example.presentation.swt.simple.internal;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.core.model.extension.YNumericField;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -24,13 +26,13 @@ import org.eclipse.swt.widgets.Text;
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
-public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
+public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YNumericField yNumericTextField;
+	private final YTextField yTextField;
 	private Composite controlBase;
-	private Text numericText;
+	private Text text;
 	private Label label;
-	private INumericTextRidget numericRidget;
+	private ITextRidget textRidget;
 
 	/**
 	 * Constructor.
@@ -38,9 +40,9 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @param editpart
 	 *            The editpart of that presenter
 	 */
-	public NumericFieldPresentation(IElementEditpart editpart) {
-		super((INumericFieldEditpart) editpart);
-		this.yNumericTextField = (YNumericField) editpart.getModel();
+	public TextAreaPresentation(IElementEditpart editpart) {
+		super((ITextAreaEditpart) editpart);
+		this.yTextField = (YTextField) editpart.getModel();
 	}
 
 	/**
@@ -52,8 +54,8 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (Util.isCssIdValid(yNumericTextField)) {
-				setCSSId(controlBase, Util.getCssID(yNumericTextField));
+			if (Util.isCssIdValid(yTextField)) {
+				setCSSId(controlBase, Util.getCssID(yTextField));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
@@ -63,12 +65,10 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 			label.setLayoutData(labelGd);
 			setCSSClass(label, CSS_CLASS__LABEL);
 
-			numericText = new Text(controlBase, SWT.BORDER);
-			numericText.setData(UIControlsFactory.KEY_TYPE,
-					UIControlsFactory.TYPE_NUMERIC);
-			numericRidget = (INumericTextRidget) SwtRidgetFactory
-					.createRidget(numericText);
-			numericText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+			text = new Text(controlBase, SWT.BORDER | SWT.MULTI | SWT.WRAP
+					| SWT.H_SCROLL | SWT.V_SCROLL);
+			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
 
 			// update style attributes
 			//
@@ -85,14 +85,13 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 			label.setText(getLabel());
 		}
 
-		if (Util.isCssClassValid(yNumericTextField)) {
-			setCSSClass(numericText, Util.getCssClass(yNumericTextField));
+		if (Util.isCssClassValid(yTextField)) {
+			setCSSClass(text, Util.getCssClass(yTextField));
 		} else {
-			setCSSClass(numericText, CSS_CLASS__CONTROL);
+			setCSSClass(text, CSS_CLASS__CONTROL);
 		}
 
-		Util.updateMarkableRidget(numericRidget, yNumericTextField);
-		Util.updateNumericRidget(numericRidget, yNumericTextField.getDatatype());
+		Util.updateMarkableRidget(textRidget, yTextField);
 	}
 
 	@Override
@@ -111,8 +110,8 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public boolean isLabelValid() {
-		return yNumericTextField.getDatadescription() != null
-				&& yNumericTextField.getDatadescription().getLabel() != null;
+		return yTextField.getDatadescription() != null
+				&& yTextField.getDatadescription().getLabel() != null;
 	}
 
 	/**
@@ -121,7 +120,7 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public String getLabel() {
-		return yNumericTextField.getDatadescription().getLabel();
+		return yTextField.getDatadescription().getLabel();
 	}
 
 	/**
@@ -132,8 +131,8 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase != null) {
 			controlBase.dispose();
 			controlBase = null;
-			numericText = null;
-			numericRidget = null;
+			text = null;
+			textRidget = null;
 		}
 	}
 
