@@ -11,7 +11,8 @@ Service-Component: OSGI-INF/editPartManager.xml, OSGI-INF/presenterFactory.xml,
  OSGI-INF/bindingDelegate.xml
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.apache.commons.beanutils;bundle-version="1.8.0",
- org.eclipse.core.databinding.observable;bundle-version="1.4.1"
+ org.eclipse.core.databinding.observable;bundle-version="1.4.1",
+ org.eclipse.core.databinding;bundle-version="1.4.1"
 Export-Package: org.eclipse.emf.ecp.ecview.common,
  org.eclipse.emf.ecp.ecview.common.beans,
  org.eclipse.emf.ecp.ecview.common.binding,

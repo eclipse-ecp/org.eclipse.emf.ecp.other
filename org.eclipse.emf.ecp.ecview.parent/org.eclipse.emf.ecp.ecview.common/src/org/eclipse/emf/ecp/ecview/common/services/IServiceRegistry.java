@@ -10,13 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.common.services;
 
+import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+
 /**
  * The service registry. <br>
  * Not intended to be subclassed.
  */
 public interface IServiceRegistry {
 
-	public static final String SERVICE__BINDING_MANAGER = "org.eclipse.emf.ecp.ecview.common.services.bindingmanager";
+	public static final String SERVICE__BINDING_MANAGER = IBindingManager.class
+			.getName();
 
 	/**
 	 * Defines the sequence of a service. It defined i which order the services
