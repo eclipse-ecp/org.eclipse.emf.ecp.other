@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
+import org.eclipse.emf.ecp.ecview.common.services.DelegatingServiceProviderManager;
 import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ import org.slf4j.LoggerFactory;
  * Base implementation for a disposable context.
  */
 public abstract class DisposableContext extends AbstractDisposable implements
-		IBeanRegistry, IServiceRegistry {
+		IBeanRegistry, IServiceRegistry, IContext {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(DisposableContext.class);
@@ -94,20 +95,32 @@ public abstract class DisposableContext extends AbstractDisposable implements
 
 	public void registerService(String selector, Object service) {
 		checkDisposed();
-		logger.debug("Service registered: {}", selector);
-		services.put(selector, service);
+		synchronized (services){
+			logger.debug("Service registered: {}", selector);
+			services.put(selector, service);
+		}
 	}
 
 	public void unregisterService(String selector) {
 		checkDisposed();
-		logger.debug("Service unregistered: {}", selector);
-		services.remove(selector);
+		synchronized (services){
+			logger.debug("Service unregistered: {}", selector);
+			services.remove(selector);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <S> S getService(String selector) {
 		checkDisposed();
+		synchronized (services){
+			if (!services.containsKey(selector)){
+				S service = DelegatingServiceProviderManager.getInstance().createService(selector, this);
+				if (service!=null){
+					registerService(selector, service);
+				}
+			}
+		}
 		return (S) services.get(selector);
 	}
 
