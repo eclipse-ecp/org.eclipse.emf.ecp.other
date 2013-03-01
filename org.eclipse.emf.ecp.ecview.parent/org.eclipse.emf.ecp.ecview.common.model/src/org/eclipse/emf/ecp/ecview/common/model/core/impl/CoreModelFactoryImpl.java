@@ -18,7 +18,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.common.model.core.*;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YUnit;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +41,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	 */
 	public static CoreModelFactory init() {
 		try {
-			CoreModelFactory theCoreModelFactory = (CoreModelFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/emf/ecp/ecview/common/view"); 
+			CoreModelFactory theCoreModelFactory = (CoreModelFactory)EPackage.Registry.INSTANCE.getEFactory(CoreModelPackage.eNS_URI);
 			if (theCoreModelFactory != null) {
 				return theCoreModelFactory;
 			}

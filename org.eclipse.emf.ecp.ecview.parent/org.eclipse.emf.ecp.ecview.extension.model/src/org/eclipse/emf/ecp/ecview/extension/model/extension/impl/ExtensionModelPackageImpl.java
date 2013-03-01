@@ -605,42 +605,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYInput_Readonly() {
-		return (EAttribute)yInputEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYInput_Enabled() {
-		return (EAttribute)yInputEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYInput_Required() {
-		return (EAttribute)yInputEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYInput_Visible() {
-		return (EAttribute)yInputEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYDecimalField() {
 		return yDecimalFieldEClass;
 	}
@@ -834,10 +798,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yCheckBoxEClass, YCHECK_BOX__DATATYPE);
 
 		yInputEClass = createEClass(YINPUT);
-		createEAttribute(yInputEClass, YINPUT__READONLY);
-		createEAttribute(yInputEClass, YINPUT__ENABLED);
-		createEAttribute(yInputEClass, YINPUT__REQUIRED);
-		createEAttribute(yInputEClass, YINPUT__VISIBLE);
 
 		yDecimalFieldEClass = createEClass(YDECIMAL_FIELD);
 		createEReference(yDecimalFieldEClass, YDECIMAL_FIELD__DATATYPE);
@@ -978,10 +938,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEReference(getYCheckBox_Datatype(), theExtDatatypesPackage.getYCheckBoxDatatype(), null, "datatype", null, 0, 1, YCheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYInput_Readonly(), ecorePackage.getEBoolean(), "readonly", null, 0, 1, YInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYInput_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 0, 1, YInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYInput_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, YInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYInput_Visible(), ecorePackage.getEBoolean(), "visible", null, 0, 1, YInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDecimalFieldEClass, YDecimalField.class, "YDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYDecimalField_Datatype(), theExtDatatypesPackage.getYDecimalDatatype(), null, "datatype", null, 0, 1, YDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

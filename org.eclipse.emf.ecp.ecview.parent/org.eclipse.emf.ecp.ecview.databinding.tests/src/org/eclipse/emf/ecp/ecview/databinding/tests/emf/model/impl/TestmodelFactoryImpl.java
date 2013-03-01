@@ -5,12 +5,13 @@ package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.*;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelFactory;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
 /**
  * <!-- begin-user-doc -->

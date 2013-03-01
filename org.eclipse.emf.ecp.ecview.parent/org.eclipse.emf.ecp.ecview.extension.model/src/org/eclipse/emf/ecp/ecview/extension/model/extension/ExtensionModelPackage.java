@@ -95,31 +95,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YINPUT__CSS_ID = CoreModelPackage.YFIELD__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YINPUT__READONLY = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT__ENABLED = CoreModelPackage.YFIELD_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT__REQUIRED = CoreModelPackage.YFIELD_FEATURE_COUNT + 2;
+	int YINPUT__INITIAL_VISIBLE = CoreModelPackage.YFIELD__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -128,7 +110,43 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YINPUT__VISIBLE = CoreModelPackage.YFIELD_FEATURE_COUNT + 3;
+	int YINPUT__VISIBLE = CoreModelPackage.YFIELD__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__INITIAL_EDITABLE = CoreModelPackage.YFIELD__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__EDITABLE = CoreModelPackage.YFIELD__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__INITIAL_ENABLED = CoreModelPackage.YFIELD__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__ENABLED = CoreModelPackage.YFIELD__ENABLED;
 
 	/**
 	 * The number of structural features of the '<em>YInput</em>' class.
@@ -137,7 +155,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YINPUT_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 4;
+	int YINPUT_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextFieldImpl <em>YText Field</em>}' class.
@@ -177,31 +195,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_FIELD__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD__REQUIRED = YINPUT__REQUIRED;
+	int YTEXT_FIELD__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -211,6 +211,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_FIELD__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -284,6 +320,24 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YGRID_LAYOUT__CSS_ID = CoreModelPackage.YLAYOUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YGRID_LAYOUT__INITIAL_VISIBLE = CoreModelPackage.YLAYOUT__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YGRID_LAYOUT__VISIBLE = CoreModelPackage.YLAYOUT__VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -441,6 +495,24 @@ public interface ExtensionModelPackage extends EPackage {
 	int YHORIZONTAL_LAYOUT__CSS_ID = CoreModelPackage.YLAYOUT__CSS_ID;
 
 	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHORIZONTAL_LAYOUT__INITIAL_VISIBLE = CoreModelPackage.YLAYOUT__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHORIZONTAL_LAYOUT__VISIBLE = CoreModelPackage.YLAYOUT__VISIBLE;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,6 +639,24 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVERTICAL_LAYOUT__CSS_ID = CoreModelPackage.YLAYOUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVERTICAL_LAYOUT__INITIAL_VISIBLE = CoreModelPackage.YLAYOUT__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVERTICAL_LAYOUT__VISIBLE = CoreModelPackage.YLAYOUT__VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -752,31 +842,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE__REQUIRED = YINPUT__REQUIRED;
+	int YTABLE__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -786,6 +858,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTABLE__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -861,6 +969,60 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLABEL__CSS_ID = CoreModelPackage.YFIELD__CSS_ID;
 
 	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__INITIAL_VISIBLE = CoreModelPackage.YFIELD__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__VISIBLE = CoreModelPackage.YFIELD__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__INITIAL_EDITABLE = CoreModelPackage.YFIELD__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__EDITABLE = CoreModelPackage.YFIELD__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__INITIAL_ENABLED = CoreModelPackage.YFIELD__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__ENABLED = CoreModelPackage.YFIELD__ENABLED;
+
+	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -925,31 +1087,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_AREA__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA__REQUIRED = YINPUT__REQUIRED;
+	int YTEXT_AREA__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -959,6 +1103,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_AREA__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -1034,31 +1214,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCHECK_BOX__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX__REQUIRED = YINPUT__REQUIRED;
+	int YCHECK_BOX__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -1068,6 +1230,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCHECK_BOX__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -1143,31 +1341,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDECIMAL_FIELD__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDECIMAL_FIELD__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD__REQUIRED = YINPUT__REQUIRED;
+	int YDECIMAL_FIELD__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -1177,6 +1357,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_FIELD__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -1252,31 +1468,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YNUMERIC_FIELD__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_FIELD__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD__REQUIRED = YINPUT__REQUIRED;
+	int YNUMERIC_FIELD__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -1286,6 +1484,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YNUMERIC_FIELD__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -1361,31 +1595,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX__REQUIRED = YINPUT__REQUIRED;
+	int YCOMBO_BOX__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -1395,6 +1611,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCOMBO_BOX__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -1470,31 +1722,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLIST__CSS_ID = YINPUT__CSS_ID;
 
 	/**
-	 * The feature id for the '<em><b>Readonly</b></em>' attribute.
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST__READONLY = YINPUT__READONLY;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST__ENABLED = YINPUT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST__REQUIRED = YINPUT__REQUIRED;
+	int YLIST__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -1504,6 +1738,42 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__ENABLED = YINPUT__ENABLED;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
@@ -1989,50 +2259,6 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYInput();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isReadonly <em>Readonly</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Readonly</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isReadonly()
-	 * @see #getYInput()
-	 * @generated
-	 */
-	EAttribute getYInput_Readonly();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isEnabled <em>Enabled</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Enabled</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isEnabled()
-	 * @see #getYInput()
-	 * @generated
-	 */
-	EAttribute getYInput_Enabled();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isRequired <em>Required</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isRequired()
-	 * @see #getYInput()
-	 * @generated
-	 */
-	EAttribute getYInput_Required();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isVisible <em>Visible</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Visible</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YInput#isVisible()
-	 * @see #getYInput()
-	 * @generated
-	 */
-	EAttribute getYInput_Visible();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField <em>YDecimal Field</em>}'.
@@ -2547,38 +2773,6 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YINPUT = eINSTANCE.getYInput();
-
-		/**
-		 * The meta object literal for the '<em><b>Readonly</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YINPUT__READONLY = eINSTANCE.getYInput_Readonly();
-
-		/**
-		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YINPUT__ENABLED = eINSTANCE.getYInput_Enabled();
-
-		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YINPUT__REQUIRED = eINSTANCE.getYInput_Required();
-
-		/**
-		 * The meta object literal for the '<em><b>Visible</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YINPUT__VISIBLE = eINSTANCE.getYInput_Visible();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YDecimalFieldImpl <em>YDecimal Field</em>}' class.

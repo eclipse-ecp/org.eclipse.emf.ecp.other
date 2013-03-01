@@ -138,12 +138,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YCheckBoxDatatype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YInput" abstract="true" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YField">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readonly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YInput" abstract="true" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YField"/>
   <eClassifiers xsi:type="ecore:EClass" name="YDecimalField" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YDecimalDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>

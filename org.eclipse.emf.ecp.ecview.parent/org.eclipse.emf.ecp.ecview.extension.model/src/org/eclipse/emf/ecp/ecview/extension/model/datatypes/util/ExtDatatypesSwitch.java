@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;

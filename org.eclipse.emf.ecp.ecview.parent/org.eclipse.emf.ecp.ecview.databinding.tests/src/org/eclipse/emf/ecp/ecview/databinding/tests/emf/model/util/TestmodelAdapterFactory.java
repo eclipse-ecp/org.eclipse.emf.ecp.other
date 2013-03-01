@@ -4,12 +4,12 @@ package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.*;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.context;
 
-import java.beans.Beans;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.resource.Resource;

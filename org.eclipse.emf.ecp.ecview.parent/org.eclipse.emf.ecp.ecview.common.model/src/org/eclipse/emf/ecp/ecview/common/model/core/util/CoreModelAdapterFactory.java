@@ -14,7 +14,22 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.core.*;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
 
 /**
  * <!-- begin-user-doc -->

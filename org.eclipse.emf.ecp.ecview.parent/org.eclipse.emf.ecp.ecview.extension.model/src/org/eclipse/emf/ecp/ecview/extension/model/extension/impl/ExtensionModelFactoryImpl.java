@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -44,7 +43,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 */
 	public static ExtensionModelFactory init() {
 		try {
-			ExtensionModelFactory theExtensionModelFactory = (ExtensionModelFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/emf/ecp/ecview/extension/view"); 
+			ExtensionModelFactory theExtensionModelFactory = (ExtensionModelFactory)EPackage.Registry.INSTANCE.getEFactory(ExtensionModelPackage.eNS_URI);
 			if (theExtensionModelFactory != null) {
 				return theExtensionModelFactory;
 			}

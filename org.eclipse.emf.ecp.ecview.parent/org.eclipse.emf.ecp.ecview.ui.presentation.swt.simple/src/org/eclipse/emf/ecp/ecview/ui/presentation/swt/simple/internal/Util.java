@@ -13,9 +13,6 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
-import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
-import org.eclipse.riena.ui.ridgets.IMarkableRidget;
-import org.eclipse.riena.ui.ridgets.INumericTextRidget;
 
 public class Util {
 

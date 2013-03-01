@@ -4,10 +4,11 @@ package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.*;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
 /**
  * <!-- begin-user-doc -->
