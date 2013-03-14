@@ -327,4 +327,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<modules>
+		<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
+	</modules>
 </project>
