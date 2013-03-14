@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
@@ -39,6 +40,8 @@ import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.common.services.DelegatingServiceProviderManager;
+import org.eclipse.emf.ecp.ecview.common.services.IServiceProvider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -80,6 +83,7 @@ public class ViewContextTest {
 						IViewEditpart.class);
 		context = new ViewContext(viewEditPart);
 
+		DelegatingServiceProviderManager.getInstance().clear();
 	}
 
 	/**
@@ -646,6 +650,21 @@ public class ViewContextTest {
 	}
 
 	/**
+	 * Tests the getService method.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_getService() {
+		DelegatingServiceProviderManager manager = DelegatingServiceProviderManager
+				.getInstance();
+		manager.addDelegate(new ServiceProvider1());
+		// getting service with the same selector have to be equal
+		Assert.assertNotNull(context.getService("Provider1"));
+		Assert.assertEquals(context.getService("Provider1"),
+				context.getService("Provider1"));
+	}
+
+	/**
 	 * A helper presenter factory.
 	 */
 	private static class PresenterFactory implements IPresentationFactory {
@@ -758,4 +777,20 @@ public class ViewContextTest {
 	private static class PersonExtended extends Person {
 
 	}
+
+	private class ServiceProvider1 implements IServiceProvider {
+
+		@Override
+		public boolean isFor(String selector, IContext context) {
+			return "Provider1".equals(selector);
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public <A> A createService(String selector, IContext context) {
+			return (A) new Object();
+		}
+
+	}
+
 }

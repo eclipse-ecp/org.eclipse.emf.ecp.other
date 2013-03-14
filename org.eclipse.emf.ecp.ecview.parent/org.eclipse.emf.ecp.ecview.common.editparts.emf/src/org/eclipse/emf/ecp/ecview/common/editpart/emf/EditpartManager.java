@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
@@ -50,6 +52,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(LayoutEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IFieldEditpart.class)) {
 			result = createNewInstance(FieldEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IActionEditpart.class)) {
+			result = createNewInstance(ActionEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IViewSetEditpart.class)) {
 			result = createNewInstance(ViewSetEditpart.class);
 		}
@@ -80,6 +84,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(LayoutEditpart.class);
 		} else if (yElement instanceof YField) {
 			result = createNewInstance(FieldEditpart.class);
+		} else if (yElement instanceof YAction) {
+			result = createNewInstance(ActionEditpart.class);
 		} else if (yElement instanceof YViewSet) {
 			result = createNewInstance(ViewSetEditpart.class);
 		}

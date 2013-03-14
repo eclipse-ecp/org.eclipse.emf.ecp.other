@@ -12,8 +12,6 @@ package org.eclipse.emf.ecp.ecview.common.context;
 
 import java.util.List;
 
-import org.eclipse.emf.ecp.ecview.common.IAccessible;
-import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 
 /**
@@ -21,7 +19,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
  * instance.<br>
  * Not intended to be subclassed.
  */
-public interface IViewSetContext extends IDisposable, IAccessible {
+public interface IViewSetContext extends IContext {
 
 	/**
 	 * Returns the {@link IViewSetEditpart} that is related with this context.

@@ -72,4 +72,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YAction" eSuperTypes="#//YEmbeddable #//YEnable"/>
 </ecore:EPackage>

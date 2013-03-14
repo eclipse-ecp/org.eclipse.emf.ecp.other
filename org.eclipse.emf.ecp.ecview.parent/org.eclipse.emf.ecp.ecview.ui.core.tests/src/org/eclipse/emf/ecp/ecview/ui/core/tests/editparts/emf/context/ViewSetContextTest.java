@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
+import org.eclipse.emf.ecp.ecview.common.context.IContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
@@ -27,6 +28,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.services.DelegatingServiceProviderManager;
+import org.eclipse.emf.ecp.ecview.common.services.IServiceProvider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -676,6 +679,19 @@ public class ViewSetContextTest {
 		}
 	}
 
+	/**
+	 * Tests the getService method.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_getService() {
+		DelegatingServiceProviderManager manager = DelegatingServiceProviderManager.getInstance();
+		manager.addDelegate(new ServiceProvider1());
+		// getting service with the same selector have to be equal
+		Assert.assertNotNull(viewSetContext.getService("Provider1"));
+		Assert.assertEquals(viewSetContext.getService("Provider1"), viewSetContext.getService("Provider1"));
+	}
+
 	private static class Person {
 		private String name;
 
@@ -699,4 +715,20 @@ public class ViewSetContextTest {
 	private static class PersonExtended extends Person {
 
 	}
+	
+	private class ServiceProvider1 implements IServiceProvider {
+
+		@Override
+		public boolean isFor(String selector, IContext context) {
+			return "Provider1".equals(selector);
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public <A> A createService(String selector, IContext context) {
+			return (A) new Object();
+		}
+
+	}
+
 }

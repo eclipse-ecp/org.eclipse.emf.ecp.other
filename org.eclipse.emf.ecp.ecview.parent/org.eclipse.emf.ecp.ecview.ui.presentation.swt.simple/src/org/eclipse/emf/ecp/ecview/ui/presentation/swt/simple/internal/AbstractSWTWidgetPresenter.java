@@ -14,8 +14,16 @@ import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.model.core.util.CoreModelUtil;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IBindingManager;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IConstants;
+import org.eclipse.riena.ui.ridgets.IMarkableRidget;
+import org.eclipse.riena.ui.ridgets.IRidget;
 import org.eclipse.swt.widgets.Control;
 
 /**
@@ -98,5 +106,61 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	protected void setCSSClass(Control control, String clazz) {
 		WidgetElement.setCSSClass(control, clazz);
 	}
+	
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yEmbeddable
+	 * @param field
+	 */
+	protected void createBindings(YEmbeddable yEmbeddable, IRidget ridget) {
+
+		// initialize the transient values
+		//
+		CoreModelUtil.initTransientValues(yEmbeddable);
+
+		IBindingManager bindingManager = getViewContext().getService(
+				IServiceRegistry.SERVICE__BINDING_MANAGER);
+		// bind visible
+		bindingManager.bindVisible(yEmbeddable, ridget);
+	}
+
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yEmbeddable
+	 * @param field
+	 */
+	protected void createBindings(YAction yAction, IRidget ridget) {
+
+		createBindings((YEmbeddable) yAction, ridget);
+
+		IBindingManager bindingManager = getViewContext().getService(
+				IServiceRegistry.SERVICE__BINDING_MANAGER);
+
+		// bind enabled
+		bindingManager.bindEnabled(yAction, ridget);
+	}
+	
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yEmbeddable
+	 * @param field
+	 */
+	protected void createBindings(YField yField, IMarkableRidget ridget) {
+		
+		createBindings((YEmbeddable) yField, ridget);
+		
+		IBindingManager bindingManager = getViewContext().getService(
+				IServiceRegistry.SERVICE__BINDING_MANAGER);
+		
+		// bind enabled
+		bindingManager.bindEnabled(yField, ridget);
+		
+		// bind readonly
+		bindingManager.bindReadonly(yField, ridget);
+	}
+
 
 }

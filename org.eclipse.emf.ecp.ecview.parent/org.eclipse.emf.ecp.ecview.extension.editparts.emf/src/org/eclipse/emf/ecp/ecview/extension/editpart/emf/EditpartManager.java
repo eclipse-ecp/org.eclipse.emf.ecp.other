@@ -16,6 +16,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
@@ -70,6 +72,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(LabelEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITextAreaEditpart.class)) {
 			result = createNewInstance(TextAreaEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IButtonEditpart.class)) {
+			result = createNewInstance(ButtonEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ICheckboxEditpart.class)) {
 			result = createNewInstance(CheckBoxEditpart.class);
 		} else if (editPartClazz
@@ -116,6 +120,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(LabelEditpart.class);
 		} else if (yElement instanceof YTextArea) {
 			result = createNewInstance(TextAreaEditpart.class);
+		} else if (yElement instanceof YButton) {
+			result = createNewInstance(ButtonEditpart.class);
 		} else if (yElement instanceof YCheckBox) {
 			result = createNewInstance(CheckBoxEditpart.class);
 		} else if (yElement instanceof YComboBox) {
