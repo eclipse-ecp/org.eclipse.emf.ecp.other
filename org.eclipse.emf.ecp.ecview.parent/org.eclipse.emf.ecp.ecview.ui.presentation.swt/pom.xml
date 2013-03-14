@@ -1,8 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests</artifactId>
-  <name>Tests for UI-Kit SWTSimple</name>
-  <description>Tests for UI-Kit SWTSimple</description>
+  <artifactId>org.eclipse.emf.ecp.ecview.ui.presentation.swt</artifactId>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -21,5 +19,7 @@
   	<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
+  <name>UI-Kit SWTSimple</name>
+  <description>Presentation layer for UI-Kit SWTSimple</description>
   <packaging>eclipse-plugin</packaging>
 </project>

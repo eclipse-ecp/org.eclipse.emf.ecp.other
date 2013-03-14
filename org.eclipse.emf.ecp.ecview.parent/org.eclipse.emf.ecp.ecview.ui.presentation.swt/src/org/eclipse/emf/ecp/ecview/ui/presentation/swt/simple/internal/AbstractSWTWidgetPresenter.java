@@ -10,6 +10,9 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
@@ -30,7 +33,8 @@ import org.eclipse.swt.widgets.Control;
  * An abstract implementation of the {@link IWidgetPresentation}.
  */
 @SuppressWarnings("restriction")
-public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable implements IWidgetPresentation<Control> {
+public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
+		implements IWidgetPresentation<Control> {
 
 	/**
 	 * See {@link IConstants#CSS_CLASS__CONTROL_BASE}.
@@ -52,13 +56,16 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public static final String CSS_CLASS__LABEL = IConstants.CSS_CLASS__LABEL;
 	// END SUPRESS CATCH EXCEPTION
-	
+
 	private final IEmbeddableEditpart editpart;
+
+	private final Lock lock = new ReentrantLock();
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param editpart the editpart
+	 * @param editpart
+	 *            the editpart
 	 */
 	public AbstractSWTWidgetPresenter(IEmbeddableEditpart editpart) {
 		this.editpart = editpart;
@@ -90,8 +97,10 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	/**
 	 * Sets the CSS id at the control.
 	 * 
-	 * @param control The control
-	 * @param id The CSS id
+	 * @param control
+	 *            The control
+	 * @param id
+	 *            The CSS id
 	 */
 	protected void setCSSId(Control control, String id) {
 		WidgetElement.setID(control, id);
@@ -100,13 +109,15 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	/**
 	 * Sets the CSS class at the control.
 	 * 
-	 * @param control The control
-	 * @param clazz The CSS id
+	 * @param control
+	 *            The control
+	 * @param clazz
+	 *            The CSS id
 	 */
 	protected void setCSSClass(Control control, String clazz) {
 		WidgetElement.setCSSClass(control, clazz);
 	}
-	
+
 	/**
 	 * Creates the bindings for the given elements.
 	 * 
@@ -141,7 +152,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 		// bind enabled
 		bindingManager.bindEnabled(yAction, ridget);
 	}
-	
+
 	/**
 	 * Creates the bindings for the given elements.
 	 * 
@@ -149,18 +160,40 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable impl
 	 * @param field
 	 */
 	protected void createBindings(YField yField, IMarkableRidget ridget) {
-		
+
 		createBindings((YEmbeddable) yField, ridget);
-		
+
 		IBindingManager bindingManager = getViewContext().getService(
 				IServiceRegistry.SERVICE__BINDING_MANAGER);
-		
+
 		// bind enabled
 		bindingManager.bindEnabled(yField, ridget);
-		
+
 		// bind readonly
 		bindingManager.bindReadonly(yField, ridget);
 	}
 
+	/**
+	 * Returns the lock object that should be used to aquire locks.
+	 * 
+	 * @return the lock
+	 */
+	protected Lock getLock() {
+		return lock;
+	}
+
+	/**
+	 * Runs the runnable in the global lock of that instance.
+	 * 
+	 * @param runnable
+	 */
+	protected void runLocked(Runnable runnable) {
+		lock.lock();
+		try {
+			runnable.run();
+		} finally {
+			lock.unlock();
+		}
+	}
 
 }

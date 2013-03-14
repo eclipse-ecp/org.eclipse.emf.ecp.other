@@ -8,12 +8,21 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.riena.ui.ridgets.IActionRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -30,6 +39,8 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 	private Button button;
 	private IActionRidget buttonRidget;
 
+	private ClickAdapter clickAdapter;
+
 	/**
 	 * Constructor.
 	 * 
@@ -39,6 +50,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 	public ButtonPresentation(IElementEditpart editpart) {
 		super((IButtonEditpart) editpart);
 		this.yButton = (YButton) editpart.getModel();
+		this.yButton.eAdapters().add(new ModelObserver());
 	}
 
 	/**
@@ -59,10 +71,9 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 			button = new Button(controlBase, SWT.BORDER);
 			button.setText(yButton.getDatadescription().getLabel());
 			button.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-			
+
 			buttonRidget = (IActionRidget) SwtRidgetFactory
 					.createRidget(button);
-
 
 			// update style attributes
 			//
@@ -80,7 +91,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(button, CSS_CLASS__CONTROL);
 		}
-		
+
 		createBindings(yButton, buttonRidget);
 	}
 
@@ -132,5 +143,135 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 	protected void internalDispose() {
 		// unrender the ui control
 		unrender();
+
+		if (clickAdapter != null) {
+			clickAdapter.dispose();
+			clickAdapter = null;
+		}
+	}
+
+	/**
+	 * Returns an instance of the click adapter.
+	 * 
+	 * @return
+	 */
+	protected ClickAdapter getClickAdapter() {
+		if (clickAdapter == null) {
+			clickAdapter = new ClickAdapter(yButton, button);
+		}
+		return clickAdapter;
+	}
+
+	/**
+	 * Observes the model for add and remove calls. Simple properties are bound
+	 * by databinding. See super.createBindings();
+	 */
+	private class ModelObserver extends AdapterImpl {
+
+		@Override
+		public void notifyChanged(final Notification msg) {
+			super.notifyChanged(msg);
+
+			runLocked(new Runnable() {
+				@Override
+				public void run() {
+					switch (msg.getEventType()) {
+					case Notification.ADD:
+						handleAdd(msg);
+						break;
+					case Notification.ADD_MANY:
+					case Notification.MOVE:
+					case Notification.REMOVE:
+						handleRemove(msg);
+						break;
+					case Notification.REMOVE_MANY:
+					}
+				}
+			});
+		}
+
+		/**
+		 * Handles removing eObjects.
+		 * 
+		 * @param msg
+		 */
+		private void handleRemove(Notification msg) {
+			switch (msg.getFeatureID(YButton.class)) {
+			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
+				getClickAdapter().removeClickListener(
+						(YButtonClickListener) msg.getOldValue());
+				break;
+			}
+		}
+
+		/**
+		 * Handles adding eObjects.
+		 * 
+		 * @param msg
+		 */
+		private void handleAdd(Notification msg) {
+			switch (msg.getFeatureID(YButton.class)) {
+			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
+				getClickAdapter().addClickListener(
+						(YButtonClickListener) msg.getOldValue());
+				break;
+			}
+		}
+	}
+
+	/**
+	 * An adapter that handles the delegation of click events.
+	 */
+	private class ClickAdapter extends SelectionAdapter {
+
+		private final Button button;
+		private final YButton yButton;
+		private Set<YButtonClickListener> delegates = new HashSet<YButtonClickListener>();
+
+		private ClickAdapter(YButton yButton, Button button) {
+			this.yButton = yButton;
+			this.button = button;
+			button.addSelectionListener(this);
+		}
+
+		@Override
+		public void widgetSelected(SelectionEvent e) {
+			super.widgetSelected(e);
+
+			runLocked(new Runnable() {
+				@Override
+				public void run() {
+					for (YButtonClickListener listener : delegates
+							.toArray(new YButtonClickListener[delegates.size()])) {
+						listener.clicked(yButton);
+					}
+				}
+			});
+		}
+
+		/**
+		 * Removes a click listener from the button.
+		 * 
+		 * @param listener
+		 */
+		public void removeClickListener(YButtonClickListener listener) {
+			delegates.remove(listener);
+		}
+
+		/**
+		 * Adds a click listener to the button.
+		 * 
+		 * @param listener
+		 */
+		public void addClickListener(YButtonClickListener listener) {
+			delegates.add(listener);
+		}
+
+		/**
+		 * Disposes the adpater.
+		 */
+		public void dispose() {
+			button.removeSelectionListener(this);
+		}
 	}
 }

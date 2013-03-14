@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UI-Kit SWT Simple
-Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple;singleton:=true
+Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.ui.presentation.swt;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Require-Bundle: org.eclipse.jface;resolution:=optional;visibility:=reexport,
  org.eclipse.rap.jface;resolution:=optional;visibility:=reexport,

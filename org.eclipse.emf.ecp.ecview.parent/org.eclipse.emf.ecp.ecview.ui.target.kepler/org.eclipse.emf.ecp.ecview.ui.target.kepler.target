@@ -29,7 +29,7 @@
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201302061436"/>
+<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201303141537"/>
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">

@@ -62,7 +62,7 @@
 			</build>
 			<modules>
 				<module>org.eclipse.emf.ecp.ecview.ui.core.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
 			</modules>
 		</profile>
 		<profile>
@@ -99,7 +99,7 @@
 
 				<!-- P2 features -->
 				<module>org.eclipse.emf.ecp.ecview.feature.core</module>
-				<module>org.eclipse.emf.ecp.ecview.feature.ui.presentation.swt.simple</module>
+				<module>org.eclipse.emf.ecp.ecview.feature.ui.presentation.swt</module>
 				<!-- end P2 features -->
 
 				<!-- P2 bundles -->
@@ -118,11 +118,11 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.core</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.swt</module>
 
-				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.example.swt.simple</module>
+				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt</module>
+				<module>org.eclipse.emf.ecp.ecview.ui.example.swt</module>
 
 				<module>org.eclipse.emf.ecp.ecview.ui.core.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
 				<!-- P2 bundles -->
 			</modules>
 		</profile>

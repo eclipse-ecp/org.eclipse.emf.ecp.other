@@ -2,19 +2,23 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YActionImpl;
 
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
 
 /**
@@ -26,6 +30,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl#getClickListeners <em>Click Listeners</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +66,16 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * @ordered
 	 */
 	protected YButtonType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getClickListeners() <em>Click Listeners</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClickListeners()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YButtonClickListener> clickListeners;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +160,40 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YButtonClickListener> getClickListeners() {
+		if (clickListeners == null) {
+			clickListeners = new EObjectResolvingEList<YButtonClickListener>(YButtonClickListener.class, this, ExtensionModelPackage.YBUTTON__CLICK_LISTENERS);
+		}
+		return clickListeners;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addClickListener(YButtonClickListener listener) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeClickListener(YButtonClickListener listener) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -153,6 +202,8 @@ public class YButtonImpl extends YActionImpl implements YButton {
 				return basicGetDatadescription();
 			case ExtensionModelPackage.YBUTTON__TYPE:
 				return getType();
+			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
+				return getClickListeners();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +213,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -170,6 +222,10 @@ public class YButtonImpl extends YActionImpl implements YButton {
 				return;
 			case ExtensionModelPackage.YBUTTON__TYPE:
 				setType((YButtonType)newValue);
+				return;
+			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
+				getClickListeners().clear();
+				getClickListeners().addAll((Collection<? extends YButtonClickListener>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,6 +245,9 @@ public class YButtonImpl extends YActionImpl implements YButton {
 			case ExtensionModelPackage.YBUTTON__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
+				getClickListeners().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +264,8 @@ public class YButtonImpl extends YActionImpl implements YButton {
 				return datadescription != null;
 			case ExtensionModelPackage.YBUTTON__TYPE:
 				return type != TYPE_EDEFAULT;
+			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
+				return clickListeners != null && !clickListeners.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -167,6 +167,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYButtonAdapter();
 			}
 			@Override
+			public Adapter caseYButtonClickListener(YButtonClickListener object) {
+				return createYButtonClickListenerAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -483,6 +487,20 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener <em>YButton Click Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener
+	 * @generated
+	 */
+	public Adapter createYButtonClickListenerAdapter() {
 		return null;
 	}
 

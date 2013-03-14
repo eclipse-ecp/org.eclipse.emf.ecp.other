@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getClickListeners <em>Click Listeners</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,5 +80,37 @@ public interface YButton extends YAction {
 	 * @generated
 	 */
 	void setType(YButtonType value);
+
+	/**
+	 * Returns the value of the '<em><b>Click Listeners</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Click Listeners</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Click Listeners</em>' reference list.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYButton_ClickListeners()
+	 * @model transient="true"
+	 * @generated
+	 */
+	EList<YButtonClickListener> getClickListeners();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addClickListener(YButtonClickListener listener);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeClickListener(YButtonClickListener listener);
 
 } // YButton

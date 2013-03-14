@@ -16,6 +16,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactor
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
@@ -167,6 +168,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * @generated
 	 */
 	private EClass yButtonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yButtonClickListenerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -756,6 +764,24 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYButton_ClickListeners() {
+		return (EReference)yButtonEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYButtonClickListener() {
+		return yButtonClickListenerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYAlignment() {
 		return yAlignmentEEnum;
 	}
@@ -870,6 +896,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yButtonEClass = createEClass(YBUTTON);
 		createEReference(yButtonEClass, YBUTTON__DATADESCRIPTION);
 		createEAttribute(yButtonEClass, YBUTTON__TYPE);
+		createEReference(yButtonEClass, YBUTTON__CLICK_LISTENERS);
+
+		yButtonClickListenerEClass = createEClass(YBUTTON_CLICK_LISTENER);
 
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
@@ -1016,6 +1045,18 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEClass(yButtonEClass, YButton.class, "YButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYButton_Type(), this.getYButtonType(), "type", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYButton_ClickListeners(), this.getYButtonClickListener(), null, "clickListeners", null, 0, -1, YButton.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(yButtonEClass, null, "addClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYButtonClickListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(yButtonEClass, null, "removeClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYButtonClickListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yButtonClickListenerEClass, YButtonClickListener.class, "YButtonClickListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(yButtonClickListenerEClass, null, "clicked", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYButton(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");
