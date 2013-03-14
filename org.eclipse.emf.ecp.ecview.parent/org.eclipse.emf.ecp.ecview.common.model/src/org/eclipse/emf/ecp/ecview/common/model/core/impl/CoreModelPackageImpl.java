@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
@@ -149,6 +150,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EClass yEnableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -554,6 +562,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYAction() {
+		return yActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUnit() {
 		return yUnitEEnum;
 	}
@@ -646,6 +663,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yEnableEClass, YENABLE__INITIAL_ENABLED);
 		createEAttribute(yEnableEClass, YENABLE__ENABLED);
 
+		yActionEClass = createEClass(YACTION);
+
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
 
@@ -692,6 +711,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableEClass.getESuperTypes().add(this.getYElement());
 		yEmbeddableEClass.getESuperTypes().add(this.getYCssAble());
 		yEmbeddableEClass.getESuperTypes().add(this.getYVisibleable());
+		yActionEClass.getESuperTypes().add(this.getYEmbeddable());
+		yActionEClass.getESuperTypes().add(this.getYEnable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yElementEClass, YElement.class, "YElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -750,6 +771,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEClass(yEnableEClass, YEnable.class, "YEnable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYEnable_InitialEnabled(), ecorePackage.getEBoolean(), "initialEnabled", "true", 0, 1, YEnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYEnable_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 0, 1, YEnable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(yActionEClass, YAction.class, "YAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

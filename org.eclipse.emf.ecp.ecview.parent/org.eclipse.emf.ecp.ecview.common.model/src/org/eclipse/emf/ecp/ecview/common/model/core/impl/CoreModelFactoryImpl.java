@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
@@ -74,6 +75,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YFIELD: return createYField();
 			case CoreModelPackage.YVIEW: return createYView();
 			case CoreModelPackage.YVIEW_SET: return createYViewSet();
+			case CoreModelPackage.YACTION: return createYAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -151,6 +153,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YViewSet createYViewSet() {
 		YViewSetImpl yViewSet = new YViewSetImpl();
 		return yViewSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YAction createYAction() {
+		YActionImpl yAction = new YActionImpl();
+		return yAction;
 	}
 
 	/**

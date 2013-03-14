@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -191,6 +192,17 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YENABLE: {
 				YEnable yEnable = (YEnable)theEObject;
 				T result = caseYEnable(yEnable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YACTION: {
+				YAction yAction = (YAction)theEObject;
+				T result = caseYAction(yAction);
+				if (result == null) result = caseYEmbeddable(yAction);
+				if (result == null) result = caseYEnable(yAction);
+				if (result == null) result = caseYElement(yAction);
+				if (result == null) result = caseYCssAble(yAction);
+				if (result == null) result = caseYVisibleable(yAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -420,6 +432,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYEnable(YEnable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YAction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YAction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYAction(YAction object) {
 		return null;
 	}
 

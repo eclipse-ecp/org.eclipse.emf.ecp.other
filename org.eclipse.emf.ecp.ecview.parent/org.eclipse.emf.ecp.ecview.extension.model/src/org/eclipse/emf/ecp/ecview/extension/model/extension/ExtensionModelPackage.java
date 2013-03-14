@@ -1812,6 +1812,106 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl <em>YButton</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButton()
+	 * @generated
+	 */
+	int YBUTTON = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__ID = CoreModelPackage.YACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__CSS_CLASS = CoreModelPackage.YACTION__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__CSS_ID = CoreModelPackage.YACTION__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__INITIAL_VISIBLE = CoreModelPackage.YACTION__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__VISIBLE = CoreModelPackage.YACTION__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__INITIAL_ENABLED = CoreModelPackage.YACTION__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__ENABLED = CoreModelPackage.YACTION__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__DATADESCRIPTION = CoreModelPackage.YACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__TYPE = CoreModelPackage.YACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YButton</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1819,7 +1919,18 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 17;
+	int YALIGNMENT = 18;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType <em>YButton Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonType()
+	 * @generated
+	 */
+	int YBUTTON_TYPE = 19;
 
 
 	/**
@@ -2389,6 +2500,38 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYList_Datatype();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton <em>YButton</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YButton</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton
+	 * @generated
+	 */
+	EClass getYButton();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getDatadescription()
+	 * @see #getYButton()
+	 * @generated
+	 */
+	EReference getYButton_Datadescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType()
+	 * @see #getYButton()
+	 * @generated
+	 */
+	EAttribute getYButton_Type();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2397,6 +2540,16 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getYAlignment();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType <em>YButton Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>YButton Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
+	 * @generated
+	 */
+	EEnum getYButtonType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2879,6 +3032,32 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YLIST__DATATYPE = eINSTANCE.getYList_Datatype();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl <em>YButton</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButton()
+		 * @generated
+		 */
+		EClass YBUTTON = eINSTANCE.getYButton();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YBUTTON__DATADESCRIPTION = eINSTANCE.getYButton_Datadescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBUTTON__TYPE = eINSTANCE.getYButton_Type();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2887,6 +3066,16 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum YALIGNMENT = eINSTANCE.getYAlignment();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType <em>YButton Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonType()
+		 * @generated
+		 */
+		EEnum YBUTTON_TYPE = eINSTANCE.getYButtonType();
 
 	}
 

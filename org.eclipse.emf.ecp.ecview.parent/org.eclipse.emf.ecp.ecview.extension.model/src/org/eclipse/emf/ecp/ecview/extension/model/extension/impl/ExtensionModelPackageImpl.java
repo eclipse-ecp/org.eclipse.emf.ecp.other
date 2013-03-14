@@ -15,6 +15,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
@@ -164,7 +166,21 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yButtonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum yAlignmentEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum yButtonTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -713,8 +729,44 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYButton() {
+		return yButtonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYButton_Datadescription() {
+		return (EReference)yButtonEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYButton_Type() {
+		return (EAttribute)yButtonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYAlignment() {
 		return yAlignmentEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getYButtonType() {
+		return yButtonTypeEEnum;
 	}
 
 	/**
@@ -815,8 +867,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yListEClass, YLIST__DATADESCRIPTION);
 		createEReference(yListEClass, YLIST__DATATYPE);
 
+		yButtonEClass = createEClass(YBUTTON);
+		createEReference(yButtonEClass, YBUTTON__DATADESCRIPTION);
+		createEAttribute(yButtonEClass, YBUTTON__TYPE);
+
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
+		yButtonTypeEEnum = createEEnum(YBUTTON_TYPE);
 	}
 
 	/**
@@ -880,6 +937,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yComboBoxEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yListEClass.getESuperTypes().add(this.getYInput());
 		yListEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
+		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yTextFieldEClass, YTextField.class, "YTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -955,6 +1013,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEReference(getYList_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYList_Datatype(), theExtDatatypesPackage.getYListDataType(), null, "datatype", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(yButtonEClass, YButton.class, "YButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYButton_Type(), this.getYButtonType(), "type", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.BOTTOM_LEFT);
@@ -974,6 +1036,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.FILL_CENTER);
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.FILL_RIGHT);
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.UNDEFINED);
+
+		initEEnum(yButtonTypeEEnum, YButtonType.class, "YButtonType");
+		addEEnumLiteral(yButtonTypeEEnum, YButtonType.PUSH);
+		addEEnumLiteral(yButtonTypeEEnum, YButtonType.TOGGLE);
 
 		// Create resource
 		createResource(eNS_URI);

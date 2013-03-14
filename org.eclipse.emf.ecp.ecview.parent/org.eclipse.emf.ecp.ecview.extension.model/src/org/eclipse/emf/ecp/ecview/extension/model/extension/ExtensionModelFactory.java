@@ -166,6 +166,15 @@ public interface ExtensionModelFactory extends EFactory {
 	YList createYList();
 
 	/**
+	 * Returns a new object of class '<em>YButton</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YButton</em>'.
+	 * @generated
+	 */
+	YButton createYButton();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
