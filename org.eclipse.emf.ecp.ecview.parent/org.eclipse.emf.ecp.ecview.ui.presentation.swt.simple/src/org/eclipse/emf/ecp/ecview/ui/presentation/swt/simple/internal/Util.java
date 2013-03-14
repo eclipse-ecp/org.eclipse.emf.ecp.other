@@ -10,56 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 
 public class Util {
-
-	/**
-	 * Updates the ridget attributes based on the yInput.
-	 * 
-	 * @param ridget
-	 * @param yInput
-	 */
-	public static void updateMarkableRidget(IMarkableRidget ridget,
-			YInput yInput) {
-		ridget.setEnabled(yInput.isInitialEnabled());
-		ridget.setMandatory(yInput.isRequired());
-		ridget.setOutputOnly(yInput.isReadonly());
-		ridget.setVisible(yInput.isInitialVisible());
-	}
-
-	/**
-	 * Updates the numeric ridget attributes based on the datatype.
-	 * 
-	 * @param ridget the numericTextRidget
-	 * @param yDatatype the datatype
-	 */
-	public static void updateNumericRidget(INumericTextRidget ridget,
-			YNumericDatatype yDatatype) {
-		ridget.setGrouping(yDatatype.isGrouping());
-		ridget.setMarkNegative(yDatatype.isMarkNegative());
-	}
-
-	/**
-	 * Updates the decimal ridget attributes based on the datatype.
-	 * 
-	 * @param ridget the decimalTextRidget
-	 * @param yDatatype the datatype
-	 */
-	public static void updateDecimalRidget(IDecimalTextRidget ridget,
-			YDecimalDatatype yDatatype) {
-		updateNumericRidget(ridget, yDatatype);
-		ridget.setPrecision(yDatatype.getPrecision());
-	}
 
 	/**
 	 * @return
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YCssAble#getCssClass()
 	 */
-	public static String getCssClass(YInput yInput) {
-		return yInput.getCssClass();
+	public static String getCssClass(YCssAble yCssAble) {
+		return yCssAble.getCssClass();
 	}
 
 	/**
@@ -67,16 +27,16 @@ public class Util {
 	 * 
 	 * @return
 	 */
-	public static boolean isCssClassValid(YInput yInput) {
-		return getCssClass(yInput) != null && !getCssClass(yInput).equals("");
+	public static boolean isCssClassValid(YCssAble yCssAble) {
+		return getCssClass(yCssAble) != null && !getCssClass(yCssAble).equals("");
 	}
 
 	/**
 	 * @return
 	 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YCssAble#getCssID()
 	 */
-	public static String getCssID(YInput yInput) {
-		return yInput.getCssID();
+	public static String getCssID(YCssAble yCssAble) {
+		return yCssAble.getCssID();
 	}
 
 	/**
@@ -84,7 +44,7 @@ public class Util {
 	 * 
 	 * @return
 	 */
-	public static boolean isCssIdValid(YInput yInput) {
-		return getCssID(yInput) != null && !getCssID(yInput).equals("");
+	public static boolean isCssIdValid(YCssAble yCssAble) {
+		return getCssID(yCssAble) != null && !getCssID(yCssAble).equals("");
 	}
 }

@@ -11,8 +11,16 @@
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IBindingManager;
+import org.eclipse.riena.ui.ridgets.IMarkableRidget;
+import org.eclipse.riena.ui.ridgets.INumericTextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
+import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -90,9 +98,32 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(numericText, CSS_CLASS__CONTROL);
 		}
+		
+		// creates the binding for the field
+		createBindings(yNumericTextField, numericRidget);
 
-		Util.updateMarkableRidget(numericRidget, yNumericTextField);
-		Util.updateNumericRidget(numericRidget, yNumericTextField.getDatatype());
+//		Util.updateMarkableRidget(numericRidget, yNumericTextField);
+//		Util.updateNumericRidget(numericRidget, yNumericTextField.getDatatype());
+	}
+
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	protected void createBindings(YNumericField yField, INumericTextRidget ridget) {
+		
+		super.createBindings((YField)yField, ridget);
+		
+		IBindingManager bindingManager = getViewContext().getService(
+				IServiceRegistry.SERVICE__BINDING_MANAGER);
+		
+		// bind grouping
+		bindingManager.bindGrouping(yField, ridget);
+		
+		// bind mark negative
+		bindingManager.bindMarkNegative(yField, ridget);
 	}
 
 	@Override

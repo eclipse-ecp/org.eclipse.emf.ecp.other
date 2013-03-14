@@ -13,6 +13,9 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
+import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
+import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -91,9 +94,13 @@ public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(decimalText, CSS_CLASS__CONTROL);
 		}
+		
+		// creates the binding for the field
+		createBindings(yDecimalTextField, decimalRidget);
 
-		Util.updateMarkableRidget(decimalRidget, yDecimalTextField);
-		Util.updateDecimalRidget(decimalRidget, yDecimalTextField.getDatatype());
+
+//		Util.updateMarkableRidget(decimalRidget, yDecimalTextField);
+//		Util.updateDecimalRidget(decimalRidget, yDecimalTextField.getDatatype());
 	}
 
 	@Override

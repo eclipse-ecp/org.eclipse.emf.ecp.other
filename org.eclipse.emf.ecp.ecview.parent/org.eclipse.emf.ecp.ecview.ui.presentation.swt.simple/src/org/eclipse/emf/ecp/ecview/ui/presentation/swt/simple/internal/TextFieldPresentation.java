@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -87,8 +89,11 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(text, CSS_CLASS__CONTROL);
 		}
+		
+		// creates the binding for the field
+		createBindings(yTextField, textRidget);
 
-		Util.updateMarkableRidget(textRidget, yTextField);
+//		Util.updateMarkableRidget(textRidget, yTextField);
 	}
 
 	@Override

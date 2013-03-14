@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -26,7 +28,7 @@ import org.eclipse.swt.widgets.Text;
  */
 public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 
-	private final YTextArea yTextField;
+	private final YTextArea yTextArea;
 	private Composite controlBase;
 	private Text text;
 	private Label label;
@@ -40,7 +42,7 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	public TextAreaPresentation(IElementEditpart editpart) {
 		super((ITextAreaEditpart) editpart);
-		this.yTextField = (YTextArea) editpart.getModel();
+		this.yTextArea = (YTextArea) editpart.getModel();
 	}
 
 	/**
@@ -52,8 +54,8 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
 			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
-			if (Util.isCssIdValid(yTextField)) {
-				setCSSId(controlBase, Util.getCssID(yTextField));
+			if (Util.isCssIdValid(yTextArea)) {
+				setCSSId(controlBase, Util.getCssID(yTextArea));
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
@@ -83,13 +85,16 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 			label.setText(getLabel());
 		}
 
-		if (Util.isCssClassValid(yTextField)) {
-			setCSSClass(text, Util.getCssClass(yTextField));
+		if (Util.isCssClassValid(yTextArea)) {
+			setCSSClass(text, Util.getCssClass(yTextArea));
 		} else {
 			setCSSClass(text, CSS_CLASS__CONTROL);
 		}
 
-		Util.updateMarkableRidget(textRidget, yTextField);
+		// creates the binding for the field
+		createBindings(yTextArea, textRidget);
+
+//		Util.updateMarkableRidget(textRidget, yTextArea);
 	}
 
 	@Override
@@ -108,8 +113,8 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public boolean isLabelValid() {
-		return yTextField.getDatadescription() != null
-				&& yTextField.getDatadescription().getLabel() != null;
+		return yTextArea.getDatadescription() != null
+				&& yTextArea.getDatadescription().getLabel() != null;
 	}
 
 	/**
@@ -118,7 +123,7 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 	 * @return
 	 */
 	public String getLabel() {
-		return yTextField.getDatadescription().getLabel();
+		return yTextArea.getDatadescription().getLabel();
 	}
 
 	/**

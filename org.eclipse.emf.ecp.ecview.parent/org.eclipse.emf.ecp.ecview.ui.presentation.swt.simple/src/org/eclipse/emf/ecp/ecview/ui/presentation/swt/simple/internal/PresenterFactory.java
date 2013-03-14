@@ -16,7 +16,9 @@ import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IComboBoxEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
@@ -54,10 +56,14 @@ public class PresenterFactory implements IPresentationFactory {
 			presentation = (A) new TextAreaPresentation(editpart);
 		} else if (editpart instanceof ICheckboxEditpart) {
 			presentation = (A) new CheckBoxPresentation(editpart);
+		} else if (editpart instanceof IComboBoxEditpart) {
+			presentation = (A) new ComboBoxPresentation(editpart);
 		} else if (editpart instanceof INumericFieldEditpart) {
 			presentation = (A) new NumericFieldPresentation(editpart);
 		} else if (editpart instanceof IDecimalFieldEditpart) {
 			presentation = (A) new DecimalFieldPresentation(editpart);
+		} else if (editpart instanceof IButtonEditpart) {
+			presentation = (A) new ButtonPresentation(editpart);
 		}
 
 		if (presentation == null) {
