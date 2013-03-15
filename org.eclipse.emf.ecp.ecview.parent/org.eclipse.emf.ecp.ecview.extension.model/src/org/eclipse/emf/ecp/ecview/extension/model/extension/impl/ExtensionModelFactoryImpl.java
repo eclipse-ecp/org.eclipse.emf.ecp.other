@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -30,7 +29,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,8 +108,6 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 				return createYAlignmentFromString(eDataType, initialValue);
 			case ExtensionModelPackage.YBUTTON_TYPE:
 				return createYButtonTypeFromString(eDataType, initialValue);
-			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
-				return createYButtonClickListenerFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -129,8 +125,6 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 				return convertYAlignmentToString(eDataType, instanceValue);
 			case ExtensionModelPackage.YBUTTON_TYPE:
 				return convertYButtonTypeToString(eDataType, instanceValue);
-			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
-				return convertYButtonClickListenerToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -344,24 +338,6 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 */
 	public String convertYButtonTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IButtonClickListener createYButtonClickListenerFromString(EDataType eDataType, String initialValue) {
-		return (IButtonClickListener)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertYButtonClickListenerToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
