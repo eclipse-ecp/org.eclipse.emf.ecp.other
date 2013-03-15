@@ -13,10 +13,10 @@ package org.eclipse.emf.ecp.ecview.ui.example.swt;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.layout.FillLayout;
@@ -56,7 +56,7 @@ public class ButtonExample implements IApplication {
 
 		YButton button = newButton("Text1");
 		layout.addElement(button);
-		button.addClickListener(new YButtonClickListener() {
+		button.addClickListener(new IButtonClickListener() {
 			@Override
 			public void clicked(YButton context) {
 				System.out.println("Button was clicked");
@@ -65,7 +65,7 @@ public class ButtonExample implements IApplication {
 
 		// render view
 		//
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, view, null);
 
 		shell.open();

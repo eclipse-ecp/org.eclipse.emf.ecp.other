@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import junit.framework.Assert;
 
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -71,7 +71,7 @@ public class CommonPresentationTests {
 		YTextField yText = factory.createTextField();
 		yGridlayout.getElements().add(yText);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		ITextFieldEditpart textEditpart = DelegatingEditPartManager.getInstance().getEditpart(yText);
@@ -103,7 +103,7 @@ public class CommonPresentationTests {
 		YTextField yText = factory.createTextField();
 		yGridlayout.getElements().add(yText);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		ITextFieldEditpart textEditpart = DelegatingEditPartManager.getInstance().getEditpart(yText);
@@ -145,7 +145,7 @@ public class CommonPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -273,7 +273,7 @@ public class CommonPresentationTests {
 		YTextField yText = factory.createTextField();
 		yGridlayout.getElements().add(yText);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);

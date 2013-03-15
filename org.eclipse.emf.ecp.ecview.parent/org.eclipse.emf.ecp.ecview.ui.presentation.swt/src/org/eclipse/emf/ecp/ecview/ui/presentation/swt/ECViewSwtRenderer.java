@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Composite;
 /**
  * A special implementation for ECP that offers convenience methods.
  */
-public class SimpleSwtRenderer implements IRenderer {
+public class ECViewSwtRenderer implements IRenderer {
 
 	/**
 	 * URI specifying the simple SWT presentation.

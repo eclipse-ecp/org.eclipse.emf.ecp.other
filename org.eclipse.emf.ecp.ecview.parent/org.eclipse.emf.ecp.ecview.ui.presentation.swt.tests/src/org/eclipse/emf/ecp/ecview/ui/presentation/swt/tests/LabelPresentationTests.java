@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import junit.framework.Assert;
 
@@ -21,12 +21,11 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.AbstractSWTWidgetPresenter;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.TextFieldPresentation;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -36,15 +35,14 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests the {@link TextFieldPresentation}.
+ * Tests the {@link LabelFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class TextAreaPresentationTests {
+public class LabelPresentationTests {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
@@ -71,24 +69,24 @@ public class TextAreaPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
-		// .........> yText
+		// .........> yLabel
 		YView yView = factory.createView();
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YTextArea yText = factory.createTextArea();
-		yGridlayout.getElements().add(yText);
+		YLabel yLabel = factory.createLabel();
+		yGridlayout.getElements().add(yLabel);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextAreaEditpart textAreaEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textAreaEditpart
+		ILabelEditpart labelEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yLabel);
+		IWidgetPresentation<Control> presentation = labelEditpart
 				.getPresentation();
 		Assert.assertTrue(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 
-		yGridlayout.getElements().remove(yText);
+		yGridlayout.getElements().remove(yLabel);
 		Assert.assertFalse(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 	}
@@ -104,28 +102,26 @@ public class TextAreaPresentationTests {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		// ......> yText
+		// ......> yLabel
 		YView yView = factory.createView();
-		YTextArea yText = factory.createTextArea();
-		yView.setContent(yText);
+		YLabel yLabel = factory.createLabel();
+		yView.setContent(yLabel);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextAreaEditpart textAreaEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textAreaEditpart
+		ILabelEditpart labelEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yLabel);
+		IWidgetPresentation<Control> presentation = labelEditpart
 				.getPresentation();
 		Composite baseComposite = (Composite) presentation.getWidget();
+		Label label = (Label) unwrap(baseComposite);
 
-		Label label = (Label) unwrapLabel(baseComposite);
-		Text textArea = (Text) unwrapText(baseComposite);
-
-		Assert.assertEquals(2, baseComposite.getChildren().length);
+		Assert.assertEquals(1, baseComposite.getChildren().length);
 
 		// assert layout and layout data
 		GridLayout layout = (GridLayout) baseComposite.getLayout();
-		Assert.assertEquals(2, layout.numColumns);
+		Assert.assertEquals(1, layout.numColumns);
 		Assert.assertEquals(0, layout.marginBottom);
 		Assert.assertEquals(0, layout.marginLeft);
 		Assert.assertEquals(0, layout.marginRight);
@@ -133,25 +129,11 @@ public class TextAreaPresentationTests {
 		Assert.assertEquals(5, layout.marginHeight);
 		Assert.assertEquals(5, layout.marginWidth);
 
-		GridData labelData = (GridData) label.getLayoutData();
-		Assert.assertEquals(SWT.BEGINNING, labelData.horizontalAlignment);
-		Assert.assertEquals(SWT.TOP, labelData.verticalAlignment);
-		Assert.assertEquals(false, labelData.grabExcessHorizontalSpace);
-		Assert.assertEquals(true, labelData.grabExcessVerticalSpace);
-		Assert.assertEquals(false, labelData.exclude);
-		Assert.assertEquals(0, labelData.horizontalIndent);
-		Assert.assertEquals(1, labelData.horizontalSpan);
-		Assert.assertEquals(0, labelData.minimumHeight);
-		Assert.assertEquals(0, labelData.minimumWidth);
-		Assert.assertEquals(0, labelData.verticalIndent);
-		Assert.assertEquals(1, labelData.verticalSpan);
-		Assert.assertEquals(-1, labelData.widthHint);
-
-		GridData data = (GridData) textArea.getLayoutData();
+		GridData data = (GridData) label.getLayoutData();
 		Assert.assertEquals(SWT.FILL, data.horizontalAlignment);
 		Assert.assertEquals(SWT.FILL, data.verticalAlignment);
 		Assert.assertEquals(true, data.grabExcessHorizontalSpace);
-		Assert.assertEquals(true, data.grabExcessVerticalSpace);
+		Assert.assertEquals(true, data.grabExcessHorizontalSpace);
 		Assert.assertEquals(false, data.exclude);
 		Assert.assertEquals(0, data.horizontalIndent);
 		Assert.assertEquals(1, data.horizontalSpan);
@@ -173,78 +155,50 @@ public class TextAreaPresentationTests {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		// ......> yText
+		// ......> yLabel
 		YView yView = factory.createView();
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YTextArea yText1 = factory.createTextArea();
-		yText1.setCssID("ID_0815");
-		yText1.setCssClass("anyOtherClass");
-		yLayout.getElements().add(yText1);
-		YTextArea yText2 = factory.createTextArea();
-		yLayout.getElements().add(yText2);
+		YLabel yLabel1 = factory.createLabel();
+		yLabel1.setCssID("ID_0815");
+		yLabel1.setCssClass("anyOtherClass");
+		yLayout.addElement(yLabel1);
+		YLabel yLabel2 = factory.createLabel();
+		yLayout.addElement(yLabel2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextAreaEditpart textArea1Editpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText1);
-		ITextAreaEditpart textArea2Editpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText2);
-		IWidgetPresentation<Control> textArea1Presentation = textArea1Editpart
+		ILabelEditpart label1Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yLabel1);
+		ILabelEditpart label2Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yLabel2);
+		IWidgetPresentation<Control> label1Presentation = label1Editpart
 				.getPresentation();
-		IWidgetPresentation<Control> textArea2Presentation = textArea2Editpart
+		IWidgetPresentation<Control> label2Presentation = label2Editpart
 				.getPresentation();
-		Composite textArea1BaseComposite = (Composite) textArea1Presentation
+		Composite label1BaseComposite = (Composite) label1Presentation
 				.getWidget();
-		Composite textArea2BaseComposite = (Composite) textArea2Presentation
+		Composite label2BaseComposite = (Composite) label2Presentation
 				.getWidget();
-
-		Label label1 = (Label) unwrapLabel(textArea1BaseComposite);
-		Text textArea1 = (Text) unwrapText(textArea1BaseComposite);
-		Label label2 = (Label) unwrapLabel(textArea2BaseComposite);
-		Text textArea2 = (Text) unwrapText(textArea2BaseComposite);
+		Label label1 = (Label) unwrap(label1BaseComposite);
+		Label label2 = (Label) unwrap(label2BaseComposite);
 
 		// assert css class
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(textArea1BaseComposite));
+				WidgetElement.getCSSClass(label1BaseComposite));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(textArea2BaseComposite));
-
-		Assert.assertEquals("anyOtherClass",
-				WidgetElement.getCSSClass(textArea1));
+				WidgetElement.getCSSClass(label2BaseComposite));
+		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(label1));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
-				WidgetElement.getCSSClass(textArea2));
-
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
-				WidgetElement.getCSSClass(label1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
 				WidgetElement.getCSSClass(label2));
 
 		// assert css id
-		Assert.assertEquals("ID_0815",
-				WidgetElement.getID(textArea1BaseComposite));
-		Assert.assertNull(WidgetElement.getID(textArea1));
-		Assert.assertEquals(textArea2Editpart.getId(),
-				WidgetElement.getID(textArea2BaseComposite));
-		Assert.assertNull(WidgetElement.getID(textArea2));
-
+		Assert.assertEquals("ID_0815", WidgetElement.getID(label1BaseComposite));
 		Assert.assertNull(WidgetElement.getID(label1));
+		Assert.assertEquals(label2Editpart.getId(),
+				WidgetElement.getID(label2BaseComposite));
 		Assert.assertNull(WidgetElement.getID(label2));
-	}
-
-	/**
-	 * Unwraps the label from its parent composite.
-	 * 
-	 * @param control
-	 * @return
-	 */
-	private Control unwrapLabel(Control control) {
-		if (control instanceof Composite) {
-			Composite composite = (Composite) control;
-			return composite.getChildren()[0];
-		}
-		return control;
 	}
 
 	/**
@@ -253,10 +207,10 @@ public class TextAreaPresentationTests {
 	 * @param control
 	 * @return
 	 */
-	private Control unwrapText(Control control) {
+	private Control unwrap(Control control) {
 		if (control instanceof Composite) {
 			Composite composite = (Composite) control;
-			return composite.getChildren()[1];
+			return composite.getChildren()[0];
 		}
 		return control;
 	}

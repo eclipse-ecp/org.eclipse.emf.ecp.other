@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

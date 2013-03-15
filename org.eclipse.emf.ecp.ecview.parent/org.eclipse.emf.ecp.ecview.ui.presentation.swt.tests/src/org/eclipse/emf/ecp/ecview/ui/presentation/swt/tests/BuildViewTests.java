@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import junit.framework.Assert;
 
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
@@ -75,7 +75,7 @@ public class BuildViewTests {
 
 		Assert.assertEquals(0, shell.getChildren().length);
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -110,7 +110,7 @@ public class BuildViewTests {
 
 		Assert.assertEquals(0, shell.getChildren().length);
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -148,7 +148,7 @@ public class BuildViewTests {
 
 		Assert.assertEquals(0, shell.getChildren().length);
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -190,7 +190,7 @@ public class BuildViewTests {
 
 		Assert.assertEquals(0, shell.getChildren().length);
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -234,7 +234,7 @@ public class BuildViewTests {
 		// mark rendered
 		//
 		try {
-			viewContext2.render(SimpleSwtRenderer.UI_KIT_URI, shell, null);
+			viewContext2.render(ECViewSwtRenderer.UI_KIT_URI, shell, null);
 		} catch (ContextException e1) {
 			throw new RuntimeException(e1);
 		}
@@ -272,7 +272,7 @@ public class BuildViewTests {
 		Assert.assertEquals("test", context.getPresentationURI());
 
 		try {
-			context.render(SimpleSwtRenderer.UI_KIT_URI, shell, null);
+			context.render(ECViewSwtRenderer.UI_KIT_URI, shell, null);
 		} catch (ContextException e) {
 			Assert.fail();
 		}
@@ -300,7 +300,7 @@ public class BuildViewTests {
 		Assert.assertNull(context.getRootLayout());
 
 		try {
-			context.render(SimpleSwtRenderer.UI_KIT_URI, shell, null);
+			context.render(ECViewSwtRenderer.UI_KIT_URI, shell, null);
 		} catch (ContextException e) {
 			Assert.fail();
 		}

@@ -4,6 +4,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -1903,7 +1904,7 @@ public interface ExtensionModelPackage extends EPackage {
 	int YBUTTON__TYPE = CoreModelPackage.YACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Click Listeners</b></em>' reference list.
+	 * The feature id for the '<em><b>Click Listeners</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1921,23 +1922,14 @@ public interface ExtensionModelPackage extends EPackage {
 	int YBUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener <em>YButton Click Listener</em>}' class.
+	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 	 * @generated
 	 */
-	int YBUTTON_CLICK_LISTENER = 18;
-
-	/**
-	 * The number of structural features of the '<em>YButton Click Listener</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON_CLICK_LISTENER_FEATURE_COUNT = 0;
+	int YBUTTON_CLICK_LISTENER = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
@@ -1947,7 +1939,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 19;
+	int YALIGNMENT = 18;
 
 
 	/**
@@ -1958,7 +1950,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonType()
 	 * @generated
 	 */
-	int YBUTTON_TYPE = 20;
+	int YBUTTON_TYPE = 19;
 
 
 	/**
@@ -2560,25 +2552,26 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYButton_Type();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getClickListeners <em>Click Listeners</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getClickListeners <em>Click Listeners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Click Listeners</em>'.
+	 * @return the meta object for the attribute list '<em>Click Listeners</em>'.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getClickListeners()
 	 * @see #getYButton()
 	 * @generated
 	 */
-	EReference getYButton_ClickListeners();
+	EAttribute getYButton_ClickListeners();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener <em>YButton Click Listener</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener <em>YButton Click Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YButton Click Listener</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener
+	 * @return the meta object for data type '<em>YButton Click Listener</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener
+	 * @model instanceClass="org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener"
 	 * @generated
 	 */
-	EClass getYButtonClickListener();
+	EDataType getYButtonClickListener();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}'.
@@ -3107,22 +3100,22 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YBUTTON__TYPE = eINSTANCE.getYButton_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Click Listeners</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Click Listeners</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference YBUTTON__CLICK_LISTENERS = eINSTANCE.getYButton_ClickListeners();
+		EAttribute YBUTTON__CLICK_LISTENERS = eINSTANCE.getYButton_ClickListeners();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener <em>YButton Click Listener</em>}' class.
+		 * The meta object literal for the '<em>YButton Click Listener</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener
 		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 		 * @generated
 		 */
-		EClass YBUTTON_CLICK_LISTENER = eINSTANCE.getYButtonClickListener();
+		EDataType YBUTTON_CLICK_LISTENER = eINSTANCE.getYButtonClickListener();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.

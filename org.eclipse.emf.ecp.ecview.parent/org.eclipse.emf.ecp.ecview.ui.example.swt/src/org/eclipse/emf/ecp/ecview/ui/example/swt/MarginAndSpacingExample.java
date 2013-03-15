@@ -20,7 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.layout.FillLayout;
@@ -80,11 +80,11 @@ public class MarginAndSpacingExample implements IApplication {
 		Set<URL> cssFiles = new HashSet<URL>();
 		cssFiles.add(Activator.getContext().getBundle()
 				.getEntry("/theming/css/example.css"));
-		options.put(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES, cssFiles);
+		options.put(ECViewSwtRenderer.RENDERING_OPTION__CSS_FILES, cssFiles);
 
 		// render view
 		//
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, options);
 
 		shell.open();

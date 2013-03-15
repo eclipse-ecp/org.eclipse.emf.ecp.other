@@ -24,7 +24,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 
 /**
  * The presenter factory.
@@ -35,7 +35,7 @@ public class PresenterFactory implements IPresentationFactory {
 	public boolean isFor(IViewContext uiContext, IElementEditpart editpart) {
 		String presentationURI = uiContext.getPresentationURI();
 		return presentationURI != null
-				&& presentationURI.equals(SimpleSwtRenderer.UI_KIT_URI);
+				&& presentationURI.equals(ECViewSwtRenderer.UI_KIT_URI);
 	}
 
 	@SuppressWarnings("unchecked")

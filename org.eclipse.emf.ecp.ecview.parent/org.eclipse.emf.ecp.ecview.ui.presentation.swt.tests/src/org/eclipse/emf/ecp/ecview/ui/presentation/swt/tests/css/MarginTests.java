@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests.css;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests.css;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -24,8 +24,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests.Activator;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests.Activator;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -72,7 +72,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -106,7 +106,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -140,7 +140,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, createCssOptions());
 		} catch (ContextException e) {
 			Assert.fail();
@@ -177,7 +177,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, createCssOptions());
 		} catch (ContextException e) {
 			Assert.fail();
@@ -211,7 +211,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -245,7 +245,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, null);
 		} catch (ContextException e) {
 			Assert.fail();
@@ -280,7 +280,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, createCssOptions());
 		} catch (ContextException e) {
 			Assert.fail();
@@ -317,7 +317,7 @@ public class MarginTests {
 		yView.setContent(yGridLayout);
 
 		try {
-			SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+			ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 			renderer.render(shell, yView, createCssOptions());
 		} catch (ContextException e) {
 			Assert.fail();
@@ -358,7 +358,7 @@ public class MarginTests {
 	 */
 	protected Map<String, Object> createCssOptions() {
 		Map<String, Object> options = new HashMap<String, Object>();
-		options.put(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES,
+		options.put(ECViewSwtRenderer.RENDERING_OPTION__CSS_FILES,
 			Collections.singleton(Activator.getContext().getBundle().getEntry("/theming/css/maringTests.css")));
 		return options;
 	}

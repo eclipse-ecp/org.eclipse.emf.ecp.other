@@ -5,7 +5,7 @@ import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.services.IServiceProvider;
 import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.widgets.Widget;
 
@@ -18,7 +18,7 @@ public class BindingManagerProvider implements IServiceProvider {
 				return false;
 			}
 			IViewContext viewContext = (IViewContext) context;
-			if (!SimpleSwtRenderer.UI_KIT_URI.equals(viewContext.getPresentationURI())){
+			if (!ECViewSwtRenderer.UI_KIT_URI.equals(viewContext.getPresentationURI())){
 				return false;
 			}
 			return true;

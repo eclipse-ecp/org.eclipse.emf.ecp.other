@@ -173,17 +173,12 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//YButtonType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="clickListeners" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clickListeners" upperBound="-1"
         eType="#//YButtonClickListener" transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="YButtonType">
     <eLiterals name="PUSH" literal="PUSH"/>
     <eLiterals name="TOGGLE" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YButtonClickListener" abstract="true"
-      interface="true">
-    <eOperations name="clicked">
-      <eParameters name="listener" eType="#//YButton"/>
-    </eOperations>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="YButtonClickListener" instanceClassName="org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener"/>
 </ecore:EPackage>

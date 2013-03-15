@@ -30,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.Activator;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IConstants;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.SimpleSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -102,7 +102,7 @@ public class ViewPresentation extends AbstractDisposable implements
 		// apply CSS style
 		if (cssEngine == null) {
 			setupCSSEngine(options != null ? (Set<URL>) options
-					.get(SimpleSwtRenderer.RENDERING_OPTION__CSS_FILES)
+					.get(ECViewSwtRenderer.RENDERING_OPTION__CSS_FILES)
 					: Collections.<URL> emptySet());
 		}
 		applyCssStyle();

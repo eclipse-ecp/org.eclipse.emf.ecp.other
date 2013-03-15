@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import junit.framework.Assert;
 
@@ -26,10 +26,10 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.IConstants;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.AbstractSWTWidgetPresenter;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.ViewPresentation;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IConstants;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.ViewPresentation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -82,7 +82,7 @@ public class ViewPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -136,7 +136,7 @@ public class ViewPresentationTests {
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -182,7 +182,7 @@ public class ViewPresentationTests {
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -231,7 +231,7 @@ public class ViewPresentationTests {
 		// ...> yView
 		YView yView = factory.createView();
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
@@ -282,7 +282,7 @@ public class ViewPresentationTests {
 		yView.setCssID("ID_0815");
 		yView.setCssClass("anyOtherClass");
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
@@ -314,7 +314,7 @@ public class ViewPresentationTests {
 		// ......> yText
 		YView yView = factory.createView();
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);

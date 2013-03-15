@@ -3,12 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Tests for UI-Kit SWT Simple
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests
 Bundle-Version: 0.0.1.qualifier
-Bundle-Activator: org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests.Activator
+Bundle-Activator: org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport,
  org.eclipse.emf.ecp.ecview.ui.presentation.swt;bundle-version="0.0.1",
  org.eclipse.emf.ecp.ecview.common.editparts.emf;bundle-version="0.0.1",
- org.eclipse.emf.ecp.ecview.extension.editparts.emf;bundle-version="0.0.1"
+ org.eclipse.emf.ecp.ecview.extension.editparts.emf;bundle-version="0.0.1",
+ org.eclipse.e4.ui.css.core;bundle-version="0.10.2"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.e4.ui.css.swt.dom

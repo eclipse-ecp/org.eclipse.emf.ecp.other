@@ -8,8 +8,9 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
+import static junit.framework.Assert.assertEquals;
 import junit.framework.Assert;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
@@ -20,31 +21,30 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.AbstractSWTWidgetPresenter;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.TextFieldPresentation;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests the {@link TextFieldPresentation}.
+ * Tests the {@link ButtonFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class TextFieldPresentationTests {
+public class ButtonPresentationTests {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
@@ -71,24 +71,24 @@ public class TextFieldPresentationTests {
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
-		// .........> yText
+		// .........> YButton
 		YView yView = factory.createView();
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YTextField yText = factory.createTextField();
-		yGridlayout.getElements().add(yText);
+		YButton yButton = factory.createButton();
+		yGridlayout.addElement(yButton);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart
+		IButtonEditpart buttonEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yButton);
+		IWidgetPresentation<Control> presentation = buttonEditpart
 				.getPresentation();
 		Assert.assertTrue(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 
-		yGridlayout.getElements().remove(yText);
+		yGridlayout.getElements().remove(yButton);
 		Assert.assertFalse(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 	}
@@ -104,24 +104,23 @@ public class TextFieldPresentationTests {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		// ......> yText
+		// ......> YButton
 		YView yView = factory.createView();
-		YTextField yText = factory.createTextField();
-		yView.setContent(yText);
+		YButton yButton = factory.createButton();
+		yView.setContent(yButton);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart
+		IButtonEditpart buttonEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yButton);
+		IWidgetPresentation<Control> presentation = buttonEditpart
 				.getPresentation();
 		Composite baseComposite = (Composite) presentation.getWidget();
 
-		Label label = (Label) unwrapLabel(baseComposite);
-		Text text = (Text) unwrapText(baseComposite);
+		Button button = (Button) unwrapButton(baseComposite);
 
-		Assert.assertEquals(2, baseComposite.getChildren().length);
+		Assert.assertEquals(1, baseComposite.getChildren().length);
 
 		// assert layout and layout data
 		GridLayout layout = (GridLayout) baseComposite.getLayout();
@@ -133,21 +132,7 @@ public class TextFieldPresentationTests {
 		Assert.assertEquals(5, layout.marginHeight);
 		Assert.assertEquals(5, layout.marginWidth);
 
-		GridData labelData = (GridData) label.getLayoutData();
-		Assert.assertEquals(SWT.BEGINNING, labelData.horizontalAlignment);
-		Assert.assertEquals(SWT.TOP, labelData.verticalAlignment);
-		Assert.assertEquals(false, labelData.grabExcessHorizontalSpace);
-		Assert.assertEquals(true, labelData.grabExcessVerticalSpace);
-		Assert.assertEquals(false, labelData.exclude);
-		Assert.assertEquals(0, labelData.horizontalIndent);
-		Assert.assertEquals(1, labelData.horizontalSpan);
-		Assert.assertEquals(0, labelData.minimumHeight);
-		Assert.assertEquals(0, labelData.minimumWidth);
-		Assert.assertEquals(0, labelData.verticalIndent);
-		Assert.assertEquals(1, labelData.verticalSpan);
-		Assert.assertEquals(-1, labelData.widthHint);
-
-		GridData data = (GridData) text.getLayoutData();
+		GridData data = (GridData) button.getLayoutData();
 		Assert.assertEquals(SWT.FILL, data.horizontalAlignment);
 		Assert.assertEquals(SWT.FILL, data.verticalAlignment);
 		Assert.assertEquals(true, data.grabExcessHorizontalSpace);
@@ -173,76 +158,120 @@ public class TextFieldPresentationTests {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		// ......> yText
+		// ......> YButton
 		YView yView = factory.createView();
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YTextField yText1 = factory.createTextField();
-		yText1.setCssID("ID_0815");
-		yText1.setCssClass("anyOtherClass");
-		yLayout.getElements().add(yText1);
-		YTextField yText2 = factory.createTextField();
-		yLayout.getElements().add(yText2);
+		YButton yButton1 = factory.createButton();
+		yButton1.setCssID("ID_0815");
+		yButton1.setCssClass("anyOtherClass");
+		yLayout.addElement(yButton1);
+		YButton yButton2 = factory.createButton();
+		yLayout.addElement(yButton2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart text1Editpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText1);
-		ITextFieldEditpart text2Editpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText2);
-		IWidgetPresentation<Control> text1Presentation = text1Editpart
+		IButtonEditpart button1Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yButton1);
+		IButtonEditpart button2Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yButton2);
+		IWidgetPresentation<Control> button1Presentation = button1Editpart
 				.getPresentation();
-		IWidgetPresentation<Control> text2Presentation = text2Editpart
+		IWidgetPresentation<Control> button2Presentation = button2Editpart
 				.getPresentation();
-		Composite text1BaseComposite = (Composite) text1Presentation
+		Composite button1BaseComposite = (Composite) button1Presentation
 				.getWidget();
-		Composite text2BaseComposite = (Composite) text2Presentation
+		Composite button2BaseComposite = (Composite) button2Presentation
 				.getWidget();
 
-		Label label1 = (Label) unwrapLabel(text1BaseComposite);
-		Text text1 = (Text) unwrapText(text1BaseComposite);
-		Label label2 = (Label) unwrapLabel(text2BaseComposite);
-		Text text2 = (Text) unwrapText(text2BaseComposite);
+		Button button1 = (Button) unwrapButton(button1BaseComposite);
+		Button button2 = (Button) unwrapButton(button2BaseComposite);
 
 		// assert css class
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(text1BaseComposite));
+				WidgetElement.getCSSClass(button1BaseComposite));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(text2BaseComposite));
+				WidgetElement.getCSSClass(button2BaseComposite));
 
-		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(text1));
+		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(button1));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
-				WidgetElement.getCSSClass(text2));
-
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
-				WidgetElement.getCSSClass(label1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
-				WidgetElement.getCSSClass(label2));
+				WidgetElement.getCSSClass(button2));
 
 		// assert css id
-		Assert.assertEquals("ID_0815", WidgetElement.getID(text1BaseComposite));
-		Assert.assertNull(WidgetElement.getID(text1));
-		Assert.assertEquals(text2Editpart.getId(),
-				WidgetElement.getID(text2BaseComposite));
-		Assert.assertNull(WidgetElement.getID(text2));
-
-		Assert.assertNull(WidgetElement.getID(label1));
-		Assert.assertNull(WidgetElement.getID(label2));
+		Assert.assertEquals("ID_0815",
+				WidgetElement.getID(button1BaseComposite));
+		Assert.assertNull(WidgetElement.getID(button1));
+		Assert.assertEquals(button2Editpart.getId(),
+				WidgetElement.getID(button2BaseComposite));
+		Assert.assertNull(WidgetElement.getID(button2));
 	}
 
 	/**
-	 * Unwraps the label from its parent composite.
+	 * Tests rendering issues.
 	 * 
-	 * @param control
-	 * @return
+	 * @throws Exception
 	 */
-	private Control unwrapLabel(Control control) {
-		if (control instanceof Composite) {
-			Composite composite = (Composite) control;
-			return composite.getChildren()[0];
-		}
-		return control;
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_clickListener() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+
+		final int[] clicks = new int[1];
+
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> YButton
+		YView yView = factory.createView();
+		YGridLayout yGridlayout = factory.createGridLayout();
+		yView.setContent(yGridlayout);
+		YButton yButton = factory.createButton();
+		yGridlayout.addElement(yButton);
+		yButton.addClickListener(new IButtonClickListener() {
+			@Override
+			public void clicked(YButton listener) {
+				clicks[0]++;
+			}
+		});
+		assertEquals(0, clicks[0]);
+
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		IButtonEditpart buttonEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yButton);
+		IWidgetPresentation<Control> presentation = buttonEditpart
+				.getPresentation();
+		Button button = unwrapButton(presentation.getWidget());
+
+		// fire selection event
+		button.notifyListeners(SWT.Selection, null);
+		assertEquals(1, clicks[0]);
+		clicks[0] = 0;
+
+		IButtonClickListener listener = new IButtonClickListener() {
+			@Override
+			public void clicked(YButton listener) {
+				clicks[0]++;
+			}
+		};
+		yButton.addClickListener(listener);
+		button.notifyListeners(SWT.Selection, null);
+		assertEquals(2, clicks[0]);
+		clicks[0] = 0;
+
+		// add same listener twice --> nothing happens
+		yButton.addClickListener(listener);
+		button.notifyListeners(SWT.Selection, null);
+		assertEquals(2, clicks[0]);
+		clicks[0] = 0;
+
+		// remove listener again
+		yButton.removeClickListener(listener);
+		button.notifyListeners(SWT.Selection, null);
+		assertEquals(1, clicks[0]);
+		clicks[0] = 0;
 	}
 
 	/**
@@ -251,12 +280,12 @@ public class TextFieldPresentationTests {
 	 * @param control
 	 * @return
 	 */
-	private Control unwrapText(Control control) {
+	private Button unwrapButton(Control control) {
 		if (control instanceof Composite) {
 			Composite composite = (Composite) control;
-			return composite.getChildren()[1];
+			return (Button) composite.getChildren()[0];
 		}
-		return control;
+		return (Button) control;
 	}
 
 	/**

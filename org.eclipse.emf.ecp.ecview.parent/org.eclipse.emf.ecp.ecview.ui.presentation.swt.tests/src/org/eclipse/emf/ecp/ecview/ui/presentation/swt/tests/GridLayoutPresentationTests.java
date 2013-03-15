@@ -8,7 +8,7 @@
  * Contributors:
  * Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.tests;
+package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import junit.framework.Assert;
 
@@ -26,9 +26,9 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.SimpleSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.AbstractSWTWidgetPresenter;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.simple.internal.GridLayoutPresentation;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.GridLayoutPresentation;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -81,7 +81,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -212,7 +212,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -271,7 +271,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -344,7 +344,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText3 = factory.createTextField();
 		yGridlayout.getElements().add(yText3);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -414,7 +414,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -473,7 +473,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText2 = factory.createTextField();
 		yGridlayout.getElements().add(yText2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		try {
@@ -510,7 +510,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText3 = factory.createTextField();
 		yGridlayout.getElements().add(yText3);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -573,7 +573,7 @@ public class GridLayoutPresentationTests {
 		YGridLayout yGridlayout1_1 = factory.createGridLayout();
 		yGridlayout1.getElements().add(yGridlayout1_1);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -641,7 +641,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText3 = factory.createTextField();
 		yGridlayout.getElements().add(yText3);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -711,7 +711,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText3 = factory.createTextField();
 		yGridlayout.getElements().add(yText3);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -781,7 +781,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText3 = factory.createTextField();
 		yGridlayout.getElements().add(yText3);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -850,7 +850,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText3 = factory.createTextField();
 		yGridlayout.getElements().add(yText3);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		// layout
@@ -912,7 +912,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText = factory.createTextField();
 		yGridlayout.getElements().add(yText);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
@@ -951,7 +951,7 @@ public class GridLayoutPresentationTests {
 		YTextField yText = factory.createTextField();
 		yGridlayout.getElements().add(yText);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yGridlayout);
@@ -989,7 +989,7 @@ public class GridLayoutPresentationTests {
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IGridLayoutEditpart layoutEditpart = DelegatingEditPartManager.getInstance().getEditpart(yLayout);
@@ -1041,11 +1041,11 @@ public class GridLayoutPresentationTests {
 		YGridLayout yInternalLayout1 = factory.createGridLayout();
 		yInternalLayout1.setCssID("ID_0815");
 		yInternalLayout1.setCssClass("anyOtherClass");
-		yLayout.getElements().add(yInternalLayout1);
+		yLayout.addElement(yInternalLayout1);
 		YGridLayout yInternalLayout2 = factory.createGridLayout();
-		yLayout.getElements().add(yInternalLayout2);
+		yLayout.addElement(yInternalLayout2);
 
-		SimpleSwtRenderer renderer = new SimpleSwtRenderer();
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
 		IGridLayoutEditpart internalLayout1Editpart = DelegatingEditPartManager.getInstance().getEditpart(
