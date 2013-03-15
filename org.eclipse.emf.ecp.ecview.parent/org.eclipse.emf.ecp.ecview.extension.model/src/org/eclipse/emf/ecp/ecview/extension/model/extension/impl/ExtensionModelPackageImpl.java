@@ -1064,6 +1064,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		initEClass(yButtonClickListenerEClass, YButtonClickListener.class, "YButtonClickListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		op = addEOperation(yButtonClickListenerEClass, null, "clicked", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYButton(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.BOTTOM_LEFT);

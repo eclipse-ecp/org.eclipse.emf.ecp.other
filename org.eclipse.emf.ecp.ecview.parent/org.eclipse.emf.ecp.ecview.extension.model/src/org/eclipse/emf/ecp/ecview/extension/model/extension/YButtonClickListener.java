@@ -14,4 +14,12 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
  * @generated
  */
 public interface YButtonClickListener {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clicked(YButton listener);
 } // YButtonClickListener

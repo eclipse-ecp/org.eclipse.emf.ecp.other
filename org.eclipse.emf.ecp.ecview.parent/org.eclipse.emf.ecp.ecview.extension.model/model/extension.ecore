@@ -181,5 +181,9 @@
     <eLiterals name="TOGGLE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YButtonClickListener" abstract="true"
-      interface="true"/>
+      interface="true">
+    <eOperations name="clicked">
+      <eParameters name="listener" eType="#//YButton"/>
+    </eOperations>
+  </eClassifiers>
 </ecore:EPackage>
