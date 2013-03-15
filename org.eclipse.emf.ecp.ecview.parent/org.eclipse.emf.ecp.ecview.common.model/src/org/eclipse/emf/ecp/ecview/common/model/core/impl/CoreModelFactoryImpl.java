@@ -71,11 +71,11 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CoreModelPackage.YLAYOUT: return createYLayout();
-			case CoreModelPackage.YFIELD: return createYField();
-			case CoreModelPackage.YVIEW: return createYView();
-			case CoreModelPackage.YVIEW_SET: return createYViewSet();
-			case CoreModelPackage.YACTION: return createYAction();
+			case CoreModelPackage.YLAYOUT: return (EObject)createYLayout();
+			case CoreModelPackage.YFIELD: return (EObject)createYField();
+			case CoreModelPackage.YVIEW: return (EObject)createYView();
+			case CoreModelPackage.YVIEW_SET: return (EObject)createYViewSet();
+			case CoreModelPackage.YACTION: return (EObject)createYAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

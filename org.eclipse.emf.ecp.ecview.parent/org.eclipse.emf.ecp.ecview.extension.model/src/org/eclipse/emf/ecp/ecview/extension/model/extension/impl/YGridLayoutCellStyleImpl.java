@@ -5,19 +5,20 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Grid Layout Cell Style</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi Grid Layout Cell Style</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -29,11 +30,11 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
  *
  * @generated
  */
-public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayoutCellStyle {
+public class YGridLayoutCellStyleImpl extends EObjectImpl implements
+		YGridLayoutCellStyle {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
@@ -42,8 +43,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 
 	/**
 	 * The default value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getAlignment()
 	 * @generated
 	 * @ordered
@@ -52,8 +52,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 
 	/**
 	 * The cached value of the '{@link #getAlignment() <em>Alignment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getAlignment()
 	 * @generated
 	 * @ordered
@@ -62,8 +61,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 
 	/**
 	 * The cached value of the '{@link #getSpanInfo() <em>Span Info</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSpanInfo()
 	 * @generated
 	 * @ordered
@@ -71,8 +69,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	protected YSpanInfo spanInfo;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YGridLayoutCellStyleImpl() {
@@ -80,8 +77,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -90,12 +86,11 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YEmbeddable getTarget() {
-		if (target != null && target.eIsProxy()) {
+		if (target != null && ((EObject)target).eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
 			target = (YEmbeddable)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
@@ -107,8 +102,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YEmbeddable basicGetTarget() {
@@ -116,8 +110,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTarget(YEmbeddable newTarget) {
@@ -128,8 +121,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YAlignment getAlignment() {
@@ -137,8 +129,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setAlignment(YAlignment newAlignment) {
@@ -149,8 +140,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YSpanInfo getSpanInfo() {
@@ -158,11 +148,11 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSpanInfo(YSpanInfo newSpanInfo, NotificationChain msgs) {
+	public NotificationChain basicSetSpanInfo(YSpanInfo newSpanInfo,
+			NotificationChain msgs) {
 		YSpanInfo oldSpanInfo = spanInfo;
 		spanInfo = newSpanInfo;
 		if (eNotificationRequired()) {
@@ -173,8 +163,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSpanInfo(YSpanInfo newSpanInfo) {
@@ -192,12 +181,12 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE__SPAN_INFO:
 				return basicSetSpanInfo(null, msgs);
@@ -206,8 +195,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -225,8 +213,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -246,8 +233,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -267,8 +253,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -285,8 +270,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -300,4 +284,30 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements YGridLayout
 		return result.toString();
 	}
 
-} //YUiGridLayoutCellStyleImpl
+	/**
+	 * Creates and attaches an instance of {@link YSpanInfo}
+	 * 
+	 * @param col1
+	 *            From column
+	 * @param row1
+	 *            From row
+	 * @param col2
+	 *            To column
+	 * @param row2
+	 *            To row
+	 * 
+	 * @return
+	 */
+	public YSpanInfo addSpanInfo(int col1, int row1, int col2, int row2) {
+		YSpanInfo yInfo = ExtensionModelFactory.eINSTANCE.createYSpanInfo();
+		setSpanInfo(yInfo);
+
+		yInfo.setColumnFrom(col1);
+		yInfo.setRowFrom(row1);
+		yInfo.setColumnTo(col2);
+		yInfo.setRowTo(row2);
+
+		return yInfo;
+	}
+
+} // YUiGridLayoutCellStyleImpl

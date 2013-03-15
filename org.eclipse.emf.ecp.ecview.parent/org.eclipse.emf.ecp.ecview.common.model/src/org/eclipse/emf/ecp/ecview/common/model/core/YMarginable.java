@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YMarginable extends EObject {
+public interface YMarginable {
 	/**
 	 * Returns the value of the '<em><b>Margin</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YElement extends EObject {
+public interface YElement {
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.

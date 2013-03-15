@@ -6,6 +6,7 @@ import java.net.URI;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -117,7 +118,7 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
-		if (datadescription != null && datadescription.eIsProxy()) {
+		if (datadescription != null && ((EObject)datadescription).eIsProxy()) {
 			InternalEObject oldDatadescription = (InternalEObject)datadescription;
 			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
@@ -155,7 +156,7 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 	 * @generated
 	 */
 	public YTextAreaDatatype getDatatype() {
-		if (datatype != null && datatype.eIsProxy()) {
+		if (datatype != null && ((EObject)datatype).eIsProxy()) {
 			InternalEObject oldDatatype = (InternalEObject)datatype;
 			datatype = (YTextAreaDatatype)eResolveProxy(oldDatatype);
 			if (datatype != oldDatatype) {

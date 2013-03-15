@@ -11,14 +11,14 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YUi Grid Layout</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>YUi Grid Layout</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -40,8 +40,8 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cell Styles</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Cell Styles</em>' containment reference list
+	 * isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cell Styles</em>' containment reference list.
@@ -52,12 +52,10 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 	EList<YGridLayoutCellStyle> getCellStyles();
 
 	/**
-	 * Returns the value of the '<em><b>Columns</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The number of columns the GridLayout should contain.	
-	 * <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Columns</b></em>' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> The
+	 * number of columns the GridLayout should contain. <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Columns</em>' attribute.
 	 * @see #setColumns(int)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYGridLayout_Columns()
@@ -67,24 +65,29 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 	int getColumns();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout#getColumns <em>Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Columns</em>' attribute.
+	 * Sets the value of the '
+	 * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout#getColumns
+	 * <em>Columns</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Columns</em>' attribute.
 	 * @see #getColumns()
 	 * @generated
 	 */
 	void setColumns(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Fill Horizontal</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If false, then the width of all elements contained in the grid layout will be decreased to their preferred width or their miminum width. If no alignment is defined for a child, this setting will become its default.
-	 * Eg if child has not a alignment, the horizontal alignment will become FILL if fillHorizontal is true. Otherwise the ui-kit default will be used as the horizontal alignment.
-	 * <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Fill Horizontal</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> If false, then the width of all
+	 * elements contained in the grid layout will be decreased to their
+	 * preferred width or their miminum width. If no alignment is defined for a
+	 * child, this setting will become its default. Eg if child has not a
+	 * alignment, the horizontal alignment will become FILL if fillHorizontal is
+	 * true. Otherwise the ui-kit default will be used as the horizontal
+	 * alignment. <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Fill Horizontal</em>' attribute.
 	 * @see #setFillHorizontal(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYGridLayout_FillHorizontal()
@@ -95,8 +98,8 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout#isFillHorizontal <em>Fill Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Fill Horizontal</em>' attribute.
 	 * @see #isFillHorizontal()
 	 * @generated
@@ -104,14 +107,16 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 	void setFillHorizontal(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Fill Vertical</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * If false, then the width of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. If no alignment is defined for a child, this setting will become its default.
-	 * Eg if child has not a alignment, the vertical alignment will become FILL if fillVertical is true. Otherwise the ui-kit default will be used as the vertical alignment.
-	 * <!-- end-model-doc -->
+	 * Returns the value of the '<em><b>Fill Vertical</b></em>' attribute. The
+	 * default value is <code>"true"</code>. <!-- begin-user-doc --> <!--
+	 * end-user-doc --> <!-- begin-model-doc --> If false, then the width of all
+	 * elements contained in the grid layout will be decreased to their
+	 * preferred height or their miminum height. If no alignment is defined for
+	 * a child, this setting will become its default. Eg if child has not a
+	 * alignment, the vertical alignment will become FILL if fillVertical is
+	 * true. Otherwise the ui-kit default will be used as the vertical
+	 * alignment. <!-- end-model-doc -->
+	 * 
 	 * @return the value of the '<em>Fill Vertical</em>' attribute.
 	 * @see #setFillVertical(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYGridLayout_FillVertical()
@@ -122,12 +127,20 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout#isFillVertical <em>Fill Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @param value the new value of the '<em>Fill Vertical</em>' attribute.
 	 * @see #isFillVertical()
 	 * @generated
 	 */
 	void setFillVertical(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	YGridLayoutCellStyle addGridLayoutCellStyle(YEmbeddable element);
 
 } // YUiGridLayout

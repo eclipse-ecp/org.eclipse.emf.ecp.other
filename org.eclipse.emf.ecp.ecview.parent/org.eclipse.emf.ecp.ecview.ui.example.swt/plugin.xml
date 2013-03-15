@@ -2,62 +2,74 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.MarginAndSpacingExample"
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.MarginAndSpacingExample"
          point="org.eclipse.core.runtime.applications">
       <application
             cardinality="singleton-global"
             thread="main"
             visible="true">
          <run
-               class="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.MarginAndSpacingExample">
+               class="org.eclipse.emf.ecp.ecview.ui.example.swt.MarginAndSpacingExample">
          </run>
        </application>
    </extension>
    <extension
-         id="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutTextExample"
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutTextExample"
          point="org.eclipse.core.runtime.applications">
         <application
             cardinality="singleton-global" 
             thread="main"
             visible="true">
          <run
-           class="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutTextExample">
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutTextExample">
          </run>
       </application>
     </extension>
        <extension
-         id="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutLabelExample"
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutLabelExample"
          point="org.eclipse.core.runtime.applications">
         <application
             cardinality="singleton-global" 
             thread="main"
             visible="true">
          <run
-           class="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutLabelExample">
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutLabelExample">
          </run>
       </application>
     </extension>
      <extension
-         id="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutTextAreaExample"
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutTextAreaExample"
          point="org.eclipse.core.runtime.applications">
         <application
             cardinality="singleton-global" 
             thread="main"
             visible="true">
          <run
-           class="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutTextAreaExample">
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutTextAreaExample">
          </run>
       </application>
     </extension>
-        <extension
-         id="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutCheckboxExample"
+    <extension
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutCheckboxExample"
          point="org.eclipse.core.runtime.applications">
         <application
             cardinality="singleton-global" 
             thread="main"
             visible="true">
          <run
-           class="org.eclipse.emf.ecp.ecview.ui.example.swt.simple.GridLayoutCheckboxExample">
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.GridLayoutCheckboxExample">
+         </run>
+      </application>
+    </extension>
+    <extension
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.ButtonExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.ButtonExample">
          </run>
       </application>
     </extension>

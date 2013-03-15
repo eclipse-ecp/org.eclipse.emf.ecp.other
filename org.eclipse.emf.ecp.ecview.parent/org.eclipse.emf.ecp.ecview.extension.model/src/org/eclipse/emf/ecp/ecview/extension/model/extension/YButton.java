@@ -4,8 +4,8 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,35 +82,35 @@ public interface YButton extends YAction {
 	void setType(YButtonType value);
 
 	/**
-	 * Returns the value of the '<em><b>Click Listeners</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener}.
+	 * Returns the value of the '<em><b>Click Listeners</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Click Listeners</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Click Listeners</em>' reference list.
+	 * @return the value of the '<em>Click Listeners</em>' attribute list.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYButton_ClickListeners()
-	 * @model transient="true"
+	 * @model dataType="org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener" transient="true"
 	 * @generated
 	 */
-	EList<YButtonClickListener> getClickListeners();
+	EList<IButtonClickListener> getClickListeners();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model listenerDataType="org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener"
 	 * @generated
 	 */
-	void addClickListener(YButtonClickListener listener);
+	void addClickListener(IButtonClickListener listener);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model listenerDataType="org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener"
 	 * @generated
 	 */
-	void removeClickListener(YButtonClickListener listener);
+	void removeClickListener(IButtonClickListener listener);
 
 } // YButton

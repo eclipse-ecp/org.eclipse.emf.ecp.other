@@ -13,17 +13,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Grid Layout</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi Grid Layout</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -41,8 +42,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle
 public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	/**
 	 * The default value of the '{@link #isSpacing() <em>Spacing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSpacing()
 	 * @generated
 	 * @ordered
@@ -51,8 +51,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The cached value of the '{@link #isSpacing() <em>Spacing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSpacing()
 	 * @generated
 	 * @ordered
@@ -61,8 +60,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The default value of the '{@link #isMargin() <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isMargin()
 	 * @generated
 	 * @ordered
@@ -71,8 +69,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isMargin()
 	 * @generated
 	 * @ordered
@@ -81,8 +78,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The cached value of the '{@link #getCellStyles() <em>Cell Styles</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCellStyles()
 	 * @generated
 	 * @ordered
@@ -91,8 +87,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The default value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
@@ -101,8 +96,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getColumns()
 	 * @generated
 	 * @ordered
@@ -111,8 +105,8 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The default value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isFillHorizontal()
 	 * @generated
 	 * @ordered
@@ -121,8 +115,8 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The cached value of the '{@link #isFillHorizontal() <em>Fill Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isFillHorizontal()
 	 * @generated
 	 * @ordered
@@ -131,8 +125,8 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The default value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isFillVertical()
 	 * @generated
 	 * @ordered
@@ -141,8 +135,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 
 	/**
 	 * The cached value of the '{@link #isFillVertical() <em>Fill Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isFillVertical()
 	 * @generated
 	 * @ordered
@@ -150,8 +143,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	protected boolean fillVertical = FILL_VERTICAL_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YGridLayoutImpl() {
@@ -159,8 +151,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -169,8 +160,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<YGridLayoutCellStyle> getCellStyles() {
@@ -181,8 +171,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSpacing() {
@@ -190,8 +179,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSpacing(boolean newSpacing) {
@@ -202,8 +190,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isMargin() {
@@ -211,8 +198,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMargin(boolean newMargin) {
@@ -223,8 +209,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getColumns() {
@@ -232,8 +217,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setColumns(int newColumns) {
@@ -244,8 +228,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isFillHorizontal() {
@@ -253,8 +236,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFillHorizontal(boolean newFillHorizontal) {
@@ -265,8 +247,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isFillVertical() {
@@ -274,8 +255,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFillVertical(boolean newFillVertical) {
@@ -286,12 +266,12 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ExtensionModelPackage.YGRID_LAYOUT__CELL_STYLES:
 				return ((InternalEList<?>)getCellStyles()).basicRemove(otherEnd, msgs);
@@ -300,8 +280,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -324,8 +303,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -356,8 +334,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -386,8 +363,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -410,8 +386,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -432,8 +407,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -454,8 +428,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -477,4 +450,20 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 		return result.toString();
 	}
 
-} //YUiGridLayoutImpl
+	/**
+	 * Creates an instance of {@link YGridLayoutCellStyle} and adds it to the
+	 * layout.
+	 * 
+	 * @param yComponent
+	 *            set as target
+	 * @return
+	 */
+	public YGridLayoutCellStyle addGridLayoutCellStyle(YEmbeddable element) {
+		YGridLayoutCellStyle yStyle = ExtensionModelFactory.eINSTANCE
+				.createYGridLayoutCellStyle();
+		yStyle.setTarget(element);
+		getCellStyles().add(yStyle);
+		return yStyle;
+	}
+
+} // YUiGridLayoutImpl

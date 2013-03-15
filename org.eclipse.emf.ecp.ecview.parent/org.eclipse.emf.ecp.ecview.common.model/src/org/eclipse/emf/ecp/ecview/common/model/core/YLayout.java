@@ -15,15 +15,14 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>YUi Layout</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YLayout#getElements
- * <em>Elements</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YLayout#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYLayout()
  * @model
  * @generated

@@ -4,6 +4,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -83,7 +84,7 @@ public class YVerticalLayoutCellStyleImpl extends EObjectImpl implements YVertic
 	 * @generated
 	 */
 	public YEmbeddable getTarget() {
-		if (target != null && target.eIsProxy()) {
+		if (target != null && ((EObject)target).eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
 			target = (YEmbeddable)eResolveProxy(oldTarget);
 			if (target != oldTarget) {

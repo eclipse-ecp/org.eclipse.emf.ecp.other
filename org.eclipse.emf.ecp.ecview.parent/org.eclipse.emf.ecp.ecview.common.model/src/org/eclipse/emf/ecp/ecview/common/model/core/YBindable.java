@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YBindable extends EObject {
+public interface YBindable {
 	/**
 	 * Returns the value of the '<em><b>Value Binding URI String</b></em>' attribute.
 	 * <!-- begin-user-doc -->

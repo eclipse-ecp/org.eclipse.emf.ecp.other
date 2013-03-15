@@ -3,28 +3,24 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YActionImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YButton</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YButton</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -39,8 +35,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
 public class YButtonImpl extends YActionImpl implements YButton {
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDatadescription()
 	 * @generated
 	 * @ordered
@@ -49,8 +45,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -59,8 +54,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
@@ -68,18 +62,17 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	protected YButtonType type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClickListeners() <em>Click Listeners</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getClickListeners() <em>Click Listeners</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getClickListeners()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<YButtonClickListener> clickListeners;
+	protected EList<IButtonClickListener> clickListeners;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YButtonImpl() {
@@ -87,8 +80,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -97,12 +89,11 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
-		if (datadescription != null && datadescription.eIsProxy()) {
+		if (datadescription != null && ((EObject)datadescription).eIsProxy()) {
 			InternalEObject oldDatadescription = (InternalEObject)datadescription;
 			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
@@ -114,8 +105,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription basicGetDatadescription() {
@@ -123,8 +113,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatadescription(YDatadescription newDatadescription) {
@@ -135,8 +124,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YButtonType getType() {
@@ -144,8 +132,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setType(YButtonType newType) {
@@ -156,42 +143,36 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<YButtonClickListener> getClickListeners() {
+	public EList<IButtonClickListener> getClickListeners() {
 		if (clickListeners == null) {
-			clickListeners = new EObjectResolvingEList<YButtonClickListener>(YButtonClickListener.class, this, ExtensionModelPackage.YBUTTON__CLICK_LISTENERS);
+			clickListeners = new EDataTypeUniqueEList<IButtonClickListener>(IButtonClickListener.class, this, ExtensionModelPackage.YBUTTON__CLICK_LISTENERS);
 		}
 		return clickListeners;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Adds a listener that is notified if the button was clicked.
+	 * 
+	 * @generated NOT
 	 */
-	public void addClickListener(YButtonClickListener listener) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void addClickListener(IButtonClickListener listener) {
+		getClickListeners().add(listener);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * Removes a listener that is notified if the button was clicked.
+	 * 
+	 * @generated NOT
 	 */
-	public void removeClickListener(YButtonClickListener listener) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void removeClickListener(IButtonClickListener listener) {
+		getClickListeners().remove(listener);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,8 +190,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -225,15 +205,14 @@ public class YButtonImpl extends YActionImpl implements YButton {
 				return;
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				getClickListeners().clear();
-				getClickListeners().addAll((Collection<? extends YButtonClickListener>)newValue);
+				getClickListeners().addAll((Collection<? extends IButtonClickListener>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,8 +232,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -271,8 +249,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -282,8 +259,10 @@ public class YButtonImpl extends YActionImpl implements YButton {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", clickListeners: ");
+		result.append(clickListeners);
 		result.append(')');
 		return result.toString();
 	}
 
-} //YButtonImpl
+} // YButtonImpl

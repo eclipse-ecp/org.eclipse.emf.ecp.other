@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YEnable extends EObject {
+public interface YEnable {
 	/**
 	 * Returns the value of the '<em><b>Initial Enabled</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

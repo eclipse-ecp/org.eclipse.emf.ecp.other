@@ -15,6 +15,7 @@ import java.beans.PropertyChangeListener;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -57,6 +58,16 @@ public class EditpartsTest {
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
+	 * Casts element to EObject.
+	 * 
+	 * @param element
+	 * @return
+	 */
+	protected EObject castEObject(Object element) {
+		return (EObject) element;
+	}
+
+	/**
 	 * Setup the test.
 	 */
 	@Before
@@ -88,7 +99,7 @@ public class EditpartsTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI(CoreModelPackage.eNS_URI));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -182,7 +193,7 @@ public class EditpartsTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI(CoreModelPackage.eNS_URI));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -413,7 +424,7 @@ public class EditpartsTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI(CoreModelPackage.eNS_URI));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -544,7 +555,7 @@ public class EditpartsTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI(CoreModelPackage.eNS_URI));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -810,7 +821,7 @@ public class EditpartsTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI(CoreModelPackage.eNS_URI));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1

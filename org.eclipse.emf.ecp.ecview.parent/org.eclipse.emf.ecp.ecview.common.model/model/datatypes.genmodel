@@ -5,8 +5,8 @@
     editorDirectory="/org.eclipse.emf.ecp.ecview.common.model.editor/src" modelPluginID="org.eclipse.emf.ecp.ecview.common.model"
     modelName="Datatypes" modelPluginClass="" editPluginClass="org.eclipse.emf.ecp.ecview.common.model.datatypes.provider.DatatypesEditPlugin"
     editorPluginClass="org.eclipse.emf.ecp.ecview.common.model.datatypes.presentation.DatatypesEditorPlugin"
-    rootImplementsInterface="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" providerRootExtendsClass="" editPluginID="org.eclipse.emf.ecp.ecview.common.model.edit"
+    rootExtendsInterface="" rootImplementsInterface="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" providerRootExtendsClass="" editPluginID="org.eclipse.emf.ecp.ecview.common.model.edit"
     editorPluginID="org.eclipse.emf.ecp.ecview.common.modeleditor">
   <foreignModel>datatypes.ecore</foreignModel>
   <genPackages prefix="Datatypes" basePackage="org.eclipse.emf.ecp.ecview.common.model"

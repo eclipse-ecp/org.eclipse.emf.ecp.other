@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.util;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
@@ -37,6 +38,16 @@ public class CoreModelUtil {
 			((YVisibleable) yEmbeddable)
 					.setVisible(((YVisibleable) yEmbeddable).isInitialVisible());
 		}
+	}
+
+	/**
+	 * Casts the given object to EObject.
+	 * 
+	 * @param object
+	 * @return
+	 */
+	public static EObject castEObject(Object object) {
+		return (EObject) object;
 	}
 
 }

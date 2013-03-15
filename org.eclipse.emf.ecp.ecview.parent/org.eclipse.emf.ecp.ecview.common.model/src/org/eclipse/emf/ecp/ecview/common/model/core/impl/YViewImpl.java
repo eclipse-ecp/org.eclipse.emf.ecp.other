@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -348,7 +349,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	 */
 	public void setRoot(YViewSet newRoot) {
 		if (newRoot != eInternalContainer() || (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT && newRoot != null)) {
-			if (EcoreUtil.isAncestor(this, newRoot))
+			if (EcoreUtil.isAncestor(this, (EObject)newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)

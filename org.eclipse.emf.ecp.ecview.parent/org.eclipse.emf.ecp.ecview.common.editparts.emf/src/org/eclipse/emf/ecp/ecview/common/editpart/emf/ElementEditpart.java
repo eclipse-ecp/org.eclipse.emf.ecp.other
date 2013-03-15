@@ -19,6 +19,7 @@ import java.util.UUID;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
@@ -243,7 +244,7 @@ public abstract class ElementEditpart<M extends YElement> extends AdapterImpl
 					"Editparts must only be initialized once!");
 		}
 
-		for (Adapter adapter : model.eAdapters()) {
+		for (Adapter adapter : castEObject(model).eAdapters()) {
 			if (adapter instanceof IElementEditpartProvider) {
 				LOGGER.error("For a modelelement instance only one editpart can be created!");
 				throw new RuntimeException(
@@ -259,6 +260,16 @@ public abstract class ElementEditpart<M extends YElement> extends AdapterImpl
 		}
 
 		registerAdapter(this);
+	}
+
+	/**
+	 * Casts element to eObject.
+	 * 
+	 * @param element
+	 * @return
+	 */
+	protected EObject castEObject(M element) {
+		return (EObject) element;
 	}
 
 	/**
@@ -324,8 +335,9 @@ public abstract class ElementEditpart<M extends YElement> extends AdapterImpl
 	protected void registerAdapter(Adapter adapter) {
 		checkDisposed();
 
-		if (!model.eAdapters().contains(adapter)) {
-			model.eAdapters().add(adapter);
+		EObject eObject = castEObject(model);
+		if (!eObject.eAdapters().contains(adapter)) {
+			eObject.eAdapters().add(adapter);
 		}
 	}
 
@@ -336,7 +348,7 @@ public abstract class ElementEditpart<M extends YElement> extends AdapterImpl
 	 *            The adapter to be removed from the model element
 	 */
 	protected void unregisterAdapter(Adapter adapter) {
-		model.eAdapters().remove(adapter);
+		castEObject(model).eAdapters().remove(adapter);
 	}
 
 	/**

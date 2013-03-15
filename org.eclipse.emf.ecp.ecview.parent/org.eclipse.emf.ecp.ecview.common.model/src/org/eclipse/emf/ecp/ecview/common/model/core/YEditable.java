@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YEditable extends EObject {
+public interface YEditable {
 	/**
 	 * Returns the value of the '<em><b>Initial Editable</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

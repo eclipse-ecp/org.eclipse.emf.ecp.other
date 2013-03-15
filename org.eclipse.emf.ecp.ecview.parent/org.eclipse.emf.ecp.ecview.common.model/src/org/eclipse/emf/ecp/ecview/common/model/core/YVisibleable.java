@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YVisibleable extends EObject {
+public interface YVisibleable {
 	/**
 	 * Returns the value of the '<em><b>Initial Visible</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

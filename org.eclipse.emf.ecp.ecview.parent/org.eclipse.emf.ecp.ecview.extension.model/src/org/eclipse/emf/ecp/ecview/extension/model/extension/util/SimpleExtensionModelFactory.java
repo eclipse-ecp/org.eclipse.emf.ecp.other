@@ -12,6 +12,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
@@ -164,6 +165,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 
 	/**
 	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYButton()
+	 */
+	public YButton createButton() {
+		return factory.createYButton();
+	}
+
+	/**
+	 * @return
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory#createYTextDatatype()
 	 */
 	public YTextDatatype createTextDatatype() {
@@ -225,25 +234,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YListDataType createListDataType() {
 		return dtFactory.createYListDataType();
 	}
-
-	/**
-	 * Creates an instance of {@link YGridLayoutCellStyle}.
-	 * 
-	 * @param yComponent
-	 *            set as target
-	 * @param yLayout
-	 *            style added to this layout
-	 * @return
-	 */
-	public YGridLayoutCellStyle createGridLayoutCellStyle(
-			YEmbeddable yComponent, YGridLayout yLayout) {
-		YGridLayoutCellStyle yStyle = ExtensionModelFactory.eINSTANCE
-				.createYGridLayoutCellStyle();
-		yStyle.setTarget(yComponent);
-		yLayout.getCellStyles().add(yStyle);
-		return yStyle;
-	}
-
+	
 	/**
 	 * Creates an instance of {@link YHorizontalLayoutCellStyle}.
 	 * 
@@ -278,52 +269,6 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 		yStyle.setTarget(yComponent);
 		yLayout.getCellStyles().add(yStyle);
 		return yStyle;
-	}
-
-	/**
-	 * Creates an instance of {@link YSpanInfo}
-	 * 
-	 * @param yStyle
-	 *            The style where the span info should be added to
-	 * @param col1
-	 *            From / To column
-	 * @param row1
-	 *            From / To row
-	 * 
-	 * @return
-	 */
-	public YSpanInfo createSpanInfo(YGridLayoutCellStyle yStyle, int col1,
-			int row1) {
-		return createSpanInfo(yStyle, col1, row1, col1, row1);
-	}
-
-	/**
-	 * Creates an instance of {@link YSpanInfo}
-	 * 
-	 * @param yStyle
-	 *            The style where the span info should be added to
-	 * @param col1
-	 *            From column
-	 * @param row1
-	 *            From row
-	 * @param col2
-	 *            To column
-	 * @param row2
-	 *            To row
-	 * 
-	 * @return
-	 */
-	public YSpanInfo createSpanInfo(YGridLayoutCellStyle yStyle, int col1,
-			int row1, int col2, int row2) {
-		YSpanInfo yInfo = createSpanInfo();
-		yStyle.setSpanInfo(yInfo);
-
-		yInfo.setColumnFrom(col1);
-		yInfo.setRowFrom(row1);
-		yInfo.setColumnTo(col2);
-		yInfo.setRowTo(row2);
-
-		return yInfo;
 	}
 
 }

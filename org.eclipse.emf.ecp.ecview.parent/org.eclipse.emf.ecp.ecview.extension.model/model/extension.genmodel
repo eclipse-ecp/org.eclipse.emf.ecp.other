@@ -2,8 +2,8 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.extension.model/src"
     modelPluginID="org.eclipse.emf.ecp.ecview.extension.model" modelName="Extension"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.genmodel#//datatypes extdatatypes.genmodel#//datatypes">
+    rootExtendsInterface="" rootImplementsInterface="" booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.genmodel#//datatypes extdatatypes.genmodel#//datatypes">
   <foreignModel>extension.ecore</foreignModel>
   <genPackages prefix="ExtensionModel" basePackage="org.eclipse.emf.ecp.ecview.extension.model"
       disposableProviderFactory="true" ecorePackage="extension.ecore#/">
@@ -26,6 +26,11 @@
       <genEnumLiterals ecoreEnumLiteral="extension.ecore#//YAlignment/FILL_RIGHT"/>
       <genEnumLiterals ecoreEnumLiteral="extension.ecore#//YAlignment/UNDEFINED"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="extension.ecore#//YButtonType">
+      <genEnumLiterals ecoreEnumLiteral="extension.ecore#//YButtonType/PUSH"/>
+      <genEnumLiterals ecoreEnumLiteral="extension.ecore#//YButtonType/TOGGLE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="extension.ecore#//YButtonClickListener"/>
     <genClasses ecoreClass="extension.ecore#//YTextField">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YTextField/datatype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YTextField/datadescription"/>
@@ -35,11 +40,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YGridLayout/columns"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YGridLayout/fillHorizontal"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YGridLayout/fillVertical"/>
+      <genOperations ecoreOperation="extension.ecore#//YGridLayout/addGridLayoutCellStyle">
+        <genParameters ecoreParameter="extension.ecore#//YGridLayout/addGridLayoutCellStyle/element"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="extension.ecore#//YGridLayoutCellStyle">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YGridLayoutCellStyle/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YGridLayoutCellStyle/alignment"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//YGridLayoutCellStyle/spanInfo"/>
+      <genOperations ecoreOperation="extension.ecore#//YGridLayoutCellStyle/addSpanInfo">
+        <genParameters ecoreParameter="extension.ecore#//YGridLayoutCellStyle/addSpanInfo/col1"/>
+        <genParameters ecoreParameter="extension.ecore#//YGridLayoutCellStyle/addSpanInfo/row1"/>
+        <genParameters ecoreParameter="extension.ecore#//YGridLayoutCellStyle/addSpanInfo/col2"/>
+        <genParameters ecoreParameter="extension.ecore#//YGridLayoutCellStyle/addSpanInfo/row2"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="extension.ecore#//YHorizontalLayout">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//YHorizontalLayout/cellStyles"/>
@@ -81,12 +95,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YCheckBox/datadescription"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YCheckBox/datatype"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="extension.ecore#//YInput">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YInput/readonly"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YInput/enabled"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YInput/required"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YInput/visible"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="extension.ecore#//YInput"/>
     <genClasses ecoreClass="extension.ecore#//YDecimalField">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YDecimalField/datatype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YDecimalField/datadescription"/>
@@ -102,6 +111,17 @@
     <genClasses ecoreClass="extension.ecore#//YList">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YList/datadescription"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YList/datatype"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//YButton">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YButton/datadescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YButton/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YButton/clickListeners"/>
+      <genOperations ecoreOperation="extension.ecore#//YButton/addClickListener">
+        <genParameters ecoreParameter="extension.ecore#//YButton/addClickListener/listener"/>
+      </genOperations>
+      <genOperations ecoreOperation="extension.ecore#//YButton/removeClickListener">
+        <genParameters ecoreParameter="extension.ecore#//YButton/removeClickListener/listener"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

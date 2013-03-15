@@ -121,13 +121,23 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 		throws InstantiationException, IllegalAccessException;
 
 	/**
+	 * Casts element to eObject.
+	 * 
+	 * @param element
+	 * @return
+	 */
+	protected EObject castEObject(Object element) {
+		return (EObject) element;
+	}
+	
+	/**
 	 * Asserts that only one IUiElementEditpartProvider exists for the given element.
 	 * 
 	 * @param element the model element
 	 */
 	protected void assertOneEditpartForModelelement(Object element) {
 		YElement yElement = (YElement) element;
-		for (Adapter adapter : yElement.eAdapters()) {
+		for (Adapter adapter : castEObject(yElement).eAdapters()) {
 			if (adapter instanceof IElementEditpartProvider) {
 				LOGGER.error("For a modelelement instance only one editpart can be created!");
 				throw new RuntimeException("For a modelelement instance only one editpart can be created!");

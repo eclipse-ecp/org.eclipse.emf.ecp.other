@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
@@ -33,7 +34,7 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	 */
 	public static ExtDatatypesFactory init() {
 		try {
-			ExtDatatypesFactory theExtDatatypesFactory = (ExtDatatypesFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/emf/ecp/ecview/extension/datatypes"); 
+			ExtDatatypesFactory theExtDatatypesFactory = (ExtDatatypesFactory)EPackage.Registry.INSTANCE.getEFactory(ExtDatatypesPackage.eNS_URI);
 			if (theExtDatatypesFactory != null) {
 				return theExtDatatypesFactory;
 			}
@@ -62,14 +63,14 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExtDatatypesPackage.YTEXT_DATATYPE: return createYTextDatatype();
-			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE: return createYTextAreaDatatype();
-			case ExtDatatypesPackage.YNUMERIC_DATATYPE: return createYNumericDatatype();
-			case ExtDatatypesPackage.YDECIMAL_DATATYPE: return createYDecimalDatatype();
-			case ExtDatatypesPackage.YTABLE_DATATYPE: return createYTableDatatype();
-			case ExtDatatypesPackage.YCHECK_BOX_DATATYPE: return createYCheckBoxDatatype();
-			case ExtDatatypesPackage.YCOMBO_BOX_DATATYPE: return createYComboBoxDatatype();
-			case ExtDatatypesPackage.YLIST_DATA_TYPE: return createYListDataType();
+			case ExtDatatypesPackage.YTEXT_DATATYPE: return (EObject)createYTextDatatype();
+			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE: return (EObject)createYTextAreaDatatype();
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE: return (EObject)createYNumericDatatype();
+			case ExtDatatypesPackage.YDECIMAL_DATATYPE: return (EObject)createYDecimalDatatype();
+			case ExtDatatypesPackage.YTABLE_DATATYPE: return (EObject)createYTableDatatype();
+			case ExtDatatypesPackage.YCHECK_BOX_DATATYPE: return (EObject)createYCheckBoxDatatype();
+			case ExtDatatypesPackage.YCOMBO_BOX_DATATYPE: return (EObject)createYComboBoxDatatype();
+			case ExtDatatypesPackage.YLIST_DATA_TYPE: return (EObject)createYListDataType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

@@ -12,6 +12,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,23 +76,23 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExtensionModelPackage.YTEXT_FIELD: return createYTextField();
-			case ExtensionModelPackage.YGRID_LAYOUT: return createYGridLayout();
-			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE: return createYGridLayoutCellStyle();
-			case ExtensionModelPackage.YHORIZONTAL_LAYOUT: return createYHorizontalLayout();
-			case ExtensionModelPackage.YHORIZONTAL_LAYOUT_CELL_STYLE: return createYHorizontalLayoutCellStyle();
-			case ExtensionModelPackage.YVERTICAL_LAYOUT: return createYVerticalLayout();
-			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE: return createYVerticalLayoutCellStyle();
-			case ExtensionModelPackage.YSPAN_INFO: return createYSpanInfo();
-			case ExtensionModelPackage.YTABLE: return createYTable();
-			case ExtensionModelPackage.YLABEL: return createYLabel();
-			case ExtensionModelPackage.YTEXT_AREA: return createYTextArea();
-			case ExtensionModelPackage.YCHECK_BOX: return createYCheckBox();
-			case ExtensionModelPackage.YDECIMAL_FIELD: return createYDecimalField();
-			case ExtensionModelPackage.YNUMERIC_FIELD: return createYNumericField();
-			case ExtensionModelPackage.YCOMBO_BOX: return createYComboBox();
-			case ExtensionModelPackage.YLIST: return createYList();
-			case ExtensionModelPackage.YBUTTON: return createYButton();
+			case ExtensionModelPackage.YTEXT_FIELD: return (EObject)createYTextField();
+			case ExtensionModelPackage.YGRID_LAYOUT: return (EObject)createYGridLayout();
+			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE: return (EObject)createYGridLayoutCellStyle();
+			case ExtensionModelPackage.YHORIZONTAL_LAYOUT: return (EObject)createYHorizontalLayout();
+			case ExtensionModelPackage.YHORIZONTAL_LAYOUT_CELL_STYLE: return (EObject)createYHorizontalLayoutCellStyle();
+			case ExtensionModelPackage.YVERTICAL_LAYOUT: return (EObject)createYVerticalLayout();
+			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE: return (EObject)createYVerticalLayoutCellStyle();
+			case ExtensionModelPackage.YSPAN_INFO: return (EObject)createYSpanInfo();
+			case ExtensionModelPackage.YTABLE: return (EObject)createYTable();
+			case ExtensionModelPackage.YLABEL: return (EObject)createYLabel();
+			case ExtensionModelPackage.YTEXT_AREA: return (EObject)createYTextArea();
+			case ExtensionModelPackage.YCHECK_BOX: return (EObject)createYCheckBox();
+			case ExtensionModelPackage.YDECIMAL_FIELD: return (EObject)createYDecimalField();
+			case ExtensionModelPackage.YNUMERIC_FIELD: return (EObject)createYNumericField();
+			case ExtensionModelPackage.YCOMBO_BOX: return (EObject)createYComboBox();
+			case ExtensionModelPackage.YLIST: return (EObject)createYList();
+			case ExtensionModelPackage.YBUTTON: return (EObject)createYButton();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +110,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 				return createYAlignmentFromString(eDataType, initialValue);
 			case ExtensionModelPackage.YBUTTON_TYPE:
 				return createYButtonTypeFromString(eDataType, initialValue);
+			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
+				return createYButtonClickListenerFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +129,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 				return convertYAlignmentToString(eDataType, instanceValue);
 			case ExtensionModelPackage.YBUTTON_TYPE:
 				return convertYButtonTypeToString(eDataType, instanceValue);
+			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
+				return convertYButtonClickListenerToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -337,6 +344,24 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 */
 	public String convertYButtonTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IButtonClickListener createYButtonClickListenerFromString(EDataType eDataType, String initialValue) {
+		return (IButtonClickListener)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYButtonClickListenerToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

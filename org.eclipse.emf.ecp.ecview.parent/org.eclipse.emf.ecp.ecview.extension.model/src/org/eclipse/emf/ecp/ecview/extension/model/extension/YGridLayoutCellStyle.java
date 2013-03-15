@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 
 /**
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
  * @model
  * @generated
  */
-public interface YGridLayoutCellStyle extends EObject {
+public interface YGridLayoutCellStyle {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -112,5 +111,13 @@ public interface YGridLayoutCellStyle extends EObject {
 	 * @generated
 	 */
 	void setSpanInfo(YSpanInfo value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	YSpanInfo addSpanInfo(int col1, int row1, int col2, int row2);
 
 } // YUiGridLayoutCellStyle

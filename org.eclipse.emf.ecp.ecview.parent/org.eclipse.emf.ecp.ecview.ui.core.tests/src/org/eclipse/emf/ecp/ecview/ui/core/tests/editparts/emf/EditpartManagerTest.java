@@ -44,6 +44,16 @@ public class EditpartManagerTest {
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
+	 * Casts element to eObject.
+	 * 
+	 * @param element
+	 * @return
+	 */
+	protected EObject castEObject(Object element) {
+		return (EObject) element;
+	}
+
+	/**
 	 * Setup the test.
 	 */
 	@Before
@@ -75,7 +85,7 @@ public class EditpartManagerTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -85,7 +95,7 @@ public class EditpartManagerTest {
 		// ......> layout2
 		// ...........> field2
 		YView view1 = modelFactory.createYView();
-		resource.getContents().add(view1);
+		resource.getContents().add(castEObject(view1));
 		viewSet.getViews().add(view1);
 		YLayout layout1 = modelFactory.createYLayout();
 		view1.setContent(layout1);
@@ -93,7 +103,7 @@ public class EditpartManagerTest {
 		layout1.getElements().add(field1);
 
 		YView view2 = modelFactory.createYView();
-		resource.getContents().add(view2);
+		resource.getContents().add(castEObject(view2));
 		viewSet.getViews().add(view2);
 		YLayout layout2 = modelFactory.createYLayout();
 		view2.setContent(layout2);
@@ -138,7 +148,7 @@ public class EditpartManagerTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -148,7 +158,7 @@ public class EditpartManagerTest {
 		// ......> layout2
 		// ...........> field2
 		YView view1 = modelFactory.createYView();
-		resource.getContents().add(view1);
+		resource.getContents().add(castEObject(view1));
 		viewSet.getViews().add(view1);
 		YLayout layout1 = modelFactory.createYLayout();
 		view1.setContent(layout1);
@@ -156,7 +166,7 @@ public class EditpartManagerTest {
 		layout1.getElements().add(field1);
 
 		YView view2 = modelFactory.createYView();
-		resource.getContents().add(view2);
+		resource.getContents().add(castEObject(view2));
 		viewSet.getViews().add(view2);
 		YLayout layout2 = modelFactory.createYLayout();
 		view2.setContent(layout2);
@@ -192,7 +202,7 @@ public class EditpartManagerTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -202,7 +212,7 @@ public class EditpartManagerTest {
 		// ......> layout2
 		// ...........> field2
 		YView view1 = modelFactory.createYView();
-		resource.getContents().add(view1);
+		resource.getContents().add(castEObject(view1));
 		viewSet.getViews().add(view1);
 		YLayout layout1 = modelFactory.createYLayout();
 		view1.setContent(layout1);
@@ -210,7 +220,7 @@ public class EditpartManagerTest {
 		layout1.getElements().add(field1);
 
 		YView view2 = modelFactory.createYView();
-		resource.getContents().add(view2);
+		resource.getContents().add(castEObject(view2));
 		viewSet.getViews().add(view2);
 		YLayout layout2 = modelFactory.createYLayout();
 		view2.setContent(layout2);
@@ -316,7 +326,7 @@ public class EditpartManagerTest {
 		Resource resource = resourceSet.createResource(URI
 				.createURI("http://eclipse.org/emf/emfclient/uimodel"));
 		YViewSet viewSet = modelFactory.createYViewSet();
-		resource.getContents().add(viewSet);
+		resource.getContents().add(castEObject(viewSet));
 
 		// viewSet
 		// ...> view1
@@ -326,7 +336,7 @@ public class EditpartManagerTest {
 		// ......> layout2
 		// ...........> field2
 		YView view1 = modelFactory.createYView();
-		resource.getContents().add(view1);
+		resource.getContents().add(castEObject(view1));
 		viewSet.getViews().add(view1);
 		YLayout layout1 = modelFactory.createYLayout();
 		view1.setContent(layout1);
@@ -334,7 +344,7 @@ public class EditpartManagerTest {
 		layout1.getElements().add(field1);
 
 		YView view2 = modelFactory.createYView();
-		resource.getContents().add(view2);
+		resource.getContents().add(castEObject(view2));
 		viewSet.getViews().add(view2);
 		YLayout layout2 = modelFactory.createYLayout();
 		view2.setContent(layout2);
@@ -432,9 +442,9 @@ public class EditpartManagerTest {
 	 * @param eObject
 	 */
 	private void assertIUiElementEditpartProviderCount(int expectedCount,
-			EObject eObject) {
+			Object object) {
 		int count = 0;
-		for (Adapter adapter : eObject.eAdapters()) {
+		for (Adapter adapter : castEObject(object).eAdapters()) {
 			if (adapter instanceof IElementEditpartProvider) {
 				count++;
 			}
