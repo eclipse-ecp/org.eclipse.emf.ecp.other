@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +24,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getContent <em>Content</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBindingSet <em>Binding Set</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +84,32 @@ public interface YView extends YElement, YCssAble, YMarginable {
 	 * @generated
 	 */
 	void setContent(YEmbeddable value);
+
+	/**
+	 * Returns the value of the '<em><b>Binding Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Binding Set</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Binding Set</em>' containment reference.
+	 * @see #setBindingSet(YBindingSet)
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_BindingSet()
+	 * @model containment="true"
+	 * @generated
+	 */
+	YBindingSet getBindingSet();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBindingSet <em>Binding Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Binding Set</em>' containment reference.
+	 * @see #getBindingSet()
+	 * @generated
+	 */
+	void setBindingSet(YBindingSet value);
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.

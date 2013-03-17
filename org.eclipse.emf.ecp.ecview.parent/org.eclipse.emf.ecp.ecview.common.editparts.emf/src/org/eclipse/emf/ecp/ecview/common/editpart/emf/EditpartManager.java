@@ -12,12 +12,19 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindableValueEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -27,24 +34,29 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 
 /**
- * An implementation of IEditPartManager for eObjects with nsURI=http://eclipse.org/emf/emfclient/uimodel.
+ * An implementation of IEditPartManager for eObjects with
+ * nsURI=http://eclipse.org/emf/emfclient/uimodel.
  */
 public class EditpartManager extends AbstractEditpartManager {
 
 	@Override
 	public boolean isFor(Object element) {
 		if (element instanceof EObject) {
-			String uriString = ((EObject) element).eClass().getEPackage().getNsURI();
-			return uriString.equals(CoreModelPackage.eNS_URI);
+			String uriString = ((EObject) element).eClass().getEPackage()
+					.getNsURI();
+			return uriString.equals(CoreModelPackage.eNS_URI)
+					|| uriString.equals(BindingPackage.eNS_URI);
 		} else if (element instanceof String) {
-			return element.equals(CoreModelPackage.eNS_URI);
+			return element.equals(CoreModelPackage.eNS_URI)
+					|| element.equals(BindingPackage.eNS_URI);
 		}
 		return false;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <A extends IElementEditpart> A createEditpart(Object selector, Class<A> editPartClazz) {
+	public <A extends IElementEditpart> A createEditpart(Object selector,
+			Class<A> editPartClazz) {
 		ElementEditpart<YElement> result = null;
 		if (editPartClazz.isAssignableFrom(IViewEditpart.class)) {
 			result = createNewInstance(ViewEditpart.class);
@@ -56,6 +68,13 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ActionEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IViewSetEditpart.class)) {
 			result = createNewInstance(ViewSetEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IBindingSetEditpart.class)) {
+			result = createNewInstance(BindingSetEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IBindingEditpart.class)) {
+			result = createNewInstance(BindingEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IContextBindableValueEditpart.class)) {
+			result = createNewInstance(ContextBindableValueEditpart.class);
 		}
 
 		if (result != null) {
@@ -68,8 +87,10 @@ public class EditpartManager extends AbstractEditpartManager {
 	/**
 	 * Creates a new instance of the edit part.
 	 * 
-	 * @param <A> an instance of {@link IElementEditpart}
-	 * @param yElement the model element
+	 * @param <A>
+	 *            an instance of {@link IElementEditpart}
+	 * @param yElement
+	 *            the model element
 	 * @return editpart
 	 */
 	@SuppressWarnings("unchecked")
@@ -88,6 +109,12 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ActionEditpart.class);
 		} else if (yElement instanceof YViewSet) {
 			result = createNewInstance(ViewSetEditpart.class);
+		} else if (yElement instanceof YBindingSet) {
+			result = createNewInstance(BindingSetEditpart.class);
+		} else if (yElement instanceof YBinding) {
+			result = createNewInstance(BindingEditpart.class);
+		} else if (yElement instanceof YContextBindableValue) {
+			result = createNewInstance(ContextBindableValueEditpart.class);
 		}
 
 		if (result != null) {
@@ -100,13 +127,17 @@ public class EditpartManager extends AbstractEditpartManager {
 	/**
 	 * Returns a new instance of the type.
 	 * 
-	 * @param type The type of the edit part to be created
+	 * @param type
+	 *            The type of the edit part to be created
 	 * @return editpart
-	 * @throws InstantiationException e
-	 * @throws IllegalAccessException e
+	 * @throws InstantiationException
+	 *             e
+	 * @throws IllegalAccessException
+	 *             e
 	 */
-	protected IElementEditpart newInstance(Class<? extends IElementEditpart> type) throws InstantiationException,
-		IllegalAccessException {
+	protected IElementEditpart newInstance(
+			Class<? extends IElementEditpart> type)
+			throws InstantiationException, IllegalAccessException {
 		return type.newInstance();
 	}
 

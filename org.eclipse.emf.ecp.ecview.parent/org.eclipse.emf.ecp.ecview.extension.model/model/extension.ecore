@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="extension" nsURI="http://eclipse.org/emf/ecp/ecview/extension/view"
     nsPrefix="extension">
-  <eClassifiers xsi:type="ecore:EClass" name="YTextField" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YTextField" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YValueBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YTextDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
@@ -132,35 +132,35 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YTable" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YTable" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YTableDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YLabel" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YField ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YLabel" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YField">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YTextArea" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YTextArea" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YTextAreaDatatype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YCheckBox" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YCheckBox" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YCheckBoxDatatype"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YInput" abstract="true" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YField"/>
-  <eClassifiers xsi:type="ecore:EClass" name="YDecimalField" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YDecimalField" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YDecimalDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YNumericField" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YNumericField" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YNumericDatatype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YComboBox" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YComboBox" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YComboBoxDatatype"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YList" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YList" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YListDataType"/>
   </eClassifiers>

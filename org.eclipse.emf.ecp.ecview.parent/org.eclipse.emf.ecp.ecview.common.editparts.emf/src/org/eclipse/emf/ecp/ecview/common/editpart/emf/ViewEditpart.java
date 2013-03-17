@@ -10,11 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
@@ -31,12 +36,15 @@ import org.slf4j.LoggerFactory;
  * 
  * @param <M>
  */
-public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements IViewEditpart {
+public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
+		IViewEditpart {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ViewEditpart.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(ViewEditpart.class);
 	private IEmbeddableEditpart content;
 	private IViewContext context;
 	private IViewPresentation<?> presentation;
+	private IBindingSetEditpart bindingSet;
 
 	/**
 	 * Default constructor.
@@ -59,6 +67,46 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	}
 
 	@Override
+	public void render(Map<String, Object> options) throws ContextException {
+
+		// render the view presentation
+		renderPresentation(options);
+
+		// render the bindings
+		renderBindings(options);
+
+	}
+
+	/**
+	 * Renders the presentation of that view.
+	 * 
+	 * @param options
+	 * @throws ContextException
+	 */
+	protected void renderPresentation(Map<String, Object> options)
+			throws ContextException {
+		IViewPresentation<?> presentation = getPresentation();
+		if (presentation == null) {
+			throw new ContextException("Presenter must not be null!");
+		}
+		presentation.render(options);
+	}
+
+	/**
+	 * Renders the bindings of that view.
+	 * 
+	 * @param options
+	 * @throws ContextException
+	 */
+	protected void renderBindings(Map<String, Object> options)
+			throws ContextException {
+		IBindingSetEditpart bindingSet = getBindingSet();
+		if (bindingSet == null) {
+			throw new ContextException("BindingSet must not be null!");
+		}
+	}
+
+	@Override
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void setContext(IViewContext context) throws RuntimeException {
 		// END SUPRESS CATCH EXCEPTION
@@ -67,7 +115,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 
 		if (this.context != null && this.context.isRendered()) {
-			throw new RuntimeException("Already rendered! Changing context not allowed!");
+			throw new RuntimeException(
+					"Already rendered! Changing context not allowed!");
 		}
 		this.context = context;
 	}
@@ -85,7 +134,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			// set the element by using the model
 			//
 			M yView = getModel();
-			YEmbeddable yElement = content != null ? (YEmbeddable) content.getModel() : null;
+			YEmbeddable yElement = content != null ? (YEmbeddable) content
+					.getModel() : null;
 			yView.setContent(yElement);
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (RuntimeException e) {
@@ -114,12 +164,77 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	}
 
 	/**
-	 * May be invoked by a model change and the content of the edit part should be set.
+	 * May be invoked by a model change and the content of the edit part should
+	 * be set.
 	 * 
-	 * @param content The content to be set
+	 * @param content
+	 *            The content to be set
 	 */
 	protected void internalSetContent(IEmbeddableEditpart content) {
 		this.content = content;
+	}
+
+	@Override
+	public void setBindingSet(IBindingSetEditpart bindingSet) {
+		try {
+			checkDisposed();
+
+			// set the element by using the model
+			//
+			M yView = getModel();
+			YBindingSet yBindingSet = bindingSet != null ? (YBindingSet) bindingSet
+					.getModel() : null;
+			yView.setBindingSet(yBindingSet);
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (RuntimeException e) {
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
+			throw e;
+		}
+	}
+
+	@Override
+	public IBindingSetEditpart getBindingSet() {
+		if (bindingSet == null) {
+			loadBindingSet();
+		}
+		return bindingSet;
+	}
+
+	/**
+	 * Loads the bindingSet of the view.
+	 */
+	protected void loadBindingSet() {
+		if (content == null) {
+			YBindingSet yContent = getModel().getBindingSet();
+			internalSetBindingSet((IBindingSetEditpart) getEditpart(yContent));
+		}
+	}
+
+	/**
+	 * May be invoked by a model change and the bindingSet of the edit part
+	 * should be set.
+	 * 
+	 * @param bindingSet
+	 *            The bindingSet to be set
+	 */
+	protected void internalSetBindingSet(IBindingSetEditpart bindingSet) {
+		if (this.bindingSet == bindingSet) {
+			return;
+		}
+
+		IBindingSetEditpart current = this.bindingSet;
+		this.bindingSet = bindingSet;
+
+		// dispose current binding set
+		if (current != null) {
+			current.dispose();
+		}
+
+		// activate the new binding set
+		if (this.bindingSet != null && !this.bindingSet.isActive()) {
+			this.bindingSet.activate();
+		}
 	}
 
 	/**
@@ -139,7 +254,23 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			// handle the presentation
 			//
 			if (isRendered()) {
-				getPresentation().setContent(editPart != null ? editPart.getPresentation() : null);
+				getPresentation().setContent(
+						editPart != null ? editPart.getPresentation() : null);
+			}
+
+			// fire event
+			firePropertyChangedEditpart(PROP_CONTENT, notification);
+			break;
+		case CoreModelPackage.YVIEW__BINDING_SET:
+			YBindingSet yNewBindingSet = (YBindingSet) notification
+					.getNewValue();
+			IBindingSetEditpart bsEditPart = (IBindingSetEditpart) getEditpart(yNewBindingSet);
+			internalSetBindingSet(bsEditPart);
+			// handle the presentation
+			//
+			if (isRendered()) {
+				// getPresentation().setContent(editPart != null ?
+				// editPart.getPresentation() : null);
 			}
 
 			// fire event
@@ -156,7 +287,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 * @return
 	 */
 	private boolean isRendered() {
-		return internalGetPresentation() != null && internalGetPresentation().isRendered();
+		return internalGetPresentation() != null
+				&& internalGetPresentation().isRendered();
 	}
 
 	@Override
@@ -176,11 +308,19 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 				presentation = null;
 			}
 
-			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
+			// lazy loading: edit parts also have to be disposed if they have
+			// not been loaded yet,
 			// but exist in the model.
+			// TODO think about it!!!
+
 			if (getContent() != null) {
 				content.dispose();
 				content = null;
+			}
+
+			if (getBindingSet() != null) {
+				bindingSet.dispose();
+				bindingSet = null;
 			}
 		} finally {
 			super.internalDispose();
@@ -190,13 +330,15 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	@Override
 	public IViewSetEditpart getParent() {
 		YViewSet yViewSet = getModel().getRoot();
-		return yViewSet != null ? (IViewSetEditpart) getEditpart(yViewSet) : null;
+		return yViewSet != null ? (IViewSetEditpart) getEditpart(yViewSet)
+				: null;
 	}
 
 	/**
 	 * Returns the instance of the presentation, but does not load it.
 	 * 
-	 * @param <A> An instance of {@link IWidgetPresentation}
+	 * @param <A>
+	 *            An instance of {@link IWidgetPresentation}
 	 * @return presentation
 	 */
 	@SuppressWarnings("unchecked")
@@ -216,11 +358,13 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	/**
 	 * Is called to created the presenter for this edit part.
 	 * 
-	 * @param <A> An instance of {@link IViewPresentation}
+	 * @param <A>
+	 *            An instance of {@link IViewPresentation}
 	 * 
 	 * @return The created presentation.
 	 */
 	protected <A extends IViewPresentation<?>> A createPresentation() {
-		return DelegatingPresenterFactory.getInstance().createPresentation(getContext(), this);
+		return DelegatingPresenterFactory.getInstance().createPresentation(
+				getContext(), this);
 	}
 }

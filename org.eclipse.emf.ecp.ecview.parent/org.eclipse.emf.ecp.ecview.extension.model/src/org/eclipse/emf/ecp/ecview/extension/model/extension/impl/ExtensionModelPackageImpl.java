@@ -941,7 +941,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		// Add supertypes to classes
 		yTextFieldEClass.getESuperTypes().add(this.getYInput());
-		yTextFieldEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
+		yTextFieldEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yGridLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYLayout());
 		yGridLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYSpacingable());
 		yGridLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYMarginable());
@@ -952,22 +952,14 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yVerticalLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYSpacingable());
 		yVerticalLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYMarginable());
 		yTableEClass.getESuperTypes().add(this.getYInput());
-		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYField());
-		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yTextAreaEClass.getESuperTypes().add(this.getYInput());
-		yTextAreaEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yCheckBoxEClass.getESuperTypes().add(this.getYInput());
-		yCheckBoxEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yInputEClass.getESuperTypes().add(theCoreModelPackage.getYField());
 		yDecimalFieldEClass.getESuperTypes().add(this.getYInput());
-		yDecimalFieldEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yNumericFieldEClass.getESuperTypes().add(this.getYInput());
-		yNumericFieldEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yComboBoxEClass.getESuperTypes().add(this.getYInput());
-		yComboBoxEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yListEClass.getESuperTypes().add(this.getYInput());
-		yListEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 
 		// Initialize classes and features; add operations and parameters

@@ -250,13 +250,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
+	 * The feature id for the '<em><b>Value Bindable Value</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
+	int YTEXT_FIELD__VALUE_BINDABLE_VALUE = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -897,22 +897,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE__DATATYPE = YINPUT_FEATURE_COUNT + 1;
+	int YTABLE__DATATYPE = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -921,7 +912,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 2;
+	int YTABLE__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YTable</em>' class.
@@ -930,7 +921,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl <em>YLabel</em>}' class.
@@ -1024,22 +1015,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLABEL__ENABLED = CoreModelPackage.YFIELD__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL__VALUE_BINDING_URI_STRING = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL__DATADESCRIPTION = CoreModelPackage.YFIELD_FEATURE_COUNT + 1;
+	int YLABEL__DATADESCRIPTION = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YLabel</em>' class.
@@ -1048,7 +1030,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 2;
+	int YLABEL_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl <em>YText Area</em>}' class.
@@ -1142,22 +1124,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_AREA__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
+	int YTEXT_AREA__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -1166,7 +1139,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA__DATATYPE = YINPUT_FEATURE_COUNT + 2;
+	int YTEXT_AREA__DATATYPE = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YText Area</em>' class.
@@ -1175,7 +1148,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YTEXT_AREA_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl <em>YCheck Box</em>}' class.
@@ -1269,22 +1242,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCHECK_BOX__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
+	int YCHECK_BOX__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -1293,7 +1257,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 2;
+	int YCHECK_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YCheck Box</em>' class.
@@ -1302,7 +1266,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YCHECK_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YDecimalFieldImpl <em>YDecimal Field</em>}' class.
@@ -1396,22 +1360,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDECIMAL_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDECIMAL_FIELD__DATATYPE = YINPUT_FEATURE_COUNT + 1;
+	int YDECIMAL_FIELD__DATATYPE = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -1420,7 +1375,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDECIMAL_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 2;
+	int YDECIMAL_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YDecimal Field</em>' class.
@@ -1429,7 +1384,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDECIMAL_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YDECIMAL_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl <em>YNumeric Field</em>}' class.
@@ -1523,22 +1478,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YNUMERIC_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_FIELD__DATATYPE = YINPUT_FEATURE_COUNT + 1;
+	int YNUMERIC_FIELD__DATATYPE = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -1547,7 +1493,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 2;
+	int YNUMERIC_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YNumeric Field</em>' class.
@@ -1556,7 +1502,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YNUMERIC_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl <em>YCombo Box</em>}' class.
@@ -1650,22 +1596,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
+	int YCOMBO_BOX__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -1674,7 +1611,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 2;
+	int YCOMBO_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YCombo Box</em>' class.
@@ -1683,7 +1620,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.
@@ -1777,22 +1714,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLIST__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST__VALUE_BINDING_URI_STRING = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
+	int YLIST__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -1801,7 +1729,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST__DATATYPE = YINPUT_FEATURE_COUNT + 2;
+	int YLIST__DATATYPE = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YList</em>' class.
@@ -1810,7 +1738,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl <em>YButton</em>}' class.

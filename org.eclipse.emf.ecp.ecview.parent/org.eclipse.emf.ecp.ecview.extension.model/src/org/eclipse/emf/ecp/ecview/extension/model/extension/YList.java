@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 
@@ -32,7 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
  * @model
  * @generated
  */
-public interface YList extends YInput, YBindable {
+public interface YList extends YInput {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->

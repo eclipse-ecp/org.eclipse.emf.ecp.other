@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 
@@ -32,7 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
  * @model
  * @generated
  */
-public interface YNumericField extends YInput, YBindable {
+public interface YNumericField extends YInput {
 	/**
 	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->

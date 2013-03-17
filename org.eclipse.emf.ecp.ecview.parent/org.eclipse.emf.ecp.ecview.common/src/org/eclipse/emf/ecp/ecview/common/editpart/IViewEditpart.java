@@ -10,13 +10,17 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
+import java.util.Map;
+
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 
 /**
- * An IUiViewEditpart is an abstraction of the root ui element of a composite structure based on
- * {@link IEmbeddableEditpart}. The IUiViewEditpart should not be contained in a {@link ILayoutEditpart} but it can
- * contain several embeddables.
+ * An IUiViewEditpart is an abstraction of the root ui element of a composite
+ * structure based on {@link IEmbeddableEditpart}. The IUiViewEditpart should
+ * not be contained in a {@link ILayoutEditpart} but it can contain several
+ * embeddables.
  */
 public interface IViewEditpart extends IElementEditpart {
 
@@ -26,7 +30,8 @@ public interface IViewEditpart extends IElementEditpart {
 	String PROP_CONTENT = "content";
 
 	/**
-	 * Returns the view context. It offers access to more view related information.
+	 * Returns the view context. It offers access to more view related
+	 * information.
 	 * 
 	 * @return context The view context
 	 */
@@ -35,9 +40,11 @@ public interface IViewEditpart extends IElementEditpart {
 	/**
 	 * Sets the view context. It offers access to more view related information.
 	 * 
-	 * @param context The view context
+	 * @param context
+	 *            The view context
 	 * 
-	 * @throws RuntimeException if the context changes and the editpart was already rendered.
+	 * @throws RuntimeException
+	 *             if the context changes and the editpart was already rendered.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
 	void setContext(IViewContext context) throws RuntimeException;
@@ -54,9 +61,18 @@ public interface IViewEditpart extends IElementEditpart {
 	/**
 	 * Is called to set the content of the view.
 	 * 
-	 * @param content The content of the view.
+	 * @param content
+	 *            The content of the view.
 	 */
 	void setContent(IEmbeddableEditpart content);
+	
+	/**
+	 * Is called to set the bindingSet of the view.
+	 * 
+	 * @param bindingSet
+	 *            The bindingSet of the view.
+	 */
+	void setBindingSet(IBindingSetEditpart bindingSet);
 
 	/**
 	 * Returns the content of the view.
@@ -75,9 +91,25 @@ public interface IViewEditpart extends IElementEditpart {
 	/**
 	 * Returns the view presenter for the edit part.
 	 * 
-	 * @param <A> An instance of {@link IViewPresentation}
+	 * @param <A>
+	 *            An instance of {@link IViewPresentation}
 	 * @return presentation The presentation used to render the UI.
 	 */
 	<A extends IViewPresentation<?>> A getPresentation();
+
+	/**
+	 * Returns the bindingSet that is responsible to handle bindings.
+	 * 
+	 * @return
+	 */
+	IBindingSetEditpart getBindingSet();
+
+	/**
+	 * Is called to render the view.
+	 * 
+	 * @param options can contain different options used for rendering
+	 * @throws ContextException
+	 */
+	void render(Map<String, Object> options) throws ContextException;
 
 }

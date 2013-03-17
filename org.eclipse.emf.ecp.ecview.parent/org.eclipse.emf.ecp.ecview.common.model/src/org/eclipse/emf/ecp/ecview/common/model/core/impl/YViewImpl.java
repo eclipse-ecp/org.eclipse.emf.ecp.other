@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
@@ -26,9 +27,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi View</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi View</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -39,6 +39,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBindingSet <em>Binding Set</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,9 +47,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  */
 public class YViewImpl extends EObjectImpl implements YView {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -56,9 +57,9 @@ public class YViewImpl extends EObjectImpl implements YView {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -67,8 +68,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The default value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCssClass()
 	 * @generated
 	 * @ordered
@@ -77,8 +77,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The cached value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCssClass()
 	 * @generated
 	 * @ordered
@@ -87,8 +86,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The default value of the '{@link #getCssID() <em>Css ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCssID()
 	 * @generated
 	 * @ordered
@@ -97,8 +95,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The cached value of the '{@link #getCssID() <em>Css ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCssID()
 	 * @generated
 	 * @ordered
@@ -107,8 +104,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The default value of the '{@link #isMargin() <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isMargin()
 	 * @generated
 	 * @ordered
@@ -117,8 +113,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isMargin()
 	 * @generated
 	 * @ordered
@@ -127,8 +122,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The default value of the '{@link #getViewName() <em>View Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getViewName()
 	 * @generated
 	 * @ordered
@@ -137,8 +131,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The cached value of the '{@link #getViewName() <em>View Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getViewName()
 	 * @generated
 	 * @ordered
@@ -147,8 +140,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 
 	/**
 	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getContent()
 	 * @generated
 	 * @ordered
@@ -156,8 +148,16 @@ public class YViewImpl extends EObjectImpl implements YView {
 	protected YEmbeddable content;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getBindingSet() <em>Binding Set</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getBindingSet()
+	 * @generated
+	 * @ordered
+	 */
+	protected YBindingSet bindingSet;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YViewImpl() {
@@ -165,8 +165,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -175,8 +174,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getId() {
@@ -184,8 +182,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -196,8 +193,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getCssClass() {
@@ -205,8 +201,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCssClass(String newCssClass) {
@@ -217,8 +212,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getCssID() {
@@ -226,8 +220,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCssID(String newCssID) {
@@ -238,8 +231,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getViewName() {
@@ -247,8 +239,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setViewName(String newViewName) {
@@ -259,8 +250,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YEmbeddable getContent() {
@@ -268,11 +258,11 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContent(YEmbeddable newContent, NotificationChain msgs) {
+	public NotificationChain basicSetContent(YEmbeddable newContent,
+			NotificationChain msgs) {
 		YEmbeddable oldContent = content;
 		content = newContent;
 		if (eNotificationRequired()) {
@@ -283,8 +273,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setContent(YEmbeddable newContent) {
@@ -302,8 +291,48 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingSet getBindingSet() {
+		return bindingSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBindingSet(YBindingSet newBindingSet,
+			NotificationChain msgs) {
+		YBindingSet oldBindingSet = bindingSet;
+		bindingSet = newBindingSet;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__BINDING_SET, oldBindingSet, newBindingSet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBindingSet(YBindingSet newBindingSet) {
+		if (newBindingSet != bindingSet) {
+			NotificationChain msgs = null;
+			if (bindingSet != null)
+				msgs = ((InternalEObject)bindingSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__BINDING_SET, null, msgs);
+			if (newBindingSet != null)
+				msgs = ((InternalEObject)newBindingSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__BINDING_SET, null, msgs);
+			msgs = basicSetBindingSet(newBindingSet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__BINDING_SET, newBindingSet, newBindingSet));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isMargin() {
@@ -311,8 +340,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMargin(boolean newMargin) {
@@ -323,8 +351,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YViewSet getRoot() {
@@ -333,18 +360,17 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRoot(YViewSet newRoot, NotificationChain msgs) {
+	public NotificationChain basicSetRoot(YViewSet newRoot,
+			NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRoot, CoreModelPackage.YVIEW__ROOT, msgs);
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRoot(YViewSet newRoot) {
@@ -364,13 +390,13 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CoreModelPackage.YVIEW__ROOT:
 				if (eInternalContainer() != null)
@@ -381,28 +407,30 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CoreModelPackage.YVIEW__ROOT:
 				return basicSetRoot(null, msgs);
 			case CoreModelPackage.YVIEW__CONTENT:
 				return basicSetContent(null, msgs);
+			case CoreModelPackage.YVIEW__BINDING_SET:
+				return basicSetBindingSet(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+	public NotificationChain eBasicRemoveFromContainerFeature(
+			NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case CoreModelPackage.YVIEW__ROOT:
 				return eInternalContainer().eInverseRemove(this, CoreModelPackage.YVIEW_SET__VIEWS, YViewSet.class, msgs);
@@ -411,8 +439,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -432,13 +459,14 @@ public class YViewImpl extends EObjectImpl implements YView {
 				return getViewName();
 			case CoreModelPackage.YVIEW__CONTENT:
 				return getContent();
+			case CoreModelPackage.YVIEW__BINDING_SET:
+				return getBindingSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -466,13 +494,15 @@ public class YViewImpl extends EObjectImpl implements YView {
 			case CoreModelPackage.YVIEW__CONTENT:
 				setContent((YEmbeddable)newValue);
 				return;
+			case CoreModelPackage.YVIEW__BINDING_SET:
+				setBindingSet((YBindingSet)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -499,13 +529,15 @@ public class YViewImpl extends EObjectImpl implements YView {
 			case CoreModelPackage.YVIEW__CONTENT:
 				setContent((YEmbeddable)null);
 				return;
+			case CoreModelPackage.YVIEW__BINDING_SET:
+				setBindingSet((YBindingSet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -525,13 +557,14 @@ public class YViewImpl extends EObjectImpl implements YView {
 				return VIEW_NAME_EDEFAULT == null ? viewName != null : !VIEW_NAME_EDEFAULT.equals(viewName);
 			case CoreModelPackage.YVIEW__CONTENT:
 				return content != null;
+			case CoreModelPackage.YVIEW__BINDING_SET:
+				return bindingSet != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -553,8 +586,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -576,8 +608,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -599,4 +630,4 @@ public class YViewImpl extends EObjectImpl implements YView {
 		return result.toString();
 	}
 
-} //YUiViewImpl
+} // YUiViewImpl

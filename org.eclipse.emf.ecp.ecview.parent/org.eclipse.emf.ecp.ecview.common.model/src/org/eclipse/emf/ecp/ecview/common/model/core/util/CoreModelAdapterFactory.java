@@ -14,9 +14,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -26,7 +25,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
@@ -133,10 +134,6 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYWidthableAdapter();
 			}
 			@Override
-			public Adapter caseYBindable(YBindable object) {
-				return createYBindableAdapter();
-			}
-			@Override
 			public Adapter caseYVisibleable(YVisibleable object) {
 				return createYVisibleableAdapter();
 			}
@@ -151,6 +148,14 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYAction(YAction object) {
 				return createYActionAdapter();
+			}
+			@Override
+			public Adapter caseYValueBindable(YValueBindable object) {
+				return createYValueBindableAdapter();
+			}
+			@Override
+			public Adapter caseYSelectionBindable(YSelectionBindable object) {
+				return createYSelectionBindableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -327,20 +332,6 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
-	 * @generated
-	 */
-	public Adapter createYBindableAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -393,6 +384,34 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable
+	 * @generated
+	 */
+	public Adapter createYValueBindableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable
+	 * @generated
+	 */
+	public Adapter createYSelectionBindableAdapter() {
 		return null;
 	}
 

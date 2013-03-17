@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.datatypes;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

@@ -28,7 +28,7 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("restriction")
-public class UiFieldEditpartTest {
+public class FieldEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();

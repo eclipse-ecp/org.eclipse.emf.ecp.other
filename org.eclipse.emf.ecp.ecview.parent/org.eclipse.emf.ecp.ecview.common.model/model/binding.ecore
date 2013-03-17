@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="binding" nsURI="http://eclipse.org/emf/ecp/ecview/common/binding"
+    nsPrefix="binding">
+  <eClassifiers xsi:type="ecore:EClass" name="YBindingSet" eSuperTypes="core.ecore#//YElement">
+    <eOperations name="addBinding" eType="#//YBinding">
+      <eParameters name="targetValue" lowerBound="1" eType="#//YBindableValue"/>
+      <eParameters name="modelValue" lowerBound="1" eType="#//YBindableValue"/>
+    </eOperations>
+    <eOperations name="getView" eType="ecore:EClass core.ecore#//YView"/>
+    <eOperations name="addBinding">
+      <eParameters name="binding" lowerBound="1" eType="#//YBinding"/>
+    </eOperations>
+    <eOperations name="removeBinding">
+      <eParameters name="binding" lowerBound="1" eType="#//YBinding"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//YBinding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YBindableValue" abstract="true" interface="true"
+      eSuperTypes="core.ecore#//YElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YBinding" eSuperTypes="core.ecore#//YElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetValue" lowerBound="1"
+        eType="#//YBindableValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelValue" lowerBound="1"
+        eType="#//YBindableValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YContextBindableValue" eSuperTypes="#//YBindableValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlString" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableBindableValue" eSuperTypes="#//YBindableValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        eType="ecore:EClass core.ecore#//YEmbeddable"/>
+  </eClassifiers>
+</ecore:EPackage>

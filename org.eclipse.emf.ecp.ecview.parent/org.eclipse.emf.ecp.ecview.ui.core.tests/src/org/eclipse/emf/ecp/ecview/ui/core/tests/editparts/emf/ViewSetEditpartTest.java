@@ -31,7 +31,7 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("restriction")
-public class UiViewSetEditpartTest {
+public class ViewSetEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();

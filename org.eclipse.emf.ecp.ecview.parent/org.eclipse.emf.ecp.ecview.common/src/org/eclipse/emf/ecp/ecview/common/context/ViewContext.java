@@ -14,7 +14,6 @@ import java.util.Map;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -132,11 +131,7 @@ public class ViewContext extends DisposableContext implements IViewContext {
 			// start to render
 			//
 			IViewEditpart editPart = getViewEditpart();
-			IViewPresentation<?> presentation = editPart.getPresentation();
-			if (presentation == null) {
-				throw new ContextException("Presenter must not be null!");
-			}
-			presentation.render(parameter);
+			editPart.render(parameter);
 
 		} finally {
 			rendered = true;

@@ -20,4 +20,12 @@
             genModel="model/datatypes.genmodel"/>
    </extension>
    
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated binding -->
+      <package
+            uri="http://eclipse.org/emf/ecp/ecview/common/binding"
+            class="org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
+            genModel="model/binding.genmodel"/>
+   </extension>
+
 </plugin>

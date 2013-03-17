@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
 
@@ -32,7 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
  * @model
  * @generated
  */
-public interface YCheckBox extends YInput, YBindable {
+public interface YCheckBox extends YInput {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->

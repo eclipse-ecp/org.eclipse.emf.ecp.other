@@ -10,17 +10,25 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,11 +36,12 @@ import org.junit.Test;
  * Tests the {@link ViewEditpart}.
  */
 @SuppressWarnings("restriction")
-public class UiViewEditpartTest {
+public class ViewEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
+	private BindingFactory bindingFactory = BindingFactory.eINSTANCE;
 
 	/**
 	 * Setup.
@@ -55,11 +64,11 @@ public class UiViewEditpartTest {
 		// END SUPRESS CATCH EXCEPTION
 		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
 				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
-		Assert.assertNull(viewEditpart.getContext());
+		assertNull(viewEditpart.getContext());
 
 		ViewContext context = new ViewContext(viewEditpart);
-		Assert.assertSame(context, viewEditpart.getContext());
-		Assert.assertSame(viewEditpart, context.getViewEditpart());
+		assertSame(context, viewEditpart.getContext());
+		assertSame(viewEditpart, context.getViewEditpart());
 	}
 
 	/**
@@ -77,17 +86,17 @@ public class UiViewEditpartTest {
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 
-		Assert.assertSame(layout1Editpart, view1Editpart.getContent());
+		assertSame(layout1Editpart, view1Editpart.getContent());
 		// parent is null if it is the view
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertSame(view1Editpart, layout1Editpart.getView());
+		assertNull(layout1Editpart.getParent());
+		assertSame(view1Editpart, layout1Editpart.getView());
 
 		// unset the layout
 		//
 		view1.setContent(null);
-		Assert.assertNull(view1Editpart.getContent());
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertNull(layout1Editpart.getView());
+		assertNull(view1Editpart.getContent());
+		assertNull(layout1Editpart.getParent());
+		assertNull(layout1Editpart.getView());
 
 	}
 
@@ -106,17 +115,17 @@ public class UiViewEditpartTest {
 		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 		view1Editpart.setContent(layout1Editpart);
 
-		Assert.assertSame(layout1Editpart, view1Editpart.getContent());
+		assertSame(layout1Editpart, view1Editpart.getContent());
 		// parent is null if it is the view
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertSame(view1Editpart, layout1Editpart.getView());
+		assertNull(layout1Editpart.getParent());
+		assertSame(view1Editpart, layout1Editpart.getView());
 
 		// unset the layout
 		//
 		view1.setContent(null);
-		Assert.assertNull(view1Editpart.getContent());
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertNull(layout1Editpart.getView());
+		assertNull(view1Editpart.getContent());
+		assertNull(layout1Editpart.getParent());
+		assertNull(layout1Editpart.getView());
 
 	}
 
@@ -135,10 +144,10 @@ public class UiViewEditpartTest {
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 
-		Assert.assertSame(layout1Editpart, view1Editpart.getContent());
+		assertSame(layout1Editpart, view1Editpart.getContent());
 		// parent is null if it is the view
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertSame(view1Editpart, layout1Editpart.getView());
+		assertNull(layout1Editpart.getParent());
+		assertSame(view1Editpart, layout1Editpart.getView());
 
 		// ...> view2
 		// ......> layout1
@@ -146,10 +155,10 @@ public class UiViewEditpartTest {
 		view2.setContent(layout1);
 		IViewEditpart view2Editpart = editpartManager.getEditpart(view2);
 
-		Assert.assertSame(layout1Editpart, view2Editpart.getContent());
+		assertSame(layout1Editpart, view2Editpart.getContent());
 		// parent is null if it is the view
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertSame(view2Editpart, layout1Editpart.getView());
+		assertNull(layout1Editpart.getParent());
+		assertSame(view2Editpart, layout1Editpart.getView());
 	}
 
 	/**
@@ -167,10 +176,10 @@ public class UiViewEditpartTest {
 		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 		view1Editpart.setContent(layout1Editpart);
 
-		Assert.assertSame(layout1Editpart, view1Editpart.getContent());
+		assertSame(layout1Editpart, view1Editpart.getContent());
 		// parent is null if it is the view
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertSame(view1Editpart, layout1Editpart.getView());
+		assertNull(layout1Editpart.getParent());
+		assertSame(view1Editpart, layout1Editpart.getView());
 
 		// ...> view2
 		// ......> layout1
@@ -178,10 +187,10 @@ public class UiViewEditpartTest {
 		IViewEditpart view2Editpart = editpartManager.getEditpart(view2);
 		view2Editpart.setContent(layout1Editpart);
 
-		Assert.assertSame(layout1Editpart, view2Editpart.getContent());
+		assertSame(layout1Editpart, view2Editpart.getContent());
 		// parent is null if it is the view
-		Assert.assertNull(layout1Editpart.getParent());
-		Assert.assertSame(view2Editpart, layout1Editpart.getView());
+		assertNull(layout1Editpart.getParent());
+		assertSame(view2Editpart, layout1Editpart.getView());
 	}
 
 	/**
@@ -199,18 +208,18 @@ public class UiViewEditpartTest {
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
 
-		Assert.assertSame(layout1Editpart, view1Editpart.getContent());
-		Assert.assertSame(view1Editpart, layout1Editpart.getView());
-		Assert.assertSame(view1, layout1.getView());
+		assertSame(layout1Editpart, view1Editpart.getContent());
+		assertSame(view1Editpart, layout1Editpart.getView());
+		assertSame(view1, layout1.getView());
 
 		// dispose the layout
 		//
 		layout1Editpart.dispose();
-		Assert.assertFalse(view1Editpart.isDisposed());
-		Assert.assertTrue(layout1Editpart.isDisposed());
+		assertFalse(view1Editpart.isDisposed());
+		assertTrue(layout1Editpart.isDisposed());
 
-		Assert.assertNull(view1Editpart.getContent());
-		Assert.assertNull(layout1.getParent());
+		assertNull(view1Editpart.getContent());
+		assertNull(layout1.getParent());
 	}
 
 	/**
@@ -223,9 +232,9 @@ public class UiViewEditpartTest {
 		YView view1 = modelFactory.createYView();
 		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
 
-		Assert.assertFalse(view1Editpart.isDisposed());
+		assertFalse(view1Editpart.isDisposed());
 		view1Editpart.dispose();
-		Assert.assertTrue(view1Editpart.isDisposed());
+		assertTrue(view1Editpart.isDisposed());
 
 		view1Editpart.isDisposed();
 		view1Editpart.dispose();
@@ -236,7 +245,7 @@ public class UiViewEditpartTest {
 				public void notifyDisposed(IDisposable notifier) {
 				}
 			});
-			Assert.fail();
+			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
 			// END SUPRESS CATCH EXCEPTION
@@ -245,7 +254,7 @@ public class UiViewEditpartTest {
 
 		try {
 			view1Editpart.setContent(null);
-			Assert.fail();
+			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
 			// END SUPRESS CATCH EXCEPTION
@@ -253,7 +262,7 @@ public class UiViewEditpartTest {
 		}
 		try {
 			view1Editpart.getContent();
-			Assert.fail();
+			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
 			// END SUPRESS CATCH EXCEPTION
@@ -262,7 +271,7 @@ public class UiViewEditpartTest {
 
 		try {
 			view1Editpart.getId();
-			Assert.fail();
+			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
 			// END SUPRESS CATCH EXCEPTION
@@ -271,7 +280,7 @@ public class UiViewEditpartTest {
 
 		try {
 			view1Editpart.getModel();
-			Assert.fail();
+			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
 			// END SUPRESS CATCH EXCEPTION
@@ -284,11 +293,67 @@ public class UiViewEditpartTest {
 				public void notifyDisposed(IDisposable notifier) {
 				}
 			});
-			Assert.fail();
+			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
 			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
+	}
+
+	/**
+	 * Tests setContent by model.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBindingSet_byModel() {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> view1
+		YView view1 = modelFactory.createYView();
+		YBindingSet bindingSet = bindingFactory.createYBindingSet();
+		view1.setBindingSet(bindingSet);
+		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
+		IBindingSetEditpart bindingSetEditpart = editpartManager
+				.getEditpart(bindingSet);
+		assertFalse(bindingSetEditpart.isActive());
+
+		assertSame(bindingSetEditpart, view1Editpart.getBindingSet());
+		// parent is null if it is the view
+		assertSame(view1Editpart, bindingSetEditpart.getView());
+		assertTrue(bindingSetEditpart.isActive());
+
+		// unset the binding set
+		//
+		view1.setBindingSet(null);
+		assertNull(view1Editpart.getBindingSet());
+		assertTrue(bindingSetEditpart.isDisposed());
+	}
+
+	/**
+	 * Tests setContent by editPart.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_setBindingSet_byEditPart() {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> view1
+		YView view1 = modelFactory.createYView();
+		YBindingSet bindingSet = bindingFactory.createYBindingSet();
+		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
+		IBindingSetEditpart bindingSetEditpart = editpartManager
+				.getEditpart(bindingSet);
+		assertFalse(bindingSetEditpart.isActive());
+
+		view1Editpart.setBindingSet(bindingSetEditpart);
+		assertSame(bindingSetEditpart, view1Editpart.getBindingSet());
+		// parent is null if it is the view
+		assertSame(view1Editpart, bindingSetEditpart.getView());
+		assertTrue(bindingSetEditpart.isActive());
+
+		// unset the layout
+		//
+		view1.setBindingSet(null);
+		assertNull(view1Editpart.getBindingSet());
+		assertTrue(bindingSetEditpart.isDisposed());
 	}
 }

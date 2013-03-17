@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
  * @model
  * @generated
  */
-public interface YLabel extends YField, YBindable {
+public interface YLabel extends YField {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->

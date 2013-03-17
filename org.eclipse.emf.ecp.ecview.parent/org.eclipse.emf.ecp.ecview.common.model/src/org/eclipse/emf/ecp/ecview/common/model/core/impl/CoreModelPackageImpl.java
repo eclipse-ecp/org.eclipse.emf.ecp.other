@@ -19,10 +19,11 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -32,8 +33,10 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YUnit;
+import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
@@ -128,13 +131,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yBindableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass yVisibleableEClass = null;
 
 	/**
@@ -157,6 +153,20 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EClass yActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yValueBindableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ySelectionBindableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,11 +228,16 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theCoreModelPackage.createPackageContents();
+		theBindingPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCoreModelPackage.initializePackageContents();
+		theBindingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCoreModelPackage.freeze();
@@ -312,6 +327,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EReference getYView_Content() {
 		return (EReference)yViewEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYView_BindingSet() {
+		return (EReference)yViewEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -463,24 +487,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYBindable() {
-		return yBindableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYBindable_ValueBindingURIString() {
-		return (EAttribute)yBindableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYVisibleable() {
 		return yVisibleableEClass;
 	}
@@ -571,6 +577,42 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYValueBindable() {
+		return yValueBindableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYValueBindable_ValueBindableValue() {
+		return (EReference)yValueBindableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYSelectionBindable() {
+		return ySelectionBindableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYSelectionBindable_SelectionBindableValue() {
+		return (EReference)ySelectionBindableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUnit() {
 		return yUnitEEnum;
 	}
@@ -624,6 +666,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEReference(yViewEClass, YVIEW__ROOT);
 		createEAttribute(yViewEClass, YVIEW__VIEW_NAME);
 		createEReference(yViewEClass, YVIEW__CONTENT);
+		createEReference(yViewEClass, YVIEW__BINDING_SET);
 
 		yViewSetEClass = createEClass(YVIEW_SET);
 		createEReference(yViewSetEClass, YVIEW_SET__VIEWS);
@@ -648,9 +691,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yWidthableEClass, YWIDTHABLE__WIDTH);
 		createEAttribute(yWidthableEClass, YWIDTHABLE__WIDTH_UNIT);
 
-		yBindableEClass = createEClass(YBINDABLE);
-		createEAttribute(yBindableEClass, YBINDABLE__VALUE_BINDING_URI_STRING);
-
 		yVisibleableEClass = createEClass(YVISIBLEABLE);
 		createEAttribute(yVisibleableEClass, YVISIBLEABLE__INITIAL_VISIBLE);
 		createEAttribute(yVisibleableEClass, YVISIBLEABLE__VISIBLE);
@@ -664,6 +704,12 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yEnableEClass, YENABLE__ENABLED);
 
 		yActionEClass = createEClass(YACTION);
+
+		yValueBindableEClass = createEClass(YVALUE_BINDABLE);
+		createEReference(yValueBindableEClass, YVALUE_BINDABLE__VALUE_BINDABLE_VALUE);
+
+		ySelectionBindableEClass = createEClass(YSELECTION_BINDABLE);
+		createEReference(ySelectionBindableEClass, YSELECTION_BINDABLE__SELECTION_BINDABLE_VALUE);
 
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
@@ -694,6 +740,9 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		BindingPackage theBindingPackage = (BindingPackage)EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -727,6 +776,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYView_Root(), this.getYViewSet(), this.getYViewSet_Views(), "root", null, 1, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYView_ViewName(), ecorePackage.getEString(), "viewName", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_Content(), this.getYEmbeddable(), null, "content", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYView_BindingSet(), theBindingPackage.getYBindingSet(), null, "bindingSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yViewSetEClass, YViewSet.class, "YViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYViewSet_Views(), this.getYView(), this.getYView_Root(), "views", null, 0, -1, YViewSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -755,11 +805,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEAttribute(getYWidthable_Width(), ecorePackage.getEInt(), "width", null, 0, 1, YWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYWidthable_WidthUnit(), this.getYUnit(), "widthUnit", null, 0, 1, YWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yBindableEClass, YBindable.class, "YBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYBindable_ValueBindingURIString(), ecorePackage.getEString(), "valueBindingURIString", null, 0, 1, YBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(yBindableEClass, this.getYURI(), "getValueBindingURI", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(yVisibleableEClass, YVisibleable.class, "YVisibleable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYVisibleable_InitialVisible(), ecorePackage.getEBoolean(), "initialVisible", "true", 0, 1, YVisibleable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYVisibleable_Visible(), ecorePackage.getEBoolean(), "visible", null, 0, 1, YVisibleable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -773,6 +818,12 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEAttribute(getYEnable_Enabled(), ecorePackage.getEBoolean(), "enabled", null, 0, 1, YEnable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(yActionEClass, YAction.class, "YAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yValueBindableEClass, YValueBindable.class, "YValueBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYValueBindable_ValueBindableValue(), theBindingPackage.getYBindableValue(), null, "valueBindableValue", null, 0, 1, YValueBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ySelectionBindableEClass, YSelectionBindable.class, "YSelectionBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYSelectionBindable_SelectionBindableValue(), theBindingPackage.getYBindableValue(), null, "selectionBindableValue", null, 0, 1, YSelectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

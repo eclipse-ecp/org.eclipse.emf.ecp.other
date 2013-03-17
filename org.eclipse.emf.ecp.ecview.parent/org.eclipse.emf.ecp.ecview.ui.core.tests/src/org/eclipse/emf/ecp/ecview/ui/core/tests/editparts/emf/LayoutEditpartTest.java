@@ -28,7 +28,7 @@ import org.junit.Test;
  * Tests the ui layout edit part.
  */
 @SuppressWarnings("restriction")
-public class UiLayoutEditpartTest {
+public class LayoutEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();

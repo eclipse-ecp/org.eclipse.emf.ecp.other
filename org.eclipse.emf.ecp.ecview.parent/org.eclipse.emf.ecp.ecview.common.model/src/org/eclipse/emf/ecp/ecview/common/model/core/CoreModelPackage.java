@@ -404,13 +404,22 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW__CONTENT = YELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Binding Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVIEW__BINDING_SET = YELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>YView</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 6;
+	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
@@ -617,34 +626,6 @@ public interface CoreModelPackage extends EPackage {
 	int YWIDTHABLE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBindable()
-	 * @generated
-	 */
-	int YBINDABLE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Value Binding URI String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDABLE__VALUE_BINDING_URI_STRING = 0;
-
-	/**
-	 * The number of structural features of the '<em>YBindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDABLE_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -652,7 +633,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYVisibleable()
 	 * @generated
 	 */
-	int YVISIBLEABLE = 12;
+	int YVISIBLEABLE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
@@ -689,7 +670,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEditable()
 	 * @generated
 	 */
-	int YEDITABLE = 13;
+	int YEDITABLE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -726,7 +707,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEnable()
 	 * @generated
 	 */
-	int YENABLE = 14;
+	int YENABLE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
@@ -763,7 +744,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYAction()
 	 * @generated
 	 */
-	int YACTION = 15;
+	int YACTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -838,6 +819,62 @@ public interface CoreModelPackage extends EPackage {
 	int YACTION_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueBindable()
+	 * @generated
+	 */
+	int YVALUE_BINDABLE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Value Bindable Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDABLE__VALUE_BINDABLE_VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>YValue Bindable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYSelectionBindable()
+	 * @generated
+	 */
+	int YSELECTION_BINDABLE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Selection Bindable Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YSELECTION_BINDABLE__SELECTION_BINDABLE_VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>YSelection Bindable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YSELECTION_BINDABLE_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -845,7 +882,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 16;
+	int YUNIT = 17;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -855,7 +892,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 17;
+	int YURI = 18;
 
 
 	/**
@@ -952,6 +989,17 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYView_Content();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBindingSet <em>Binding Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Binding Set</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YView#getBindingSet()
+	 * @see #getYView()
+	 * @generated
+	 */
+	EReference getYView_BindingSet();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet <em>YView Set</em>}'.
@@ -1123,27 +1171,6 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYWidthable_WidthUnit();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YBindable</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
-	 * @generated
-	 */
-	EClass getYBindable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable#getValueBindingURIString <em>Value Binding URI String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value Binding URI String</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable#getValueBindingURIString()
-	 * @see #getYBindable()
-	 * @generated
-	 */
-	EAttribute getYBindable_ValueBindingURIString();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1248,6 +1275,48 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYAction();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YValue Bindable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable
+	 * @generated
+	 */
+	EClass getYValueBindable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindableValue <em>Value Bindable Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value Bindable Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindableValue()
+	 * @see #getYValueBindable()
+	 * @generated
+	 */
+	EReference getYValueBindable_ValueBindableValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YSelection Bindable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable
+	 * @generated
+	 */
+	EClass getYSelectionBindable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#getSelectionBindableValue <em>Selection Bindable Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Selection Bindable Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#getSelectionBindableValue()
+	 * @see #getYSelectionBindable()
+	 * @generated
+	 */
+	EReference getYSelectionBindable_SelectionBindableValue();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
@@ -1371,6 +1440,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YVIEW__CONTENT = eINSTANCE.getYView_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Binding Set</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVIEW__BINDING_SET = eINSTANCE.getYView_BindingSet();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
@@ -1515,24 +1592,6 @@ public interface CoreModelPackage extends EPackage {
 		EAttribute YWIDTHABLE__WIDTH_UNIT = eINSTANCE.getYWidthable_WidthUnit();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
-		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBindable()
-		 * @generated
-		 */
-		EClass YBINDABLE = eINSTANCE.getYBindable();
-
-		/**
-		 * The meta object literal for the '<em><b>Value Binding URI String</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YBINDABLE__VALUE_BINDING_URI_STRING = eINSTANCE.getYBindable_ValueBindingURIString();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1619,6 +1678,42 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YACTION = eINSTANCE.getYAction();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueBindable()
+		 * @generated
+		 */
+		EClass YVALUE_BINDABLE = eINSTANCE.getYValueBindable();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Bindable Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVALUE_BINDABLE__VALUE_BINDABLE_VALUE = eINSTANCE.getYValueBindable_ValueBindableValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYSelectionBindable()
+		 * @generated
+		 */
+		EClass YSELECTION_BINDABLE = eINSTANCE.getYSelectionBindable();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Bindable Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YSELECTION_BINDABLE__SELECTION_BINDABLE_VALUE = eINSTANCE.getYSelectionBindable_SelectionBindableValue();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

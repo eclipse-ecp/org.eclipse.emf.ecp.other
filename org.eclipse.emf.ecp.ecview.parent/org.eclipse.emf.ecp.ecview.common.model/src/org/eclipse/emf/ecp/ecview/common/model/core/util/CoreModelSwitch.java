@@ -13,9 +13,8 @@ package org.eclipse.emf.ecp.ecview.common.model.core.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -25,7 +24,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
@@ -171,12 +172,6 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoreModelPackage.YBINDABLE: {
-				YBindable yBindable = (YBindable)theEObject;
-				T result = caseYBindable(yBindable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CoreModelPackage.YVISIBLEABLE: {
 				YVisibleable yVisibleable = (YVisibleable)theEObject;
 				T result = caseYVisibleable(yVisibleable);
@@ -203,6 +198,18 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yAction);
 				if (result == null) result = caseYCssAble(yAction);
 				if (result == null) result = caseYVisibleable(yAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YVALUE_BINDABLE: {
+				YValueBindable yValueBindable = (YValueBindable)theEObject;
+				T result = caseYValueBindable(yValueBindable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YSELECTION_BINDABLE: {
+				YSelectionBindable ySelectionBindable = (YSelectionBindable)theEObject;
+				T result = caseYSelectionBindable(ySelectionBindable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -376,21 +383,6 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YBindable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YBindable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseYBindable(YBindable object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YVisibleable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -447,6 +439,36 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYAction(YAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValue Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValue Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValueBindable(YValueBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YSelection Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YSelection Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYSelectionBindable(YSelectionBindable object) {
 		return null;
 	}
 

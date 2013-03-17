@@ -7,7 +7,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -17,6 +16,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
@@ -195,8 +195,8 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYFieldAdapter();
 			}
 			@Override
-			public Adapter caseYBindable(YBindable object) {
-				return createYBindableAdapter();
+			public Adapter caseYValueBindable(YValueBindable object) {
+				return createYValueBindableAdapter();
 			}
 			@Override
 			public Adapter caseYLayout(YLayout object) {
@@ -585,16 +585,16 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable
 	 * @generated
 	 */
-	public Adapter createYBindableAdapter() {
+	public Adapter createYValueBindableAdapter() {
 		return null;
 	}
 
