@@ -9,6 +9,6 @@ Require-Bundle: org.eclipse.core.databinding.beans,
  org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1",
  org.apache.commons.beanutils;bundle-version="1.8.0"
 Service-Component: OSGI-INF/beanBindingDelegate.xml, OSGI-INF/pojoBindingDelegate.xml
-Export-Package: org.eclipse.emf.ecp.ecview.databinding.beans;x-internal:=true
+Export-Package: org.eclipse.emf.ecp.ecview.databinding.beans.context;x-internal:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

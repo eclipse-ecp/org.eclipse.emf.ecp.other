@@ -20,7 +20,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.databinding.beans.PojoBindingDelegate;
+import org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextPojoBindingDelegate;
 import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BAddress;
 import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BCountry;
 import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BPerson;
@@ -31,13 +31,13 @@ import org.junit.Test;
 public class PojoBindingDelegateTests {
 
 	private boolean changed;
-	private PojoBindingDelegate binder;
+	private ContextPojoBindingDelegate binder;
 	private IViewContext context;
 
 	@Before
 	public void setup() {
 		new TestRealm();
-		binder = new PojoBindingDelegate();
+		binder = new ContextPojoBindingDelegate();
 		context = new TestViewContext();
 	}
 

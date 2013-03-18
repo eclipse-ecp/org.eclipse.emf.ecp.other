@@ -18,11 +18,11 @@ import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
-import org.eclipse.emf.ecp.ecview.common.binding.ContextObservables;
+import org.eclipse.emf.ecp.ecview.common.binding.context.ContextObservables;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
-import org.eclipse.emf.ecp.ecview.databinding.beans.BeanBindingDelegate;
-import org.eclipse.emf.ecp.ecview.databinding.beans.PojoBindingDelegate;
-import org.eclipse.emf.ecp.ecview.databinding.emf.EMFBindingDelegate;
+import org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextBeanBindingDelegate;
+import org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextPojoBindingDelegate;
+import org.eclipse.emf.ecp.ecview.databinding.emf.context.ContextEMFBindingDelegate;
 import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BPerson;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
@@ -48,9 +48,9 @@ public class ContextObservablesTest {
 	 */
 	@Test
 	public void test_getSequence() {
-		BeanBindingDelegate delegate10 = new BeanBindingDelegate();
-		BeanBindingDelegate delegate20 = new BeanBindingDelegate();
-		BeanBindingDelegate delegate30 = new BeanBindingDelegate();
+		ContextBeanBindingDelegate delegate10 = new ContextBeanBindingDelegate();
+		ContextBeanBindingDelegate delegate20 = new ContextBeanBindingDelegate();
+		ContextBeanBindingDelegate delegate30 = new ContextBeanBindingDelegate();
 
 		ContextObservables.getInstance().addDelegate(30, delegate30);
 		ContextObservables.getInstance().addDelegate(10, delegate10);
@@ -73,7 +73,7 @@ public class ContextObservablesTest {
 	 */
 	@Test
 	public void test_addRemove() {
-		BeanBindingDelegate delegate10 = new BeanBindingDelegate();
+		ContextBeanBindingDelegate delegate10 = new ContextBeanBindingDelegate();
 
 		ContextObservables.getInstance().addDelegate(10, delegate10);
 
@@ -90,12 +90,12 @@ public class ContextObservablesTest {
 	 */
 	@Test
 	public void test_getBeanDelegate() {
-		BeanBindingDelegate expected = new BeanBindingDelegate();
+		ContextBeanBindingDelegate expected = new ContextBeanBindingDelegate();
 		ContextObservables.getInstance().addDelegate(10,
-				new EMFBindingDelegate());
+				new ContextEMFBindingDelegate());
 		ContextObservables.getInstance().addDelegate(20, expected);
 		ContextObservables.getInstance().addDelegate(30,
-				new PojoBindingDelegate());
+				new ContextPojoBindingDelegate());
 
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", BPerson.newInstance("AT"));
@@ -109,12 +109,12 @@ public class ContextObservablesTest {
 	 */
 	@Test
 	public void test_getBeanDelegate_ButFindsPojoDelegate() {
-		PojoBindingDelegate expected = new PojoBindingDelegate();
+		ContextPojoBindingDelegate expected = new ContextPojoBindingDelegate();
 		ContextObservables.getInstance().addDelegate(10,
-				new EMFBindingDelegate());
+				new ContextEMFBindingDelegate());
 		ContextObservables.getInstance().addDelegate(20, expected);
 		ContextObservables.getInstance().addDelegate(30,
-				new BeanBindingDelegate());
+				new ContextBeanBindingDelegate());
 
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", BPerson.newInstance("AT"));
@@ -128,11 +128,11 @@ public class ContextObservablesTest {
 	 */
 	@Test
 	public void test_getPojoDelegate() {
-		PojoBindingDelegate expected = new PojoBindingDelegate();
+		ContextPojoBindingDelegate expected = new ContextPojoBindingDelegate();
 		ContextObservables.getInstance().addDelegate(10,
-				new EMFBindingDelegate());
+				new ContextEMFBindingDelegate());
 		ContextObservables.getInstance().addDelegate(20,
-				new BeanBindingDelegate());
+				new ContextBeanBindingDelegate());
 		ContextObservables.getInstance().addDelegate(30, expected);
 
 		TestViewContext context = new TestViewContext();
@@ -147,12 +147,12 @@ public class ContextObservablesTest {
 	 */
 	@Test
 	public void test_getEMFDelegate() {
-		EMFBindingDelegate expected = new EMFBindingDelegate();
+		ContextEMFBindingDelegate expected = new ContextEMFBindingDelegate();
 		ContextObservables.getInstance().addDelegate(10, expected);
 		ContextObservables.getInstance().addDelegate(20,
-				new BeanBindingDelegate());
+				new ContextBeanBindingDelegate());
 		ContextObservables.getInstance().addDelegate(30,
-				new PojoBindingDelegate());
+				new ContextPojoBindingDelegate());
 
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", newPerson("AT"));
@@ -167,11 +167,11 @@ public class ContextObservablesTest {
 	@Test
 	public void test_bean_bindValue_nested() {
 		ContextObservables.getInstance().addDelegate(10,
-				new EMFBindingDelegate());
+				new ContextEMFBindingDelegate());
 		ContextObservables.getInstance().addDelegate(20,
-				new BeanBindingDelegate());
+				new ContextBeanBindingDelegate());
 		ContextObservables.getInstance().addDelegate(30,
-				new PojoBindingDelegate());
+				new ContextPojoBindingDelegate());
 
 		ViewContext context = new TestViewContext();
 		new TestRealm();
@@ -199,11 +199,11 @@ public class ContextObservablesTest {
 	@Test
 	public void test_emf_bindValue_nested() {
 		ContextObservables.getInstance().addDelegate(10,
-				new EMFBindingDelegate());
+				new ContextEMFBindingDelegate());
 		ContextObservables.getInstance().addDelegate(20,
-				new BeanBindingDelegate());
+				new ContextBeanBindingDelegate());
 		ContextObservables.getInstance().addDelegate(30,
-				new PojoBindingDelegate());
+				new ContextPojoBindingDelegate());
 
 		ViewContext context = new TestViewContext();
 		new TestRealm();
@@ -231,11 +231,11 @@ public class ContextObservablesTest {
 	@Test
 	public void test_pojo_bindValue_nested() {
 		ContextObservables.getInstance().addDelegate(10,
-				new EMFBindingDelegate());
+				new ContextEMFBindingDelegate());
 		ContextObservables.getInstance().addDelegate(20,
-				new BeanBindingDelegate());
+				new ContextBeanBindingDelegate());
 		ContextObservables.getInstance().addDelegate(30,
-				new PojoBindingDelegate());
+				new ContextPojoBindingDelegate());
 
 		ViewContext context = new TestViewContext();
 		new TestRealm();

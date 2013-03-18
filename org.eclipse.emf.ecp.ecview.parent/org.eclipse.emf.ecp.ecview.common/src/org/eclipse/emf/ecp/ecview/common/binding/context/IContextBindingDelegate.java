@@ -10,7 +10,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.binding;
+package org.eclipse.emf.ecp.ecview.common.binding.context;
 
 import java.net.URI;
 

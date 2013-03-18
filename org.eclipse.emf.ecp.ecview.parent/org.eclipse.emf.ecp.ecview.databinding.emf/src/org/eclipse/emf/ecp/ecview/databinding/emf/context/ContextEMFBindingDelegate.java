@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.databinding.emf;
+package org.eclipse.emf.ecp.ecview.databinding.emf.context;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -24,13 +24,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.binding.BaseBindingDelegate;
+import org.eclipse.emf.ecp.ecview.common.binding.context.ContextBindingDelegate;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.uri.AccessibleScope;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 
-public class EMFBindingDelegate extends BaseBindingDelegate {
+public class ContextEMFBindingDelegate extends ContextBindingDelegate {
 
 	/**
 	 * {@inheritDoc}

@@ -19,7 +19,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.databinding.emf.EMFBindingDelegate;
+import org.eclipse.emf.ecp.ecview.databinding.emf.context.ContextEMFBindingDelegate;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
@@ -32,13 +32,13 @@ public class EMFBindingDelegateTests {
 
 	private TestmodelFactory factory = TestmodelFactory.eINSTANCE;
 	private boolean changed;
-	private EMFBindingDelegate binder;
+	private ContextEMFBindingDelegate binder;
 	private IViewContext context;
 
 	@Before
 	public void setup() {
 		new TestRealm();
-		binder = new EMFBindingDelegate();
+		binder = new ContextEMFBindingDelegate();
 		context = new TestViewContext();
 	}
 

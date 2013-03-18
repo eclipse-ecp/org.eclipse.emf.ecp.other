@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.databinding.beans;
+package org.eclipse.emf.ecp.ecview.databinding.beans.context;
 
 import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
@@ -18,13 +18,13 @@ import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.binding.BaseBindingDelegate;
+import org.eclipse.emf.ecp.ecview.common.binding.context.ContextBindingDelegate;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.uri.AccessibleScope;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 
-public class BeanBindingDelegate extends BaseBindingDelegate {
+public class ContextBeanBindingDelegate extends ContextBindingDelegate {
 
 	/**
 	 * {@inheritDoc}
