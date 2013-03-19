@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
+import org.eclipse.core.databinding.Binding;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -37,6 +38,7 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 	private IBindableEndpointEditpart targetValue;
 	private IBindableEndpointEditpart modelValue;
 	private boolean bound;
+	private Binding binding;
 
 	/**
 	 * A default constructor.
@@ -188,8 +190,12 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		try {
 			IBindingManager bindingManager = getBindindSet()
 					.getBindingManager();
-			bindingManager.bind(getTargetEndpoint().getObservable(),
-					getModelEndpoint().getObservable());
+			if (bindingManager != null) {
+				binding = bindingManager.bind(getTargetEndpoint()
+						.getObservable(), getModelEndpoint().getObservable());
+			} else {
+				LOGGER.error("BindingManager is null!. No bindings processed!");
+			}
 		} finally {
 			bound = true;
 		}
@@ -217,7 +223,10 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		}
 
 		try {
-
+			if (binding != null) {
+				binding.dispose();
+				binding = null;
+			}
 		} finally {
 			bound = false;
 		}
@@ -226,6 +235,10 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 	@Override
 	protected void internalDispose() {
 		try {
+			if (binding != null) {
+				binding.dispose();
+				binding = null;
+			}
 		} finally {
 			super.internalDispose();
 		}

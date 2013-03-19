@@ -23,8 +23,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="YBinding" eSuperTypes="core.ecore#//YElement">
     <eOperations name="getBindingSet" eType="#//YBindingSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetValue" lowerBound="1"
-        eType="#//YBindingEndpoint"/>
+        eType="#//YBindingEndpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelValue" lowerBound="1"
-        eType="#//YBindingEndpoint"/>
+        eType="#//YBindingEndpoint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YBeanBindingEndpoint" eSuperTypes="#//YBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

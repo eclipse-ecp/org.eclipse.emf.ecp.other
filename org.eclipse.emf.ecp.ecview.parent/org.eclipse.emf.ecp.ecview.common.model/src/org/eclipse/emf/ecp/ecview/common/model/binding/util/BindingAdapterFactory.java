@@ -78,6 +78,10 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 				return createYBindingAdapter();
 			}
 			@Override
+			public Adapter caseYBeanBindingEndpoint(YBeanBindingEndpoint object) {
+				return createYBeanBindingEndpointAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -140,6 +144,20 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint <em>YBean Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYBeanBindingEndpointAdapter() {
 		return null;
 	}
 

@@ -17,21 +17,18 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.eclipse.core.databinding.beans.BeansObservables;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,14 +61,19 @@ public class BindingEditpartTest {
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_bind() {
+	public void test_bind_withoutBindingSet() {
 		// END SUPRESS CATCH EXCEPTION
 		YBinding yBinding = bindingFactory.createYBinding();
 		IBindingEditpart bindingEditpart = editpartManager
 				.getEditpart(yBinding);
 
 		assertFalse(bindingEditpart.isBound());
-		bindingEditpart.bind();
+		try {
+			bindingEditpart.bind();
+			fail();
+		} catch (RuntimeException e) {
+			// expected
+		}
 		assertTrue(bindingEditpart.isBound());
 
 		bindingEditpart.dispose();
@@ -88,14 +90,19 @@ public class BindingEditpartTest {
 		IBindingEditpart bindingEditpart = editpartManager
 				.getEditpart(yBinding);
 
-		Bean bean = new Bean("value");
-		bindingEditpart.setModelEndpoint(new BeanBindingEndpoint(bean));
-		bindingEditpart.setTargetEndpoint(new BeanBindingEndpoint(bean));
+		Bean bean1 = new Bean("value");
+		Bean bean2 = new Bean("value");
+		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		ep1.setBean(bean1);
+		ep2.setBean(bean2);
+		yBinding.setModelValue(ep1);
+		yBinding.setTargetValue(ep2);
 
 		try {
 			bindingEditpart.bind();
 			Assert.fail();
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			// expected
 		}
 
@@ -107,19 +114,27 @@ public class BindingEditpartTest {
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_bind_byBindingSet() {
+	public void test_bind_unbind() {
 		// END SUPRESS CATCH EXCEPTION
 		YBindingSet yBindingSet = bindingFactory.createYBindingSet();
+		IBindingSetEditpart bindingSetEditpart = editpartManager
+				.getEditpart(yBindingSet);
+		bindingSetEditpart.setBindingManager(new DefaultBindingManager());
+
 		YBinding yBinding = bindingFactory.createYBinding();
 		IBindingEditpart bindingEditpart = editpartManager
 				.getEditpart(yBinding);
-		Bean bean1 = new Bean("value1");
-		Bean bean2 = new Bean("value2");
-		bindingEditpart.setModelEndpoint(new BeanBindingEndpoint(bean1));
-		bindingEditpart.setTargetEndpoint(new BeanBindingEndpoint(bean2));
 
-		IBindingSetEditpart bindingSetEditpart = editpartManager
-				.getEditpart(yBindingSet);
+		Bean bean1 = new Bean("value");
+		Bean bean2 = new Bean("value");
+		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		ep1.setBean(bean1);
+		ep1.setPropertyPath("value");
+		ep2.setBean(bean2);
+		ep2.setPropertyPath("value");
+		yBinding.setModelValue(ep1);
+		yBinding.setTargetValue(ep2);
 
 		assertFalse(bindingEditpart.isBound());
 		bindingSetEditpart.addBinding(bindingEditpart);
@@ -134,62 +149,25 @@ public class BindingEditpartTest {
 		assertEquals("test2", bean2.getValue());
 
 		bindingEditpart.unbind();
+		assertFalse(bindingEditpart.isBound());
 		bean1.setValue("test3");
-		assertEquals("test2", bean1.getValue());
+		assertEquals("test3", bean1.getValue());
 		assertEquals("test2", bean2.getValue());
 		bean2.setValue("test4");
-		assertEquals("test2", bean1.getValue());
-		assertEquals("test2", bean2.getValue());
+		assertEquals("test4", bean2.getValue());
+		assertEquals("test3", bean1.getValue());
+
+		bindingEditpart.bind();
+		assertTrue(bindingEditpart.isBound());
+		assertEquals("test3", bean1.getValue());
+		assertEquals("test3", bean2.getValue());
 
 		bindingSetEditpart.removeBinding(bindingEditpart);
 		assertTrue(bindingEditpart.isDisposed());
-	}
 
-	/**
-	 * Tests the activation.
-	 */
-	@Test
-	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_bind_byBindingSet_II() {
-		// END SUPRESS CATCH EXCEPTION
-		YBindingSet yBindingSet = bindingFactory.createYBindingSet();
-		YBinding yBinding = bindingFactory.createYBinding();
-		IBindingEditpart bindingEditpart = editpartManager
-				.getEditpart(yBinding);
-		Bean bean = new Bean("value");
-		bindingEditpart.setModelEndpoint(new BeanBindingEndpoint(bean));
-		bindingEditpart.setTargetEndpoint(new BeanBindingEndpoint(bean));
-
-		assertFalse(bindingEditpart.isBound());
-		bindingEditpart.bind();
-		assertTrue(bindingEditpart.isBound());
-
-		IBindingSetEditpart bindingSetEditpart = editpartManager
-				.getEditpart(yBindingSet);
-
-		assertFalse(bindingEditpart.isBound());
-		bindingSetEditpart.addBinding(bindingEditpart);
-		assertTrue(bindingEditpart.isBound());
-		bindingSetEditpart.removeBinding(bindingEditpart);
-		assertTrue(bindingEditpart.isDisposed());
-	}
-
-	/**
-	 * Tests the activation.
-	 */
-	@Test
-	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_unbind() {
-		// END SUPRESS CATCH EXCEPTION
-		YBinding yBinding = bindingFactory.createYBinding();
-		IBindingEditpart bindingEditpart = editpartManager
-				.getEditpart(yBinding);
-
-		assertFalse(bindingEditpart.isBound());
-		bindingEditpart.bind();
-		assertTrue(bindingEditpart.isBound());
-		bindingEditpart.unbind();
-		assertFalse(bindingEditpart.isDisposed());
+		bean1.setValue("test5");
+		assertEquals("test5", bean1.getValue());
+		assertEquals("test3", bean2.getValue());
 	}
 
 	/**
@@ -257,6 +235,22 @@ public class BindingEditpartTest {
 		}
 		try {
 			bindingEditpart.getTargetEndpoint();
+			fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+		try {
+			bindingEditpart.setModelEndpoint(null);
+			fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+		try {
+			bindingEditpart.setTargetEndpoint(null);
 			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -376,29 +370,6 @@ public class BindingEditpartTest {
 		assertNull(binding.getTargetValue());
 		assertNull(binding.getModelValue());
 		assertFalse(targetEndpointEditpart.isDisposed());
-
-	}
-
-	@SuppressWarnings("rawtypes")
-	private static class BeanBindingEndpoint extends
-			BindingableEndpointEditpart {
-
-		private final Bean bean;
-
-		public BeanBindingEndpoint(Bean bean) {
-			this.bean = bean;
-		}
-
-		@SuppressWarnings("unchecked")
-		public <A extends IObservableValue> A getObservable() {
-			return (A) BeansObservables.observeValue(bean, "value");
-		}
-
-		@Override
-		protected YElement createModel() {
-			return CoreModelFactory.eINSTANCE
-					.createYEmbeddableBindingEndpoint();
-		}
 
 	}
 

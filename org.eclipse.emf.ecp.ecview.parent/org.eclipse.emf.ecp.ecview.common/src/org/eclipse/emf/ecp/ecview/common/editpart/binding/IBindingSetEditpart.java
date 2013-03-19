@@ -17,7 +17,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 
 /**
- * An editpart resonsible to handle bindings.
+ * An editpart resonsible to handle bindings. If new bindings are added, they
+ * will become processed. Also leaving bindings will become unbind.
  */
 public interface IBindingSetEditpart extends IElementEditpart {
 
@@ -29,11 +30,9 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	boolean isActive();
 
 	/**
-	 * Activates the binding set manager. It will create all required bindings
-	 * and observe changes in the binding structure. If new bindings are added,
-	 * they will become processed. Also leaving bindings will become unbind.
+	 * Activates the binding set manager. It will create all pending bindings.
 	 */
-	void bindAll();
+	void activate();
 
 	/**
 	 * Returns the view that binding set is attached to.
@@ -71,5 +70,12 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * @return
 	 */
 	IBindingManager getBindingManager();
+
+	/**
+	 * Sets the binding manager that should be used to bind values.
+	 * 
+	 * @param bindingManager
+	 */
+	void setBindingManager(IBindingManager bindingManager);
 
 }

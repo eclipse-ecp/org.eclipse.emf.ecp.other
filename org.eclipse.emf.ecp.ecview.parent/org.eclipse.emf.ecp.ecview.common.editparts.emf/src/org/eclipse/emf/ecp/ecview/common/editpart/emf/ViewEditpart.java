@@ -104,7 +104,7 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		if (bindingSet == null) {
 			throw new ContextException("BindingSet must not be null!");
 		}
-		// call to bind all not required. Pending bindings are bound
+		// call to activate not required. Pending bindings are bound
 		// automatically
 	}
 
@@ -235,7 +235,7 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 		// activate the new binding set
 		if (this.bindingSet != null && !this.bindingSet.isActive()) {
-			this.bindingSet.bindAll();
+			this.bindingSet.activate();
 		}
 	}
 

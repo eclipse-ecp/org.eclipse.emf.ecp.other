@@ -26,14 +26,6 @@ import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 public interface IBindingManager extends IDisposable {
 
 	/**
-	 * Returns the binding context that is related with the instance of that
-	 * binding manager. All bindings for the view should be done by this binding
-	 * 
-	 * @return
-	 */
-	IViewContext getViewContext();
-
-	/**
 	 * Returns the validation realm for the binding manager.
 	 * 
 	 * @return

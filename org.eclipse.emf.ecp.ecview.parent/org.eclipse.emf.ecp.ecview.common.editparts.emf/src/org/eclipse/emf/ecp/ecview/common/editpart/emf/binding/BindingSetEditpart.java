@@ -39,6 +39,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 			.getLogger(BindingSetEditpart.class);
 	private boolean active;
 	private List<IBindingEditpart> bindings;
+	private IBindingManager bindingManager;
 
 	/**
 	 * A default constructor.
@@ -66,10 +67,20 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	public IBindingManager getBindingManager() {
 		IViewEditpart view = getView();
 		if (view == null) {
-			
-			return null;
+			if (bindingManager != null) {
+				return bindingManager;
+			}
+			// TODO: IBindingManager is UIKit specific. Search for a way later
+			// to make binding independent
+			throw new IllegalArgumentException(
+					"View and BindingManager must not be null for now!");
 		}
 		return view.getContext().getService(IBindingManager.class.getName());
+	}
+
+	@Override
+	public void setBindingManager(IBindingManager bindingManager) {
+		this.bindingManager = bindingManager;
 	}
 
 	@Override
@@ -80,7 +91,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public void bindAll() {
+	public void activate() {
 		checkDisposed();
 
 		try {
@@ -250,4 +261,5 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 			super.internalDispose();
 		}
 	}
+
 }

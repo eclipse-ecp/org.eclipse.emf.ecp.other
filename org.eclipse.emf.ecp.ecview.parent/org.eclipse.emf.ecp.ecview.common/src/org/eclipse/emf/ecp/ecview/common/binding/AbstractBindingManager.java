@@ -15,7 +15,6 @@ import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 
 /**
@@ -24,14 +23,11 @@ import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 public abstract class AbstractBindingManager extends AbstractDisposable
 		implements IBindingManager {
 
-	private final IViewContext viewContext;
 	private final Realm validationRealm;
 	private final DataBindingContext dbc;
 
-	public AbstractBindingManager(IViewContext viewContext,
-			Realm validationRealm) {
+	public AbstractBindingManager(Realm validationRealm) {
 		super();
-		this.viewContext = viewContext;
 		this.validationRealm = validationRealm;
 		dbc = createDatabindingContext(validationRealm);
 	}
@@ -48,11 +44,6 @@ public abstract class AbstractBindingManager extends AbstractDisposable
 
 	public Realm getValidationRealm() {
 		return validationRealm;
-	}
-
-	@Override
-	public IViewContext getViewContext() {
-		return viewContext;
 	}
 
 	@Override

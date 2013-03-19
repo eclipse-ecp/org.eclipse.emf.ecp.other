@@ -10,12 +10,10 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-
 /**
- * An editpart resonsible to provide context observable values for UI-embeddables.
+ * An editpart resonsible to provide context observable values for bean
+ * bindings.
  */
-public interface IEmbeddableBindableEndpointEditpart extends IBindableEndpointEditpart {
-	
-	
+public interface IBeanBindingEndpointEditpart extends IBindableEndpointEditpart {
+
 }

@@ -23,7 +23,6 @@ import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
@@ -46,8 +45,8 @@ public class BindingManager extends
 	private final ExtensionModelPackage pckg = ExtensionModelPackage.eINSTANCE;
 	private final ExtDatatypesPackage extDtPckg = ExtDatatypesPackage.eINSTANCE;
 
-	public BindingManager(IViewContext viewContext, Realm validationRealm) {
-		super(viewContext, validationRealm);
+	public BindingManager(Realm validationRealm) {
+		super(validationRealm);
 	}
 
 	/**

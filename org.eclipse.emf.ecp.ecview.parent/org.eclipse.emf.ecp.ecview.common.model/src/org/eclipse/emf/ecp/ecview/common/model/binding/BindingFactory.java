@@ -40,6 +40,15 @@ public interface BindingFactory extends EFactory {
 	YBinding createYBinding();
 
 	/**
+	 * Returns a new object of class '<em>YBean Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YBean Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YBeanBindingEndpoint createYBeanBindingEndpoint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

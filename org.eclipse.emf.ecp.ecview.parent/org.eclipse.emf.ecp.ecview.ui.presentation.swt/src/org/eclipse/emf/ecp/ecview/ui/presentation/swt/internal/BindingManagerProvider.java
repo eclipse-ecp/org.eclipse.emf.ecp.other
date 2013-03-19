@@ -13,16 +13,17 @@ public class BindingManagerProvider implements IServiceProvider {
 
 	@Override
 	public boolean isFor(String selector, IContext context) {
-		if (context instanceof IViewContext){
-			if (!IServiceRegistry.SERVICE__BINDING_MANAGER.equals(selector)){
+		if (context instanceof IViewContext) {
+			if (!IServiceRegistry.SERVICE__BINDING_MANAGER.equals(selector)) {
 				return false;
 			}
 			IViewContext viewContext = (IViewContext) context;
-			if (!ECViewSwtRenderer.UI_KIT_URI.equals(viewContext.getPresentationURI())){
+			if (!ECViewSwtRenderer.UI_KIT_URI.equals(viewContext
+					.getPresentationURI())) {
 				return false;
 			}
 			return true;
-		} 
+		}
 		return false;
 	}
 
@@ -30,7 +31,9 @@ public class BindingManagerProvider implements IServiceProvider {
 	@Override
 	public <A> A createService(String selector, IContext context) {
 		IViewContext viewContext = (IViewContext) context;
-		final BindingManager bindingManager = new BindingManager(viewContext, SWTObservables.getRealm(((Widget)viewContext.getRootLayout()).getDisplay()));
+		final BindingManager bindingManager = new BindingManager(
+				SWTObservables.getRealm(((Widget) viewContext.getRootLayout())
+						.getDisplay()));
 		viewContext.addDisposeListener(new IDisposable.Listener() {
 			@Override
 			public void notifyDisposed(IDisposable notifier) {

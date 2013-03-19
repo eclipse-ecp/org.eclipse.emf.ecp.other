@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -140,7 +141,7 @@ public interface BindingPackage extends EPackage {
 	int YBINDING__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Target Value</b></em>' reference.
+	 * The feature id for the '<em><b>Target Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -149,7 +150,7 @@ public interface BindingPackage extends EPackage {
 	int YBINDING__TARGET_VALUE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Model Value</b></em>' reference.
+	 * The feature id for the '<em><b>Model Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -165,6 +166,53 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBINDING_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl <em>YBean Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBeanBindingEndpoint()
+	 * @generated
+	 */
+	int YBEAN_BINDING_ENDPOINT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT__ID = YBINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Bean</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT__BEAN = YBINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT__PROPERTY_PATH = YBINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YBean Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT_FEATURE_COUNT = YBINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 
 	/**
@@ -209,10 +257,10 @@ public interface BindingPackage extends EPackage {
 	EClass getYBinding();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetValue <em>Target Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetValue <em>Target Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target Value</em>'.
+	 * @return the meta object for the containment reference '<em>Target Value</em>'.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetValue()
 	 * @see #getYBinding()
 	 * @generated
@@ -220,15 +268,47 @@ public interface BindingPackage extends EPackage {
 	EReference getYBinding_TargetValue();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelValue <em>Model Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelValue <em>Model Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Model Value</em>'.
+	 * @return the meta object for the containment reference '<em>Model Value</em>'.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelValue()
 	 * @see #getYBinding()
 	 * @generated
 	 */
 	EReference getYBinding_ModelValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint <em>YBean Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YBean Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint
+	 * @generated
+	 */
+	EClass getYBeanBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getBean <em>Bean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bean</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getBean()
+	 * @see #getYBeanBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYBeanBindingEndpoint_Bean();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getPropertyPath <em>Property Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property Path</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getPropertyPath()
+	 * @see #getYBeanBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYBeanBindingEndpoint_PropertyPath();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -291,7 +371,7 @@ public interface BindingPackage extends EPackage {
 		EClass YBINDING = eINSTANCE.getYBinding();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -299,12 +379,38 @@ public interface BindingPackage extends EPackage {
 		EReference YBINDING__TARGET_VALUE = eINSTANCE.getYBinding_TargetValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Model Value</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference YBINDING__MODEL_VALUE = eINSTANCE.getYBinding_ModelValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl <em>YBean Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBeanBindingEndpoint()
+		 * @generated
+		 */
+		EClass YBEAN_BINDING_ENDPOINT = eINSTANCE.getYBeanBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Bean</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_BINDING_ENDPOINT__BEAN = eINSTANCE.getYBeanBindingEndpoint_Bean();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_BINDING_ENDPOINT__PROPERTY_PATH = eINSTANCE.getYBeanBindingEndpoint_PropertyPath();
 
 	}
 

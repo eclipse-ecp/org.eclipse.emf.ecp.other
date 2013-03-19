@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.emf.ecp.ecview.databinding.beans.context">
    <implementation class="org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextBeanBindingDelegate"/>
+   <service>
+      <provide interface="org.eclipse.emf.ecp.ecview.common.binding.observables.IContextBindingDelegate"/>
+   </service>
    <property name="service.sequence" type="Integer" value="20"/>
 </scr:component>
  

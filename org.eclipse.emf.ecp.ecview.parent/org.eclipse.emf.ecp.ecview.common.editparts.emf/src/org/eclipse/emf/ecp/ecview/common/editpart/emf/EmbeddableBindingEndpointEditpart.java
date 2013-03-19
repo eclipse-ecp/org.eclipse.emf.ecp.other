@@ -12,8 +12,8 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IEmbeddableBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
@@ -23,9 +23,9 @@ import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
  * Responsible to create an observable. The model of this editpart is used to
  * access the getObservableValue from the underlying widget presentation.
  */
-public class EmbeddableBindableEndpointEditpart extends
+public class EmbeddableBindingEndpointEditpart extends
 		BindingableEndpointEditpart<YEmbeddableBindingEndpoint> implements
-		IEmbeddableBindableEndpointEditpart {
+		IEmbeddableBindingEndpointEditpart {
 
 	@Override
 	protected YEmbeddableBindingEndpoint createModel() {

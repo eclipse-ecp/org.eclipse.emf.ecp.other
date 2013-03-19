@@ -3,8 +3,8 @@
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -49,7 +49,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTargetValue() <em>Target Value</em>}' reference.
+	 * The cached value of the '{@link #getTargetValue() <em>Target Value</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTargetValue()
 	 * @generated
@@ -58,7 +58,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	protected YBindingEndpoint targetValue;
 
 	/**
-	 * The cached value of the '{@link #getModelValue() <em>Model Value</em>}' reference.
+	 * The cached value of the '{@link #getModelValue() <em>Model Value</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModelValue()
 	 * @generated
@@ -107,23 +107,22 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	 * @generated
 	 */
 	public YBindingEndpoint getTargetValue() {
-		if (targetValue != null && ((EObject)targetValue).eIsProxy()) {
-			InternalEObject oldTargetValue = (InternalEObject)targetValue;
-			targetValue = (YBindingEndpoint)eResolveProxy(oldTargetValue);
-			if (targetValue != oldTargetValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YBINDING__TARGET_VALUE, oldTargetValue, targetValue));
-			}
-		}
 		return targetValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindingEndpoint basicGetTargetValue() {
-		return targetValue;
+	public NotificationChain basicSetTargetValue(YBindingEndpoint newTargetValue, NotificationChain msgs) {
+		YBindingEndpoint oldTargetValue = targetValue;
+		targetValue = newTargetValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__TARGET_VALUE, oldTargetValue, newTargetValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -131,10 +130,17 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	 * @generated
 	 */
 	public void setTargetValue(YBindingEndpoint newTargetValue) {
-		YBindingEndpoint oldTargetValue = targetValue;
-		targetValue = newTargetValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__TARGET_VALUE, oldTargetValue, targetValue));
+		if (newTargetValue != targetValue) {
+			NotificationChain msgs = null;
+			if (targetValue != null)
+				msgs = ((InternalEObject)targetValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YBINDING__TARGET_VALUE, null, msgs);
+			if (newTargetValue != null)
+				msgs = ((InternalEObject)newTargetValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YBINDING__TARGET_VALUE, null, msgs);
+			msgs = basicSetTargetValue(newTargetValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__TARGET_VALUE, newTargetValue, newTargetValue));
 	}
 
 	/**
@@ -142,23 +148,22 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	 * @generated
 	 */
 	public YBindingEndpoint getModelValue() {
-		if (modelValue != null && ((EObject)modelValue).eIsProxy()) {
-			InternalEObject oldModelValue = (InternalEObject)modelValue;
-			modelValue = (YBindingEndpoint)eResolveProxy(oldModelValue);
-			if (modelValue != oldModelValue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YBINDING__MODEL_VALUE, oldModelValue, modelValue));
-			}
-		}
 		return modelValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindingEndpoint basicGetModelValue() {
-		return modelValue;
+	public NotificationChain basicSetModelValue(YBindingEndpoint newModelValue, NotificationChain msgs) {
+		YBindingEndpoint oldModelValue = modelValue;
+		modelValue = newModelValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__MODEL_VALUE, oldModelValue, newModelValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -166,10 +171,17 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	 * @generated
 	 */
 	public void setModelValue(YBindingEndpoint newModelValue) {
-		YBindingEndpoint oldModelValue = modelValue;
-		modelValue = newModelValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__MODEL_VALUE, oldModelValue, modelValue));
+		if (newModelValue != modelValue) {
+			NotificationChain msgs = null;
+			if (modelValue != null)
+				msgs = ((InternalEObject)modelValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YBINDING__MODEL_VALUE, null, msgs);
+			if (newModelValue != null)
+				msgs = ((InternalEObject)newModelValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YBINDING__MODEL_VALUE, null, msgs);
+			msgs = basicSetModelValue(newModelValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__MODEL_VALUE, newModelValue, newModelValue));
 	}
 
 	/**
@@ -192,6 +204,22 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case BindingPackage.YBINDING__TARGET_VALUE:
+				return basicSetTargetValue(null, msgs);
+			case BindingPackage.YBINDING__MODEL_VALUE:
+				return basicSetModelValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -201,11 +229,9 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 			case BindingPackage.YBINDING__ID:
 				return getId();
 			case BindingPackage.YBINDING__TARGET_VALUE:
-				if (resolve) return getTargetValue();
-				return basicGetTargetValue();
+				return getTargetValue();
 			case BindingPackage.YBINDING__MODEL_VALUE:
-				if (resolve) return getModelValue();
-				return basicGetModelValue();
+				return getModelValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
