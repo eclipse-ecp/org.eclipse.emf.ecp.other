@@ -14,9 +14,10 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertSame;
 
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.junit.Test;
 
 public class YBindingSetTest {
@@ -27,13 +28,15 @@ public class YBindingSetTest {
 		YBindingSet set = factory.createYBindingSet();
 		assertEquals(0, set.getBindings().size());
 
-		YBindableValue value1 = factory.createYContextBindableValue();
-		YBindableValue value2 = factory.createYContextBindableValue();
+		YBindingEndpoint value1 = CoreModelFactory.eINSTANCE
+				.createYContextBindingEndpoint();
+		YBindingEndpoint value2 = CoreModelFactory.eINSTANCE
+				.createYContextBindingEndpoint();
 
 		YBinding binding = set.addBinding(value1, value2);
 		assertEquals(1, set.getBindings().size());
 		assertSame(value1, binding.getTargetValue());
 		assertSame(value2, binding.getModelValue());
-		
+
 	}
 }

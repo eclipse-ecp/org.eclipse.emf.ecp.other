@@ -8,7 +8,9 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart;
+package org.eclipse.emf.ecp.ecview.common.editpart.binding;
+
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 
 /**
  * An editpart resonsible to handle bindings.
@@ -24,32 +26,32 @@ public interface IBindingEditpart extends IElementEditpart {
 	boolean isBound();
 
 	/**
-	 * Returns the target bindableValue.
+	 * Returns the target endpoint.
 	 * 
 	 * @return
 	 */
-	IBindableValueEditpart getTargetValue();
+	IBindableEndpointEditpart getTargetEndpoint();
 
 	/**
-	 * Sets the target bindable value.
+	 * Sets the target endpoint.
 	 * 
 	 * @param targetValue
 	 */
-	void setTargetValue(IBindableValueEditpart targetValue);
+	void setTargetEndpoint(IBindableEndpointEditpart targetValue);
 
 	/**
-	 * Returns the model bindableValue.
+	 * Returns the model endpoint.
 	 * 
 	 * @return
 	 */
-	IBindableValueEditpart getModelValue();
+	IBindableEndpointEditpart getModelEndpoint();
 
 	/**
-	 * Sets the target bindable value.
+	 * Sets the target endpoint.
 	 * 
 	 * @param modelValue
 	 */
-	void setModelValue(IBindableValueEditpart modelValue);
+	void setModelEndpoint(IBindableEndpointEditpart modelValue);
 
 	/**
 	 * Binds the target and model according the binding properties.

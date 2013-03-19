@@ -8,9 +8,13 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart;
+package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
 import java.util.List;
+
+import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 
 /**
  * An editpart resonsible to handle bindings.
@@ -29,7 +33,7 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * and observe changes in the binding structure. If new bindings are added,
 	 * they will become processed. Also leaving bindings will become unbind.
 	 */
-	void activate();
+	void bindAll();
 
 	/**
 	 * Returns the view that binding set is attached to.
@@ -60,5 +64,12 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * @param binding
 	 */
 	void removeBinding(IBindingEditpart binding);
+
+	/**
+	 * Returns the binding manager that should be used to bind values.
+	 * 
+	 * @return
+	 */
+	IBindingManager getBindingManager();
 
 }

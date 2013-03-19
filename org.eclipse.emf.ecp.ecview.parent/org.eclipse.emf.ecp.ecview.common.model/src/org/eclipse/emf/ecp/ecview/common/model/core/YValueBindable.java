@@ -2,7 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +12,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindableValue <em>Value Bindable Value</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueEndpoint <em>Value Endpoint</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,29 +22,37 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
  */
 public interface YValueBindable {
 	/**
-	 * Returns the value of the '<em><b>Value Bindable Value</b></em>' reference.
+	 * Returns the value of the '<em><b>Value Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value Bindable Value</em>' reference isn't clear,
+	 * If the meaning of the '<em>Value Endpoint</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Bindable Value</em>' reference.
-	 * @see #setValueBindableValue(YBindableValue)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYValueBindable_ValueBindableValue()
+	 * @return the value of the '<em>Value Endpoint</em>' reference.
+	 * @see #setValueEndpoint(YEmbeddableBindingEndpoint)
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYValueBindable_ValueEndpoint()
 	 * @model
 	 * @generated
 	 */
-	YBindableValue getValueBindableValue();
+	YEmbeddableBindingEndpoint getValueEndpoint();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindableValue <em>Value Bindable Value</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueEndpoint <em>Value Endpoint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Bindable Value</em>' reference.
-	 * @see #getValueBindableValue()
+	 * @param value the new value of the '<em>Value Endpoint</em>' reference.
+	 * @see #getValueEndpoint()
 	 * @generated
 	 */
-	void setValueBindableValue(YBindableValue value);
+	void setValueEndpoint(YEmbeddableBindingEndpoint value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	YEmbeddableBindingEndpoint getOrCreateValueEndpoint();
 
 } // YValueBindable

@@ -250,13 +250,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Bindable Value</b></em>' reference.
+	 * The feature id for the '<em><b>Value Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD__VALUE_BINDABLE_VALUE = YINPUT_FEATURE_COUNT + 0;
+	int YTEXT_FIELD__VALUE_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.

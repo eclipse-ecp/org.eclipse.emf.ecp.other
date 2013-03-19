@@ -10,7 +10,10 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
+import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
@@ -68,7 +71,6 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			text = new Text(controlBase, SWT.BORDER);
 			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
 			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-
 			// update style attributes
 			//
 			updateStyle();
@@ -89,11 +91,11 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(text, CSS_CLASS__CONTROL);
 		}
-		
+
 		// creates the binding for the field
 		createBindings(yTextField, textRidget);
 
-//		Util.updateMarkableRidget(textRidget, yTextField);
+		// Util.updateMarkableRidget(textRidget, yTextField);
 	}
 
 	@Override
@@ -123,6 +125,29 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	public String getLabel() {
 		return yTextField.getDatadescription().getLabel();
+	}
+
+	@Override
+	protected IObservable internalGetObservableValue(
+			YBindingEndpoint bindableValue) {
+		if (bindableValue == null) {
+			throw new NullPointerException("BindableValue must not be null!");
+		}
+
+		if (bindableValue == yTextField.getValueEndpoint()) {
+			// return the observable value for text
+			return BeansObservables.observeValue(textRidget,
+					ITextRidget.PROPERTY_TEXT);
+		}
+		throw new IllegalArgumentException("Not a valid input: "
+				+ bindableValue);
+	}
+
+	/**
+	 * @return the textRidget
+	 */
+	public ITextRidget getTextRidget() {
+		return textRidget;
 	}
 
 	/**

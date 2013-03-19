@@ -18,7 +18,7 @@ import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
-import org.eclipse.emf.ecp.ecview.common.binding.context.ContextObservables;
+import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextObservables;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextBeanBindingDelegate;
 import org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextPojoBindingDelegate;

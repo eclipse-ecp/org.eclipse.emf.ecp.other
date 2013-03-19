@@ -7,12 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue;
+import org.eclipse.emf.ecp.ecview.common.model.binding.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,8 +55,6 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 		switch (eClass.getClassifierID()) {
 			case BindingPackage.YBINDING_SET: return (EObject)createYBindingSet();
 			case BindingPackage.YBINDING: return (EObject)createYBinding();
-			case BindingPackage.YCONTEXT_BINDABLE_VALUE: return (EObject)createYContextBindableValue();
-			case BindingPackage.YEMBEDDABLE_BINDABLE_VALUE: return (EObject)createYEmbeddableBindableValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,26 +78,6 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	public YBinding createYBinding() {
 		YBindingImpl yBinding = new YBindingImpl();
 		return yBinding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YContextBindableValue createYContextBindableValue() {
-		YContextBindableValueImpl yContextBindableValue = new YContextBindableValueImpl();
-		return yContextBindableValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YEmbeddableBindableValue createYEmbeddableBindableValue() {
-		YEmbeddableBindableValueImpl yEmbeddableBindableValue = new YEmbeddableBindableValueImpl();
-		return yEmbeddableBindableValue;
 	}
 
 	/**

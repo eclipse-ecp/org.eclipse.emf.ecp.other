@@ -45,7 +45,7 @@ public interface YBindingSet extends YElement {
 	 * @model targetValueRequired="true" modelValueRequired="true"
 	 * @generated
 	 */
-	YBinding addBinding(YBindableValue targetValue, YBindableValue modelValue);
+	YBinding addBinding(YBindingEndpoint targetValue, YBindingEndpoint modelValue);
 
 	/**
 	 * <!-- begin-user-doc -->

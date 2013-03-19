@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.context;
 
 import java.util.Map;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -750,6 +751,11 @@ public class ViewContextTest {
 
 		@Override
 		public IViewContext getViewContext() {
+			return null;
+		}
+
+		@Override
+		public IObservable getObservableValue(Object model) {
 			return null;
 		}
 	}

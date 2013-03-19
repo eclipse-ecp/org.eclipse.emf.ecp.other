@@ -14,6 +14,8 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -156,6 +158,18 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYSelectionBindable(YSelectionBindable object) {
 				return createYSelectionBindableAdapter();
+			}
+			@Override
+			public Adapter caseYContextBindingEndpoint(YContextBindingEndpoint object) {
+				return createYContextBindingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYEmbeddableBindingEndpoint(YEmbeddableBindingEndpoint object) {
+				return createYEmbeddableBindingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
+				return createYBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -412,6 +426,48 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYSelectionBindableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint <em>YContext Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYContextBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYEmbeddableBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint <em>YBinding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYBindingEndpointAdapter() {
 		return null;
 	}
 

@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.presentation;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 
@@ -70,5 +71,14 @@ public interface IWidgetPresentation<C> extends IDisposable {
 	 * @return
 	 */
 	IViewContext getViewContext();
+
+	/**
+	 * Returns the observable that is related with the given model element.
+	 * 
+	 * @param model
+	 *            The element representing the observable in the model.
+	 * @return
+	 */
+	IObservable getObservableValue(Object model);
 
 }

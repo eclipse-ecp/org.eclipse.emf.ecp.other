@@ -112,6 +112,14 @@ public interface YView extends YElement, YCssAble, YMarginable {
 	void setBindingSet(YBindingSet value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	YBindingSet getOrCreateBindingSet();
+
+	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews <em>Views</em>}'.
 	 * <!-- begin-user-doc -->

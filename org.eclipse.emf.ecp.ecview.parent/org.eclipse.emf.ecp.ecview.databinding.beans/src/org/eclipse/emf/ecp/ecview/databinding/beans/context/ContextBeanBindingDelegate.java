@@ -18,7 +18,7 @@ import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.binding.context.ContextBindingDelegate;
+import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextBindingDelegate;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.uri.AccessibleScope;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;

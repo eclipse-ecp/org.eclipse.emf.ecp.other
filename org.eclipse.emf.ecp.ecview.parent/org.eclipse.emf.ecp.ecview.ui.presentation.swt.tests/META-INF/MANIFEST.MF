@@ -10,7 +10,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecp.ecview.ui.presentation.swt;bundle-version="0.0.1",
  org.eclipse.emf.ecp.ecview.common.editparts.emf;bundle-version="0.0.1",
  org.eclipse.emf.ecp.ecview.extension.editparts.emf;bundle-version="0.0.1",
- org.eclipse.e4.ui.css.core;bundle-version="0.10.2"
+ org.eclipse.e4.ui.css.core;bundle-version="0.10.2",
+ org.eclipse.riena.ui.ridgets;bundle-version="4.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.e4.ui.css.swt.dom

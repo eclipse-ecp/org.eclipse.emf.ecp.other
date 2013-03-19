@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.e4.ui.css.core.engine.CSSEngine;
 import org.eclipse.e4.ui.css.core.engine.CSSErrorHandler;
 import org.eclipse.e4.ui.css.swt.CSSSWTConstants;
@@ -29,8 +30,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.Activator;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IConstants;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -72,7 +73,7 @@ public class ViewPresentation extends AbstractDisposable implements
 	public Object getModel() {
 		return editpart.getModel();
 	}
-	
+
 	@Override
 	public IViewContext getViewContext() {
 		return editpart.getContext();
@@ -123,11 +124,9 @@ public class ViewPresentation extends AbstractDisposable implements
 	 */
 	protected void setupCSSEngine(Set<URL> cssFiles) {
 		cssEngine = new CSSSWTEngineImpl(controlBase.getDisplay());
-		try { 
-			cssEngine
-					.parseStyleSheet(Activator
-							.getContext().getBundle()
-							.getEntry("/theming/css/theme.css").openStream());
+		try {
+			cssEngine.parseStyleSheet(Activator.getContext().getBundle()
+					.getEntry("/theming/css/theme.css").openStream());
 			if (cssFiles != null) {
 				for (URL url : cssFiles) {
 					cssEngine.parseStyleSheet(url.openStream());
@@ -324,5 +323,10 @@ public class ViewPresentation extends AbstractDisposable implements
 		public boolean isMargin() {
 			return yView.isMargin();
 		}
+	}
+
+	@Override
+	public IObservable getObservableValue(Object model) {
+		throw new UnsupportedOperationException("Must be overridden!");
 	}
 }

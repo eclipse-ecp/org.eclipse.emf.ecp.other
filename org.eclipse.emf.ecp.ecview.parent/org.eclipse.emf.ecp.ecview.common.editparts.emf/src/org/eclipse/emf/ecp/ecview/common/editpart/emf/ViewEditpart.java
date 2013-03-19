@@ -15,10 +15,10 @@ import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -104,6 +104,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		if (bindingSet == null) {
 			throw new ContextException("BindingSet must not be null!");
 		}
+		// call to bind all not required. Pending bindings are bound
+		// automatically
 	}
 
 	@Override
@@ -205,9 +207,9 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 * Loads the bindingSet of the view.
 	 */
 	protected void loadBindingSet() {
-		if (content == null) {
-			YBindingSet yContent = getModel().getBindingSet();
-			internalSetBindingSet((IBindingSetEditpart) getEditpart(yContent));
+		if (bindingSet == null) {
+			YBindingSet yBindingSet = getModel().getBindingSet();
+			internalSetBindingSet((IBindingSetEditpart) getEditpart(yBindingSet));
 		}
 	}
 
@@ -233,7 +235,7 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 		// activate the new binding set
 		if (this.bindingSet != null && !this.bindingSet.isActive()) {
-			this.bindingSet.activate();
+			this.bindingSet.bindAll();
 		}
 	}
 

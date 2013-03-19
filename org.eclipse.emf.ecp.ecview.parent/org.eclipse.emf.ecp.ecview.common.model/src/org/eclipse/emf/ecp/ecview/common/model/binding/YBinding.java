@@ -32,12 +32,12 @@ public interface YBinding extends YElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Value</em>' reference.
-	 * @see #setTargetValue(YBindableValue)
+	 * @see #setTargetValue(YBindingEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBinding_TargetValue()
 	 * @model required="true"
 	 * @generated
 	 */
-	YBindableValue getTargetValue();
+	YBindingEndpoint getTargetValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetValue <em>Target Value</em>}' reference.
@@ -47,7 +47,7 @@ public interface YBinding extends YElement {
 	 * @see #getTargetValue()
 	 * @generated
 	 */
-	void setTargetValue(YBindableValue value);
+	void setTargetValue(YBindingEndpoint value);
 
 	/**
 	 * Returns the value of the '<em><b>Model Value</b></em>' reference.
@@ -58,12 +58,12 @@ public interface YBinding extends YElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Model Value</em>' reference.
-	 * @see #setModelValue(YBindableValue)
+	 * @see #setModelValue(YBindingEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBinding_ModelValue()
 	 * @model required="true"
 	 * @generated
 	 */
-	YBindableValue getModelValue();
+	YBindingEndpoint getModelValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelValue <em>Model Value</em>}' reference.
@@ -73,6 +73,14 @@ public interface YBinding extends YElement {
 	 * @see #getModelValue()
 	 * @generated
 	 */
-	void setModelValue(YBindableValue value);
+	void setModelValue(YBindingEndpoint value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	YBindingSet getBindingSet();
 
 } // YBinding

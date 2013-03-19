@@ -9,4 +9,69 @@
   <packaging>eclipse-test-plugin</packaging>
   <name>Core model tests</name>
   <description>Tests for core model</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.class</include>
+					</includes>
+					<failIfNoTests>false</failIfNoTests>
+					<showEclipseLog>true</showEclipseLog>
+					<!-- <argLine>${ui.test.vmargs}</argLine> -->
+					<bundleStartLevel>
+						<bundle>
+							<id>org.eclipse.osgi</id>
+							<level>-1</level>
+							<autoStart>true</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.eclipse.equinox.common</id>
+							<level>1</level>
+							<autoStart>true</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.eclipse.equinox.ds</id>
+							<level>2</level>
+							<autoStart>true</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.eclipse.equinox.log</id>
+							<level>1</level>
+							<autoStart>true</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.eclipse.osgi.services</id>
+							<level>1</level>
+							<autoStart>true</autoStart>
+						</bundle>
+						<bundle>
+							<id>org.eclipse.emf.ecp.ecview.common.model.tests</id>
+							<level>4</level>
+							<autoStart>true</autoStart>
+						</bundle>
+					</bundleStartLevel>
+
+					<dependencies>
+						<!-- Plugins -->
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.equinox.ds</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.equinox.util</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+					</dependencies>
+
+					<useUIHarness>false</useUIHarness>
+					<useUIThread>false</useUIThread>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

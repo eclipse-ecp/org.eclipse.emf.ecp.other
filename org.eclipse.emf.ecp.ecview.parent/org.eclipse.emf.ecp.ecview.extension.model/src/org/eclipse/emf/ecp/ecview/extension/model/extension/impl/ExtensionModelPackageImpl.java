@@ -238,7 +238,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		isInited = true;
 
 		// Initialize simple dependencies
-		CoreModelPackage.eINSTANCE.eClass();
 		ExtDatatypesPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects

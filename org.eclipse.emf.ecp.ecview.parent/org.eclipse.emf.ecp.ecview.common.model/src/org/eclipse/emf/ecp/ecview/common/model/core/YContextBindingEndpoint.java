@@ -1,25 +1,26 @@
 /**
  */
-package org.eclipse.emf.ecp.ecview.common.model.binding;
+package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YContext Bindable Value</b></em>'.
+ * A representation of the model object '<em><b>YContext Binding Endpoint</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue#getUrlString <em>Url String</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint#getUrlString <em>Url String</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYContextBindableValue()
+ * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYContextBindingEndpoint()
  * @model
  * @generated
  */
-public interface YContextBindableValue extends YBindableValue {
+public interface YContextBindingEndpoint extends YBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Url String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -30,14 +31,14 @@ public interface YContextBindableValue extends YBindableValue {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Url String</em>' attribute.
 	 * @see #setUrlString(String)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYContextBindableValue_UrlString()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYContextBindingEndpoint_UrlString()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getUrlString();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue#getUrlString <em>Url String</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint#getUrlString <em>Url String</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Url String</em>' attribute.
@@ -46,4 +47,4 @@ public interface YContextBindableValue extends YBindableValue {
 	 */
 	void setUrlString(String value);
 
-} // YContextBindableValue
+} // YContextBindingEndpoint

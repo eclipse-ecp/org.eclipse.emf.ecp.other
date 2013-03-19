@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ecview.common.model.core.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -210,6 +212,22 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YSELECTION_BINDABLE: {
 				YSelectionBindable ySelectionBindable = (YSelectionBindable)theEObject;
 				T result = caseYSelectionBindable(ySelectionBindable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: {
+				YContextBindingEndpoint yContextBindingEndpoint = (YContextBindingEndpoint)theEObject;
+				T result = caseYContextBindingEndpoint(yContextBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yContextBindingEndpoint);
+				if (result == null) result = caseYElement(yContextBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YEMBEDDABLE_BINDING_ENDPOINT: {
+				YEmbeddableBindingEndpoint yEmbeddableBindingEndpoint = (YEmbeddableBindingEndpoint)theEObject;
+				T result = caseYEmbeddableBindingEndpoint(yEmbeddableBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yEmbeddableBindingEndpoint);
+				if (result == null) result = caseYElement(yEmbeddableBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -469,6 +487,51 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYSelectionBindable(YSelectionBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YContext Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YContext Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYContextBindingEndpoint(YContextBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEmbeddable Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEmbeddable Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEmbeddableBindingEndpoint(YEmbeddableBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBinding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBinding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBindingEndpoint(YBindingEndpoint object) {
 		return null;
 	}
 

@@ -7,8 +7,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
@@ -16,14 +17,13 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackag
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>YUi Text Field</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
  * <li>
- * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextFieldImpl#getValueBindableValue
- * <em>Value Bindable Value</em>}</li>
+ * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextFieldImpl#getValueEndpoint
+ * <em>Value Endpoint</em>}</li>
  * <li>
  * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextFieldImpl#getDatatype
  * <em>Datatype</em>}</li>
@@ -37,15 +37,15 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
  */
 public class YTextFieldImpl extends YInputImpl implements YTextField {
 	/**
-	 * The cached value of the '{@link #getValueBindableValue()
-	 * <em>Value Bindable Value</em>}' reference. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getValueEndpoint()
+	 * <em>Value Endpoint</em>}' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @see #getValueBindableValue()
+	 * @see #getValueEndpoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected YBindableValue valueBindableValue;
+	protected YEmbeddableBindingEndpoint valueEndpoint;
 
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}'
@@ -92,21 +92,18 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * 
 	 * @generated
 	 */
-	public YBindableValue getValueBindableValue() {
-		if (valueBindableValue != null
-				&& ((EObject) valueBindableValue).eIsProxy()) {
-			InternalEObject oldValueBindableValue = (InternalEObject) valueBindableValue;
-			valueBindableValue = (YBindableValue) eResolveProxy(oldValueBindableValue);
-			if (valueBindableValue != oldValueBindableValue) {
+	public YEmbeddableBindingEndpoint getValueEndpoint() {
+		if (valueEndpoint != null && ((EObject) valueEndpoint).eIsProxy()) {
+			InternalEObject oldValueEndpoint = (InternalEObject) valueEndpoint;
+			valueEndpoint = (YEmbeddableBindingEndpoint) eResolveProxy(oldValueEndpoint);
+			if (valueEndpoint != oldValueEndpoint) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(
-							this,
-							Notification.RESOLVE,
-							ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE,
-							oldValueBindableValue, valueBindableValue));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT,
+							oldValueEndpoint, valueEndpoint));
 			}
 		}
-		return valueBindableValue;
+		return valueEndpoint;
 	}
 
 	/**
@@ -114,8 +111,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * 
 	 * @generated
 	 */
-	public YBindableValue basicGetValueBindableValue() {
-		return valueBindableValue;
+	public YEmbeddableBindingEndpoint basicGetValueEndpoint() {
+		return valueEndpoint;
 	}
 
 	/**
@@ -123,13 +120,13 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * 
 	 * @generated
 	 */
-	public void setValueBindableValue(YBindableValue newValueBindableValue) {
-		YBindableValue oldValueBindableValue = valueBindableValue;
-		valueBindableValue = newValueBindableValue;
+	public void setValueEndpoint(YEmbeddableBindingEndpoint newValueEndpoint) {
+		YEmbeddableBindingEndpoint oldValueEndpoint = valueEndpoint;
+		valueEndpoint = newValueEndpoint;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE,
-					oldValueBindableValue, valueBindableValue));
+					ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT,
+					oldValueEndpoint, valueEndpoint));
 	}
 
 	/**
@@ -221,13 +218,39 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * 
 	 * @generated
 	 */
+	public YEmbeddableBindingEndpoint getOrCreateValueEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableBindingEndpoint getOrCreateValueEndpoint() {
+		YEmbeddableBindingEndpoint ep = getValueEndpoint();
+		if (ep == null) {
+			ep = CoreModelFactory.eINSTANCE.createYEmbeddableBindingEndpoint();
+			ep.setElement(this);
+			setValueEndpoint(ep);
+		}
+		return getValueEndpoint();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE:
+		case ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT:
 			if (resolve)
-				return getValueBindableValue();
-			return basicGetValueBindableValue();
+				return getValueEndpoint();
+			return basicGetValueEndpoint();
 		case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 			if (resolve)
 				return getDatatype();
@@ -248,8 +271,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE:
-			setValueBindableValue((YBindableValue) newValue);
+		case ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT:
+			setValueEndpoint((YEmbeddableBindingEndpoint) newValue);
 			return;
 		case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 			setDatatype((YTextDatatype) newValue);
@@ -269,8 +292,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE:
-			setValueBindableValue((YBindableValue) null);
+		case ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT:
+			setValueEndpoint((YEmbeddableBindingEndpoint) null);
 			return;
 		case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 			setDatatype((YTextDatatype) null);
@@ -290,8 +313,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE:
-			return valueBindableValue != null;
+		case ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT:
+			return valueEndpoint != null;
 		case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 			return datatype != null;
 		case ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION:
@@ -309,8 +332,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == YValueBindable.class) {
 			switch (derivedFeatureID) {
-			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE:
-				return CoreModelPackage.YVALUE_BINDABLE__VALUE_BINDABLE_VALUE;
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT:
+				return CoreModelPackage.YVALUE_BINDABLE__VALUE_ENDPOINT;
 			default:
 				return -1;
 			}
@@ -327,8 +350,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == YValueBindable.class) {
 			switch (baseFeatureID) {
-			case CoreModelPackage.YVALUE_BINDABLE__VALUE_BINDABLE_VALUE:
-				return ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDABLE_VALUE;
+			case CoreModelPackage.YVALUE_BINDABLE__VALUE_ENDPOINT:
+				return ExtensionModelPackage.YTEXT_FIELD__VALUE_ENDPOINT;
 			default:
 				return -1;
 			}

@@ -2,4 +2,5 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tests
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.extension.model.tests
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.0.1.qualifier
+Require-Bundle: org.junit;bundle-version="4.10.0"

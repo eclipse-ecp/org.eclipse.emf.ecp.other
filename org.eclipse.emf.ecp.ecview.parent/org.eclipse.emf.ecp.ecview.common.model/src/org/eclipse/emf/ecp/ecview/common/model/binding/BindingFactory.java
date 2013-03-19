@@ -40,24 +40,6 @@ public interface BindingFactory extends EFactory {
 	YBinding createYBinding();
 
 	/**
-	 * Returns a new object of class '<em>YContext Bindable Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YContext Bindable Value</em>'.
-	 * @generated
-	 */
-	YContextBindableValue createYContextBindableValue();
-
-	/**
-	 * Returns a new object of class '<em>YEmbeddable Bindable Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YEmbeddable Bindable Value</em>'.
-	 * @generated
-	 */
-	YEmbeddableBindableValue createYEmbeddableBindableValue();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

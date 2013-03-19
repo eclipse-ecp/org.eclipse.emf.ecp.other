@@ -11,13 +11,13 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.net.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
@@ -76,6 +76,8 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YVIEW: return (EObject)createYView();
 			case CoreModelPackage.YVIEW_SET: return (EObject)createYViewSet();
 			case CoreModelPackage.YACTION: return (EObject)createYAction();
+			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return (EObject)createYContextBindingEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_BINDING_ENDPOINT: return (EObject)createYEmbeddableBindingEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -163,6 +165,26 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YAction createYAction() {
 		YActionImpl yAction = new YActionImpl();
 		return yAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YContextBindingEndpoint createYContextBindingEndpoint() {
+		YContextBindingEndpointImpl yContextBindingEndpoint = new YContextBindingEndpointImpl();
+		return yContextBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableBindingEndpoint createYEmbeddableBindingEndpoint() {
+		YEmbeddableBindingEndpointImpl yEmbeddableBindingEndpoint = new YEmbeddableBindingEndpointImpl();
+		return yEmbeddableBindingEndpoint;
 	}
 
 	/**

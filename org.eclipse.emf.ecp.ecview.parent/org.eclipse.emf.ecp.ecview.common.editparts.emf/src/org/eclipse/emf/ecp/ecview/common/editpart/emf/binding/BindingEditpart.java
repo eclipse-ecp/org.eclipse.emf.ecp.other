@@ -8,18 +8,19 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart.emf;
-
-import java.util.List;
+package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindableValueEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,16 +34,14 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(BindingEditpart.class);
-	private boolean active;
-	private List<IBindingEditpart> bindings;
-	private IBindableValueEditpart targetValue;
-	private IBindableValueEditpart modelValue;
+	private IBindableEndpointEditpart targetValue;
+	private IBindableEndpointEditpart modelValue;
 	private boolean bound;
 
 	/**
 	 * A default constructor.
 	 */
-	protected BindingEditpart() {
+	public BindingEditpart() {
 	}
 
 	@Override
@@ -58,15 +57,16 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 
 		switch (featureId) {
 		case BindingPackage.YBINDING__TARGET_VALUE:
-			YBindableValue yBindableValue = (YBindableValue) notification.getNewValue();
+			YBindingEndpoint YBindingEndpoint = (YBindingEndpoint) notification
+					.getNewValue();
 
-			IBindableValueEditpart editPart = (IBindableValueEditpart) getEditpart(yBindableValue);
+			IBindableEndpointEditpart editPart = (IBindableEndpointEditpart) getEditpart(YBindingEndpoint);
 			internalSetTargetValue(editPart);
 			break;
 		case BindingPackage.YBINDING__MODEL_VALUE:
-			yBindableValue = (YBindableValue) notification.getNewValue();
+			YBindingEndpoint = (YBindingEndpoint) notification.getNewValue();
 
-			editPart = (IBindableValueEditpart) getEditpart(yBindableValue);
+			editPart = (IBindableEndpointEditpart) getEditpart(YBindingEndpoint);
 			internalSetModelValue(editPart);
 			break;
 		default:
@@ -74,14 +74,14 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		}
 	}
 
-	public void setTargetValue(IBindableValueEditpart target) {
+	public void setTargetEndpoint(IBindableEndpointEditpart target) {
 		try {
 			checkDisposed();
 
 			// set the element by using the model
 			//
 			YBinding yBinding = getModel();
-			YBindableValue yElement = target != null ? (YBindableValue) target
+			YBindingEndpoint yElement = target != null ? (YBindingEndpoint) target
 					.getModel() : null;
 			yBinding.setTargetValue(yElement);
 			// BEGIN SUPRESS CATCH EXCEPTION
@@ -92,7 +92,7 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		}
 	}
 
-	public IBindableValueEditpart getTargetValue() {
+	public IBindableEndpointEditpart getTargetEndpoint() {
 		checkDisposed();
 
 		if (targetValue == null) {
@@ -106,8 +106,8 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 	 */
 	protected void loadTargetValue() {
 		if (targetValue == null) {
-			YBindableValue yValue = getModel().getTargetValue();
-			internalSetTargetValue((IBindableValueEditpart) getEditpart(yValue));
+			YBindingEndpoint yValue = getModel().getTargetValue();
+			internalSetTargetValue((IBindableEndpointEditpart) getEditpart(yValue));
 		}
 	}
 
@@ -118,18 +118,18 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 	 * @param targetValue
 	 *            The content to be set
 	 */
-	protected void internalSetTargetValue(IBindableValueEditpart targetValue) {
+	protected void internalSetTargetValue(IBindableEndpointEditpart targetValue) {
 		this.targetValue = targetValue;
 	}
 
-	public void setModelValue(IBindableValueEditpart model) {
+	public void setModelEndpoint(IBindableEndpointEditpart model) {
 		try {
 			checkDisposed();
 
 			// set the element by using the model
 			//
 			YBinding yBinding = getModel();
-			YBindableValue yElement = model != null ? (YBindableValue) model
+			YBindingEndpoint yElement = model != null ? (YBindingEndpoint) model
 					.getModel() : null;
 			yBinding.setModelValue(yElement);
 			// BEGIN SUPRESS CATCH EXCEPTION
@@ -140,7 +140,7 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		}
 	}
 
-	public IBindableValueEditpart getModelValue() {
+	public IBindableEndpointEditpart getModelEndpoint() {
 		checkDisposed();
 
 		if (modelValue == null) {
@@ -154,8 +154,8 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 	 */
 	protected void loadModelValue() {
 		if (modelValue == null) {
-			YBindableValue yValue = getModel().getModelValue();
-			internalSetModelValue((IBindableValueEditpart) getEditpart(yValue));
+			YBindingEndpoint yValue = getModel().getModelValue();
+			internalSetModelValue((IBindableEndpointEditpart) getEditpart(yValue));
 		}
 	}
 
@@ -166,7 +166,7 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 	 * @param modelValue
 	 *            The content to be set
 	 */
-	protected void internalSetModelValue(IBindableValueEditpart modelValue) {
+	protected void internalSetModelValue(IBindableEndpointEditpart modelValue) {
 		this.modelValue = modelValue;
 	}
 
@@ -186,10 +186,26 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		}
 
 		try {
-
+			IBindingManager bindingManager = getBindindSet()
+					.getBindingManager();
+			bindingManager.bind(getTargetEndpoint().getObservable(),
+					getModelEndpoint().getObservable());
 		} finally {
 			bound = true;
 		}
+	}
+
+	/**
+	 * Returns the binding set this binding belongs to.
+	 * 
+	 * @return
+	 */
+	protected IBindingSetEditpart getBindindSet() {
+		if (getModel().getBindingSet() == null) {
+			throw new RuntimeException("bindingSet must not be null!");
+		}
+		return DelegatingEditPartManager.getInstance().findEditpart(
+				getModel().getBindingSet());
 	}
 
 	@Override

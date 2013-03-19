@@ -6,12 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue;
+import org.eclipse.emf.ecp.ecview.common.model.binding.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
@@ -75,20 +70,12 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 				return createYBindingSetAdapter();
 			}
 			@Override
-			public Adapter caseYBindableValue(YBindableValue object) {
-				return createYBindableValueAdapter();
+			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
+				return createYBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter caseYBinding(YBinding object) {
 				return createYBindingAdapter();
-			}
-			@Override
-			public Adapter caseYContextBindableValue(YContextBindableValue object) {
-				return createYContextBindableValueAdapter();
-			}
-			@Override
-			public Adapter caseYEmbeddableBindableValue(YEmbeddableBindableValue object) {
-				return createYEmbeddableBindableValueAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -129,16 +116,16 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue <em>YBindable Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint <em>YBinding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint
 	 * @generated
 	 */
-	public Adapter createYBindableValueAdapter() {
+	public Adapter createYBindingEndpointAdapter() {
 		return null;
 	}
 
@@ -153,34 +140,6 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYBindingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue <em>YContext Bindable Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue
-	 * @generated
-	 */
-	public Adapter createYContextBindableValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue <em>YEmbeddable Bindable Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue
-	 * @generated
-	 */
-	public Adapter createYEmbeddableBindableValueAdapter() {
 		return null;
 	}
 

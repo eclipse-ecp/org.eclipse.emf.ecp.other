@@ -1,26 +1,26 @@
 /**
  */
-package org.eclipse.emf.ecp.ecview.common.model.binding;
+package org.eclipse.emf.ecp.ecview.common.model.core;
 
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YEmbeddable Bindable Value</b></em>'.
+ * A representation of the model object '<em><b>YEmbeddable Binding Endpoint</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue#getElement <em>Element</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYEmbeddableBindableValue()
+ * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddableBindingEndpoint()
  * @model
  * @generated
  */
-public interface YEmbeddableBindableValue extends YBindableValue {
+public interface YEmbeddableBindingEndpoint extends YBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -31,14 +31,14 @@ public interface YEmbeddableBindableValue extends YBindableValue {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element</em>' reference.
 	 * @see #setElement(YEmbeddable)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYEmbeddableBindableValue_Element()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddableBindingEndpoint_Element()
 	 * @model required="true"
 	 * @generated
 	 */
 	YEmbeddable getElement();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue#getElement <em>Element</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement <em>Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Element</em>' reference.
@@ -47,4 +47,4 @@ public interface YEmbeddableBindableValue extends YBindableValue {
 	 */
 	void setElement(YEmbeddable value);
 
-} // YEmbeddableBindableValue
+} // YEmbeddableBindingEndpoint

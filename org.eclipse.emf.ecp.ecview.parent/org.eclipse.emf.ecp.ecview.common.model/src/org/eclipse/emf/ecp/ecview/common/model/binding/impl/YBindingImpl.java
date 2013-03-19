@@ -9,13 +9,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YBinding</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YBinding</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -29,9 +29,9 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
  */
 public class YBindingImpl extends EObjectImpl implements YBinding {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -39,9 +39,9 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -50,27 +50,24 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 
 	/**
 	 * The cached value of the '{@link #getTargetValue() <em>Target Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getTargetValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected YBindableValue targetValue;
+	protected YBindingEndpoint targetValue;
 
 	/**
 	 * The cached value of the '{@link #getModelValue() <em>Model Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getModelValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected YBindableValue modelValue;
+	protected YBindingEndpoint modelValue;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YBindingImpl() {
@@ -78,8 +75,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -88,8 +84,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getId() {
@@ -97,8 +92,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setId(String newId) {
@@ -109,14 +103,13 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindableValue getTargetValue() {
+	public YBindingEndpoint getTargetValue() {
 		if (targetValue != null && ((EObject)targetValue).eIsProxy()) {
 			InternalEObject oldTargetValue = (InternalEObject)targetValue;
-			targetValue = (YBindableValue)eResolveProxy(oldTargetValue);
+			targetValue = (YBindingEndpoint)eResolveProxy(oldTargetValue);
 			if (targetValue != oldTargetValue) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YBINDING__TARGET_VALUE, oldTargetValue, targetValue));
@@ -126,35 +119,32 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindableValue basicGetTargetValue() {
+	public YBindingEndpoint basicGetTargetValue() {
 		return targetValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetValue(YBindableValue newTargetValue) {
-		YBindableValue oldTargetValue = targetValue;
+	public void setTargetValue(YBindingEndpoint newTargetValue) {
+		YBindingEndpoint oldTargetValue = targetValue;
 		targetValue = newTargetValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__TARGET_VALUE, oldTargetValue, targetValue));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindableValue getModelValue() {
+	public YBindingEndpoint getModelValue() {
 		if (modelValue != null && ((EObject)modelValue).eIsProxy()) {
 			InternalEObject oldModelValue = (InternalEObject)modelValue;
-			modelValue = (YBindableValue)eResolveProxy(oldModelValue);
+			modelValue = (YBindingEndpoint)eResolveProxy(oldModelValue);
 			if (modelValue != oldModelValue) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YBINDING__MODEL_VALUE, oldModelValue, modelValue));
@@ -164,29 +154,45 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBindableValue basicGetModelValue() {
+	public YBindingEndpoint basicGetModelValue() {
 		return modelValue;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModelValue(YBindableValue newModelValue) {
-		YBindableValue oldModelValue = modelValue;
+	public void setModelValue(YBindingEndpoint newModelValue) {
+		YBindingEndpoint oldModelValue = modelValue;
 		modelValue = newModelValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__MODEL_VALUE, oldModelValue, modelValue));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingSet getBindingSetGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YBindingSet getBindingSet() {
+		return (YBindingSet) eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -205,8 +211,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -216,18 +221,17 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 				setId((String)newValue);
 				return;
 			case BindingPackage.YBINDING__TARGET_VALUE:
-				setTargetValue((YBindableValue)newValue);
+				setTargetValue((YBindingEndpoint)newValue);
 				return;
 			case BindingPackage.YBINDING__MODEL_VALUE:
-				setModelValue((YBindableValue)newValue);
+				setModelValue((YBindingEndpoint)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -237,18 +241,17 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 				setId(ID_EDEFAULT);
 				return;
 			case BindingPackage.YBINDING__TARGET_VALUE:
-				setTargetValue((YBindableValue)null);
+				setTargetValue((YBindingEndpoint)null);
 				return;
 			case BindingPackage.YBINDING__MODEL_VALUE:
-				setModelValue((YBindableValue)null);
+				setModelValue((YBindingEndpoint)null);
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -265,8 +268,7 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -280,4 +282,4 @@ public class YBindingImpl extends EObjectImpl implements YBinding {
 		return result.toString();
 	}
 
-} //YBindingImpl
+} // YBindingImpl

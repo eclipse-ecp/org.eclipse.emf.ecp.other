@@ -2,7 +2,6 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -94,14 +93,14 @@ public interface BindingPackage extends EPackage {
 	int YBINDING_SET_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue <em>YBindable Value</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl <em>YBinding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindableValue()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindingEndpoint()
 	 * @generated
 	 */
-	int YBINDABLE_VALUE = 1;
+	int YBINDING_ENDPOINT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -110,16 +109,16 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBINDABLE_VALUE__ID = CoreModelPackage.YELEMENT__ID;
+	int YBINDING_ENDPOINT__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
-	 * The number of structural features of the '<em>YBindable Value</em>' class.
+	 * The number of structural features of the '<em>YBinding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YBINDABLE_VALUE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+	int YBINDING_ENDPOINT_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl <em>YBinding</em>}' class.
@@ -169,82 +168,6 @@ public interface BindingPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YContextBindableValueImpl <em>YContext Bindable Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YContextBindableValueImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYContextBindableValue()
-	 * @generated
-	 */
-	int YCONTEXT_BINDABLE_VALUE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_BINDABLE_VALUE__ID = YBINDABLE_VALUE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Url String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_BINDABLE_VALUE__URL_STRING = YBINDABLE_VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>YContext Bindable Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_BINDABLE_VALUE_FEATURE_COUNT = YBINDABLE_VALUE_FEATURE_COUNT + 1;
-
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEmbeddableBindableValueImpl <em>YEmbeddable Bindable Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEmbeddableBindableValueImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYEmbeddableBindableValue()
-	 * @generated
-	 */
-	int YEMBEDDABLE_BINDABLE_VALUE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_BINDABLE_VALUE__ID = YBINDABLE_VALUE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_BINDABLE_VALUE__ELEMENT = YBINDABLE_VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>YEmbeddable Bindable Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_BINDABLE_VALUE_FEATURE_COUNT = YBINDABLE_VALUE_FEATURE_COUNT + 1;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet <em>YBinding Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,14 +189,14 @@ public interface BindingPackage extends EPackage {
 	EReference getYBindingSet_Bindings();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue <em>YBindable Value</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint <em>YBinding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YBindable Value</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue
+	 * @return the meta object for class '<em>YBinding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint
 	 * @generated
 	 */
-	EClass getYBindableValue();
+	EClass getYBindingEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding <em>YBinding</em>}'.
@@ -306,48 +229,6 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYBinding_ModelValue();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue <em>YContext Bindable Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YContext Bindable Value</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue
-	 * @generated
-	 */
-	EClass getYContextBindableValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue#getUrlString <em>Url String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url String</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue#getUrlString()
-	 * @see #getYContextBindableValue()
-	 * @generated
-	 */
-	EAttribute getYContextBindableValue_UrlString();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue <em>YEmbeddable Bindable Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YEmbeddable Bindable Value</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue
-	 * @generated
-	 */
-	EClass getYEmbeddableBindableValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue#getElement()
-	 * @see #getYEmbeddableBindableValue()
-	 * @generated
-	 */
-	EReference getYEmbeddableBindableValue_Element();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -390,14 +271,14 @@ public interface BindingPackage extends EPackage {
 		EReference YBINDING_SET__BINDINGS = eINSTANCE.getYBindingSet_Bindings();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue <em>YBindable Value</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl <em>YBinding Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue
-		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindableValue()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindingEndpoint()
 		 * @generated
 		 */
-		EClass YBINDABLE_VALUE = eINSTANCE.getYBindableValue();
+		EClass YBINDING_ENDPOINT = eINSTANCE.getYBindingEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl <em>YBinding</em>}' class.
@@ -424,42 +305,6 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YBINDING__MODEL_VALUE = eINSTANCE.getYBinding_ModelValue();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YContextBindableValueImpl <em>YContext Bindable Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YContextBindableValueImpl
-		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYContextBindableValue()
-		 * @generated
-		 */
-		EClass YCONTEXT_BINDABLE_VALUE = eINSTANCE.getYContextBindableValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Url String</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YCONTEXT_BINDABLE_VALUE__URL_STRING = eINSTANCE.getYContextBindableValue_UrlString();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEmbeddableBindableValueImpl <em>YEmbeddable Bindable Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEmbeddableBindableValueImpl
-		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYEmbeddableBindableValue()
-		 * @generated
-		 */
-		EClass YEMBEDDABLE_BINDABLE_VALUE = eINSTANCE.getYEmbeddableBindableValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference YEMBEDDABLE_BINDABLE_VALUE__ELEMENT = eINSTANCE.getYEmbeddableBindableValue_Element();
 
 	}
 

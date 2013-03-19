@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.binding.context.ContextBindingDelegate;
+import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextBindingDelegate;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.uri.AccessibleScope;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;

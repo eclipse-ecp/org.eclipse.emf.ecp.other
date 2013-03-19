@@ -2,7 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -30,12 +31,12 @@ public interface YSelectionBindable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Selection Bindable Value</em>' reference.
-	 * @see #setSelectionBindableValue(YBindableValue)
+	 * @see #setSelectionBindableValue(YBindingEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYSelectionBindable_SelectionBindableValue()
 	 * @model
 	 * @generated
 	 */
-	YBindableValue getSelectionBindableValue();
+	YBindingEndpoint getSelectionBindableValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#getSelectionBindableValue <em>Selection Bindable Value</em>}' reference.
@@ -45,6 +46,6 @@ public interface YSelectionBindable {
 	 * @see #getSelectionBindableValue()
 	 * @generated
 	 */
-	void setSelectionBindableValue(YBindableValue value);
+	void setSelectionBindableValue(YBindingEndpoint value);
 
 } // YSelectionBindable

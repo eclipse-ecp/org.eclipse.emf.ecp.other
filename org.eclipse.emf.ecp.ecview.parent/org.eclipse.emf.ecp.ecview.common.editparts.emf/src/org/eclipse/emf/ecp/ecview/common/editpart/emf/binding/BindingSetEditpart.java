@@ -8,15 +8,17 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart.emf;
+package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
@@ -41,7 +43,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	/**
 	 * A default constructor.
 	 */
-	protected BindingSetEditpart() {
+	public BindingSetEditpart() {
 	}
 
 	@Override
@@ -56,7 +58,18 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 		checkDisposed();
 
 		YView yView = getModel().getView();
-		return yView != null ? (IViewEditpart) getEditpart(yView) : null;
+		return yView != null ? (IViewEditpart) ElementEditpart
+				.findEditPartFor(yView) : null;
+	}
+
+	@Override
+	public IBindingManager getBindingManager() {
+		IViewEditpart view = getView();
+		if (view == null) {
+			
+			return null;
+		}
+		return view.getContext().getService(IBindingManager.class.getName());
 	}
 
 	@Override
@@ -67,7 +80,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public void activate() {
+	public void bindAll() {
 		checkDisposed();
 
 		try {

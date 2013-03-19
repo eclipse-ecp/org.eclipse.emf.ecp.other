@@ -8,20 +8,14 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart;
+package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
-import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 
 /**
- * An editpart resonsible to provide observable values.
+ * An editpart resonsible to provide context observable values for UI-embeddables.
  */
-public interface IBindableValueEditpart extends IElementEditpart {
-
-	/**
-	 * Returns the target observable that can be used in databinding.
-	 * 
-	 * @return
-	 */
-	IObservable getObservable();
-
+public interface IEmbeddableBindableEndpointEditpart extends IBindableEndpointEditpart {
+	
+	
 }

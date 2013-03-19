@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -329,6 +330,30 @@ public class YViewImpl extends EObjectImpl implements YView {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__BINDING_SET, newBindingSet, newBindingSet));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingSet getOrCreateBindingSetGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YBindingSet getOrCreateBindingSet() {
+		YBindingSet bs = getBindingSet();
+		if (bs == null) {
+			bs = BindingFactory.eINSTANCE.createYBindingSet();
+			setBindingSet(bs);
+		}
+		return getBindingSet();
 	}
 
 	/**

@@ -11,8 +11,10 @@
  *******************************************************************************/
 package org.eclipse.emf.ecp.ecview.common.binding;
 
+import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 
@@ -44,4 +46,14 @@ public interface IBindingManager extends IDisposable {
 	 * @return
 	 */
 	DataBindingContext getDatabindingContext();
+
+	/**
+	 * Binds the target to the model.
+	 * 
+	 * @param target
+	 * @param model
+	 * @return The binding
+	 */
+	Binding bind(IObservableValue target, IObservableValue model);
+
 }

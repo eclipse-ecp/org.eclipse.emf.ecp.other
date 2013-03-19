@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -829,13 +830,13 @@ public interface CoreModelPackage extends EPackage {
 	int YVALUE_BINDABLE = 15;
 
 	/**
-	 * The feature id for the '<em><b>Value Bindable Value</b></em>' reference.
+	 * The feature id for the '<em><b>Value Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVALUE_BINDABLE__VALUE_BINDABLE_VALUE = 0;
+	int YVALUE_BINDABLE__VALUE_ENDPOINT = 0;
 
 	/**
 	 * The number of structural features of the '<em>YValue Bindable</em>' class.
@@ -875,6 +876,80 @@ public interface CoreModelPackage extends EPackage {
 	int YSELECTION_BINDABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl <em>YContext Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextBindingEndpoint()
+	 * @generated
+	 */
+	int YCONTEXT_BINDING_ENDPOINT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCONTEXT_BINDING_ENDPOINT__ID = BindingPackage.YBINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Url String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCONTEXT_BINDING_ENDPOINT__URL_STRING = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YContext Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCONTEXT_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableBindingEndpointImpl <em>YEmbeddable Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableBindingEndpoint()
+	 * @generated
+	 */
+	int YEMBEDDABLE_BINDING_ENDPOINT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_BINDING_ENDPOINT__ID = BindingPackage.YBINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_BINDING_ENDPOINT__ELEMENT = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YEmbeddable Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -882,7 +957,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 17;
+	int YUNIT = 19;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -892,7 +967,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 18;
+	int YURI = 20;
 
 
 	/**
@@ -1287,15 +1362,15 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYValueBindable();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindableValue <em>Value Bindable Value</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueEndpoint <em>Value Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value Bindable Value</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindableValue()
+	 * @return the meta object for the reference '<em>Value Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueEndpoint()
 	 * @see #getYValueBindable()
 	 * @generated
 	 */
-	EReference getYValueBindable_ValueBindableValue();
+	EReference getYValueBindable_ValueEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}'.
@@ -1317,6 +1392,48 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYSelectionBindable_SelectionBindableValue();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint <em>YContext Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YContext Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint
+	 * @generated
+	 */
+	EClass getYContextBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint#getUrlString <em>Url String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url String</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint#getUrlString()
+	 * @see #getYContextBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYContextBindingEndpoint_UrlString();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YEmbeddable Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint
+	 * @generated
+	 */
+	EClass getYEmbeddableBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement()
+	 * @see #getYEmbeddableBindingEndpoint()
+	 * @generated
+	 */
+	EReference getYEmbeddableBindingEndpoint_Element();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
@@ -1690,12 +1807,12 @@ public interface CoreModelPackage extends EPackage {
 		EClass YVALUE_BINDABLE = eINSTANCE.getYValueBindable();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Bindable Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value Endpoint</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference YVALUE_BINDABLE__VALUE_BINDABLE_VALUE = eINSTANCE.getYValueBindable_ValueBindableValue();
+		EReference YVALUE_BINDABLE__VALUE_ENDPOINT = eINSTANCE.getYValueBindable_ValueEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
@@ -1714,6 +1831,42 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YSELECTION_BINDABLE__SELECTION_BINDABLE_VALUE = eINSTANCE.getYSelectionBindable_SelectionBindableValue();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl <em>YContext Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextBindingEndpoint()
+		 * @generated
+		 */
+		EClass YCONTEXT_BINDING_ENDPOINT = eINSTANCE.getYContextBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Url String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCONTEXT_BINDING_ENDPOINT__URL_STRING = eINSTANCE.getYContextBindingEndpoint_UrlString();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableBindingEndpointImpl <em>YEmbeddable Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableBindingEndpoint()
+		 * @generated
+		 */
+		EClass YEMBEDDABLE_BINDING_ENDPOINT = eINSTANCE.getYEmbeddableBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YEMBEDDABLE_BINDING_ENDPOINT__ELEMENT = eINSTANCE.getYEmbeddableBindingEndpoint_Element();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

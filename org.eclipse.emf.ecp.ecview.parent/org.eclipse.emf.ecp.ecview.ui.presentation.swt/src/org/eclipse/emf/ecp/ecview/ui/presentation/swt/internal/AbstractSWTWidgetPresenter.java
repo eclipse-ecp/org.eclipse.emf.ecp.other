@@ -13,11 +13,13 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
@@ -173,7 +175,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 		// bind readonly
 		bindingManager.bindReadonly(yField, ridget);
 	}
-	
+
 	/**
 	 * Casts element to eObject.
 	 * 
@@ -191,6 +193,22 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	 */
 	protected Lock getLock() {
 		return lock;
+	}
+
+	@Override
+	public IObservable getObservableValue(Object model) {
+		return internalGetObservableValue((YBindingEndpoint) model);
+	}
+
+	/**
+	 * Has to provide an instance of IObservable for the given bindableValue.
+	 * 
+	 * @param bindableValue
+	 * @return
+	 */
+	protected IObservable internalGetObservableValue(
+			YBindingEndpoint bindableValue) {
+		throw new UnsupportedOperationException("Must be overridden!");
 	}
 
 	/**

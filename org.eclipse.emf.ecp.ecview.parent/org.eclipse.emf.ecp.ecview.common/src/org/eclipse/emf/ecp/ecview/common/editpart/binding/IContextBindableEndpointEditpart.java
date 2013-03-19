@@ -8,11 +8,11 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart;
+package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
 /**
  * An editpart resonsible to provide context observable values.
  */
-public interface IContextBindableValueEditpart extends IBindableValueEditpart {
+public interface IContextBindableEndpointEditpart extends IBindableEndpointEditpart {
 
 }

@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
+package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.binding;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -19,9 +19,9 @@ import static org.junit.Assert.fail;
 
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
@@ -65,7 +65,7 @@ public class BindingSetEditpartTest {
 				.getEditpart(bindingSet);
 
 		assertFalse(bindingSetEditpart.isActive());
-		bindingSetEditpart.activate();
+		bindingSetEditpart.bindAll();
 		assertTrue(bindingSetEditpart.isActive());
 
 		bindingSetEditpart.dispose();
@@ -120,7 +120,7 @@ public class BindingSetEditpartTest {
 		}
 
 		try {
-			bindingSetEditpart.activate();
+			bindingSetEditpart.bindAll();
 			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {

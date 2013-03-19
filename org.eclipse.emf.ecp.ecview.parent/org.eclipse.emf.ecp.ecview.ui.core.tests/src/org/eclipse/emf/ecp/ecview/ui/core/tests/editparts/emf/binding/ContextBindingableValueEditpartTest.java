@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
+package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.binding;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -18,14 +18,15 @@ import static org.junit.Assert.fail;
 
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindableValueEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,11 +34,12 @@ import org.junit.Test;
  * Tests the {@link ViewEditpart}.
  */
 @SuppressWarnings("restriction")
-public class BindingEditpartTest {
+public class ContextBindingableValueEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
 	private BindingFactory bindingFactory = BindingFactory.eINSTANCE;
+	private CoreModelFactory factory = CoreModelFactory.eINSTANCE;
 
 	/**
 	 * Setup.
@@ -164,7 +166,7 @@ public class BindingEditpartTest {
 			// expected
 		}
 		try {
-			bindingEditpart.getModelValue();
+			bindingEditpart.getModelEndpoint();
 			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -172,7 +174,7 @@ public class BindingEditpartTest {
 			// expected
 		}
 		try {
-			bindingEditpart.getTargetValue();
+			bindingEditpart.getTargetEndpoint();
 			fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
 		} catch (Exception e) {
@@ -220,35 +222,33 @@ public class BindingEditpartTest {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> view1
 		YBinding binding = bindingFactory.createYBinding();
-		YBindableValue targetValue = bindingFactory
-				.createYContextBindableValue();
-		YBindableValue modelValue = bindingFactory
-				.createYContextBindableValue();
+		YBindingEndpoint targetValue = factory.createYContextBindingEndpoint();
+		YBindingEndpoint modelValue = factory.createYContextBindingEndpoint();
 		IBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
-		IBindableValueEditpart targetValueEditpart = editpartManager
+		IBindableEndpointEditpart targetValueEditpart = editpartManager
 				.getEditpart(targetValue);
-		IBindableValueEditpart modelValueEditpart = editpartManager
+		IBindableEndpointEditpart modelValueEditpart = editpartManager
 				.getEditpart(modelValue);
 
 		// set the value
 		//
 		binding.setTargetValue(targetValue);
-		assertSame(targetValueEditpart, bindingEditpart.getTargetValue());
+		assertSame(targetValueEditpart, bindingEditpart.getTargetEndpoint());
 		assertFalse(targetValueEditpart.isDisposed());
-		assertNull(bindingEditpart.getModelValue());
+		assertNull(bindingEditpart.getModelEndpoint());
 
 		binding.setModelValue(modelValue);
-		assertSame(modelValueEditpart, bindingEditpart.getModelValue());
+		assertSame(modelValueEditpart, bindingEditpart.getModelEndpoint());
 		assertFalse(modelValueEditpart.isDisposed());
 
 		binding.setTargetValue(null);
-		assertNull(bindingEditpart.getTargetValue());
-		assertSame(modelValueEditpart, bindingEditpart.getModelValue());
+		assertNull(bindingEditpart.getTargetEndpoint());
+		assertSame(modelValueEditpart, bindingEditpart.getModelEndpoint());
 		assertFalse(targetValueEditpart.isDisposed());
 
 		binding.setModelValue(null);
-		assertNull(bindingEditpart.getTargetValue());
-		assertNull(bindingEditpart.getModelValue());
+		assertNull(bindingEditpart.getTargetEndpoint());
+		assertNull(bindingEditpart.getModelEndpoint());
 		assertFalse(targetValueEditpart.isDisposed());
 
 	}
@@ -262,33 +262,31 @@ public class BindingEditpartTest {
 		// END SUPRESS CATCH EXCEPTION
 		// ...> view1
 		YBinding binding = bindingFactory.createYBinding();
-		YBindableValue targetValue = bindingFactory
-				.createYContextBindableValue();
-		YBindableValue modelValue = bindingFactory
-				.createYContextBindableValue();
+		YBindingEndpoint targetValue = factory.createYContextBindingEndpoint();
+		YBindingEndpoint modelValue = factory.createYContextBindingEndpoint();
 		IBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
-		IBindableValueEditpart targetValueEditpart = editpartManager
+		IBindableEndpointEditpart targetValueEditpart = editpartManager
 				.getEditpart(targetValue);
-		IBindableValueEditpart modelValueEditpart = editpartManager
+		IBindableEndpointEditpart modelValueEditpart = editpartManager
 				.getEditpart(modelValue);
 
 		// set the value
 		//
-		bindingEditpart.setTargetValue(targetValueEditpart);
+		bindingEditpart.setTargetEndpoint(targetValueEditpart);
 		assertSame(targetValue, binding.getTargetValue());
 		assertFalse(targetValueEditpart.isDisposed());
 		assertNull(binding.getModelValue());
 
-		bindingEditpart.setModelValue(modelValueEditpart);
+		bindingEditpart.setModelEndpoint(modelValueEditpart);
 		assertSame(modelValue, binding.getModelValue());
 		assertFalse(modelValueEditpart.isDisposed());
 
-		bindingEditpart.setTargetValue(null);
+		bindingEditpart.setTargetEndpoint(null);
 		assertNull(binding.getTargetValue());
 		assertSame(modelValue, binding.getModelValue());
 		assertFalse(targetValueEditpart.isDisposed());
 
-		bindingEditpart.setModelValue(null);
+		bindingEditpart.setModelEndpoint(null);
 		assertNull(binding.getTargetValue());
 		assertNull(binding.getModelValue());
 		assertFalse(targetValueEditpart.isDisposed());

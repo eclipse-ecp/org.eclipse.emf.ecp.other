@@ -2,7 +2,6 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -10,11 +9,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YContextBindableValue;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YEmbeddableBindableValue;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl;
 
@@ -37,7 +34,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yBindableValueEClass = null;
+	private EClass yBindingEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,20 +42,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * @generated
 	 */
 	private EClass yBindingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass yContextBindableValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass yEmbeddableBindableValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -149,8 +132,8 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYBindableValue() {
-		return yBindableValueEClass;
+	public EClass getYBindingEndpoint() {
+		return yBindingEndpointEClass;
 	}
 
 	/**
@@ -185,42 +168,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYContextBindableValue() {
-		return yContextBindableValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYContextBindableValue_UrlString() {
-		return (EAttribute)yContextBindableValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getYEmbeddableBindableValue() {
-		return yEmbeddableBindableValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getYEmbeddableBindableValue_Element() {
-		return (EReference)yEmbeddableBindableValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BindingFactory getBindingFactory() {
 		return (BindingFactory)getEFactoryInstance();
 	}
@@ -247,17 +194,11 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		yBindingSetEClass = createEClass(YBINDING_SET);
 		createEReference(yBindingSetEClass, YBINDING_SET__BINDINGS);
 
-		yBindableValueEClass = createEClass(YBINDABLE_VALUE);
+		yBindingEndpointEClass = createEClass(YBINDING_ENDPOINT);
 
 		yBindingEClass = createEClass(YBINDING);
 		createEReference(yBindingEClass, YBINDING__TARGET_VALUE);
 		createEReference(yBindingEClass, YBINDING__MODEL_VALUE);
-
-		yContextBindableValueEClass = createEClass(YCONTEXT_BINDABLE_VALUE);
-		createEAttribute(yContextBindableValueEClass, YCONTEXT_BINDABLE_VALUE__URL_STRING);
-
-		yEmbeddableBindableValueEClass = createEClass(YEMBEDDABLE_BINDABLE_VALUE);
-		createEReference(yEmbeddableBindableValueEClass, YEMBEDDABLE_BINDABLE_VALUE__ELEMENT);
 	}
 
 	/**
@@ -292,18 +233,16 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		// Add supertypes to classes
 		yBindingSetEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
-		yBindableValueEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
+		yBindingEndpointEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yBindingEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
-		yContextBindableValueEClass.getESuperTypes().add(this.getYBindableValue());
-		yEmbeddableBindableValueEClass.getESuperTypes().add(this.getYBindableValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yBindingSetEClass, YBindingSet.class, "YBindingSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYBindingSet_Bindings(), this.getYBinding(), null, "bindings", null, 0, -1, YBindingSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(yBindingSetEClass, this.getYBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getYBindableValue(), "targetValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getYBindableValue(), "modelValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYBindingEndpoint(), "targetValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYBindingEndpoint(), "modelValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(yBindingSetEClass, theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -313,17 +252,15 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		op = addEOperation(yBindingSetEClass, null, "removeBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBinding(), "binding", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(yBindableValueEClass, YBindableValue.class, "YBindableValue", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yBindingEndpointEClass, YBindingEndpoint.class, "YBindingEndpoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(yBindingEndpointEClass, this.getYBinding(), "getBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yBindingEClass, YBinding.class, "YBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYBinding_TargetValue(), this.getYBindableValue(), null, "targetValue", null, 1, 1, YBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getYBinding_ModelValue(), this.getYBindableValue(), null, "modelValue", null, 1, 1, YBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYBinding_TargetValue(), this.getYBindingEndpoint(), null, "targetValue", null, 1, 1, YBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYBinding_ModelValue(), this.getYBindingEndpoint(), null, "modelValue", null, 1, 1, YBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yContextBindableValueEClass, YContextBindableValue.class, "YContextBindableValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYContextBindableValue_UrlString(), ecorePackage.getEString(), "urlString", null, 1, 1, YContextBindableValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(yEmbeddableBindableValueEClass, YEmbeddableBindableValue.class, "YEmbeddableBindableValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYEmbeddableBindableValue_Element(), theCoreModelPackage.getYEmbeddable(), null, "element", null, 1, 1, YEmbeddableBindableValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		addEOperation(yBindingEClass, this.getYBindingSet(), "getBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

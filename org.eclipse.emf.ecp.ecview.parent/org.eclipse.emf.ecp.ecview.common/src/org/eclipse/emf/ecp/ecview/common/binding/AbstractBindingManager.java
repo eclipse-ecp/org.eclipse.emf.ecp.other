@@ -10,8 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.common.binding;
 
+import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 
@@ -55,6 +58,13 @@ public abstract class AbstractBindingManager extends AbstractDisposable
 	@Override
 	public DataBindingContext getDatabindingContext() {
 		return dbc;
+	}
+
+	@Override
+	public Binding bind(IObservableValue target, IObservableValue model) {
+		return dbc.bindValue(target, model, new UpdateValueStrategy(
+				UpdateValueStrategy.POLICY_UPDATE), new UpdateValueStrategy(
+				UpdateValueStrategy.POLICY_UPDATE));
 	}
 
 	@Override
