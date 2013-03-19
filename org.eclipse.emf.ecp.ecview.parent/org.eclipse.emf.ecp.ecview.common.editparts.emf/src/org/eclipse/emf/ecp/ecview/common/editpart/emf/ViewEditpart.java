@@ -102,7 +102,7 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			throws ContextException {
 		IBindingSetEditpart bindingSet = getBindingSet();
 		if (bindingSet == null) {
-			throw new ContextException("BindingSet must not be null!");
+			LOGGER.info("BindingSet is null!");
 		}
 		// call to activate not required. Pending bindings are bound
 		// automatically

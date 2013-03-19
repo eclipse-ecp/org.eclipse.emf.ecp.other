@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>org.eclipse.emf.ecp.ecview.common.tests</artifactId>
-	<name>Core Tests</name>
-	<description>Tests for the core</description>
+	<name>Common Tests</name>
+	<description>Tests for the common issues</description>
 	<parent>
 		<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
 		<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
@@ -49,7 +49,7 @@
 							<autoStart>true</autoStart>
 						</bundle>
 						<bundle>
-							<id>org.eclipse.emf.ecp.ecview.common.model.tests</id>
+							<id>org.eclipse.emf.ecp.ecview.common.tests</id>
 							<level>4</level>
 							<autoStart>true</autoStart>
 						</bundle>

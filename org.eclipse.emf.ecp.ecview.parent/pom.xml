@@ -61,7 +61,10 @@
 				<defaultGoal>verify</defaultGoal>
 			</build>
 			<modules>
-				<module>org.eclipse.emf.ecp.ecview.ui.core.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
 			</modules>
 		</profile>
@@ -78,6 +81,9 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+							</dependency-resolution>
 							<!-- <resolver>p2</resolver> -->
 							<!-- <pomDependencies>consider</pomDependencies> -->
 							<ignoreTychoRepositories>true</ignoreTychoRepositories>
@@ -111,7 +117,6 @@
 				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
 
 				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
-				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
 
 
@@ -121,7 +126,10 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.example.swt</module>
 
-				<module>org.eclipse.emf.ecp.ecview.ui.core.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
 				<!-- P2 bundles -->
 			</modules>
@@ -139,6 +147,9 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+							</dependency-resolution>
 							<!-- <resolver>p2</resolver> -->
 							<!-- <pomDependencies>consider</pomDependencies> -->
 							<ignoreTychoRepositories>true</ignoreTychoRepositories>
@@ -170,8 +181,12 @@
 				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
 
 				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
-				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
+
+				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
 				<!-- P2 bundles -->
 			</modules>
 		</profile>
@@ -188,6 +203,9 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+							</dependency-resolution>
 							<!-- <resolver>p2</resolver> -->
 							<!-- <pomDependencies>consider</pomDependencies> -->
 							<ignoreTychoRepositories>true</ignoreTychoRepositories>

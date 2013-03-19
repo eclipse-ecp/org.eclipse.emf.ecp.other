@@ -514,10 +514,12 @@ public class ViewContextTest {
 
 	/**
 	 * Tests the render method.
+	 * 
+	 * @throws ContextException
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_render() {
+	public void test_render() throws ContextException {
 		// END SUPRESS CATCH EXCEPTION
 		presenterFactory.clear();
 		presenterFactory.addDelegate(new PresenterFactory());
@@ -526,11 +528,10 @@ public class ViewContextTest {
 		try {
 			context.render("test", new Object(), null);
 		} catch (ContextException e) {
-			Assert.fail();
+			throw e;
 		}
 
 		Assert.assertTrue(context.isRendered());
-
 		try {
 			context.render("test", new Object(), null);
 			Assert.fail();
