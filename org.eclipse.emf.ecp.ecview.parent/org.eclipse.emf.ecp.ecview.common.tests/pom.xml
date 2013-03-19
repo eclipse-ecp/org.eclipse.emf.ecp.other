@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>org.eclipse.emf.ecp.ecview.ui.core.tests</artifactId>
+	<artifactId>org.eclipse.emf.ecp.ecview.common.tests</artifactId>
 	<name>Core Tests</name>
-	<description>Tests for the uimodel controller core</description>
+	<description>Tests for the core</description>
 	<parent>
 		<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
 		<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
