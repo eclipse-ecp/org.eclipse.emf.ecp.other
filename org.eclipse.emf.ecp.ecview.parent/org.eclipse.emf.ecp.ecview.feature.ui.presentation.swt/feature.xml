@@ -22,7 +22,7 @@
    </requires>
 
    <plugin
-         id="org.eclipse.emf.ecp.ecview.ui.example.swt"
+         id="org.eclipse.emf.ecp.ecview.example.swt"
          download-size="0"
          install-size="0"
          version="0.0.0"
