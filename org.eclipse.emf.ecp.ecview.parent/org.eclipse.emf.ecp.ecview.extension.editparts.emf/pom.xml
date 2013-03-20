@@ -17,8 +17,8 @@
     </plugins>
   </build>
   <parent>
-  	<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
-  	<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
+  	<groupId>org.eclipse.emf.ecp.ecview</groupId>
+  	<artifactId>org.eclipse.emf.ecp.ecview</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
   <packaging>eclipse-plugin</packaging>

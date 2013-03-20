@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
-	<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
+	<groupId>org.eclipse.emf.ecp.ecview</groupId>
+	<artifactId>org.eclipse.emf.ecp.ecview</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -90,7 +90,7 @@
 							<target>
 								<artifact>
 									<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
-									<artifactId>org.eclipse.emf.ecp.ecview.ui.target.kepler</artifactId>
+									<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
 							</target>
@@ -100,8 +100,8 @@
 			</build>
 			<modules>
 				<!-- exclusive for P2 -->
-				<module>org.eclipse.emf.ecp.ecview.ui.p2</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.target.kepler</module>
+				<module>org.eclipse.emf.ecp.ecview.p2</module>
+				<module>org.eclipse.emf.ecp.ecview.target.kepler</module>
 
 				<!-- P2 features -->
 				<module>org.eclipse.emf.ecp.ecview.feature.core</module>
@@ -156,7 +156,7 @@
 							<target>
 								<artifact>
 									<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
-									<artifactId>org.eclipse.emf.ecp.ecview.ui.target.kepler</artifactId>
+									<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
 							</target>
@@ -166,8 +166,8 @@
 			</build>
 			<modules>
 				<!-- exclusive for P2 -->
-				<module>org.eclipse.emf.ecp.ecview.ui.target.kepler</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.p2</module>
+				<module>org.eclipse.emf.ecp.ecview.target.kepler</module>
+				<module>org.eclipse.emf.ecp.ecview.p2</module>
 				<!-- P2 features -->
 				<module>org.eclipse.emf.ecp.ecview.feature.core</module>
 				<!-- end P2 features -->
@@ -212,7 +212,7 @@
 							<target>
 								<artifact>
 									<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
-									<artifactId>org.eclipse.emf.ecp.ecview.ui.target.kepler</artifactId>
+									<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
 							</target>
@@ -222,7 +222,7 @@
 			</build>
 			<modules>
 				<!-- exclusive for P2 -->
-				<module>org.eclipse.emf.ecp.ecview.ui.target.kepler</module>
+				<module>org.eclipse.emf.ecp.ecview.target.kepler</module>
 				<module>org.eclipse.emf.ecp.ecview.common</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
 				<!-- P2 bundles -->
