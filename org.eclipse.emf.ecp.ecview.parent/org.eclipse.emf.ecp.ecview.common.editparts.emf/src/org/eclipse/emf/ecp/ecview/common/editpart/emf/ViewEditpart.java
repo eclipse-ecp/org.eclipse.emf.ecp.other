@@ -14,6 +14,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
@@ -43,6 +44,7 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			.getLogger(ViewEditpart.class);
 	private IEmbeddableEditpart content;
 	private IViewContext context;
+	private IConfiguration configuration;
 	private IViewPresentation<?> presentation;
 	private IBindingSetEditpart bindingSet;
 
@@ -72,6 +74,9 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		// render the view presentation
 		renderPresentation(options);
 
+		if (configuration != null) {
+			configuration.beforeBind(getContext());
+		}
 		// render the bindings
 		renderBindings(options);
 
@@ -121,6 +126,11 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 					"Already rendered! Changing context not allowed!");
 		}
 		this.context = context;
+	}
+
+	@Override
+	public void setConfiguration(IConfiguration configuration) {
+		this.configuration = configuration;
 	}
 
 	@Override

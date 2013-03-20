@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
 import org.eclipse.core.databinding.Binding;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -191,8 +192,21 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 			IBindingManager bindingManager = getBindindSet()
 					.getBindingManager();
 			if (bindingManager != null) {
-				binding = bindingManager.bind(getTargetEndpoint()
-						.getObservable(), getModelEndpoint().getObservable());
+				IObservableValue target = getTargetEndpoint().getObservable();
+				IObservableValue model = getModelEndpoint().getObservable();
+				if (target == null) {
+					LOGGER.error("TargetValue must never be null! {}",
+							getTargetEndpoint());
+					return;
+				}
+
+				if (model == null) {
+					LOGGER.error("ModelValue must never be null! {}",
+							getModelEndpoint());
+					return;
+				}
+
+				binding = bindingManager.bind(target, model);
 			} else {
 				LOGGER.error("BindingManager is null!. No bindings processed!");
 			}

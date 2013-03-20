@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.util.CoreModelUtil;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
@@ -197,7 +197,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 
 	@Override
 	public IObservable getObservableValue(Object model) {
-		return internalGetObservableValue((YBindingEndpoint) model);
+		return internalGetObservableValue((YEmbeddableBindingEndpoint) model);
 	}
 
 	/**
@@ -207,7 +207,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	 * @return
 	 */
 	protected IObservable internalGetObservableValue(
-			YBindingEndpoint bindableValue) {
+			YEmbeddableBindingEndpoint bindableValue) {
 		throw new UnsupportedOperationException("Must be overridden!");
 	}
 

@@ -37,6 +37,8 @@ public class ContextBeanBindingDelegate extends ContextBindingDelegate {
 			return false;
 		}
 		ISlot slot = beanScope.accessBeanSlot(context);
+		// TODO: if attribute.path == 1 --> use bean binding since slot is
+		// observable
 		if (slot == null || !hasPropertyChangeSupport(slot.getValueType())) {
 			return false;
 		}

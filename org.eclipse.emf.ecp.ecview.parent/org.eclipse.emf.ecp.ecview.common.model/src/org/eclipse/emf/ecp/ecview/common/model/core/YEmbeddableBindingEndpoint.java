@@ -17,7 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
  * </p>
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddableBindingEndpoint()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface YEmbeddableBindingEndpoint extends YBindingEndpoint {

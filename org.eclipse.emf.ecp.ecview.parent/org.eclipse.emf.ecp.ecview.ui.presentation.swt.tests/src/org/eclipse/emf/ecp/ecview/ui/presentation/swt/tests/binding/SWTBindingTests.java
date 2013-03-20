@@ -71,8 +71,8 @@ public class SWTBindingTests {
 		yLayout.addElement(yText2);
 
 		YBindingSet yBindingSet = yView.getOrCreateBindingSet();
-		yBindingSet.addBinding(yText1.getOrCreateValueEndpoint(),
-				yText2.getOrCreateValueEndpoint());
+		yBindingSet.addBinding(yText1.createValueEndpoint(),
+				yText2.createValueEndpoint());
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);

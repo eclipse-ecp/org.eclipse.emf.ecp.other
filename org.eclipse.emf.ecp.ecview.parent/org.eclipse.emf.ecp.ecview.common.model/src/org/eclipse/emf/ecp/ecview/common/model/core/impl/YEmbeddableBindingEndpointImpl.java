@@ -29,7 +29,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
  *
  * @generated
  */
-public class YEmbeddableBindingEndpointImpl extends YBindingEndpointImpl implements YEmbeddableBindingEndpoint {
+public abstract class YEmbeddableBindingEndpointImpl extends YBindingEndpointImpl implements YEmbeddableBindingEndpoint {
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
 	 * <!-- begin-user-doc -->

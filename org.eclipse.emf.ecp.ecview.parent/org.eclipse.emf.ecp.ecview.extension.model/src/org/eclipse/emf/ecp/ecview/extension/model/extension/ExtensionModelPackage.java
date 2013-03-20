@@ -250,22 +250,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
-	 * The feature id for the '<em><b>Value Endpoint</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD__VALUE_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD__DATATYPE = YINPUT_FEATURE_COUNT + 1;
+	int YTEXT_FIELD__DATATYPE = YINPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -274,7 +265,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 2;
+	int YTEXT_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YText Field</em>' class.
@@ -283,7 +274,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
+	int YTEXT_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutImpl <em>YGrid Layout</em>}' class.

@@ -74,8 +74,14 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 			// to make binding independent
 			throw new IllegalArgumentException(
 					"View and BindingManager must not be null for now!");
+		} else {
+			IBindingManager bm = view.getContext().getService(
+					IBindingManager.class.getName());
+			if (bm == null) {
+				bm = this.bindingManager;
+			}
+			return bm;
 		}
-		return view.getContext().getService(IBindingManager.class.getName());
 	}
 
 	@Override

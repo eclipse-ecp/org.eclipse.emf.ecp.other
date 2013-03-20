@@ -60,9 +60,7 @@ public interface IBeanRegistry {
 	void setBean(String selector, Object bean);
 
 	/**
-	 * Returns the bean slot that is used internally to store the bean. <br>
-	 * If an instance of a slot for the given selector could be found it will be
-	 * returned. Otherwise a new slot will be created and registered.
+	 * Returns the bean slot that is used internally to store the bean.
 	 * <p>
 	 * 
 	 * @param selector

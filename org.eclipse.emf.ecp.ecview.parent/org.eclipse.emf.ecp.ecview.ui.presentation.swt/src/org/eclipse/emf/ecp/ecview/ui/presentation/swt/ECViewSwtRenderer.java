@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt;
 import java.util.Map;
 
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -41,26 +42,56 @@ public class ECViewSwtRenderer implements IRenderer {
 	/**
 	 * Renders the UI for the given composite and UI model.
 	 * 
-	 * @param composite The composite the should be the parent for the rendered UI
-	 * @param yView The view model.
-	 * @param options rendering options
-	 * @throws ContextException e
+	 * @param composite
+	 *            The composite the should be the parent for the rendered UI
+	 * @param yView
+	 *            The view model.
+	 * @param options
+	 *            rendering options
+	 * @throws ContextException
+	 *             e
 	 */
-	public void render(Composite composite, YView yView, Map<String, Object> options) throws ContextException {
-		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
+	public void render(Composite composite, YView yView,
+			Map<String, Object> options) throws ContextException {
+		render(composite, yView, (IConfiguration) null, options);
+	}
+
+	/**
+	 * Renders the UI for the given composite and UI model.
+	 * 
+	 * @param composite
+	 *            The composite the should be the parent for the rendered UI
+	 * @param yView
+	 *            The view model.
+	 * @param config
+	 *            Configuration that is called at render time.
+	 * @param options
+	 *            rendering options
+	 * @throws ContextException
+	 *             e
+	 */
+	public void render(Composite composite, YView yView, IConfiguration config,
+			Map<String, Object> options) throws ContextException {
+		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance()
+				.getEditpart(yView);
+		viewEditpart.setConfiguration(config);
 		render(composite, viewEditpart, options);
 	}
 
 	/**
 	 * Renders the UI for the given composite and edit part.
 	 * 
-	 * @param composite The composite the should be the parent for the rendered UI
-	 * @param viewEditpart The viewEditPart that should become rendered
-	 * @param options rendering options
-	 * @throws ContextException e
+	 * @param composite
+	 *            The composite the should be the parent for the rendered UI
+	 * @param viewEditpart
+	 *            The viewEditPart that should become rendered
+	 * @param options
+	 *            rendering options
+	 * @throws ContextException
+	 *             e
 	 */
-	public void render(Composite composite, IViewEditpart viewEditpart, Map<String, Object> options)
-		throws ContextException {
+	public void render(Composite composite, IViewEditpart viewEditpart,
+			Map<String, Object> options) throws ContextException {
 		ViewContext viewContext = new ViewContext(viewEditpart);
 		render(viewContext, composite, options);
 	}
@@ -69,7 +100,8 @@ public class ECViewSwtRenderer implements IRenderer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void render(IViewContext viewContext, Object composite, Map<String, Object> options) throws ContextException {
+	public void render(IViewContext viewContext, Object composite,
+			Map<String, Object> options) throws ContextException {
 		viewContext.render(UI_KIT_URI, composite, options);
 	}
 

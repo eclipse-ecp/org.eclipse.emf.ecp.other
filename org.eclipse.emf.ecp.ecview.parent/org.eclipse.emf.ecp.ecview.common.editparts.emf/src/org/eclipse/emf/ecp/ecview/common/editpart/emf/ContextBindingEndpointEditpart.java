@@ -50,6 +50,12 @@ public class ContextBindingEndpointEditpart extends
 			throw new RuntimeException("View must not be null!", e);
 		}
 
+		if (getModel().getUrlString() == null
+				|| getModel().getUrlString().equals("")) {
+			logger.error("URLString must not be null!");
+			return null;
+		}
+
 		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance()
 				.getEditpart(yView);
 		return (A) ContextObservables.observeValue(viewEditpart.getContext(),

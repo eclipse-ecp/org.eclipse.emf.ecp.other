@@ -79,7 +79,7 @@ public class BeanScope extends AbstractScope {
 	 * Accesses the object in the given context that is described by the uri
 	 * segment of this scope. Also delegates to fragment scope if exists.
 	 * 
-	 * @param context
+	 * @param accessible
 	 * @return
 	 */
 	public Object access(IBeanRegistry accessible) {
@@ -97,7 +97,7 @@ public class BeanScope extends AbstractScope {
 	 * Accesses the bean slot in the given context and returns its value. URI
 	 * fragments are ignored.
 	 * 
-	 * @param context
+	 * @param accessible
 	 * @return
 	 */
 	public Object accessBean(IBeanRegistry accessible) {
@@ -108,11 +108,27 @@ public class BeanScope extends AbstractScope {
 	 * Accesses the bean slot in the given context and returns it. URI fragments
 	 * are ignored.
 	 * 
-	 * @param context
+	 * @param accessible
 	 * @return
 	 */
 	public ISlot accessBeanSlot(IBeanRegistry accessible) {
 		return accessible.getBeanSlot(selector);
+	}
+
+	/**
+	 * Creates a new bean slot if not present yet.
+	 * 
+	 * @param accessible
+	 * @param type
+	 *            The type of the object that will be stored in the bean slot
+	 * @return
+	 */
+	public ISlot createBeanSlot(IBeanRegistry accessible, Class<?> type) {
+		ISlot slot = accessible.getBeanSlot(selector);
+		if (slot == null) {
+			slot = accessible.createBeanSlot(selector, type);
+		}
+		return slot;
 	}
 
 	/**

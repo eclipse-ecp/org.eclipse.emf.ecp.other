@@ -12,8 +12,6 @@ package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.binding;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -25,18 +23,18 @@ import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
+import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -61,7 +59,7 @@ public class ContextBindingEndpointEditpartTest {
 				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
 		editpartManager
 				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
-		
+
 		// initialize default realm
 		new DefaultBindingManager.DefaultRealm();
 	}
@@ -124,6 +122,59 @@ public class ContextBindingEndpointEditpartTest {
 
 		context.setBean("bean1", new Bean("Test2"));
 		assertEquals(1, counter[0]);
+	}
+
+	/**
+	 * Tests the getObservable method without a valid view.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_bind() {
+		// END SUPRESS CATCH EXCEPTION
+
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+
+		ViewContext context = new ViewContext(viewEditpart);
+		context.createBeanSlot("slo1", String.class);
+		YBindingSet bs = bindingFactory.createYBindingSet();
+		YView view = (YView) viewEditpart.getModel();
+		view.setBindingSet(bs);
+
+		// activate the bindingSet editpart
+		//
+		IBindingSetEditpart bsEditpart = editpartManager.getEditpart(bs);
+		bsEditpart.setBindingManager(new DefaultBindingManager());
+		bsEditpart.activate();
+
+		// context endpoint
+		//
+		YContextBindingEndpoint yTargetEndpoint = factory
+				.createYContextBindingEndpoint();
+		yTargetEndpoint.setUrlString("view://bean/slo1#value");
+
+		// bean endpoint
+		//
+		Bean bean = new Bean("Test");
+		YBeanBindingEndpoint yModelEndpoint = BindingFactory.eINSTANCE
+				.createYBeanBindingEndpoint();
+		yModelEndpoint.setBean(bean);
+		yModelEndpoint.setPropertyPath("value");
+
+		bs.addBinding(yTargetEndpoint, yModelEndpoint);
+
+		// write to bean
+		BeanScope scope = URIHelper.toScope("view://bean/slo1#value")
+				.getBeanScope();
+		assertEquals(bean.getValue(), (String) scope.access(context));
+
+		bean.setValue("Othervalue");
+		assertEquals(bean.getValue(), (String) scope.access(context));
+
+		// write to context
+		scope.accessBeanSlot(context).setValue("FromContext");
+		assertEquals(bean.getValue(), "FromContext");
+
 	}
 
 	/**

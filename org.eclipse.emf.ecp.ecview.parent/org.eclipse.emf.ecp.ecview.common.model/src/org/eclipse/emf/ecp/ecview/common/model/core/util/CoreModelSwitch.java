@@ -231,6 +231,24 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: {
+				YEmbeddableValueEndpoint yEmbeddableValueEndpoint = (YEmbeddableValueEndpoint)theEObject;
+				T result = caseYEmbeddableValueEndpoint(yEmbeddableValueEndpoint);
+				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableValueEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yEmbeddableValueEndpoint);
+				if (result == null) result = caseYElement(yEmbeddableValueEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: {
+				YEmbeddableSelectionEndpoint yEmbeddableSelectionEndpoint = (YEmbeddableSelectionEndpoint)theEObject;
+				T result = caseYEmbeddableSelectionEndpoint(yEmbeddableSelectionEndpoint);
+				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableSelectionEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yEmbeddableSelectionEndpoint);
+				if (result == null) result = caseYElement(yEmbeddableSelectionEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -517,6 +535,36 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYEmbeddableBindingEndpoint(YEmbeddableBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEmbeddable Value Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEmbeddable Value Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEmbeddableValueEndpoint(YEmbeddableValueEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEmbeddable Selection Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEmbeddable Selection Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEmbeddableSelectionEndpoint(YEmbeddableSelectionEndpoint object) {
 		return null;
 	}
 

@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart;
 import java.util.Map;
 
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
@@ -66,7 +67,14 @@ public interface IViewEditpart extends IElementEditpart {
 	 *            The content of the view.
 	 */
 	void setContent(IEmbeddableEditpart content);
-	
+
+	/**
+	 * Sets the configuration. It will become invoked at rendering time.
+	 * 
+	 * @param configuration
+	 */
+	void setConfiguration(IConfiguration configuration);
+
 	/**
 	 * Is called to set the bindingSet of the view.
 	 * 
@@ -108,7 +116,8 @@ public interface IViewEditpart extends IElementEditpart {
 	/**
 	 * Is called to render the view.
 	 * 
-	 * @param options can contain different options used for rendering
+	 * @param options
+	 *            can contain different options used for rendering
 	 * @throws ContextException
 	 */
 	void render(Map<String, Object> options) throws ContextException;

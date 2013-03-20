@@ -7,29 +7,33 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Label</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi Label</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl#getDatadescription <em>Datadescription</em>}</li>
+ * <li>
+ * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl#getDatadescription
+ * <em>Datadescription</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class YLabelImpl extends YFieldImpl implements YLabel {
 	/**
-	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getDatadescription()
+	 * <em>Datadescription</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @see #getDatadescription()
 	 * @generated
 	 * @ordered
@@ -37,8 +41,8 @@ public class YLabelImpl extends YFieldImpl implements YLabel {
 	protected YDatadescription datadescription;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected YLabelImpl() {
@@ -46,8 +50,8 @@ public class YLabelImpl extends YFieldImpl implements YLabel {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -56,25 +60,27 @@ public class YLabelImpl extends YFieldImpl implements YLabel {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
-		if (datadescription != null && ((EObject)datadescription).eIsProxy()) {
-			InternalEObject oldDatadescription = (InternalEObject)datadescription;
-			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
+		if (datadescription != null && ((EObject) datadescription).eIsProxy()) {
+			InternalEObject oldDatadescription = (InternalEObject) datadescription;
+			datadescription = (YDatadescription) eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YLABEL__DATADESCRIPTION, oldDatadescription, datadescription));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							ExtensionModelPackage.YLABEL__DATADESCRIPTION,
+							oldDatadescription, datadescription));
 			}
 		}
 		return datadescription;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public YDatadescription basicGetDatadescription() {
@@ -82,74 +88,100 @@ public class YLabelImpl extends YFieldImpl implements YLabel {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDatadescription(YDatadescription newDatadescription) {
 		YDatadescription oldDatadescription = datadescription;
 		datadescription = newDatadescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLABEL__DATADESCRIPTION, oldDatadescription, datadescription));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ExtensionModelPackage.YLABEL__DATADESCRIPTION,
+					oldDatadescription, datadescription));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
-				if (resolve) return getDatadescription();
-				return basicGetDatadescription();
+		case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
+			if (resolve)
+				return getDatadescription();
+			return basicGetDatadescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
-				setDatadescription((YDatadescription)newValue);
-				return;
+		case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
+			setDatadescription((YDatadescription) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
-				setDatadescription((YDatadescription)null);
-				return;
+		case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
+			setDatadescription((YDatadescription) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
-				return datadescription != null;
+		case ExtensionModelPackage.YLABEL__DATADESCRIPTION:
+			return datadescription != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //YUiLabelImpl
+} // YUiLabelImpl

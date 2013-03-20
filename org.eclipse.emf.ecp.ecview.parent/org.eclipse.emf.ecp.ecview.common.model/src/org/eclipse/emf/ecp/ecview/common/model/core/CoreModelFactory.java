@@ -84,13 +84,22 @@ public interface CoreModelFactory extends EFactory {
 	YContextBindingEndpoint createYContextBindingEndpoint();
 
 	/**
-	 * Returns a new object of class '<em>YEmbeddable Binding Endpoint</em>'.
+	 * Returns a new object of class '<em>YEmbeddable Value Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YEmbeddable Binding Endpoint</em>'.
+	 * @return a new object of class '<em>YEmbeddable Value Endpoint</em>'.
 	 * @generated
 	 */
-	YEmbeddableBindingEndpoint createYEmbeddableBindingEndpoint();
+	YEmbeddableValueEndpoint createYEmbeddableValueEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>YEmbeddable Selection Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YEmbeddable Selection Endpoint</em>'.
+	 * @generated
+	 */
+	YEmbeddableSelectionEndpoint createYEmbeddableSelectionEndpoint();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -12,7 +12,7 @@ package org.eclipse.emf.ecp.ecview.databinding.beans.context;
 
 import java.net.URI;
 
-import org.eclipse.core.databinding.beans.PojoObservables;
+import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -59,7 +59,9 @@ public class ContextPojoBindingDelegate extends ContextBindingDelegate {
 		// if value-property was references inside the slot, then return the
 		// observable
 		if (beanFragment.equals(ISlot.PROP_VALUE)) {
-			return PojoObservables.observeValue(realm, slot, ISlot.PROP_VALUE);
+			// in that special case do not use PojoBinding since slot is
+			// observable!
+			return BeansObservables.observeValue(realm, slot, ISlot.PROP_VALUE);
 		} else {
 			// normalize bean fragment
 			beanFragment = AccessibleScope
@@ -70,9 +72,10 @@ public class ContextPojoBindingDelegate extends ContextBindingDelegate {
 				return null;
 			} else {
 				// observe master
+				// Note: slot (master) is observable!
 				//
-				IObservableValue slotObservable = PojoObservables.observeValue(
-						realm, slot, ISlot.PROP_VALUE);
+				IObservableValue slotObservable = BeansObservables
+						.observeValue(realm, slot, ISlot.PROP_VALUE);
 
 				// observe detail
 				//

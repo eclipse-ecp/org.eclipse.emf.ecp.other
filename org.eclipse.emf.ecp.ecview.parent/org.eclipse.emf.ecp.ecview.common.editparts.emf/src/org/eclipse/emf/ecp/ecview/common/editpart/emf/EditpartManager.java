@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -83,8 +83,8 @@ public class EditpartManager extends AbstractEditpartManager {
 				.isAssignableFrom(IContextBindingEndpointEditpart.class)) {
 			result = createNewInstance(ContextBindingEndpointEditpart.class);
 		} else if (editPartClazz
-				.isAssignableFrom(IEmbeddableBindingEndpointEditpart.class)) {
-			result = createNewInstance(EmbeddableBindingEndpointEditpart.class);
+				.isAssignableFrom(IEmbeddableValueEndpointEditpart.class)) {
+			result = createNewInstance(EmbeddableValueEndpointEditpart.class);
 		} else if (editPartClazz
 				.isAssignableFrom(IBeanBindingEndpointEditpart.class)) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
@@ -128,8 +128,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(BindingEditpart.class);
 		} else if (yElement instanceof YContextBindingEndpoint) {
 			result = createNewInstance(ContextBindingEndpointEditpart.class);
-		} else if (yElement instanceof YEmbeddableBindingEndpoint) {
-			result = createNewInstance(EmbeddableBindingEndpointEditpart.class);
+		} else if (yElement instanceof YEmbeddableValueEndpoint) {
+			result = createNewInstance(EmbeddableValueEndpointEditpart.class);
 		} else if (yElement instanceof YBeanBindingEndpoint) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
 		}

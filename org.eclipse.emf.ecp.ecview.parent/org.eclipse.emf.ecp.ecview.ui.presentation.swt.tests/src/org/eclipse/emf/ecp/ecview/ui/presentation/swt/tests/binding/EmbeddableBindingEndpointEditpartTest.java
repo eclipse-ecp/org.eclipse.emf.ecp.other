@@ -90,11 +90,9 @@ public class EmbeddableBindingEndpointEditpartTest {
 		ITextRidget text1 = getText(yText1);
 		ITextRidget text2 = getText(yText2);
 
-		YEmbeddableBindingEndpoint yEndpoint1 = yText1
-				.getOrCreateValueEndpoint();
+		YEmbeddableBindingEndpoint yEndpoint1 = yText1.createValueEndpoint();
 		yEndpoint1.setElement(yText1);
-		YEmbeddableBindingEndpoint yEndpoint2 = yText2
-				.getOrCreateValueEndpoint();
+		YEmbeddableBindingEndpoint yEndpoint2 = yText2.createValueEndpoint();
 		yEndpoint2.setElement(yText2);
 		yBindingSet.addBinding(yEndpoint1, yEndpoint2);
 
@@ -125,7 +123,7 @@ public class EmbeddableBindingEndpointEditpartTest {
 	public void test_dispose() {
 		// END SUPRESS CATCH EXCEPTION
 		YEmbeddableBindingEndpoint yEndpoint = CoreModelFactory.eINSTANCE
-				.createYEmbeddableBindingEndpoint();
+				.createYEmbeddableValueEndpoint();
 		IEmbeddableBindingEndpointEditpart editpart = DelegatingEditPartManager
 				.getInstance().getEditpart(yEndpoint);
 

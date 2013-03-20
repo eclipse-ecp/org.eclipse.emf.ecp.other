@@ -72,20 +72,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YAction" eSuperTypes="#//YEmbeddable #//YEnable"/>
   <eClassifiers xsi:type="ecore:EClass" name="YValueBindable" abstract="true" interface="true">
-    <eOperations name="getOrCreateValueEndpoint" eType="#//YEmbeddableBindingEndpoint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueEndpoint" eType="#//YEmbeddableBindingEndpoint"/>
+    <eOperations name="createValueEndpoint" eType="#//YEmbeddableValueEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YSelectionBindable" abstract="true"
-      interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectionBindableValue"
-        eType="ecore:EClass binding.ecore#//YBindingEndpoint"/>
-  </eClassifiers>
+      interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="YContextBindingEndpoint" eSuperTypes="binding.ecore#//YBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlString" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableBindingEndpoint" eSuperTypes="binding.ecore#//YBindingEndpoint">
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableBindingEndpoint" abstract="true"
+      eSuperTypes="binding.ecore#//YBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
         eType="#//YEmbeddable"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableValueEndpoint" eSuperTypes="#//YEmbeddableBindingEndpoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableSelectionEndpoint" eSuperTypes="#//YEmbeddableBindingEndpoint"/>
 </ecore:EPackage>

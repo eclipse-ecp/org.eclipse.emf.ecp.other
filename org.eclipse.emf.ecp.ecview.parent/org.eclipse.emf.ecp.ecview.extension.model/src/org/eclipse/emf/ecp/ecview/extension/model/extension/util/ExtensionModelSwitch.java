@@ -191,6 +191,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YLabel yLabel = (YLabel)theEObject;
 				T result = caseYLabel(yLabel);
 				if (result == null) result = caseYField(yLabel);
+				if (result == null) result = caseYValueBindable(yLabel);
 				if (result == null) result = caseYEmbeddable(yLabel);
 				if (result == null) result = caseYEditable(yLabel);
 				if (result == null) result = caseYEnable(yLabel);
@@ -218,6 +219,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YCheckBox yCheckBox = (YCheckBox)theEObject;
 				T result = caseYCheckBox(yCheckBox);
 				if (result == null) result = caseYInput(yCheckBox);
+				if (result == null) result = caseYValueBindable(yCheckBox);
 				if (result == null) result = caseYField(yCheckBox);
 				if (result == null) result = caseYEmbeddable(yCheckBox);
 				if (result == null) result = caseYEditable(yCheckBox);
@@ -245,6 +247,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YDecimalField yDecimalField = (YDecimalField)theEObject;
 				T result = caseYDecimalField(yDecimalField);
 				if (result == null) result = caseYInput(yDecimalField);
+				if (result == null) result = caseYValueBindable(yDecimalField);
 				if (result == null) result = caseYField(yDecimalField);
 				if (result == null) result = caseYEmbeddable(yDecimalField);
 				if (result == null) result = caseYEditable(yDecimalField);
@@ -259,6 +262,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YNumericField yNumericField = (YNumericField)theEObject;
 				T result = caseYNumericField(yNumericField);
 				if (result == null) result = caseYInput(yNumericField);
+				if (result == null) result = caseYValueBindable(yNumericField);
 				if (result == null) result = caseYField(yNumericField);
 				if (result == null) result = caseYEmbeddable(yNumericField);
 				if (result == null) result = caseYEditable(yNumericField);

@@ -77,7 +77,8 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YVIEW_SET: return (EObject)createYViewSet();
 			case CoreModelPackage.YACTION: return (EObject)createYAction();
 			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return (EObject)createYContextBindingEndpoint();
-			case CoreModelPackage.YEMBEDDABLE_BINDING_ENDPOINT: return (EObject)createYEmbeddableBindingEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return (EObject)createYEmbeddableValueEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return (EObject)createYEmbeddableSelectionEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -182,9 +183,19 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableBindingEndpoint createYEmbeddableBindingEndpoint() {
-		YEmbeddableBindingEndpointImpl yEmbeddableBindingEndpoint = new YEmbeddableBindingEndpointImpl();
-		return yEmbeddableBindingEndpoint;
+	public YEmbeddableValueEndpoint createYEmbeddableValueEndpoint() {
+		YEmbeddableValueEndpointImpl yEmbeddableValueEndpoint = new YEmbeddableValueEndpointImpl();
+		return yEmbeddableValueEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableSelectionEndpoint createYEmbeddableSelectionEndpoint() {
+		YEmbeddableSelectionEndpointImpl yEmbeddableSelectionEndpoint = new YEmbeddableSelectionEndpointImpl();
+		return yEmbeddableSelectionEndpoint;
 	}
 
 	/**

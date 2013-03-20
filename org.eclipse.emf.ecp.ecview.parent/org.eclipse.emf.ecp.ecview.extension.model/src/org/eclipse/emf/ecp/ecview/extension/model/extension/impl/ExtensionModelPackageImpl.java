@@ -952,11 +952,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yVerticalLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYMarginable());
 		yTableEClass.getESuperTypes().add(this.getYInput());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYField());
+		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yTextAreaEClass.getESuperTypes().add(this.getYInput());
 		yCheckBoxEClass.getESuperTypes().add(this.getYInput());
+		yCheckBoxEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yInputEClass.getESuperTypes().add(theCoreModelPackage.getYField());
 		yDecimalFieldEClass.getESuperTypes().add(this.getYInput());
+		yDecimalFieldEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yNumericFieldEClass.getESuperTypes().add(this.getYInput());
+		yNumericFieldEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yComboBoxEClass.getESuperTypes().add(this.getYInput());
 		yListEClass.getESuperTypes().add(this.getYInput());
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());

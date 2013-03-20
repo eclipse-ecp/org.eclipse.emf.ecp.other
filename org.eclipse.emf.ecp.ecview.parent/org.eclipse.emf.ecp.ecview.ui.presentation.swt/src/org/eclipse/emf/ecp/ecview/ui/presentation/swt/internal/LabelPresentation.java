@@ -10,9 +10,15 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
+import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
+import org.eclipse.riena.ui.ridgets.ILabelRidget;
+import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -28,6 +34,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 	private final ModelAccess modelAccess;
 	private Composite controlBase;
 	private Label label;
+	private ILabelRidget labelRidget;
 
 	/**
 	 * Constructor.
@@ -56,6 +63,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 			}
 
 			label = new Label(controlBase, SWT.NONE);
+			labelRidget = (ILabelRidget) SwtRidgetFactory.createRidget(label);
 			label.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
 			setCSSClass(label, CSS_CLASS__LABEL);
@@ -78,9 +86,34 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 		return controlBase;
 	}
 
+	/**
+	 * Returns the label ridget.
+	 * 
+	 * @return
+	 */
+	public ILabelRidget getRidget() {
+		return labelRidget;
+	}
+
 	@Override
 	public boolean isRendered() {
 		return controlBase != null;
+	}
+
+	@Override
+	protected IObservable internalGetObservableValue(
+			YEmbeddableBindingEndpoint bindableValue) {
+		if (bindableValue == null) {
+			throw new NullPointerException("BindableValue must not be null!");
+		}
+
+		if (bindableValue instanceof YEmbeddableValueEndpoint) {
+			// return the observable value for text
+			return BeansObservables.observeValue(labelRidget,
+					ILabelRidget.PROPERTY_TEXT);
+		}
+		throw new IllegalArgumentException("Not a valid input: "
+				+ bindableValue);
 	}
 
 	/**
@@ -168,4 +201,5 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 			return yUiLabel.getDatadescription().getLabel();
 		}
 	}
+
 }

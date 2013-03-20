@@ -168,6 +168,14 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYEmbeddableBindingEndpointAdapter();
 			}
 			@Override
+			public Adapter caseYEmbeddableValueEndpoint(YEmbeddableValueEndpoint object) {
+				return createYEmbeddableValueEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYEmbeddableSelectionEndpoint(YEmbeddableSelectionEndpoint object) {
+				return createYEmbeddableSelectionEndpointAdapter();
+			}
+			@Override
 			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
 				return createYBindingEndpointAdapter();
 			}
@@ -454,6 +462,34 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYEmbeddableBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint <em>YEmbeddable Value Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint
+	 * @generated
+	 */
+	public Adapter createYEmbeddableValueEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint <em>YEmbeddable Selection Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint
+	 * @generated
+	 */
+	public Adapter createYEmbeddableSelectionEndpointAdapter() {
 		return null;
 	}
 

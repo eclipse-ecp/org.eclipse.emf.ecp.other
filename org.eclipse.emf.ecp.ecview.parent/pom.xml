@@ -124,7 +124,7 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.swt</module>
 
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.example.swt</module>
+				<module>org.eclipse.emf.ecp.ecview.example.swt</module>
 
 				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>

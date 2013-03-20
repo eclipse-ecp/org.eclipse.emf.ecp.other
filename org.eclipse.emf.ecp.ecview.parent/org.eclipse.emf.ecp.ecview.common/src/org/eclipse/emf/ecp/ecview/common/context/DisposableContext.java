@@ -79,8 +79,8 @@ public abstract class DisposableContext extends AbstractDisposable implements
 	@Override
 	public ISlot getBeanSlot(String selector) {
 		checkDisposed();
-
-		return valueBeans.get(selector);
+		ISlot slot = valueBeans.get(selector);
+		return slot;
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public abstract class DisposableContext extends AbstractDisposable implements
 
 	public void registerService(String selector, Object service) {
 		checkDisposed();
-		synchronized (services){
+		synchronized (services) {
 			logger.debug("Service registered: {}", selector);
 			services.put(selector, service);
 		}
@@ -103,7 +103,7 @@ public abstract class DisposableContext extends AbstractDisposable implements
 
 	public void unregisterService(String selector) {
 		checkDisposed();
-		synchronized (services){
+		synchronized (services) {
 			logger.debug("Service unregistered: {}", selector);
 			services.remove(selector);
 		}
@@ -113,10 +113,11 @@ public abstract class DisposableContext extends AbstractDisposable implements
 	@Override
 	public <S> S getService(String selector) {
 		checkDisposed();
-		synchronized (services){
-			if (!services.containsKey(selector)){
-				S service = DelegatingServiceProviderManager.getInstance().createService(selector, this);
-				if (service!=null){
+		synchronized (services) {
+			if (!services.containsKey(selector)) {
+				S service = DelegatingServiceProviderManager.getInstance()
+						.createService(selector, this);
+				if (service != null) {
 					registerService(selector, service);
 				}
 			}

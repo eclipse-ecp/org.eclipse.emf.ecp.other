@@ -13,7 +13,8 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
@@ -129,12 +130,12 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
 	@Override
 	protected IObservable internalGetObservableValue(
-			YBindingEndpoint bindableValue) {
+			YEmbeddableBindingEndpoint bindableValue) {
 		if (bindableValue == null) {
 			throw new NullPointerException("BindableValue must not be null!");
 		}
 
-		if (bindableValue == yTextField.getValueEndpoint()) {
+		if (bindableValue instanceof YEmbeddableValueEndpoint) {
 			// return the observable value for text
 			return BeansObservables.observeValue(textRidget,
 					ITextRidget.PROPERTY_TEXT);

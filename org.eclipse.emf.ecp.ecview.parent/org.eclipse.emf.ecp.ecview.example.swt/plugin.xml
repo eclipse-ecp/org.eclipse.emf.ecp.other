@@ -73,4 +73,16 @@
          </run>
       </application>
     </extension>
+    <extension
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.binding.TextBindingExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.binding.TextBindingExample">
+         </run>
+      </application>
+    </extension>
 </plugin>
