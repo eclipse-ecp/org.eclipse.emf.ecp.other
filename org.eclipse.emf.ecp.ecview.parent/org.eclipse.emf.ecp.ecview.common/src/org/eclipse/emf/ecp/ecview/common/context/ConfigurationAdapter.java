@@ -13,8 +13,23 @@ package org.eclipse.emf.ecp.ecview.common.context;
 public class ConfigurationAdapter implements IConfiguration {
 
 	@Override
+	public void beforeUiRendering(IContext context) {
+
+	}
+
+	@Override
+	public void afterUiRendering(IContext context) {
+
+	}
+
+	@Override
 	public void beforeBind(IContext context) {
-		
+
+	}
+
+	@Override
+	public void afterBind(IContext context) {
+
 	}
 
 }

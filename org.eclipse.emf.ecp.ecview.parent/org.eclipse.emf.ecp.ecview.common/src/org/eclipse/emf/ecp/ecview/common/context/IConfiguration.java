@@ -19,10 +19,31 @@ package org.eclipse.emf.ecp.ecview.common.context;
 public interface IConfiguration {
 
 	/**
+	 * Is called before the UI rendering is started.
+	 * 
+	 * @param context
+	 */
+	void beforeUiRendering(IContext context);
+
+	/**
+	 * Is called after the UI rendering was finished.
+	 * 
+	 * @param context
+	 */
+	void afterUiRendering(IContext context);
+
+	/**
 	 * Is called before the binding is activated.
 	 * 
 	 * @param context
 	 */
 	void beforeBind(IContext context);
+
+	/**
+	 * Is called after the binding was activated.
+	 * 
+	 * @param context
+	 */
+	void afterBind(IContext context);
 
 }

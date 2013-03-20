@@ -71,8 +71,16 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	@Override
 	public void render(Map<String, Object> options) throws ContextException {
 
+		if (configuration != null) {
+			configuration.beforeUiRendering(getContext());
+		}
+		
 		// render the view presentation
 		renderPresentation(options);
+
+		if (configuration != null) {
+			configuration.afterUiRendering(getContext());
+		}
 
 		if (configuration != null) {
 			configuration.beforeBind(getContext());
@@ -80,6 +88,9 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		// render the bindings
 		renderBindings(options);
 
+		if (configuration != null) {
+			configuration.afterBind(getContext());
+		}
 	}
 
 	/**
