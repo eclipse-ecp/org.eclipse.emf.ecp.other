@@ -89,7 +89,7 @@
 							<ignoreTychoRepositories>true</ignoreTychoRepositories>
 							<target>
 								<artifact>
-									<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
+									<groupId>org.eclipse.emf.ecp.ecview</groupId>
 									<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
@@ -155,7 +155,7 @@
 							<ignoreTychoRepositories>true</ignoreTychoRepositories>
 							<target>
 								<artifact>
-									<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
+									<groupId>org.eclipse.emf.ecp.ecview</groupId>
 									<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
@@ -211,7 +211,7 @@
 							<ignoreTychoRepositories>true</ignoreTychoRepositories>
 							<target>
 								<artifact>
-									<groupId>org.eclipse.emf.ecp.ecview.ui</groupId>
+									<groupId>org.eclipse.emf.ecp.ecview</groupId>
 									<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 									<version>${project.version}</version>
 								</artifact>
