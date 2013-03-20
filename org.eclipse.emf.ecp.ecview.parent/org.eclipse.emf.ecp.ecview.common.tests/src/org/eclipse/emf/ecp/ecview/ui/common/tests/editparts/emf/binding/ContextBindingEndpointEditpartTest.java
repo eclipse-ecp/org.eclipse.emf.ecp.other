@@ -8,26 +8,33 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf.binding;
+package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf.binding;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
+import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,7 +42,7 @@ import org.junit.Test;
  * Tests the {@link ViewEditpart}.
  */
 @SuppressWarnings("restriction")
-public class BeanBindingEndpointEditpartTest {
+public class ContextBindingEndpointEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
@@ -62,13 +69,20 @@ public class BeanBindingEndpointEditpartTest {
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_getObservable_Null() {
+	public void test_getObservable_NPE() {
 		// END SUPRESS CATCH EXCEPTION
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		YContextBindingEndpoint yEndpoint = factory
+				.createYContextBindingEndpoint();
+		IContextBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
-		assertNull(editpart.getObservable());
+
+		try {
+			editpart.getObservable();
+			fail();
+		} catch (RuntimeException e) {
+			// expected
+			assertEquals("View must not be null!", e.getMessage());
+		}
 	}
 
 	/**
@@ -78,18 +92,22 @@ public class BeanBindingEndpointEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getObservable() {
 		// END SUPRESS CATCH EXCEPTION
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+		ViewContext context = new ViewContext(viewEditpart);
+		context.setBean("bean1", new Bean("Test"));
 		YBindingSet bs = bindingFactory.createYBindingSet();
+		YView view = (YView) viewEditpart.getModel();
+		view.setBindingSet(bs);
 		YBinding binding = bindingFactory.createYBinding();
 
-		Bean bean = new Bean("Test");
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
-		yEndpoint.setBean(bean);
-		yEndpoint.setPropertyPath("value");
+		YContextBindingEndpoint yEndpoint = factory
+				.createYContextBindingEndpoint();
+		yEndpoint.setUrlString("view://bean/bean1#value");
 		binding.setModelValue(yEndpoint);
 		bs.addBinding(binding);
 
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		IContextBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 		IObservableValue value = editpart.getObservable();
 
@@ -102,8 +120,7 @@ public class BeanBindingEndpointEditpartTest {
 		});
 		assertEquals(0, counter[0]);
 
-		bean.setValue("Other");
-
+		context.setBean("bean1", new Bean("Test2"));
 		assertEquals(1, counter[0]);
 	}
 
@@ -112,38 +129,52 @@ public class BeanBindingEndpointEditpartTest {
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_getObservable_Nested() {
+	public void test_bind() {
 		// END SUPRESS CATCH EXCEPTION
+
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+
+		ViewContext context = new ViewContext(viewEditpart);
+		context.createBeanSlot("slo1", String.class);
 		YBindingSet bs = bindingFactory.createYBindingSet();
-		YBinding binding = bindingFactory.createYBinding();
+		YView view = (YView) viewEditpart.getModel();
+		view.setBindingSet(bs);
 
-		Bean inner = new Bean("InnerTest");
-		Bean outer = new Bean(inner);
-		YBeanBindingEndpoint yEndpoint = bindingFactory
+		// activate the bindingSet editpart
+		//
+		IBindingSetEditpart bsEditpart = editpartManager.getEditpart(bs);
+		bsEditpart.setBindingManager(new DefaultBindingManager());
+		bsEditpart.activate();
+
+		// context endpoint
+		//
+		YContextBindingEndpoint yTargetEndpoint = factory
+				.createYContextBindingEndpoint();
+		yTargetEndpoint.setUrlString("view://bean/slo1#value");
+
+		// bean endpoint
+		//
+		Bean bean = new Bean("Test");
+		YBeanBindingEndpoint yModelEndpoint = BindingFactory.eINSTANCE
 				.createYBeanBindingEndpoint();
-		yEndpoint.setBean(outer);
-		yEndpoint.setPropertyPath("inner.value");
-		binding.setModelValue(yEndpoint);
-		bs.addBinding(binding);
+		yModelEndpoint.setBean(bean);
+		yModelEndpoint.setPropertyPath("value");
 
-		IBeanBindingEndpointEditpart editpart = editpartManager
-				.getEditpart(yEndpoint);
-		IObservableValue value = editpart.getObservable();
+		bs.addBinding(yTargetEndpoint, yModelEndpoint);
 
-		final int[] counter = new int[1];
-		value.addValueChangeListener(new IValueChangeListener() {
-			@Override
-			public void handleValueChange(ValueChangeEvent event) {
-				counter[0] = counter[0] + 1;
-			}
-		});
-		assertEquals(0, counter[0]);
+		// write to bean
+		BeanScope scope = URIHelper.toScope("view://bean/slo1#value")
+				.getBeanScope();
+		assertEquals(bean.getValue(), (String) scope.access(context));
 
-		inner.setValue("OtherInner");
-		assertEquals(1, counter[0]);
+		bean.setValue("Othervalue");
+		assertEquals(bean.getValue(), (String) scope.access(context));
 
-		outer.setInner(new Bean("newInner"));
-		assertEquals(2, counter[0]);
+		// write to context
+		scope.accessBeanSlot(context).setValue("FromContext");
+		assertEquals(bean.getValue(), "FromContext");
+
 	}
 
 	/**
@@ -153,9 +184,9 @@ public class BeanBindingEndpointEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
 		// END SUPRESS CATCH EXCEPTION
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		YContextBindingEndpoint yEndpoint = factory
+				.createYContextBindingEndpoint();
+		IContextBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 
 		assertFalse(editpart.isDisposed());
@@ -230,16 +261,10 @@ public class BeanBindingEndpointEditpartTest {
 	public class Bean extends AbstractBean {
 
 		private String value;
-		private Bean inner;
 
 		public Bean(String value) {
 			super();
 			this.value = value;
-		}
-
-		public Bean(Bean inner) {
-			super();
-			this.inner = inner;
 		}
 
 		/**
@@ -255,21 +280,6 @@ public class BeanBindingEndpointEditpartTest {
 		 */
 		public void setValue(String value) {
 			firePropertyChanged("value", this.value, this.value = value);
-		}
-
-		/**
-		 * @return the inner
-		 */
-		public Bean getInner() {
-			return inner;
-		}
-
-		/**
-		 * @param inner
-		 *            the inner to set
-		 */
-		public void setInner(Bean inner) {
-			firePropertyChanged("inner", this.inner, this.inner = inner);
 		}
 
 	}

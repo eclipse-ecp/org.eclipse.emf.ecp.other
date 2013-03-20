@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.core.tests.uri;
+package org.eclipse.emf.ecp.ecview.ui.common.tests.uri;
 
 import java.net.URI;
 

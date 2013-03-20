@@ -8,17 +8,28 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
+package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.emf.ecp.ecview.common.context.ConfigurationAdapter;
+import org.eclipse.emf.ecp.ecview.common.context.ContextException;
+import org.eclipse.emf.ecp.ecview.common.context.IContext;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
@@ -29,6 +40,10 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory;
+import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
+import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,6 +53,8 @@ import org.junit.Test;
 @SuppressWarnings("restriction")
 public class ViewEditpartTest {
 
+	private DelegatingPresenterFactory presenterFactory = DelegatingPresenterFactory
+			.getInstance();
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
 	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
@@ -53,6 +70,8 @@ public class ViewEditpartTest {
 				.addDelegate(new org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager());
 		editpartManager
 				.addDelegate(new org.eclipse.emf.ecp.ecview.extension.editpart.emf.EditpartManager());
+		presenterFactory.clear();
+		presenterFactory.addDelegate(new PresenterFactory());
 	}
 
 	/**
@@ -355,5 +374,145 @@ public class ViewEditpartTest {
 		view1.setBindingSet(null);
 		assertNull(view1Editpart.getBindingSet());
 		assertTrue(bindingSetEditpart.isDisposed());
+	}
+
+	/**
+	 * Tests setContent by editPart.
+	 * 
+	 * @throws ContextException
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_configuration() throws ContextException {
+		// END SUPRESS CATCH EXCEPTION
+		// ...> view1
+		YView view1 = modelFactory.createYView();
+		IViewEditpart view1Editpart = editpartManager.getEditpart(view1);
+
+		final List<String> callOrder = new ArrayList<String>();
+		view1Editpart.setConfiguration(new ConfigurationAdapter() {
+			@Override
+			public void beforeUiRendering(IContext context) {
+				callOrder.add("beforeUiRendering");
+			}
+
+			@Override
+			public void afterUiRendering(IContext context) {
+				callOrder.add("afterUiRendering");
+			}
+
+			@Override
+			public void beforeBind(IContext context) {
+				callOrder.add("beforeBind");
+			}
+
+			@Override
+			public void afterBind(IContext context) {
+				callOrder.add("afterBind");
+			}
+		});
+
+		view1Editpart.render(null);
+
+		assertEquals("beforeUiRendering", callOrder.get(0));
+		assertEquals("afterUiRendering", callOrder.get(1));
+		assertEquals("beforeBind", callOrder.get(2));
+		assertEquals("afterBind", callOrder.get(3));
+
+	}
+
+	/**
+	 * A helper presentation.
+	 */
+	@SuppressWarnings("rawtypes")
+	private static class Presentation implements IViewPresentation {
+
+		@Override
+		public boolean isDisposed() {
+			return false;
+		}
+
+		@Override
+		public void dispose() {
+
+		}
+
+		@Override
+		public void addDisposeListener(Listener listener) {
+
+		}
+
+		@Override
+		public void removeDisposeListener(Listener listener) {
+
+		}
+
+		@Override
+		public void unrender() {
+
+		}
+
+		@Override
+		public Object createWidget(Object parent) {
+			return null;
+		}
+
+		@Override
+		public Object getWidget() {
+			return null;
+		}
+
+		@Override
+		public boolean isRendered() {
+			return false;
+		}
+
+		@Override
+		public void setContent(IWidgetPresentation presentation) {
+
+		}
+
+		@Override
+		public void render(Map options) {
+
+		}
+
+		@Override
+		public IWidgetPresentation getContent() {
+			return null;
+		}
+
+		@Override
+		public Object getModel() {
+			return null;
+		}
+
+		@Override
+		public IViewContext getViewContext() {
+			return null;
+		}
+
+		@Override
+		public IObservable getObservableValue(Object model) {
+			return null;
+		}
+	}
+
+	/**
+	 * A helper presenter factory.
+	 */
+	private static class PresenterFactory implements IPresentationFactory {
+
+		@Override
+		public boolean isFor(IViewContext uiContext, IElementEditpart editpart) {
+			return true;
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		public <A extends IWidgetPresentation<?>> A createPresentation(
+				IViewContext uiContext, IElementEditpart editpart) {
+			return (A) new Presentation();
+		}
 	}
 }

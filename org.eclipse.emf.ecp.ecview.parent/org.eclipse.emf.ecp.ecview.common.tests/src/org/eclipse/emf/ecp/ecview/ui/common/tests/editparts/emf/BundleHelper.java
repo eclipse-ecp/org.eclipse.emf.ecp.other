@@ -1,4 +1,4 @@
-package org.eclipse.emf.ecp.ecview.ui.core.tests.editparts.emf;
+package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
 import java.util.HashSet;
 import java.util.Set;

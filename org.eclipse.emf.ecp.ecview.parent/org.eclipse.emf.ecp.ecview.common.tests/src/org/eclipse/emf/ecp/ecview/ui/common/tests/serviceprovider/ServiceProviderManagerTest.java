@@ -6,7 +6,7 @@
  * 
  * Contributors: Jose C. Dominguez - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.core.tests.serviceprovider;
+package org.eclipse.emf.ecp.ecview.ui.common.tests.serviceprovider;
 
 import org.eclipse.emf.ecp.ecview.common.context.IContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
