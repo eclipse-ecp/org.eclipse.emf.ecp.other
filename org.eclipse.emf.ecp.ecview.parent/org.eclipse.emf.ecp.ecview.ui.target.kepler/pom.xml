@@ -8,4 +8,5 @@
 	</parent>
 	<artifactId>org.eclipse.emf.ecp.ecview.ui.target.kepler</artifactId>
 	<packaging>eclipse-target-definition</packaging>
+	<name>Kepler target definition</name>
 </project>

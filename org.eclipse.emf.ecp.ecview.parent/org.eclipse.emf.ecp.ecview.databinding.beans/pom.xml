@@ -7,6 +7,6 @@
   </parent>
   <artifactId>org.eclipse.emf.ecp.ecview.databinding.beans</artifactId>
   <packaging>eclipse-plugin</packaging>
-  <name>Beans binding delegate for ECView</name>
-  <description>Beans binding delegate for ECView</description>
+  <name>Beans and POJO binding delegate for ECView</name>
+  <description>Beans and POJO binding delegate for ECView</description>
 </project>

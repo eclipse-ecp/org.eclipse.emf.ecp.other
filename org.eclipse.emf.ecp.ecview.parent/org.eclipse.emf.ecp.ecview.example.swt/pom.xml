@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>org.eclipse.emf.ecp.ecview.example.swt</artifactId>
-  <name>Examples UI-Kit SWTSimple</name>
-  <description>Examples based on UI-Kit SWTSimple</description>
+  <name>Examples UI-Kit SWT</name>
+  <description>Examples based on UI-Kit SWT</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

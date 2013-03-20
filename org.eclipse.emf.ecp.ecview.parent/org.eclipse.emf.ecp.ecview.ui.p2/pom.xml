@@ -7,8 +7,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.eclipse.emf.ecp.ecview.ui.p2</artifactId>
-	<name>UiModel P2</name>
-	<description>UiModel P2 Repository</description>
+	<name>ECView P2 repo</name>
+	<description>ECView P2 Repository</description>
 	<packaging>eclipse-repository</packaging>
 
 	<build>

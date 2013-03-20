@@ -19,7 +19,7 @@
   	<artifactId>org.eclipse.emf.ecp.ecview.ui.parent</artifactId>
   	<version>0.0.1-SNAPSHOT</version>
   </parent>
-  <name>UI-Kit SWTSimple</name>
-  <description>Presentation layer for UI-Kit SWTSimple</description>
+  <name>UI-Kit SWT</name>
+  <description>Presentation layer for UI-Kit SWT</description>
   <packaging>eclipse-plugin</packaging>
 </project>

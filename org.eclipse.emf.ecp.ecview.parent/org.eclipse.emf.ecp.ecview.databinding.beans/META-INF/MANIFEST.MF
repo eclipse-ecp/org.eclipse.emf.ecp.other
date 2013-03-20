@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Beans
+Bundle-Name: Beans and POJO binding delegates for ECView
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.databinding.beans
 Bundle-Version: 0.0.1.qualifier
 Require-Bundle: org.eclipse.core.databinding.beans,

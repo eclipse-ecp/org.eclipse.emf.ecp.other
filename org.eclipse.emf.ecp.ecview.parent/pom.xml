@@ -345,10 +345,6 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<modules>
-		<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
-		<module>
-			org.eclipse.emf.ecp.ecview.extension.model.tests
-		</module>
-	</modules>
+	<name>ECView parent</name>
+	<description>ECView parent</description>
 </project>
