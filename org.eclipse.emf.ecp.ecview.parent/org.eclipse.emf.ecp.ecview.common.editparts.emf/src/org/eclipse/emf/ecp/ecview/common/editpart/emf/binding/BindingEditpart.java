@@ -13,7 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+import org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
@@ -189,7 +189,7 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		}
 
 		try {
-			IBindingManager bindingManager = getBindindSet()
+			IECViewBindingManager bindingManager = getBindindSet()
 					.getBindingManager();
 			if (bindingManager != null) {
 				IObservableValue target = getTargetEndpoint().getObservable();
@@ -206,7 +206,7 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 					return;
 				}
 
-				binding = bindingManager.bind(target, model);
+				binding = bindingManager.bindValue(target, model);
 			} else {
 				LOGGER.error("BindingManager is null!. No bindings processed!");
 			}

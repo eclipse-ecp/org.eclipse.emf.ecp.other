@@ -30,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ISWTBindingManager;
 import org.eclipse.riena.ui.ridgets.IMarkableRidget;
 import org.eclipse.riena.ui.ridgets.INumericTextRidget;
 import org.eclipse.riena.ui.ridgets.IRidget;
@@ -40,7 +40,7 @@ import org.eclipse.riena.ui.ridgets.IRidget;
  */
 public class BindingManager extends
 		org.eclipse.emf.ecp.ecview.common.binding.AbstractBindingManager
-		implements IBindingManager {
+		implements ISWTBindingManager {
 
 	private final ExtensionModelPackage pckg = ExtensionModelPackage.eINSTANCE;
 	private final ExtDatatypesPackage extDtPckg = ExtDatatypesPackage.eINSTANCE;

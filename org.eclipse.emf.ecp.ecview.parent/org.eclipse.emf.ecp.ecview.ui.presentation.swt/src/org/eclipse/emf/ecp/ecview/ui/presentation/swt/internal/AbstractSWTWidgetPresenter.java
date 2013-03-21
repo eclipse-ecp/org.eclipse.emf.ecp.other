@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.eclipse.core.databinding.Binding;
+import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -29,7 +31,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.util.CoreModelUtil;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ISWTBindingManager;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IConstants;
 import org.eclipse.riena.ui.ridgets.IMarkableRidget;
 import org.eclipse.riena.ui.ridgets.IRidget;
@@ -96,9 +98,9 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	 * 
 	 * @return
 	 */
-	protected IBindingManager getBindingManager() {
+	protected ISWTBindingManager getBindingManager() {
 		return getViewContext().getService(
-				org.eclipse.emf.ecp.ecview.common.binding.IBindingManager.class
+				org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager.class
 						.getName());
 	}
 
@@ -152,7 +154,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 		//
 		CoreModelUtil.initTransientValues(yEmbeddable);
 
-		IBindingManager bindingManager = getBindingManager();
+		ISWTBindingManager bindingManager = getBindingManager();
 		if (bindingManager != null) {
 			// bind visible
 			bindingManager.bindVisible(yEmbeddable, ridget);
@@ -169,7 +171,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 
 		createBindings((YEmbeddable) yAction, ridget);
 
-		IBindingManager bindingManager = getBindingManager();
+		ISWTBindingManager bindingManager = getBindingManager();
 		if (bindingManager != null) {
 			// bind enabled
 			bindingManager.bindEnabled(yAction, ridget);
@@ -186,7 +188,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 
 		createBindings((YEmbeddable) yField, ridget);
 
-		IBindingManager bindingManager = getBindingManager();
+		ISWTBindingManager bindingManager = getBindingManager();
 		if (bindingManager != null) {
 			// bind enabled
 			bindingManager.bindEnabled(yField, ridget);
@@ -202,20 +204,41 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	 * @param modelFeature
 	 * @param uiRidget
 	 * @param uiProperty
+	 * @return binding
+	 * @return
 	 */
-	protected void createModelBinding(EObject model,
+	protected Object createModelBinding(EObject model,
 			EStructuralFeature modelFeature, IRidget uiRidget, String uiProperty) {
-		IBindingManager bindingManager = getBindingManager();
+		return createModelBinding(model, modelFeature, uiRidget, uiProperty,
+				null, null);
+	}
+
+	/**
+	 * Creates the model binding from ridget to ECView-model.
+	 * 
+	 * @param model
+	 * @param modelFeature
+	 * @param uiRidget
+	 * @param uiProperty
+	 * @return binding
+	 */
+	protected Binding createModelBinding(EObject model,
+			EStructuralFeature modelFeature, IRidget uiRidget,
+			String uiProperty, UpdateValueStrategy targetToModel,
+			UpdateValueStrategy modelToTarget) {
+		ISWTBindingManager bindingManager = getBindingManager();
 		if (bindingManager != null) {
 			// bind the value of yText to textRidget
 			IObservableValue modelObservable = EMFObservables.observeValue(
 					model, modelFeature);
 			IObservableValue uiObservable = BeansObservables.observeValue(
 					uiRidget, uiProperty);
-			getBindingManager().bind(uiObservable, modelObservable);
+			return getBindingManager().bindValue(uiObservable, modelObservable,
+					targetToModel, modelToTarget);
 		} else {
 			logger.error("No bindingmanager available");
 		}
+		return null;
 	}
 
 	/**

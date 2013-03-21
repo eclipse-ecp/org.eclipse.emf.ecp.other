@@ -37,6 +37,7 @@ import org.slf4j.LoggerFactory;
  */
 public class TextFieldPresentation extends FieldPresentation {
 
+	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory
 			.getLogger(TextFieldPresentation.class);
 	private final YTextField yTextField;

@@ -10,7 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.services;
 
-import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+import org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager;
 
 /**
  * The service registry. <br>

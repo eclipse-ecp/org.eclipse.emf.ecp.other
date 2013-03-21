@@ -11,6 +11,8 @@
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
@@ -93,8 +95,22 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 
 		// creates the binding for the field
 		createBindings(yTextArea, textRidget);
+	}
 
-//		Util.updateMarkableRidget(textRidget, yTextArea);
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	protected void createBindings(YTextArea yField, ITextRidget ridget) {
+
+		super.createBindings((YField) yField, ridget);
+
+		// create the model binding from ridget to ECView-model
+		createModelBinding(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YTEXT_AREA__VALUE, ridget,
+				ITextRidget.PROPERTY_TEXT);
 	}
 
 	@Override

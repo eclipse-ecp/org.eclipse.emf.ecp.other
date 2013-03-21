@@ -13,7 +13,6 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ISWTBindingManager;
 import org.eclipse.riena.ui.ridgets.INumericTextRidget;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
@@ -121,17 +120,14 @@ public class NumericFieldPresentation extends FieldPresentation {
 
 		super.createBindings((YField) yField, ridget);
 
-		IBindingManager bindingManager = getBindingManager();
+		ISWTBindingManager bindingManager = getBindingManager();
 		bindingManager.bindGrouping(yField, ridget);
 		bindingManager.bindMarkNegative(yField, ridget);
 
-		// bind the value of yText to textRidget
-		IObservableValue modelObservable = EMFObservables.observeValue(
-				castEObject(getModel()),
-				ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE);
-		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+		// create the model binding from ridget to ECView-model
+		createModelBinding(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE, ridget,
 				INumericTextRidget.PROPERTY_TEXT);
-		bindingManager.bind(uiObservable, modelObservable);
 	}
 
 	@Override

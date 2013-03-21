@@ -227,7 +227,7 @@ public class FieldPresentationTests {
 						ExtensionModelPackage.Literals.YTEXT_FIELD__VALUE);
 				IObservableValue uiObservable = BeansObservables.observeValue(
 						ridget, ITextRidget.PROPERTY_TEXT);
-				getBindingManager().bind(uiObservable, modelObservable);
+				getBindingManager().bindValue(uiObservable, modelObservable);
 			}
 			// do further bindings
 			super.createBindings(yField, ridget);

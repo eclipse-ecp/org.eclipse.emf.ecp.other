@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+import org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
@@ -39,7 +39,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 			.getLogger(BindingSetEditpart.class);
 	private boolean active;
 	private List<IBindingEditpart> bindings;
-	private IBindingManager bindingManager;
+	private IECViewBindingManager bindingManager;
 
 	/**
 	 * A default constructor.
@@ -64,7 +64,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public IBindingManager getBindingManager() {
+	public IECViewBindingManager getBindingManager() {
 		IViewEditpart view = getView();
 		if (view == null) {
 			if (bindingManager != null) {
@@ -75,8 +75,8 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 			throw new IllegalArgumentException(
 					"View and BindingManager must not be null for now!");
 		} else {
-			IBindingManager bm = view.getContext().getService(
-					IBindingManager.class.getName());
+			IECViewBindingManager bm = view.getContext().getService(
+					IECViewBindingManager.class.getName());
 			if (bm == null) {
 				bm = this.bindingManager;
 			}
@@ -85,7 +85,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public void setBindingManager(IBindingManager bindingManager) {
+	public void setBindingManager(IECViewBindingManager bindingManager) {
 		this.bindingManager = bindingManager;
 	}
 

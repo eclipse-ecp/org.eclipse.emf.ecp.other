@@ -21,8 +21,8 @@ import org.eclipse.riena.ui.ridgets.IRidget;
  * binding manager has to be connected to exactly one view. All the bindings
  * contained are bindings related to the associated view.
  */
-public interface IBindingManager extends
-		org.eclipse.emf.ecp.ecview.common.binding.IBindingManager {
+public interface ISWTBindingManager extends
+		org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager {
 
 	/**
 	 * Binds the visible option.

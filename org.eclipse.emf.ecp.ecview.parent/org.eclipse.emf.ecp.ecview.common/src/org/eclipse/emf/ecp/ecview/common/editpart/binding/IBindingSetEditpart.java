@@ -12,7 +12,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
 import java.util.List;
 
-import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
+import org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 
@@ -69,13 +69,13 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * 
 	 * @return
 	 */
-	IBindingManager getBindingManager();
+	IECViewBindingManager getBindingManager();
 
 	/**
 	 * Sets the binding manager that should be used to bind values.
 	 * 
 	 * @param bindingManager
 	 */
-	void setBindingManager(IBindingManager bindingManager);
+	void setBindingManager(IECViewBindingManager bindingManager);
 
 }

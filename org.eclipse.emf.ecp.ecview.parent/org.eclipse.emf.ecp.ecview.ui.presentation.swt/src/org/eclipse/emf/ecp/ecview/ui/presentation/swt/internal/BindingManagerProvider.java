@@ -13,9 +13,9 @@ public class BindingManagerProvider implements IServiceProvider {
 	@Override
 	public boolean isFor(String selector, IContext context) {
 		if (context instanceof IViewContext) {
-			if (!org.eclipse.emf.ecp.ecview.common.binding.IBindingManager.class
+			if (!org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager.class
 					.getName().equals(selector)
-					&& !org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager.class
+					&& !org.eclipse.emf.ecp.ecview.ui.presentation.swt.ISWTBindingManager.class
 							.getName().equals(selector)) {
 				return false;
 			}

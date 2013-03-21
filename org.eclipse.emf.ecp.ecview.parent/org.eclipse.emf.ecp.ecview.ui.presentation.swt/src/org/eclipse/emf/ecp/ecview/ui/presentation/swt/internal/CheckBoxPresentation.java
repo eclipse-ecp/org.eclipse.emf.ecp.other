@@ -13,7 +13,6 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
@@ -21,7 +20,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
 import org.eclipse.riena.ui.ridgets.IToggleButtonRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
@@ -115,14 +113,10 @@ public class CheckBoxPresentation extends FieldPresentation {
 
 		super.createBindings((YField) yField, ridget);
 
-		IBindingManager bindingManager = getBindingManager();
-		// bind the value of yText to textRidget
-		IObservableValue modelObservable = EMFObservables.observeValue(
-				castEObject(getModel()),
-				ExtensionModelPackage.Literals.YCHECK_BOX__VALUE);
-		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+		// create the model binding from ridget to ECView-model
+		createModelBinding(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YCHECK_BOX__VALUE, ridget,
 				IToggleButtonRidget.PROPERTY_SELECTED);
-		bindingManager.bind(uiObservable, modelObservable);
 	}
 
 	@Override

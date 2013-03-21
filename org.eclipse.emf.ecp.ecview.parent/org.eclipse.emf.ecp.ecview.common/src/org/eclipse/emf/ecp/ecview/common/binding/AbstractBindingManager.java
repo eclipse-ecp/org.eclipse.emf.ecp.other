@@ -18,10 +18,10 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 
 /**
- * Is used to bind values. For details see {@link IBindingManager}.
+ * Is used to bind values. For details see {@link IECViewBindingManager}.
  */
 public abstract class AbstractBindingManager extends AbstractDisposable
-		implements IBindingManager {
+		implements IECViewBindingManager {
 
 	private final Realm validationRealm;
 	private final DataBindingContext dbc;
@@ -52,10 +52,15 @@ public abstract class AbstractBindingManager extends AbstractDisposable
 	}
 
 	@Override
-	public Binding bind(IObservableValue target, IObservableValue model) {
-		return dbc.bindValue(target, model, new UpdateValueStrategy(
+	public Binding bindValue(IObservableValue target, IObservableValue model) {
+		return bindValue(target, model, new UpdateValueStrategy(
 				UpdateValueStrategy.POLICY_UPDATE), new UpdateValueStrategy(
 				UpdateValueStrategy.POLICY_UPDATE));
+	}
+
+	public final Binding bindValue(IObservableValue target, IObservableValue model,
+			UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget) {
+		return dbc.bindValue(target, model, targetToModel, modelToTarget);
 	}
 
 	@Override
