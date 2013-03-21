@@ -30,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -351,8 +351,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IButtonClickListener createYButtonClickListenerFromString(EDataType eDataType, String initialValue) {
-		return (IButtonClickListener)super.createFromString(eDataType, initialValue);
+	public YButtonClickListener createYButtonClickListenerFromString(EDataType eDataType, String initialValue) {
+		return (YButtonClickListener)super.createFromString(eDataType, initialValue);
 	}
 
 	/**

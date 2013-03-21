@@ -17,7 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.riena.ui.ridgets.IActionRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
@@ -41,6 +41,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 	private IActionRidget buttonRidget;
 
 	private ClickAdapter clickAdapter;
+	private ModelObserver observer;
 
 	/**
 	 * Constructor.
@@ -51,7 +52,8 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 	public ButtonPresentation(IElementEditpart editpart) {
 		super((IButtonEditpart) editpart);
 		this.yButton = (YButton) editpart.getModel();
-		castEObject(yButton).eAdapters().add(new ModelObserver());
+		this.observer = new ModelObserver();
+		castEObject(yButton).eAdapters().add(observer);
 	}
 
 	/**
@@ -83,7 +85,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 
 			// install all pending click listener
 			//
-			for (IButtonClickListener listener : yButton.getClickListeners()) {
+			for (YButtonClickListener listener : yButton.getClickListeners()) {
 				getClickAdapter().addClickListener(listener);
 			}
 		}
@@ -163,6 +165,11 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 		// unrender the ui control
 		unrender();
 
+		if (observer != null) {
+			castEObject(yButton).eAdapters().remove(observer);
+			observer = null;
+		}
+
 		if (clickAdapter != null) {
 			clickAdapter.dispose();
 			clickAdapter = null;
@@ -198,11 +205,11 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 					case Notification.ADD:
 						handleAdd(msg);
 						break;
-					case Notification.ADD_MANY:
 					case Notification.MOVE:
 					case Notification.REMOVE:
 						handleRemove(msg);
 						break;
+					case Notification.ADD_MANY:
 					case Notification.REMOVE_MANY:
 					}
 				}
@@ -218,7 +225,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 			switch (msg.getFeatureID(YButton.class)) {
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				getClickAdapter().removeClickListener(
-						(IButtonClickListener) msg.getOldValue());
+						(YButtonClickListener) msg.getOldValue());
 				break;
 			}
 		}
@@ -232,7 +239,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 			switch (msg.getFeatureID(YButton.class)) {
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				getClickAdapter().addClickListener(
-						(IButtonClickListener) msg.getNewValue());
+						(YButtonClickListener) msg.getNewValue());
 				break;
 			}
 		}
@@ -245,7 +252,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 
 		private final Button button;
 		private final YButton yButton;
-		private Set<IButtonClickListener> delegates = new HashSet<IButtonClickListener>();
+		private Set<YButtonClickListener> delegates = new HashSet<YButtonClickListener>();
 
 		private ClickAdapter(YButton yButton, Button button) {
 			this.yButton = yButton;
@@ -260,8 +267,8 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 			runLocked(new Runnable() {
 				@Override
 				public void run() {
-					for (IButtonClickListener listener : delegates
-							.toArray(new IButtonClickListener[delegates.size()])) {
+					for (YButtonClickListener listener : delegates
+							.toArray(new YButtonClickListener[delegates.size()])) {
 						listener.clicked(yButton);
 					}
 				}
@@ -273,7 +280,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 		 * 
 		 * @param listener
 		 */
-		public void removeClickListener(IButtonClickListener listener) {
+		public void removeClickListener(YButtonClickListener listener) {
 			delegates.remove(listener);
 		}
 
@@ -282,7 +289,7 @@ public class ButtonPresentation extends AbstractSWTWidgetPresenter {
 		 * 
 		 * @param listener
 		 */
-		public void addClickListener(IButtonClickListener listener) {
+		public void addClickListener(YButtonClickListener listener) {
 			delegates.add(listener);
 		}
 

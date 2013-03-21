@@ -12,7 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.listener;
 
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 
-public interface IButtonClickListener {
+public interface YButtonClickListener {
 
 	/**
 	 * Is called if the button was clicked.

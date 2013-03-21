@@ -80,14 +80,14 @@ public class LabelBindingTests {
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ILabelRidget text1 = getLabel(yLabel1);
-		ILabelRidget text2 = getLabel(yLabel2);
+		ILabelRidget label1 = getLabel(yLabel1);
+		ILabelRidget label2 = getLabel(yLabel2);
 
-		text1.setText("call1");
-		Assert.assertEquals("call1", text2.getText());
+		label1.setText("call1");
+		Assert.assertEquals("call1", label2.getText());
 
-		text2.setText("call2");
-		Assert.assertEquals("call2", text1.getText());
+		label2.setText("call2");
+		Assert.assertEquals("call2", label1.getText());
 	}
 
 	/**

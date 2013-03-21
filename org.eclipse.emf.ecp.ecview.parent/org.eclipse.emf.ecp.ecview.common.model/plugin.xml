@@ -8,7 +8,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://eclipse.org/emf/ecp/ecview/core/view"
+            uri="http://eclipse.org/emf/ecp/ecview/common/view"
             class="org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
             genModel="model/core.genmodel"/>
    </extension>

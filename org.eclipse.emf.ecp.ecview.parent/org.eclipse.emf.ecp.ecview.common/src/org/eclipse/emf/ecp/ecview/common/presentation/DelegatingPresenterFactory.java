@@ -32,6 +32,7 @@ public final class DelegatingPresenterFactory implements IPresentationFactory {
 
 	private final List<IPresentationFactory> delegates = Collections
 			.synchronizedList(new ArrayList<IPresentationFactory>());
+	private List<IPresentationFactory> stashed;
 
 	private DelegatingPresenterFactory() {
 	}
@@ -78,6 +79,28 @@ public final class DelegatingPresenterFactory implements IPresentationFactory {
 		LOGGER.error("No proper presenterFactory found for elements {} {}",
 				new Object[] { uiContext, editpart });
 		return null;
+	}
+
+	/**
+	 * Will stash the current state. ONLY FOR TESTS!
+	 */
+	public void stash() {
+		if (stashed != null) {
+			return;
+		}
+		stashed = new ArrayList<IPresentationFactory>(delegates);
+	}
+
+	/**
+	 * Will unstash the stashed state. ONLY FOR TESTS!
+	 */
+	public void unstash() {
+		if (stashed == null) {
+			return;
+		}
+		delegates.clear();
+		delegates.addAll(stashed);
+		stashed = null;
 	}
 
 	/**

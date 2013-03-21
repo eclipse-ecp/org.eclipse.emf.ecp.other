@@ -8,7 +8,7 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.ui.example.swt.binding;
+package org.eclipse.emf.ecp.ecview.ui.example.swt.model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

@@ -10,10 +10,20 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
+import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
 import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
@@ -27,7 +37,7 @@ import org.eclipse.swt.widgets.Text;
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
-public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
+public class DecimalFieldPresentation extends FieldPresentation {
 
 	private final YDecimalField yDecimalTextField;
 	private Composite controlBase;
@@ -94,13 +104,31 @@ public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(decimalText, CSS_CLASS__CONTROL);
 		}
-		
+
 		// creates the binding for the field
 		createBindings(yDecimalTextField, decimalRidget);
 
+	}
 
-//		Util.updateMarkableRidget(decimalRidget, yDecimalTextField);
-//		Util.updateDecimalRidget(decimalRidget, yDecimalTextField.getDatatype());
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	protected void createBindings(YDecimalField yField,
+			IDecimalTextRidget ridget) {
+
+		super.createBindings((YField) yField, ridget);
+
+		IBindingManager bindingManager = getBindingManager();
+		// bind the value of yText to textRidget
+		IObservableValue modelObservable = EMFObservables.observeValue(
+				castEObject(getModel()),
+				ExtensionModelPackage.Literals.YDECIMAL_FIELD__VALUE);
+		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+				IDecimalTextRidget.PROPERTY_TEXT);
+		bindingManager.bind(uiObservable, modelObservable);
 	}
 
 	@Override
@@ -132,6 +160,31 @@ public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
 		return yDecimalTextField.getDatadescription().getLabel();
 	}
 
+	@Override
+	protected IObservable internalGetObservableEndpoint(
+			YEmbeddableBindingEndpoint bindableValue) {
+		if (bindableValue == null) {
+			throw new NullPointerException("BindableValue must not be null!");
+		}
+
+		if (bindableValue instanceof YEmbeddableValueEndpoint) {
+			return internalGetValueEndpoint();
+		}
+		throw new IllegalArgumentException("Not a valid input: "
+				+ bindableValue);
+	}
+
+	/**
+	 * Returns the observable to observe value.
+	 * 
+	 * @return
+	 */
+	protected IObservableValue internalGetValueEndpoint() {
+		// return the observable value for text
+		return BeansObservables.observeValue(decimalRidget,
+				ITextRidget.PROPERTY_TEXT);
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -150,6 +203,8 @@ public class DecimalFieldPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	@Override
 	protected void internalDispose() {
+		super.internalDispose();
+
 		// unrender the ui control
 		unrender();
 	}

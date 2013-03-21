@@ -10,13 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
-import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.riena.ui.ridgets.IMarkableRidget;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
@@ -26,12 +29,16 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
-public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
+public class TextFieldPresentation extends FieldPresentation {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(TextFieldPresentation.class);
 	private final YTextField yTextField;
 	private Composite controlBase;
 	private Text text;
@@ -72,6 +79,7 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 			text = new Text(controlBase, SWT.BORDER);
 			textRidget = (ITextRidget) SwtRidgetFactory.createRidget(text);
 			text.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+
 			// update style attributes
 			//
 			updateStyle();
@@ -95,8 +103,22 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 
 		// creates the binding for the field
 		createBindings(yTextField, textRidget);
+	}
 
-		// Util.updateMarkableRidget(textRidget, yTextField);
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	protected void createBindings(YTextField yField, IMarkableRidget ridget) {
+		// create the model binding from ridget to ECView-model
+		createModelBinding(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YTEXT_FIELD__VALUE, ridget,
+				ITextRidget.PROPERTY_TEXT);
+
+		// do further bindings
+		super.createBindings(yField, ridget);
 	}
 
 	@Override
@@ -129,19 +151,28 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	}
 
 	@Override
-	protected IObservable internalGetObservableValue(
+	protected IObservable internalGetObservableEndpoint(
 			YEmbeddableBindingEndpoint bindableValue) {
 		if (bindableValue == null) {
 			throw new NullPointerException("BindableValue must not be null!");
 		}
 
 		if (bindableValue instanceof YEmbeddableValueEndpoint) {
-			// return the observable value for text
-			return BeansObservables.observeValue(textRidget,
-					ITextRidget.PROPERTY_TEXT);
+			return internalGetValueEndpoint();
 		}
 		throw new IllegalArgumentException("Not a valid input: "
 				+ bindableValue);
+	}
+
+	/**
+	 * Returns the observable to observe value.
+	 * 
+	 * @return
+	 */
+	protected IObservableValue internalGetValueEndpoint() {
+		// return the observable value for text
+		return EMFObservables.observeValue(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YTEXT_FIELD__VALUE);
 	}
 
 	/**
@@ -169,6 +200,8 @@ public class TextFieldPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	@Override
 	protected void internalDispose() {
+		super.internalDispose();
+
 		// unrender the ui control
 		unrender();
 	}

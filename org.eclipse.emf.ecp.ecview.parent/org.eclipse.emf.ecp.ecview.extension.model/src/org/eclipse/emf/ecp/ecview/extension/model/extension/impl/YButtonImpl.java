@@ -16,7 +16,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -69,7 +69,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IButtonClickListener> clickListeners;
+	protected EList<YButtonClickListener> clickListeners;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -146,9 +146,9 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<IButtonClickListener> getClickListeners() {
+	public EList<YButtonClickListener> getClickListeners() {
 		if (clickListeners == null) {
-			clickListeners = new EDataTypeUniqueEList<IButtonClickListener>(IButtonClickListener.class, this, ExtensionModelPackage.YBUTTON__CLICK_LISTENERS);
+			clickListeners = new EDataTypeUniqueEList<YButtonClickListener>(YButtonClickListener.class, this, ExtensionModelPackage.YBUTTON__CLICK_LISTENERS);
 		}
 		return clickListeners;
 	}
@@ -159,7 +159,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * @generated NOT
 	 */
 	@Override
-	public void addClickListener(IButtonClickListener listener) {
+	public void addClickListener(YButtonClickListener listener) {
 		getClickListeners().add(listener);
 	}
 
@@ -169,7 +169,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * @generated NOT
 	 */
 	@Override
-	public void removeClickListener(IButtonClickListener listener) {
+	public void removeClickListener(YButtonClickListener listener) {
 		getClickListeners().remove(listener);
 	}
 
@@ -207,7 +207,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 				return;
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				getClickListeners().clear();
-				getClickListeners().addAll((Collection<? extends IButtonClickListener>)newValue);
+				getClickListeners().addAll((Collection<? extends YButtonClickListener>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

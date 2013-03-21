@@ -10,13 +10,20 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
+import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
 import org.eclipse.riena.ui.ridgets.INumericTextRidget;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
@@ -30,7 +37,7 @@ import org.eclipse.swt.widgets.Text;
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
-public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
+public class NumericFieldPresentation extends FieldPresentation {
 
 	private final YNumericField yNumericTextField;
 	private Composite controlBase;
@@ -74,7 +81,8 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 					UIControlsFactory.TYPE_NUMERIC);
 			numericRidget = (INumericTextRidget) SwtRidgetFactory
 					.createRidget(numericText);
-			numericText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+			numericText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,
+					true));
 
 			// update style attributes
 			//
@@ -96,12 +104,10 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 		} else {
 			setCSSClass(numericText, CSS_CLASS__CONTROL);
 		}
-		
+
 		// creates the binding for the field
 		createBindings(yNumericTextField, numericRidget);
 
-//		Util.updateMarkableRidget(numericRidget, yNumericTextField);
-//		Util.updateNumericRidget(numericRidget, yNumericTextField.getDatatype());
 	}
 
 	/**
@@ -110,18 +116,22 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 	 * @param yField
 	 * @param ridget
 	 */
-	protected void createBindings(YNumericField yField, INumericTextRidget ridget) {
-		
-		super.createBindings((YField)yField, ridget);
-		
-		IBindingManager bindingManager = getViewContext().getService(
-				IServiceRegistry.SERVICE__BINDING_MANAGER);
-		
-		// bind grouping
+	protected void createBindings(YNumericField yField,
+			INumericTextRidget ridget) {
+
+		super.createBindings((YField) yField, ridget);
+
+		IBindingManager bindingManager = getBindingManager();
 		bindingManager.bindGrouping(yField, ridget);
-		
-		// bind mark negative
 		bindingManager.bindMarkNegative(yField, ridget);
+
+		// bind the value of yText to textRidget
+		IObservableValue modelObservable = EMFObservables.observeValue(
+				castEObject(getModel()),
+				ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE);
+		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+				INumericTextRidget.PROPERTY_TEXT);
+		bindingManager.bind(uiObservable, modelObservable);
 	}
 
 	@Override
@@ -153,6 +163,31 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 		return yNumericTextField.getDatadescription().getLabel();
 	}
 
+	@Override
+	protected IObservable internalGetObservableEndpoint(
+			YEmbeddableBindingEndpoint bindableValue) {
+		if (bindableValue == null) {
+			throw new NullPointerException("BindableValue must not be null!");
+		}
+
+		if (bindableValue instanceof YEmbeddableValueEndpoint) {
+			return internalGetValueEndpoint();
+		}
+		throw new IllegalArgumentException("Not a valid input: "
+				+ bindableValue);
+	}
+
+	/**
+	 * Returns the observable to observe value.
+	 * 
+	 * @return
+	 */
+	protected IObservableValue internalGetValueEndpoint() {
+		// return the observable value for text
+		return BeansObservables.observeValue(numericRidget,
+				ITextRidget.PROPERTY_TEXT);
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -171,6 +206,8 @@ public class NumericFieldPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	@Override
 	protected void internalDispose() {
+		super.internalDispose();
+
 		// unrender the ui control
 		unrender();
 	}

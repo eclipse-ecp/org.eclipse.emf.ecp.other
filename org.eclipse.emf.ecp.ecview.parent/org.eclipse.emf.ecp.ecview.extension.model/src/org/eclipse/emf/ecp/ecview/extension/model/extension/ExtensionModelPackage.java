@@ -268,13 +268,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__VALUE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>YText Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YTEXT_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutImpl <em>YGrid Layout</em>}' class.
@@ -1015,13 +1024,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLABEL__DATADESCRIPTION = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__VALUE = CoreModelPackage.YFIELD_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>YLabel</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLABEL_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 1;
+	int YLABEL_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl <em>YText Area</em>}' class.
@@ -1133,13 +1151,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_AREA__DATATYPE = YINPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__VALUE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>YText Area</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YTEXT_AREA_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl <em>YCheck Box</em>}' class.
@@ -1251,13 +1278,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCHECK_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__VALUE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>YCheck Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCHECK_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YCHECK_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YDecimalFieldImpl <em>YDecimal Field</em>}' class.
@@ -1369,13 +1405,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDECIMAL_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__VALUE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>YDecimal Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDECIMAL_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YDECIMAL_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl <em>YNumeric Field</em>}' class.
@@ -1487,13 +1532,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YNUMERIC_FIELD__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__VALUE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>YNumeric Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YNUMERIC_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl <em>YCombo Box</em>}' class.
@@ -1844,7 +1898,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 	 * @generated
 	 */
@@ -1903,6 +1957,17 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYTextField_Datadescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField#getValue()
+	 * @see #getYTextField()
+	 * @generated
+	 */
+	EAttribute getYTextField_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout <em>YGrid Layout</em>}'.
@@ -2237,6 +2302,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYLabel_Datadescription();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel#getValue()
+	 * @see #getYLabel()
+	 * @generated
+	 */
+	EAttribute getYLabel_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea <em>YText Area</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2269,6 +2345,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYTextArea_Datatype();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea#getValue()
+	 * @see #getYTextArea()
+	 * @generated
+	 */
+	EAttribute getYTextArea_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox <em>YCheck Box</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2299,6 +2386,17 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYCheckBox_Datatype();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox#isValue()
+	 * @see #getYCheckBox()
+	 * @generated
+	 */
+	EAttribute getYCheckBox_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YInput <em>YInput</em>}'.
@@ -2343,6 +2441,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYDecimalField_Datadescription();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField#getValue()
+	 * @see #getYDecimalField()
+	 * @generated
+	 */
+	EAttribute getYDecimalField_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField <em>YNumeric Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2373,6 +2482,17 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYNumericField_Datadescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField#getValue()
+	 * @see #getYNumericField()
+	 * @generated
+	 */
+	EAttribute getYNumericField_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox <em>YCombo Box</em>}'.
@@ -2482,12 +2602,12 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYButton_ClickListeners();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener <em>YButton Click Listener</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener <em>YButton Click Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>YButton Click Listener</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener
-	 * @model instanceClass="org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener"
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener
+	 * @model instanceClass="org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener"
 	 * @generated
 	 */
 	EDataType getYButtonClickListener();
@@ -2559,6 +2679,14 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YTEXT_FIELD__DATADESCRIPTION = eINSTANCE.getYTextField_Datadescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTEXT_FIELD__VALUE = eINSTANCE.getYTextField_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutImpl <em>YGrid Layout</em>}' class.
@@ -2827,6 +2955,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YLABEL__DATADESCRIPTION = eINSTANCE.getYLabel_Datadescription();
 
 		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YLABEL__VALUE = eINSTANCE.getYLabel_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl <em>YText Area</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2853,6 +2989,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YTEXT_AREA__DATATYPE = eINSTANCE.getYTextArea_Datatype();
 
 		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTEXT_AREA__VALUE = eINSTANCE.getYTextArea_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl <em>YCheck Box</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2877,6 +3021,14 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YCHECK_BOX__DATATYPE = eINSTANCE.getYCheckBox_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCHECK_BOX__VALUE = eINSTANCE.getYCheckBox_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YInputImpl <em>YInput</em>}' class.
@@ -2915,6 +3067,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YDECIMAL_FIELD__DATADESCRIPTION = eINSTANCE.getYDecimalField_Datadescription();
 
 		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDECIMAL_FIELD__VALUE = eINSTANCE.getYDecimalField_Value();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl <em>YNumeric Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2939,6 +3099,14 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YNUMERIC_FIELD__DATADESCRIPTION = eINSTANCE.getYNumericField_Datadescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YNUMERIC_FIELD__VALUE = eINSTANCE.getYNumericField_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl <em>YCombo Box</em>}' class.
@@ -3030,7 +3198,7 @@ public interface ExtensionModelPackage extends EPackage {
 		 * The meta object literal for the '<em>YButton Click Listener</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener
 		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 		 * @generated
 		 */

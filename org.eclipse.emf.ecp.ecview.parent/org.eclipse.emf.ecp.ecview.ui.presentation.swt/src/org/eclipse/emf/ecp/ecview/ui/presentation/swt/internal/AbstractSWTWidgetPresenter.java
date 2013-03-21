@@ -13,9 +13,13 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
@@ -25,12 +29,13 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.util.CoreModelUtil;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IConstants;
 import org.eclipse.riena.ui.ridgets.IMarkableRidget;
 import org.eclipse.riena.ui.ridgets.IRidget;
 import org.eclipse.swt.widgets.Control;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An abstract implementation of the {@link IWidgetPresentation}.
@@ -60,6 +65,9 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	public static final String CSS_CLASS__LABEL = IConstants.CSS_CLASS__LABEL;
 	// END SUPRESS CATCH EXCEPTION
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(AbstractSWTWidgetPresenter.class);
+
 	private final IEmbeddableEditpart editpart;
 
 	private final Lock lock = new ReentrantLock();
@@ -81,6 +89,17 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	 */
 	protected IEmbeddableEditpart getEditpart() {
 		return editpart;
+	}
+
+	/**
+	 * Returns the binding manager.
+	 * 
+	 * @return
+	 */
+	protected IBindingManager getBindingManager() {
+		return getViewContext().getService(
+				org.eclipse.emf.ecp.ecview.common.binding.IBindingManager.class
+						.getName());
 	}
 
 	@Override
@@ -133,10 +152,11 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 		//
 		CoreModelUtil.initTransientValues(yEmbeddable);
 
-		IBindingManager bindingManager = getViewContext().getService(
-				IServiceRegistry.SERVICE__BINDING_MANAGER);
-		// bind visible
-		bindingManager.bindVisible(yEmbeddable, ridget);
+		IBindingManager bindingManager = getBindingManager();
+		if (bindingManager != null) {
+			// bind visible
+			bindingManager.bindVisible(yEmbeddable, ridget);
+		}
 	}
 
 	/**
@@ -149,11 +169,11 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 
 		createBindings((YEmbeddable) yAction, ridget);
 
-		IBindingManager bindingManager = getViewContext().getService(
-				IServiceRegistry.SERVICE__BINDING_MANAGER);
-
-		// bind enabled
-		bindingManager.bindEnabled(yAction, ridget);
+		IBindingManager bindingManager = getBindingManager();
+		if (bindingManager != null) {
+			// bind enabled
+			bindingManager.bindEnabled(yAction, ridget);
+		}
 	}
 
 	/**
@@ -166,14 +186,36 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 
 		createBindings((YEmbeddable) yField, ridget);
 
-		IBindingManager bindingManager = getViewContext().getService(
-				IServiceRegistry.SERVICE__BINDING_MANAGER);
+		IBindingManager bindingManager = getBindingManager();
+		if (bindingManager != null) {
+			// bind enabled
+			bindingManager.bindEnabled(yField, ridget);
+			// bind readonly
+			bindingManager.bindReadonly(yField, ridget);
+		}
+	}
 
-		// bind enabled
-		bindingManager.bindEnabled(yField, ridget);
-
-		// bind readonly
-		bindingManager.bindReadonly(yField, ridget);
+	/**
+	 * Creates the model binding from ridget to ECView-model.
+	 * 
+	 * @param model
+	 * @param modelFeature
+	 * @param uiRidget
+	 * @param uiProperty
+	 */
+	protected void createModelBinding(EObject model,
+			EStructuralFeature modelFeature, IRidget uiRidget, String uiProperty) {
+		IBindingManager bindingManager = getBindingManager();
+		if (bindingManager != null) {
+			// bind the value of yText to textRidget
+			IObservableValue modelObservable = EMFObservables.observeValue(
+					model, modelFeature);
+			IObservableValue uiObservable = BeansObservables.observeValue(
+					uiRidget, uiProperty);
+			getBindingManager().bind(uiObservable, modelObservable);
+		} else {
+			logger.error("No bindingmanager available");
+		}
 	}
 
 	/**
@@ -197,7 +239,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 
 	@Override
 	public IObservable getObservableValue(Object model) {
-		return internalGetObservableValue((YEmbeddableBindingEndpoint) model);
+		return internalGetObservableEndpoint((YEmbeddableBindingEndpoint) model);
 	}
 
 	/**
@@ -206,7 +248,7 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 	 * @param bindableValue
 	 * @return
 	 */
-	protected IObservable internalGetObservableValue(
+	protected IObservable internalGetObservableEndpoint(
 			YEmbeddableBindingEndpoint bindableValue) {
 		throw new UnsupportedOperationException("Must be overridden!");
 	}

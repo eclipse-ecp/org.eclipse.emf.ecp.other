@@ -18,9 +18,6 @@ import org.eclipse.emf.ecp.ecview.common.binding.IBindingManager;
  */
 public interface IServiceRegistry {
 
-	public static final String SERVICE__BINDING_MANAGER = IBindingManager.class
-			.getName();
-
 	/**
 	 * Defines the sequence of a service. It defined i which order the services
 	 * are called. Lower sequences will be called first. See

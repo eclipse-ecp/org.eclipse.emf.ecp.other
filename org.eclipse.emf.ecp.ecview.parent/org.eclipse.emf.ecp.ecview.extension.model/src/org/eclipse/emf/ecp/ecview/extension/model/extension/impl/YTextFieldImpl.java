@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.impl.custom.ChangeAdapter;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
@@ -53,6 +53,24 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * @ordered
 	 */
 	protected YDatadescription datadescription;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -145,6 +163,25 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTEXT_FIELD__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableValueEndpoint createValueEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -165,6 +202,20 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	}
 
 	/**
+	 * Returns a new instance of the change adapter config. Has to be overridden
+	 * by subclasses.
+	 * 
+	 * @return
+	 * 
+	 * @generated NOT
+	 */
+	protected ChangeAdapter.Config createNewChangeAdapterConfig() {
+		return new ChangeAdapter.Config(
+				ExtensionModelPackage.Literals.YTEXT_FIELD__VALUE,
+				Notification.SET);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -177,6 +228,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 			case ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,6 +246,9 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 				return;
 			case ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
+				return;
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,6 +267,9 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 			case ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -226,8 +285,25 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 				return datatype != null;
 			case ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION:
 				return datadescription != null;
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 } // YUiTextFieldImpl

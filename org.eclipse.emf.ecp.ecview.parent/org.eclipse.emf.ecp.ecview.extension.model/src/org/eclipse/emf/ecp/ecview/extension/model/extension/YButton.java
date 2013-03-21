@@ -5,7 +5,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,7 +83,7 @@ public interface YButton extends YAction {
 
 	/**
 	 * Returns the value of the '<em><b>Click Listeners</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener}.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Click Listeners</em>' reference list isn't clear,
@@ -95,7 +95,7 @@ public interface YButton extends YAction {
 	 * @model dataType="org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener" transient="true"
 	 * @generated
 	 */
-	EList<IButtonClickListener> getClickListeners();
+	EList<YButtonClickListener> getClickListeners();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,7 +103,7 @@ public interface YButton extends YAction {
 	 * @model listenerDataType="org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener"
 	 * @generated
 	 */
-	void addClickListener(IButtonClickListener listener);
+	void addClickListener(YButtonClickListener listener);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,6 +111,6 @@ public interface YButton extends YAction {
 	 * @model listenerDataType="org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonClickListener"
 	 * @generated
 	 */
-	void removeClickListener(IButtonClickListener listener);
+	void removeClickListener(YButtonClickListener listener);
 
 } // YButton

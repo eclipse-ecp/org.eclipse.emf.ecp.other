@@ -85,4 +85,16 @@
          </run>
       </application>
     </extension>
+    <extension
+         id="org.eclipse.emf.ecp.ecview.ui.example.swt.events.ValueChangedExample"
+         point="org.eclipse.core.runtime.applications">
+        <application
+            cardinality="singleton-global" 
+            thread="main"
+            visible="true">
+         <run
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.events.ValueChangedExample">
+         </run>
+      </application>
+    </extension>
 </plugin>

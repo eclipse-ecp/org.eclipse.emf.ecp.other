@@ -10,9 +10,18 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
+import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.IBindingManager;
 import org.eclipse.riena.ui.ridgets.IToggleButtonRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.swt.SWT;
@@ -26,7 +35,7 @@ import org.eclipse.swt.widgets.Label;
 /**
  * This presenter is responsible to render a checkBox field on the given layout.
  */
-public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
+public class CheckBoxPresentation extends FieldPresentation {
 
 	private final YCheckBox yCheckBox;
 	private Composite controlBase;
@@ -94,8 +103,26 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 
 		// creates the binding for the field
 		createBindings(yCheckBox, checkBoxRidget);
+	}
 
-//		Util.updateMarkableRidget(checkBoxRidget, yCheckBox);
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	protected void createBindings(YCheckBox yField, IToggleButtonRidget ridget) {
+
+		super.createBindings((YField) yField, ridget);
+
+		IBindingManager bindingManager = getBindingManager();
+		// bind the value of yText to textRidget
+		IObservableValue modelObservable = EMFObservables.observeValue(
+				castEObject(getModel()),
+				ExtensionModelPackage.Literals.YCHECK_BOX__VALUE);
+		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+				IToggleButtonRidget.PROPERTY_SELECTED);
+		bindingManager.bind(uiObservable, modelObservable);
 	}
 
 	@Override
@@ -127,6 +154,31 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 		return yCheckBox.getDatadescription().getLabel();
 	}
 
+	@Override
+	protected IObservable internalGetObservableEndpoint(
+			YEmbeddableBindingEndpoint bindableValue) {
+		if (bindableValue == null) {
+			throw new NullPointerException("BindableValue must not be null!");
+		}
+
+		if (bindableValue instanceof YEmbeddableValueEndpoint) {
+			return internalGetValueEndpoint();
+		}
+		throw new IllegalArgumentException("Not a valid input: "
+				+ bindableValue);
+	}
+
+	/**
+	 * Returns the observable to observe value.
+	 * 
+	 * @return
+	 */
+	protected IObservableValue internalGetValueEndpoint() {
+		// return the observable value for text
+		return BeansObservables.observeValue(checkBox,
+				IToggleButtonRidget.PROPERTY_SELECTED);
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -145,6 +197,8 @@ public class CheckBoxPresentation extends AbstractSWTWidgetPresenter {
 	 */
 	@Override
 	protected void internalDispose() {
+		super.internalDispose();
+
 		// unrender the ui control
 		unrender();
 	}

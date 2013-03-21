@@ -1068,10 +1068,10 @@ public class GridLayoutPresentationTests {
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL, WidgetElement.getCSSClass(internalLayout2));
 
 		// assert css id
-		Assert.assertNull(WidgetElement.getID(internalLayout1BaseComposite));
-		Assert.assertEquals("ID_0815", WidgetElement.getID(internalLayout1));
-		Assert.assertNull(WidgetElement.getID(internalLayout2BaseComposite));
-		Assert.assertEquals(internalLayout2Editpart.getId(), WidgetElement.getID(internalLayout2));
+		Assert.assertNull(WidgetElement.getID(internalLayout1));
+		Assert.assertEquals("ID_0815", WidgetElement.getID(internalLayout1BaseComposite));
+		Assert.assertNull(WidgetElement.getID(internalLayout2));
+		Assert.assertEquals(internalLayout2Editpart.getId(), WidgetElement.getID(internalLayout2BaseComposite));
 	}
 
 	/**

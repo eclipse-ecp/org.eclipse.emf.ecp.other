@@ -35,7 +35,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -280,6 +280,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 */
 	public EReference getYTextField_Datadescription() {
 		return (EReference)yTextFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYTextField_Value() {
+		return (EAttribute)yTextFieldEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -566,6 +575,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYLabel_Value() {
+		return (EAttribute)yLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYTextArea() {
 		return yTextAreaEClass;
 	}
@@ -593,6 +611,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYTextArea_Value() {
+		return (EAttribute)yTextAreaEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYCheckBox() {
 		return yCheckBoxEClass;
 	}
@@ -613,6 +640,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 */
 	public EReference getYCheckBox_Datatype() {
 		return (EReference)yCheckBoxEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYCheckBox_Value() {
+		return (EAttribute)yCheckBoxEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -656,6 +692,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYDecimalField_Value() {
+		return (EAttribute)yDecimalFieldEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYNumericField() {
 		return yNumericFieldEClass;
 	}
@@ -676,6 +721,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 */
 	public EReference getYNumericField_Datadescription() {
 		return (EReference)yNumericFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYNumericField_Value() {
+		return (EAttribute)yNumericFieldEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -826,6 +880,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yTextFieldEClass = createEClass(YTEXT_FIELD);
 		createEReference(yTextFieldEClass, YTEXT_FIELD__DATATYPE);
 		createEReference(yTextFieldEClass, YTEXT_FIELD__DATADESCRIPTION);
+		createEAttribute(yTextFieldEClass, YTEXT_FIELD__VALUE);
 
 		yGridLayoutEClass = createEClass(YGRID_LAYOUT);
 		createEReference(yGridLayoutEClass, YGRID_LAYOUT__CELL_STYLES);
@@ -866,24 +921,29 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		yLabelEClass = createEClass(YLABEL);
 		createEReference(yLabelEClass, YLABEL__DATADESCRIPTION);
+		createEAttribute(yLabelEClass, YLABEL__VALUE);
 
 		yTextAreaEClass = createEClass(YTEXT_AREA);
 		createEReference(yTextAreaEClass, YTEXT_AREA__DATADESCRIPTION);
 		createEReference(yTextAreaEClass, YTEXT_AREA__DATATYPE);
+		createEAttribute(yTextAreaEClass, YTEXT_AREA__VALUE);
 
 		yCheckBoxEClass = createEClass(YCHECK_BOX);
 		createEReference(yCheckBoxEClass, YCHECK_BOX__DATADESCRIPTION);
 		createEReference(yCheckBoxEClass, YCHECK_BOX__DATATYPE);
+		createEAttribute(yCheckBoxEClass, YCHECK_BOX__VALUE);
 
 		yInputEClass = createEClass(YINPUT);
 
 		yDecimalFieldEClass = createEClass(YDECIMAL_FIELD);
 		createEReference(yDecimalFieldEClass, YDECIMAL_FIELD__DATATYPE);
 		createEReference(yDecimalFieldEClass, YDECIMAL_FIELD__DATADESCRIPTION);
+		createEAttribute(yDecimalFieldEClass, YDECIMAL_FIELD__VALUE);
 
 		yNumericFieldEClass = createEClass(YNUMERIC_FIELD);
 		createEReference(yNumericFieldEClass, YNUMERIC_FIELD__DATATYPE);
 		createEReference(yNumericFieldEClass, YNUMERIC_FIELD__DATADESCRIPTION);
+		createEAttribute(yNumericFieldEClass, YNUMERIC_FIELD__VALUE);
 
 		yComboBoxEClass = createEClass(YCOMBO_BOX);
 		createEReference(yComboBoxEClass, YCOMBO_BOX__DATADESCRIPTION);
@@ -969,6 +1029,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEClass(yTextFieldEClass, YTextField.class, "YTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTextField_Datatype(), theExtDatatypesPackage.getYTextDatatype(), null, "datatype", null, 0, 1, YTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTextField_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTextField_Value(), ecorePackage.getEString(), "value", null, 0, 1, YTextField.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yGridLayoutEClass, YGridLayout.class, "YGridLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYGridLayout_CellStyles(), this.getYGridLayoutCellStyle(), null, "cellStyles", null, 0, -1, YGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1021,24 +1082,29 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		initEClass(yLabelEClass, YLabel.class, "YLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYLabel_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYLabel_Value(), ecorePackage.getEString(), "value", null, 0, 1, YLabel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yTextAreaEClass, YTextArea.class, "YTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTextArea_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTextArea_Datatype(), theExtDatatypesPackage.getYTextAreaDatatype(), null, "datatype", null, 0, 1, YTextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTextArea_Value(), ecorePackage.getEString(), "value", null, 0, 1, YTextArea.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yCheckBoxEClass, YCheckBox.class, "YCheckBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYCheckBox_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YCheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYCheckBox_Datatype(), theExtDatatypesPackage.getYCheckBoxDatatype(), null, "datatype", null, 0, 1, YCheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYCheckBox_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, YCheckBox.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yDecimalFieldEClass, YDecimalField.class, "YDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYDecimalField_Datatype(), theExtDatatypesPackage.getYDecimalDatatype(), null, "datatype", null, 0, 1, YDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYDecimalField_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDecimalField_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, YDecimalField.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yNumericFieldEClass, YNumericField.class, "YNumericField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYNumericField_Datatype(), theExtDatatypesPackage.getYNumericDatatype(), null, "datatype", null, 0, 1, YNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYNumericField_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YNumericField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYNumericField_Value(), ecorePackage.getEInt(), "value", null, 0, 1, YNumericField.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yComboBoxEClass, YComboBox.class, "YComboBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYComboBox_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1084,7 +1150,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		addEEnumLiteral(yButtonTypeEEnum, YButtonType.TOGGLE);
 
 		// Initialize data types
-		initEDataType(yButtonClickListenerEDataType, IButtonClickListener.class, "YButtonClickListener", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(yButtonClickListenerEDataType, YButtonClickListener.class, "YButtonClickListener", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

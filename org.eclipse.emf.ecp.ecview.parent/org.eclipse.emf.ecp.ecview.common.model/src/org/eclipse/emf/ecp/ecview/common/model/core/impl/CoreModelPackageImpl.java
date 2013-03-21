@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -45,6 +46,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
+import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 
 /**
  * <!-- begin-user-doc -->
@@ -213,6 +215,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EDataType yuriEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType yValueChangeListenerEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -699,6 +708,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getYValueChangeListener() {
+		return yValueChangeListenerEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CoreModelFactory getCoreModelFactory() {
 		return (CoreModelFactory)getEFactoryInstance();
 	}
@@ -792,6 +810,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		// Create data types
 		yuriEDataType = createEDataType(YURI);
+		yValueChangeListenerEDataType = createEDataType(YVALUE_CHANGE_LISTENER);
 	}
 
 	/**
@@ -851,6 +870,14 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYLayout_Elements(), this.getYEmbeddable(), null, "elements", null, 0, -1, YLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yFieldEClass, YField.class, "YField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(yFieldEClass, ecorePackage.getEBoolean(), "addValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYValueChangeListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(yFieldEClass, ecorePackage.getEBoolean(), "removeValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYValueChangeListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(yFieldEClass, null, "removeAllValueChangListeners", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yViewEClass, YView.class, "YView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYView_Root(), this.getYViewSet(), this.getYViewSet_Views(), "root", null, 1, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -924,6 +951,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		// Initialize data types
 		initEDataType(yuriEDataType, URI.class, "YURI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(yValueChangeListenerEDataType, YValueChangeListener.class, "YValueChangeListener", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

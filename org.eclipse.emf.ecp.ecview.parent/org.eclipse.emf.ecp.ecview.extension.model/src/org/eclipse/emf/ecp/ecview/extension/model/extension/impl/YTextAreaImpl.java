@@ -21,6 +21,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +47,26 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 	 * @ordered
 	 */
 	protected YTextAreaDatatype datatype;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,6 +168,27 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTEXT_AREA__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -156,6 +198,8 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 			case ExtensionModelPackage.YTEXT_AREA__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
+			case ExtensionModelPackage.YTEXT_AREA__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,6 +217,9 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 				return;
 			case ExtensionModelPackage.YTEXT_AREA__DATATYPE:
 				setDatatype((YTextAreaDatatype)newValue);
+				return;
+			case ExtensionModelPackage.YTEXT_AREA__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,6 +239,9 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 			case ExtensionModelPackage.YTEXT_AREA__DATATYPE:
 				setDatatype((YTextAreaDatatype)null);
 				return;
+			case ExtensionModelPackage.YTEXT_AREA__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,8 +258,26 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 				return datadescription != null;
 			case ExtensionModelPackage.YTEXT_AREA__DATATYPE:
 				return datatype != null;
+			case ExtensionModelPackage.YTEXT_AREA__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 } //YUiTextAreaImpl

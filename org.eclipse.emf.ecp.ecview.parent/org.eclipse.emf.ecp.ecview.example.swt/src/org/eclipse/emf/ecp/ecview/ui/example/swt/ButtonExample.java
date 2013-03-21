@@ -14,7 +14,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.equinox.app.IApplication;
@@ -56,7 +56,7 @@ public class ButtonExample implements IApplication {
 
 		YButton button = newButton("Text1");
 		layout.addElement(button);
-		button.addClickListener(new IButtonClickListener() {
+		button.addClickListener(new YButtonClickListener() {
 			@Override
 			public void clicked(YButton context) {
 				System.out.println("Button was clicked");

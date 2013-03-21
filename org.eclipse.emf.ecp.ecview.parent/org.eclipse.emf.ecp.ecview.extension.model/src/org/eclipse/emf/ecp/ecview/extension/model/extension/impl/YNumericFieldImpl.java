@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +48,26 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * @ordered
 	 */
 	protected YDatadescription datadescription;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VALUE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected int value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,27 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(int newValue) {
+		int oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YNUMERIC_FIELD__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableValueEndpoint createValueEndpoint() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -168,6 +210,8 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 			case ExtensionModelPackage.YNUMERIC_FIELD__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
+			case ExtensionModelPackage.YNUMERIC_FIELD__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,6 +229,9 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 				return;
 			case ExtensionModelPackage.YNUMERIC_FIELD__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
+				return;
+			case ExtensionModelPackage.YNUMERIC_FIELD__VALUE:
+				setValue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,6 +251,9 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 			case ExtensionModelPackage.YNUMERIC_FIELD__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
+			case ExtensionModelPackage.YNUMERIC_FIELD__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,8 +270,26 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 				return datatype != null;
 			case ExtensionModelPackage.YNUMERIC_FIELD__DATADESCRIPTION:
 				return datadescription != null;
+			case ExtensionModelPackage.YNUMERIC_FIELD__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 } //YUiNumericFieldImpl

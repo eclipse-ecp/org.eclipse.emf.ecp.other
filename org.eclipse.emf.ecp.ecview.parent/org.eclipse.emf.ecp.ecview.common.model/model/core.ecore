@@ -10,7 +10,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//YEmbeddable" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YField" eSuperTypes="#//YEmbeddable #//YEditable #//YEnable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YField" eSuperTypes="#//YEmbeddable #//YEditable #//YEnable">
+    <eOperations name="addValueChangeListener" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="listener" eType="#//YValueChangeListener"/>
+    </eOperations>
+    <eOperations name="removeValueChangeListener" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="listener" eType="#//YValueChangeListener"/>
+    </eOperations>
+    <eOperations name="removeAllValueChangListeners"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YView" eSuperTypes="#//YElement #//YCssAble #//YMarginable">
     <eOperations name="getOrCreateBindingSet" eType="ecore:EClass binding.ecore#//YBindingSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//YViewSet"
@@ -87,4 +95,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableValueEndpoint" eSuperTypes="#//YEmbeddableBindingEndpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableSelectionEndpoint" eSuperTypes="#//YEmbeddableBindingEndpoint"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="YValueChangeListener" instanceClassName="org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener"/>
 </ecore:EPackage>

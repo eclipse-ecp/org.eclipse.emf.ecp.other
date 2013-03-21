@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -22,4 +24,28 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  * @generated
  */
 public interface YField extends YEmbeddable, YEditable, YEnable {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model listenerDataType="org.eclipse.emf.ecp.ecview.common.model.core.YValueChangeListener"
+	 * @generated
+	 */
+	boolean addValueChangeListener(YValueChangeListener listener);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model listenerDataType="org.eclipse.emf.ecp.ecview.common.model.core.YValueChangeListener"
+	 * @generated
+	 */
+	boolean removeValueChangeListener(YValueChangeListener listener);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeAllValueChangListeners();
 } // YUiField

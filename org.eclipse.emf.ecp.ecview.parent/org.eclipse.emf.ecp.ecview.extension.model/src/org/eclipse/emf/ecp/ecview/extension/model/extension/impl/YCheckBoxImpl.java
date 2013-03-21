@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl#isValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +48,26 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	 * @ordered
 	 */
 	protected YCheckBoxDatatype datatype;
+
+	/**
+	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean VALUE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,27 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(boolean newValue) {
+		boolean oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCHECK_BOX__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableValueEndpoint createValueEndpoint() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -168,6 +210,8 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 			case ExtensionModelPackage.YCHECK_BOX__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
+			case ExtensionModelPackage.YCHECK_BOX__VALUE:
+				return isValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,6 +229,9 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 				return;
 			case ExtensionModelPackage.YCHECK_BOX__DATATYPE:
 				setDatatype((YCheckBoxDatatype)newValue);
+				return;
+			case ExtensionModelPackage.YCHECK_BOX__VALUE:
+				setValue((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,6 +251,9 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 			case ExtensionModelPackage.YCHECK_BOX__DATATYPE:
 				setDatatype((YCheckBoxDatatype)null);
 				return;
+			case ExtensionModelPackage.YCHECK_BOX__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -220,8 +270,26 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 				return datadescription != null;
 			case ExtensionModelPackage.YCHECK_BOX__DATATYPE:
 				return datatype != null;
+			case ExtensionModelPackage.YCHECK_BOX__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (value: ");
+		result.append(value);
+		result.append(')');
+		return result.toString();
 	}
 
 } //YUiCheckBoxImpl

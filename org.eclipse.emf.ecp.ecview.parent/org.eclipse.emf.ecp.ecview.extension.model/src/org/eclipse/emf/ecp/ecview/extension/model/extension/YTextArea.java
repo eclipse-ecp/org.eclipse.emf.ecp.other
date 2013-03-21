@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,5 +84,31 @@ public interface YTextArea extends YInput {
 	 * @generated
 	 */
 	void setDatatype(YTextAreaDatatype value);
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTextArea_Value()
+	 * @model transient="true"
+	 * @generated
+	 */
+	String getValue();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(String value);
 
 } // YUiTextArea

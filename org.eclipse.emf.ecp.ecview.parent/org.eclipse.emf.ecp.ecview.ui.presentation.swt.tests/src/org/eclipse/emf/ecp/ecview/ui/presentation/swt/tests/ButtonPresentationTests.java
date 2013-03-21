@@ -23,7 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.IButtonClickListener;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
@@ -228,7 +228,7 @@ public class ButtonPresentationTests {
 		yView.setContent(yGridlayout);
 		YButton yButton = factory.createButton();
 		yGridlayout.addElement(yButton);
-		yButton.addClickListener(new IButtonClickListener() {
+		yButton.addClickListener(new YButtonClickListener() {
 			@Override
 			public void clicked(YButton listener) {
 				clicks[0]++;
@@ -250,7 +250,7 @@ public class ButtonPresentationTests {
 		assertEquals(1, clicks[0]);
 		clicks[0] = 0;
 
-		IButtonClickListener listener = new IButtonClickListener() {
+		YButtonClickListener listener = new YButtonClickListener() {
 			@Override
 			public void clicked(YButton listener) {
 				clicks[0]++;

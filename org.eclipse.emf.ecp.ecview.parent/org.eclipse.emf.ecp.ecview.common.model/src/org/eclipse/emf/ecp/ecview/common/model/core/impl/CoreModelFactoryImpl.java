@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecp.ecview.common.model.core.*;
+import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
@@ -96,6 +97,8 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 				return createYUnitFromString(eDataType, initialValue);
 			case CoreModelPackage.YURI:
 				return createYURIFromString(eDataType, initialValue);
+			case CoreModelPackage.YVALUE_CHANGE_LISTENER:
+				return createYValueChangeListenerFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +116,8 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 				return convertYUnitToString(eDataType, instanceValue);
 			case CoreModelPackage.YURI:
 				return convertYURIToString(eDataType, instanceValue);
+			case CoreModelPackage.YVALUE_CHANGE_LISTENER:
+				return convertYValueChangeListenerToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -233,6 +238,24 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	 * @generated
 	 */
 	public String convertYURIToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YValueChangeListener createYValueChangeListenerFromString(EDataType eDataType, String initialValue) {
+		return (YValueChangeListener)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYValueChangeListenerToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

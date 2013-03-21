@@ -10,11 +10,12 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
-import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.riena.ui.ridgets.ILabelRidget;
@@ -77,8 +78,28 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 			if (modelAccess.isLabelValid()) {
 				label.setText(modelAccess.getLabel());
 			}
+
+			// creates the binding for the field
+			createBindings(modelAccess.yLabel, labelRidget);
 		}
 		return controlBase;
+	}
+
+	/**
+	 * Creates the bindings for the given elements.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	protected void createBindings(YLabel yField, ILabelRidget ridget) {
+		
+		// binds the ridget to the ECView-model
+		createModelBinding(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YLABEL__VALUE, ridget,
+				ILabelRidget.PROPERTY_TEXT);
+
+		// do further bindings
+		super.createBindings(yField, ridget);
 	}
 
 	@Override
@@ -101,7 +122,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 	}
 
 	@Override
-	protected IObservable internalGetObservableValue(
+	protected IObservable internalGetObservableEndpoint(
 			YEmbeddableBindingEndpoint bindableValue) {
 		if (bindableValue == null) {
 			throw new NullPointerException("BindableValue must not be null!");
@@ -109,8 +130,8 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 
 		if (bindableValue instanceof YEmbeddableValueEndpoint) {
 			// return the observable value for text
-			return BeansObservables.observeValue(labelRidget,
-					ILabelRidget.PROPERTY_TEXT);
+			return EMFObservables.observeValue(castEObject(getModel()),
+					ExtensionModelPackage.Literals.YLABEL__VALUE);
 		}
 		throw new IllegalArgumentException("Not a valid input: "
 				+ bindableValue);
@@ -141,11 +162,11 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 	 * A helper class.
 	 */
 	private static class ModelAccess {
-		private final YLabel yUiLabel;
+		private final YLabel yLabel;
 
 		public ModelAccess(YLabel yUiLabel) {
 			super();
-			this.yUiLabel = yUiLabel;
+			this.yLabel = yUiLabel;
 		}
 
 		/**
@@ -153,7 +174,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YCssAble#getCssClass()
 		 */
 		public String getCssClass() {
-			return yUiLabel.getCssClass();
+			return yLabel.getCssClass();
 		}
 
 		/**
@@ -170,7 +191,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 		 * @see org.eclipse.emf.ecp.ui.model.core.uimodel.YCssAble#getCssID()
 		 */
 		public String getCssID() {
-			return yUiLabel.getCssID();
+			return yLabel.getCssID();
 		}
 
 		/**
@@ -188,8 +209,8 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 		 * @return
 		 */
 		public boolean isLabelValid() {
-			return yUiLabel.getDatadescription() != null
-					&& yUiLabel.getDatadescription().getLabel() != null;
+			return yLabel.getDatadescription() != null
+					&& yLabel.getDatadescription().getLabel() != null;
 		}
 
 		/**
@@ -198,7 +219,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 		 * @return
 		 */
 		public String getLabel() {
-			return yUiLabel.getDatadescription().getLabel();
+			return yLabel.getDatadescription().getLabel();
 		}
 	}
 

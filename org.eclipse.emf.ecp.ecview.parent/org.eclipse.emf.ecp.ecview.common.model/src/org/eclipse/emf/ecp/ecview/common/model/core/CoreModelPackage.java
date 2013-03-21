@@ -1027,6 +1027,17 @@ public interface CoreModelPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>YValue Change Listener</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
+	 * @generated
+	 */
+	int YVALUE_CHANGE_LISTENER = 23;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YElement <em>YElement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1511,6 +1522,17 @@ public interface CoreModelPackage extends EPackage {
 	EDataType getYURI();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener <em>YValue Change Listener</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>YValue Change Listener</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener
+	 * @model instanceClass="org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener"
+	 * @generated
+	 */
+	EDataType getYValueChangeListener();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1945,6 +1967,16 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType YURI = eINSTANCE.getYURI();
+
+		/**
+		 * The meta object literal for the '<em>YValue Change Listener</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
+		 * @generated
+		 */
+		EDataType YVALUE_CHANGE_LISTENER = eINSTANCE.getYValueChangeListener();
 
 	}
 

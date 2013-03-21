@@ -26,6 +26,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.junit.Before;
@@ -59,6 +60,20 @@ public class BuildViewTests {
 		if (control instanceof Composite) {
 			Composite composite = (Composite) control;
 			return composite.getChildren()[0];
+		}
+		return control;
+	}
+
+	/**
+	 * Unwraps the control from its parent composite.
+	 * 
+	 * @param control
+	 * @return
+	 */
+	private Control unwrap1(Control control) {
+		if (control instanceof Composite) {
+			Composite composite = (Composite) control;
+			return composite.getChildren()[1];
 		}
 		return control;
 	}
@@ -127,7 +142,9 @@ public class BuildViewTests {
 		Control[] viewChilds = viewComposite.getChildren();
 		Assert.assertEquals(1, viewChilds.length);
 
-		Text text = (Text) unwrap(viewChilds[0]);
+		Label label = (Label) unwrap(viewChilds[0]);
+		Text text = (Text) unwrap1(viewChilds[0]);
+		Assert.assertNotNull(label);
 		Assert.assertNotNull(text);
 		Assert.assertTrue(text.getLayoutData() instanceof GridData);
 	}
@@ -200,12 +217,13 @@ public class BuildViewTests {
 		// ensure that there is a control in the viewComposite
 		Assert.assertEquals(1, viewComposite.getChildren().length);
 
-		Composite layoutComposite = (Composite) unwrap(viewComposite.getChildren()[0]);
+		Composite layoutComposite = (Composite) unwrap(viewComposite
+				.getChildren()[0]);
 		// ensure that there is a control in the viewComposite
 		Assert.assertEquals(2, layoutComposite.getChildren().length);
 
-		Text text1 = (Text) unwrap(layoutComposite.getChildren()[0]);
-		Text text2 = (Text) unwrap(layoutComposite.getChildren()[1]);
+		Label label1 = (Label) unwrap(layoutComposite.getChildren()[0]);
+		Label Label2 = (Label) unwrap(layoutComposite.getChildren()[1]);
 	}
 
 	/**
@@ -217,7 +235,8 @@ public class BuildViewTests {
 		// END SUPRESS CATCH EXCEPTION
 		// ...........> field2
 		YView view1 = factory.createView();
-		IViewEditpart view1EditPart = DelegatingEditPartManager.getInstance().getEditpart(view1);
+		IViewEditpart view1EditPart = DelegatingEditPartManager.getInstance()
+				.getEditpart(view1);
 
 		// contexts null
 		//
@@ -263,8 +282,10 @@ public class BuildViewTests {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_presentationURI() {
 		// END SUPRESS CATCH EXCEPTION
-		IViewEditpart viewEditPart = DelegatingEditPartManager.getInstance().createEditpart(
-			"http://eclipse.org/emf/emfclient/uimodel", IViewEditpart.class);
+		IViewEditpart viewEditPart = DelegatingEditPartManager.getInstance()
+				.createEditpart(
+						"http://eclipse.org/emf/ecp/ecview/common/view",
+						IViewEditpart.class);
 		ViewContext context = new ViewContext(viewEditPart);
 
 		Assert.assertNull(context.getPresentationURI());
@@ -293,8 +314,10 @@ public class BuildViewTests {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_rootLayout() {
 		// END SUPRESS CATCH EXCEPTION
-		IViewEditpart viewEditPart = DelegatingEditPartManager.getInstance().createEditpart(
-			"http://eclipse.org/emf/emfclient/uimodel", IViewEditpart.class);
+		IViewEditpart viewEditPart = DelegatingEditPartManager.getInstance()
+				.createEditpart(
+						"http://eclipse.org/emf/ecp/ecview/common/view",
+						IViewEditpart.class);
 		ViewContext context = new ViewContext(viewEditPart);
 
 		Assert.assertNull(context.getRootLayout());

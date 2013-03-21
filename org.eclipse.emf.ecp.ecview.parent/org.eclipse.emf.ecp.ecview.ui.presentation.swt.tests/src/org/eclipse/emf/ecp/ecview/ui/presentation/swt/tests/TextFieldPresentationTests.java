@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
+import static junit.framework.Assert.assertEquals;
 import junit.framework.Assert;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -27,6 +29,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.TextFieldPresentation;
+import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -229,6 +232,55 @@ public class TextFieldPresentationTests {
 
 		Assert.assertNull(WidgetElement.getID(label1));
 		Assert.assertNull(WidgetElement.getID(label2));
+	}
+
+	/**
+	 * Tests rendering issues.
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_valueChangeAdapter_firesEvent() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yGridLayout
+		// .........> yText
+		YView yView = factory.createView();
+		YGridLayout yGridlayout = factory.createGridLayout();
+		yView.setContent(yGridlayout);
+		YTextField yText = factory.createTextField();
+		yGridlayout.getElements().add(yText);
+
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		ITextFieldEditpart textEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yText);
+		TextFieldPresentation presentation = textEditpart.getPresentation();
+
+		final int[] counter = new int[1];
+		yText.addValueChangeListener(new YValueChangeListener() {
+			@Override
+			public void valueChanged(Event event) {
+				counter[0] = counter[0] + 1;
+			}
+		});
+
+		assertEquals(0, counter[0]);
+
+		ITextRidget ridget = presentation.getTextRidget();
+		ridget.setText("Test");
+		assertEquals(1, counter[0]);
+
+		ridget.setText("Test 1");
+		assertEquals(2, counter[0]);
+
+		yText.removeAllValueChangListeners();
+		ridget.setText("Test 2");
+		assertEquals(2, counter[0]);
+
 	}
 
 	/**
