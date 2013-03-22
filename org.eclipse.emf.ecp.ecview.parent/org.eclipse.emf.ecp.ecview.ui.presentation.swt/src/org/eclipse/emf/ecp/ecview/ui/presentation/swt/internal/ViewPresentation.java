@@ -38,6 +38,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.osgi.framework.Bundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -125,8 +126,10 @@ public class ViewPresentation extends AbstractDisposable implements
 	protected void setupCSSEngine(Set<URL> cssFiles) {
 		cssEngine = new CSSSWTEngineImpl(controlBase.getDisplay());
 		try {
-			cssEngine.parseStyleSheet(Activator.getContext().getBundle()
-					.getEntry("/theming/css/theme.css").openStream());
+			Bundle bundle = Activator.getContext().getBundle();
+			bundle.getBundleId();
+			cssEngine.parseStyleSheet(bundle.getEntry("/theming/css/theme.css")
+					.openStream());
 			if (cssFiles != null) {
 				for (URL url : cssFiles) {
 					cssEngine.parseStyleSheet(url.openStream());

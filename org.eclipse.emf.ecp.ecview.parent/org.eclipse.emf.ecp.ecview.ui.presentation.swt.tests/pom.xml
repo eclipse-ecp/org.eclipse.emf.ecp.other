@@ -10,6 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<packaging>eclipse-test-plugin</packaging>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -21,7 +22,9 @@
 					</includes>
 					<failIfNoTests>false</failIfNoTests>
 					<showEclipseLog>true</showEclipseLog>
-					<!-- <argLine>${ui.test.vmargs}</argLine> -->
+					<useUIHarness>true</useUIHarness>
+					<useUIThread>true</useUIThread>
+					<argLine>-Xms40m -Xmx512m -XstartOnFirstThread</argLine>
 					<bundleStartLevel>
 						<bundle>
 							<id>org.eclipse.osgi</id>
@@ -36,11 +39,6 @@
 						<bundle>
 							<id>org.eclipse.equinox.ds</id>
 							<level>2</level>
-							<autoStart>true</autoStart>
-						</bundle>
-						<bundle>
-							<id>org.eclipse.swt</id>
-							<level>3</level>
 							<autoStart>true</autoStart>
 						</bundle>
 						<bundle>
@@ -72,17 +70,23 @@
 							<artifactId>org.eclipse.equinox.util</artifactId>
 							<version>0.0.0</version>
 						</dependency>
-						<dependency>
-							<type>eclipse-plugin</type>
-							<artifactId>org.eclipse.swt</artifactId>
-							<version>0.0.0</version>
-						</dependency>
 					</dependencies>
-
-					<useUIHarness>false</useUIHarness>
-					<useUIThread>true</useUIThread>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>macosx-jvm-flags</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<os-jvm-flags>-XstartOnFirstThread</os-jvm-flags>
+			</properties>
+		</profile>
+	</profiles>
 </project>
