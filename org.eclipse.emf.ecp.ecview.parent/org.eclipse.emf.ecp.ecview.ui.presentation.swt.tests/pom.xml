@@ -24,7 +24,7 @@
 					<showEclipseLog>true</showEclipseLog>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
-					<argLine>-Xms40m -Xmx512m -XstartOnFirstThread</argLine>
+					<argLine>-Xms40m -Xmx512m</argLine>
 					<bundleStartLevel>
 						<bundle>
 							<id>org.eclipse.osgi</id>
