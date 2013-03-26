@@ -104,7 +104,7 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAXLENGTH_EDEFAULT = 0;
+	protected static final int MAXLENGTH_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getMaxlength() <em>Maxlength</em>}' attribute.
@@ -124,7 +124,7 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MINLENGTH_EDEFAULT = 0;
+	protected static final int MINLENGTH_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getMinlength() <em>Minlength</em>}' attribute.

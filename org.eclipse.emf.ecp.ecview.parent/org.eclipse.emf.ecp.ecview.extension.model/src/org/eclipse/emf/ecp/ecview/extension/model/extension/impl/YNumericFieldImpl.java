@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
@@ -57,7 +58,7 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VALUE_EDEFAULT = 0;
+	protected static final long VALUE_EDEFAULT = 0L;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -67,7 +68,7 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * @generated
 	 * @ordered
 	 */
-	protected int value = VALUE_EDEFAULT;
+	protected long value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,7 +170,7 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getValue() {
+	public long getValue() {
 		return value;
 	}
 
@@ -178,8 +179,8 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(int newValue) {
-		int oldValue = value;
+	public void setValue(long newValue) {
+		long oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YNUMERIC_FIELD__VALUE, oldValue, value));
@@ -190,12 +191,26 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableValueEndpoint createValueEndpoint() {
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Creates a new instance of value endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -231,7 +246,7 @@ public class YNumericFieldImpl extends YInputImpl implements YNumericField {
 				setDatadescription((YDatadescription)newValue);
 				return;
 			case ExtensionModelPackage.YNUMERIC_FIELD__VALUE:
-				setValue((Integer)newValue);
+				setValue((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -3,8 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatypes" nsURI="http://eclipse.org/emf/ecp/ecview/extension/datatypes"
     nsPrefix="datatypes">
   <eClassifiers xsi:type="ecore:EClass" name="YTextDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YTextAreaDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>

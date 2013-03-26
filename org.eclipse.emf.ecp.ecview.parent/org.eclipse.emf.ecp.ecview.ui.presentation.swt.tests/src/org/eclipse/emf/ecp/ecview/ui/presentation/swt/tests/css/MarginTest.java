@@ -41,7 +41,7 @@ import org.junit.Test;
  * @author admin
  *
  */
-public class MarginTests {
+public class MarginTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

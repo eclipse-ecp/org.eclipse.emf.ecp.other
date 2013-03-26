@@ -44,7 +44,7 @@ import org.junit.Test;
  * Tests the {@link GridLayoutPresentation}.
  */
 @SuppressWarnings("restriction")
-public class GridLayoutPresentationTests {
+public class GridLayoutPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

@@ -10,9 +10,15 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.conversion.IConverter;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
@@ -22,7 +28,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ISWTBindingManager;
 import org.eclipse.riena.ui.ridgets.INumericTextRidget;
-import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.riena.ui.ridgets.swt.SwtRidgetFactory;
 import org.eclipse.riena.ui.swt.utils.UIControlsFactory;
 import org.eclipse.swt.SWT;
@@ -32,17 +37,23 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This presenter is responsible to render a text field on the given layout.
  */
 public class NumericFieldPresentation extends FieldPresentation {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(NumericFieldPresentation.class);
+
 	private final YNumericField yNumericTextField;
 	private Composite controlBase;
 	private Text numericText;
 	private Label label;
 	private INumericTextRidget numericRidget;
+	private RienaEmfBridge bindingBridge;
 
 	/**
 	 * Constructor.
@@ -78,10 +89,16 @@ public class NumericFieldPresentation extends FieldPresentation {
 			numericText = new Text(controlBase, SWT.BORDER);
 			numericText.setData(UIControlsFactory.KEY_TYPE,
 					UIControlsFactory.TYPE_NUMERIC);
-			numericRidget = (INumericTextRidget) SwtRidgetFactory
-					.createRidget(numericText);
 			numericText.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,
 					true));
+
+			numericRidget = (INumericTextRidget) SwtRidgetFactory
+					.createRidget(numericText);
+			numericRidget.setConvertEmptyToZero(true);
+			numericRidget
+					.setModelToUIControlConverter(new ModelToRidgetConverter());
+			numericRidget
+					.setUIControlToModelConverter(new RidgetToModelConverter());
 
 			// update style attributes
 			//
@@ -124,15 +141,32 @@ public class NumericFieldPresentation extends FieldPresentation {
 		bindingManager.bindGrouping(yField, ridget);
 		bindingManager.bindMarkNegative(yField, ridget);
 
-		// create the model binding from ridget to ECView-model
-		createModelBinding(castEObject(getModel()),
-				ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE, ridget,
-				INumericTextRidget.PROPERTY_TEXT);
+		bindingBridge = new RienaEmfBridge();
+
+		// bind the ridget to the bridge
+		ridget.bindToModel(bindingBridge, "value");
+
+		// bind ECView model to bridge
+		IObservableValue modelObservable = EMFObservables.observeValue(
+				castEObject(getModel()),
+				ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE);
+		IObservableValue bridgeObservable_model = BeansObservables
+				.observeValue(bindingBridge, "value");
+		bindingManager.bindValue(bridgeObservable_model, modelObservable);
+
+		// // create the model binding from ridget to ECView-model
+		// createModelBinding(castEObject(getModel()),
+		// ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE, ridget,
+		// INumericTextRidget.PROPERTY_TEXT);
 	}
 
 	@Override
 	public Control getWidget() {
 		return controlBase;
+	}
+
+	public INumericTextRidget getRidget() {
+		return numericRidget;
 	}
 
 	@Override
@@ -179,9 +213,10 @@ public class NumericFieldPresentation extends FieldPresentation {
 	 * @return
 	 */
 	protected IObservableValue internalGetValueEndpoint() {
+		// TODO add unit test
 		// return the observable value for text
-		return BeansObservables.observeValue(numericRidget,
-				ITextRidget.PROPERTY_TEXT);
+		return EMFObservables.observeValue(castEObject(getModel()),
+				ExtensionModelPackage.Literals.YNUMERIC_FIELD__VALUE);
 	}
 
 	/**
@@ -207,4 +242,93 @@ public class NumericFieldPresentation extends FieldPresentation {
 		// unrender the ui control
 		unrender();
 	}
+
+	/**
+	 * Converts from model to ridget.
+	 */
+	private static class ModelToRidgetConverter implements IConverter {
+
+		private final NumberFormat format = new DecimalFormat();
+
+		@Override
+		public Object getFromType() {
+			return Long.class;
+		}
+
+		@Override
+		public Object getToType() {
+			return String.class;
+		}
+
+		@Override
+		public Object convert(Object fromObject) {
+			return format.format((Long) fromObject);
+		}
+
+	}
+
+	/**
+	 * Converts from ridget to model.
+	 */
+	private static class RidgetToModelConverter implements IConverter {
+
+		private final NumberFormat format = new DecimalFormat();
+
+		@Override
+		public Object getFromType() {
+			return String.class;
+		}
+
+		@Override
+		public Object getToType() {
+			return Long.class;
+		}
+
+		@Override
+		public Object convert(Object fromObject) {
+			try {
+				return Long.valueOf(format.parse((String) fromObject)
+						.longValue());
+			} catch (ParseException e) {
+				logger.error("{}", e);
+				return new Long(0);
+			}
+		}
+
+	}
+
+	/**
+	 * This class is used to bridge EMF and Riena. Riena does not deal with
+	 * Objects as databinding types. And EMFObservables need to return an
+	 * instance of EStructuralFeature as type. So this class enables a proper
+	 * binding.
+	 * <p>
+	 * Two different bindings will be used on this bridge.<br>
+	 * bridge <-> ridget by ridget.bindToValue()<br>
+	 * ECViewModel <-> bridge by bindingmanager.bindValue()
+	 * 
+	 */
+	private static class RienaEmfBridge extends AbstractBean {
+
+		private long value;
+
+		/**
+		 * @return the value
+		 */
+		@SuppressWarnings("unused")
+		public Long getValue() {
+			return value;
+		}
+
+		/**
+		 * @param value
+		 *            the value to set
+		 */
+		@SuppressWarnings("unused")
+		public void setValue(Long value) {
+			firePropertyChanged("value", this.value, this.value = value);
+		}
+
+	}
+
 }

@@ -31,6 +31,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 public interface YHeightable {
 	/**
 	 * Returns the value of the '<em><b>Height</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Height</em>' attribute isn't clear,
@@ -40,7 +41,7 @@ public interface YHeightable {
 	 * @return the value of the '<em>Height</em>' attribute.
 	 * @see #setHeight(int)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYHeightable_Height()
-	 * @model
+	 * @model default="100"
 	 * @generated
 	 */
 	int getHeight();

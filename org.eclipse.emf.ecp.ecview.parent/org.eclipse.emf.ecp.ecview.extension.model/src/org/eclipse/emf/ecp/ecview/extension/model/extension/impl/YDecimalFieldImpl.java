@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
@@ -14,9 +15,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackag
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Decimal Field</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi Decimal Field</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -31,8 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDatatype()
 	 * @generated
 	 * @ordered
@@ -40,8 +39,8 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	protected YDecimalDatatype datatype;
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDatadescription()
 	 * @generated
 	 * @ordered
@@ -50,8 +49,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -59,8 +57,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	protected static final double VALUE_EDEFAULT = 0.0;
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -68,8 +65,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	protected double value = VALUE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YDecimalFieldImpl() {
@@ -77,8 +73,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -87,8 +82,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDecimalDatatype getDatatype() {
@@ -104,8 +98,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDecimalDatatype basicGetDatatype() {
@@ -113,8 +106,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatatype(YDecimalDatatype newDatatype) {
@@ -125,8 +117,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
@@ -142,8 +133,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription basicGetDatadescription() {
@@ -151,8 +141,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatadescription(YDatadescription newDatadescription) {
@@ -163,8 +152,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public double getValue() {
@@ -172,8 +160,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setValue(double newValue) {
@@ -184,19 +171,30 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableValueEndpoint createValueEndpoint() {
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates a new instance of value endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -215,8 +213,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -236,8 +233,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -257,8 +253,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -275,8 +270,7 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -290,4 +284,4 @@ public class YDecimalFieldImpl extends YInputImpl implements YDecimalField {
 		return result.toString();
 	}
 
-} //YUiDecimalFieldImpl
+} // YUiDecimalFieldImpl

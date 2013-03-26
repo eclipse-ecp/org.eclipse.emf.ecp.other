@@ -59,7 +59,7 @@ import org.junit.Test;
  * Tests the {@link TextFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class FieldPresentationTests {
+public class FieldPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

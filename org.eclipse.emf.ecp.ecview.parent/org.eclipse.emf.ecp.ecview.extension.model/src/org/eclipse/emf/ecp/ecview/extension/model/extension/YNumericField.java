@@ -95,12 +95,12 @@ public interface YNumericField extends YInput, YValueBindable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(int)
+	 * @see #setValue(long)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYNumericField_Value()
 	 * @model transient="true"
 	 * @generated
 	 */
-	int getValue();
+	long getValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField#getValue <em>Value</em>}' attribute.
@@ -110,6 +110,6 @@ public interface YNumericField extends YInput, YValueBindable {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(int value);
+	void setValue(long value);
 
 } // YUiNumericField

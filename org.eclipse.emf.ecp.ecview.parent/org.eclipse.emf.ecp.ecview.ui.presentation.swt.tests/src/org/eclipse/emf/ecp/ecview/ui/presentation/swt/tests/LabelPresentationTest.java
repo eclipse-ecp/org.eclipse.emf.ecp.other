@@ -42,7 +42,7 @@ import org.junit.Test;
  * Tests the {@link LabelFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class LabelPresentationTests {
+public class LabelPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

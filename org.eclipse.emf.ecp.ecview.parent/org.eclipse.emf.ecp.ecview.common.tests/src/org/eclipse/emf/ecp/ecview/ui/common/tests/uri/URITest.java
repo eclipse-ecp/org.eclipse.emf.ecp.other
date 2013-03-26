@@ -36,7 +36,7 @@ import org.junit.Test;
  * Tests the {@link ResourceManager}.
  */
 @SuppressWarnings("restriction")
-public class URITests {
+public class URITest {
 
 	private EditpartManager editpartManager = new EditpartManager();
 	private ResourceSetImpl resourceSet;

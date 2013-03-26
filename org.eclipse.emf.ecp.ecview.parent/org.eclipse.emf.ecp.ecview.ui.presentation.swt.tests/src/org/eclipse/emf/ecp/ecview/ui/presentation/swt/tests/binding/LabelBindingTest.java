@@ -20,11 +20,12 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.LabelPresentation;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.TextFieldPresentation;
-import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.riena.ui.ridgets.ILabelRidget;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -35,7 +36,7 @@ import org.junit.Test;
  * Tests the {@link TextFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class TextFieldBindingTests {
+public class LabelBindingTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
@@ -65,26 +66,26 @@ public class TextFieldBindingTests {
 		YView yView = factory.createView();
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YTextField yText1 = factory.createTextField();
-		yLayout.addElement(yText1);
-		YTextField yText2 = factory.createTextField();
-		yLayout.addElement(yText2);
+		YLabel yLabel1 = factory.createLabel();
+		yLayout.addElement(yLabel1);
+		YLabel yLabel2 = factory.createLabel();
+		yLayout.addElement(yLabel2);
 
 		YBindingSet yBindingSet = yView.getOrCreateBindingSet();
-		yBindingSet.addBinding(yText1.createValueEndpoint(),
-				yText2.createValueEndpoint());
+		yBindingSet.addBinding(yLabel1.createValueEndpoint(),
+				yLabel2.createValueEndpoint());
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextRidget text1 = getText(yText1);
-		ITextRidget text2 = getText(yText2);
+		ILabelRidget label1 = getLabel(yLabel1);
+		ILabelRidget label2 = getLabel(yLabel2);
 
-		text1.setText("call1");
-		Assert.assertEquals("call1", text2.getText());
+		label1.setText("call1");
+		Assert.assertEquals("call1", label2.getText());
 
-		text2.setText("call2");
-		Assert.assertEquals("call2", text1.getText());
+		label2.setText("call2");
+		Assert.assertEquals("call2", label1.getText());
 	}
 
 	/**
@@ -94,16 +95,16 @@ public class TextFieldBindingTests {
 	 *            model element
 	 * @return control
 	 */
-	protected ITextRidget getText(YElement yView) {
+	protected ILabelRidget getLabel(YElement yView) {
 		IElementEditpart editpart = DelegatingEditPartManager.getInstance()
 				.getEditpart(yView);
 
-		TextFieldPresentation presentation = null;
+		LabelPresentation presentation = null;
 		if (editpart instanceof IViewEditpart) {
 			presentation = ((IViewEditpart) editpart).getPresentation();
 		} else {
 			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
 		}
-		return presentation.getTextRidget();
+		return presentation.getRidget();
 	}
 }

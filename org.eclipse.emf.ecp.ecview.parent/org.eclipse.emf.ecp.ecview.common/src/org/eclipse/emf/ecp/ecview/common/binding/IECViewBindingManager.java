@@ -24,6 +24,10 @@ import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
  * contained are bindings related to the associated view.
  */
 public interface IECViewBindingManager extends IDisposable {
+	
+	public static final boolean DEFAULT_GROUPING = true;
+	public static final boolean DEFAULT_MARK_NEGATIVE = true;
+	public static final int DEFAULT_PRECISION = 2;
 
 	/**
 	 * Returns the validation realm for the binding manager.
@@ -40,7 +44,8 @@ public interface IECViewBindingManager extends IDisposable {
 	DataBindingContext getDatabindingContext();
 
 	/**
-	 * Binds the target to the model.
+	 * Binds the target to the model. Policy update will be used. Model ->
+	 * Target and Target -> Model automatically. See UpdateValueStrategy.
 	 * 
 	 * @param target
 	 * @param model

@@ -168,6 +168,7 @@ public class CheckBoxPresentation extends FieldPresentation {
 	 * @return
 	 */
 	protected IObservableValue internalGetValueEndpoint() {
+		// TODO change to emf observables and test
 		// return the observable value for text
 		return BeansObservables.observeValue(checkBox,
 				IToggleButtonRidget.PROPERTY_SELECTED);

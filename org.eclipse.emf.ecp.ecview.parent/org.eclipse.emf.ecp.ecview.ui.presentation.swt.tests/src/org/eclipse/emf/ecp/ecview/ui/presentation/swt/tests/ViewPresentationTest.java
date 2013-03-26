@@ -45,7 +45,7 @@ import org.junit.Test;
  * Test the {@link ViewPresentation}.
  */
 @SuppressWarnings("restriction")
-public class ViewPresentationTests {
+public class ViewPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

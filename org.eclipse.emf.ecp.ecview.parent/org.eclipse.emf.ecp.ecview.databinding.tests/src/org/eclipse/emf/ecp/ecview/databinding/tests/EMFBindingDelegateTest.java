@@ -14,44 +14,32 @@ import java.net.URI;
 
 import junit.framework.Assert;
 
-import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
-import org.eclipse.emf.ecp.ecview.databinding.beans.context.ContextBeanBindingDelegate;
-import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BAddress;
-import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BCountry;
-import org.eclipse.emf.ecp.ecview.databinding.tests.bean.model.BPerson;
+import org.eclipse.emf.ecp.ecview.databinding.emf.context.ContextEMFBindingDelegate;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelFactory;
 import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("restriction")
-public class BeanBindingDelegateTests {
+public class EMFBindingDelegateTest {
 
+	private TestmodelFactory factory = TestmodelFactory.eINSTANCE;
 	private boolean changed;
-	private ContextBeanBindingDelegate binder;
+	private ContextEMFBindingDelegate binder;
 	private IViewContext context;
 
 	@Before
 	public void setup() {
 		new TestRealm();
-		binder = new ContextBeanBindingDelegate();
+		binder = new ContextEMFBindingDelegate();
 		context = new TestViewContext();
-	}
-
-	/**
-	 * Tests the binding of bean slot.
-	 */
-	@Test
-	public void test_bindSlot() {
-		BPerson person = BPerson.newInstance("AT");
-		context.setBean("input", person);
-
-		IObservableValue value = binder.observeValue(context,
-				URI.create("view://bean/input"));
-		Assert.assertNull(value);
 	}
 
 	/**
@@ -59,12 +47,13 @@ public class BeanBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue() {
-		BPerson person = BPerson.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
-		IObservableValue value = binder.observeValue(context,
-				URI.create("view://bean/input#value"));
+		IObservableValue value = binder.observeValue(Realm.getDefault(),
+				context, URI.create("view://bean/input#value"));
 
+		value.getValue();
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -73,7 +62,7 @@ public class BeanBindingDelegateTests {
 			}
 		});
 
-		context.getBeanSlot("input").setValue(new BPerson());
+		context.getBeanSlot("input").setValue(newPerson("EN"));
 		Assert.assertTrue(changed);
 	}
 
@@ -81,13 +70,10 @@ public class BeanBindingDelegateTests {
 	 * Tests what happens if a binding is done, but no bean slot was prepared so
 	 * far.
 	 */
-	@SuppressWarnings("unused")
 	@Test
 	public void test_bindValue_NoSlotAvailable() {
 		try {
-			IObservableValue value = binder.observeValue(context,
-					URI.create("view://bean/input#value"));
-			Assert.fail();
+			binder.observeValue(context, URI.create("view://bean/input#value"));
 		} catch (IllegalArgumentException e) {
 		}
 	}
@@ -97,7 +83,7 @@ public class BeanBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested() {
-		BPerson person = BPerson.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -110,7 +96,30 @@ public class BeanBindingDelegateTests {
 				changed = true;
 			}
 		});
-		context.setBean("input", new BPerson());
+		context.setBean("input", newPerson("DE"));
+		Assert.assertTrue(changed);
+	}
+
+	/**
+	 * Test changing the bean in the slot.
+	 */
+	@Test
+	public void test_bindValue_nested2() {
+		TPerson person = newPerson("AT");
+		context.setBean("input", person);
+
+		IObservableValue value = binder.observeValue(context,
+				URI.create("view://bean/input#value.address.country.isoCode"));
+
+		changed = false;
+		value.addValueChangeListener(new IValueChangeListener() {
+			@Override
+			public void handleValueChange(ValueChangeEvent event) {
+				changed = true;
+			}
+		});
+
+		person.getAddress().getCountry().setIsoCode("DE");
 		Assert.assertTrue(changed);
 	}
 
@@ -119,7 +128,7 @@ public class BeanBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_target() {
-		BPerson person = BPerson.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -142,7 +151,7 @@ public class BeanBindingDelegateTests {
 	 */
 	@Test
 	public void test_bindValue_nested_middleOfChain() {
-		BPerson person = BPerson.newInstance("AT");
+		TPerson person = newPerson("AT");
 		context.setBean("input", person);
 
 		IObservableValue value = binder.observeValue(context,
@@ -158,8 +167,8 @@ public class BeanBindingDelegateTests {
 
 		// change the address in person
 		//
-		BAddress address = new BAddress();
-		BCountry country = new BCountry();
+		TAddress address = factory.createTAddress();
+		TCountry country = factory.createTCountry();
 		country.setIsoCode("EN");
 		address.setCountry(country);
 
@@ -167,24 +176,21 @@ public class BeanBindingDelegateTests {
 		Assert.assertTrue(changed);
 	}
 
-	@Test
-	public void test_bindValue_nested_property() {
-		BPerson person = BPerson.newInstance("AT");
-		IObservableValue value = BeanProperties.value(BPerson.class,
-				"address.country").observe(person);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-		BCountry other = new BCountry();
-		other.setIsoCode("Other");
-		person.getAddress().setCountry(other);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
-
-		BAddress address = new BAddress();
-		BCountry another = new BCountry();
-		another.setIsoCode("Another");
-		address.setCountry(another);
+	/**
+	 * Creates a new instance of person. All references are properly setup and
+	 * the isoCode of the country is set to the given value.
+	 * 
+	 * @param isoCode
+	 * @return
+	 */
+	public TPerson newPerson(String isoCode) {
+		TPerson person = factory.createTPerson();
+		TAddress address = factory.createTAddress();
 		person.setAddress(address);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
+		TCountry country = factory.createTCountry();
+		country.setIsoCode(isoCode);
+		address.setCountry(country);
+		return person;
 	}
 
 	private static class TestRealm extends Realm {

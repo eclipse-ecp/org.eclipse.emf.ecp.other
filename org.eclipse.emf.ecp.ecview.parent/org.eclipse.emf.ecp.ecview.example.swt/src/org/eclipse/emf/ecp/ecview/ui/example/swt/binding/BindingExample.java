@@ -37,10 +37,10 @@ import org.slf4j.LoggerFactory;
 /**
  * An example demonstrating how margins can be used.
  */
-public class TextBindingExample implements IApplication {
+public class BindingExample implements IApplication {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(TextBindingExample.class);
+			.getLogger(BindingExample.class);
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 

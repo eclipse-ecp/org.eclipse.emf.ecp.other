@@ -44,7 +44,7 @@ import org.junit.Test;
  * Tests the {@link ButtonFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class ButtonPresentationTests {
+public class ButtonPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

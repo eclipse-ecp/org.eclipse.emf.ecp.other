@@ -35,7 +35,7 @@ import org.junit.Test;
  * Tests the {@link TextFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class SWTBindingTests {
+public class SWTBindingTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

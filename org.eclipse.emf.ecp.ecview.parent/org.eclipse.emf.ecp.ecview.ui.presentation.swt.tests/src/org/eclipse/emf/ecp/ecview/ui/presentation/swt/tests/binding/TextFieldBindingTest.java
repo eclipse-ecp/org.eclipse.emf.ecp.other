@@ -20,13 +20,10 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.LabelPresentation;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.TextFieldPresentation;
-import org.eclipse.riena.ui.ridgets.ILabelRidget;
 import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
@@ -38,7 +35,7 @@ import org.junit.Test;
  * Tests the {@link TextFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class LabelBindingTests {
+public class TextFieldBindingTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
@@ -60,7 +57,7 @@ public class LabelBindingTests {
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_bind_Value() throws Exception {
+	public void test_bind__testRidget() throws Exception {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
@@ -68,26 +65,72 @@ public class LabelBindingTests {
 		YView yView = factory.createView();
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YLabel yLabel1 = factory.createLabel();
-		yLayout.addElement(yLabel1);
-		YLabel yLabel2 = factory.createLabel();
-		yLayout.addElement(yLabel2);
+		YTextField yText1 = factory.createTextField();
+		yLayout.addElement(yText1);
+		YTextField yText2 = factory.createTextField();
+		yLayout.addElement(yText2);
 
 		YBindingSet yBindingSet = yView.getOrCreateBindingSet();
-		yBindingSet.addBinding(yLabel1.createValueEndpoint(),
-				yLabel2.createValueEndpoint());
+		yBindingSet.addBinding(yText1.createValueEndpoint(),
+				yText2.createValueEndpoint());
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ILabelRidget label1 = getLabel(yLabel1);
-		ILabelRidget label2 = getLabel(yLabel2);
+		ITextRidget text1 = getText(yText1);
+		ITextRidget text2 = getText(yText2);
 
-		label1.setText("call1");
-		Assert.assertEquals("call1", label2.getText());
+		text1.setText("call1");
+		Assert.assertEquals("call1", text2.getText());
+		Assert.assertEquals("call1", yText1.getValue());
+		Assert.assertEquals("call1", yText2.getValue());
 
-		label2.setText("call2");
-		Assert.assertEquals("call2", label1.getText());
+		text2.setText("call2");
+		Assert.assertEquals("call2", text1.getText());
+		Assert.assertEquals("call2", yText1.getValue());
+		Assert.assertEquals("call2", yText2.getValue());
+	}
+	
+	
+	/**
+	 * Test the internal structure based on CSS.
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_bind__testAPI() throws Exception {
+		// END SUPRESS CATCH EXCEPTION
+		// build the view model
+		// ...> yView
+		// ......> yText
+		YView yView = factory.createView();
+		YGridLayout yLayout = factory.createGridLayout();
+		yView.setContent(yLayout);
+		YTextField yText1 = factory.createTextField();
+		yLayout.addElement(yText1);
+		YTextField yText2 = factory.createTextField();
+		yLayout.addElement(yText2);
+
+		YBindingSet yBindingSet = yView.getOrCreateBindingSet();
+		yBindingSet.addBinding(yText1.createValueEndpoint(),
+				yText2.createValueEndpoint());
+
+		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
+		renderer.render(shell, yView, null);
+
+		ITextRidget textRidget1 = getText(yText1);
+		ITextRidget textRidget2 = getText(yText2);
+
+		yText1.setValue("call1");
+		Assert.assertEquals("call1", yText2.getValue());
+		Assert.assertEquals("call1", textRidget1.getText());
+		Assert.assertEquals("call1", textRidget2.getText());
+
+		yText2.setValue("call2");
+		Assert.assertEquals("call2", yText1.getValue());
+		Assert.assertEquals("call2", textRidget1.getText());
+		Assert.assertEquals("call2", textRidget2.getText());
 	}
 
 	/**
@@ -97,16 +140,16 @@ public class LabelBindingTests {
 	 *            model element
 	 * @return control
 	 */
-	protected ILabelRidget getLabel(YElement yView) {
+	protected ITextRidget getText(YElement yView) {
 		IElementEditpart editpart = DelegatingEditPartManager.getInstance()
 				.getEditpart(yView);
 
-		LabelPresentation presentation = null;
+		TextFieldPresentation presentation = null;
 		if (editpart instanceof IViewEditpart) {
 			presentation = ((IViewEditpart) editpart).getPresentation();
 		} else {
 			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
 		}
-		return presentation.getRidget();
+		return presentation.getTextRidget();
 	}
 }

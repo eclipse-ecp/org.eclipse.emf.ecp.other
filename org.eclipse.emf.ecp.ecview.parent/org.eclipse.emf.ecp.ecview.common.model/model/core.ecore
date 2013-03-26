@@ -52,11 +52,13 @@
     <eLiterals name="Em" value="1" literal="EM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YHeightable" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heightUnit" eType="#//YUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YWidthable" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="100"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="widthUnit" eType="#//YUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="YURI" instanceClassName="java.net.URI"/>
@@ -64,19 +66,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        transient="true" derived="true"/>
+        transient="true" defaultValueLiteral="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YEditable" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialEditable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="editable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        transient="true" derived="true"/>
+        transient="true" defaultValueLiteral="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YEnable" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        transient="true" derived="true"/>
+        transient="true" defaultValueLiteral="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YAction" eSuperTypes="#//YEmbeddable #//YEnable"/>
   <eClassifiers xsi:type="ecore:EClass" name="YValueBindable" abstract="true" interface="true">

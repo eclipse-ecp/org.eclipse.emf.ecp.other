@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
-import static junit.framework.Assert.assertEquals;
 import junit.framework.Assert;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
@@ -20,16 +19,14 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.TextFieldPresentation;
-import org.eclipse.riena.ui.ridgets.ITextRidget;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -47,7 +44,7 @@ import org.junit.Test;
  * Tests the {@link TextFieldPresentation}.
  */
 @SuppressWarnings("restriction")
-public class TextFieldPresentationTests {
+public class TextAreaPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
@@ -78,15 +75,15 @@ public class TextFieldPresentationTests {
 		YView yView = factory.createView();
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YTextField yText = factory.createTextField();
+		YTextArea yText = factory.createTextArea();
 		yGridlayout.getElements().add(yText);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
+		ITextAreaEditpart textAreaEditpart = DelegatingEditPartManager
 				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart
+		IWidgetPresentation<Control> presentation = textAreaEditpart
 				.getPresentation();
 		Assert.assertTrue(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
@@ -109,20 +106,20 @@ public class TextFieldPresentationTests {
 		// ...> yView
 		// ......> yText
 		YView yView = factory.createView();
-		YTextField yText = factory.createTextField();
+		YTextArea yText = factory.createTextArea();
 		yView.setContent(yText);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
+		ITextAreaEditpart textAreaEditpart = DelegatingEditPartManager
 				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart
+		IWidgetPresentation<Control> presentation = textAreaEditpart
 				.getPresentation();
 		Composite baseComposite = (Composite) presentation.getWidget();
 
 		Label label = (Label) unwrapLabel(baseComposite);
-		Text text = (Text) unwrapText(baseComposite);
+		Text textArea = (Text) unwrapText(baseComposite);
 
 		Assert.assertEquals(2, baseComposite.getChildren().length);
 
@@ -150,7 +147,7 @@ public class TextFieldPresentationTests {
 		Assert.assertEquals(1, labelData.verticalSpan);
 		Assert.assertEquals(-1, labelData.widthHint);
 
-		GridData data = (GridData) text.getLayoutData();
+		GridData data = (GridData) textArea.getLayoutData();
 		Assert.assertEquals(SWT.FILL, data.horizontalAlignment);
 		Assert.assertEquals(SWT.FILL, data.verticalAlignment);
 		Assert.assertEquals(true, data.grabExcessHorizontalSpace);
@@ -180,43 +177,44 @@ public class TextFieldPresentationTests {
 		YView yView = factory.createView();
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YTextField yText1 = factory.createTextField();
+		YTextArea yText1 = factory.createTextArea();
 		yText1.setCssID("ID_0815");
 		yText1.setCssClass("anyOtherClass");
 		yLayout.addElement(yText1);
-		YTextField yText2 = factory.createTextField();
+		YTextArea yText2 = factory.createTextArea();
 		yLayout.addElement(yText2);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart text1Editpart = DelegatingEditPartManager
+		ITextAreaEditpart textArea1Editpart = DelegatingEditPartManager
 				.getInstance().getEditpart(yText1);
-		ITextFieldEditpart text2Editpart = DelegatingEditPartManager
+		ITextAreaEditpart textArea2Editpart = DelegatingEditPartManager
 				.getInstance().getEditpart(yText2);
-		IWidgetPresentation<Control> text1Presentation = text1Editpart
+		IWidgetPresentation<Control> textArea1Presentation = textArea1Editpart
 				.getPresentation();
-		IWidgetPresentation<Control> text2Presentation = text2Editpart
+		IWidgetPresentation<Control> textArea2Presentation = textArea2Editpart
 				.getPresentation();
-		Composite text1BaseComposite = (Composite) text1Presentation
+		Composite textArea1BaseComposite = (Composite) textArea1Presentation
 				.getWidget();
-		Composite text2BaseComposite = (Composite) text2Presentation
+		Composite textArea2BaseComposite = (Composite) textArea2Presentation
 				.getWidget();
 
-		Label label1 = (Label) unwrapLabel(text1BaseComposite);
-		Text text1 = (Text) unwrapText(text1BaseComposite);
-		Label label2 = (Label) unwrapLabel(text2BaseComposite);
-		Text text2 = (Text) unwrapText(text2BaseComposite);
+		Label label1 = (Label) unwrapLabel(textArea1BaseComposite);
+		Text textArea1 = (Text) unwrapText(textArea1BaseComposite);
+		Label label2 = (Label) unwrapLabel(textArea2BaseComposite);
+		Text textArea2 = (Text) unwrapText(textArea2BaseComposite);
 
 		// assert css class
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(text1BaseComposite));
+				WidgetElement.getCSSClass(textArea1BaseComposite));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(text2BaseComposite));
+				WidgetElement.getCSSClass(textArea2BaseComposite));
 
-		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(text1));
+		Assert.assertEquals("anyOtherClass",
+				WidgetElement.getCSSClass(textArea1));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
-				WidgetElement.getCSSClass(text2));
+				WidgetElement.getCSSClass(textArea2));
 
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
 				WidgetElement.getCSSClass(label1));
@@ -224,63 +222,15 @@ public class TextFieldPresentationTests {
 				WidgetElement.getCSSClass(label2));
 
 		// assert css id
-		Assert.assertEquals("ID_0815", WidgetElement.getID(text1BaseComposite));
-		Assert.assertNull(WidgetElement.getID(text1));
-		Assert.assertEquals(text2Editpart.getId(),
-				WidgetElement.getID(text2BaseComposite));
-		Assert.assertNull(WidgetElement.getID(text2));
+		Assert.assertEquals("ID_0815",
+				WidgetElement.getID(textArea1BaseComposite));
+		Assert.assertNull(WidgetElement.getID(textArea1));
+		Assert.assertEquals(textArea2Editpart.getId(),
+				WidgetElement.getID(textArea2BaseComposite));
+		Assert.assertNull(WidgetElement.getID(textArea2));
 
 		Assert.assertNull(WidgetElement.getID(label1));
 		Assert.assertNull(WidgetElement.getID(label2));
-	}
-
-	/**
-	 * Tests rendering issues.
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_valueChangeAdapter_firesEvent() throws Exception {
-		// END SUPRESS CATCH EXCEPTION
-		// build the view model
-		// ...> yView
-		// ......> yGridLayout
-		// .........> yText
-		YView yView = factory.createView();
-		YGridLayout yGridlayout = factory.createGridLayout();
-		yView.setContent(yGridlayout);
-		YTextField yText = factory.createTextField();
-		yGridlayout.getElements().add(yText);
-
-		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
-		renderer.render(shell, yView, null);
-
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		TextFieldPresentation presentation = textEditpart.getPresentation();
-
-		final int[] counter = new int[1];
-		yText.addValueChangeListener(new YValueChangeListener() {
-			@Override
-			public void valueChanged(Event event) {
-				counter[0] = counter[0] + 1;
-			}
-		});
-
-		assertEquals(0, counter[0]);
-
-		ITextRidget ridget = presentation.getTextRidget();
-		ridget.setText("Test");
-		assertEquals(1, counter[0]);
-
-		ridget.setText("Test 1");
-		assertEquals(2, counter[0]);
-
-		yText.removeAllValueChangListeners();
-		ridget.setText("Test 2");
-		assertEquals(2, counter[0]);
-
 	}
 
 	/**

@@ -81,7 +81,7 @@
             thread="main"
             visible="true">
          <run
-           class="org.eclipse.emf.ecp.ecview.ui.example.swt.binding.TextBindingExample">
+           class="org.eclipse.emf.ecp.ecview.ui.example.swt.binding.BindingExample">
          </run>
       </application>
     </extension>

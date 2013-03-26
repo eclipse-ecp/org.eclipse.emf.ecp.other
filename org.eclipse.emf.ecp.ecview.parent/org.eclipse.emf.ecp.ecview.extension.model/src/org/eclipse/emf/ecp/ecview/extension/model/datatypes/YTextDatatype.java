@@ -34,6 +34,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 public interface YTextDatatype extends YDatatype {
 	/**
 	 * Returns the value of the '<em><b>Maxlength</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Maxlength</em>' attribute isn't clear,
@@ -43,7 +44,7 @@ public interface YTextDatatype extends YDatatype {
 	 * @return the value of the '<em>Maxlength</em>' attribute.
 	 * @see #setMaxlength(int)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage#getYTextDatatype_Maxlength()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getMaxlength();
@@ -60,6 +61,7 @@ public interface YTextDatatype extends YDatatype {
 
 	/**
 	 * Returns the value of the '<em><b>Minlength</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Minlength</em>' attribute isn't clear,
@@ -69,7 +71,7 @@ public interface YTextDatatype extends YDatatype {
 	 * @return the value of the '<em>Minlength</em>' attribute.
 	 * @see #setMinlength(int)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage#getYTextDatatype_Minlength()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getMinlength();

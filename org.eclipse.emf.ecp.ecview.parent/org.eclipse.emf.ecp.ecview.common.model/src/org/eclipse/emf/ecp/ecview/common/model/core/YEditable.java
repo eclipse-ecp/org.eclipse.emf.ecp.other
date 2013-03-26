@@ -50,6 +50,7 @@ public interface YEditable {
 
 	/**
 	 * Returns the value of the '<em><b>Editable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Editable</em>' attribute isn't clear,
@@ -59,7 +60,7 @@ public interface YEditable {
 	 * @return the value of the '<em>Editable</em>' attribute.
 	 * @see #setEditable(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEditable_Editable()
-	 * @model transient="true" derived="true"
+	 * @model default="true" transient="true" derived="true"
 	 * @generated
 	 */
 	boolean isEditable();

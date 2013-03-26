@@ -13,7 +13,7 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.beans.BeansObservables;
-import org.eclipse.core.databinding.conversion.IConverter;
+import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
@@ -29,8 +29,13 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ISWTBindingManager;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.binding.BoolNegator;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.binding.EMFNullToBoolConverter;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.binding.EMFNullToIntConverter;
+import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
 import org.eclipse.riena.ui.ridgets.IMarkableRidget;
 import org.eclipse.riena.ui.ridgets.INumericTextRidget;
 import org.eclipse.riena.ui.ridgets.IRidget;
@@ -116,7 +121,17 @@ public class BindingManager extends
 				.observeDetail(masterObservable);
 		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
 				"grouping");
-		getDatabindingContext().bindValue(uiObservable, modelObservable);
+		getDatabindingContext()
+				.bindValue(
+						uiObservable,
+						modelObservable,
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE),
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE)
+								.setConverter(new EMFNullToBoolConverter(
+										ExtDatatypesPackage.Literals.YNUMERIC_DATATYPE__GROUPING,
+										DEFAULT_GROUPING)));
 	}
 
 	@Override
@@ -131,29 +146,115 @@ public class BindingManager extends
 				.observeDetail(masterObservable);
 		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
 				"markNegative");
-		getDatabindingContext().bindValue(uiObservable, modelObservable);
+		getDatabindingContext()
+				.bindValue(
+						uiObservable,
+						modelObservable,
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE),
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE)
+								.setConverter(new EMFNullToBoolConverter(
+										ExtDatatypesPackage.Literals.YNUMERIC_DATATYPE__MARK_NEGATIVE,
+										DEFAULT_MARK_NEGATIVE)));
 	}
 
-	/**
-	 * Negates booleans.
-	 */
-	private static class BoolNegator implements IConverter {
+	@Override
+	public void bindGrouping(YDecimalField yField, IDecimalTextRidget ridget) {
+		IObservableValue masterObservable = new WritableValue();
+		masterObservable.setValue(yField);
+		IObservableValue modelObservable = EMFProperties.value(
+				FeaturePath.fromList(new EStructuralFeature[] {
+						pckg.getYNumericField_Datatype(),
+						extDtPckg.getYNumericDatatype_Grouping() }))
+				.observeDetail(masterObservable);
+		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+				"grouping");
+		getDatabindingContext()
+				.bindValue(
+						uiObservable,
+						modelObservable,
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE),
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE)
+								.setConverter(new EMFNullToBoolConverter(
+										ExtDatatypesPackage.Literals.YNUMERIC_DATATYPE__GROUPING,
+										DEFAULT_GROUPING)));
+	}
 
-		@Override
-		public Object getFromType() {
-			return Boolean.class;
-		}
+	@Override
+	public void bindMarkNegative(YDecimalField yField, IDecimalTextRidget ridget) {
+		IObservableValue masterObservable = new WritableValue();
+		masterObservable.setValue(yField);
+		IObservableValue modelObservable = EMFProperties.value(
+				FeaturePath.fromList(new EStructuralFeature[] {
+						pckg.getYNumericField_Datatype(),
+						extDtPckg.getYNumericDatatype_MarkNegative() }))
+				.observeDetail(masterObservable);
+		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+				"markNegative");
+		getDatabindingContext()
+				.bindValue(
+						uiObservable,
+						modelObservable,
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE),
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE)
+								.setConverter(new EMFNullToBoolConverter(
+										ExtDatatypesPackage.Literals.YNUMERIC_DATATYPE__MARK_NEGATIVE,
+										DEFAULT_MARK_NEGATIVE)));
+	}
 
-		@Override
-		public Object getToType() {
-			return Boolean.class;
-		}
+	@Override
+	public void bindPrecision(YDecimalField yDecimalField,
+			IDecimalTextRidget ridget) {
+		IObservableValue masterObservable = new WritableValue();
+		masterObservable.setValue(yDecimalField);
+		IObservableValue modelObservable = EMFProperties.value(
+				FeaturePath.fromList(new EStructuralFeature[] {
+						pckg.getYDecimalField_Datatype(),
+						extDtPckg.getYDecimalDatatype_Precision() }))
+				.observeDetail(masterObservable);
+		IObservableValue uiObservable = BeansObservables.observeValue(ridget,
+				IDecimalTextRidget.PROPERTY_PRECISION);
+		getDatabindingContext()
+				.bindValue(
+						uiObservable,
+						modelObservable,
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE),
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE)
+								.setConverter(new EMFNullToIntConverter(
+										ExtDatatypesPackage.Literals.YDECIMAL_DATATYPE__PRECISION,
+										DEFAULT_PRECISION)));
+	}
 
-		@Override
-		public Object convert(Object fromObject) {
-			return !((Boolean) fromObject);
-		}
-
+	@Override
+	public void bindPrecision(YDecimalField yField,
+			DecimalFieldPresentation decimalFieldPresentation) {
+		IObservableValue masterObservable = new WritableValue();
+		masterObservable.setValue(yField);
+		IObservableValue modelObservable = EMFProperties.value(
+				FeaturePath.fromList(new EStructuralFeature[] {
+						pckg.getYDecimalField_Datatype(),
+						extDtPckg.getYDecimalDatatype_Precision() }))
+				.observeDetail(masterObservable);
+		IObservableValue uiObservable = PojoObservables.observeValue(
+				decimalFieldPresentation, "precision");
+		getDatabindingContext()
+				.bindValue(
+						uiObservable,
+						modelObservable,
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE),
+						new UpdateValueStrategy(
+								UpdateValueStrategy.POLICY_UPDATE)
+								.setConverter(new EMFNullToIntConverter(
+										ExtDatatypesPackage.Literals.YDECIMAL_DATATYPE__PRECISION,
+										DEFAULT_PRECISION)));
 	}
 
 }

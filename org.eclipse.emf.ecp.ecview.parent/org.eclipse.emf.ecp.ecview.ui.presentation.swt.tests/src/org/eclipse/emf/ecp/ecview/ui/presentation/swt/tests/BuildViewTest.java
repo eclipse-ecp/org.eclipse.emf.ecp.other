@@ -35,7 +35,7 @@ import org.junit.Test;
 /**
  * Tests common build issues.
  */
-public class BuildViewTests {
+public class BuildViewTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

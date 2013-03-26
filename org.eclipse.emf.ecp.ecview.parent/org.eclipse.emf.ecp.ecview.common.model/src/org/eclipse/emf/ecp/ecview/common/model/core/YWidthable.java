@@ -31,6 +31,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 public interface YWidthable {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
@@ -40,7 +41,7 @@ public interface YWidthable {
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(int)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYWidthable_Width()
-	 * @model
+	 * @model default="100"
 	 * @generated
 	 */
 	int getWidth();

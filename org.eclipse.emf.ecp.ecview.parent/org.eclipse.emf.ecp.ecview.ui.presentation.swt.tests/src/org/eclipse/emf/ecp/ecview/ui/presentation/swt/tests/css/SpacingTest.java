@@ -39,7 +39,7 @@ import org.junit.Test;
 /**
  * Tests the CSS spacings.
  */
-public class SpacingTests {
+public class SpacingTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

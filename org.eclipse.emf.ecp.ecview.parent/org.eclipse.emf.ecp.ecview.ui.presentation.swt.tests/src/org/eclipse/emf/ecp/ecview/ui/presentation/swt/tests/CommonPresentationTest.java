@@ -37,7 +37,7 @@ import org.junit.Test;
 /**
  * Test common presentation issues.
  */
-public class CommonPresentationTests {
+public class CommonPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();

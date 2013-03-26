@@ -28,7 +28,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings("restriction")
-public class PojoBindingDelegateTests {
+public class PojoBindingDelegateTest {
 
 	private boolean changed;
 	private ContextPojoBindingDelegate binder;

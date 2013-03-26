@@ -50,6 +50,7 @@ public interface YVisibleable {
 
 	/**
 	 * Returns the value of the '<em><b>Visible</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visible</em>' attribute isn't clear,
@@ -59,7 +60,7 @@ public interface YVisibleable {
 	 * @return the value of the '<em>Visible</em>' attribute.
 	 * @see #setVisible(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYVisibleable_Visible()
-	 * @model transient="true" derived="true"
+	 * @model default="true" transient="true" derived="true"
 	 * @generated
 	 */
 	boolean isVisible();

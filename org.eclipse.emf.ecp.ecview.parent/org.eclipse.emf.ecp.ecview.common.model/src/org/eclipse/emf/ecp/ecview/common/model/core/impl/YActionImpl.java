@@ -52,7 +52,7 @@ public class YActionImpl extends YEmbeddableImpl implements YAction {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean ENABLED_EDEFAULT = false;
+	protected static final boolean ENABLED_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.

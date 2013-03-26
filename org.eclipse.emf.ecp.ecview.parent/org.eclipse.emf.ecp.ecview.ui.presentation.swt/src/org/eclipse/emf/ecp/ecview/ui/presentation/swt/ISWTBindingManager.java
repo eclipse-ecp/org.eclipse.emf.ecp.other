@@ -11,7 +11,10 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.DecimalFieldPresentation;
+import org.eclipse.riena.ui.ridgets.IDecimalTextRidget;
 import org.eclipse.riena.ui.ridgets.IMarkableRidget;
 import org.eclipse.riena.ui.ridgets.INumericTextRidget;
 import org.eclipse.riena.ui.ridgets.IRidget;
@@ -27,9 +30,8 @@ public interface ISWTBindingManager extends
 	/**
 	 * Binds the visible option.
 	 * 
-	 * @param viewContext
 	 * @param yVisibleAble
-	 * @param field
+	 * @param ridget
 	 */
 	public abstract void bindVisible(YVisibleable yVisibleAble, IRidget ridget);
 
@@ -45,31 +47,57 @@ public interface ISWTBindingManager extends
 	/**
 	 * Binds the readonly option.
 	 * 
-	 * @param viewContext
 	 * @param yEditable
-	 * @param field
+	 * @param ridget
 	 */
 	public abstract void bindReadonly(YEditable yEditable,
 			IMarkableRidget ridget);
 
 	/**
-	 * Binds the visible option.
+	 * Binds the grouping option.
 	 * 
-	 * @param viewContext
-	 * @param yEditable
-	 * @param field
+	 * @param yNumericField
+	 * @param ridget
 	 */
 	public abstract void bindGrouping(YNumericField yNumericField,
 			INumericTextRidget ridget);
 
 	/**
-	 * Binds the visible option.
+	 * Binds the mark negative option.
 	 * 
-	 * @param viewContext
-	 * @param yEditable
-	 * @param field
+	 * @param yNumericField
+	 * @param ridget
 	 */
 	public abstract void bindMarkNegative(YNumericField yNumericField,
 			INumericTextRidget ridget);
 
+	/**
+	 * Binds the grouping option.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	public abstract void bindGrouping(YDecimalField yField,
+			IDecimalTextRidget ridget);
+
+	/**
+	 * Binds the mark negative option.
+	 * 
+	 * @param yField
+	 * @param ridget
+	 */
+	public abstract void bindMarkNegative(YDecimalField yField,
+			IDecimalTextRidget ridget);
+
+	/**
+	 * Binds the precision option.
+	 * 
+	 * @param yDecimalField
+	 * @param ridget
+	 */
+	public abstract void bindPrecision(YDecimalField yDecimalField,
+			IDecimalTextRidget ridget);
+
+	public abstract void bindPrecision(YDecimalField yField,
+			DecimalFieldPresentation decimalFieldPresentation);
 }

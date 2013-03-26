@@ -364,8 +364,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYTextDatatype_Maxlength(), ecorePackage.getEInt(), "maxlength", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTextDatatype_Minlength(), ecorePackage.getEInt(), "minlength", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTextDatatype_Maxlength(), ecorePackage.getEInt(), "maxlength", "-1", 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTextDatatype_Minlength(), ecorePackage.getEInt(), "minlength", "-1", 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTextDatatype_Regexpression(), ecorePackage.getEString(), "regexpression", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class, "YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

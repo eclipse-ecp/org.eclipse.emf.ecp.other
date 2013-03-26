@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
