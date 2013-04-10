@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="79">
+<?pde version="3.8"?>
+
+<target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="79">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.slf4j.api" version="1.6.4.v20120130-2120"/>
@@ -29,7 +31,7 @@
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201303141537"/>
+<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201304081249"/>
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
