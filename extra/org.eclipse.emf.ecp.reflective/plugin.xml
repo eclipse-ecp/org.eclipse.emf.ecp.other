@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="Import Ecore ..."
+            id="org.eclipse.emf.ecp.reflective.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.emf.ecp.reflective.commands.sampleCommand"
+            class="org.eclipse.emf.ecp.reflective.handlers.ReflectiveEPackageHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Tools"
+               mnemonic="M"
+               id="org.eclipse.emf.ecp.reflective.menus.sampleMenu">
+            <command
+                  commandId="org.eclipse.emf.ecp.reflective.commands.sampleCommand"
+                  mnemonic="S"
+                  id="org.eclipse.emf.ecp.reflective.menus.sampleCommand">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
