@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_0JoRAJgREeKJoJcmiy2C6w" elementId="org.eclipse.e4.ide.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_0JoRAZgREeKJoJcmiy2C6w" label="org.eclipse.emf.ecp.e4.application" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_0JoRAZgREeKJoJcmiy2C6w" label="org.eclipse.emf.ecp.application.e4" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_AErb0JgUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partsashcontainer.1" selectedElement="_lM0okJgTEeKJoJcmiy2C6w">
       <children xsi:type="basic:PartSashContainer" xmi:id="_lM0okJgTEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partsashcontainer.0" horizontal="true">
         <children xsi:type="basic:PartStack" xmi:id="_8GAbsJoUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partstack.2">
@@ -8,7 +8,6 @@
             <menus xsi:type="menu:PopupMenu" xmi:id="_dAsF4JgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.popupmenu.navigator" label="Navigator menu">
               <children xsi:type="menu:HandledMenuItem" xmi:id="_ibQRIJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.newProject" label="New Project" command="_ogB3AJgZEeKJoJcmiy2C6w"/>
               <children xsi:type="menu:HandledMenuItem" xmi:id="_c1wWwJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.project.newModelElement" label="New Model Element" command="_StwzEJoSEeKJoJcmiy2C6w"/>
-              <children xsi:type="menu:HandledMenuItem" xmi:id="_eu6RsJrLEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.0"/>
             </menus>
             <toolbar xmi:id="_uWMcwJoUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.toolbar.0">
               <children xsi:type="menu:HandledToolItem" xmi:id="_CPQPoJrKEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledtoolitem.1" command="_ogB3AJgZEeKJoJcmiy2C6w"/>
@@ -22,7 +21,7 @@
       <children xsi:type="basic:PartStack" xmi:id="_wpiYYJoUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partstack.1">
         <children xsi:type="basic:Part" xmi:id="_CJd-EJgUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.part.repository" contributionURI="bundleclass://org.eclipse.emf.ecp.application.e4/org.eclipse.emf.ecp.e4.view.ECPRepositoryView" label="Repository View">
           <menus xsi:type="menu:PopupMenu" xmi:id="_WzCwgJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.popupmenu.repository" label="Repo Popup">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_bKyM0JgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.checkout" label="Checkout" iconURI="platform:/plugin/org.eclipse.emf.ecp.e4.application/icons/sample.gif" command="_eOWrgJgcEeKJoJcmiy2C6w"/>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_bKyM0JgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.checkout" label="Checkout" iconURI="platform:/plugin/org.eclipse.emf.ecp.application.e4/icons/sample.gif" command="_eOWrgJgcEeKJoJcmiy2C6w"/>
           </menus>
         </children>
       </children>

@@ -13,7 +13,7 @@
          </property>
          <property
                name="applicationCSS"
-               value="platform:/plugin/org.eclipse.emf.ecp.e4.application/css/default.css">
+               value="platform:/plugin/org.eclipse.emf.ecp.application.e4/css/default.css">
          </property>
          <property
                name="appName"
@@ -23,14 +23,13 @@
    </extension>
    <extension
          point="org.eclipse.emf.ecp.ui.modelElementOpener">
-      <ModelElementOpener
-            class="org.eclipse.emf.ecp.e4.editor.E4ModelElementOpener"
-            name="org.eclipse.emf.ecp.e4.application.ModelElementOpener">
+      <modelElementOpener
+            class="org.eclipse.emf.ecp.e4.editor.E4ModelElementOpener">
          <staticTester
                modelElement="org.eclipse.emf.ecore.EObject"
                priority="2">
          </staticTester>
-      </ModelElementOpener>
+      </modelElementOpener>
    </extension>
 
 </plugin>
