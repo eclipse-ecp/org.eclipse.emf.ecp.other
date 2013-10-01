@@ -39,7 +39,7 @@ public class Activator implements BundleActivator {
 		try {
 			ServiceReference<?> service=context.getServiceReferences(IContextFunction.class.getName(),"(service.context.key="+EPartService.class.getName()+")")[0];
 			//TODO a "bit" ugly
-			return (EPartService) ((IContextFunction)context.getService(service)).compute(E4Workbench.getServiceContext(),null);
+			return (EPartService) ((IContextFunction)context.getService(service)).compute(E4Workbench.getServiceContext());
 		} catch (InvalidSyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

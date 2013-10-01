@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_0JoRAJgREeKJoJcmiy2C6w" elementId="org.eclipse.e4.ide.application">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_0JoRAZgREeKJoJcmiy2C6w" label="org.eclipse.emf.ecp.application.e4" width="500" height="400">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_0JoRAZgREeKJoJcmiy2C6w" label="org.eclipse.emf.ecp.application.e4" width="800" height="600">
     <children xsi:type="basic:PartSashContainer" xmi:id="_AErb0JgUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partsashcontainer.1" selectedElement="_lM0okJgTEeKJoJcmiy2C6w">
       <children xsi:type="basic:PartSashContainer" xmi:id="_lM0okJgTEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partsashcontainer.0" horizontal="true">
         <children xsi:type="basic:PartStack" xmi:id="_8GAbsJoUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partstack.2">
@@ -35,7 +35,7 @@
   <handlers xmi:id="_q5IcYJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handler.newProject" contributionURI="bundleclass://org.eclipse.emf.ecp.application.e4/org.eclipse.emf.ecp.e4.handlers.NewProjectHandler" command="_ogB3AJgZEeKJoJcmiy2C6w"/>
   <handlers xmi:id="_fb0kMJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handler.checkoutProject" contributionURI="bundleclass://org.eclipse.emf.ecp.application.e4/org.eclipse.emf.ecp.e4.handlers.CheckoutProjectHandler" command="_eOWrgJgcEeKJoJcmiy2C6w"/>
   <handlers xmi:id="_XchBMJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handler.project.newModelElement" contributionURI="bundleclass://org.eclipse.emf.ecp.application.e4/org.eclipse.emf.ecp.e4.handlers.NewModelElementHandler" command="_StwzEJoSEeKJoJcmiy2C6w"/>
-  <descriptors xmi:id="_5aBzoJgREeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partdescriptor.editor" label="Editor" tooltip="Editor" allowMultiple="true" category="editorPart" closeable="true" contributionURI="bundleclass://org.eclipse.emf.ecp.application.e4/org.eclipse.emf.ecp.e4.editor.ECPE4Editor"/>
+  <descriptors xmi:id="_5aBzoJgREeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partdescriptor.editor" label="" tooltip="" allowMultiple="true" category="editorPart" closeable="true" contributionURI="bundleclass://org.eclipse.emf.ecp.application.e4/org.eclipse.emf.ecp.e4.editor.ECPE4Editor"/>
   <commands xmi:id="_ogB3AJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.newProject" commandName="New Project"/>
   <commands xmi:id="_eOWrgJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.checkoutProject" commandName="Checkout"/>
   <commands xmi:id="_StwzEJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.project.newModelElement" commandName="New Model element"/>
