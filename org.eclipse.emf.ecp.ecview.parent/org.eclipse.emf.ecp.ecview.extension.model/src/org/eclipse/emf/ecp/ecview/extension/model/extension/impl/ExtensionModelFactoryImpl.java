@@ -88,6 +88,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YLABEL: return (EObject)createYLabel();
 			case ExtensionModelPackage.YTEXT_AREA: return (EObject)createYTextArea();
 			case ExtensionModelPackage.YCHECK_BOX: return (EObject)createYCheckBox();
+			case ExtensionModelPackage.YBROWSER: return (EObject)createYBrowser();
+			case ExtensionModelPackage.YDATE_TIME: return (EObject)createYDateTime();
 			case ExtensionModelPackage.YDECIMAL_FIELD: return (EObject)createYDecimalField();
 			case ExtensionModelPackage.YNUMERIC_FIELD: return (EObject)createYNumericField();
 			case ExtensionModelPackage.YCOMBO_BOX: return (EObject)createYComboBox();
@@ -254,6 +256,26 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YCheckBox createYCheckBox() {
 		YCheckBoxImpl yCheckBox = new YCheckBoxImpl();
 		return yCheckBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBrowser createYBrowser() {
+		YBrowserImpl yBrowser = new YBrowserImpl();
+		return yBrowser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDateTime createYDateTime() {
+		YDateTimeImpl yDateTime = new YDateTimeImpl();
+		return yDateTime;
 	}
 
 	/**

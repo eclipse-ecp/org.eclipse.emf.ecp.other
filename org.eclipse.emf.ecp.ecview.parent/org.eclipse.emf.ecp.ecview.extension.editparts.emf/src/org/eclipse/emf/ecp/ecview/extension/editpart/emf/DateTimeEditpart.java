@@ -12,19 +12,19 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 
 /**
  * The implementation of the IUiCheckBoxEditpart.
  */
 @SuppressWarnings("restriction")
-public class CheckBoxEditpart extends FieldEditpart<YCheckBox> implements
-		ICheckboxEditpart {
+public class DateTimeEditpart extends FieldEditpart<YDateTime> implements
+		IDateTimeEditpart {
 
 	@Override
-	protected YCheckBox createModel() {
-		return (YCheckBox) ExtensionModelFactory.eINSTANCE.createYCheckBox();
+	protected YDateTime createModel() {
+		return (YDateTime) ExtensionModelFactory.eINSTANCE.createYDateTime();
 	}
 
 }

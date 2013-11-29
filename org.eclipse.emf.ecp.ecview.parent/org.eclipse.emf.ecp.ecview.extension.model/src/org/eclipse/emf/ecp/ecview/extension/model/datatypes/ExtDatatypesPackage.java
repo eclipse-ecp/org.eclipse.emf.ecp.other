@@ -4,6 +4,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.datatypes;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 
@@ -497,6 +498,118 @@ public interface ExtDatatypesPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl <em>YBrowser Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYBrowserDatatype()
+	 * @generated
+	 */
+	int YBROWSER_DATATYPE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER_DATATYPE__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER_DATATYPE__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YBrowser Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl <em>YDate Time Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeDatatype()
+	 * @generated
+	 */
+	int YDATE_TIME_DATATYPE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE__FORMAT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YDate Time Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeFormat()
+	 * @generated
+	 */
+	int YDATE_TIME_FORMAT = 10;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype <em>YText Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +754,47 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYListDataType();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype <em>YBrowser Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YBrowser Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype
+	 * @generated
+	 */
+	EClass getYBrowserDatatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype <em>YDate Time Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YDate Time Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype
+	 * @generated
+	 */
+	EClass getYDateTimeDatatype();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype#getFormat()
+	 * @see #getYDateTimeDatatype()
+	 * @generated
+	 */
+	EAttribute getYDateTimeDatatype_Format();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>YDate Time Format</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat
+	 * @generated
+	 */
+	EEnum getYDateTimeFormat();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -791,6 +945,44 @@ public interface ExtDatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YLIST_DATA_TYPE = eINSTANCE.getYListDataType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl <em>YBrowser Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYBrowserDatatype()
+		 * @generated
+		 */
+		EClass YBROWSER_DATATYPE = eINSTANCE.getYBrowserDatatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl <em>YDate Time Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeDatatype()
+		 * @generated
+		 */
+		EClass YDATE_TIME_DATATYPE = eINSTANCE.getYDateTimeDatatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDATE_TIME_DATATYPE__FORMAT = eINSTANCE.getYDateTimeDatatype_Format();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeFormat()
+		 * @generated
+		 */
+		EEnum YDATE_TIME_FORMAT = eINSTANCE.getYDateTimeFormat();
 
 	}
 

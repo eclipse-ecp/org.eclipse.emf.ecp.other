@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IHorizontalLayoutE
 /**
  * The implementation of the IUigridLayoutEditpart.
  */
+@SuppressWarnings("restriction")
 public class HorizontalLayoutEditpart extends LayoutEditpart<YHorizontalLayout> implements IHorizontalLayoutEditpart {
 
 	@Override

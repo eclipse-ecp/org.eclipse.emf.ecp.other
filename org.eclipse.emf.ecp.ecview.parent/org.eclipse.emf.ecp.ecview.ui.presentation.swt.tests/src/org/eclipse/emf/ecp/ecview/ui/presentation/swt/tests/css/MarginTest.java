@@ -339,12 +339,13 @@ public class MarginTest {
 	 * @param yView the model element
 	 * @return control
 	 */
+	@SuppressWarnings("unchecked")
 	protected Control getControl(YElement yView) {
 		IElementEditpart editpart = DelegatingEditPartManager.getInstance().getEditpart(yView);
 
 		IWidgetPresentation<Control> presentation = null;
 		if (editpart instanceof IViewEditpart) {
-			presentation = ((IViewEditpart) editpart).getPresentation();
+			presentation = (IWidgetPresentation<Control>) ((IViewEditpart) editpart).getPresentation();
 		} else {
 			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
 		}

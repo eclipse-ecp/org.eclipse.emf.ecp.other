@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart
 /**
  * The implementation of the IUiTextFieldEditpart.
  */
+@SuppressWarnings("restriction")
 public class TextFieldEditpart extends FieldEditpart<YTextField> implements ITextFieldEditpart {
 
 	@Override

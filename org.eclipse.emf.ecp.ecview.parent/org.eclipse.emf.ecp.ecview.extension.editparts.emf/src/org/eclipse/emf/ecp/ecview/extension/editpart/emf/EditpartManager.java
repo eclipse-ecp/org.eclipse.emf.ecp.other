@@ -16,9 +16,11 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
@@ -29,8 +31,10 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IBrowserEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
@@ -43,6 +47,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart
  * An implementation of IEditPartManager for eObjects with
  * nsURI=http://eclipse.org/emf/emfclient/uimodel.
  */
+@SuppressWarnings("restriction")
 public class EditpartManager extends AbstractEditpartManager {
 
 	@Override
@@ -76,12 +81,14 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ButtonEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ICheckboxEditpart.class)) {
 			result = createNewInstance(CheckBoxEditpart.class);
-		} else if (editPartClazz
-				.isAssignableFrom(INumericFieldEditpart.class)) {
+		} else if (editPartClazz.isAssignableFrom(INumericFieldEditpart.class)) {
 			result = createNewInstance(NumericFieldEditpart.class);
-		} else if (editPartClazz
-				.isAssignableFrom(IDecimalFieldEditpart.class)) {
+		} else if (editPartClazz.isAssignableFrom(IDecimalFieldEditpart.class)) {
 			result = createNewInstance(DecimalFieldEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IBrowserEditpart.class)) {
+			result = createNewInstance(BrowserEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IDateTimeEditpart.class)) {
+			result = createNewInstance(DateTimeEditpart.class);
 		}
 
 		if (result != null) {
@@ -132,6 +139,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(NumericFieldEditpart.class);
 		} else if (yElement instanceof YDecimalField) {
 			result = createNewInstance(DecimalFieldEditpart.class);
+		} else if (yElement instanceof YDateTime) {
+			result = createNewInstance(DateTimeEditpart.class);
+		} else if (yElement instanceof YBrowser) {
+			result = createNewInstance(BrowserEditpart.class);
 		}
 
 		if (result != null) {

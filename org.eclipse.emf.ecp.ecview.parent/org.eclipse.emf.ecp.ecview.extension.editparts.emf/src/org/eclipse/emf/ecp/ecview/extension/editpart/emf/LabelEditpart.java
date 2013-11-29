@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 /**
  * The implementation of the IUiLabelEditpart.
  */
+@SuppressWarnings("restriction")
 public class LabelEditpart extends FieldEditpart<YLabel> implements
 		ILabelEditpart {
 

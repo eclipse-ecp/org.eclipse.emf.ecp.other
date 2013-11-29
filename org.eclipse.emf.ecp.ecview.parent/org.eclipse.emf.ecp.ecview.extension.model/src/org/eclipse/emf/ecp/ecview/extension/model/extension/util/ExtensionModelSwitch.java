@@ -95,6 +95,19 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ExtensionModelPackage.YINPUT: {
+				YInput yInput = (YInput)theEObject;
+				T result = caseYInput(yInput);
+				if (result == null) result = caseYField(yInput);
+				if (result == null) result = caseYEmbeddable(yInput);
+				if (result == null) result = caseYEditable(yInput);
+				if (result == null) result = caseYEnable(yInput);
+				if (result == null) result = caseYElement(yInput);
+				if (result == null) result = caseYCssAble(yInput);
+				if (result == null) result = caseYVisibleable(yInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExtensionModelPackage.YTEXT_FIELD: {
 				YTextField yTextField = (YTextField)theEObject;
 				T result = caseYTextField(yTextField);
@@ -230,16 +243,33 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExtensionModelPackage.YINPUT: {
-				YInput yInput = (YInput)theEObject;
-				T result = caseYInput(yInput);
-				if (result == null) result = caseYField(yInput);
-				if (result == null) result = caseYEmbeddable(yInput);
-				if (result == null) result = caseYEditable(yInput);
-				if (result == null) result = caseYEnable(yInput);
-				if (result == null) result = caseYElement(yInput);
-				if (result == null) result = caseYCssAble(yInput);
-				if (result == null) result = caseYVisibleable(yInput);
+			case ExtensionModelPackage.YBROWSER: {
+				YBrowser yBrowser = (YBrowser)theEObject;
+				T result = caseYBrowser(yBrowser);
+				if (result == null) result = caseYInput(yBrowser);
+				if (result == null) result = caseYValueBindable(yBrowser);
+				if (result == null) result = caseYField(yBrowser);
+				if (result == null) result = caseYEmbeddable(yBrowser);
+				if (result == null) result = caseYEditable(yBrowser);
+				if (result == null) result = caseYEnable(yBrowser);
+				if (result == null) result = caseYElement(yBrowser);
+				if (result == null) result = caseYCssAble(yBrowser);
+				if (result == null) result = caseYVisibleable(yBrowser);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionModelPackage.YDATE_TIME: {
+				YDateTime yDateTime = (YDateTime)theEObject;
+				T result = caseYDateTime(yDateTime);
+				if (result == null) result = caseYInput(yDateTime);
+				if (result == null) result = caseYValueBindable(yDateTime);
+				if (result == null) result = caseYField(yDateTime);
+				if (result == null) result = caseYEmbeddable(yDateTime);
+				if (result == null) result = caseYEditable(yDateTime);
+				if (result == null) result = caseYEnable(yDateTime);
+				if (result == null) result = caseYElement(yDateTime);
+				if (result == null) result = caseYCssAble(yDateTime);
+				if (result == null) result = caseYVisibleable(yDateTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -494,6 +524,36 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYCheckBox(YCheckBox object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBrowser</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBrowser</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBrowser(YBrowser object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDate Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDate Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDateTime(YDateTime object) {
 		return null;
 	}
 

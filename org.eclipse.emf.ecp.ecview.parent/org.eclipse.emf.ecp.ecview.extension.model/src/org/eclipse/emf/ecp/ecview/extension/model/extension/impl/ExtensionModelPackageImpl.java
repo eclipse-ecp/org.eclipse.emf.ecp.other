@@ -16,10 +16,12 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
@@ -127,6 +129,20 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * @generated
 	 */
 	private EClass yCheckBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yBrowserEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yDateTimeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -656,6 +672,78 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYBrowser() {
+		return yBrowserEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYBrowser_Datatype() {
+		return (EReference)yBrowserEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYBrowser_Datadescription() {
+		return (EReference)yBrowserEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYBrowser_Value() {
+		return (EAttribute)yBrowserEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYDateTime() {
+		return yDateTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYDateTime_Datatype() {
+		return (EReference)yDateTimeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYDateTime_Datadescription() {
+		return (EReference)yDateTimeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDateTime_Value() {
+		return (EAttribute)yDateTimeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYInput() {
 		return yInputEClass;
 	}
@@ -877,6 +965,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		isCreated = true;
 
 		// Create classes and their features
+		yInputEClass = createEClass(YINPUT);
+
 		yTextFieldEClass = createEClass(YTEXT_FIELD);
 		createEReference(yTextFieldEClass, YTEXT_FIELD__DATATYPE);
 		createEReference(yTextFieldEClass, YTEXT_FIELD__DATADESCRIPTION);
@@ -933,7 +1023,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yCheckBoxEClass, YCHECK_BOX__DATATYPE);
 		createEAttribute(yCheckBoxEClass, YCHECK_BOX__VALUE);
 
-		yInputEClass = createEClass(YINPUT);
+		yBrowserEClass = createEClass(YBROWSER);
+		createEReference(yBrowserEClass, YBROWSER__DATATYPE);
+		createEReference(yBrowserEClass, YBROWSER__DATADESCRIPTION);
+		createEAttribute(yBrowserEClass, YBROWSER__VALUE);
+
+		yDateTimeEClass = createEClass(YDATE_TIME);
+		createEReference(yDateTimeEClass, YDATE_TIME__DATATYPE);
+		createEReference(yDateTimeEClass, YDATE_TIME__DATADESCRIPTION);
+		createEAttribute(yDateTimeEClass, YDATE_TIME__VALUE);
 
 		yDecimalFieldEClass = createEClass(YDECIMAL_FIELD);
 		createEReference(yDecimalFieldEClass, YDECIMAL_FIELD__DATATYPE);
@@ -999,6 +1097,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		yInputEClass.getESuperTypes().add(theCoreModelPackage.getYField());
 		yTextFieldEClass.getESuperTypes().add(this.getYInput());
 		yTextFieldEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yGridLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYLayout());
@@ -1016,7 +1115,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yTextAreaEClass.getESuperTypes().add(this.getYInput());
 		yCheckBoxEClass.getESuperTypes().add(this.getYInput());
 		yCheckBoxEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
-		yInputEClass.getESuperTypes().add(theCoreModelPackage.getYField());
+		yBrowserEClass.getESuperTypes().add(this.getYInput());
+		yBrowserEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
+		yDateTimeEClass.getESuperTypes().add(this.getYInput());
+		yDateTimeEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yDecimalFieldEClass.getESuperTypes().add(this.getYInput());
 		yDecimalFieldEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yNumericFieldEClass.getESuperTypes().add(this.getYInput());
@@ -1026,6 +1128,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(yTextFieldEClass, YTextField.class, "YTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTextField_Datatype(), theExtDatatypesPackage.getYTextDatatype(), null, "datatype", null, 0, 1, YTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTextField_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTextField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1094,7 +1198,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEReference(getYCheckBox_Datatype(), theExtDatatypesPackage.getYCheckBoxDatatype(), null, "datatype", null, 0, 1, YCheckBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYCheckBox_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, YCheckBox.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yBrowserEClass, YBrowser.class, "YBrowser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYBrowser_Datatype(), theExtDatatypesPackage.getYBrowserDatatype(), null, "datatype", null, 0, 1, YBrowser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYBrowser_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YBrowser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYBrowser_Value(), ecorePackage.getEString(), "value", null, 0, 1, YBrowser.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yDateTimeEClass, YDateTime.class, "YDateTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYDateTime_Datatype(), theExtDatatypesPackage.getYDateTimeDatatype(), null, "datatype", null, 0, 1, YDateTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYDateTime_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YDateTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDateTime_Value(), ecorePackage.getEString(), "value", null, 0, 1, YDateTime.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDecimalFieldEClass, YDecimalField.class, "YDecimalField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYDecimalField_Datatype(), theExtDatatypesPackage.getYDecimalDatatype(), null, "datatype", null, 0, 1, YDecimalField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

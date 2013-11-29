@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 /**
  * The implementation of the IUiTextAreaEditpart.
  */
+@SuppressWarnings("restriction")
 public class TextAreaEditpart extends FieldEditpart<YTextArea> implements
 		ITextAreaEditpart {
 

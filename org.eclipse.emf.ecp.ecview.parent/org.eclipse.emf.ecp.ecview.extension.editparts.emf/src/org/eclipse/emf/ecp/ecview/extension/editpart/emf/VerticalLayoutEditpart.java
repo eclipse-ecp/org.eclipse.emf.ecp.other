@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IVerticalLayoutEdi
 /**
  * The implementation of the IUigridLayoutEditpart.
  */
+@SuppressWarnings("restriction")
 public class VerticalLayoutEditpart extends LayoutEditpart<YVerticalLayout> implements IVerticalLayoutEditpart {
 
 	@Override

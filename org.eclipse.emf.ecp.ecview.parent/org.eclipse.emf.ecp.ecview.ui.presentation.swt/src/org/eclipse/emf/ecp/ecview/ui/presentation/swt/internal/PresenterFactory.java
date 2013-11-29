@@ -16,9 +16,11 @@ import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IBrowserEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IComboBoxEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
@@ -64,6 +66,10 @@ public class PresenterFactory implements IPresentationFactory {
 			presentation = (A) new DecimalFieldPresentation(editpart);
 		} else if (editpart instanceof IButtonEditpart) {
 			presentation = (A) new ButtonPresentation(editpart);
+		} else if (editpart instanceof IDateTimeEditpart) {
+			presentation = (A) new DateTimePresentation(editpart);
+		} else if (editpart instanceof IBrowserEditpart) {
+			presentation = (A) new BrowserPresentation(editpart);
 		}
 
 		if (presentation == null) {

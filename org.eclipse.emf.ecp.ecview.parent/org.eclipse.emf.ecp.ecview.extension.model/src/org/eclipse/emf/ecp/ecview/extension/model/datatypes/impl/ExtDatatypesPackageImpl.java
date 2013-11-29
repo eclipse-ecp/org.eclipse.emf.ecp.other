@@ -4,13 +4,17 @@ package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
@@ -80,6 +84,27 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * @generated
 	 */
 	private EClass yListDataTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yBrowserDatatypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yDateTimeDatatypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum yDateTimeFormatEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -276,6 +301,42 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYBrowserDatatype() {
+		return yBrowserDatatypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYDateTimeDatatype() {
+		return yDateTimeDatatypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDateTimeDatatype_Format() {
+		return (EAttribute)yDateTimeDatatypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getYDateTimeFormat() {
+		return yDateTimeFormatEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExtDatatypesFactory getExtDatatypesFactory() {
 		return (ExtDatatypesFactory)getEFactoryInstance();
 	}
@@ -320,6 +381,14 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		yComboBoxDatatypeEClass = createEClass(YCOMBO_BOX_DATATYPE);
 
 		yListDataTypeEClass = createEClass(YLIST_DATA_TYPE);
+
+		yBrowserDatatypeEClass = createEClass(YBROWSER_DATATYPE);
+
+		yDateTimeDatatypeEClass = createEClass(YDATE_TIME_DATATYPE);
+		createEAttribute(yDateTimeDatatypeEClass, YDATE_TIME_DATATYPE__FORMAT);
+
+		// Create enums
+		yDateTimeFormatEEnum = createEEnum(YDATE_TIME_FORMAT);
 	}
 
 	/**
@@ -361,6 +430,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		yCheckBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yComboBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yListDataTypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yBrowserDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yDateTimeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -384,6 +455,17 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		initEClass(yComboBoxDatatypeEClass, YComboBoxDatatype.class, "YComboBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yListDataTypeEClass, YListDataType.class, "YListDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yBrowserDatatypeEClass, YBrowserDatatype.class, "YBrowserDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yDateTimeDatatypeEClass, YDateTimeDatatype.class, "YDateTimeDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYDateTimeDatatype_Format(), this.getYDateTimeFormat(), "format", "DATE", 0, 1, YDateTimeDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(yDateTimeFormatEEnum, YDateTimeFormat.class, "YDateTimeFormat");
+		addEEnumLiteral(yDateTimeFormatEEnum, YDateTimeFormat.DATE);
+		addEEnumLiteral(yDateTimeFormatEEnum, YDateTimeFormat.TIME);
+		addEEnumLiteral(yDateTimeFormatEEnum, YDateTimeFormat.DATE_TIME);
 
 		// Create resource
 		createResource(eNS_URI);

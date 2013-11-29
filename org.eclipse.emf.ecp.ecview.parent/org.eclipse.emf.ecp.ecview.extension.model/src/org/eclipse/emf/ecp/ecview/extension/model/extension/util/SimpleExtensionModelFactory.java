@@ -12,9 +12,11 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
@@ -121,6 +123,22 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTextArea createTextArea() {
 		return factory.createYTextArea();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYBrowser()
+	 */
+	public YBrowser createBrowser() {
+		return factory.createYBrowser();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYDateTime()
+	 */
+	public YDateTime createDateTime() {
+		return factory.createYDateTime();
 	}
 
 	/**
@@ -234,7 +252,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YListDataType createListDataType() {
 		return dtFactory.createYListDataType();
 	}
-	
+
 	/**
 	 * Creates an instance of {@link YHorizontalLayoutCellStyle}.
 	 * 

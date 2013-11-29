@@ -12,7 +12,6 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Assert;
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
@@ -22,15 +21,16 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
-import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IBrowserEditpart;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.AbstractSWTWidgetPresenter;
-import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.TextFieldPresentation;
-import org.eclipse.riena.ui.ridgets.ITextRidget;
+import org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal.BrowserPresentation;
+import org.eclipse.riena.ui.ridgets.IBrowserRidget;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -40,14 +40,15 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests the {@link TextFieldPresentation}.
+ * Tests the {@link BrowserPresentation}.
  */
 @SuppressWarnings("restriction")
-public class TextFieldPresentationTest {
+public class BrowserPresentationTest {
 
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
 	private Display display = Display.getCurrent();
@@ -74,24 +75,24 @@ public class TextFieldPresentationTest {
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
-		// .........> yText
+		// .........> yBrowser
 		YView yView = factory.createView();
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YTextField yText = factory.createTextField();
-		yGridlayout.getElements().add(yText);
+		YBrowser yBrowser = factory.createBrowser();
+		yGridlayout.getElements().add(yBrowser);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart
+		IBrowserEditpart browserEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yBrowser);
+		IWidgetPresentation<Control> presentation = browserEditpart
 				.getPresentation();
 		Assert.assertTrue(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 
-		yGridlayout.getElements().remove(yText);
+		yGridlayout.getElements().remove(yBrowser);
 		Assert.assertFalse(presentation.isRendered());
 		Assert.assertFalse(presentation.isDisposed());
 	}
@@ -107,24 +108,23 @@ public class TextFieldPresentationTest {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		// ......> yText
+		// ......> yBrowser
 		YView yView = factory.createView();
-		YTextField yText = factory.createTextField();
-		yView.setContent(yText);
+		YBrowser yBrowser = factory.createBrowser();
+		yView.setContent(yBrowser);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		IWidgetPresentation<Control> presentation = textEditpart
+		IBrowserEditpart browserEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yBrowser);
+		IWidgetPresentation<Control> presentation = browserEditpart
 				.getPresentation();
 		Composite baseComposite = (Composite) presentation.getWidget();
 
-		Label label = (Label) unwrapLabel(baseComposite);
-		Text text = (Text) unwrapText(baseComposite);
+		Browser browser = (Browser) unwrapBrowser(baseComposite);
 
-		Assert.assertEquals(2, baseComposite.getChildren().length);
+		Assert.assertEquals(1, baseComposite.getChildren().length);
 
 		// assert layout and layout data
 		GridLayout layout = (GridLayout) baseComposite.getLayout();
@@ -136,21 +136,21 @@ public class TextFieldPresentationTest {
 		Assert.assertEquals(5, layout.marginHeight);
 		Assert.assertEquals(5, layout.marginWidth);
 
-		GridData labelData = (GridData) label.getLayoutData();
-		Assert.assertEquals(SWT.BEGINNING, labelData.horizontalAlignment);
-		Assert.assertEquals(SWT.TOP, labelData.verticalAlignment);
-		Assert.assertEquals(false, labelData.grabExcessHorizontalSpace);
-		Assert.assertEquals(true, labelData.grabExcessVerticalSpace);
-		Assert.assertEquals(false, labelData.exclude);
-		Assert.assertEquals(0, labelData.horizontalIndent);
-		Assert.assertEquals(1, labelData.horizontalSpan);
-		Assert.assertEquals(0, labelData.minimumHeight);
-		Assert.assertEquals(0, labelData.minimumWidth);
-		Assert.assertEquals(0, labelData.verticalIndent);
-		Assert.assertEquals(1, labelData.verticalSpan);
-		Assert.assertEquals(-1, labelData.widthHint);
+//		GridData labelData = (GridData) label.getLayoutData();
+//		Assert.assertEquals(SWT.BEGINNING, labelData.horizontalAlignment);
+//		Assert.assertEquals(SWT.TOP, labelData.verticalAlignment);
+//		Assert.assertEquals(false, labelData.grabExcessHorizontalSpace);
+//		Assert.assertEquals(true, labelData.grabExcessVerticalSpace);
+//		Assert.assertEquals(false, labelData.exclude);
+//		Assert.assertEquals(0, labelData.horizontalIndent);
+//		Assert.assertEquals(1, labelData.horizontalSpan);
+//		Assert.assertEquals(0, labelData.minimumHeight);
+//		Assert.assertEquals(0, labelData.minimumWidth);
+//		Assert.assertEquals(0, labelData.verticalIndent);
+//		Assert.assertEquals(1, labelData.verticalSpan);
+//		Assert.assertEquals(-1, labelData.widthHint);
 
-		GridData data = (GridData) text.getLayoutData();
+		GridData data = (GridData) browser.getLayoutData();
 		Assert.assertEquals(SWT.FILL, data.horizontalAlignment);
 		Assert.assertEquals(SWT.FILL, data.verticalAlignment);
 		Assert.assertEquals(true, data.grabExcessHorizontalSpace);
@@ -176,62 +176,62 @@ public class TextFieldPresentationTest {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
-		// ......> yText
+		// ......> yBrowser
 		YView yView = factory.createView();
 		YGridLayout yLayout = factory.createGridLayout();
 		yView.setContent(yLayout);
-		YTextField yText1 = factory.createTextField();
-		yText1.setCssID("ID_0815");
-		yText1.setCssClass("anyOtherClass");
-		yLayout.addElement(yText1);
-		YTextField yText2 = factory.createTextField();
-		yLayout.addElement(yText2);
+		YBrowser yBrowser1 = factory.createBrowser();
+		yBrowser1.setCssID("ID_0815");
+		yBrowser1.setCssClass("anyOtherClass");
+		yLayout.addElement(yBrowser1);
+		YBrowser yBrowser2 = factory.createBrowser();
+		yLayout.addElement(yBrowser2);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart text1Editpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText1);
-		ITextFieldEditpart text2Editpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText2);
+		IBrowserEditpart text1Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yBrowser1);
+		IBrowserEditpart text2Editpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yBrowser2);
 		IWidgetPresentation<Control> text1Presentation = text1Editpart
 				.getPresentation();
 		IWidgetPresentation<Control> text2Presentation = text2Editpart
 				.getPresentation();
-		Composite text1BaseComposite = (Composite) text1Presentation
+		Composite browser1BaseComposite = (Composite) text1Presentation
 				.getWidget();
-		Composite text2BaseComposite = (Composite) text2Presentation
+		Composite browser2BaseComposite = (Composite) text2Presentation
 				.getWidget();
 
-		Label label1 = (Label) unwrapLabel(text1BaseComposite);
-		Text text1 = (Text) unwrapText(text1BaseComposite);
-		Label label2 = (Label) unwrapLabel(text2BaseComposite);
-		Text text2 = (Text) unwrapText(text2BaseComposite);
+//		Label label1 = (Label) unwrapLabel(text1BaseComposite);
+		Browser browser1 = (Browser) unwrapBrowser(browser1BaseComposite);
+//		Label label2 = (Label) unwrapLabel(text2BaseComposite);
+		Browser browser2 = (Browser) unwrapBrowser(browser2BaseComposite);
 
 		// assert css class
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(text1BaseComposite));
+				WidgetElement.getCSSClass(browser1BaseComposite));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
-				WidgetElement.getCSSClass(text2BaseComposite));
+				WidgetElement.getCSSClass(browser2BaseComposite));
 
-		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(text1));
+		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(browser1));
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
-				WidgetElement.getCSSClass(text2));
+				WidgetElement.getCSSClass(browser2));
 
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
-				WidgetElement.getCSSClass(label1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
-				WidgetElement.getCSSClass(label2));
+//		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
+//				WidgetElement.getCSSClass(label1));
+//		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,
+//				WidgetElement.getCSSClass(label2));
 
 		// assert css id
-		Assert.assertEquals("ID_0815", WidgetElement.getID(text1BaseComposite));
-		Assert.assertNull(WidgetElement.getID(text1));
+		Assert.assertEquals("ID_0815", WidgetElement.getID(browser1BaseComposite));
+		Assert.assertNull(WidgetElement.getID(browser1));
 		Assert.assertEquals(text2Editpart.getId(),
-				WidgetElement.getID(text2BaseComposite));
-		Assert.assertNull(WidgetElement.getID(text2));
+				WidgetElement.getID(browser2BaseComposite));
+		Assert.assertNull(WidgetElement.getID(browser2));
 
-		Assert.assertNull(WidgetElement.getID(label1));
-		Assert.assertNull(WidgetElement.getID(label2));
+//		Assert.assertNull(WidgetElement.getID(label1));
+//		Assert.assertNull(WidgetElement.getID(label2));
 	}
 
 	/**
@@ -239,29 +239,29 @@ public class TextFieldPresentationTest {
 	 * 
 	 * @throws Exception
 	 */
-	@Test
+	// TODO - implement with binding
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_valueChangeAdapter_firesEvent() throws Exception {
 		// END SUPRESS CATCH EXCEPTION
 		// build the view model
 		// ...> yView
 		// ......> yGridLayout
-		// .........> yText
+		// .........> yBrowser
 		YView yView = factory.createView();
 		YGridLayout yGridlayout = factory.createGridLayout();
 		yView.setContent(yGridlayout);
-		YTextField yText = factory.createTextField();
-		yGridlayout.getElements().add(yText);
+		YBrowser yBrowser = factory.createBrowser();
+		yGridlayout.getElements().add(yBrowser);
 
 		ECViewSwtRenderer renderer = new ECViewSwtRenderer();
 		renderer.render(shell, yView, null);
 
-		ITextFieldEditpart textEditpart = DelegatingEditPartManager
-				.getInstance().getEditpart(yText);
-		TextFieldPresentation presentation = textEditpart.getPresentation();
+		IBrowserEditpart browserEditpart = DelegatingEditPartManager
+				.getInstance().getEditpart(yBrowser);
+		BrowserPresentation presentation = browserEditpart.getPresentation();
 
 		final int[] counter = new int[1];
-		yText.addValueChangeListener(new YValueChangeListener() {
+		yBrowser.addValueChangeListener(new YValueChangeListener() {
 			@Override
 			public void valueChanged(Event event) {
 				counter[0] = counter[0] + 1;
@@ -270,31 +270,17 @@ public class TextFieldPresentationTest {
 
 		assertEquals(0, counter[0]);
 
-		ITextRidget ridget = presentation.getTextRidget();
-		ridget.setText("Test");
+		IBrowserRidget ridget = presentation.getBrowserRidget();
+		ridget.setUrl("Test");
 		assertEquals(1, counter[0]);
 
 		ridget.setText("Test 1");
 		assertEquals(2, counter[0]);
 
-		yText.removeAllValueChangListeners();
+		yBrowser.removeAllValueChangListeners();
 		ridget.setText("Test 2");
 		assertEquals(2, counter[0]);
 
-	}
-
-	/**
-	 * Unwraps the label from its parent composite.
-	 * 
-	 * @param control
-	 * @return
-	 */
-	private Control unwrapLabel(Control control) {
-		if (control instanceof Composite) {
-			Composite composite = (Composite) control;
-			return composite.getChildren()[0];
-		}
-		return control;
 	}
 
 	/**
@@ -303,10 +289,10 @@ public class TextFieldPresentationTest {
 	 * @param control
 	 * @return
 	 */
-	private Control unwrapText(Control control) {
+	private Control unwrapBrowser(Control control) {
 		if (control instanceof Composite) {
 			Composite composite = (Composite) control;
-			return composite.getChildren()[1];
+			return composite.getChildren()[0];
 		}
 		return control;
 	}
@@ -325,7 +311,8 @@ public class TextFieldPresentationTest {
 
 		IWidgetPresentation<Control> presentation = null;
 		if (editpart instanceof IViewEditpart) {
-			presentation = (IWidgetPresentation<Control>) ((IViewEditpart) editpart).getPresentation();
+			presentation = (IWidgetPresentation<Control>) ((IViewEditpart) editpart)
+					.getPresentation();
 		} else {
 			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
 		}

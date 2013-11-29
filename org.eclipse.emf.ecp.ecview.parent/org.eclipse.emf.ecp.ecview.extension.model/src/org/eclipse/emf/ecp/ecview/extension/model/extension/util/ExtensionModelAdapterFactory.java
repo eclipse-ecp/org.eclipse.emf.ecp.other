@@ -96,6 +96,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	protected ExtensionModelSwitch<Adapter> modelSwitch =
 		new ExtensionModelSwitch<Adapter>() {
 			@Override
+			public Adapter caseYInput(YInput object) {
+				return createYInputAdapter();
+			}
+			@Override
 			public Adapter caseYTextField(YTextField object) {
 				return createYTextFieldAdapter();
 			}
@@ -144,8 +148,12 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYCheckBoxAdapter();
 			}
 			@Override
-			public Adapter caseYInput(YInput object) {
-				return createYInputAdapter();
+			public Adapter caseYBrowser(YBrowser object) {
+				return createYBrowserAdapter();
+			}
+			@Override
+			public Adapter caseYDateTime(YDateTime object) {
+				return createYDateTimeAdapter();
 			}
 			@Override
 			public Adapter caseYDecimalField(YDecimalField object) {
@@ -400,6 +408,34 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYCheckBoxAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser <em>YBrowser</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser
+	 * @generated
+	 */
+	public Adapter createYBrowserAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime <em>YDate Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime
+	 * @generated
+	 */
+	public Adapter createYDateTimeAdapter() {
 		return null;
 	}
 

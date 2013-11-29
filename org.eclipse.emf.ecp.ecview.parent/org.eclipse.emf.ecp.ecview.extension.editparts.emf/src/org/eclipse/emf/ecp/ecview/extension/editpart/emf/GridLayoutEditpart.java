@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpar
 /**
  * The implementation of the IUigridLayoutEditpart.
  */
+@SuppressWarnings("restriction")
 public class GridLayoutEditpart extends LayoutEditpart<YGridLayout> implements IGridLayoutEditpart {
 
 	@Override

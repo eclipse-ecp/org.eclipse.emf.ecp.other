@@ -19,3 +19,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecp.ecview.common.model;visibility:=reexport;bundle-version="0.0.1",
  org.eclipse.emf.ecp.ecview.extension.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+

@@ -130,6 +130,24 @@ public interface ExtensionModelFactory extends EFactory {
 	YCheckBox createYCheckBox();
 
 	/**
+	 * Returns a new object of class '<em>YBrowser</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YBrowser</em>'.
+	 * @generated
+	 */
+	YBrowser createYBrowser();
+
+	/**
+	 * Returns a new object of class '<em>YDate Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YDate Time</em>'.
+	 * @generated
+	 */
+	YDateTime createYDateTime();
+
+	/**
 	 * Returns a new object of class '<em>YDecimal Field</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

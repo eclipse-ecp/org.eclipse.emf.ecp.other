@@ -3,6 +3,7 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -71,8 +72,40 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 			case ExtDatatypesPackage.YCHECK_BOX_DATATYPE: return (EObject)createYCheckBoxDatatype();
 			case ExtDatatypesPackage.YCOMBO_BOX_DATATYPE: return (EObject)createYComboBoxDatatype();
 			case ExtDatatypesPackage.YLIST_DATA_TYPE: return (EObject)createYListDataType();
+			case ExtDatatypesPackage.YBROWSER_DATATYPE: return (EObject)createYBrowserDatatype();
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE: return (EObject)createYDateTimeDatatype();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case ExtDatatypesPackage.YDATE_TIME_FORMAT:
+				return createYDateTimeFormatFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case ExtDatatypesPackage.YDATE_TIME_FORMAT:
+				return convertYDateTimeFormatToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -154,6 +187,46 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	public YListDataType createYListDataType() {
 		YListDataTypeImpl yListDataType = new YListDataTypeImpl();
 		return yListDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBrowserDatatype createYBrowserDatatype() {
+		YBrowserDatatypeImpl yBrowserDatatype = new YBrowserDatatypeImpl();
+		return yBrowserDatatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDateTimeDatatype createYDateTimeDatatype() {
+		YDateTimeDatatypeImpl yDateTimeDatatype = new YDateTimeDatatypeImpl();
+		return yDateTimeDatatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDateTimeFormat createYDateTimeFormatFromString(EDataType eDataType, String initialValue) {
+		YDateTimeFormat result = YDateTimeFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYDateTimeFormatToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

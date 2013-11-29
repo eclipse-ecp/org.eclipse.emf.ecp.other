@@ -24,4 +24,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="YCheckBoxDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>
   <eClassifiers xsi:type="ecore:EClass" name="YComboBoxDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>
   <eClassifiers xsi:type="ecore:EClass" name="YListDataType" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YBrowserDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YDateTimeDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="#//YDateTimeFormat"
+        defaultValueLiteral="DATE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="YDateTimeFormat">
+    <eLiterals name="DATE"/>
+    <eLiterals name="TIME" value="1" literal="TIME"/>
+    <eLiterals name="DATE_TIME" value="2" literal="DATE_TIME"/>
+  </eClassifiers>
 </ecore:EPackage>

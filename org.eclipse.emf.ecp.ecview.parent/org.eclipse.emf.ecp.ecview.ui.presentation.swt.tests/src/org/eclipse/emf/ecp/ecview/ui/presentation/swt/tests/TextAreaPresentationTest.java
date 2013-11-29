@@ -10,8 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
@@ -268,13 +267,14 @@ public class TextAreaPresentationTest {
 	 *            model element
 	 * @return control
 	 */
+	@SuppressWarnings("unchecked")
 	protected Control getControl(YElement yView) {
 		IElementEditpart editpart = DelegatingEditPartManager.getInstance()
 				.getEditpart(yView);
 
 		IWidgetPresentation<Control> presentation = null;
 		if (editpart instanceof IViewEditpart) {
-			presentation = ((IViewEditpart) editpart).getPresentation();
+			presentation = (IWidgetPresentation<Control>) ((IViewEditpart) editpart).getPresentation();
 		} else {
 			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
 		}

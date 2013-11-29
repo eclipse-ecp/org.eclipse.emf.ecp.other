@@ -108,6 +108,14 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYListDataTypeAdapter();
 			}
 			@Override
+			public Adapter caseYBrowserDatatype(YBrowserDatatype object) {
+				return createYBrowserDatatypeAdapter();
+			}
+			@Override
+			public Adapter caseYDateTimeDatatype(YDateTimeDatatype object) {
+				return createYDateTimeDatatypeAdapter();
+			}
+			@Override
 			public Adapter caseYDtBase(YDtBase object) {
 				return createYDtBaseAdapter();
 			}
@@ -244,6 +252,34 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYListDataTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype <em>YBrowser Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype
+	 * @generated
+	 */
+	public Adapter createYBrowserDatatypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype <em>YDate Time Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype
+	 * @generated
+	 */
+	public Adapter createYDateTimeDatatypeAdapter() {
 		return null;
 	}
 

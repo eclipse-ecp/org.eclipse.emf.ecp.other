@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditp
 /**
  * The implementation of the IUiNumericFieldEditpart.
  */
+@SuppressWarnings("restriction")
 public class NumericFieldEditpart extends FieldEditpart<YNumericField>
 		implements INumericFieldEditpart {
 

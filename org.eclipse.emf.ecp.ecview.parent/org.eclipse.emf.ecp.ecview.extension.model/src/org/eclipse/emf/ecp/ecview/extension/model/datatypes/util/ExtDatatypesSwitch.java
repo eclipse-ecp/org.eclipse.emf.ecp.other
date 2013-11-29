@@ -140,6 +140,22 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtDatatypesPackage.YBROWSER_DATATYPE: {
+				YBrowserDatatype yBrowserDatatype = (YBrowserDatatype)theEObject;
+				T result = caseYBrowserDatatype(yBrowserDatatype);
+				if (result == null) result = caseYDatatype(yBrowserDatatype);
+				if (result == null) result = caseYDtBase(yBrowserDatatype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE: {
+				YDateTimeDatatype yDateTimeDatatype = (YDateTimeDatatype)theEObject;
+				T result = caseYDateTimeDatatype(yDateTimeDatatype);
+				if (result == null) result = caseYDatatype(yDateTimeDatatype);
+				if (result == null) result = caseYDtBase(yDateTimeDatatype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -261,6 +277,36 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYListDataType(YListDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBrowser Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBrowser Datatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBrowserDatatype(YBrowserDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDate Time Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDate Time Datatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDateTimeDatatype(YDateTimeDatatype object) {
 		return null;
 	}
 

@@ -10,8 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests;
 
-import static junit.framework.Assert.assertEquals;
-import junit.framework.Assert;
+import static org.junit.Assert.*;
 
 import org.eclipse.e4.ui.css.swt.dom.WidgetElement;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -85,12 +84,12 @@ public class ButtonPresentationTest {
 				.getInstance().getEditpart(yButton);
 		IWidgetPresentation<Control> presentation = buttonEditpart
 				.getPresentation();
-		Assert.assertTrue(presentation.isRendered());
-		Assert.assertFalse(presentation.isDisposed());
+		assertTrue(presentation.isRendered());
+		assertFalse(presentation.isDisposed());
 
 		yGridlayout.getElements().remove(yButton);
-		Assert.assertFalse(presentation.isRendered());
-		Assert.assertFalse(presentation.isDisposed());
+		assertFalse(presentation.isRendered());
+		assertFalse(presentation.isDisposed());
 	}
 
 	/**
@@ -120,31 +119,31 @@ public class ButtonPresentationTest {
 
 		Button button = (Button) unwrapButton(baseComposite);
 
-		Assert.assertEquals(1, baseComposite.getChildren().length);
+		assertEquals(1, baseComposite.getChildren().length);
 
 		// assert layout and layout data
 		GridLayout layout = (GridLayout) baseComposite.getLayout();
-		Assert.assertEquals(2, layout.numColumns);
-		Assert.assertEquals(0, layout.marginBottom);
-		Assert.assertEquals(0, layout.marginLeft);
-		Assert.assertEquals(0, layout.marginRight);
-		Assert.assertEquals(0, layout.marginTop);
-		Assert.assertEquals(5, layout.marginHeight);
-		Assert.assertEquals(5, layout.marginWidth);
+		assertEquals(2, layout.numColumns);
+		assertEquals(0, layout.marginBottom);
+		assertEquals(0, layout.marginLeft);
+		assertEquals(0, layout.marginRight);
+		assertEquals(0, layout.marginTop);
+		assertEquals(5, layout.marginHeight);
+		assertEquals(5, layout.marginWidth);
 
 		GridData data = (GridData) button.getLayoutData();
-		Assert.assertEquals(SWT.FILL, data.horizontalAlignment);
-		Assert.assertEquals(SWT.FILL, data.verticalAlignment);
-		Assert.assertEquals(true, data.grabExcessHorizontalSpace);
-		Assert.assertEquals(true, data.grabExcessVerticalSpace);
-		Assert.assertEquals(false, data.exclude);
-		Assert.assertEquals(0, data.horizontalIndent);
-		Assert.assertEquals(1, data.horizontalSpan);
-		Assert.assertEquals(0, data.minimumHeight);
-		Assert.assertEquals(0, data.minimumWidth);
-		Assert.assertEquals(0, data.verticalIndent);
-		Assert.assertEquals(1, data.verticalSpan);
-		Assert.assertEquals(-1, data.widthHint);
+		assertEquals(SWT.FILL, data.horizontalAlignment);
+		assertEquals(SWT.FILL, data.verticalAlignment);
+		assertEquals(true, data.grabExcessHorizontalSpace);
+		assertEquals(true, data.grabExcessVerticalSpace);
+		assertEquals(false, data.exclude);
+		assertEquals(0, data.horizontalIndent);
+		assertEquals(1, data.horizontalSpan);
+		assertEquals(0, data.minimumHeight);
+		assertEquals(0, data.minimumWidth);
+		assertEquals(0, data.verticalIndent);
+		assertEquals(1, data.verticalSpan);
+		assertEquals(-1, data.widthHint);
 	}
 
 	/**
@@ -189,22 +188,22 @@ public class ButtonPresentationTest {
 		Button button2 = (Button) unwrapButton(button2BaseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
 				WidgetElement.getCSSClass(button1BaseComposite));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
 				WidgetElement.getCSSClass(button2BaseComposite));
 
-		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(button1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		assertEquals("anyOtherClass", WidgetElement.getCSSClass(button1));
+		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
 				WidgetElement.getCSSClass(button2));
 
 		// assert css id
-		Assert.assertEquals("ID_0815",
+		assertEquals("ID_0815",
 				WidgetElement.getID(button1BaseComposite));
-		Assert.assertNull(WidgetElement.getID(button1));
-		Assert.assertEquals(button2Editpart.getId(),
+		assertNull(WidgetElement.getID(button1));
+		assertEquals(button2Editpart.getId(),
 				WidgetElement.getID(button2BaseComposite));
-		Assert.assertNull(WidgetElement.getID(button2));
+		assertNull(WidgetElement.getID(button2));
 	}
 
 	/**
@@ -295,13 +294,14 @@ public class ButtonPresentationTest {
 	 *            model element
 	 * @return control
 	 */
+	@SuppressWarnings("unchecked")
 	protected Control getControl(YElement yView) {
 		IElementEditpart editpart = DelegatingEditPartManager.getInstance()
 				.getEditpart(yView);
 
 		IWidgetPresentation<Control> presentation = null;
 		if (editpart instanceof IViewEditpart) {
-			presentation = ((IViewEditpart) editpart).getPresentation();
+			presentation = (IWidgetPresentation<Control>) ((IViewEditpart) editpart).getPresentation();
 		} else {
 			presentation = ((IEmbeddableEditpart) editpart).getPresentation();
 		}

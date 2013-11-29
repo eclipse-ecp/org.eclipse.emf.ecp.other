@@ -1,43 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?>
-
-<target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="79">
+<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler" sequenceNumber="82">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.slf4j.api" version="1.6.4.v20120130-2120"/>
-<unit id="ch.qos.logback.core.source" version="1.0.0.v20111214-2030"/>
-<unit id="org.slf4j.api.source" version="1.6.4.v20120130-2120"/>
-<unit id="ch.qos.logback.core" version="1.0.0.v20111214-2030"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120726065500/repository/"/>
+<unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
+<unit id="ch.qos.logback.core.source" version="1.0.7.v20121108-1250"/>
+<unit id="org.slf4j.api.source" version="1.7.2.v20121108-1250"/>
+<unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201311251846"/>
+<repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.sdk" version="4.3.1.M20130911-1000"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.1.v20130902-0605"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.junit" version="4.11.0.v201303080030"/>
+<unit id="org.junit.source" version="4.11.0.v201303080030"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
 <unit id="org.apache.commons.beanutils.source" version="1.8.0.v201205091237"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120726065500/repository/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.junit" version="4.10.0.v4_10_0_v20120426-0900"/>
-<unit id="org.junit.source" version="4.10.0.v4_10_0_v20120426-0900"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120726065500/repository/"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
 <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20120726065500/repository/"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.platform.sdk" version="4.3.0.I20130314-1330"/>
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.0.v20130318-0639"/>
+<unit id="org.eclipse.riena.build.feature.sdk.e4.feature.group" version="5.0.0.v20130910_5_0_0_SR1"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201304181950"/>
-<repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.riena.build.feature.sdk.feature.group" version="4.0.0.v20120611_4_0_0_0"/>
-<unit id="org.eclipse.riena.build.feature.core.sdk.feature.group" version="4.0.0.v20120611_4_0_0_0"/>
-<repository location="http://download.eclipse.org/rt/riena/4.0.0.0/update"/>
 </location>
 </locations>
 </target>

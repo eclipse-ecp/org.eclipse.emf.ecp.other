@@ -94,6 +94,24 @@ public interface ExtDatatypesFactory extends EFactory {
 	YListDataType createYListDataType();
 
 	/**
+	 * Returns a new object of class '<em>YBrowser Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YBrowser Datatype</em>'.
+	 * @generated
+	 */
+	YBrowserDatatype createYBrowserDatatype();
+
+	/**
+	 * Returns a new object of class '<em>YDate Time Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YDate Time Datatype</em>'.
+	 * @generated
+	 */
+	YDateTimeDatatype createYDateTimeDatatype();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
