@@ -8,8 +8,8 @@
 
 	<properties>
 		<next-release>0.0.2-SNAPSHOT</next-release>
-		<tycho-version>0.18.0</tycho-version>
-		<tychoExtrasVersion>0.18.0</tychoExtrasVersion>
+		<tycho-version>0.18.1</tycho-version>
+		<tychoExtrasVersion>0.18.1</tychoExtrasVersion>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
