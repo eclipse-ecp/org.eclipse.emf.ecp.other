@@ -24,27 +24,26 @@ public class ECPRepositoryView {
 
 	@PostConstruct
 	public void create(Composite composite, EMenuService menuService,
-			final ESelectionService selectionService) {
+		final ESelectionService selectionService) {
 		repositoryTree = TreeViewerFactory.createRepositoryExplorerViewer(
-				composite, null);
+			composite, null);
 		menuService.registerContextMenu(repositoryTree.getTree(),
-				"org.eclipse.emf.ecp.e4.application.popupmenu.repository");
+			"org.eclipse.emf.ecp.e4.application.popupmenu.repository");
 		repositoryTree
-				.addSelectionChangedListener(new ISelectionChangedListener() {
+			.addSelectionChangedListener(new ISelectionChangedListener() {
 
-					@Override
-					public void selectionChanged(SelectionChangedEvent event) {
-						ISelection selection = event.getSelection();
-						if (IStructuredSelection.class.isInstance(selection)) {
-							IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-							if (!structuredSelection.isEmpty()) {
-								selectionService
-										.setSelection(structuredSelection
-												.getFirstElement());
-							}
+				public void selectionChanged(SelectionChangedEvent event) {
+					final ISelection selection = event.getSelection();
+					if (IStructuredSelection.class.isInstance(selection)) {
+						final IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+						if (!structuredSelection.isEmpty()) {
+							selectionService
+								.setSelection(structuredSelection
+									.getFirstElement());
 						}
 					}
-				});
+				}
+			});
 	}
 
 	@Focus

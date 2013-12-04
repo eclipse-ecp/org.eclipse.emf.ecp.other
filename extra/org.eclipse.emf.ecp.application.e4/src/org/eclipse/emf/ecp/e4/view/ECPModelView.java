@@ -28,59 +28,63 @@ public class ECPModelView {
 	private TreeViewer modelExplorerTree;
 	private ModelContentProvider contentProvider;
 
-	public ECPModelView(){
-		
+	public ECPModelView() {
+
 	}
-	
+
 	@PostConstruct
-	public void create(Composite composite,EMenuService menuService,final ESelectionService selectionService,final EPartService partService){
+	public void create(Composite composite, EMenuService menuService, final ESelectionService selectionService,
+		final EPartService partService) {
 		modelExplorerTree = TreeViewerFactory.createModelExplorerViewer(composite, false, null);
-		menuService.registerContextMenu(modelExplorerTree.getTree(), "org.eclipse.emf.ecp.e4.application.popupmenu.navigator");
-		contentProvider=(ModelContentProvider) modelExplorerTree.getContentProvider();
+		menuService.registerContextMenu(modelExplorerTree.getTree(),
+			"org.eclipse.emf.ecp.e4.application.popupmenu.navigator");
+		contentProvider = (ModelContentProvider) modelExplorerTree.getContentProvider();
 		modelExplorerTree.addDoubleClickListener(new IDoubleClickListener() {
-			
-			@Override
+
 			public void doubleClick(DoubleClickEvent event) {
 				if (event.getSelection() instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection) event.getSelection();
-					Object firstElement = structuredSelection.getFirstElement();
-					
+					final IStructuredSelection structuredSelection = (IStructuredSelection) event.getSelection();
+					final Object firstElement = structuredSelection.getFirstElement();
+
 					if (firstElement instanceof ECPProject) {
-						ECPProject project = (ECPProject) firstElement;
+						final ECPProject project = (ECPProject) firstElement;
 						if (!project.isOpen()) {
 							project.open();
 						}
 					}
 					else if (firstElement instanceof EObject) {
-						ECPContainer context = ECPUtil.getModelContext(contentProvider, structuredSelection.toArray());
+						final ECPContainer context = ECPUtil.getModelContext(contentProvider,
+							structuredSelection.toArray());
 						ECPHandlerHelper.openModelElement(firstElement, (ECPProject) context);
-//						MPart part=partService.createPart("org.eclipse.emf.ecp.e4.application.partdescriptor.editor");
-//						part.setLabel(modelElement.eClass().getName());
-//						partService.showPart(part, PartState.ACTIVATE);
-					} 
+						// MPart
+						// part=partService.createPart("org.eclipse.emf.ecp.e4.application.partdescriptor.editor");
+						// part.setLabel(modelElement.eClass().getName());
+						// partService.showPart(part, PartState.ACTIVATE);
+					}
 				}
 			}
 		});
 		modelExplorerTree.addSelectionChangedListener(new ISelectionChangedListener() {
-			
-			@Override
+
 			public void selectionChanged(SelectionChangedEvent event) {
-				ISelection selection=event.getSelection();
-				if(IStructuredSelection.class.isInstance(selection)){
-					IStructuredSelection structuredSelection=(IStructuredSelection) selection;
-					if(!structuredSelection.isEmpty()){
+				final ISelection selection = event.getSelection();
+				if (IStructuredSelection.class.isInstance(selection)) {
+					final IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+					if (!structuredSelection.isEmpty()) {
 						selectionService.setSelection(structuredSelection.getFirstElement());
 					}
 				}
 			}
 		});
 	}
+
 	@Focus
-	public void setFocus(){
+	public void setFocus() {
 		modelExplorerTree.getTree().setFocus();
 	}
+
 	@PreDestroy
-	public void dispose(){
-		
+	public void dispose() {
+
 	}
 }
