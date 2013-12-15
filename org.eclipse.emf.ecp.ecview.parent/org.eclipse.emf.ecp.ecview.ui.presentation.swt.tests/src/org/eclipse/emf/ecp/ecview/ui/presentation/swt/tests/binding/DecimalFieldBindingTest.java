@@ -10,9 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests.binding;
 
-import java.util.Locale;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import junit.framework.Assert;
+import java.util.Locale;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
@@ -89,15 +91,15 @@ public class DecimalFieldBindingTest {
 
 		text1.setText("1234,12");
 		text2.updateFromModel();
-		Assert.assertEquals(1234.12, yDecimal1.getValue());
-		Assert.assertEquals(1234.12, yDecimal2.getValue());
-		Assert.assertEquals("1.234,12", text2.getText());
+		assertEquals(1234.12, yDecimal1.getValue());
+		assertEquals(1234.12, yDecimal2.getValue());
+		assertEquals("1.234,12", text2.getText());
 
 		text2.setText("4321,09");
 		text1.updateFromModel();
-		Assert.assertEquals("4.321,09", text1.getText());
-		Assert.assertEquals(4321.09, yDecimal1.getValue());
-		Assert.assertEquals(4321.09, yDecimal2.getValue());
+		assertEquals("4.321,09", text1.getText());
+		assertEquals(4321.09, yDecimal1.getValue());
+		assertEquals(4321.09, yDecimal2.getValue());
 	}
 
 	@Test
@@ -128,16 +130,16 @@ public class DecimalFieldBindingTest {
 		yDecimal1.setValue(1234.12);
 		ridget1.updateFromModel();
 		ridget2.updateFromModel();
-		Assert.assertEquals(1234.12, yDecimal2.getValue());
-		Assert.assertEquals("1.234,12", ridget1.getText());
-		Assert.assertEquals("1.234,12", ridget2.getText());
+		assertEquals(1234.12, yDecimal2.getValue());
+		assertEquals("1.234,12", ridget1.getText());
+		assertEquals("1.234,12", ridget2.getText());
 
 		yDecimal2.setValue(6543.21);
 		ridget1.updateFromModel();
 		ridget2.updateFromModel();
-		Assert.assertEquals(6543.21, yDecimal1.getValue());
-		Assert.assertEquals("6.543,21", ridget1.getText());
-		Assert.assertEquals("6.543,21", ridget2.getText());
+		assertEquals(6543.21, yDecimal1.getValue());
+		assertEquals("6.543,21", ridget1.getText());
+		assertEquals("6.543,21", ridget2.getText());
 	}
 
 	@Test
@@ -168,20 +170,20 @@ public class DecimalFieldBindingTest {
 		yNumeric1.setValue(123456);
 		ridget1.updateFromModel();
 		ridget2.updateFromModel();
-		Assert.assertEquals(123456.0, yNumeric2.getValue());
-		Assert.assertEquals("123.456", ridget1.getText());
-		Assert.assertEquals("123.456", ridget2.getText());
+		assertEquals(123456.0, yNumeric2.getValue());
+		assertEquals("123.456", ridget1.getText());
+		assertEquals("123.456", ridget2.getText());
 
 		YDecimalDatatype decimalDt = factory.createDecimalDatatype();
 		decimalDt.setGrouping(false);
 		yNumeric1.setDatatype(decimalDt);
 
-		Assert.assertEquals("123456", ridget1.getText().trim());
-		Assert.assertEquals("123.456", ridget2.getText());
+		assertEquals("123456", ridget1.getText().trim());
+		assertEquals("123.456", ridget2.getText());
 
 		decimalDt.setGrouping(true);
-		Assert.assertEquals("123.456", ridget1.getText());
-		Assert.assertEquals("123.456", ridget2.getText());
+		assertEquals("123.456", ridget1.getText());
+		assertEquals("123.456", ridget2.getText());
 	}
 
 	@Test
@@ -212,19 +214,19 @@ public class DecimalFieldBindingTest {
 		yDecimal1.setValue(123456);
 		ridget1.updateFromModel();
 		ridget2.updateFromModel();
-		Assert.assertTrue(ridget1.isMarkNegative());
-		Assert.assertTrue(ridget2.isMarkNegative());
+		assertTrue(ridget1.isMarkNegative());
+		assertTrue(ridget2.isMarkNegative());
 
 		YDecimalDatatype decimalDt = factory.createDecimalDatatype();
 		decimalDt.setMarkNegative(false);
 		yDecimal1.setDatatype(decimalDt);
 
-		Assert.assertFalse(ridget1.isMarkNegative());
-		Assert.assertTrue(ridget2.isMarkNegative());
+		assertFalse(ridget1.isMarkNegative());
+		assertTrue(ridget2.isMarkNegative());
 
 		decimalDt.setMarkNegative(true);
-		Assert.assertTrue(ridget1.isMarkNegative());
-		Assert.assertTrue(ridget2.isMarkNegative());
+		assertTrue(ridget1.isMarkNegative());
+		assertTrue(ridget2.isMarkNegative());
 	}
 
 	@Test
@@ -255,36 +257,36 @@ public class DecimalFieldBindingTest {
 		yDecimal1.setValue(123456.12);
 		ridget1.updateFromModel();
 		ridget2.updateFromModel();
-		Assert.assertEquals(123456.12, yDecimal2.getValue());
-		Assert.assertEquals(2, ridget1.getPrecision());
-		Assert.assertEquals(2, ridget2.getPrecision());
-		Assert.assertEquals("123.456,12", ridget1.getText());
-		Assert.assertEquals("123.456,12", ridget2.getText());
+		assertEquals(123456.12, yDecimal2.getValue());
+		assertEquals(2, ridget1.getPrecision());
+		assertEquals(2, ridget2.getPrecision());
+		assertEquals("123.456,12", ridget1.getText());
+		assertEquals("123.456,12", ridget2.getText());
 
 		YDecimalDatatype decimalDt = factory.createDecimalDatatype();
 		decimalDt.setPrecision(1);
 		yDecimal1.setDatatype(decimalDt);
-		Assert.assertEquals("123.456,1", ridget1.getText());
-		Assert.assertEquals(123456.1, yDecimal1.getValue());
-		Assert.assertEquals(123456.1, yDecimal2.getValue());
-		Assert.assertEquals(1, ridget1.getPrecision());
-		Assert.assertEquals(2, ridget2.getPrecision());
+		assertEquals("123.456,1", ridget1.getText());
+		assertEquals(123456.1, yDecimal1.getValue());
+		assertEquals(123456.1, yDecimal2.getValue());
+		assertEquals(1, ridget1.getPrecision());
+		assertEquals(2, ridget2.getPrecision());
 
-		Assert.assertEquals("123.456,1", ridget2.getText());
+		assertEquals("123.456,1", ridget2.getText());
 
 		decimalDt.setPrecision(3);
-		Assert.assertEquals(123456.1, yDecimal1.getValue());
-		Assert.assertEquals(123456.1, yDecimal2.getValue());
-		Assert.assertEquals(3, ridget1.getPrecision());
-		Assert.assertEquals(2, ridget2.getPrecision());
-		Assert.assertEquals("123.456,1", ridget1.getText());
-		Assert.assertEquals("123.456,1", ridget2.getText());
+		assertEquals(123456.1, yDecimal1.getValue());
+		assertEquals(123456.1, yDecimal2.getValue());
+		assertEquals(3, ridget1.getPrecision());
+		assertEquals(2, ridget2.getPrecision());
+		assertEquals("123.456,1", ridget1.getText());
+		assertEquals("123.456,1", ridget2.getText());
 
 		yDecimal1.setValue(123456.1234);
-		Assert.assertEquals(123456.123, yDecimal1.getValue());
-		Assert.assertEquals(123456.12, yDecimal2.getValue());
-		Assert.assertEquals("123.456,123", ridget1.getText());
-		Assert.assertEquals("123.456,12", ridget2.getText());
+		assertEquals(123456.123, yDecimal1.getValue());
+		assertEquals(123456.12, yDecimal2.getValue());
+		assertEquals("123.456,123", ridget1.getText());
+		assertEquals("123.456,12", ridget2.getText());
 
 	}
 
@@ -308,38 +310,38 @@ public class DecimalFieldBindingTest {
 
 		yDecimal1.setValue(123456.12);
 		ridget1.updateFromModel();
-		Assert.assertEquals(2, ridget1.getPrecision());
-		Assert.assertEquals("123.456,12", ridget1.getText());
-		Assert.assertEquals(123456.12, yDecimal1.getValue());
+		assertEquals(2, ridget1.getPrecision());
+		assertEquals("123.456,12", ridget1.getText());
+		assertEquals(123456.12, yDecimal1.getValue());
 
 		// clean ridget
 		yDecimal1.setValue(0);
-		Assert.assertEquals("0", ridget1.getText());
+		assertEquals("0", ridget1.getText());
 
 		yDecimal1.setValue(123456.123);
-		Assert.assertEquals("123.456,12", ridget1.getText());
-		Assert.assertEquals(123456.12, yDecimal1.getValue());
+		assertEquals("123.456,12", ridget1.getText());
+		assertEquals(123456.12, yDecimal1.getValue());
 
 		// change the value at ridget and update proceeds
 		ridget1.setText("123.456,11");
-		Assert.assertEquals(123456.11, yDecimal1.getValue());
+		assertEquals(123456.11, yDecimal1.getValue());
 
 		YDecimalDatatype decimalDt = factory.createDecimalDatatype();
 		decimalDt.setPrecision(1);
 		yDecimal1.setDatatype(decimalDt);
-		Assert.assertEquals("123.456,1", ridget1.getText());
-		Assert.assertEquals(123456.1, yDecimal1.getValue());
-		Assert.assertEquals(1, ridget1.getPrecision());
+		assertEquals("123.456,1", ridget1.getText());
+		assertEquals(123456.1, yDecimal1.getValue());
+		assertEquals(1, ridget1.getPrecision());
 
 		decimalDt.setPrecision(3);
-		Assert.assertEquals(123456.1, yDecimal1.getValue());
-		Assert.assertEquals(3, ridget1.getPrecision());
-		Assert.assertEquals("123.456,1", ridget1.getText());
+		assertEquals(123456.1, yDecimal1.getValue());
+		assertEquals(3, ridget1.getPrecision());
+		assertEquals("123.456,1", ridget1.getText());
 
 		decimalDt.setPrecision(2);
 		yDecimal1.setValue(123456.1234);
-		Assert.assertEquals("123.456,12", ridget1.getText());
-		Assert.assertEquals(123456.12, yDecimal1.getValue());
+		assertEquals("123.456,12", ridget1.getText());
+		assertEquals(123456.12, yDecimal1.getValue());
 
 	}
 

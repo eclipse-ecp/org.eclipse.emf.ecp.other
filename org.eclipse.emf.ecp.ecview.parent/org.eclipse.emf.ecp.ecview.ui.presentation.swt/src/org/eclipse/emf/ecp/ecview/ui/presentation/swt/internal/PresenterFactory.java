@@ -12,7 +12,6 @@ package org.eclipse.emf.ecp.ecview.ui.presentation.swt.internal;
 
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
@@ -22,10 +21,13 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IComboBoxEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IHorizontalLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IVerticalLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.presentation.swt.ECViewSwtRenderer;
 
 /**
@@ -50,8 +52,12 @@ public class PresenterFactory implements IPresentationFactory {
 			presentation = (A) new ViewPresentation((IViewEditpart) editpart);
 		} else if (editpart instanceof ITextFieldEditpart) {
 			presentation = (A) new TextFieldPresentation(editpart);
-		} else if (editpart instanceof ILayoutEditpart) {
+		} else if (editpart instanceof IGridLayoutEditpart) {
 			presentation = (A) new GridLayoutPresentation(editpart);
+		} else if (editpart instanceof IHorizontalLayoutEditpart) {
+			presentation = (A) new HorizontalLayoutPresentation(editpart);
+		} else if (editpart instanceof IVerticalLayoutEditpart) {
+			presentation = (A) new VerticalLayoutPresentation(editpart);
 		} else if (editpart instanceof ILabelEditpart) {
 			presentation = (A) new LabelPresentation(editpart);
 		} else if (editpart instanceof ITextAreaEditpart) {

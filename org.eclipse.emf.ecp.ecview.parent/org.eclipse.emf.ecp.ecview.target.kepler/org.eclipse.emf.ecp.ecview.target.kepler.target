@@ -9,7 +9,7 @@
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201311251846"/>
+<unit id="org.eclipse.nebula.widgets.compositetable.feature.feature.group" version="1.0.0.201312041736"/>
 <repository location="http://download.eclipse.org/technology/nebula/snapshot"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
