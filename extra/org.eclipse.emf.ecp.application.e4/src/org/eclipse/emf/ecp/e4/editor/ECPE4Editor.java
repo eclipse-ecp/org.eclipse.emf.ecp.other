@@ -99,7 +99,7 @@ public class ECPE4Editor {
 			modelElement, IItemLabelProvider.class);
 
 		final URL url = (URL) itemLabelProvider.getImage(modelElement);
-
+		part.setIconURI(url.toString());
 	}
 
 	@Focus
