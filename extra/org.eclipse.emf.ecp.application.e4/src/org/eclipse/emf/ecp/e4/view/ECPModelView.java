@@ -71,7 +71,11 @@ public class ECPModelView {
 				if (IStructuredSelection.class.isInstance(selection)) {
 					final IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 					if (!structuredSelection.isEmpty()) {
-						selectionService.setSelection(structuredSelection.getFirstElement());
+						if (structuredSelection.toList().size() == 1) {
+							selectionService.setSelection(structuredSelection.getFirstElement());
+						} else {
+							selectionService.setSelection(structuredSelection.toList());
+						}
 					}
 				}
 			}
