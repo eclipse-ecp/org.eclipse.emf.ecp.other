@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
@@ -184,6 +186,30 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTEXT_AREA__VALUE, oldValue, value));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Creates a new instance of value endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

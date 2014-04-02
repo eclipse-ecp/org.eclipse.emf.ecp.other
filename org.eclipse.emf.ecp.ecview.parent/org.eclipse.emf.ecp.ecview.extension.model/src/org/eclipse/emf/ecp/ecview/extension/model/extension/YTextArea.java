@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 
@@ -32,7 +33,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
  * @model
  * @generated
  */
-public interface YTextArea extends YInput {
+public interface YTextArea extends YInput, YValueBindable {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->

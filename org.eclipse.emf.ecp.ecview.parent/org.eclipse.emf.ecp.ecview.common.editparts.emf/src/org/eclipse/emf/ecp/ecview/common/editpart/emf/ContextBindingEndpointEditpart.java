@@ -62,4 +62,9 @@ public class ContextBindingEndpointEditpart extends
 				URI.create(getModel().getUrlString()));
 	}
 
+	@Override
+	public void setRefreshProvider(RefreshProvider refresh) {
+		// nothing to do
+	}
+
 }

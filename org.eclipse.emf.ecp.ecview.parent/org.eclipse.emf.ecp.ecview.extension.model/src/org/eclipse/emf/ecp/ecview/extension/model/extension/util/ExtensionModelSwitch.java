@@ -218,6 +218,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YTextArea yTextArea = (YTextArea)theEObject;
 				T result = caseYTextArea(yTextArea);
 				if (result == null) result = caseYInput(yTextArea);
+				if (result == null) result = caseYValueBindable(yTextArea);
 				if (result == null) result = caseYField(yTextArea);
 				if (result == null) result = caseYEmbeddable(yTextArea);
 				if (result == null) result = caseYEditable(yTextArea);

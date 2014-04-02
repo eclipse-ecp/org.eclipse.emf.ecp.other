@@ -28,4 +28,9 @@ public class EmbeddableValueEndpointEditpart extends
 		return CoreModelFactory.eINSTANCE.createYEmbeddableValueEndpoint();
 	}
 
+	@Override
+	public void setRefreshProvider(RefreshProvider refresh) {
+		// nothing to do
+	}
+
 }

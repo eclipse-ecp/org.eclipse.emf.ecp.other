@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
+import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 
@@ -24,5 +25,21 @@ public interface IBindableEndpointEditpart extends IElementEditpart {
 	 * @return
 	 */
 	<A extends IObservableValue> A getObservable();
+	
+	/**
+	 * Register a refresh provider.
+	 * @param refresh
+	 */
+	void setRefreshProvider(RefreshProvider refresh);
+	
+	
+	interface RefreshProvider {
+		
+		/**
+		 * Is called to refresh the given binding.
+		 */
+		void refresh();
+		
+	}
 
 }

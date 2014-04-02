@@ -1113,6 +1113,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYField());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yTextAreaEClass.getESuperTypes().add(this.getYInput());
+		yTextAreaEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yCheckBoxEClass.getESuperTypes().add(this.getYInput());
 		yCheckBoxEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yBrowserEClass.getESuperTypes().add(this.getYInput());

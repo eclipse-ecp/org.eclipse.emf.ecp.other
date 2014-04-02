@@ -10,11 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +34,7 @@ public class BeanBindingEndpointEditpart extends
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(BeanBindingEndpointEditpart.class);
+	private RefreshProvider refresh;
 
 	@Override
 	protected YBeanBindingEndpoint createModel() {
@@ -36,11 +42,23 @@ public class BeanBindingEndpointEditpart extends
 		return BindingFactory.eINSTANCE.createYBeanBindingEndpoint();
 	}
 
+	@Override
+	protected void handleModelSet(int featureId, Notification notification) {
+		switch (featureId) {
+		case BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN:
+			refresh.refresh();
+			break;
+		default:
+			break;
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends IObservableValue> A getObservable() {
 
 		Object bean = getModel().getBean();
+
 		String propertyPath = getModel().getPropertyPath();
 		if (bean == null || propertyPath == null || propertyPath.equals("")) {
 			logger.warn("Bean {} or propertyPath {} not valid!", bean,
@@ -58,5 +76,17 @@ public class BeanBindingEndpointEditpart extends
 		}
 
 		return (A) observable;
+	}
+
+	@Override
+	public void setRefreshProvider(RefreshProvider refresh) {
+		this.refresh = refresh;
+	}
+
+	@Override
+	protected void internalDispose() {
+		refresh = null;
+
+		super.internalDispose();
 	}
 }
