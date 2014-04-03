@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.custom.ChangeAdapter;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
@@ -172,14 +173,23 @@ public class YBrowserImpl extends YInputImpl implements YBrowser {
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YBROWSER__VALUE, oldValue, value));
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YEmbeddableValueEndpoint createValueEndpoint() {
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Creates a new instance of value endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
 	}
 
 	/**

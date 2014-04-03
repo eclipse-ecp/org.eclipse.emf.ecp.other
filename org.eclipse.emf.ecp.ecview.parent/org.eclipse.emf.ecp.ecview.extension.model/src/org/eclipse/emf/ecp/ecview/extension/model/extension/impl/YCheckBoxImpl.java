@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
@@ -14,9 +15,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackag
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Check Box</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi Check Box</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -31,8 +31,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDatadescription()
 	 * @generated
 	 * @ordered
@@ -41,8 +41,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDatatype()
 	 * @generated
 	 * @ordered
@@ -51,8 +50,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 
 	/**
 	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isValue()
 	 * @generated
 	 * @ordered
@@ -61,8 +59,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 
 	/**
 	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isValue()
 	 * @generated
 	 * @ordered
@@ -70,8 +67,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	protected boolean value = VALUE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YCheckBoxImpl() {
@@ -79,8 +75,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -89,8 +84,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
@@ -106,8 +100,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription basicGetDatadescription() {
@@ -115,8 +108,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatadescription(YDatadescription newDatadescription) {
@@ -127,8 +119,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YCheckBoxDatatype getDatatype() {
@@ -144,8 +135,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YCheckBoxDatatype basicGetDatatype() {
@@ -153,8 +143,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatatype(YCheckBoxDatatype newDatatype) {
@@ -165,8 +154,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isValue() {
@@ -174,8 +162,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setValue(boolean newValue) {
@@ -186,19 +173,30 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableValueEndpoint createValueEndpoint() {
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Creates a new instance of value endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -217,8 +215,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -238,8 +235,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -259,8 +255,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,8 +272,7 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -292,4 +286,4 @@ public class YCheckBoxImpl extends YInputImpl implements YCheckBox {
 		return result.toString();
 	}
 
-} //YUiCheckBoxImpl
+} // YUiCheckBoxImpl

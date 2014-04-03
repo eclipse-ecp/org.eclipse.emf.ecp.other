@@ -2,11 +2,13 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.custom.ChangeAdapter;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
@@ -55,7 +57,7 @@ public class YDateTimeImpl extends YInputImpl implements YDateTime {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final Date VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -64,7 +66,7 @@ public class YDateTimeImpl extends YInputImpl implements YDateTime {
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected Date value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -157,16 +159,17 @@ public class YDateTimeImpl extends YInputImpl implements YDateTime {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValue() {
+	public Date getValue() {
 		return value;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public void setValue(Date newValue) {
+		Date oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YDATE_TIME__VALUE, oldValue, value));
@@ -176,10 +179,23 @@ public class YDateTimeImpl extends YInputImpl implements YDateTime {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableValueEndpoint createValueEndpoint() {
+	public YEmbeddableValueEndpoint createValueEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Creates a new instance of value endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableValueEndpoint createValueEndpoint() {
+		YEmbeddableValueEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableValueEndpoint();
+		ep.setElement(this);
+		return ep;
 	}
 
 	/**
@@ -229,7 +245,7 @@ public class YDateTimeImpl extends YInputImpl implements YDateTime {
 				setDatadescription((YDatadescription)newValue);
 				return;
 			case ExtensionModelPackage.YDATE_TIME__VALUE:
-				setValue((String)newValue);
+				setValue((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

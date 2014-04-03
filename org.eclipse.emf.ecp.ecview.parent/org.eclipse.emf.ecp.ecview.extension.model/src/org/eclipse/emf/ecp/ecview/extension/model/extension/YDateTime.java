@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
+import java.util.Date;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
@@ -88,12 +89,12 @@ public interface YDateTime extends YInput, YValueBindable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(String)
+	 * @see #setValue(Date)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYDateTime_Value()
 	 * @model transient="true"
 	 * @generated
 	 */
-	String getValue();
+	Date getValue();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime#getValue <em>Value</em>}' attribute.
@@ -103,6 +104,6 @@ public interface YDateTime extends YInput, YValueBindable {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(String value);
+	void setValue(Date value);
 
 } // YDateTime
