@@ -152,6 +152,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYActionAdapter();
 			}
 			@Override
+			public Adapter caseYBindable(YBindable object) {
+				return createYBindableAdapter();
+			}
+			@Override
 			public Adapter caseYValueBindable(YValueBindable object) {
 				return createYValueBindableAdapter();
 			}
@@ -406,6 +410,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+	 * @generated
+	 */
+	public Adapter createYBindableAdapter() {
 		return null;
 	}
 

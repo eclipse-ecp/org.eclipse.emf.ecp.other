@@ -820,6 +820,25 @@ public interface CoreModelPackage extends EPackage {
 	int YACTION_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBindable()
+	 * @generated
+	 */
+	int YBINDABLE = 15;
+
+	/**
+	 * The number of structural features of the '<em>YBindable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDABLE_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -827,7 +846,16 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueBindable()
 	 * @generated
 	 */
-	int YVALUE_BINDABLE = 15;
+	int YVALUE_BINDABLE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT = YBINDABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YValue Bindable</em>' class.
@@ -836,7 +864,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVALUE_BINDABLE_FEATURE_COUNT = 0;
+	int YVALUE_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
@@ -846,7 +874,16 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYSelectionBindable()
 	 * @generated
 	 */
-	int YSELECTION_BINDABLE = 16;
+	int YSELECTION_BINDABLE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT = YBINDABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YSelection Bindable</em>' class.
@@ -855,7 +892,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YSELECTION_BINDABLE_FEATURE_COUNT = 0;
+	int YSELECTION_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl <em>YContext Binding Endpoint</em>}' class.
@@ -865,7 +902,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextBindingEndpoint()
 	 * @generated
 	 */
-	int YCONTEXT_BINDING_ENDPOINT = 17;
+	int YCONTEXT_BINDING_ENDPOINT = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -902,7 +939,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableBindingEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT = 18;
+	int YEMBEDDABLE_BINDING_ENDPOINT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -914,22 +951,13 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_BINDING_ENDPOINT__ID = BindingPackage.YBINDING_ENDPOINT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT__ELEMENT = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>YEmbeddable Binding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 1;
+	int YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YBINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableValueEndpointImpl <em>YEmbeddable Value Endpoint</em>}' class.
@@ -939,7 +967,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableValueEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT = 19;
+	int YEMBEDDABLE_VALUE_ENDPOINT = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -957,7 +985,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT = YEMBEDDABLE_BINDING_ENDPOINT__ELEMENT;
+	int YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YEmbeddable Value Endpoint</em>' class.
@@ -966,7 +994,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT_FEATURE_COUNT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+	int YEMBEDDABLE_VALUE_ENDPOINT_FEATURE_COUNT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableSelectionEndpointImpl <em>YEmbeddable Selection Endpoint</em>}' class.
@@ -976,7 +1004,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableSelectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT = 20;
+	int YEMBEDDABLE_SELECTION_ENDPOINT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -994,7 +1022,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT = YEMBEDDABLE_BINDING_ENDPOINT__ELEMENT;
+	int YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YEmbeddable Selection Endpoint</em>' class.
@@ -1003,7 +1031,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT_FEATURE_COUNT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+	int YEMBEDDABLE_SELECTION_ENDPOINT_FEATURE_COUNT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
@@ -1013,7 +1041,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 21;
+	int YUNIT = 22;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -1023,7 +1051,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 22;
+	int YURI = 23;
 
 
 	/**
@@ -1034,7 +1062,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
 	 * @generated
 	 */
-	int YVALUE_CHANGE_LISTENER = 23;
+	int YVALUE_CHANGE_LISTENER = 24;
 
 
 	/**
@@ -1419,6 +1447,16 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYAction();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YBindable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+	 * @generated
+	 */
+	EClass getYBindable();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1429,6 +1467,17 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYValueBindable();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindingEndpoint <em>Value Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#getValueBindingEndpoint()
+	 * @see #getYValueBindable()
+	 * @generated
+	 */
+	EReference getYValueBindable_ValueBindingEndpoint();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1437,6 +1486,17 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYSelectionBindable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#getSelectionBindingEndpoint <em>Selection Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Selection Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#getSelectionBindingEndpoint()
+	 * @see #getYSelectionBindable()
+	 * @generated
+	 */
+	EReference getYSelectionBindable_SelectionBindingEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint <em>YContext Binding Endpoint</em>}'.
@@ -1470,17 +1530,6 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYEmbeddableBindingEndpoint();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement()
-	 * @see #getYEmbeddableBindingEndpoint()
-	 * @generated
-	 */
-	EReference getYEmbeddableBindingEndpoint_Element();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint <em>YEmbeddable Value Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1491,6 +1540,17 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYEmbeddableValueEndpoint();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint#getElement()
+	 * @see #getYEmbeddableValueEndpoint()
+	 * @generated
+	 */
+	EReference getYEmbeddableValueEndpoint_Element();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint <em>YEmbeddable Selection Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1499,6 +1559,17 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYEmbeddableSelectionEndpoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint#getElement()
+	 * @see #getYEmbeddableSelectionEndpoint()
+	 * @generated
+	 */
+	EReference getYEmbeddableSelectionEndpoint_Element();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
@@ -1873,6 +1944,16 @@ public interface CoreModelPackage extends EPackage {
 		EClass YACTION = eINSTANCE.getYAction();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBindable()
+		 * @generated
+		 */
+		EClass YBINDABLE = eINSTANCE.getYBindable();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1883,6 +1964,14 @@ public interface CoreModelPackage extends EPackage {
 		EClass YVALUE_BINDABLE = eINSTANCE.getYValueBindable();
 
 		/**
+		 * The meta object literal for the '<em><b>Value Binding Endpoint</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT = eINSTANCE.getYValueBindable_ValueBindingEndpoint();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1891,6 +1980,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YSELECTION_BINDABLE = eINSTANCE.getYSelectionBindable();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Binding Endpoint</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT = eINSTANCE.getYSelectionBindable_SelectionBindingEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl <em>YContext Binding Endpoint</em>}' class.
@@ -1921,14 +2018,6 @@ public interface CoreModelPackage extends EPackage {
 		EClass YEMBEDDABLE_BINDING_ENDPOINT = eINSTANCE.getYEmbeddableBindingEndpoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference YEMBEDDABLE_BINDING_ENDPOINT__ELEMENT = eINSTANCE.getYEmbeddableBindingEndpoint_Element();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableValueEndpointImpl <em>YEmbeddable Value Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1939,6 +2028,14 @@ public interface CoreModelPackage extends EPackage {
 		EClass YEMBEDDABLE_VALUE_ENDPOINT = eINSTANCE.getYEmbeddableValueEndpoint();
 
 		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT = eINSTANCE.getYEmbeddableValueEndpoint_Element();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableSelectionEndpointImpl <em>YEmbeddable Selection Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1947,6 +2044,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YEMBEDDABLE_SELECTION_ENDPOINT = eINSTANCE.getYEmbeddableSelectionEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT = eINSTANCE.getYEmbeddableSelectionEndpoint_Element();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

@@ -207,21 +207,21 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 				}
 
 				binding = bindingManager.bindValue(target, model);
-//				getTargetEndpoint().setRefreshProvider(
-//						new IBindableEndpointEditpart.RefreshProvider() {
-//							@Override
-//							public void refresh() {
-//								binding.updateTargetToModel();
-//							}
-//						});
-//				
-//				getModelEndpoint().setRefreshProvider(
-//						new IBindableEndpointEditpart.RefreshProvider() {
-//							@Override
-//							public void refresh() {
-//								binding.updateModelToTarget();
-//							}
-//						});
+				// getTargetEndpoint().setRefreshProvider(
+				// new IBindableEndpointEditpart.RefreshProvider() {
+				// @Override
+				// public void refresh() {
+				// binding.updateTargetToModel();
+				// }
+				// });
+				//
+				// getModelEndpoint().setRefreshProvider(
+				// new IBindableEndpointEditpart.RefreshProvider() {
+				// @Override
+				// public void refresh() {
+				// binding.updateModelToTarget();
+				// }
+				// });
 
 			} else {
 				LOGGER.error("BindingManager is null!. No bindings processed!");
@@ -272,5 +272,10 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 		} finally {
 			super.internalDispose();
 		}
+	}
+
+	@Override
+	public Binding getBinding() {
+		return binding;
 	}
 }

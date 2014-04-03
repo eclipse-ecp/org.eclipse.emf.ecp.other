@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.binding;
 
+import org.eclipse.core.databinding.Binding;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 
 /**
@@ -57,6 +58,13 @@ public interface IBindingEditpart extends IElementEditpart {
 	 * Binds the target and model according the binding properties.
 	 */
 	void bind();
+
+	/**
+	 * Returns the binding or <code>null</code> if no binding is available.
+	 * 
+	 * @return
+	 */
+	Binding getBinding();
 
 	/**
 	 * Unbinds target and model.

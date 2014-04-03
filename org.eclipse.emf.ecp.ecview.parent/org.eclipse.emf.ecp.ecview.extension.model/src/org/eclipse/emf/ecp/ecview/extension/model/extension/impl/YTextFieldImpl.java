@@ -3,12 +3,15 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.custom.ChangeAdapter;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
@@ -35,6 +38,16 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
  * @generated
  */
 public class YTextFieldImpl extends YInputImpl implements YTextField {
+	/**
+	 * The cached value of the '{@link #getValueBindingEndpoint() <em>Value Binding Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueBindingEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected YEmbeddableValueEndpoint valueBindingEndpoint;
+
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -87,6 +100,66 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	protected EClass eStaticClass() {
 		return ExtensionModelPackage.Literals.YTEXT_FIELD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableValueEndpoint getValueBindingEndpoint() {
+		if (valueBindingEndpoint != null && ((EObject)valueBindingEndpoint).eIsProxy()) {
+			InternalEObject oldValueBindingEndpoint = (InternalEObject)valueBindingEndpoint;
+			valueBindingEndpoint = (YEmbeddableValueEndpoint)eResolveProxy(oldValueBindingEndpoint);
+			if (valueBindingEndpoint != oldValueBindingEndpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT, oldValueBindingEndpoint, valueBindingEndpoint));
+			}
+		}
+		return valueBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableValueEndpoint basicGetValueBindingEndpoint() {
+		return valueBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetValueBindingEndpoint(YEmbeddableValueEndpoint newValueBindingEndpoint, NotificationChain msgs) {
+		YEmbeddableValueEndpoint oldValueBindingEndpoint = valueBindingEndpoint;
+		valueBindingEndpoint = newValueBindingEndpoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT, oldValueBindingEndpoint, newValueBindingEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueBindingEndpoint(YEmbeddableValueEndpoint newValueBindingEndpoint) {
+		if (newValueBindingEndpoint != valueBindingEndpoint) {
+			NotificationChain msgs = null;
+			if (valueBindingEndpoint != null)
+				msgs = ((InternalEObject)valueBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT, YEmbeddableValueEndpoint.class, msgs);
+			if (newValueBindingEndpoint != null)
+				msgs = ((InternalEObject)newValueBindingEndpoint).eInverseAdd(this, CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT, YEmbeddableValueEndpoint.class, msgs);
+			msgs = basicSetValueBindingEndpoint(newValueBindingEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT, newValueBindingEndpoint, newValueBindingEndpoint));
 	}
 
 	/**
@@ -202,6 +275,36 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT:
+				if (valueBindingEndpoint != null)
+					msgs = ((InternalEObject)valueBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT, YEmbeddableValueEndpoint.class, msgs);
+				return basicSetValueBindingEndpoint((YEmbeddableValueEndpoint)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT:
+				return basicSetValueBindingEndpoint(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * Returns a new instance of the change adapter config. Has to be overridden
 	 * by subclasses.
 	 * 
@@ -222,6 +325,9 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT:
+				if (resolve) return getValueBindingEndpoint();
+				return basicGetValueBindingEndpoint();
 			case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
@@ -241,6 +347,9 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT:
+				setValueBindingEndpoint((YEmbeddableValueEndpoint)newValue);
+				return;
 			case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 				setDatatype((YTextDatatype)newValue);
 				return;
@@ -261,6 +370,9 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT:
+				setValueBindingEndpoint((YEmbeddableValueEndpoint)null);
+				return;
 			case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 				setDatatype((YTextDatatype)null);
 				return;
@@ -281,6 +393,8 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT:
+				return valueBindingEndpoint != null;
 			case ExtensionModelPackage.YTEXT_FIELD__DATATYPE:
 				return datatype != null;
 			case ExtensionModelPackage.YTEXT_FIELD__DATADESCRIPTION:
@@ -289,6 +403,38 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == YValueBindable.class) {
+			switch (derivedFeatureID) {
+				case ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT: return CoreModelPackage.YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == YValueBindable.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT: return ExtensionModelPackage.YTEXT_FIELD__VALUE_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

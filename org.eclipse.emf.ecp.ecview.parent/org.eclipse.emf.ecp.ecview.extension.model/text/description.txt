@@ -76,7 +76,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
   Class YDateTime -> YInput, YValueBindable
     Reference datatype : YDateTimeDatatype
     Reference datadescription : YDatadescription
-    Attribute value : EString
+    Attribute value : EDate
 
   Class YDecimalField -> YInput, YValueBindable
     Reference datatype : YDecimalDatatype

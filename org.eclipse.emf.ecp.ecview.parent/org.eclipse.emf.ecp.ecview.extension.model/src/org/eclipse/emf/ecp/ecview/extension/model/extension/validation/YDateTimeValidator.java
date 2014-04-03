@@ -4,6 +4,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.validation;
 
+import java.util.Date;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
@@ -19,5 +20,7 @@ public interface YDateTimeValidator {
 
 	boolean validateDatatype(YDateTimeDatatype value);
 	boolean validateDatadescription(YDatadescription value);
+	boolean validateValue(Date value);
+
 	boolean validateValue(String value);
 }
