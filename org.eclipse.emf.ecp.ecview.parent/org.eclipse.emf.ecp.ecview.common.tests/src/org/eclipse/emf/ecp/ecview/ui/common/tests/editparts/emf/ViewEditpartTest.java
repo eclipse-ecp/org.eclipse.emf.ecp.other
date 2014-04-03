@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,6 +20,8 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.context.ConfigurationAdapter;
@@ -44,6 +46,7 @@ import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -421,6 +424,16 @@ public class ViewEditpartTest {
 
 	}
 
+	@Test
+	public void testExec() {
+		Assert.fail("To be implented");
+	}
+
+	@Test
+	public void testAsncExec() {
+		Assert.fail("To be implented");
+	}
+
 	/**
 	 * A helper presentation.
 	 */
@@ -496,6 +509,17 @@ public class ViewEditpartTest {
 		public IObservable getObservableValue(Object model) {
 			return null;
 		}
+
+		@Override
+		public void exec(Runnable runnable) {
+			
+		}
+
+		@Override
+		public Future execAsync(Runnable runnable) {
+			return null;
+		}
+
 	}
 
 	/**

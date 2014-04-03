@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -174,6 +174,13 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YACTIVATEABLE: {
+				YActivateable yActivateable = (YActivateable)theEObject;
+				T result = caseYActivateable(yActivateable);
+				if (result == null) result = caseYBindable(yActivateable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CoreModelPackage.YVISIBLEABLE: {
 				YVisibleable yVisibleable = (YVisibleable)theEObject;
 				T result = caseYVisibleable(yVisibleable);
@@ -254,6 +261,15 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYElement(yEmbeddableSelectionEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YACTIVATED_ENDPOINT: {
+				YActivatedEndpoint yActivatedEndpoint = (YActivatedEndpoint)theEObject;
+				T result = caseYActivatedEndpoint(yActivatedEndpoint);
+				if (result == null) result = caseYEmbeddableBindingEndpoint(yActivatedEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yActivatedEndpoint);
+				if (result == null) result = caseYElement(yActivatedEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -427,6 +443,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YActivateable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YActivateable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYActivateable(YActivateable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YVisibleable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -588,6 +619,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYEmbeddableSelectionEndpoint(YEmbeddableSelectionEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YActivated Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YActivated Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYActivatedEndpoint(YActivatedEndpoint object) {
 		return null;
 	}
 

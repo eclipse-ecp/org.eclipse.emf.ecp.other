@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,8 @@
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf.context;
 
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
 
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -666,6 +668,16 @@ public class ViewContextTest {
 				context.getService("Provider1"));
 	}
 
+	@Test
+	public void testExec() {
+		Assert.fail("To be implented");
+	}
+	
+	@Test
+	public void testAsncExec() {
+		Assert.fail("To be implented");
+	}
+
 	/**
 	 * A helper presenter factory.
 	 */
@@ -759,6 +771,19 @@ public class ViewContextTest {
 		public IObservable getObservableValue(Object model) {
 			return null;
 		}
+
+		@Override
+		public Future execAsync(Runnable runnable) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void exec(Runnable runnable) {
+			// TODO Auto-generated method stub
+			
+		}
+
 	}
 
 	private static class Person {

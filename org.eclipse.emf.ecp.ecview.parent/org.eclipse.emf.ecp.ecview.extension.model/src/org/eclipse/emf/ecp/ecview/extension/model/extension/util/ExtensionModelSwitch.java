@@ -6,6 +6,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
+import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -114,6 +116,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yTextField);
 				if (result == null) result = caseYValueBindable(yTextField);
 				if (result == null) result = caseYField(yTextField);
+				if (result == null) result = caseYBindable(yTextField);
 				if (result == null) result = caseYEmbeddable(yTextField);
 				if (result == null) result = caseYEditable(yTextField);
 				if (result == null) result = caseYEnable(yTextField);
@@ -208,6 +211,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYEmbeddable(yLabel);
 				if (result == null) result = caseYEditable(yLabel);
 				if (result == null) result = caseYEnable(yLabel);
+				if (result == null) result = caseYBindable(yLabel);
 				if (result == null) result = caseYElement(yLabel);
 				if (result == null) result = caseYCssAble(yLabel);
 				if (result == null) result = caseYVisibleable(yLabel);
@@ -220,6 +224,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yTextArea);
 				if (result == null) result = caseYValueBindable(yTextArea);
 				if (result == null) result = caseYField(yTextArea);
+				if (result == null) result = caseYBindable(yTextArea);
 				if (result == null) result = caseYEmbeddable(yTextArea);
 				if (result == null) result = caseYEditable(yTextArea);
 				if (result == null) result = caseYEnable(yTextArea);
@@ -235,6 +240,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yCheckBox);
 				if (result == null) result = caseYValueBindable(yCheckBox);
 				if (result == null) result = caseYField(yCheckBox);
+				if (result == null) result = caseYBindable(yCheckBox);
 				if (result == null) result = caseYEmbeddable(yCheckBox);
 				if (result == null) result = caseYEditable(yCheckBox);
 				if (result == null) result = caseYEnable(yCheckBox);
@@ -250,6 +256,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yBrowser);
 				if (result == null) result = caseYValueBindable(yBrowser);
 				if (result == null) result = caseYField(yBrowser);
+				if (result == null) result = caseYBindable(yBrowser);
 				if (result == null) result = caseYEmbeddable(yBrowser);
 				if (result == null) result = caseYEditable(yBrowser);
 				if (result == null) result = caseYEnable(yBrowser);
@@ -265,6 +272,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yDateTime);
 				if (result == null) result = caseYValueBindable(yDateTime);
 				if (result == null) result = caseYField(yDateTime);
+				if (result == null) result = caseYBindable(yDateTime);
 				if (result == null) result = caseYEmbeddable(yDateTime);
 				if (result == null) result = caseYEditable(yDateTime);
 				if (result == null) result = caseYEnable(yDateTime);
@@ -280,6 +288,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yDecimalField);
 				if (result == null) result = caseYValueBindable(yDecimalField);
 				if (result == null) result = caseYField(yDecimalField);
+				if (result == null) result = caseYBindable(yDecimalField);
 				if (result == null) result = caseYEmbeddable(yDecimalField);
 				if (result == null) result = caseYEditable(yDecimalField);
 				if (result == null) result = caseYEnable(yDecimalField);
@@ -295,6 +304,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yNumericField);
 				if (result == null) result = caseYValueBindable(yNumericField);
 				if (result == null) result = caseYField(yNumericField);
+				if (result == null) result = caseYBindable(yNumericField);
 				if (result == null) result = caseYEmbeddable(yNumericField);
 				if (result == null) result = caseYEditable(yNumericField);
 				if (result == null) result = caseYEnable(yNumericField);
@@ -341,6 +351,20 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yButton);
 				if (result == null) result = caseYCssAble(yButton);
 				if (result == null) result = caseYVisibleable(yButton);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionModelPackage.YTOGGLE_BUTTON: {
+				YToggleButton yToggleButton = (YToggleButton)theEObject;
+				T result = caseYToggleButton(yToggleButton);
+				if (result == null) result = caseYAction(yToggleButton);
+				if (result == null) result = caseYActivateable(yToggleButton);
+				if (result == null) result = caseYEmbeddable(yToggleButton);
+				if (result == null) result = caseYEnable(yToggleButton);
+				if (result == null) result = caseYBindable(yToggleButton);
+				if (result == null) result = caseYElement(yToggleButton);
+				if (result == null) result = caseYCssAble(yToggleButton);
+				if (result == null) result = caseYVisibleable(yToggleButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -649,6 +673,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YToggle Button</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YToggle Button</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYToggleButton(YToggleButton object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YElement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -754,6 +793,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBindable(YBindable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YValue Bindable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -825,6 +879,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYAction(YAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YActivateable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YActivateable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYActivateable(YActivateable object) {
 		return null;
 	}
 

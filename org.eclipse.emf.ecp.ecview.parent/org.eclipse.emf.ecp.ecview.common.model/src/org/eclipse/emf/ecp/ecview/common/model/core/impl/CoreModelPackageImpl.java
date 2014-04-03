@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,6 +25,8 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
+import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -138,6 +140,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yActivateableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass yVisibleableEClass = null;
 
 	/**
@@ -209,6 +218,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EClass yEmbeddableSelectionEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yActivatedEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -536,6 +552,33 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYActivateable() {
+		return yActivateableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYActivateable_InitialActivated() {
+		return (EAttribute)yActivateableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYActivateable_Activated() {
+		return (EAttribute)yActivateableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYVisibleable() {
 		return yVisibleableEClass;
 	}
@@ -734,6 +777,24 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYActivatedEndpoint() {
+		return yActivatedEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYActivatedEndpoint_Element() {
+		return (EReference)yActivatedEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUnit() {
 		return yUnitEEnum;
 	}
@@ -821,6 +882,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yWidthableEClass, YWIDTHABLE__WIDTH);
 		createEAttribute(yWidthableEClass, YWIDTHABLE__WIDTH_UNIT);
 
+		yActivateableEClass = createEClass(YACTIVATEABLE);
+		createEAttribute(yActivateableEClass, YACTIVATEABLE__INITIAL_ACTIVATED);
+		createEAttribute(yActivateableEClass, YACTIVATEABLE__ACTIVATED);
+
 		yVisibleableEClass = createEClass(YVISIBLEABLE);
 		createEAttribute(yVisibleableEClass, YVISIBLEABLE__INITIAL_VISIBLE);
 		createEAttribute(yVisibleableEClass, YVISIBLEABLE__VISIBLE);
@@ -853,6 +918,9 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		yEmbeddableSelectionEndpointEClass = createEClass(YEMBEDDABLE_SELECTION_ENDPOINT);
 		createEReference(yEmbeddableSelectionEndpointEClass, YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT);
+
+		yActivatedEndpointEClass = createEClass(YACTIVATED_ENDPOINT);
+		createEReference(yActivatedEndpointEClass, YACTIVATED_ENDPOINT__ELEMENT);
 
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
@@ -904,6 +972,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableEClass.getESuperTypes().add(this.getYElement());
 		yEmbeddableEClass.getESuperTypes().add(this.getYCssAble());
 		yEmbeddableEClass.getESuperTypes().add(this.getYVisibleable());
+		yActivateableEClass.getESuperTypes().add(this.getYBindable());
 		yActionEClass.getESuperTypes().add(this.getYEmbeddable());
 		yActionEClass.getESuperTypes().add(this.getYEnable());
 		yValueBindableEClass.getESuperTypes().add(this.getYBindable());
@@ -912,6 +981,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYBindingEndpoint());
 		yEmbeddableValueEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yEmbeddableSelectionEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
+		yActivatedEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yElementEClass, YElement.class, "YElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -965,6 +1035,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEAttribute(getYWidthable_Width(), ecorePackage.getEInt(), "width", "100", 0, 1, YWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYWidthable_WidthUnit(), this.getYUnit(), "widthUnit", null, 0, 1, YWidthable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(yActivateableEClass, YActivateable.class, "YActivateable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYActivateable_InitialActivated(), ecorePackage.getEBoolean(), "initialActivated", "true", 0, 1, YActivateable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYActivateable_Activated(), ecorePackage.getEBoolean(), "activated", "true", 0, 1, YActivateable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
 		initEClass(yVisibleableEClass, YVisibleable.class, "YVisibleable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYVisibleable_InitialVisible(), ecorePackage.getEBoolean(), "initialVisible", "true", 0, 1, YVisibleable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYVisibleable_Visible(), ecorePackage.getEBoolean(), "visible", "true", 0, 1, YVisibleable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1001,6 +1075,9 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		initEClass(yEmbeddableSelectionEndpointEClass, YEmbeddableSelectionEndpoint.class, "YEmbeddableSelectionEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYEmbeddableSelectionEndpoint_Element(), this.getYSelectionBindable(), this.getYSelectionBindable_SelectionBindingEndpoint(), "element", null, 1, 1, YEmbeddableSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yActivatedEndpointEClass, YActivatedEndpoint.class, "YActivatedEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYActivatedEndpoint_Element(), this.getYActivateable(), null, "element", null, 1, 1, YActivatedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

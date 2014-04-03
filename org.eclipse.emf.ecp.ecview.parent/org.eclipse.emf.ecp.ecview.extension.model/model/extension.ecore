@@ -196,13 +196,11 @@
       <eParameters name="listener" eType="#//YButtonClickListener"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//YButtonType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="clickListeners" upperBound="-1"
         eType="#//YButtonClickListener" transient="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="YButtonType">
-    <eLiterals name="PUSH" literal="PUSH"/>
-    <eLiterals name="TOGGLE" value="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="YButtonClickListener" instanceClassName="org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YToggleButton" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YAction ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YActivateable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
+  </eClassifiers>
 </ecore:EPackage>

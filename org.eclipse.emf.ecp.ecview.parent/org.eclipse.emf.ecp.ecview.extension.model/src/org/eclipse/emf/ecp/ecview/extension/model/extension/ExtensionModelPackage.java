@@ -2194,22 +2194,13 @@ public interface ExtensionModelPackage extends EPackage {
 	int YBUTTON__DATADESCRIPTION = CoreModelPackage.YACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON__TYPE = CoreModelPackage.YACTION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Click Listeners</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YBUTTON__CLICK_LISTENERS = CoreModelPackage.YACTION_FEATURE_COUNT + 2;
+	int YBUTTON__CLICK_LISTENERS = CoreModelPackage.YACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YButton</em>' class.
@@ -2218,7 +2209,116 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 3;
+	int YBUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YToggleButtonImpl <em>YToggle Button</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YToggleButtonImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYToggleButton()
+	 * @generated
+	 */
+	int YTOGGLE_BUTTON = 20;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__ID = CoreModelPackage.YACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__CSS_CLASS = CoreModelPackage.YACTION__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__CSS_ID = CoreModelPackage.YACTION__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__INITIAL_VISIBLE = CoreModelPackage.YACTION__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__VISIBLE = CoreModelPackage.YACTION__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__INITIAL_ENABLED = CoreModelPackage.YACTION__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__ENABLED = CoreModelPackage.YACTION__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Initial Activated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__INITIAL_ACTIVATED = CoreModelPackage.YACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__ACTIVATED = CoreModelPackage.YACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__DATADESCRIPTION = CoreModelPackage.YACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>YToggle Button</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
@@ -2238,18 +2338,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 20;
-
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType <em>YButton Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonType()
-	 * @generated
-	 */
-	int YBUTTON_TYPE = 21;
+	int YALIGNMENT = 21;
 
 
 	/**
@@ -2992,17 +3081,6 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYButton_Datadescription();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType()
-	 * @see #getYButton()
-	 * @generated
-	 */
-	EAttribute getYButton_Type();
-
-	/**
 	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getClickListeners <em>Click Listeners</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3012,6 +3090,27 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYButton_ClickListeners();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YToggleButton <em>YToggle Button</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YToggle Button</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YToggleButton
+	 * @generated
+	 */
+	EClass getYToggleButton();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YToggleButton#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YToggleButton#getDatadescription()
+	 * @see #getYToggleButton()
+	 * @generated
+	 */
+	EReference getYToggleButton_Datadescription();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener <em>YButton Click Listener</em>}'.
@@ -3033,16 +3132,6 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getYAlignment();
-
-	/**
-	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType <em>YButton Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>YButton Type</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
-	 * @generated
-	 */
-	EEnum getYButtonType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3659,20 +3748,30 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YBUTTON__DATADESCRIPTION = eINSTANCE.getYButton_Datadescription();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YBUTTON__TYPE = eINSTANCE.getYButton_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Click Listeners</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute YBUTTON__CLICK_LISTENERS = eINSTANCE.getYButton_ClickListeners();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YToggleButtonImpl <em>YToggle Button</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YToggleButtonImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYToggleButton()
+		 * @generated
+		 */
+		EClass YTOGGLE_BUTTON = eINSTANCE.getYToggleButton();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTOGGLE_BUTTON__DATADESCRIPTION = eINSTANCE.getYToggleButton_Datadescription();
 
 		/**
 		 * The meta object literal for the '<em>YButton Click Listener</em>' data type.
@@ -3693,16 +3792,6 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum YALIGNMENT = eINSTANCE.getYAlignment();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType <em>YButton Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
-		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonType()
-		 * @generated
-		 */
-		EEnum YBUTTON_TYPE = eINSTANCE.getYButtonType();
 
 	}
 

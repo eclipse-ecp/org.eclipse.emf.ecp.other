@@ -35,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YToggleButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
@@ -191,14 +192,14 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum yAlignmentEEnum = null;
+	private EClass yToggleButtonEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum yButtonTypeEEnum = null;
+	private EEnum yAlignmentEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -897,7 +898,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYButton_Type() {
+	public EAttribute getYButton_ClickListeners() {
 		return (EAttribute)yButtonEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -906,8 +907,17 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYButton_ClickListeners() {
-		return (EAttribute)yButtonEClass.getEStructuralFeatures().get(2);
+	public EClass getYToggleButton() {
+		return yToggleButtonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYToggleButton_Datadescription() {
+		return (EReference)yToggleButtonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -926,15 +936,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 */
 	public EEnum getYAlignment() {
 		return yAlignmentEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getYButtonType() {
-		return yButtonTypeEEnum;
 	}
 
 	/**
@@ -1053,12 +1054,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		yButtonEClass = createEClass(YBUTTON);
 		createEReference(yButtonEClass, YBUTTON__DATADESCRIPTION);
-		createEAttribute(yButtonEClass, YBUTTON__TYPE);
 		createEAttribute(yButtonEClass, YBUTTON__CLICK_LISTENERS);
+
+		yToggleButtonEClass = createEClass(YTOGGLE_BUTTON);
+		createEReference(yToggleButtonEClass, YTOGGLE_BUTTON__DATADESCRIPTION);
 
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
-		yButtonTypeEEnum = createEEnum(YBUTTON_TYPE);
 
 		// Create data types
 		yButtonClickListenerEDataType = createEDataType(YBUTTON_CLICK_LISTENER);
@@ -1127,6 +1129,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yComboBoxEClass.getESuperTypes().add(this.getYInput());
 		yListEClass.getESuperTypes().add(this.getYInput());
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
+		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
+		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYActivateable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1229,7 +1233,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		initEClass(yButtonEClass, YButton.class, "YButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYButton_Type(), this.getYButtonType(), "type", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYButton_ClickListeners(), this.getYButtonClickListener(), "clickListeners", null, 0, -1, YButton.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(yButtonEClass, null, "addClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1237,6 +1240,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		op = addEOperation(yButtonEClass, null, "removeClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYButtonClickListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yToggleButtonEClass, YToggleButton.class, "YToggleButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYToggleButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YToggleButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");
@@ -1257,10 +1263,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.FILL_CENTER);
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.FILL_RIGHT);
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.UNDEFINED);
-
-		initEEnum(yButtonTypeEEnum, YButtonType.class, "YButtonType");
-		addEEnumLiteral(yButtonTypeEEnum, YButtonType.PUSH);
-		addEEnumLiteral(yButtonTypeEEnum, YButtonType.TOGGLE);
 
 		// Initialize data types
 		initEDataType(yButtonClickListenerEDataType, YButtonClickListener.class, "YButtonClickListener", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

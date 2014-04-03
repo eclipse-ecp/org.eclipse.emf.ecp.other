@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -80,6 +80,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return (EObject)createYContextBindingEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return (EObject)createYEmbeddableValueEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return (EObject)createYEmbeddableSelectionEndpoint();
+			case CoreModelPackage.YACTIVATED_ENDPOINT: return (EObject)createYActivatedEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -201,6 +202,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YEmbeddableSelectionEndpoint createYEmbeddableSelectionEndpoint() {
 		YEmbeddableSelectionEndpointImpl yEmbeddableSelectionEndpoint = new YEmbeddableSelectionEndpointImpl();
 		return yEmbeddableSelectionEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YActivatedEndpoint createYActivatedEndpoint() {
+		YActivatedEndpointImpl yActivatedEndpoint = new YActivatedEndpointImpl();
+		return yActivatedEndpoint;
 	}
 
 	/**

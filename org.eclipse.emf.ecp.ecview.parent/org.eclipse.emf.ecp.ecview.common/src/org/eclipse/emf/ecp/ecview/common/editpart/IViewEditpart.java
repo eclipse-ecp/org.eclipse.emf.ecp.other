@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
 import java.util.Map;
+import java.util.concurrent.Future;
 
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
@@ -121,5 +122,23 @@ public interface IViewEditpart extends IElementEditpart {
 	 * @throws ContextException
 	 */
 	void render(Map<String, Object> options) throws ContextException;
+
+	/**
+	 * Executes the given runnable. It is ensured that the runnable will be
+	 * executed within the context of the user interface related to this
+	 * context.
+	 * 
+	 * @param runnable
+	 */
+	void exec(Runnable runnable);
+
+	/**
+	 * Executes the given runnable in a different thread. It is ensured that the
+	 * runnable will be executed within the context of the user interface
+	 * related to this context.
+	 * 
+	 * @param runnable
+	 */
+	Future<?> execAsync(Runnable runnable);
 
 }

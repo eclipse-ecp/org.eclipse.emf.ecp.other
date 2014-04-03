@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -136,6 +136,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYWidthableAdapter();
 			}
 			@Override
+			public Adapter caseYActivateable(YActivateable object) {
+				return createYActivateableAdapter();
+			}
+			@Override
 			public Adapter caseYVisibleable(YVisibleable object) {
 				return createYVisibleableAdapter();
 			}
@@ -178,6 +182,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYEmbeddableSelectionEndpoint(YEmbeddableSelectionEndpoint object) {
 				return createYEmbeddableSelectionEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYActivatedEndpoint(YActivatedEndpoint object) {
+				return createYActivatedEndpointAdapter();
 			}
 			@Override
 			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
@@ -358,6 +366,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable <em>YActivateable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivateable
+	 * @generated
+	 */
+	public Adapter createYActivateableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -508,6 +530,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYEmbeddableSelectionEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint <em>YActivated Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint
+	 * @generated
+	 */
+	public Adapter createYActivatedEndpointAdapter() {
 		return null;
 	}
 

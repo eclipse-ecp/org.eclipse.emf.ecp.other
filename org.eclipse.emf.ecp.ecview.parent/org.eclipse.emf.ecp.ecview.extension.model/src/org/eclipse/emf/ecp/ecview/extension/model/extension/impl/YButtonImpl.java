@@ -25,7 +25,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClic
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl#getDatadescription <em>Datadescription</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl#getClickListeners <em>Click Listeners</em>}</li>
  * </ul>
  * </p>
@@ -42,24 +41,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * @ordered
 	 */
 	protected YDatadescription datadescription;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final YButtonType TYPE_EDEFAULT = YButtonType.PUSH;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected YButtonType type = TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getClickListeners() <em>Click Listeners</em>}' attribute list.
@@ -127,25 +108,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YButtonType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(YButtonType newType) {
-		YButtonType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YBUTTON__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<YButtonClickListener> getClickListeners() {
 		if (clickListeners == null) {
 			clickListeners = new EDataTypeUniqueEList<YButtonClickListener>(YButtonClickListener.class, this, ExtensionModelPackage.YBUTTON__CLICK_LISTENERS);
@@ -183,8 +145,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 			case ExtensionModelPackage.YBUTTON__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
-			case ExtensionModelPackage.YBUTTON__TYPE:
-				return getType();
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				return getClickListeners();
 		}
@@ -201,9 +161,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 		switch (featureID) {
 			case ExtensionModelPackage.YBUTTON__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
-				return;
-			case ExtensionModelPackage.YBUTTON__TYPE:
-				setType((YButtonType)newValue);
 				return;
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				getClickListeners().clear();
@@ -223,9 +180,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 			case ExtensionModelPackage.YBUTTON__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
-			case ExtensionModelPackage.YBUTTON__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				getClickListeners().clear();
 				return;
@@ -242,8 +196,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 		switch (featureID) {
 			case ExtensionModelPackage.YBUTTON__DATADESCRIPTION:
 				return datadescription != null;
-			case ExtensionModelPackage.YBUTTON__TYPE:
-				return type != TYPE_EDEFAULT;
 			case ExtensionModelPackage.YBUTTON__CLICK_LISTENERS:
 				return clickListeners != null && !clickListeners.isEmpty();
 		}
@@ -259,9 +211,7 @@ public class YButtonImpl extends YActionImpl implements YButton {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(", clickListeners: ");
+		result.append(" (clickListeners: ");
 		result.append(clickListeners);
 		result.append(')');
 		return result.toString();

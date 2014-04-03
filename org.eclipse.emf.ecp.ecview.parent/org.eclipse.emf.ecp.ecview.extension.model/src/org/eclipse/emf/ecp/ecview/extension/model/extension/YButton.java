@@ -16,7 +16,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClic
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getDatadescription <em>Datadescription</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getClickListeners <em>Click Listeners</em>}</li>
  * </ul>
  * </p>
@@ -51,35 +50,6 @@ public interface YButton extends YAction {
 	 * @generated
 	 */
 	void setDatadescription(YDatadescription value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
-	 * @see #setType(YButtonType)
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYButton_Type()
-	 * @model
-	 * @generated
-	 */
-	YButtonType getType();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(YButtonType value);
 
 	/**
 	 * Returns the value of the '<em><b>Click Listeners</b></em>' attribute list.

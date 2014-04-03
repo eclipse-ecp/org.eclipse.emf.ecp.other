@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Map;
+import java.util.concurrent.Future;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -1226,6 +1227,16 @@ public class EditpartsTest {
 
 		@Override
 		public ISlot createBeanSlot(String selector, Class<?> type) {
+			return null;
+		}
+
+		@Override
+		public void exec(Runnable runnable) {
+			
+		}
+
+		@Override
+		public Future<?> execAsync(Runnable runnable) {
 			return null;
 		}
 	}

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import java.util.Map;
+import java.util.concurrent.Future;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
@@ -58,6 +59,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	@SuppressWarnings("unchecked")
 	@Override
 	protected M createModel() {
+		checkDisposed();
+
 		M model = (M) CoreModelFactory.eINSTANCE.createYView();
 
 		return model;
@@ -65,16 +68,19 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 	@Override
 	public IViewContext getContext() {
+		checkDisposed();
+
 		return context;
 	}
 
 	@Override
 	public void render(Map<String, Object> options) throws ContextException {
+		checkDisposed();
 
 		if (configuration != null) {
 			configuration.beforeUiRendering(getContext());
 		}
-		
+
 		// render the view presentation
 		renderPresentation(options);
 
@@ -101,6 +107,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 */
 	protected void renderPresentation(Map<String, Object> options)
 			throws ContextException {
+		checkDisposed();
+
 		IViewPresentation<?> presentation = getPresentation();
 		if (presentation == null) {
 			throw new ContextException("Presenter must not be null!");
@@ -116,6 +124,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 */
 	protected void renderBindings(Map<String, Object> options)
 			throws ContextException {
+		checkDisposed();
+
 		IBindingSetEditpart bindingSet = getBindingSet();
 		if (bindingSet == null) {
 			LOGGER.info("BindingSet is null!");
@@ -128,6 +138,9 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void setContext(IViewContext context) throws RuntimeException {
 		// END SUPRESS CATCH EXCEPTION
+
+		checkDisposed();
+
 		if (this.context == context) {
 			return;
 		}
@@ -141,6 +154,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 	@Override
 	public void setConfiguration(IConfiguration configuration) {
+		checkDisposed();
+
 		this.configuration = configuration;
 	}
 
@@ -218,6 +233,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 	@Override
 	public IBindingSetEditpart getBindingSet() {
+		checkDisposed();
+
 		if (bindingSet == null) {
 			loadBindingSet();
 		}
@@ -228,6 +245,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 * Loads the bindingSet of the view.
 	 */
 	protected void loadBindingSet() {
+		checkDisposed();
+
 		if (bindingSet == null) {
 			YBindingSet yBindingSet = getModel().getBindingSet();
 			internalSetBindingSet((IBindingSetEditpart) getEditpart(yBindingSet));
@@ -242,6 +261,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 *            The bindingSet to be set
 	 */
 	protected void internalSetBindingSet(IBindingSetEditpart bindingSet) {
+		checkDisposed();
+
 		if (this.bindingSet == bindingSet) {
 			return;
 		}
@@ -310,6 +331,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 * @return
 	 */
 	private boolean isRendered() {
+		checkDisposed();
+
 		return internalGetPresentation() != null
 				&& internalGetPresentation().isRendered();
 	}
@@ -352,6 +375,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 	@Override
 	public IViewSetEditpart getParent() {
+		checkDisposed();
+
 		YViewSet yViewSet = getModel().getRoot();
 		return yViewSet != null ? (IViewSetEditpart) getEditpart(yViewSet)
 				: null;
@@ -366,12 +391,16 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	 */
 	@SuppressWarnings("unchecked")
 	protected <A extends IWidgetPresentation<?>> A internalGetPresentation() {
+		checkDisposed();
+
 		return (A) presentation;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends IViewPresentation<?>> A getPresentation() {
+		checkDisposed();
+
 		if (presentation == null) {
 			presentation = createPresentation();
 		}
@@ -389,5 +418,17 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	protected <A extends IViewPresentation<?>> A createPresentation() {
 		return DelegatingPresenterFactory.getInstance().createPresentation(
 				getContext(), this);
+	}
+
+	@Override
+	public void exec(Runnable runnable) {
+		checkDisposed();
+		getPresentation().exec(runnable);
+	}
+
+	@Override
+	public Future<?> execAsync(Runnable runnable) {
+		checkDisposed();
+		return getPresentation().execAsync(runnable);
 	}
 }

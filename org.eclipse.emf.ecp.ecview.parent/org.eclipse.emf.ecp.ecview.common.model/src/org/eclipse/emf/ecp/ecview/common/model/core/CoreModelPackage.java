@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Florian Pirchner (Vienna, Austria) and others.
+ * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -627,6 +627,16 @@ public interface CoreModelPackage extends EPackage {
 	int YWIDTHABLE_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable <em>YActivateable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivateable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYActivateable()
+	 * @generated
+	 */
+	int YACTIVATEABLE = 11;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,7 +644,83 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYVisibleable()
 	 * @generated
 	 */
-	int YVISIBLEABLE = 11;
+	int YVISIBLEABLE = 12;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable <em>YEditable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEditable()
+	 * @generated
+	 */
+	int YEDITABLE = 13;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable <em>YEnable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEnable()
+	 * @generated
+	 */
+	int YENABLE = 14;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YActionImpl <em>YAction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YActionImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYAction()
+	 * @generated
+	 */
+	int YACTION = 15;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBindable()
+	 * @generated
+	 */
+	int YBINDABLE = 16;
+
+	/**
+	 * The number of structural features of the '<em>YBindable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Initial Activated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATEABLE__INITIAL_ACTIVATED = YBINDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATEABLE__ACTIVATED = YBINDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YActivateable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATEABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
@@ -664,16 +750,6 @@ public interface CoreModelPackage extends EPackage {
 	int YVISIBLEABLE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEditable <em>YEditable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEditable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEditable()
-	 * @generated
-	 */
-	int YEDITABLE = 12;
-
-	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,16 +777,6 @@ public interface CoreModelPackage extends EPackage {
 	int YEDITABLE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEnable <em>YEnable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEnable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEnable()
-	 * @generated
-	 */
-	int YENABLE = 13;
-
-	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,16 +802,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YENABLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YActionImpl <em>YAction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YActionImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYAction()
-	 * @generated
-	 */
-	int YACTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -820,25 +876,6 @@ public interface CoreModelPackage extends EPackage {
 	int YACTION_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBindable <em>YBindable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBindable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBindable()
-	 * @generated
-	 */
-	int YBINDABLE = 15;
-
-	/**
-	 * The number of structural features of the '<em>YBindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDABLE_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,7 +883,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueBindable()
 	 * @generated
 	 */
-	int YVALUE_BINDABLE = 16;
+	int YVALUE_BINDABLE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
@@ -874,7 +911,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYSelectionBindable()
 	 * @generated
 	 */
-	int YSELECTION_BINDABLE = 17;
+	int YSELECTION_BINDABLE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
@@ -902,7 +939,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextBindingEndpoint()
 	 * @generated
 	 */
-	int YCONTEXT_BINDING_ENDPOINT = 18;
+	int YCONTEXT_BINDING_ENDPOINT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -939,7 +976,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableBindingEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT = 19;
+	int YEMBEDDABLE_BINDING_ENDPOINT = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -967,7 +1004,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableValueEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT = 20;
+	int YEMBEDDABLE_VALUE_ENDPOINT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1004,7 +1041,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableSelectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT = 21;
+	int YEMBEDDABLE_SELECTION_ENDPOINT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1034,6 +1071,43 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_SELECTION_ENDPOINT_FEATURE_COUNT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YActivatedEndpointImpl <em>YActivated Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YActivatedEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYActivatedEndpoint()
+	 * @generated
+	 */
+	int YACTIVATED_ENDPOINT = 23;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATED_ENDPOINT__ID = YEMBEDDABLE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATED_ENDPOINT__ELEMENT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YActivated Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATED_ENDPOINT_FEATURE_COUNT = YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1041,7 +1115,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 22;
+	int YUNIT = 24;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -1051,7 +1125,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 23;
+	int YURI = 25;
 
 
 	/**
@@ -1062,7 +1136,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
 	 * @generated
 	 */
-	int YVALUE_CHANGE_LISTENER = 24;
+	int YVALUE_CHANGE_LISTENER = 26;
 
 
 	/**
@@ -1341,6 +1415,38 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYWidthable_WidthUnit();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable <em>YActivateable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YActivateable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivateable
+	 * @generated
+	 */
+	EClass getYActivateable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable#isInitialActivated <em>Initial Activated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Initial Activated</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivateable#isInitialActivated()
+	 * @see #getYActivateable()
+	 * @generated
+	 */
+	EAttribute getYActivateable_InitialActivated();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable#isActivated <em>Activated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activated</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivateable#isActivated()
+	 * @see #getYActivateable()
+	 * @generated
+	 */
+	EAttribute getYActivateable_Activated();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1570,6 +1676,27 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYEmbeddableSelectionEndpoint_Element();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint <em>YActivated Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YActivated Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint
+	 * @generated
+	 */
+	EClass getYActivatedEndpoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint#getElement()
+	 * @see #getYActivatedEndpoint()
+	 * @generated
+	 */
+	EReference getYActivatedEndpoint_Element();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
@@ -1856,6 +1983,32 @@ public interface CoreModelPackage extends EPackage {
 		EAttribute YWIDTHABLE__WIDTH_UNIT = eINSTANCE.getYWidthable_WidthUnit();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable <em>YActivateable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.YActivateable
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYActivateable()
+		 * @generated
+		 */
+		EClass YACTIVATEABLE = eINSTANCE.getYActivateable();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Activated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YACTIVATEABLE__INITIAL_ACTIVATED = eINSTANCE.getYActivateable_InitialActivated();
+
+		/**
+		 * The meta object literal for the '<em><b>Activated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YACTIVATEABLE__ACTIVATED = eINSTANCE.getYActivateable_Activated();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable <em>YVisibleable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2052,6 +2205,24 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT = eINSTANCE.getYEmbeddableSelectionEndpoint_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YActivatedEndpointImpl <em>YActivated Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YActivatedEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYActivatedEndpoint()
+		 * @generated
+		 */
+		EClass YACTIVATED_ENDPOINT = eINSTANCE.getYActivatedEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YACTIVATED_ENDPOINT__ELEMENT = eINSTANCE.getYActivatedEndpoint_Element();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
