@@ -207,6 +207,8 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 				}
 
 				binding = bindingManager.bindValue(target, model);
+				binding.updateTargetToModel();
+
 				// getTargetEndpoint().setRefreshProvider(
 				// new IBindableEndpointEditpart.RefreshProvider() {
 				// @Override
@@ -257,6 +259,14 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 				binding.dispose();
 				binding = null;
 			}
+			if (modelValue != null) {
+				modelValue.dispose();
+				modelValue = null;
+			}
+			if (targetValue != null) {
+				targetValue.dispose();
+				targetValue = null;
+			}
 		} finally {
 			bound = false;
 		}
@@ -268,6 +278,14 @@ public class BindingEditpart extends ElementEditpart<YBinding> implements
 			if (binding != null) {
 				binding.dispose();
 				binding = null;
+			}
+			if (modelValue != null) {
+				modelValue.dispose();
+				modelValue = null;
+			}
+			if (targetValue != null) {
+				targetValue.dispose();
+				targetValue = null;
 			}
 		} finally {
 			super.internalDispose();

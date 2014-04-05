@@ -3,16 +3,14 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -152,6 +150,15 @@ public class YActivatedEndpointImpl extends YEmbeddableBindingEndpointImpl imple
 				return element != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isBindsElement(YElement element) {
+		return element == getElement();
 	}
 
 } //YActivatedEndpointImpl

@@ -78,4 +78,13 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 */
 	void setBindingManager(IECViewBindingManager bindingManager);
 
+	/**
+	 * Returns a list with all bindings that are related to the given
+	 * elementModel.
+	 * 
+	 * @param elementModel
+	 * @return
+	 */
+	List<IBindingEditpart> findBindings(Object elementModel);
+
 }

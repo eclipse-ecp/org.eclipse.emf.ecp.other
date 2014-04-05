@@ -3,15 +3,12 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -159,6 +156,15 @@ public class YContextBindingEndpointImpl extends YBindingEndpointImpl implements
 		result.append(urlString);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isBindsElement(YElement element) {
+		return false;
 	}
 
 } //YContextBindingEndpointImpl

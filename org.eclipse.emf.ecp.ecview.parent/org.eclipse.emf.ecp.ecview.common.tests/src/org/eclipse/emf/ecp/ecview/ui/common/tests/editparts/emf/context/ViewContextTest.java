@@ -11,7 +11,7 @@
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf.context;
 
 import java.util.Map;
-import java.util.concurrent.Callable;
+import java.util.Set;
 import java.util.concurrent.Future;
 
 import org.eclipse.core.databinding.observable.IObservable;
@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
+import org.eclipse.emf.ecp.ecview.common.concurrent.IExecutorService;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
@@ -39,6 +40,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.notification.ILifecycleService;
+import org.eclipse.emf.ecp.ecview.common.notification.LifecycleService;
 import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
@@ -87,6 +90,8 @@ public class ViewContextTest {
 		context = new ViewContext(viewEditPart);
 
 		DelegatingServiceProviderManager.getInstance().clear();
+		context.registerService(ILifecycleService.class.getName(),
+				new LifecycleService());
 	}
 
 	/**
@@ -661,18 +666,28 @@ public class ViewContextTest {
 	public void test_getService() {
 		DelegatingServiceProviderManager manager = DelegatingServiceProviderManager
 				.getInstance();
-		manager.addDelegate(new ServiceProvider1());
+		manager.addDelegate(new ServiceProvider1(), null);
 		// getting service with the same selector have to be equal
 		Assert.assertNotNull(context.getService("Provider1"));
 		Assert.assertEquals(context.getService("Provider1"),
 				context.getService("Provider1"));
 	}
 
+	/**
+	 * Tests the getService method.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_getOSGiService() {
+		Assert.assertNotNull(context.getService(IExecutorService.class
+				.getName()));
+	}
+
 	@Test
 	public void testExec() {
 		Assert.fail("To be implented");
 	}
-	
+
 	@Test
 	public void testAsncExec() {
 		Assert.fail("To be implented");
@@ -774,14 +789,17 @@ public class ViewContextTest {
 
 		@Override
 		public Future execAsync(Runnable runnable) {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
 		public void exec(Runnable runnable) {
-			// TODO Auto-generated method stub
-			
+
+		}
+
+		@Override
+		public Set getUIBindings() {
+			return null;
 		}
 
 	}

@@ -62,6 +62,20 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	}
 
 	/**
+	 * Delegates the service request to the view set.
+	 * 
+	 * @param selector
+	 * @return
+	 */
+	protected <S> S delegateGetService(String selector) {
+		IViewSetContext parentContext = getParentContext();
+		if (parentContext != null) {
+			return parentContext.getService(selector);
+		}
+		return null;
+	}
+
+	/**
 	 * Sets the URI that is used to determine the UI kit that should be used to
 	 * render the UI.
 	 * 

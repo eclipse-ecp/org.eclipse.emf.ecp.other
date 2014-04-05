@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
+import org.eclipse.emf.ecp.ecview.common.concurrent.IExecutorService;
 import org.eclipse.emf.ecp.ecview.common.context.IContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
@@ -685,11 +686,29 @@ public class ViewSetContextTest {
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getService() {
-		DelegatingServiceProviderManager manager = DelegatingServiceProviderManager.getInstance();
-		manager.addDelegate(new ServiceProvider1());
+		DelegatingServiceProviderManager manager = DelegatingServiceProviderManager
+				.getInstance();
+		manager.addDelegate(new ServiceProvider1(),
+				IServiceProvider.VIEW_SET_PROPERTIES);
 		// getting service with the same selector have to be equal
 		Assert.assertNotNull(viewSetContext.getService("Provider1"));
-		Assert.assertEquals(viewSetContext.getService("Provider1"), viewSetContext.getService("Provider1"));
+
+		// The viewContexts must return the same instance of services, since
+		// they delegate to parent.
+		Assert.assertSame(viewSetContext.getService("Provider1"),
+				view1Context.getService("Provider1"));
+		Assert.assertSame(viewSetContext.getService("Provider1"),
+				view2Context.getService("Provider1"));
+	}
+
+	/**
+	 * Tests the getService method.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_getOSGiService() {
+		Assert.assertNotNull(view1Context.getService(IExecutorService.class
+				.getName()));
 	}
 
 	private static class Person {
@@ -715,7 +734,7 @@ public class ViewSetContextTest {
 	private static class PersonExtended extends Person {
 
 	}
-	
+
 	private class ServiceProvider1 implements IServiceProvider {
 
 		@Override

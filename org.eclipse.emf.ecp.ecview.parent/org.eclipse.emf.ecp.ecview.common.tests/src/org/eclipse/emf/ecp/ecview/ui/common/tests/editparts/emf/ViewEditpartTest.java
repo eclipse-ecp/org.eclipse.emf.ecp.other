@@ -20,6 +20,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
@@ -517,6 +518,11 @@ public class ViewEditpartTest {
 
 		@Override
 		public Future execAsync(Runnable runnable) {
+			return null;
+		}
+
+		@Override
+		public Set getUIBindings() {
 			return null;
 		}
 

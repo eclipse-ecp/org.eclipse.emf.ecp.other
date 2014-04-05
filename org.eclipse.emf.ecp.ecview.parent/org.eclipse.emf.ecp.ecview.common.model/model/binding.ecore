@@ -19,9 +19,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YBindingEndpoint" abstract="true" eSuperTypes="core.ecore#//YElement">
     <eOperations name="getBinding" eType="#//YBinding"/>
+    <eOperations name="isBindsElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="element" lowerBound="1" eType="ecore:EClass core.ecore#//YElement"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YBinding" eSuperTypes="core.ecore#//YElement">
     <eOperations name="getBindingSet" eType="#//YBindingSet"/>
+    <eOperations name="isBindsElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="element" lowerBound="1" eType="ecore:EClass core.ecore#//YElement"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetValue" lowerBound="1"
         eType="#//YBindingEndpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelValue" lowerBound="1"

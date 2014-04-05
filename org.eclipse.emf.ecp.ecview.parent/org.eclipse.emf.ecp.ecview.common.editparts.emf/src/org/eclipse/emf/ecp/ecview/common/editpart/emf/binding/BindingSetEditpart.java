@@ -11,10 +11,12 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
@@ -23,6 +25,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -266,6 +269,24 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 		} finally {
 			super.internalDispose();
 		}
+	}
+
+	@Override
+	public List<IBindingEditpart> findBindings(Object elementModel) {
+		if (!(elementModel instanceof YElement)) {
+			return Collections.emptyList();
+		}
+
+		List<IBindingEditpart> result = new ArrayList<IBindingEditpart>();
+		YBindingSet yBindingSet = getModel();
+		for (YBinding yBinding : yBindingSet.getBindings()) {
+			if (yBinding.isBindsElement((YElement) elementModel)) {
+				result.add((IBindingEditpart) DelegatingEditPartManager
+						.getInstance().getEditpart(yBinding));
+			}
+		}
+
+		return result;
 	}
 
 }

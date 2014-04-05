@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
@@ -30,7 +31,11 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,6 +48,7 @@ public class BindingSetEditpartTest {
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
 	private BindingFactory bindingFactory = BindingFactory.eINSTANCE;
+	private SimpleExtensionModelFactory elementFactory = new SimpleExtensionModelFactory();
 
 	/**
 	 * Setup.
@@ -436,6 +442,38 @@ public class BindingSetEditpartTest {
 		bindings = bindingSetEditpart.getBindings();
 		assertEquals(1, bindings.size());
 		assertSame(binding2, bindings.get(0).getModel());
+	}
+
+	@Test
+	public void test_findBindingsFor() {
+
+		// END SUPRESS CATCH EXCEPTION
+		// ...> view1
+		YBindingSet bindingSet = bindingFactory.createYBindingSet();
+		IBindingSetEditpart bindingSetEditpart = editpartManager
+				.getEditpart(bindingSet);
+		bindingSetEditpart.setBindingManager(new DefaultBindingManager());
+
+		YTextField text1 = elementFactory.createTextField();
+
+		// add binding 1
+		YBinding binding = bindingFactory.createYBinding();
+		Bean bean1 = new Bean("value");
+		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
+		YEmbeddableValueEndpoint ep2 = text1.createValueEndpoint();
+		ep1.setBean(bean1);
+		ep1.setPropertyPath("value");
+		binding.setModelValue(ep1);
+		binding.setTargetValue(ep2);
+		bindingSet.addBinding(binding);
+
+		List<IBindingEditpart> result = bindingSetEditpart.findBindings(text1);
+		Assert.assertEquals(1, result.size());
+		IBindingEditpart bindingResult = result.get(0);
+		Assert.assertSame(bindingResult.getModelEndpoint().getModel(), ep1);
+		Assert.assertSame(bindingResult.getTargetEndpoint().getModel(), ep2);
+		Assert.assertSame(binding, bindingResult.getModel());
+
 	}
 
 	public class Bean extends AbstractBean {

@@ -83,4 +83,12 @@ public interface YBinding extends YElement {
 	 */
 	YBindingSet getBindingSet();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model elementRequired="true"
+	 * @generated
+	 */
+	boolean isBindsElement(YElement element);
+
 } // YBinding

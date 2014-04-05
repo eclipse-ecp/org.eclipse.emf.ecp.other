@@ -34,7 +34,8 @@ public abstract class EmbeddableBindingEndpointEditpart<M extends YEmbeddableBin
 
 		IWidgetPresentation<?> presentation = embeddableEditpart
 				.getPresentation();
-		return (A) presentation.getObservableValue(getModel());
+		return presentation != null ? (A) presentation
+				.getObservableValue(getModel()) : null;
 	}
 
 }

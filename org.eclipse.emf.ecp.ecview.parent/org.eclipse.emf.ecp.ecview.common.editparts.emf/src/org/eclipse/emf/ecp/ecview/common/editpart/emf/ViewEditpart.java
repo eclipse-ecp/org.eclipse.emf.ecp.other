@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -17,16 +18,23 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.notification.ILifecycleEvent;
+import org.eclipse.emf.ecp.ecview.common.notification.ILifecycleHandler;
+import org.eclipse.emf.ecp.ecview.common.notification.ILifecycleService;
 import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
@@ -39,7 +47,7 @@ import org.slf4j.LoggerFactory;
  * @param <M>
  */
 public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
-		IViewEditpart {
+		IViewEditpart, ILifecycleHandler {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(ViewEditpart.class);
@@ -97,6 +105,15 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		if (configuration != null) {
 			configuration.afterBind(getContext());
 		}
+
+		if (getContext() != null) {
+			ILifecycleService service = getContext().getService(
+					ILifecycleService.class.getName());
+			if (service == null) {
+				throw new RuntimeException("ILifecycleService is required");
+			}
+			service.addHandler(this);
+		}
 	}
 
 	/**
@@ -132,6 +149,60 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 		// call to activate not required. Pending bindings are bound
 		// automatically
+	}
+
+	@Override
+	public void notifyLifecycle(ILifecycleEvent event) {
+		IElementEditpart editPart = event.getEditpart();
+
+		switch (event.getType()) {
+		case ILifecycleEvent.TYPE_DISPOSED: {
+			YElement element = (YElement) editPart.getModel();
+			if (element instanceof YBindable) {
+				IBindingSetEditpart bindingSet = getBindingSet();
+				List<IBindingEditpart> bindings = bindingSet
+						.findBindings(element);
+				if (bindingSet != null) {
+					for (IBindingEditpart binding : bindings) {
+						if (!binding.isDisposed()) {
+							binding.dispose();
+						}
+					}
+				}
+			}
+			break;
+		}
+		case ILifecycleEvent.TYPE_RENDERED: {
+			YElement element = (YElement) editPart.getModel();
+			if (element instanceof YBindable) {
+				IBindingSetEditpart bindingSet = getBindingSet();
+				List<IBindingEditpart> bindings = bindingSet
+						.findBindings(element);
+				if (bindingSet != null) {
+					for (IBindingEditpart binding : bindings) {
+						if (!binding.isBound()) {
+							binding.bind();
+						}
+					}
+				}
+			}
+			break;
+		}
+		case ILifecycleEvent.TYPE_UNRENDERED: {
+			YElement element = (YElement) editPart.getModel();
+			if (element instanceof YBindable) {
+				IBindingSetEditpart bindingSet = getBindingSet();
+				if (bindingSet != null) {
+					List<IBindingEditpart> bindings = bindingSet
+							.findBindings(element);
+					for (IBindingEditpart binding : bindings) {
+						binding.unbind();
+					}
+				}
+			}
+			break;
+		}
+		}
 	}
 
 	@Override
@@ -340,6 +411,14 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	@Override
 	protected void internalDispose() {
 		try {
+
+			if (context != null) {
+				ILifecycleService service = context
+						.getService(ILifecycleService.class.getName());
+				if (service != null) {
+					service.removeHandler(this);
+				}
+			}
 
 			// remove from the parent
 			IViewSetEditpart parent = getParent();

@@ -10,6 +10,9 @@
  */
 package org.eclipse.emf.ecp.ecview.common.presentation;
 
+import java.util.Set;
+
+import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
@@ -80,5 +83,12 @@ public interface IWidgetPresentation<C> extends IDisposable {
 	 * @return
 	 */
 	IObservable getObservableValue(Object model);
+
+	/**
+	 * Returns all bindings that are attached to the UI element.
+	 * 
+	 * @return
+	 */
+	Set<Binding> getUIBindings();
 
 }

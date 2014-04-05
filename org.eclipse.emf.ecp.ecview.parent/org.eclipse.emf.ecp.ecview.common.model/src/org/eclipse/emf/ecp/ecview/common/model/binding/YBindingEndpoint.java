@@ -23,4 +23,12 @@ public interface YBindingEndpoint extends YElement {
 	 */
 	YBinding getBinding();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model elementRequired="true"
+	 * @generated
+	 */
+	boolean isBindsElement(YElement element);
+
 } // YBindingEndpoint

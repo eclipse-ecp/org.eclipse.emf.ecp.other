@@ -20,6 +20,9 @@ import org.eclipse.emf.ecp.ecview.common.beans.ObjectBean;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.services.DelegatingServiceProviderManager;
 import org.eclipse.emf.ecp.ecview.common.services.IServiceRegistry;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -113,6 +116,7 @@ public abstract class DisposableContext extends AbstractDisposable implements
 	@Override
 	public <S> S getService(String selector) {
 		checkDisposed();
+
 		synchronized (services) {
 			if (!services.containsKey(selector)) {
 				S service = DelegatingServiceProviderManager.getInstance()
@@ -123,9 +127,37 @@ public abstract class DisposableContext extends AbstractDisposable implements
 			}
 		}
 
-		// TODO - Also access OSGi services from service registry. But do not
-		// cache them!
-		return (S) services.get(selector);
+		// now try to access the view set
+		S service = (S) services.get(selector);
+
+		// use the strategy of the subclass to find the service
+		if (service == null) {
+			service = delegateGetService(selector);
+		}
+
+		// access the OSGi service registry to find the service
+		if (service == null) {
+			BundleContext bundleContext = FrameworkUtil.getBundle(getClass())
+					.getBundleContext();
+			ServiceReference<?> serviceRef = bundleContext
+					.getServiceReference(selector);
+			if (serviceRef != null) {
+				service = (S) bundleContext.getService(serviceRef);
+			}
+		}
+
+		return service;
+	}
+
+	/**
+	 * If no service was found in the current context, sub classes may specify a
+	 * different strategy to find it.
+	 * 
+	 * @param selector
+	 * @return
+	 */
+	protected <S> S delegateGetService(String selector) {
+		return null;
 	}
 
 	/**
