@@ -14,26 +14,34 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableCollectionEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableSelectionEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IListBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BeanBindingEndpointEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ListBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
@@ -77,14 +85,22 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ViewSetEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IBindingSetEditpart.class)) {
 			result = createNewInstance(BindingSetEditpart.class);
-		} else if (editPartClazz.isAssignableFrom(IBindingEditpart.class)) {
-			result = createNewInstance(BindingEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IValueBindingEditpart.class)) {
+			result = createNewInstance(ValueBindingEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IListBindingEditpart.class)) {
+			result = createNewInstance(ListBindingEditpart.class);
 		} else if (editPartClazz
 				.isAssignableFrom(IContextBindingEndpointEditpart.class)) {
 			result = createNewInstance(ContextBindingEndpointEditpart.class);
 		} else if (editPartClazz
-				.isAssignableFrom(IEmbeddableValueEndpointEditpart.class)) {
-			result = createNewInstance(EmbeddableValueEndpointEditpart.class);
+				.isAssignableFrom(IEmbeddableValueBindingEndpointEditpart.class)) {
+			result = createNewInstance(EmbeddableValueBindingEndpointEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IEmbeddableSelectionEndpointEditpart.class)) {
+			result = createNewInstance(EmbeddableSelectionBindingEndpointEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IEmbeddableCollectionEndpointEditpart.class)) {
+			result = createNewInstance(EmbeddableCollectionBindingEndpointEditpart.class);
 		} else if (editPartClazz
 				.isAssignableFrom(IBeanBindingEndpointEditpart.class)) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
@@ -124,12 +140,18 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ViewSetEditpart.class);
 		} else if (yElement instanceof YBindingSet) {
 			result = createNewInstance(BindingSetEditpart.class);
-		} else if (yElement instanceof YBinding) {
-			result = createNewInstance(BindingEditpart.class);
+		} else if (yElement instanceof YValueBinding) {
+			result = createNewInstance(ValueBindingEditpart.class);
+		} else if (yElement instanceof YListBinding) {
+			result = createNewInstance(ListBindingEditpart.class);
 		} else if (yElement instanceof YContextBindingEndpoint) {
 			result = createNewInstance(ContextBindingEndpointEditpart.class);
 		} else if (yElement instanceof YEmbeddableValueEndpoint) {
-			result = createNewInstance(EmbeddableValueEndpointEditpart.class);
+			result = createNewInstance(EmbeddableValueBindingEndpointEditpart.class);
+		} else if (yElement instanceof YEmbeddableSelectionEndpoint) {
+			result = createNewInstance(EmbeddableSelectionBindingEndpointEditpart.class);
+		} else if (yElement instanceof YEmbeddableCollectionEndpoint) {
+			result = createNewInstance(EmbeddableCollectionBindingEndpointEditpart.class);
 		} else if (yElement instanceof YBeanBindingEndpoint) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
 		}

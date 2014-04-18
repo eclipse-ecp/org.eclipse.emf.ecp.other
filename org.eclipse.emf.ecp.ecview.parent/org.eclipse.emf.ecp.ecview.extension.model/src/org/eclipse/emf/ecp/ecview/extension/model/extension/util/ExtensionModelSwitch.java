@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
@@ -318,7 +320,10 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YComboBox yComboBox = (YComboBox)theEObject;
 				T result = caseYComboBox(yComboBox);
 				if (result == null) result = caseYInput(yComboBox);
+				if (result == null) result = caseYCollectionBindable(yComboBox);
+				if (result == null) result = caseYSelectionBindable(yComboBox);
 				if (result == null) result = caseYField(yComboBox);
+				if (result == null) result = caseYBindable(yComboBox);
 				if (result == null) result = caseYEmbeddable(yComboBox);
 				if (result == null) result = caseYEditable(yComboBox);
 				if (result == null) result = caseYEnable(yComboBox);
@@ -864,6 +869,36 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYMarginable(YMarginable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCollection Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCollection Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYCollectionBindable(YCollectionBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YSelection Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YSelection Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYSelectionBindable(YSelectionBindable object) {
 		return null;
 	}
 

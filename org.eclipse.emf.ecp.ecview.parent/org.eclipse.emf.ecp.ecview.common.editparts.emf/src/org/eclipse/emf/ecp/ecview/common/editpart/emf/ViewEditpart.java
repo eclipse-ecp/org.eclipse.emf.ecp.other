@@ -160,10 +160,10 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			YElement element = (YElement) editPart.getModel();
 			if (element instanceof YBindable) {
 				IBindingSetEditpart bindingSet = getBindingSet();
-				List<IBindingEditpart> bindings = bindingSet
-						.findBindings(element);
 				if (bindingSet != null) {
-					for (IBindingEditpart binding : bindings) {
+					List<IBindingEditpart<?>> bindings = bindingSet
+							.findBindings(element);
+					for (IBindingEditpart<?> binding : bindings) {
 						if (!binding.isDisposed()) {
 							binding.dispose();
 						}
@@ -176,10 +176,10 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			YElement element = (YElement) editPart.getModel();
 			if (element instanceof YBindable) {
 				IBindingSetEditpart bindingSet = getBindingSet();
-				List<IBindingEditpart> bindings = bindingSet
-						.findBindings(element);
 				if (bindingSet != null) {
-					for (IBindingEditpart binding : bindings) {
+					List<IBindingEditpart<?>> bindings = bindingSet
+							.findBindings(element);
+					for (IBindingEditpart<?> binding : bindings) {
 						if (!binding.isBound()) {
 							binding.bind();
 						}
@@ -193,9 +193,9 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			if (element instanceof YBindable) {
 				IBindingSetEditpart bindingSet = getBindingSet();
 				if (bindingSet != null) {
-					List<IBindingEditpart> bindings = bindingSet
+					List<IBindingEditpart<?>> bindings = bindingSet
 							.findBindings(element);
-					for (IBindingEditpart binding : bindings) {
+					for (IBindingEditpart<?> binding : bindings) {
 						binding.unbind();
 					}
 				}

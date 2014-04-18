@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
@@ -230,9 +232,17 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YCOLLECTION_BINDABLE: {
+				YCollectionBindable yCollectionBindable = (YCollectionBindable)theEObject;
+				T result = caseYCollectionBindable(yCollectionBindable);
+				if (result == null) result = caseYBindable(yCollectionBindable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: {
 				YContextBindingEndpoint yContextBindingEndpoint = (YContextBindingEndpoint)theEObject;
 				T result = caseYContextBindingEndpoint(yContextBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yContextBindingEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yContextBindingEndpoint);
 				if (result == null) result = caseYElement(yContextBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
@@ -241,14 +251,13 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YEMBEDDABLE_BINDING_ENDPOINT: {
 				YEmbeddableBindingEndpoint yEmbeddableBindingEndpoint = (YEmbeddableBindingEndpoint)theEObject;
 				T result = caseYEmbeddableBindingEndpoint(yEmbeddableBindingEndpoint);
-				if (result == null) result = caseYBindingEndpoint(yEmbeddableBindingEndpoint);
-				if (result == null) result = caseYElement(yEmbeddableBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: {
 				YEmbeddableValueEndpoint yEmbeddableValueEndpoint = (YEmbeddableValueEndpoint)theEObject;
 				T result = caseYEmbeddableValueEndpoint(yEmbeddableValueEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yEmbeddableValueEndpoint);
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableValueEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yEmbeddableValueEndpoint);
 				if (result == null) result = caseYElement(yEmbeddableValueEndpoint);
@@ -258,15 +267,27 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: {
 				YEmbeddableSelectionEndpoint yEmbeddableSelectionEndpoint = (YEmbeddableSelectionEndpoint)theEObject;
 				T result = caseYEmbeddableSelectionEndpoint(yEmbeddableSelectionEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYElement(yEmbeddableSelectionEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT: {
+				YEmbeddableCollectionEndpoint yEmbeddableCollectionEndpoint = (YEmbeddableCollectionEndpoint)theEObject;
+				T result = caseYEmbeddableCollectionEndpoint(yEmbeddableCollectionEndpoint);
+				if (result == null) result = caseYListBindingEndpoint(yEmbeddableCollectionEndpoint);
+				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableCollectionEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yEmbeddableCollectionEndpoint);
+				if (result == null) result = caseYElement(yEmbeddableCollectionEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CoreModelPackage.YACTIVATED_ENDPOINT: {
 				YActivatedEndpoint yActivatedEndpoint = (YActivatedEndpoint)theEObject;
 				T result = caseYActivatedEndpoint(yActivatedEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yActivatedEndpoint);
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yActivatedEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yActivatedEndpoint);
 				if (result == null) result = caseYElement(yActivatedEndpoint);
@@ -563,6 +584,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCollection Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCollection Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYCollectionBindable(YCollectionBindable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YContext Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -623,6 +659,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEmbeddable Collection Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEmbeddable Collection Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEmbeddableCollectionEndpoint(YEmbeddableCollectionEndpoint object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YActivated Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -649,6 +700,36 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYBindingEndpoint(YBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValue Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValue Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValueBindingEndpoint(YValueBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YList Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YList Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYListBindingEndpoint(YListBindingEndpoint object) {
 		return null;
 	}
 

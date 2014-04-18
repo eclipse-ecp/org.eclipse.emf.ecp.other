@@ -16,7 +16,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 /**
  * An editpart resonsible to handle bindings.
  */
-public interface IBindingEditpart extends IElementEditpart {
+public interface IBindingEditpart<A extends IBindableEndpointEditpart> extends
+		IElementEditpart {
 
 	/**
 	 * Returns true, if the binding defined by this editpart is active. False
@@ -25,34 +26,6 @@ public interface IBindingEditpart extends IElementEditpart {
 	 * @return
 	 */
 	boolean isBound();
-
-	/**
-	 * Returns the target endpoint.
-	 * 
-	 * @return
-	 */
-	IBindableEndpointEditpart getTargetEndpoint();
-
-	/**
-	 * Sets the target endpoint.
-	 * 
-	 * @param targetValue
-	 */
-	void setTargetEndpoint(IBindableEndpointEditpart targetValue);
-
-	/**
-	 * Returns the model endpoint.
-	 * 
-	 * @return
-	 */
-	IBindableEndpointEditpart getModelEndpoint();
-
-	/**
-	 * Sets the target endpoint.
-	 * 
-	 * @param modelValue
-	 */
-	void setModelEndpoint(IBindableEndpointEditpart modelValue);
 
 	/**
 	 * Binds the target and model according the binding properties.
@@ -70,4 +43,33 @@ public interface IBindingEditpart extends IElementEditpart {
 	 * Unbinds target and model.
 	 */
 	void unbind();
+
+	/**
+	 * Returns the target endpoint.
+	 * 
+	 * @return
+	 */
+	A getTargetEndpoint();
+
+	/**
+	 * Sets the target endpoint.
+	 * 
+	 * @param targetValue
+	 */
+	void setTargetEndpoint(A targetValue);
+
+	/**
+	 * Returns the model endpoint.
+	 * 
+	 * @return
+	 */
+	A getModelEndpoint();
+
+	/**
+	 * Sets the target endpoint.
+	 * 
+	 * @param modelValue
+	 */
+	void setModelEndpoint(A modelValue);
+
 }

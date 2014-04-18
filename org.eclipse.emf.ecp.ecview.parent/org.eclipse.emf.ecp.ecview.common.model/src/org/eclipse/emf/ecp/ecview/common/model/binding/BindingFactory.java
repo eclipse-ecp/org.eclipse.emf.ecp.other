@@ -31,13 +31,22 @@ public interface BindingFactory extends EFactory {
 	YBindingSet createYBindingSet();
 
 	/**
-	 * Returns a new object of class '<em>YBinding</em>'.
+	 * Returns a new object of class '<em>YValue Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YBinding</em>'.
+	 * @return a new object of class '<em>YValue Binding</em>'.
 	 * @generated
 	 */
-	YBinding createYBinding();
+	YValueBinding createYValueBinding();
+
+	/**
+	 * Returns a new object of class '<em>YList Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YList Binding</em>'.
+	 * @generated
+	 */
+	YListBinding createYListBinding();
 
 	/**
 	 * Returns a new object of class '<em>YBean Binding Endpoint</em>'.

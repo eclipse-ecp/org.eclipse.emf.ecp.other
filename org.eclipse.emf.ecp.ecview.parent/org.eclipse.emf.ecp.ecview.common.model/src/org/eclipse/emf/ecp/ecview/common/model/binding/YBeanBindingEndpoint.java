@@ -20,7 +20,7 @@ package org.eclipse.emf.ecp.ecview.common.model.binding;
  * @model
  * @generated
  */
-public interface YBeanBindingEndpoint extends YBindingEndpoint {
+public interface YBeanBindingEndpoint extends YValueBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Bean</b></em>' attribute.
 	 * <!-- begin-user-doc -->

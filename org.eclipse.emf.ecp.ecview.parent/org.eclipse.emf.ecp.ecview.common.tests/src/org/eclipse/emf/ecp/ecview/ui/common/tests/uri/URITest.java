@@ -12,8 +12,6 @@ package org.eclipse.emf.ecp.ecview.ui.common.tests.uri;
 
 import java.net.URI;
 
-import junit.framework.Assert;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -29,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 import org.eclipse.emf.ecp.ecview.common.uri.ViewScope;
 import org.eclipse.emf.ecp.ecview.common.uri.ViewsetScope;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

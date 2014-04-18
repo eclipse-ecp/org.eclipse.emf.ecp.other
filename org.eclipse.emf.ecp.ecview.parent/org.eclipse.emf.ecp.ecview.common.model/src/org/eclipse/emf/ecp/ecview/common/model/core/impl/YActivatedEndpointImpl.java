@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
@@ -25,7 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  *
  * @generated
  */
-public class YActivatedEndpointImpl extends YEmbeddableBindingEndpointImpl implements YActivatedEndpoint {
+public class YActivatedEndpointImpl extends YValueBindingEndpointImpl implements YActivatedEndpoint {
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
 	 * <!-- begin-user-doc -->

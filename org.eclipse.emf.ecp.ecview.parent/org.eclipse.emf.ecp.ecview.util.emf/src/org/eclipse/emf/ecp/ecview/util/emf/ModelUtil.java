@@ -11,11 +11,11 @@ import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -62,7 +62,7 @@ public class ModelUtil {
 		if (bindable == null || bindable.getValueBindingEndpoint() == null) {
 			return null;
 		}
-		IBindingEditpart bindingEditpart = getValueBindingEditpart(bindable);
+		IValueBindingEditpart bindingEditpart = getValueBindingEditpart(bindable);
 		Binding binding = bindingEditpart.getBinding();
 		return binding;
 	}
@@ -73,14 +73,14 @@ public class ModelUtil {
 	 * @param bindable
 	 * @return
 	 */
-	public static IBindingEditpart getValueBindingEditpart(
+	public static IValueBindingEditpart getValueBindingEditpart(
 			YValueBindable bindable) {
 		if (bindable == null || bindable.getValueBindingEndpoint() == null) {
 			return null;
 		}
 
 		YBinding yBinding = bindable.getValueBindingEndpoint().getBinding();
-		IBindingEditpart bindingEditpart = getEditpart(yBinding);
+		IValueBindingEditpart bindingEditpart = getEditpart(yBinding);
 		return bindingEditpart;
 	}
 
@@ -90,7 +90,7 @@ public class ModelUtil {
 	 * @param bindable
 	 * @return
 	 */
-	public static IEmbeddableValueEndpointEditpart getValueEndpointEditpart(
+	public static IEmbeddableValueBindingEndpointEditpart getValueEndpointEditpart(
 			YValueBindable bindable) {
 		if (bindable == null || bindable.getValueBindingEndpoint() == null) {
 			return null;
@@ -106,9 +106,9 @@ public class ModelUtil {
 	 * @param bindable
 	 * @return
 	 */
-	public static IEmbeddableValueEndpointEditpart getValueEndpointEditpart(
+	public static IEmbeddableValueBindingEndpointEditpart getValueEndpointEditpart(
 			YEmbeddableValueEndpoint endpoint) {
-		IEmbeddableValueEndpointEditpart bindingEditpart = DelegatingEditPartManager
+		IEmbeddableValueBindingEndpointEditpart bindingEditpart = DelegatingEditPartManager
 				.getInstance().getEditpart(endpoint);
 		return bindingEditpart;
 	}
@@ -136,7 +136,7 @@ public class ModelUtil {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static List<IBindingEditpart> getModelBindingEditparts(
+	public static List<IValueBindingEditpart> getModelBindingEditparts(
 			YEmbeddable yEmbeddable) {
 		YBindingSet bindingset = yEmbeddable.getView().getBindingSet();
 		if (bindingset == null) {
@@ -144,7 +144,7 @@ public class ModelUtil {
 		}
 
 		IBindingSetEditpart bindingSetEditpart = getEditpart(bindingset);
-		return (List<IBindingEditpart>) (bindingSetEditpart != null ? bindingSetEditpart
+		return (List<IValueBindingEditpart>) (bindingSetEditpart != null ? bindingSetEditpart
 				.findBindings(yEmbeddable) : Collections.emptyList());
 	}
 

@@ -50,4 +50,12 @@ public interface YSelectionBindable extends YBindable {
 	 */
 	void setSelectionBindingEndpoint(YEmbeddableSelectionEndpoint value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	YEmbeddableSelectionEndpoint createSelectionEndpoint();
+
 } // YSelectionBindable

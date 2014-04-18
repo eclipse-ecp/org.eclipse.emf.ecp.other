@@ -12,19 +12,26 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingableEndpointEditpart;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 
 /**
  * Responsible to create an observable. The model of this editpart is used to
  * access the getObservableValue from the underlying widget presentation.
  */
-public abstract class EmbeddableBindingEndpointEditpart<M extends YEmbeddableBindingEndpoint>
-		extends BindingableEndpointEditpart<M> implements
-		IEmbeddableBindingEndpointEditpart {
+public class EmbeddableValueBindingEndpointEditpart extends
+		BindableValueEndpointEditpart<YEmbeddableValueEndpoint> implements
+		IEmbeddableValueBindingEndpointEditpart {
+
+	@Override
+	protected YEmbeddableValueEndpoint createModel() {
+		checkDisposed();
+		return CoreModelFactory.eINSTANCE.createYEmbeddableValueEndpoint();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -36,6 +43,11 @@ public abstract class EmbeddableBindingEndpointEditpart<M extends YEmbeddableBin
 				.getPresentation();
 		return presentation != null ? (A) presentation
 				.getObservableValue(getModel()) : null;
+	}
+
+	@Override
+	public void setRefreshProvider(RefreshProvider refresh) {
+		// nothing to do
 	}
 
 }

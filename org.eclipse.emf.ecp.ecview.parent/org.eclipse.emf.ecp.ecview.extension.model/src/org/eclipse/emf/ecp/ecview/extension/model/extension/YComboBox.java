@@ -10,6 +10,9 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
 
@@ -24,6 +27,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,7 +36,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
  * @model
  * @generated
  */
-public interface YComboBox extends YInput {
+public interface YComboBox extends YInput, YCollectionBindable, YSelectionBindable {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -83,5 +88,57 @@ public interface YComboBox extends YInput {
 	 * @generated
 	 */
 	void setDatatype(YComboBoxDatatype value);
+
+	/**
+	 * Returns the value of the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selection</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selection</em>' attribute.
+	 * @see #setSelection(Object)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_Selection()
+	 * @model transient="true"
+	 * @generated
+	 */
+	Object getSelection();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getSelection <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selection</em>' attribute.
+	 * @see #getSelection()
+	 * @generated
+	 */
+	void setSelection(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Collection</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Collection</em>' attribute.
+	 * @see #setCollection(EList)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_Collection()
+	 * @model many="false" transient="true"
+	 * @generated
+	 */
+	EList<?> getCollection();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Collection</em>' attribute.
+	 * @see #getCollection()
+	 * @generated
+	 */
+	void setCollection(EList<?> value);
 
 } // YUiComboBox

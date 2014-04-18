@@ -10,9 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
@@ -29,7 +26,7 @@ import org.slf4j.LoggerFactory;
  * access the getObservableValue from the underlying widget presentation.
  */
 public class BeanBindingEndpointEditpart extends
-		BindingableEndpointEditpart<YBeanBindingEndpoint> implements
+		BindableValueEndpointEditpart<YBeanBindingEndpoint> implements
 		IBeanBindingEndpointEditpart {
 
 	private static final Logger logger = LoggerFactory

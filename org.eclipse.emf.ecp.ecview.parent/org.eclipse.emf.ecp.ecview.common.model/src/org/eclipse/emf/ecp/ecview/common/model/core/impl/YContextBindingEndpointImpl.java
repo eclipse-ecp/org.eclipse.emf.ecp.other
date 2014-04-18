@@ -5,7 +5,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -23,7 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  *
  * @generated
  */
-public class YContextBindingEndpointImpl extends YBindingEndpointImpl implements YContextBindingEndpoint {
+public class YContextBindingEndpointImpl extends YValueBindingEndpointImpl implements YContextBindingEndpoint {
 	/**
 	 * The default value of the '{@link #getUrlString() <em>Url String</em>}' attribute.
 	 * <!-- begin-user-doc -->

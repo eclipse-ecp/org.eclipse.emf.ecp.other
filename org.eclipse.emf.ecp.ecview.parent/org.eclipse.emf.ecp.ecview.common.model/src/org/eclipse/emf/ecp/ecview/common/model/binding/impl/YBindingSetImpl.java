@@ -16,8 +16,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 
 /**
@@ -112,8 +115,8 @@ public class YBindingSetImpl extends EObjectImpl implements YBindingSet {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBinding addBindingGen(YBindingEndpoint targetValue,
-			YBindingEndpoint modelValue) {
+	public YValueBinding addBindingGen(YValueBindingEndpoint targetValue,
+			YValueBindingEndpoint modelValue) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -124,13 +127,43 @@ public class YBindingSetImpl extends EObjectImpl implements YBindingSet {
 	 * 
 	 * @generated NOT
 	 */
-	public YBinding addBinding(YBindingEndpoint targetValue,
-			YBindingEndpoint modelValue) {
+	public YValueBinding addBinding(YValueBindingEndpoint targetValue,
+			YValueBindingEndpoint modelValue) {
 
 		// create a new binding
-		YBinding binding = BindingFactory.eINSTANCE.createYBinding();
-		binding.setTargetValue(targetValue);
-		binding.setModelValue(modelValue);
+		YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
+		binding.setTargetEndpoint(targetValue);
+		binding.setModelEndpoint(modelValue);
+
+		// add the binding to the internal list of bindings
+		getBindings().add(binding);
+
+		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YListBinding addBindingGen(YListBindingEndpoint targetValue,
+			YListBindingEndpoint modelValue) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YListBinding addBinding(YListBindingEndpoint targetValue,
+			YListBindingEndpoint modelValue) {
+ 
+		// create a new binding
+		YListBinding binding = BindingFactory.eINSTANCE.createYListBinding();
+		binding.setTargetEndpoint(targetValue);
+		binding.setModelEndpoint(modelValue);
 
 		// add the binding to the internal list of bindings
 		getBindings().add(binding);

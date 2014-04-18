@@ -1967,13 +1967,31 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__SELECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 0;
+	int YCOMBO_BOX__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -1982,7 +2000,25 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 1;
+	int YCOMBO_BOX__DATATYPE = YINPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__SELECTION = YINPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__COLLECTION = YINPUT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>YCombo Box</em>' class.
@@ -1991,7 +2027,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.
@@ -3028,6 +3064,28 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYComboBox_Datatype();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getSelection()
+	 * @see #getYComboBox()
+	 * @generated
+	 */
+	EAttribute getYComboBox_Selection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection()
+	 * @see #getYComboBox()
+	 * @generated
+	 */
+	EAttribute getYComboBox_Collection();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList <em>YList</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3702,6 +3760,22 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YCOMBO_BOX__DATATYPE = eINSTANCE.getYComboBox_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCOMBO_BOX__SELECTION = eINSTANCE.getYComboBox_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCOMBO_BOX__COLLECTION = eINSTANCE.getYComboBox_Collection();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.

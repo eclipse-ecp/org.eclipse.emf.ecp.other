@@ -2,6 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +21,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  * @model
  * @generated
  */
-public interface YActivatedEndpoint extends YEmbeddableBindingEndpoint {
+public interface YActivatedEndpoint extends YValueBindingEndpoint, YEmbeddableBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->

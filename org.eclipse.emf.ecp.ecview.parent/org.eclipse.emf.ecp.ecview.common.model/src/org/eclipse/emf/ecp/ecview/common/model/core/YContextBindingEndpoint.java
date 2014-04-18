@@ -2,7 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
  * @model
  * @generated
  */
-public interface YContextBindingEndpoint extends YBindingEndpoint {
+public interface YContextBindingEndpoint extends YValueBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Url String</b></em>' attribute.
 	 * <!-- begin-user-doc -->

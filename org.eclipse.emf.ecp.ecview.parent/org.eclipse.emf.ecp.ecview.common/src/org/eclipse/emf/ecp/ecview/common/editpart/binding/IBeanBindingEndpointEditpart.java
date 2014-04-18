@@ -14,6 +14,6 @@ package org.eclipse.emf.ecp.ecview.common.editpart.binding;
  * An editpart resonsible to provide context observable values for bean
  * bindings.
  */
-public interface IBeanBindingEndpointEditpart extends IBindableEndpointEditpart {
+public interface IBeanBindingEndpointEditpart extends IBindableValueEndpointEditpart {
 
 }

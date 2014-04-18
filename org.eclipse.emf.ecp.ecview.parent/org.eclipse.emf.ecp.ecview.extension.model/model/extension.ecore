@@ -180,9 +180,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         transient="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YComboBox" eSuperTypes="#//YInput">
+  <eClassifiers xsi:type="ecore:EClass" name="YComboBox" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YCollectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YSelectionBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YComboBoxDatatype"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collection" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YList" eSuperTypes="#//YInput">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>

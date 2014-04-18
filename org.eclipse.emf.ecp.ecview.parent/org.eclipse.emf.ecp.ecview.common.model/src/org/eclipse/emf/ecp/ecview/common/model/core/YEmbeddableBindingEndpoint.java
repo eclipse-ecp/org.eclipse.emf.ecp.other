@@ -2,7 +2,6 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,10 +10,10 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
  *
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddableBindingEndpoint()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface YEmbeddableBindingEndpoint extends YBindingEndpoint {
+public interface YEmbeddableBindingEndpoint {
 
 	/**
 	 * <!-- begin-user-doc -->

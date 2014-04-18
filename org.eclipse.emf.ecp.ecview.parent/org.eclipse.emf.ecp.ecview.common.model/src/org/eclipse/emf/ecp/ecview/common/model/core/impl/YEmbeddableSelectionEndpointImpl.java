@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
  *
  * @generated
  */
-public class YEmbeddableSelectionEndpointImpl extends YEmbeddableBindingEndpointImpl implements YEmbeddableSelectionEndpoint {
+public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl implements YEmbeddableSelectionEndpoint {
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
 	 * <!-- begin-user-doc -->

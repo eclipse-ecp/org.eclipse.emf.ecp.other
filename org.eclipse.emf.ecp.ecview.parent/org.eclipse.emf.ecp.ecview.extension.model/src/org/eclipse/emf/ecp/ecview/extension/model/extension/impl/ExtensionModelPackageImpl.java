@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -853,6 +854,24 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYComboBox_Selection() {
+		return (EAttribute)yComboBoxEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYComboBox_Collection() {
+		return (EAttribute)yComboBoxEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYList() {
 		return yListEClass;
 	}
@@ -1047,6 +1066,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yComboBoxEClass = createEClass(YCOMBO_BOX);
 		createEReference(yComboBoxEClass, YCOMBO_BOX__DATADESCRIPTION);
 		createEReference(yComboBoxEClass, YCOMBO_BOX__DATATYPE);
+		createEAttribute(yComboBoxEClass, YCOMBO_BOX__SELECTION);
+		createEAttribute(yComboBoxEClass, YCOMBO_BOX__COLLECTION);
 
 		yListEClass = createEClass(YLIST);
 		createEReference(yListEClass, YLIST__DATADESCRIPTION);
@@ -1127,6 +1148,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yNumericFieldEClass.getESuperTypes().add(this.getYInput());
 		yNumericFieldEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yComboBoxEClass.getESuperTypes().add(this.getYInput());
+		yComboBoxEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
+		yComboBoxEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
 		yListEClass.getESuperTypes().add(this.getYInput());
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
@@ -1226,6 +1249,11 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEClass(yComboBoxEClass, YComboBox.class, "YComboBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYComboBox_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYComboBox_Datatype(), theExtDatatypesPackage.getYComboBoxDatatype(), null, "datatype", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYComboBox_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YComboBox.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEEList());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYComboBox_Collection(), g1, "collection", null, 0, 1, YComboBox.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yListEClass, YList.class, "YList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYList_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

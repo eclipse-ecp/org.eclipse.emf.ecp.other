@@ -27,8 +27,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
@@ -99,12 +99,12 @@ public class ContextBindingEndpointEditpartTest {
 		YBindingSet bs = bindingFactory.createYBindingSet();
 		YView view = (YView) viewEditpart.getModel();
 		view.setBindingSet(bs);
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 
 		YContextBindingEndpoint yEndpoint = factory
 				.createYContextBindingEndpoint();
 		yEndpoint.setUrlString("view://bean/bean1#value");
-		binding.setModelValue(yEndpoint);
+		binding.setModelEndpoint(yEndpoint);
 		bs.addBinding(binding);
 
 		IContextBindingEndpointEditpart editpart = editpartManager

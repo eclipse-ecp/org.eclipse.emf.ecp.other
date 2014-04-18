@@ -79,6 +79,22 @@ public class BindingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BindingPackage.YVALUE_BINDING_ENDPOINT: {
+				YValueBindingEndpoint yValueBindingEndpoint = (YValueBindingEndpoint)theEObject;
+				T result = caseYValueBindingEndpoint(yValueBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yValueBindingEndpoint);
+				if (result == null) result = caseYElement(yValueBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BindingPackage.YLIST_BINDING_ENDPOINT: {
+				YListBindingEndpoint yListBindingEndpoint = (YListBindingEndpoint)theEObject;
+				T result = caseYListBindingEndpoint(yListBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yListBindingEndpoint);
+				if (result == null) result = caseYElement(yListBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BindingPackage.YBINDING: {
 				YBinding yBinding = (YBinding)theEObject;
 				T result = caseYBinding(yBinding);
@@ -86,9 +102,26 @@ public class BindingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BindingPackage.YVALUE_BINDING: {
+				YValueBinding yValueBinding = (YValueBinding)theEObject;
+				T result = caseYValueBinding(yValueBinding);
+				if (result == null) result = caseYBinding(yValueBinding);
+				if (result == null) result = caseYElement(yValueBinding);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BindingPackage.YLIST_BINDING: {
+				YListBinding yListBinding = (YListBinding)theEObject;
+				T result = caseYListBinding(yListBinding);
+				if (result == null) result = caseYBinding(yListBinding);
+				if (result == null) result = caseYElement(yListBinding);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BindingPackage.YBEAN_BINDING_ENDPOINT: {
 				YBeanBindingEndpoint yBeanBindingEndpoint = (YBeanBindingEndpoint)theEObject;
 				T result = caseYBeanBindingEndpoint(yBeanBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yBeanBindingEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yBeanBindingEndpoint);
 				if (result == null) result = caseYElement(yBeanBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
@@ -129,6 +162,36 @@ public class BindingSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValue Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValue Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValueBindingEndpoint(YValueBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YList Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YList Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYListBindingEndpoint(YListBindingEndpoint object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YBinding</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -140,6 +203,36 @@ public class BindingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYBinding(YBinding object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValue Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValue Binding</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValueBinding(YValueBinding object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YList Binding</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YList Binding</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYListBinding(YListBinding object) {
 		return null;
 	}
 

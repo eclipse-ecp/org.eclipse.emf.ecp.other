@@ -17,7 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingableEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  * Responsible to create a context observables.
  */
 public class ContextBindingEndpointEditpart extends
-		BindingableEndpointEditpart<YContextBindingEndpoint> implements
+		BindableValueEndpointEditpart<YContextBindingEndpoint> implements
 		IContextBindingEndpointEditpart {
 	private static final Logger logger = LoggerFactory
 			.getLogger(ContextBindingEndpointEditpart.class);

@@ -10,7 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableListEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
@@ -22,17 +22,17 @@ import org.slf4j.LoggerFactory;
  * 
  * @param <M>
  */
-public abstract class BindingableEndpointEditpart<M extends YBindingEndpoint>
-		extends ElementEditpart<M> implements IBindableEndpointEditpart {
+public abstract class BindableListEndpointEditpart<M extends YBindingEndpoint>
+		extends ElementEditpart<M> implements IBindableListEndpointEditpart {
 
 	@SuppressWarnings("unused")
 	private static final Logger LOGGER = LoggerFactory
-			.getLogger(BindingableEndpointEditpart.class);
+			.getLogger(BindableListEndpointEditpart.class);
 
 	/**
 	 * A default constructor.
 	 */
-	public BindingableEndpointEditpart() {
+	public BindableListEndpointEditpart() {
 	}
 
 	@Override

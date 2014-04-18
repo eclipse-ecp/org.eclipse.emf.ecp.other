@@ -3,24 +3,36 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>YUi Combo Box</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>YUi Combo Box</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getCollectionBindingEndpoint <em>Collection Binding Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getSelectionBindingEndpoint <em>Selection Binding Endpoint</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getCollection <em>Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,9 +40,29 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
  */
 public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	/**
-	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
+	 * The cached value of the '{@link #getCollectionBindingEndpoint() <em>Collection Binding Endpoint</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getCollectionBindingEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected YEmbeddableCollectionEndpoint collectionBindingEndpoint;
+
+	/**
+	 * The cached value of the '{@link #getSelectionBindingEndpoint() <em>Selection Binding Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectionBindingEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected YEmbeddableSelectionEndpoint selectionBindingEndpoint;
+
+	/**
+	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getDatadescription()
 	 * @generated
 	 * @ordered
@@ -39,8 +71,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDatatype()
 	 * @generated
 	 * @ordered
@@ -48,8 +79,37 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	protected YComboBoxDatatype datatype;
 
 	/**
+	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getSelection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Object SELECTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelection()
+	 * @generated
+	 * @ordered
+	 */
+	protected Object selection = SELECTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<?> collection;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected YComboBoxImpl() {
@@ -57,8 +117,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -67,8 +126,102 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableCollectionEndpoint getCollectionBindingEndpoint() {
+		if (collectionBindingEndpoint != null && ((EObject)collectionBindingEndpoint).eIsProxy()) {
+			InternalEObject oldCollectionBindingEndpoint = (InternalEObject)collectionBindingEndpoint;
+			collectionBindingEndpoint = (YEmbeddableCollectionEndpoint)eResolveProxy(oldCollectionBindingEndpoint);
+			if (collectionBindingEndpoint != oldCollectionBindingEndpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
+			}
+		}
+		return collectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableCollectionEndpoint basicGetCollectionBindingEndpoint() {
+		return collectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollectionBindingEndpoint(
+			YEmbeddableCollectionEndpoint newCollectionBindingEndpoint) {
+		YEmbeddableCollectionEndpoint oldCollectionBindingEndpoint = collectionBindingEndpoint;
+		collectionBindingEndpoint = newCollectionBindingEndpoint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableSelectionEndpoint getSelectionBindingEndpoint() {
+		if (selectionBindingEndpoint != null && ((EObject)selectionBindingEndpoint).eIsProxy()) {
+			InternalEObject oldSelectionBindingEndpoint = (InternalEObject)selectionBindingEndpoint;
+			selectionBindingEndpoint = (YEmbeddableSelectionEndpoint)eResolveProxy(oldSelectionBindingEndpoint);
+			if (selectionBindingEndpoint != oldSelectionBindingEndpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT, oldSelectionBindingEndpoint, selectionBindingEndpoint));
+			}
+		}
+		return selectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableSelectionEndpoint basicGetSelectionBindingEndpoint() {
+		return selectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSelectionBindingEndpoint(
+			YEmbeddableSelectionEndpoint newSelectionBindingEndpoint,
+			NotificationChain msgs) {
+		YEmbeddableSelectionEndpoint oldSelectionBindingEndpoint = selectionBindingEndpoint;
+		selectionBindingEndpoint = newSelectionBindingEndpoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT, oldSelectionBindingEndpoint, newSelectionBindingEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectionBindingEndpoint(
+			YEmbeddableSelectionEndpoint newSelectionBindingEndpoint) {
+		if (newSelectionBindingEndpoint != selectionBindingEndpoint) {
+			NotificationChain msgs = null;
+			if (selectionBindingEndpoint != null)
+				msgs = ((InternalEObject)selectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT, YEmbeddableSelectionEndpoint.class, msgs);
+			if (newSelectionBindingEndpoint != null)
+				msgs = ((InternalEObject)newSelectionBindingEndpoint).eInverseAdd(this, CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT, YEmbeddableSelectionEndpoint.class, msgs);
+			msgs = basicSetSelectionBindingEndpoint(newSelectionBindingEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT, newSelectionBindingEndpoint, newSelectionBindingEndpoint));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
@@ -84,8 +237,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YDatadescription basicGetDatadescription() {
@@ -93,8 +245,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatadescription(YDatadescription newDatadescription) {
@@ -105,8 +256,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YComboBoxDatatype getDatatype() {
@@ -122,8 +272,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public YComboBoxDatatype basicGetDatatype() {
@@ -131,8 +280,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDatatype(YComboBoxDatatype newDatatype) {
@@ -147,53 +295,278 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Object getSelection() {
+		return selection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelection(Object newSelection) {
+		Object oldSelection = selection;
+		selection = newSelection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__SELECTION, oldSelection, selection));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<?> getCollection() {
+		return collection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollection(EList<?> newCollection) {
+		EList<?> oldCollection = collection;
+		collection = newCollection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__COLLECTION, oldCollection, collection));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableSelectionEndpoint createSelectionEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableCollectionEndpoint createCollectionEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Creates a new instance of selection endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableSelectionEndpoint createSelectionEndpoint() {
+		YEmbeddableSelectionEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableSelectionEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+
+	/**
+	 * Creates a new instance of collection endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableCollectionEndpoint createCollectionEndpoint() {
+		YEmbeddableCollectionEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableCollectionEndpoint();
+		ep.setElement(this);
+		return ep;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT:
+				if (selectionBindingEndpoint != null)
+					msgs = ((InternalEObject)selectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT, YEmbeddableSelectionEndpoint.class, msgs);
+				return basicSetSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT:
+				return basicSetSelectionBindingEndpoint(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT:
+				if (resolve) return getCollectionBindingEndpoint();
+				return basicGetCollectionBindingEndpoint();
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT:
+				if (resolve) return getSelectionBindingEndpoint();
+				return basicGetSelectionBindingEndpoint();
 			case ExtensionModelPackage.YCOMBO_BOX__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
 			case ExtensionModelPackage.YCOMBO_BOX__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION:
+				return getSelection();
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
+				return getCollection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT:
+				setCollectionBindingEndpoint((YEmbeddableCollectionEndpoint)newValue);
+				return;
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT:
+				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)newValue);
+				return;
 			case ExtensionModelPackage.YCOMBO_BOX__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
 				return;
 			case ExtensionModelPackage.YCOMBO_BOX__DATATYPE:
 				setDatatype((YComboBoxDatatype)newValue);
 				return;
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION:
+				setSelection(newValue);
+				return;
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
+				setCollection((EList<?>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT:
+				setCollectionBindingEndpoint((YEmbeddableCollectionEndpoint)null);
+				return;
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT:
+				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)null);
+				return;
 			case ExtensionModelPackage.YCOMBO_BOX__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
 			case ExtensionModelPackage.YCOMBO_BOX__DATATYPE:
 				setDatatype((YComboBoxDatatype)null);
 				return;
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION:
+				setSelection(SELECTION_EDEFAULT);
+				return;
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
+				setCollection((EList<?>)null);
+				return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT:
+				return collectionBindingEndpoint != null;
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT:
+				return selectionBindingEndpoint != null;
+			case ExtensionModelPackage.YCOMBO_BOX__DATADESCRIPTION:
+				return datadescription != null;
+			case ExtensionModelPackage.YCOMBO_BOX__DATATYPE:
+				return datatype != null;
+			case ExtensionModelPackage.YCOMBO_BOX__SELECTION:
+				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
+				return collection != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == YBindable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YCollectionBindable.class) {
+			switch (derivedFeatureID) {
+				case ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT: return CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YSelectionBindable.class) {
+			switch (derivedFeatureID) {
+				case ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT: return CoreModelPackage.YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == YBindable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YCollectionBindable.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YCOMBO_BOX__COLLECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YSelectionBindable.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YCOMBO_BOX__SELECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -202,14 +575,16 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ExtensionModelPackage.YCOMBO_BOX__DATADESCRIPTION:
-				return datadescription != null;
-			case ExtensionModelPackage.YCOMBO_BOX__DATATYPE:
-				return datatype != null;
-		}
-		return super.eIsSet(featureID);
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (selection: ");
+		result.append(selection);
+		result.append(", collection: ");
+		result.append(collection);
+		result.append(')');
+		return result.toString();
 	}
 
-} //YUiComboBoxImpl
+} // YUiComboBoxImpl

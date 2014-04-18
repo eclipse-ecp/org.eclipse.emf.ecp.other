@@ -46,7 +46,7 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * 
 	 * @return
 	 */
-	List<IBindingEditpart> getBindings();
+	List<IBindingEditpart<?>> getBindings();
 
 	/**
 	 * Adds the given binding to the list of bindings. Adding a binding will
@@ -54,7 +54,7 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * 
 	 * @param binding
 	 */
-	void addBinding(IBindingEditpart binding);
+	void addBinding(IBindingEditpart<?> binding);
 
 	/**
 	 * Removes the given binding from the list of bindings. Removing a binding
@@ -62,7 +62,7 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * 
 	 * @param binding
 	 */
-	void removeBinding(IBindingEditpart binding);
+	void removeBinding(IBindingEditpart<?> binding);
 
 	/**
 	 * Returns the binding manager that should be used to bind values.
@@ -85,6 +85,6 @@ public interface IBindingSetEditpart extends IElementEditpart {
 	 * @param elementModel
 	 * @return
 	 */
-	List<IBindingEditpart> findBindings(Object elementModel);
+	List<IBindingEditpart<?>> findBindings(Object elementModel);
 
 }

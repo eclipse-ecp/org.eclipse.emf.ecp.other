@@ -10,13 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertSame;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.junit.Test;
 
@@ -28,15 +28,15 @@ public class YBindingSetTest {
 		YBindingSet set = factory.createYBindingSet();
 		assertEquals(0, set.getBindings().size());
 
-		YBindingEndpoint value1 = CoreModelFactory.eINSTANCE
+		YValueBindingEndpoint value1 = CoreModelFactory.eINSTANCE
 				.createYContextBindingEndpoint();
-		YBindingEndpoint value2 = CoreModelFactory.eINSTANCE
+		YValueBindingEndpoint value2 = CoreModelFactory.eINSTANCE
 				.createYContextBindingEndpoint();
 
 		YBinding binding = set.addBinding(value1, value2);
 		assertEquals(1, set.getBindings().size());
-		assertSame(value1, binding.getTargetValue());
-		assertSame(value2, binding.getModelValue());
+		assertSame(value1, binding.getTargetEndpoint());
+		assertSame(value2, binding.getModelEndpoint());
 
 	}
 }

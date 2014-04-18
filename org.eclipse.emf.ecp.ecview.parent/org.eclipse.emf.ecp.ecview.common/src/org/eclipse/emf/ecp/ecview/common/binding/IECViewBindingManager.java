@@ -13,8 +13,10 @@ package org.eclipse.emf.ecp.ecview.common.binding;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.UpdateListStrategy;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 
@@ -64,5 +66,26 @@ public interface IECViewBindingManager extends IDisposable {
 	 */
 	Binding bindValue(IObservableValue target, IObservableValue model,
 			UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget);
+	
+	/**
+	 * Binds the target to the model.
+	 * 
+	 * @param target
+	 * @param model
+	 * @return The binding
+	 */
+	Binding bindList(IObservableList target, IObservableList model);
+	
+	/**
+	 * Binds the target to the model.
+	 * 
+	 * @param target
+	 * @param model
+	 * @param targetToModel
+	 * @param modelToTarget
+	 * @return The binding
+	 */
+	Binding bindList(IObservableList target, IObservableList model,
+			UpdateListStrategy targetToModel, UpdateListStrategy modelToTarget);
 
 }

@@ -25,9 +25,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEd
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,7 +39,6 @@ public class BeanBindingEndpointEditpartTest {
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
 	private BindingFactory bindingFactory = BindingFactory.eINSTANCE;
-	private CoreModelFactory factory = CoreModelFactory.eINSTANCE;
 
 	/**
 	 * Setup.
@@ -79,14 +77,14 @@ public class BeanBindingEndpointEditpartTest {
 	public void test_getObservable() {
 		// END SUPRESS CATCH EXCEPTION
 		YBindingSet bs = bindingFactory.createYBindingSet();
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 
 		Bean bean = new Bean("Test");
 		YBeanBindingEndpoint yEndpoint = bindingFactory
 				.createYBeanBindingEndpoint();
 		yEndpoint.setBean(bean);
 		yEndpoint.setPropertyPath("value");
-		binding.setModelValue(yEndpoint);
+		binding.setModelEndpoint(yEndpoint);
 		bs.addBinding(binding);
 
 		IBeanBindingEndpointEditpart editpart = editpartManager
@@ -115,7 +113,7 @@ public class BeanBindingEndpointEditpartTest {
 	public void test_getObservable_Nested() {
 		// END SUPRESS CATCH EXCEPTION
 		YBindingSet bs = bindingFactory.createYBindingSet();
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 
 		Bean inner = new Bean("InnerTest");
 		Bean outer = new Bean(inner);
@@ -123,7 +121,7 @@ public class BeanBindingEndpointEditpartTest {
 				.createYBeanBindingEndpoint();
 		yEndpoint.setBean(outer);
 		yEndpoint.setPropertyPath("inner.value");
-		binding.setModelValue(yEndpoint);
+		binding.setModelEndpoint(yEndpoint);
 		bs.addBinding(binding);
 
 		IBeanBindingEndpointEditpart editpart = editpartManager

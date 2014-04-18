@@ -102,6 +102,15 @@ public interface CoreModelFactory extends EFactory {
 	YEmbeddableSelectionEndpoint createYEmbeddableSelectionEndpoint();
 
 	/**
+	 * Returns a new object of class '<em>YEmbeddable Collection Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YEmbeddable Collection Endpoint</em>'.
+	 * @generated
+	 */
+	YEmbeddableCollectionEndpoint createYEmbeddableCollectionEndpoint();
+
+	/**
 	 * Returns a new object of class '<em>YActivated Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

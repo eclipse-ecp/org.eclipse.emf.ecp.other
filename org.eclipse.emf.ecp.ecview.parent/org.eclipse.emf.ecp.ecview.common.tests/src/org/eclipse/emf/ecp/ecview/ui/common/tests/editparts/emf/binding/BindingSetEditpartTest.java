@@ -21,15 +21,15 @@ import java.util.List;
 
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -190,7 +190,7 @@ public class BindingSetEditpartTest {
 				.getEditpart(bindingSet);
 		bindingSetEditpart.setBindingManager(new DefaultBindingManager());
 
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
 		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
@@ -199,8 +199,8 @@ public class BindingSetEditpartTest {
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
 		ep2.setPropertyPath("value");
-		binding.setModelValue(ep1);
-		binding.setTargetValue(ep2);
+		binding.setModelEndpoint(ep1);
+		binding.setTargetEndpoint(ep2);
 		bindingSet.addBinding(binding);
 
 		// test binded
@@ -208,7 +208,8 @@ public class BindingSetEditpartTest {
 		assertEquals("test1", bean1.getValue());
 		assertEquals("test1", bean2.getValue());
 
-		IBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
+		IValueBindingEditpart bindingEditpart = editpartManager
+				.getEditpart(binding);
 		assertFalse(bindingSetEditpart.isActive());
 		assertEquals(1, bindingSetEditpart.getBindings().size());
 		assertSame(bindingEditpart, bindingSetEditpart.getBindings().get(0));
@@ -250,14 +251,15 @@ public class BindingSetEditpartTest {
 		ep2.setPropertyPath("value");
 
 		// use helper method
-		YBinding binding = bindingSet.addBinding(ep1, ep2);
+		YValueBinding binding = bindingSet.addBinding(ep1, ep2);
 
 		// test binded
 		bean1.setValue("test1");
 		assertEquals("test1", bean1.getValue());
 		assertEquals("test1", bean2.getValue());
 
-		IBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
+		IValueBindingEditpart bindingEditpart = editpartManager
+				.getEditpart(binding);
 		assertFalse(bindingSetEditpart.isActive());
 		assertEquals(1, bindingSetEditpart.getBindings().size());
 		assertSame(bindingEditpart, bindingSetEditpart.getBindings().get(0));
@@ -286,7 +288,7 @@ public class BindingSetEditpartTest {
 		// END SUPRESS CATCH EXCEPTION
 		YBindingSet bindingSet = bindingFactory.createYBindingSet();
 
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
 		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
@@ -295,8 +297,8 @@ public class BindingSetEditpartTest {
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
 		ep2.setPropertyPath("value");
-		binding.setModelValue(ep1);
-		binding.setTargetValue(ep2);
+		binding.setModelEndpoint(ep1);
+		binding.setTargetEndpoint(ep2);
 		bindingSet.addBinding(binding);
 
 		//
@@ -317,7 +319,8 @@ public class BindingSetEditpartTest {
 		assertEquals("test2", bean1.getValue());
 		assertEquals("test2", bean2.getValue());
 
-		IBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
+		IValueBindingEditpart bindingEditpart = editpartManager
+				.getEditpart(binding);
 		assertEquals(1, bindingSetEditpart.getBindings().size());
 		assertSame(bindingEditpart, bindingSetEditpart.getBindings().get(0));
 		assertTrue(bindingEditpart.isBound());
@@ -349,7 +352,7 @@ public class BindingSetEditpartTest {
 		bindingSetEditpart.setBindingManager(new DefaultBindingManager());
 
 		// create binding
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
 		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
@@ -358,10 +361,11 @@ public class BindingSetEditpartTest {
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
 		ep2.setPropertyPath("value");
-		binding.setModelValue(ep1);
-		binding.setTargetValue(ep2);
+		binding.setModelEndpoint(ep1);
+		binding.setTargetEndpoint(ep2);
 
-		IBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
+		IValueBindingEditpart bindingEditpart = editpartManager
+				.getEditpart(binding);
 		assertFalse(bindingSetEditpart.isActive());
 
 		bindingSetEditpart.addBinding(bindingEditpart);
@@ -403,7 +407,7 @@ public class BindingSetEditpartTest {
 		bindingSetEditpart.setBindingManager(new DefaultBindingManager());
 
 		// add binding 1
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
 		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
@@ -412,12 +416,12 @@ public class BindingSetEditpartTest {
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
 		ep2.setPropertyPath("value");
-		binding.setModelValue(ep1);
-		binding.setTargetValue(ep2);
+		binding.setModelEndpoint(ep1);
+		binding.setTargetEndpoint(ep2);
 		bindingSet.addBinding(binding);
 
 		// add binding 2
-		YBinding binding2 = bindingFactory.createYBinding();
+		YValueBinding binding2 = bindingFactory.createYValueBinding();
 		Bean bean2_1 = new Bean("value");
 		Bean bean2_2 = new Bean("value");
 		YBeanBindingEndpoint ep2_1 = bindingFactory
@@ -428,11 +432,11 @@ public class BindingSetEditpartTest {
 		ep2_1.setPropertyPath("value");
 		ep2_2.setBean(bean2_2);
 		ep2_2.setPropertyPath("value");
-		binding2.setModelValue(ep2_1);
-		binding2.setTargetValue(ep2_2);
+		binding2.setModelEndpoint(ep2_1);
+		binding2.setTargetEndpoint(ep2_2);
 		bindingSet.addBinding(binding2);
 
-		List<IBindingEditpart> bindings = bindingSetEditpart.getBindings();
+		List<IBindingEditpart<?>> bindings = bindingSetEditpart.getBindings();
 		assertSame(binding, bindings.get(0).getModel());
 		assertSame(binding2, bindings.get(1).getModel());
 
@@ -457,19 +461,20 @@ public class BindingSetEditpartTest {
 		YTextField text1 = elementFactory.createTextField();
 
 		// add binding 1
-		YBinding binding = bindingFactory.createYBinding();
+		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
 		YEmbeddableValueEndpoint ep2 = text1.createValueEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
-		binding.setModelValue(ep1);
-		binding.setTargetValue(ep2);
+		binding.setModelEndpoint(ep1);
+		binding.setTargetEndpoint(ep2);
 		bindingSet.addBinding(binding);
 
-		List<IBindingEditpart> result = bindingSetEditpart.findBindings(text1);
+		List<IBindingEditpart<?>> result = bindingSetEditpart
+				.findBindings(text1);
 		Assert.assertEquals(1, result.size());
-		IBindingEditpart bindingResult = result.get(0);
+		IBindingEditpart<?> bindingResult = result.get(0);
 		Assert.assertSame(bindingResult.getModelEndpoint().getModel(), ep1);
 		Assert.assertSame(bindingResult.getTargetEndpoint().getModel(), ep2);
 		Assert.assertSame(binding, bindingResult.getModel());

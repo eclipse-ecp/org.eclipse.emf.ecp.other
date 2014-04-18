@@ -11,10 +11,9 @@ package org.eclipse.emf.ecp.ecview.ui.common.tests.uri;
 
 import java.net.URI;
 
-import junit.framework.Assert;
-
 import org.eclipse.emf.ecp.ecview.common.uri.URIMapper;
 import org.eclipse.emf.ecp.ecview.common.uri.URIMapper.Mapping;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class URIMapperTest {

@@ -12,8 +12,10 @@ package org.eclipse.emf.ecp.ecview.common.binding;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.UpdateListStrategy;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 
@@ -58,9 +60,24 @@ public abstract class AbstractBindingManager extends AbstractDisposable
 				UpdateValueStrategy.POLICY_UPDATE));
 	}
 
-	public final Binding bindValue(IObservableValue target, IObservableValue model,
-			UpdateValueStrategy targetToModel, UpdateValueStrategy modelToTarget) {
+	public final Binding bindValue(IObservableValue target,
+			IObservableValue model, UpdateValueStrategy targetToModel,
+			UpdateValueStrategy modelToTarget) {
 		return dbc.bindValue(target, model, targetToModel, modelToTarget);
+	}
+
+	@Override
+	public Binding bindList(IObservableList target, IObservableList model) {
+		return getDatabindingContext().bindList(target, model,
+				new UpdateListStrategy(UpdateListStrategy.POLICY_UPDATE),
+				new UpdateListStrategy(UpdateListStrategy.POLICY_UPDATE));
+	}
+
+	@Override
+	public Binding bindList(IObservableList target, IObservableList model,
+			UpdateListStrategy targetToModel, UpdateListStrategy modelToTarget) {
+		return getDatabindingContext().bindList(target, model, targetToModel,
+				modelToTarget);
 	}
 
 	@Override

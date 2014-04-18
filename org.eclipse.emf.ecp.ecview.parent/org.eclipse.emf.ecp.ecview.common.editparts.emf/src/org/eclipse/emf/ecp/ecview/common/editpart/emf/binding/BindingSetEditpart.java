@@ -41,7 +41,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(BindingSetEditpart.class);
 	private boolean active;
-	private List<IBindingEditpart> bindings;
+	private List<IBindingEditpart<?>> bindings;
 	private IECViewBindingManager bindingManager;
 
 	/**
@@ -104,7 +104,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 		checkDisposed();
 
 		try {
-			for (IBindingEditpart binding : getBindings()) {
+			for (IBindingEditpart<?> binding : getBindings()) {
 				binding.bind();
 			}
 		} finally {
@@ -113,7 +113,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public void addBinding(IBindingEditpart binding) {
+	public void addBinding(IBindingEditpart<?> binding) {
 		try {
 			checkDisposed();
 
@@ -132,7 +132,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public void removeBinding(IBindingEditpart binding) {
+	public void removeBinding(IBindingEditpart<?> binding) {
 		try {
 			checkDisposed();
 
@@ -158,7 +158,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 		case BindingPackage.YBINDING_SET__BINDINGS:
 			YBinding yBinding = (YBinding) notification.getNewValue();
 
-			IBindingEditpart editPart = (IBindingEditpart) getEditpart(yBinding);
+			IBindingEditpart<?> editPart = (IBindingEditpart<?>) getEditpart(yBinding);
 			internalAddBinding(editPart);
 			break;
 		default:
@@ -174,7 +174,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	 * @param binding
 	 *            The editpart to be added
 	 */
-	protected void internalAddBinding(IBindingEditpart binding) {
+	protected void internalAddBinding(IBindingEditpart<?> binding) {
 		checkDisposed();
 
 		ensureBindingsLoaded();
@@ -194,7 +194,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 		case BindingPackage.YBINDING_SET__BINDINGS:
 			YBinding yBinding = (YBinding) notification.getOldValue();
 
-			IBindingEditpart editPart = (IBindingEditpart) getEditpart(yBinding);
+			IBindingEditpart<?> editPart = (IBindingEditpart<?>) getEditpart(yBinding);
 			internalRemoveBinding(editPart);
 			break;
 		default:
@@ -218,9 +218,9 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 		checkDisposed();
 
 		if (bindings == null) {
-			bindings = new ArrayList<IBindingEditpart>();
+			bindings = new ArrayList<IBindingEditpart<?>>();
 			for (YBinding yBinding : getModel().getBindings()) {
-				IBindingEditpart editPart = getEditpart(yBinding);
+				IBindingEditpart<?> editPart = getEditpart(yBinding);
 				internalAddBinding(editPart);
 			}
 		}
@@ -233,7 +233,7 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	 * @param binding
 	 *            The editpart to be removed
 	 */
-	protected void internalRemoveBinding(IBindingEditpart binding) {
+	protected void internalRemoveBinding(IBindingEditpart<?> binding) {
 		checkDisposed();
 
 		if (bindings != null && binding != null) {
@@ -246,9 +246,9 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public List<IBindingEditpart> getBindings() {
+	public List<IBindingEditpart<?>> getBindings() {
 		ensureBindingsLoaded();
-		return new ArrayList<IBindingEditpart>(bindings);
+		return new ArrayList<IBindingEditpart<?>>(bindings);
 	}
 
 	@Override
@@ -257,10 +257,10 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 			// lazy loading: edit parts also have to be disposed if they have
 			// not been loaded yet, but exist in the model.
 			if (bindings != null || getModel().getBindings().size() > 0) {
-				List<IBindingEditpart> tempElements = getBindings();
+				List<IBindingEditpart<?>> tempElements = getBindings();
 				synchronized (bindings) {
-					for (IBindingEditpart binding : tempElements
-							.toArray(new IBindingEditpart[tempElements.size()])) {
+					for (IBindingEditpart<?> binding : tempElements
+							.toArray(new IBindingEditpart<?>[tempElements.size()])) {
 						binding.dispose();
 					}
 				}
@@ -272,16 +272,16 @@ public class BindingSetEditpart extends ElementEditpart<YBindingSet> implements
 	}
 
 	@Override
-	public List<IBindingEditpart> findBindings(Object elementModel) {
+	public List<IBindingEditpart<?>> findBindings(Object elementModel) {
 		if (!(elementModel instanceof YElement)) {
 			return Collections.emptyList();
 		}
 
-		List<IBindingEditpart> result = new ArrayList<IBindingEditpart>();
+		List<IBindingEditpart<?>> result = new ArrayList<IBindingEditpart<?>>();
 		YBindingSet yBindingSet = getModel();
 		for (YBinding yBinding : yBindingSet.getBindings()) {
 			if (yBinding.isBindsElement((YElement) elementModel)) {
-				result.add((IBindingEditpart) DelegatingEditPartManager
+				result.add((IBindingEditpart<?>) DelegatingEditPartManager
 						.getInstance().getEditpart(yBinding));
 			}
 		}
