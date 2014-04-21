@@ -195,7 +195,10 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YTable yTable = (YTable)theEObject;
 				T result = caseYTable(yTable);
 				if (result == null) result = caseYInput(yTable);
+				if (result == null) result = caseYCollectionBindable(yTable);
+				if (result == null) result = caseYSelectionBindable(yTable);
 				if (result == null) result = caseYField(yTable);
+				if (result == null) result = caseYBindable(yTable);
 				if (result == null) result = caseYEmbeddable(yTable);
 				if (result == null) result = caseYEditable(yTable);
 				if (result == null) result = caseYEnable(yTable);
@@ -337,7 +340,10 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YList yList = (YList)theEObject;
 				T result = caseYList(yList);
 				if (result == null) result = caseYInput(yList);
+				if (result == null) result = caseYCollectionBindable(yList);
+				if (result == null) result = caseYSelectionBindable(yList);
 				if (result == null) result = caseYField(yList);
+				if (result == null) result = caseYBindable(yList);
 				if (result == null) result = caseYEmbeddable(yList);
 				if (result == null) result = caseYEditable(yList);
 				if (result == null) result = caseYEnable(yList);
@@ -370,6 +376,23 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yToggleButton);
 				if (result == null) result = caseYCssAble(yToggleButton);
 				if (result == null) result = caseYVisibleable(yToggleButton);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionModelPackage.YTREE: {
+				YTree yTree = (YTree)theEObject;
+				T result = caseYTree(yTree);
+				if (result == null) result = caseYInput(yTree);
+				if (result == null) result = caseYCollectionBindable(yTree);
+				if (result == null) result = caseYSelectionBindable(yTree);
+				if (result == null) result = caseYField(yTree);
+				if (result == null) result = caseYBindable(yTree);
+				if (result == null) result = caseYEmbeddable(yTree);
+				if (result == null) result = caseYEditable(yTree);
+				if (result == null) result = caseYEnable(yTree);
+				if (result == null) result = caseYElement(yTree);
+				if (result == null) result = caseYCssAble(yTree);
+				if (result == null) result = caseYVisibleable(yTree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -689,6 +712,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYToggleButton(YToggleButton object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YTree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YTree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTree(YTree object) {
 		return null;
 	}
 

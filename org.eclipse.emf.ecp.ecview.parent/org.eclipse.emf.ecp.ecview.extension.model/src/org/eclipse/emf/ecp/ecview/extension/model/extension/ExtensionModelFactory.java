@@ -202,6 +202,15 @@ public interface ExtensionModelFactory extends EFactory {
 	YToggleButton createYToggleButton();
 
 	/**
+	 * Returns a new object of class '<em>YTree</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YTree</em>'.
+	 * @generated
+	 */
+	YTree createYTree();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

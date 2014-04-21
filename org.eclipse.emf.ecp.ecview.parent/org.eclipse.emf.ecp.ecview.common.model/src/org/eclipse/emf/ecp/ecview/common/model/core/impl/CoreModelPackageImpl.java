@@ -11,7 +11,6 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.net.URI;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;

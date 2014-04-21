@@ -906,13 +906,31 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__COLLECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__SELECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE__DATATYPE = YINPUT_FEATURE_COUNT + 0;
+	int YTABLE__DATATYPE = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
@@ -921,7 +939,43 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 1;
+	int YTABLE__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__SELECTION_TYPE = YINPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__SELECTION = YINPUT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__COLLECTION = YINPUT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__TYPE = YINPUT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>YTable</em>' class.
@@ -930,7 +984,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl <em>YLabel</em>}' class.
@@ -2012,7 +2066,7 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__SELECTION = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Collection</b></em>' attribute.
+	 * The feature id for the '<em><b>Collection</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2021,13 +2075,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__COLLECTION = YINPUT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__TYPE = YINPUT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>YCombo Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 6;
+	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.
@@ -2121,13 +2184,31 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLIST__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__COLLECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__SELECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 0;
+	int YLIST__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
@@ -2136,7 +2217,43 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST__DATATYPE = YINPUT_FEATURE_COUNT + 1;
+	int YLIST__DATATYPE = YINPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__SELECTION_TYPE = YINPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__SELECTION = YINPUT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__COLLECTION = YINPUT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__TYPE = YINPUT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>YList</em>' class.
@@ -2145,7 +2262,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 2;
+	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl <em>YButton</em>}' class.
@@ -2357,6 +2474,178 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTOGGLE_BUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl <em>YTree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTree()
+	 * @generated
+	 */
+	int YTREE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__CSS_CLASS = YINPUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__CSS_ID = YINPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__COLLECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__SELECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__DATATYPE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Selection Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__SELECTION_TYPE = YINPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__SELECTION = YINPUT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__COLLECTION = YINPUT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__TYPE = YINPUT_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>YTree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 8;
+
+	/**
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2364,7 +2653,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 	 * @generated
 	 */
-	int YBUTTON_CLICK_LISTENER = 22;
+	int YBUTTON_CLICK_LISTENER = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
@@ -2374,7 +2663,18 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 21;
+	int YALIGNMENT = 22;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType <em>YSelection Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYSelectionType()
+	 * @generated
+	 */
+	int YSELECTION_TYPE = 23;
 
 
 	/**
@@ -2732,6 +3032,50 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYTable_Datadescription();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelectionType <em>Selection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelectionType()
+	 * @see #getYTable()
+	 * @generated
+	 */
+	EAttribute getYTable_SelectionType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelection()
+	 * @see #getYTable()
+	 * @generated
+	 */
+	EAttribute getYTable_Selection();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Collection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getCollection()
+	 * @see #getYTable()
+	 * @generated
+	 */
+	EAttribute getYTable_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getType()
+	 * @see #getYTable()
+	 * @generated
+	 */
+	EAttribute getYTable_Type();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel <em>YLabel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3075,15 +3419,26 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYComboBox_Selection();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Collection</em>'.
+	 * @return the meta object for the attribute list '<em>Collection</em>'.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection()
 	 * @see #getYComboBox()
 	 * @generated
 	 */
 	EAttribute getYComboBox_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getType()
+	 * @see #getYComboBox()
+	 * @generated
+	 */
+	EAttribute getYComboBox_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList <em>YList</em>}'.
@@ -3116,6 +3471,50 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYList_Datatype();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getSelectionType <em>Selection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getSelectionType()
+	 * @see #getYList()
+	 * @generated
+	 */
+	EAttribute getYList_SelectionType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getSelection()
+	 * @see #getYList()
+	 * @generated
+	 */
+	EAttribute getYList_Selection();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Collection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getCollection()
+	 * @see #getYList()
+	 * @generated
+	 */
+	EAttribute getYList_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getType()
+	 * @see #getYList()
+	 * @generated
+	 */
+	EAttribute getYList_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton <em>YButton</em>}'.
@@ -3171,6 +3570,82 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYToggleButton_Datadescription();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree <em>YTree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YTree</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree
+	 * @generated
+	 */
+	EClass getYTree();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatatype()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EReference getYTree_Datatype();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatadescription()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EReference getYTree_Datadescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelectionType <em>Selection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelectionType()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EAttribute getYTree_SelectionType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelection()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EAttribute getYTree_Selection();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Collection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getCollection()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EAttribute getYTree_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getType()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EAttribute getYTree_Type();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener <em>YButton Click Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3190,6 +3665,16 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getYAlignment();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType <em>YSelection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>YSelection Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType
+	 * @generated
+	 */
+	EEnum getYSelectionType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3496,6 +3981,38 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YTABLE__DATADESCRIPTION = eINSTANCE.getYTable_Datadescription();
 
 		/**
+		 * The meta object literal for the '<em><b>Selection Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTABLE__SELECTION_TYPE = eINSTANCE.getYTable_SelectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTABLE__SELECTION = eINSTANCE.getYTable_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTABLE__COLLECTION = eINSTANCE.getYTable_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTABLE__TYPE = eINSTANCE.getYTable_Type();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl <em>YLabel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3770,12 +4287,20 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YCOMBO_BOX__SELECTION = eINSTANCE.getYComboBox_Selection();
 
 		/**
-		 * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute YCOMBO_BOX__COLLECTION = eINSTANCE.getYComboBox_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCOMBO_BOX__TYPE = eINSTANCE.getYComboBox_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.
@@ -3802,6 +4327,38 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YLIST__DATATYPE = eINSTANCE.getYList_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YLIST__SELECTION_TYPE = eINSTANCE.getYList_SelectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YLIST__SELECTION = eINSTANCE.getYList_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YLIST__COLLECTION = eINSTANCE.getYList_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YLIST__TYPE = eINSTANCE.getYList_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl <em>YButton</em>}' class.
@@ -3848,6 +4405,64 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YTOGGLE_BUTTON__DATADESCRIPTION = eINSTANCE.getYToggleButton_Datadescription();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl <em>YTree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTree()
+		 * @generated
+		 */
+		EClass YTREE = eINSTANCE.getYTree();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTREE__DATATYPE = eINSTANCE.getYTree_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTREE__DATADESCRIPTION = eINSTANCE.getYTree_Datadescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTREE__SELECTION_TYPE = eINSTANCE.getYTree_SelectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTREE__SELECTION = eINSTANCE.getYTree_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTREE__COLLECTION = eINSTANCE.getYTree_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTREE__TYPE = eINSTANCE.getYTree_Type();
+
+		/**
 		 * The meta object literal for the '<em>YButton Click Listener</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3866,6 +4481,16 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum YALIGNMENT = eINSTANCE.getYAlignment();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType <em>YSelection Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYSelectionType()
+		 * @generated
+		 */
+		EEnum YSELECTION_TYPE = eINSTANCE.getYSelectionType();
 
 	}
 

@@ -2,13 +2,16 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.NotifyingListImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
@@ -20,6 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -33,6 +37,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getSelection <em>Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getCollection <em>Collection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,8 +85,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 
 	/**
 	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
@@ -90,8 +94,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
@@ -99,14 +102,23 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	protected Object selection = SELECTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCollection()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<?> collection;
+	protected EList<Object> collection;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<?> type;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -291,8 +303,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getSelection() {
@@ -300,8 +311,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSelection(Object newSelection) {
@@ -312,12 +322,23 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Object> getCollection() {
+		if (collection == null) {
+			collection = new EDataTypeUniqueEList<Object>(Object.class, this, ExtensionModelPackage.YCOMBO_BOX__COLLECTION);
+		}
+		return collection;
+	}
+
+/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<?> getCollection() {
-		return collection;
+	public Class<?> getType() {
+		return type;
 	}
 
 	/**
@@ -325,12 +346,44 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCollection(EList<?> newCollection) {
-		EList<?> oldCollection = collection;
-		collection = newCollection;
+	public void setType(Class<?> newType) {
+		Class<?> oldType = type;
+		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__COLLECTION, oldCollection, collection));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__TYPE, oldType, type));
 	}
+
+	//	/**
+//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+//	 * 
+//	 * @generated NOT
+//	 */
+//	@SuppressWarnings("rawtypes")
+//	public EList<Object> getCollection() {
+//		if (collection == null) {
+//			collection = new NotifyingListImpl() {
+//				@Override
+//				protected boolean isNotificationRequired() {
+//					return true;
+//				}
+//
+//				@Override
+//				public Object getNotifier() {
+//					return YComboBoxImpl.this;
+//				}
+//
+//				@Override
+//				public Object getFeature() {
+//					return ExtensionModelPackage.Literals.YCOMBO_BOX__COLLECTION;
+//				}
+//
+//				public int getFeatureID() {
+//					return ExtensionModelPackage.YCOMBO_BOX__COLLECTION;
+//				}
+//			};
+//		}
+//		return collection;
+//	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -432,6 +485,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				return getSelection();
 			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
 				return getCollection();
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -440,6 +495,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -459,7 +515,11 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				setSelection(newValue);
 				return;
 			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
-				setCollection((EList<?>)newValue);
+				getCollection().clear();
+				getCollection().addAll((Collection<? extends Object>)newValue);
+				return;
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
+				setType((Class<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -488,7 +548,10 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				setSelection(SELECTION_EDEFAULT);
 				return;
 			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
-				setCollection((EList<?>)null);
+				getCollection().clear();
+				return;
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
+				setType((Class<?>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -512,7 +575,9 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			case ExtensionModelPackage.YCOMBO_BOX__SELECTION:
 				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
 			case ExtensionModelPackage.YCOMBO_BOX__COLLECTION:
-				return collection != null;
+				return collection != null && !collection.isEmpty();
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -570,8 +635,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -583,6 +647,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 		result.append(selection);
 		result.append(", collection: ");
 		result.append(collection);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

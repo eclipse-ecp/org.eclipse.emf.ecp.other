@@ -156,6 +156,14 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtDatatypesPackage.YTREE_DATATYPE: {
+				YTreeDatatype yTreeDatatype = (YTreeDatatype)theEObject;
+				T result = caseYTreeDatatype(yTreeDatatype);
+				if (result == null) result = caseYDatatype(yTreeDatatype);
+				if (result == null) result = caseYDtBase(yTreeDatatype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -307,6 +315,21 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYDateTimeDatatype(YDateTimeDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YTree Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YTree Datatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTreeDatatype(YTreeDatatype object) {
 		return null;
 	}
 

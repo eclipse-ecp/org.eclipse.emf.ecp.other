@@ -11,6 +11,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
 
@@ -107,6 +109,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTable createTable() {
 		return factory.createYTable();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYTree()
+	 */
+	public YTree createTree() {
+		return factory.createYTree();
 	}
 
 	/**
@@ -227,6 +237,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTableDatatype createTableDatatype() {
 		return dtFactory.createYTableDatatype();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory#createYTreeDatatype()
+	 */
+	public YTreeDatatype createTreeDatatype() {
+		return dtFactory.createYTreeDatatype();
 	}
 
 	/**

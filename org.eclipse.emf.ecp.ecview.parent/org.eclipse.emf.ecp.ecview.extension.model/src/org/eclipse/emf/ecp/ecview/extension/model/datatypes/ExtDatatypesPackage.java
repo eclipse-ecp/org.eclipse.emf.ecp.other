@@ -599,6 +599,52 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YDATE_TIME_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTreeDatatypeImpl <em>YTree Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTreeDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYTreeDatatype()
+	 * @generated
+	 */
+	int YTREE_DATATYPE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_DATATYPE__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_DATATYPE__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YTree Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,7 +652,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeFormat()
 	 * @generated
 	 */
-	int YDATE_TIME_FORMAT = 10;
+	int YDATE_TIME_FORMAT = 11;
 
 
 	/**
@@ -785,6 +831,16 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYDateTimeDatatype_Format();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype <em>YTree Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YTree Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype
+	 * @generated
+	 */
+	EClass getYTreeDatatype();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}'.
@@ -973,6 +1029,16 @@ public interface ExtDatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YDATE_TIME_DATATYPE__FORMAT = eINSTANCE.getYDateTimeDatatype_Format();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTreeDatatypeImpl <em>YTree Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTreeDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYTreeDatatype()
+		 * @generated
+		 */
+		EClass YTREE_DATATYPE = eINSTANCE.getYTreeDatatype();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.

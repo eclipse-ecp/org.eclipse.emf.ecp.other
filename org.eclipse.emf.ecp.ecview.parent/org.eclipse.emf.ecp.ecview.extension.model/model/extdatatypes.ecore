@@ -34,4 +34,5 @@
     <eLiterals name="TIME" value="1" literal="TIME"/>
     <eLiterals name="DATE_TIME" value="2" literal="DATE_TIME"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YTreeDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>
 </ecore:EPackage>

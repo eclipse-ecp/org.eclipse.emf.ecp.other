@@ -1,44 +1,39 @@
 /**
- * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
+
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YUi Table</b></em>'.
+ * A representation of the model object '<em><b>YTree</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getDatatype <em>Datatype</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getDatadescription <em>Datadescription</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelectionType <em>Selection Type</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelection <em>Selection</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getCollection <em>Collection</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelectionType <em>Selection Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getCollection <em>Collection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable()
+ * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree()
  * @model
  * @generated
  */
-public interface YTable extends YInput, YCollectionBindable, YSelectionBindable {
+public interface YTree extends YInput, YCollectionBindable, YSelectionBindable {
 	/**
 	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -48,22 +43,22 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datatype</em>' reference.
-	 * @see #setDatatype(YTableDatatype)
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_Datatype()
+	 * @see #setDatatype(YTreeDatatype)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_Datatype()
 	 * @model
 	 * @generated
 	 */
-	YTableDatatype getDatatype();
+	YTreeDatatype getDatatype();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getDatatype <em>Datatype</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatatype <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Datatype</em>' reference.
 	 * @see #getDatatype()
 	 * @generated
 	 */
-	void setDatatype(YTableDatatype value);
+	void setDatatype(YTreeDatatype value);
 
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
@@ -75,14 +70,14 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datadescription</em>' reference.
 	 * @see #setDatadescription(YDatadescription)
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_Datadescription()
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_Datadescription()
 	 * @model
 	 * @generated
 	 */
 	YDatadescription getDatadescription();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getDatadescription <em>Datadescription</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getDatadescription <em>Datadescription</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Datadescription</em>' reference.
@@ -103,14 +98,14 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 * @return the value of the '<em>Selection Type</em>' attribute.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType
 	 * @see #setSelectionType(YSelectionType)
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_SelectionType()
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_SelectionType()
 	 * @model
 	 * @generated
 	 */
 	YSelectionType getSelectionType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelectionType <em>Selection Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelectionType <em>Selection Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Selection Type</em>' attribute.
@@ -130,14 +125,14 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Selection</em>' attribute.
 	 * @see #setSelection(Object)
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_Selection()
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_Selection()
 	 * @model transient="true"
 	 * @generated
 	 */
 	Object getSelection();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getSelection <em>Selection</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getSelection <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Selection</em>' attribute.
@@ -156,7 +151,7 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Collection</em>' attribute list.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_Collection()
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_Collection()
 	 * @model transient="true"
 	 * @generated
 	 */
@@ -172,14 +167,14 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(Class)
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_Type()
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_Type()
 	 * @model
 	 * @generated
 	 */
 	Class<?> getType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
@@ -188,4 +183,4 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable 
 	 */
 	void setType(Class<?> value);
 
-} // YUiTable
+} // YTree

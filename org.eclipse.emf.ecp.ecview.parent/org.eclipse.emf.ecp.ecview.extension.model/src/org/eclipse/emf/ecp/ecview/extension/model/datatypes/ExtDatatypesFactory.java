@@ -112,6 +112,15 @@ public interface ExtDatatypesFactory extends EFactory {
 	YDateTimeDatatype createYDateTimeDatatype();
 
 	/**
+	 * Returns a new object of class '<em>YTree Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YTree Datatype</em>'.
+	 * @generated
+	 */
+	YTreeDatatype createYTreeDatatype();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

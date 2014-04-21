@@ -30,6 +30,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IBrowserEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditp
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITreeEditpart;
 
 /**
  * An implementation of IEditPartManager for eObjects with
@@ -73,6 +75,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(GridLayoutEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITableEditpart.class)) {
 			result = createNewInstance(TableEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ITreeEditpart.class)) {
+			result = createNewInstance(TreeEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ILabelEditpart.class)) {
 			result = createNewInstance(LabelEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITextAreaEditpart.class)) {
@@ -123,6 +127,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(VerticalLayoutEditpart.class);
 		} else if (yElement instanceof YTable) {
 			result = createNewInstance(TableEditpart.class);
+		} else if (yElement instanceof YTree) {
+			result = createNewInstance(TreeEditpart.class);
 		} else if (yElement instanceof YLabel) {
 			result = createNewInstance(LabelEditpart.class);
 		} else if (yElement instanceof YTextArea) {

@@ -96,6 +96,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YLIST: return (EObject)createYList();
 			case ExtensionModelPackage.YBUTTON: return (EObject)createYButton();
 			case ExtensionModelPackage.YTOGGLE_BUTTON: return (EObject)createYToggleButton();
+			case ExtensionModelPackage.YTREE: return (EObject)createYTree();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -111,6 +112,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 		switch (eDataType.getClassifierID()) {
 			case ExtensionModelPackage.YALIGNMENT:
 				return createYAlignmentFromString(eDataType, initialValue);
+			case ExtensionModelPackage.YSELECTION_TYPE:
+				return createYSelectionTypeFromString(eDataType, initialValue);
 			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
 				return createYButtonClickListenerFromString(eDataType, initialValue);
 			default:
@@ -128,6 +131,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 		switch (eDataType.getClassifierID()) {
 			case ExtensionModelPackage.YALIGNMENT:
 				return convertYAlignmentToString(eDataType, instanceValue);
+			case ExtensionModelPackage.YSELECTION_TYPE:
+				return convertYSelectionTypeToString(eDataType, instanceValue);
 			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
 				return convertYButtonClickListenerToString(eDataType, instanceValue);
 			default:
@@ -340,6 +345,16 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public YTree createYTree() {
+		YTreeImpl yTree = new YTreeImpl();
+		return yTree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YAlignment createYAlignmentFromString(EDataType eDataType, String initialValue) {
 		YAlignment result = YAlignment.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -352,6 +367,26 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 * @generated
 	 */
 	public String convertYAlignmentToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YSelectionType createYSelectionTypeFromString(EDataType eDataType, String initialValue) {
+		YSelectionType result = YSelectionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYSelectionTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

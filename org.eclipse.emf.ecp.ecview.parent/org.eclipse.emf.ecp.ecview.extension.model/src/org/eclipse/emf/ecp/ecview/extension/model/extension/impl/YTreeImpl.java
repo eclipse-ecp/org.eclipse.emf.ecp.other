@@ -21,30 +21,31 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>YUi Table</b></em>'. <!-- end-user-doc -->
+ * <em><b>YTree</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getCollectionBindingEndpoint <em>Collection Binding Endpoint</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getSelectionBindingEndpoint <em>Selection Binding Endpoint</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getDatatype <em>Datatype</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getDatadescription <em>Datadescription</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getSelectionType <em>Selection Type</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getSelection <em>Selection</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getCollection <em>Collection</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getCollectionBindingEndpoint <em>Collection Binding Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getSelectionBindingEndpoint <em>Selection Binding Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getDatadescription <em>Datadescription</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getSelectionType <em>Selection Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getCollection <em>Collection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YTableImpl extends YInputImpl implements YTable {
+public class YTreeImpl extends YInputImpl implements YTree {
 	/**
 	 * The cached value of the '{@link #getCollectionBindingEndpoint() <em>Collection Binding Endpoint</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -54,6 +55,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected YEmbeddableCollectionEndpoint collectionBindingEndpoint;
+
 	/**
 	 * The cached value of the '{@link #getSelectionBindingEndpoint() <em>Selection Binding Endpoint</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -63,6 +65,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected YEmbeddableSelectionEndpoint selectionBindingEndpoint;
+
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -70,7 +73,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @generated
 	 * @ordered
 	 */
-	protected YTableDatatype datatype;
+	protected YTreeDatatype datatype;
+
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
@@ -90,6 +94,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected static final YSelectionType SELECTION_TYPE_EDEFAULT = YSelectionType.SINGLE;
+
 	/**
 	 * The cached value of the '{@link #getSelectionType() <em>Selection Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
@@ -99,6 +104,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected YSelectionType selectionType = SELECTION_TYPE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -107,6 +113,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected static final Object SELECTION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -115,6 +122,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected Object selection = SELECTION_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -123,6 +131,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected EList<Object> collection;
+
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -136,7 +145,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected YTableImpl() {
+	protected YTreeImpl() {
 		super();
 	}
 
@@ -146,7 +155,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ExtensionModelPackage.Literals.YTABLE;
+		return ExtensionModelPackage.Literals.YTREE;
 	}
 
 	/**
@@ -159,7 +168,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 			collectionBindingEndpoint = (YEmbeddableCollectionEndpoint)eResolveProxy(oldCollectionBindingEndpoint);
 			if (collectionBindingEndpoint != oldCollectionBindingEndpoint) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
 			}
 		}
 		return collectionBindingEndpoint;
@@ -182,7 +191,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 		YEmbeddableCollectionEndpoint oldCollectionBindingEndpoint = collectionBindingEndpoint;
 		collectionBindingEndpoint = newCollectionBindingEndpoint;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
 	}
 
 	/**
@@ -195,7 +204,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 			selectionBindingEndpoint = (YEmbeddableSelectionEndpoint)eResolveProxy(oldSelectionBindingEndpoint);
 			if (selectionBindingEndpoint != oldSelectionBindingEndpoint) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT, oldSelectionBindingEndpoint, selectionBindingEndpoint));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT, oldSelectionBindingEndpoint, selectionBindingEndpoint));
 			}
 		}
 		return selectionBindingEndpoint;
@@ -219,7 +228,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 		YEmbeddableSelectionEndpoint oldSelectionBindingEndpoint = selectionBindingEndpoint;
 		selectionBindingEndpoint = newSelectionBindingEndpoint;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT, oldSelectionBindingEndpoint, newSelectionBindingEndpoint);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT, oldSelectionBindingEndpoint, newSelectionBindingEndpoint);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -241,20 +250,20 @@ public class YTableImpl extends YInputImpl implements YTable {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT, newSelectionBindingEndpoint, newSelectionBindingEndpoint));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT, newSelectionBindingEndpoint, newSelectionBindingEndpoint));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTableDatatype getDatatype() {
+	public YTreeDatatype getDatatype() {
 		if (datatype != null && ((EObject)datatype).eIsProxy()) {
 			InternalEObject oldDatatype = (InternalEObject)datatype;
-			datatype = (YTableDatatype)eResolveProxy(oldDatatype);
+			datatype = (YTreeDatatype)eResolveProxy(oldDatatype);
 			if (datatype != oldDatatype) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTABLE__DATATYPE, oldDatatype, datatype));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTREE__DATATYPE, oldDatatype, datatype));
 			}
 		}
 		return datatype;
@@ -264,19 +273,20 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YTableDatatype basicGetDatatype() {
+	public YTreeDatatype basicGetDatatype() {
 		return datatype;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDatatype(YTableDatatype newDatatype) {
-		YTableDatatype oldDatatype = datatype;
+	public void setDatatype(YTreeDatatype newDatatype) {
+		YTreeDatatype oldDatatype = datatype;
 		datatype = newDatatype;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__DATATYPE, oldDatatype, datatype));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__DATATYPE, oldDatatype, datatype));
 	}
 
 	/**
@@ -289,7 +299,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTABLE__DATADESCRIPTION, oldDatadescription, datadescription));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTREE__DATADESCRIPTION, oldDatadescription, datadescription));
 			}
 		}
 		return datadescription;
@@ -311,7 +321,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 		YDatadescription oldDatadescription = datadescription;
 		datadescription = newDatadescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__DATADESCRIPTION, oldDatadescription, datadescription));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__DATADESCRIPTION, oldDatadescription, datadescription));
 	}
 
 	/**
@@ -330,7 +340,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 		YSelectionType oldSelectionType = selectionType;
 		selectionType = newSelectionType == null ? SELECTION_TYPE_EDEFAULT : newSelectionType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__SELECTION_TYPE, oldSelectionType, selectionType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__SELECTION_TYPE, oldSelectionType, selectionType));
 	}
 
 	/**
@@ -349,7 +359,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 		Object oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__SELECTION, oldSelection, selection));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__SELECTION, oldSelection, selection));
 	}
 
 	/**
@@ -358,7 +368,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 */
 	public EList<Object> getCollection() {
 		if (collection == null) {
-			collection = new EDataTypeUniqueEList<Object>(Object.class, this, ExtensionModelPackage.YTABLE__COLLECTION);
+			collection = new EDataTypeUniqueEList<Object>(Object.class, this, ExtensionModelPackage.YTREE__COLLECTION);
 		}
 		return collection;
 	}
@@ -379,7 +389,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 		Class<?> oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTREE__TYPE, oldType, type));
 	}
 
 	/**
@@ -436,7 +446,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT:
 				if (selectionBindingEndpoint != null)
 					msgs = ((InternalEObject)selectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT, YEmbeddableSelectionEndpoint.class, msgs);
 				return basicSetSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)otherEnd, msgs);
@@ -452,7 +462,7 @@ public class YTableImpl extends YInputImpl implements YTable {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT:
 				return basicSetSelectionBindingEndpoint(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -465,25 +475,25 @@ public class YTableImpl extends YInputImpl implements YTable {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT:
 				if (resolve) return getCollectionBindingEndpoint();
 				return basicGetCollectionBindingEndpoint();
-			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT:
 				if (resolve) return getSelectionBindingEndpoint();
 				return basicGetSelectionBindingEndpoint();
-			case ExtensionModelPackage.YTABLE__DATATYPE:
+			case ExtensionModelPackage.YTREE__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
-			case ExtensionModelPackage.YTABLE__DATADESCRIPTION:
+			case ExtensionModelPackage.YTREE__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
-			case ExtensionModelPackage.YTABLE__SELECTION_TYPE:
+			case ExtensionModelPackage.YTREE__SELECTION_TYPE:
 				return getSelectionType();
-			case ExtensionModelPackage.YTABLE__SELECTION:
+			case ExtensionModelPackage.YTREE__SELECTION:
 				return getSelection();
-			case ExtensionModelPackage.YTABLE__COLLECTION:
+			case ExtensionModelPackage.YTREE__COLLECTION:
 				return getCollection();
-			case ExtensionModelPackage.YTABLE__TYPE:
+			case ExtensionModelPackage.YTREE__TYPE:
 				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -497,29 +507,29 @@ public class YTableImpl extends YInputImpl implements YTable {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT:
 				setCollectionBindingEndpoint((YEmbeddableCollectionEndpoint)newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT:
 				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__DATATYPE:
-				setDatatype((YTableDatatype)newValue);
+			case ExtensionModelPackage.YTREE__DATATYPE:
+				setDatatype((YTreeDatatype)newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__DATADESCRIPTION:
+			case ExtensionModelPackage.YTREE__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__SELECTION_TYPE:
+			case ExtensionModelPackage.YTREE__SELECTION_TYPE:
 				setSelectionType((YSelectionType)newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__SELECTION:
+			case ExtensionModelPackage.YTREE__SELECTION:
 				setSelection(newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__COLLECTION:
+			case ExtensionModelPackage.YTREE__COLLECTION:
 				getCollection().clear();
 				getCollection().addAll((Collection<? extends Object>)newValue);
 				return;
-			case ExtensionModelPackage.YTABLE__TYPE:
+			case ExtensionModelPackage.YTREE__TYPE:
 				setType((Class<?>)newValue);
 				return;
 		}
@@ -533,28 +543,28 @@ public class YTableImpl extends YInputImpl implements YTable {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT:
 				setCollectionBindingEndpoint((YEmbeddableCollectionEndpoint)null);
 				return;
-			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT:
 				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)null);
 				return;
-			case ExtensionModelPackage.YTABLE__DATATYPE:
-				setDatatype((YTableDatatype)null);
+			case ExtensionModelPackage.YTREE__DATATYPE:
+				setDatatype((YTreeDatatype)null);
 				return;
-			case ExtensionModelPackage.YTABLE__DATADESCRIPTION:
+			case ExtensionModelPackage.YTREE__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
-			case ExtensionModelPackage.YTABLE__SELECTION_TYPE:
+			case ExtensionModelPackage.YTREE__SELECTION_TYPE:
 				setSelectionType(SELECTION_TYPE_EDEFAULT);
 				return;
-			case ExtensionModelPackage.YTABLE__SELECTION:
+			case ExtensionModelPackage.YTREE__SELECTION:
 				setSelection(SELECTION_EDEFAULT);
 				return;
-			case ExtensionModelPackage.YTABLE__COLLECTION:
+			case ExtensionModelPackage.YTREE__COLLECTION:
 				getCollection().clear();
 				return;
-			case ExtensionModelPackage.YTABLE__TYPE:
+			case ExtensionModelPackage.YTREE__TYPE:
 				setType((Class<?>)null);
 				return;
 		}
@@ -568,21 +578,21 @@ public class YTableImpl extends YInputImpl implements YTable {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT:
 				return collectionBindingEndpoint != null;
-			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
+			case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT:
 				return selectionBindingEndpoint != null;
-			case ExtensionModelPackage.YTABLE__DATATYPE:
+			case ExtensionModelPackage.YTREE__DATATYPE:
 				return datatype != null;
-			case ExtensionModelPackage.YTABLE__DATADESCRIPTION:
+			case ExtensionModelPackage.YTREE__DATADESCRIPTION:
 				return datadescription != null;
-			case ExtensionModelPackage.YTABLE__SELECTION_TYPE:
+			case ExtensionModelPackage.YTREE__SELECTION_TYPE:
 				return selectionType != SELECTION_TYPE_EDEFAULT;
-			case ExtensionModelPackage.YTABLE__SELECTION:
+			case ExtensionModelPackage.YTREE__SELECTION:
 				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
-			case ExtensionModelPackage.YTABLE__COLLECTION:
+			case ExtensionModelPackage.YTREE__COLLECTION:
 				return collection != null && !collection.isEmpty();
-			case ExtensionModelPackage.YTABLE__TYPE:
+			case ExtensionModelPackage.YTREE__TYPE:
 				return type != null;
 		}
 		return super.eIsSet(featureID);
@@ -601,13 +611,13 @@ public class YTableImpl extends YInputImpl implements YTable {
 		}
 		if (baseClass == YCollectionBindable.class) {
 			switch (derivedFeatureID) {
-				case ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT: return CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT;
+				case ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT: return CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT;
 				default: return -1;
 			}
 		}
 		if (baseClass == YSelectionBindable.class) {
 			switch (derivedFeatureID) {
-				case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT: return CoreModelPackage.YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT;
+				case ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT: return CoreModelPackage.YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT;
 				default: return -1;
 			}
 		}
@@ -627,13 +637,13 @@ public class YTableImpl extends YInputImpl implements YTable {
 		}
 		if (baseClass == YCollectionBindable.class) {
 			switch (baseFeatureID) {
-				case CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YTABLE__COLLECTION_BINDING_ENDPOINT;
+				case CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YTREE__COLLECTION_BINDING_ENDPOINT;
 				default: return -1;
 			}
 		}
 		if (baseClass == YSelectionBindable.class) {
 			switch (baseFeatureID) {
-				case CoreModelPackage.YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT;
+				case CoreModelPackage.YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YTREE__SELECTION_BINDING_ENDPOINT;
 				default: return -1;
 			}
 		}
@@ -661,4 +671,4 @@ public class YTableImpl extends YInputImpl implements YTable {
 		return result.toString();
 	}
 
-} // YUiTableImpl
+} // YTreeImpl

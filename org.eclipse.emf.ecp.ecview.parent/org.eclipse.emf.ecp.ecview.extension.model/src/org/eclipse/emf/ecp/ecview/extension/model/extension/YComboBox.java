@@ -29,6 +29,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getSelection <em>Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,29 +117,45 @@ public interface YComboBox extends YInput, YCollectionBindable, YSelectionBindab
 	void setSelection(Object value);
 
 	/**
-	 * Returns the value of the '<em><b>Collection</b></em>' attribute.
+	 * Returns the value of the '<em><b>Collection</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Object}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Collection</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Collection</em>' attribute.
-	 * @see #setCollection(EList)
+	 * @return the value of the '<em>Collection</em>' attribute list.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_Collection()
-	 * @model many="false" transient="true"
+	 * @model transient="true"
 	 * @generated
 	 */
-	EList<?> getCollection();
+	EList<Object> getCollection();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}' attribute.
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Collection</em>' attribute.
-	 * @see #getCollection()
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see #setType(Class)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_Type()
+	 * @model
 	 * @generated
 	 */
-	void setCollection(EList<?> value);
+	Class<?> getType();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(Class<?> value);
 
 } // YUiComboBox
