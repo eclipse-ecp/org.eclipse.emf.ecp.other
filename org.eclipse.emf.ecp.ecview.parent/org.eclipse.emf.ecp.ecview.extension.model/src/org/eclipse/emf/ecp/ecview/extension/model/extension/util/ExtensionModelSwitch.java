@@ -17,6 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
@@ -197,6 +198,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYInput(yTable);
 				if (result == null) result = caseYCollectionBindable(yTable);
 				if (result == null) result = caseYSelectionBindable(yTable);
+				if (result == null) result = caseYMultiSelectionBindable(yTable);
 				if (result == null) result = caseYField(yTable);
 				if (result == null) result = caseYBindable(yTable);
 				if (result == null) result = caseYEmbeddable(yTable);
@@ -205,6 +207,42 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yTable);
 				if (result == null) result = caseYCssAble(yTable);
 				if (result == null) result = caseYVisibleable(yTable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionModelPackage.YTREE: {
+				YTree yTree = (YTree)theEObject;
+				T result = caseYTree(yTree);
+				if (result == null) result = caseYInput(yTree);
+				if (result == null) result = caseYCollectionBindable(yTree);
+				if (result == null) result = caseYSelectionBindable(yTree);
+				if (result == null) result = caseYMultiSelectionBindable(yTree);
+				if (result == null) result = caseYField(yTree);
+				if (result == null) result = caseYBindable(yTree);
+				if (result == null) result = caseYEmbeddable(yTree);
+				if (result == null) result = caseYEditable(yTree);
+				if (result == null) result = caseYEnable(yTree);
+				if (result == null) result = caseYElement(yTree);
+				if (result == null) result = caseYCssAble(yTree);
+				if (result == null) result = caseYVisibleable(yTree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionModelPackage.YLIST: {
+				YList yList = (YList)theEObject;
+				T result = caseYList(yList);
+				if (result == null) result = caseYInput(yList);
+				if (result == null) result = caseYCollectionBindable(yList);
+				if (result == null) result = caseYSelectionBindable(yList);
+				if (result == null) result = caseYMultiSelectionBindable(yList);
+				if (result == null) result = caseYField(yList);
+				if (result == null) result = caseYBindable(yList);
+				if (result == null) result = caseYEmbeddable(yList);
+				if (result == null) result = caseYEditable(yList);
+				if (result == null) result = caseYEnable(yList);
+				if (result == null) result = caseYElement(yList);
+				if (result == null) result = caseYCssAble(yList);
+				if (result == null) result = caseYVisibleable(yList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -336,23 +374,6 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ExtensionModelPackage.YLIST: {
-				YList yList = (YList)theEObject;
-				T result = caseYList(yList);
-				if (result == null) result = caseYInput(yList);
-				if (result == null) result = caseYCollectionBindable(yList);
-				if (result == null) result = caseYSelectionBindable(yList);
-				if (result == null) result = caseYField(yList);
-				if (result == null) result = caseYBindable(yList);
-				if (result == null) result = caseYEmbeddable(yList);
-				if (result == null) result = caseYEditable(yList);
-				if (result == null) result = caseYEnable(yList);
-				if (result == null) result = caseYElement(yList);
-				if (result == null) result = caseYCssAble(yList);
-				if (result == null) result = caseYVisibleable(yList);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ExtensionModelPackage.YBUTTON: {
 				YButton yButton = (YButton)theEObject;
 				T result = caseYButton(yButton);
@@ -376,23 +397,6 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yToggleButton);
 				if (result == null) result = caseYCssAble(yToggleButton);
 				if (result == null) result = caseYVisibleable(yToggleButton);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExtensionModelPackage.YTREE: {
-				YTree yTree = (YTree)theEObject;
-				T result = caseYTree(yTree);
-				if (result == null) result = caseYInput(yTree);
-				if (result == null) result = caseYCollectionBindable(yTree);
-				if (result == null) result = caseYSelectionBindable(yTree);
-				if (result == null) result = caseYField(yTree);
-				if (result == null) result = caseYBindable(yTree);
-				if (result == null) result = caseYEmbeddable(yTree);
-				if (result == null) result = caseYEditable(yTree);
-				if (result == null) result = caseYEnable(yTree);
-				if (result == null) result = caseYElement(yTree);
-				if (result == null) result = caseYCssAble(yTree);
-				if (result == null) result = caseYVisibleable(yTree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -937,6 +941,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYSelectionBindable(YSelectionBindable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMulti Selection Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMulti Selection Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMultiSelectionBindable(YMultiSelectionBindable object) {
 		return null;
 	}
 

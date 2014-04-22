@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getMultiSelection <em>Multi Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getType <em>Type</em>}</li>
  * </ul>
@@ -38,7 +40,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
  * @model
  * @generated
  */
-public interface YList extends YInput, YCollectionBindable, YSelectionBindable {
+public interface YList extends YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -145,6 +147,22 @@ public interface YList extends YInput, YCollectionBindable, YSelectionBindable {
 	 * @generated
 	 */
 	void setSelection(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Multi Selection</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Object}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Multi Selection</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Multi Selection</em>' attribute list.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYList_MultiSelection()
+	 * @model transient="true"
+	 * @generated
+	 */
+	EList<Object> getMultiSelection();
 
 	/**
 	 * Returns the value of the '<em><b>Collection</b></em>' attribute list.

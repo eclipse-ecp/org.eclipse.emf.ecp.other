@@ -232,6 +232,13 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YMULTI_SELECTION_BINDABLE: {
+				YMultiSelectionBindable yMultiSelectionBindable = (YMultiSelectionBindable)theEObject;
+				T result = caseYMultiSelectionBindable(yMultiSelectionBindable);
+				if (result == null) result = caseYBindable(yMultiSelectionBindable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CoreModelPackage.YCOLLECTION_BINDABLE: {
 				YCollectionBindable yCollectionBindable = (YCollectionBindable)theEObject;
 				T result = caseYCollectionBindable(yCollectionBindable);
@@ -271,6 +278,16 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yEmbeddableSelectionEndpoint);
 				if (result == null) result = caseYElement(yEmbeddableSelectionEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: {
+				YEmbeddableMultiSelectionEndpoint yEmbeddableMultiSelectionEndpoint = (YEmbeddableMultiSelectionEndpoint)theEObject;
+				T result = caseYEmbeddableMultiSelectionEndpoint(yEmbeddableMultiSelectionEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
+				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
+				if (result == null) result = caseYElement(yEmbeddableMultiSelectionEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -584,6 +601,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMulti Selection Bindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMulti Selection Bindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMultiSelectionBindable(YMultiSelectionBindable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YCollection Bindable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -655,6 +687,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYEmbeddableSelectionEndpoint(YEmbeddableSelectionEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEmbeddable Multi Selection Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEmbeddable Multi Selection Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEmbeddableMultiSelectionEndpoint(YEmbeddableMultiSelectionEndpoint object) {
 		return null;
 	}
 

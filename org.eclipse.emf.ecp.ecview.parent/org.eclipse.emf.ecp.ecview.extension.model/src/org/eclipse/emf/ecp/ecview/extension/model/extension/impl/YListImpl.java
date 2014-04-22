@@ -17,7 +17,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
@@ -33,10 +35,12 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getCollectionBindingEndpoint <em>Collection Binding Endpoint</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getSelectionBindingEndpoint <em>Selection Binding Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getMultiSelectionBindingEndpoint <em>Multi Selection Binding Endpoint</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getMultiSelection <em>Multi Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -64,6 +68,16 @@ public class YListImpl extends YInputImpl implements YList {
 	 * @ordered
 	 */
 	protected YEmbeddableSelectionEndpoint selectionBindingEndpoint;
+
+	/**
+	 * The cached value of the '{@link #getMultiSelectionBindingEndpoint() <em>Multi Selection Binding Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMultiSelectionBindingEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected YEmbeddableMultiSelectionEndpoint multiSelectionBindingEndpoint;
 
 	/**
 	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
@@ -121,6 +135,16 @@ public class YListImpl extends YInputImpl implements YList {
 	 * @ordered
 	 */
 	protected Object selection = SELECTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMultiSelection() <em>Multi Selection</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMultiSelection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Object> multiSelection;
 
 	/**
 	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute list.
@@ -253,6 +277,44 @@ public class YListImpl extends YInputImpl implements YList {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint getMultiSelectionBindingEndpoint() {
+		if (multiSelectionBindingEndpoint != null && ((EObject)multiSelectionBindingEndpoint).eIsProxy()) {
+			InternalEObject oldMultiSelectionBindingEndpoint = (InternalEObject)multiSelectionBindingEndpoint;
+			multiSelectionBindingEndpoint = (YEmbeddableMultiSelectionEndpoint)eResolveProxy(oldMultiSelectionBindingEndpoint);
+			if (multiSelectionBindingEndpoint != oldMultiSelectionBindingEndpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT, oldMultiSelectionBindingEndpoint, multiSelectionBindingEndpoint));
+			}
+		}
+		return multiSelectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint basicGetMultiSelectionBindingEndpoint() {
+		return multiSelectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMultiSelectionBindingEndpoint(YEmbeddableMultiSelectionEndpoint newMultiSelectionBindingEndpoint) {
+		YEmbeddableMultiSelectionEndpoint oldMultiSelectionBindingEndpoint = multiSelectionBindingEndpoint;
+		multiSelectionBindingEndpoint = newMultiSelectionBindingEndpoint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT, oldMultiSelectionBindingEndpoint, multiSelectionBindingEndpoint));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -361,6 +423,18 @@ public class YListImpl extends YInputImpl implements YList {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Object> getMultiSelection() {
+		if (multiSelection == null) {
+			multiSelection = new EDataTypeUniqueEList<Object>(Object.class, this, ExtensionModelPackage.YLIST__MULTI_SELECTION);
+		}
+		return multiSelection;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -388,6 +462,17 @@ public class YListImpl extends YInputImpl implements YList {
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -419,6 +504,18 @@ public class YListImpl extends YInputImpl implements YList {
 	public YEmbeddableSelectionEndpoint createSelectionEndpoint() {
 		YEmbeddableSelectionEndpoint ep = CoreModelFactory.eINSTANCE
 				.createYEmbeddableSelectionEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpoint() {
+		YEmbeddableMultiSelectionEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableMultiSelectionEndpoint();
 		ep.setElement(this);
 		return ep;
 	}
@@ -479,6 +576,9 @@ public class YListImpl extends YInputImpl implements YList {
 			case ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT:
 				if (resolve) return getSelectionBindingEndpoint();
 				return basicGetSelectionBindingEndpoint();
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT:
+				if (resolve) return getMultiSelectionBindingEndpoint();
+				return basicGetMultiSelectionBindingEndpoint();
 			case ExtensionModelPackage.YLIST__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
@@ -489,6 +589,8 @@ public class YListImpl extends YInputImpl implements YList {
 				return getSelectionType();
 			case ExtensionModelPackage.YLIST__SELECTION:
 				return getSelection();
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION:
+				return getMultiSelection();
 			case ExtensionModelPackage.YLIST__COLLECTION:
 				return getCollection();
 			case ExtensionModelPackage.YLIST__TYPE:
@@ -511,6 +613,9 @@ public class YListImpl extends YInputImpl implements YList {
 			case ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT:
 				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)newValue);
 				return;
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT:
+				setMultiSelectionBindingEndpoint((YEmbeddableMultiSelectionEndpoint)newValue);
+				return;
 			case ExtensionModelPackage.YLIST__DATADESCRIPTION:
 				setDatadescription((YDatadescription)newValue);
 				return;
@@ -522,6 +627,10 @@ public class YListImpl extends YInputImpl implements YList {
 				return;
 			case ExtensionModelPackage.YLIST__SELECTION:
 				setSelection(newValue);
+				return;
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION:
+				getMultiSelection().clear();
+				getMultiSelection().addAll((Collection<? extends Object>)newValue);
 				return;
 			case ExtensionModelPackage.YLIST__COLLECTION:
 				getCollection().clear();
@@ -547,6 +656,9 @@ public class YListImpl extends YInputImpl implements YList {
 			case ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT:
 				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)null);
 				return;
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT:
+				setMultiSelectionBindingEndpoint((YEmbeddableMultiSelectionEndpoint)null);
+				return;
 			case ExtensionModelPackage.YLIST__DATADESCRIPTION:
 				setDatadescription((YDatadescription)null);
 				return;
@@ -558,6 +670,9 @@ public class YListImpl extends YInputImpl implements YList {
 				return;
 			case ExtensionModelPackage.YLIST__SELECTION:
 				setSelection(SELECTION_EDEFAULT);
+				return;
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION:
+				getMultiSelection().clear();
 				return;
 			case ExtensionModelPackage.YLIST__COLLECTION:
 				getCollection().clear();
@@ -580,6 +695,8 @@ public class YListImpl extends YInputImpl implements YList {
 				return collectionBindingEndpoint != null;
 			case ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT:
 				return selectionBindingEndpoint != null;
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT:
+				return multiSelectionBindingEndpoint != null;
 			case ExtensionModelPackage.YLIST__DATADESCRIPTION:
 				return datadescription != null;
 			case ExtensionModelPackage.YLIST__DATATYPE:
@@ -588,6 +705,8 @@ public class YListImpl extends YInputImpl implements YList {
 				return selectionType != SELECTION_TYPE_EDEFAULT;
 			case ExtensionModelPackage.YLIST__SELECTION:
 				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION:
+				return multiSelection != null && !multiSelection.isEmpty();
 			case ExtensionModelPackage.YLIST__COLLECTION:
 				return collection != null && !collection.isEmpty();
 			case ExtensionModelPackage.YLIST__TYPE:
@@ -619,6 +738,12 @@ public class YListImpl extends YInputImpl implements YList {
 				default: return -1;
 			}
 		}
+		if (baseClass == YMultiSelectionBindable.class) {
+			switch (derivedFeatureID) {
+				case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT: return CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -645,6 +770,12 @@ public class YListImpl extends YInputImpl implements YList {
 				default: return -1;
 			}
 		}
+		if (baseClass == YMultiSelectionBindable.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -661,6 +792,8 @@ public class YListImpl extends YInputImpl implements YList {
 		result.append(selectionType);
 		result.append(", selection: ");
 		result.append(selection);
+		result.append(", multiSelection: ");
+		result.append(multiSelection);
 		result.append(", collection: ");
 		result.append(collection);
 		result.append(", type: ");

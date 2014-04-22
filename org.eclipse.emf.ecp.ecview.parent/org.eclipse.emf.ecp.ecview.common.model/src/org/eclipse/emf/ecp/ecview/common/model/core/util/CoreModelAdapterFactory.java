@@ -170,6 +170,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYSelectionBindableAdapter();
 			}
 			@Override
+			public Adapter caseYMultiSelectionBindable(YMultiSelectionBindable object) {
+				return createYMultiSelectionBindableAdapter();
+			}
+			@Override
 			public Adapter caseYCollectionBindable(YCollectionBindable object) {
 				return createYCollectionBindableAdapter();
 			}
@@ -188,6 +192,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYEmbeddableSelectionEndpoint(YEmbeddableSelectionEndpoint object) {
 				return createYEmbeddableSelectionEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYEmbeddableMultiSelectionEndpoint(YEmbeddableMultiSelectionEndpoint object) {
+				return createYEmbeddableMultiSelectionEndpointAdapter();
 			}
 			@Override
 			public Adapter caseYEmbeddableCollectionEndpoint(YEmbeddableCollectionEndpoint object) {
@@ -496,6 +504,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable <em>YMulti Selection Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable
+	 * @generated
+	 */
+	public Adapter createYMultiSelectionBindableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable <em>YCollection Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -562,6 +584,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYEmbeddableSelectionEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint <em>YEmbeddable Multi Selection Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint
+	 * @generated
+	 */
+	public Adapter createYEmbeddableMultiSelectionEndpointAdapter() {
 		return null;
 	}
 

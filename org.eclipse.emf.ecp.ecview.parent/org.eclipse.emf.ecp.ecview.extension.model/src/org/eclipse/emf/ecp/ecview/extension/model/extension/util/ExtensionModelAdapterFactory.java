@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
@@ -140,6 +141,14 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYTableAdapter();
 			}
 			@Override
+			public Adapter caseYTree(YTree object) {
+				return createYTreeAdapter();
+			}
+			@Override
+			public Adapter caseYList(YList object) {
+				return createYListAdapter();
+			}
+			@Override
 			public Adapter caseYLabel(YLabel object) {
 				return createYLabelAdapter();
 			}
@@ -172,20 +181,12 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYComboBoxAdapter();
 			}
 			@Override
-			public Adapter caseYList(YList object) {
-				return createYListAdapter();
-			}
-			@Override
 			public Adapter caseYButton(YButton object) {
 				return createYButtonAdapter();
 			}
 			@Override
 			public Adapter caseYToggleButton(YToggleButton object) {
 				return createYToggleButtonAdapter();
-			}
-			@Override
-			public Adapter caseYTree(YTree object) {
-				return createYTreeAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -242,6 +243,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYSelectionBindable(YSelectionBindable object) {
 				return createYSelectionBindableAdapter();
+			}
+			@Override
+			public Adapter caseYMultiSelectionBindable(YMultiSelectionBindable object) {
+				return createYMultiSelectionBindableAdapter();
 			}
 			@Override
 			public Adapter caseYAction(YAction object) {
@@ -772,6 +777,20 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYSelectionBindableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable <em>YMulti Selection Bindable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable
+	 * @generated
+	 */
+	public Adapter createYMultiSelectionBindableAdapter() {
 		return null;
 	}
 

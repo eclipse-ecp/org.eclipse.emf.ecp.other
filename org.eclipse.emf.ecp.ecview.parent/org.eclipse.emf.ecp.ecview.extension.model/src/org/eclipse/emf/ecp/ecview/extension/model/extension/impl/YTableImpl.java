@@ -17,7 +17,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
@@ -33,10 +35,12 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getCollectionBindingEndpoint <em>Collection Binding Endpoint</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getSelectionBindingEndpoint <em>Selection Binding Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getMultiSelectionBindingEndpoint <em>Multi Selection Binding Endpoint</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getDatadescription <em>Datadescription</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getSelectionType <em>Selection Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getMultiSelection <em>Multi Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -63,6 +67,15 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected YEmbeddableSelectionEndpoint selectionBindingEndpoint;
+	/**
+	 * The cached value of the '{@link #getMultiSelectionBindingEndpoint() <em>Multi Selection Binding Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMultiSelectionBindingEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected YEmbeddableMultiSelectionEndpoint multiSelectionBindingEndpoint;
 	/**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -115,6 +128,15 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected Object selection = SELECTION_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getMultiSelection() <em>Multi Selection</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMultiSelection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Object> multiSelection;
 	/**
 	 * The cached value of the '{@link #getCollection() <em>Collection</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -245,6 +267,44 @@ public class YTableImpl extends YInputImpl implements YTable {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint getMultiSelectionBindingEndpoint() {
+		if (multiSelectionBindingEndpoint != null && ((EObject)multiSelectionBindingEndpoint).eIsProxy()) {
+			InternalEObject oldMultiSelectionBindingEndpoint = (InternalEObject)multiSelectionBindingEndpoint;
+			multiSelectionBindingEndpoint = (YEmbeddableMultiSelectionEndpoint)eResolveProxy(oldMultiSelectionBindingEndpoint);
+			if (multiSelectionBindingEndpoint != oldMultiSelectionBindingEndpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT, oldMultiSelectionBindingEndpoint, multiSelectionBindingEndpoint));
+			}
+		}
+		return multiSelectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint basicGetMultiSelectionBindingEndpoint() {
+		return multiSelectionBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMultiSelectionBindingEndpoint(YEmbeddableMultiSelectionEndpoint newMultiSelectionBindingEndpoint) {
+		YEmbeddableMultiSelectionEndpoint oldMultiSelectionBindingEndpoint = multiSelectionBindingEndpoint;
+		multiSelectionBindingEndpoint = newMultiSelectionBindingEndpoint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT, oldMultiSelectionBindingEndpoint, multiSelectionBindingEndpoint));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -353,6 +413,18 @@ public class YTableImpl extends YInputImpl implements YTable {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Object> getMultiSelection() {
+		if (multiSelection == null) {
+			multiSelection = new EDataTypeUniqueEList<Object>(Object.class, this, ExtensionModelPackage.YTABLE__MULTI_SELECTION);
+		}
+		return multiSelection;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -380,6 +452,17 @@ public class YTableImpl extends YInputImpl implements YTable {
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpointGen() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -411,6 +494,18 @@ public class YTableImpl extends YInputImpl implements YTable {
 	public YEmbeddableSelectionEndpoint createSelectionEndpoint() {
 		YEmbeddableSelectionEndpoint ep = CoreModelFactory.eINSTANCE
 				.createYEmbeddableSelectionEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpoint() {
+		YEmbeddableMultiSelectionEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableMultiSelectionEndpoint();
 		ep.setElement(this);
 		return ep;
 	}
@@ -471,6 +566,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
 				if (resolve) return getSelectionBindingEndpoint();
 				return basicGetSelectionBindingEndpoint();
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT:
+				if (resolve) return getMultiSelectionBindingEndpoint();
+				return basicGetMultiSelectionBindingEndpoint();
 			case ExtensionModelPackage.YTABLE__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
@@ -481,6 +579,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return getSelectionType();
 			case ExtensionModelPackage.YTABLE__SELECTION:
 				return getSelection();
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION:
+				return getMultiSelection();
 			case ExtensionModelPackage.YTABLE__COLLECTION:
 				return getCollection();
 			case ExtensionModelPackage.YTABLE__TYPE:
@@ -503,6 +603,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
 				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)newValue);
 				return;
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT:
+				setMultiSelectionBindingEndpoint((YEmbeddableMultiSelectionEndpoint)newValue);
+				return;
 			case ExtensionModelPackage.YTABLE__DATATYPE:
 				setDatatype((YTableDatatype)newValue);
 				return;
@@ -514,6 +617,10 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return;
 			case ExtensionModelPackage.YTABLE__SELECTION:
 				setSelection(newValue);
+				return;
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION:
+				getMultiSelection().clear();
+				getMultiSelection().addAll((Collection<? extends Object>)newValue);
 				return;
 			case ExtensionModelPackage.YTABLE__COLLECTION:
 				getCollection().clear();
@@ -539,6 +646,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
 				setSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)null);
 				return;
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT:
+				setMultiSelectionBindingEndpoint((YEmbeddableMultiSelectionEndpoint)null);
+				return;
 			case ExtensionModelPackage.YTABLE__DATATYPE:
 				setDatatype((YTableDatatype)null);
 				return;
@@ -550,6 +660,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return;
 			case ExtensionModelPackage.YTABLE__SELECTION:
 				setSelection(SELECTION_EDEFAULT);
+				return;
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION:
+				getMultiSelection().clear();
 				return;
 			case ExtensionModelPackage.YTABLE__COLLECTION:
 				getCollection().clear();
@@ -572,6 +685,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return collectionBindingEndpoint != null;
 			case ExtensionModelPackage.YTABLE__SELECTION_BINDING_ENDPOINT:
 				return selectionBindingEndpoint != null;
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT:
+				return multiSelectionBindingEndpoint != null;
 			case ExtensionModelPackage.YTABLE__DATATYPE:
 				return datatype != null;
 			case ExtensionModelPackage.YTABLE__DATADESCRIPTION:
@@ -580,6 +695,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return selectionType != SELECTION_TYPE_EDEFAULT;
 			case ExtensionModelPackage.YTABLE__SELECTION:
 				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+			case ExtensionModelPackage.YTABLE__MULTI_SELECTION:
+				return multiSelection != null && !multiSelection.isEmpty();
 			case ExtensionModelPackage.YTABLE__COLLECTION:
 				return collection != null && !collection.isEmpty();
 			case ExtensionModelPackage.YTABLE__TYPE:
@@ -611,6 +728,12 @@ public class YTableImpl extends YInputImpl implements YTable {
 				default: return -1;
 			}
 		}
+		if (baseClass == YMultiSelectionBindable.class) {
+			switch (derivedFeatureID) {
+				case ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT: return CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -637,6 +760,12 @@ public class YTableImpl extends YInputImpl implements YTable {
 				default: return -1;
 			}
 		}
+		if (baseClass == YMultiSelectionBindable.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT: return ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -653,6 +782,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 		result.append(selectionType);
 		result.append(", selection: ");
 		result.append(selection);
+		result.append(", multiSelection: ");
+		result.append(multiSelection);
 		result.append(", collection: ");
 		result.append(collection);
 		result.append(", type: ");

@@ -609,7 +609,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTable_Collection() {
+	public EAttribute getYTable_MultiSelection() {
 		return (EAttribute)yTableEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -618,8 +618,17 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTable_Type() {
+	public EAttribute getYTable_Collection() {
 		return (EAttribute)yTableEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYTable_Type() {
+		return (EAttribute)yTableEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -978,7 +987,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYList_Collection() {
+	public EAttribute getYList_MultiSelection() {
 		return (EAttribute)yListEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -987,8 +996,17 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYList_Type() {
+	public EAttribute getYList_Collection() {
 		return (EAttribute)yListEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYList_Type() {
+		return (EAttribute)yListEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1086,7 +1104,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTree_Collection() {
+	public EAttribute getYTree_MultiSelection() {
 		return (EAttribute)yTreeEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1095,8 +1113,17 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYTree_Type() {
+	public EAttribute getYTree_Collection() {
 		return (EAttribute)yTreeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYTree_Type() {
+		return (EAttribute)yTreeEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1199,8 +1226,27 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yTableEClass, YTABLE__DATADESCRIPTION);
 		createEAttribute(yTableEClass, YTABLE__SELECTION_TYPE);
 		createEAttribute(yTableEClass, YTABLE__SELECTION);
+		createEAttribute(yTableEClass, YTABLE__MULTI_SELECTION);
 		createEAttribute(yTableEClass, YTABLE__COLLECTION);
 		createEAttribute(yTableEClass, YTABLE__TYPE);
+
+		yTreeEClass = createEClass(YTREE);
+		createEReference(yTreeEClass, YTREE__DATATYPE);
+		createEReference(yTreeEClass, YTREE__DATADESCRIPTION);
+		createEAttribute(yTreeEClass, YTREE__SELECTION_TYPE);
+		createEAttribute(yTreeEClass, YTREE__SELECTION);
+		createEAttribute(yTreeEClass, YTREE__MULTI_SELECTION);
+		createEAttribute(yTreeEClass, YTREE__COLLECTION);
+		createEAttribute(yTreeEClass, YTREE__TYPE);
+
+		yListEClass = createEClass(YLIST);
+		createEReference(yListEClass, YLIST__DATADESCRIPTION);
+		createEReference(yListEClass, YLIST__DATATYPE);
+		createEAttribute(yListEClass, YLIST__SELECTION_TYPE);
+		createEAttribute(yListEClass, YLIST__SELECTION);
+		createEAttribute(yListEClass, YLIST__MULTI_SELECTION);
+		createEAttribute(yListEClass, YLIST__COLLECTION);
+		createEAttribute(yListEClass, YLIST__TYPE);
 
 		yLabelEClass = createEClass(YLABEL);
 		createEReference(yLabelEClass, YLABEL__DATADESCRIPTION);
@@ -1243,28 +1289,12 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEAttribute(yComboBoxEClass, YCOMBO_BOX__COLLECTION);
 		createEAttribute(yComboBoxEClass, YCOMBO_BOX__TYPE);
 
-		yListEClass = createEClass(YLIST);
-		createEReference(yListEClass, YLIST__DATADESCRIPTION);
-		createEReference(yListEClass, YLIST__DATATYPE);
-		createEAttribute(yListEClass, YLIST__SELECTION_TYPE);
-		createEAttribute(yListEClass, YLIST__SELECTION);
-		createEAttribute(yListEClass, YLIST__COLLECTION);
-		createEAttribute(yListEClass, YLIST__TYPE);
-
 		yButtonEClass = createEClass(YBUTTON);
 		createEReference(yButtonEClass, YBUTTON__DATADESCRIPTION);
 		createEAttribute(yButtonEClass, YBUTTON__CLICK_LISTENERS);
 
 		yToggleButtonEClass = createEClass(YTOGGLE_BUTTON);
 		createEReference(yToggleButtonEClass, YTOGGLE_BUTTON__DATADESCRIPTION);
-
-		yTreeEClass = createEClass(YTREE);
-		createEReference(yTreeEClass, YTREE__DATATYPE);
-		createEReference(yTreeEClass, YTREE__DATADESCRIPTION);
-		createEAttribute(yTreeEClass, YTREE__SELECTION_TYPE);
-		createEAttribute(yTreeEClass, YTREE__SELECTION);
-		createEAttribute(yTreeEClass, YTREE__COLLECTION);
-		createEAttribute(yTreeEClass, YTREE__TYPE);
 
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
@@ -1322,6 +1352,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yTableEClass.getESuperTypes().add(this.getYInput());
 		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
+		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
+		yTreeEClass.getESuperTypes().add(this.getYInput());
+		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
+		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
+		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
+		yListEClass.getESuperTypes().add(this.getYInput());
+		yListEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
+		yListEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
+		yListEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYField());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yTextAreaEClass.getESuperTypes().add(this.getYInput());
@@ -1339,15 +1378,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yComboBoxEClass.getESuperTypes().add(this.getYInput());
 		yComboBoxEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yComboBoxEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
-		yListEClass.getESuperTypes().add(this.getYInput());
-		yListEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
-		yListEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYActivateable());
-		yTreeEClass.getESuperTypes().add(this.getYInput());
-		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
-		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1407,11 +1440,36 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEReference(getYTable_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTable_SelectionType(), this.getYSelectionType(), "selectionType", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTable_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YTable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTable_MultiSelection(), ecorePackage.getEJavaObject(), "multiSelection", null, 0, -1, YTable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTable_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YTable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYTable_Type(), g1, "type", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yTreeEClass, YTree.class, "YTree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYTree_Datatype(), theExtDatatypesPackage.getYTreeDatatype(), null, "datatype", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYTree_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTree_SelectionType(), this.getYSelectionType(), "selectionType", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTree_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YTree.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTree_MultiSelection(), ecorePackage.getEJavaObject(), "multiSelection", null, 0, -1, YTree.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTree_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YTree.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYTree_Type(), g1, "type", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yListEClass, YList.class, "YList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYList_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYList_Datatype(), theExtDatatypesPackage.getYListDataType(), null, "datatype", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYList_SelectionType(), this.getYSelectionType(), "selectionType", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYList_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YList.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYList_MultiSelection(), ecorePackage.getEJavaObject(), "multiSelection", null, 0, -1, YList.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYList_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YList.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYList_Type(), g1, "type", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yLabelEClass, YLabel.class, "YLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYLabel_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1457,17 +1515,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYComboBox_Type(), g1, "type", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yListEClass, YList.class, "YList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYList_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getYList_Datatype(), theExtDatatypesPackage.getYListDataType(), null, "datatype", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYList_SelectionType(), this.getYSelectionType(), "selectionType", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYList_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YList.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYList_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YList.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getYList_Type(), g1, "type", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(yButtonEClass, YButton.class, "YButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYButton_ClickListeners(), this.getYButtonClickListener(), "clickListeners", null, 0, -1, YButton.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1480,17 +1527,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		initEClass(yToggleButtonEClass, YToggleButton.class, "YToggleButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYToggleButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YToggleButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(yTreeEClass, YTree.class, "YTree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYTree_Datatype(), theExtDatatypesPackage.getYTreeDatatype(), null, "datatype", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getYTree_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTree_SelectionType(), this.getYSelectionType(), "selectionType", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTree_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YTree.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTree_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YTree.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getYTree_Type(), g1, "type", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");

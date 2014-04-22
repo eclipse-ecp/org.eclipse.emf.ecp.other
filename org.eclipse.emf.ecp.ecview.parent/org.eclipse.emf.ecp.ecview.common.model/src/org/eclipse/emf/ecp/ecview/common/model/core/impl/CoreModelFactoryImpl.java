@@ -80,6 +80,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return (EObject)createYContextBindingEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return (EObject)createYEmbeddableValueEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return (EObject)createYEmbeddableSelectionEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: return (EObject)createYEmbeddableMultiSelectionEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT: return (EObject)createYEmbeddableCollectionEndpoint();
 			case CoreModelPackage.YACTIVATED_ENDPOINT: return (EObject)createYActivatedEndpoint();
 			default:
@@ -203,6 +204,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YEmbeddableSelectionEndpoint createYEmbeddableSelectionEndpoint() {
 		YEmbeddableSelectionEndpointImpl yEmbeddableSelectionEndpoint = new YEmbeddableSelectionEndpointImpl();
 		return yEmbeddableSelectionEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddableMultiSelectionEndpoint createYEmbeddableMultiSelectionEndpoint() {
+		YEmbeddableMultiSelectionEndpointImpl yEmbeddableMultiSelectionEndpoint = new YEmbeddableMultiSelectionEndpointImpl();
+		return yEmbeddableMultiSelectionEndpoint;
 	}
 
 	/**

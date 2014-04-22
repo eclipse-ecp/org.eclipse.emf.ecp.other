@@ -85,6 +85,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE: return (EObject)createYVerticalLayoutCellStyle();
 			case ExtensionModelPackage.YSPAN_INFO: return (EObject)createYSpanInfo();
 			case ExtensionModelPackage.YTABLE: return (EObject)createYTable();
+			case ExtensionModelPackage.YTREE: return (EObject)createYTree();
+			case ExtensionModelPackage.YLIST: return (EObject)createYList();
 			case ExtensionModelPackage.YLABEL: return (EObject)createYLabel();
 			case ExtensionModelPackage.YTEXT_AREA: return (EObject)createYTextArea();
 			case ExtensionModelPackage.YCHECK_BOX: return (EObject)createYCheckBox();
@@ -93,10 +95,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YDECIMAL_FIELD: return (EObject)createYDecimalField();
 			case ExtensionModelPackage.YNUMERIC_FIELD: return (EObject)createYNumericField();
 			case ExtensionModelPackage.YCOMBO_BOX: return (EObject)createYComboBox();
-			case ExtensionModelPackage.YLIST: return (EObject)createYList();
 			case ExtensionModelPackage.YBUTTON: return (EObject)createYButton();
 			case ExtensionModelPackage.YTOGGLE_BUTTON: return (EObject)createYToggleButton();
-			case ExtensionModelPackage.YTREE: return (EObject)createYTree();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

@@ -101,6 +101,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectionBindingEndpoint"
         eType="#//YEmbeddableSelectionEndpoint" eOpposite="#//YEmbeddableSelectionEndpoint/element"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YMultiSelectionBindable" abstract="true"
+      interface="true" eSuperTypes="#//YBindable">
+    <eOperations name="createMultiSelectionEndpoint" eType="#//YEmbeddableMultiSelectionEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiSelectionBindingEndpoint"
+        eType="#//YEmbeddableMultiSelectionEndpoint"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YCollectionBindable" abstract="true"
       interface="true" eSuperTypes="#//YBindable">
     <eOperations name="createCollectionEndpoint" eType="#//YEmbeddableCollectionEndpoint"/>
@@ -122,6 +128,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableSelectionEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint #//YEmbeddableBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
         eType="#//YSelectionBindable" eOpposite="#//YSelectionBindable/selectionBindingEndpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableMultiSelectionEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint #//YEmbeddableBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        eType="#//YMultiSelectionBindable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableCollectionEndpoint" eSuperTypes="binding.ecore#//YListBindingEndpoint #//YEmbeddableBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"

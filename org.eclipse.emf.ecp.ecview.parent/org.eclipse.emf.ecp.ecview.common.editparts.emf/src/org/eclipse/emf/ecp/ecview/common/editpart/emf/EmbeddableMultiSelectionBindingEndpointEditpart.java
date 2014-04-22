@@ -13,23 +13,24 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableSelectionEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableMultiSelectionEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 
 /**
  * Responsible to create an observable.
  */
-public class EmbeddableSelectionBindingEndpointEditpart extends
-		BindableValueEndpointEditpart<YEmbeddableSelectionEndpoint> implements
-		IEmbeddableSelectionEndpointEditpart {
+public class EmbeddableMultiSelectionBindingEndpointEditpart extends
+		BindableValueEndpointEditpart<YEmbeddableMultiSelectionEndpoint>
+		implements IEmbeddableMultiSelectionEndpointEditpart {
 
 	@Override
-	protected YEmbeddableSelectionEndpoint createModel() {
+	protected YEmbeddableMultiSelectionEndpoint createModel() {
 		checkDisposed();
-		return CoreModelFactory.eINSTANCE.createYEmbeddableSelectionEndpoint();
+		return CoreModelFactory.eINSTANCE
+				.createYEmbeddableMultiSelectionEndpoint();
 	}
 
 	@SuppressWarnings("unchecked")
