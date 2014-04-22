@@ -1134,7 +1134,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ID = BindingPackage.YLIST_BINDING_ENDPOINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1143,7 +1143,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YEmbeddable Multi Selection Endpoint</em>' class.
@@ -1152,7 +1152,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableCollectionEndpointImpl <em>YEmbeddable Collection Endpoint</em>}' class.

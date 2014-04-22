@@ -2,7 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
-import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
  * @model
  * @generated
  */
-public interface YEmbeddableMultiSelectionEndpoint extends YValueBindingEndpoint, YEmbeddableBindingEndpoint {
+public interface YEmbeddableMultiSelectionEndpoint extends YListBindingEndpoint, YEmbeddableBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->

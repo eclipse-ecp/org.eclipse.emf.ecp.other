@@ -10,11 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
-import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableMultiSelectionEndpointEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableListEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
@@ -23,7 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
  * Responsible to create an observable.
  */
 public class EmbeddableMultiSelectionBindingEndpointEditpart extends
-		BindableValueEndpointEditpart<YEmbeddableMultiSelectionEndpoint>
+		BindableListEndpointEditpart<YEmbeddableMultiSelectionEndpoint>
 		implements IEmbeddableMultiSelectionEndpointEditpart {
 
 	@Override
@@ -35,7 +35,7 @@ public class EmbeddableMultiSelectionBindingEndpointEditpart extends
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <A extends IObservableValue> A getObservable() {
+	public <A extends IObservableList> A getObservable() {
 		IEmbeddableEditpart embeddableEditpart = DelegatingEditPartManager
 				.getInstance().getEditpart(getModel().getElement());
 

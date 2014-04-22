@@ -3,15 +3,11 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl;
-
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingEndpointImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
@@ -29,7 +25,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
  *
  * @generated
  */
-public class YEmbeddableMultiSelectionEndpointImpl extends YValueBindingEndpointImpl implements YEmbeddableMultiSelectionEndpoint {
+public class YEmbeddableMultiSelectionEndpointImpl extends YListBindingEndpointImpl implements YEmbeddableMultiSelectionEndpoint {
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
 	 * <!-- begin-user-doc -->

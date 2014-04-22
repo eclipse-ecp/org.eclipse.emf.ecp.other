@@ -284,7 +284,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: {
 				YEmbeddableMultiSelectionEndpoint yEmbeddableMultiSelectionEndpoint = (YEmbeddableMultiSelectionEndpoint)theEObject;
 				T result = caseYEmbeddableMultiSelectionEndpoint(yEmbeddableMultiSelectionEndpoint);
-				if (result == null) result = caseYValueBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
+				if (result == null) result = caseYListBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yEmbeddableMultiSelectionEndpoint);
 				if (result == null) result = caseYElement(yEmbeddableMultiSelectionEndpoint);

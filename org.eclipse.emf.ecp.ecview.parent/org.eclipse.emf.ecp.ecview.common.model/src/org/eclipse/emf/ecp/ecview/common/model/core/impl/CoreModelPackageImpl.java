@@ -1099,7 +1099,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableValueEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yEmbeddableSelectionEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
 		yEmbeddableSelectionEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
-		yEmbeddableMultiSelectionEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
+		yEmbeddableMultiSelectionEndpointEClass.getESuperTypes().add(theBindingPackage.getYListBindingEndpoint());
 		yEmbeddableMultiSelectionEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yEmbeddableCollectionEndpointEClass.getESuperTypes().add(theBindingPackage.getYListBindingEndpoint());
 		yEmbeddableCollectionEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());

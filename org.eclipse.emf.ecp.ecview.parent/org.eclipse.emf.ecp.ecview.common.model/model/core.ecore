@@ -129,7 +129,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
         eType="#//YSelectionBindable" eOpposite="#//YSelectionBindable/selectionBindingEndpoint"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableMultiSelectionEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint #//YEmbeddableBindingEndpoint">
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableMultiSelectionEndpoint" eSuperTypes="binding.ecore#//YListBindingEndpoint #//YEmbeddableBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
         eType="#//YMultiSelectionBindable"/>
   </eClassifiers>

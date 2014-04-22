@@ -10,12 +10,12 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableListEndpointEditpart;
 
 /**
  * An editpart resonsible to handle multi selection bindings.
  */
 public interface IEmbeddableMultiSelectionEndpointEditpart extends
-		IBindableValueEndpointEditpart {
+		IBindableListEndpointEditpart {
 
 }
