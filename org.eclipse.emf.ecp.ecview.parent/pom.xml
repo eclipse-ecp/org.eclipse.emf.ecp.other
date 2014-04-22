@@ -8,8 +8,8 @@
 
 	<properties>
 		<next-release>0.0.2-SNAPSHOT</next-release>
-		<tycho-version>0.18.1</tycho-version>
-		<tychoExtrasVersion>0.18.1</tychoExtrasVersion>
+		<tycho-version>0.20.0</tycho-version>
+		<tychoExtrasVersion>0.20.0</tychoExtrasVersion>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -146,6 +146,8 @@
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts.emf</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
 				<module>org.eclipse.emf.ecp.ecview.services.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.services.emf.example</module>
+				<module>org.eclipse.emf.ecp.ecview.util.emf</module>
 
 				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
@@ -211,9 +213,13 @@
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.editparts.emf</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.model</module>
+				<module>org.eclipse.emf.ecp.ecview.util.emf</module>
+				<module>org.eclipse.emf.ecp.ecview.services.emf</module>
 
 				<module>org.eclipse.emf.ecp.ecview.databinding.beans</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.emf</module>
+
+				<module>org.eclipse.emf.ecp.ecview.ui.presentation.common</module>
 
 				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>
@@ -322,10 +328,10 @@
 					<artifactId>tycho-compiler-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>
-						<compilerVersion>1.6</compilerVersion>
+						<compilerVersion>1.7</compilerVersion>
 						<encoding>UTF-8</encoding>
-						<source>1.6</source>
-						<target>1.6</target>
+						<source>1.7</source>
+						<target>1.7</target>
 					</configuration>
 				</plugin>
 				<plugin>
