@@ -13,9 +13,11 @@ package org.eclipse.emf.ecp.ecview.common.binding;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateListStrategy;
+import org.eclipse.core.databinding.UpdateSetStrategy;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 
@@ -68,9 +70,9 @@ public abstract class AbstractBindingManager extends AbstractDisposable
 
 	@Override
 	public Binding bindList(IObservableList target, IObservableList model) {
-		return getDatabindingContext().bindList(target, model,
-				new UpdateListStrategy(UpdateListStrategy.POLICY_UPDATE),
-				new UpdateListStrategy(UpdateListStrategy.POLICY_UPDATE));
+		return bindList(target, model, new UpdateListStrategy(
+				UpdateListStrategy.POLICY_UPDATE), new UpdateListStrategy(
+				UpdateListStrategy.POLICY_UPDATE));
 	}
 
 	@Override
@@ -78,6 +80,21 @@ public abstract class AbstractBindingManager extends AbstractDisposable
 			UpdateListStrategy targetToModel, UpdateListStrategy modelToTarget) {
 		return getDatabindingContext().bindList(target, model, targetToModel,
 				modelToTarget);
+	}
+
+	@Override
+	public Binding bindSet(IObservableSet target, IObservableSet model) {
+		return bindSet(target, model, new UpdateSetStrategy(
+				UpdateSetStrategy.POLICY_UPDATE), new UpdateSetStrategy(
+				UpdateSetStrategy.POLICY_UPDATE));
+	}
+
+	@Override
+	public Binding bindSet(IObservableSet target, IObservableSet model,
+			UpdateSetStrategy targetToModel, UpdateSetStrategy modelToTarget) {
+		return getDatabindingContext().bindSet(target, model,
+				new UpdateSetStrategy(UpdateListStrategy.POLICY_UPDATE),
+				new UpdateSetStrategy(UpdateListStrategy.POLICY_UPDATE));
 	}
 
 	@Override
