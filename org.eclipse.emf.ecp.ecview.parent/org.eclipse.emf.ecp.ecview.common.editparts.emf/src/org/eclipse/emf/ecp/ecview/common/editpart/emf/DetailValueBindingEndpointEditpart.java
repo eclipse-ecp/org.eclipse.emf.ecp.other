@@ -11,8 +11,6 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import java.beans.PropertyChangeListener;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +22,7 @@ import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -56,12 +55,16 @@ public class DetailValueBindingEndpointEditpart extends
 		IObservableValue masterObservable = (IObservableValue) masterEditpart
 				.getObservable();
 		Class<?> type = getModel().getType();
-		if(type == null){
+		if (type == null) {
 			throw new RuntimeException("Type must not be null");
 		}
-		
+
 		if (EObject.class.isAssignableFrom(type)) {
-			EClass eClass = findEClass(type);
+			if (getModel().getEmfNSUri() == null) {
+				throw new RuntimeException("EmfNamespaceURI must not be null");
+			}
+
+			EClass eClass = findEClass(type, getModel().getEmfNSUri());
 			FeaturePath path = createFeaturePath(eClass);
 			return (A) EMFProperties.value(path)
 					.observeDetail(masterObservable);
@@ -103,36 +106,9 @@ public class DetailValueBindingEndpointEditpart extends
 	 * @param type
 	 * @return
 	 */
-	private EClass findEClass(Class<?> type) {
-		EClass eClass = null;
-		try {
-			Constructor<?> constructor = type
-					.getDeclaredConstructor(new Class[0]);
-			if (!constructor.isAccessible()) {
-				constructor.setAccessible(true);
-
-				EObject eObject = (EObject) constructor
-						.newInstance((Object[]) null);
-				eClass = eObject.eClass();
-			}
-		} catch (NoSuchMethodException e) {
-			throw new RuntimeException(e);
-		} catch (SecurityException e) {
-			throw new RuntimeException(e);
-		} catch (InstantiationException e) {
-			throw new RuntimeException(e);
-		} catch (IllegalAccessException e) {
-			throw new RuntimeException(e);
-		} catch (IllegalArgumentException e) {
-			throw new RuntimeException(e);
-		} catch (InvocationTargetException e) {
-			throw new RuntimeException(e);
-		}
-
-		if (eClass == null) {
-			throw new RuntimeException(String.format(
-					"Could not load EClass for %s", type.getName()));
-		}
+	private EClass findEClass(Class<?> type, String nsURI) {
+		EClass eClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(nsURI)
+				.getEClassifier(type.getSimpleName());
 		return eClass;
 	}
 

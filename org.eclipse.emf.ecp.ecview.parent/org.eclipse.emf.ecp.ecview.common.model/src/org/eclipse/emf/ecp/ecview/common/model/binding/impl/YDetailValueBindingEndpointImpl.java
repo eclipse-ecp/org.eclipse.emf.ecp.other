@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getMasterObservable <em>Master Observable</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getEmfNSUri <em>Emf NS Uri</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +70,26 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * @ordered
 	 */
 	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getEmfNSUri() <em>Emf NS Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNSUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMF_NS_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmfNSUri() <em>Emf NS Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNSUri()
+	 * @generated
+	 * @ordered
+	 */
+	protected String emfNSUri = EMF_NS_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,6 +200,27 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEmfNSUri() {
+		return emfNSUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmfNSUri(String newEmfNSUri) {
+		String oldEmfNSUri = emfNSUri;
+		emfNSUri = newEmfNSUri;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI, oldEmfNSUri, emfNSUri));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -202,6 +244,8 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 				return getPropertyPath();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				return getType();
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
+				return getEmfNSUri();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,6 +266,9 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 				return;
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)newValue);
+				return;
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
+				setEmfNSUri((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,6 +291,9 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)null);
 				return;
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
+				setEmfNSUri(EMF_NS_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,6 +312,8 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 				return PROPERTY_PATH_EDEFAULT == null ? propertyPath != null : !PROPERTY_PATH_EDEFAULT.equals(propertyPath);
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				return type != null;
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
+				return EMF_NS_URI_EDEFAULT == null ? emfNSUri != null : !EMF_NS_URI_EDEFAULT.equals(emfNSUri);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -280,6 +332,8 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 		result.append(propertyPath);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", emfNSUri: ");
+		result.append(emfNSUri);
 		result.append(')');
 		return result.toString();
 	}

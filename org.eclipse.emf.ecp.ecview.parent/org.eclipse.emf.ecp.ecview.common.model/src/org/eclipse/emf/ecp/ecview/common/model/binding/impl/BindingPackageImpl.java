@@ -335,6 +335,15 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYDetailValueBindingEndpoint_EmfNSUri() {
+		return (EAttribute)yDetailValueBindingEndpointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BindingFactory getBindingFactory() {
 		return (BindingFactory)getEFactoryInstance();
 	}
@@ -373,6 +382,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		createEReference(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE);
 		createEAttribute(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH);
 		createEAttribute(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__TYPE);
+		createEAttribute(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI);
 
 		yListBindingEndpointEClass = createEClass(YLIST_BINDING_ENDPOINT);
 
@@ -470,6 +480,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYDetailValueBindingEndpoint_Type(), g1, "type", null, 1, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDetailValueBindingEndpoint_EmfNSUri(), ecorePackage.getEString(), "emfNSUri", null, 0, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yListBindingEndpointEClass, YListBindingEndpoint.class, "YListBindingEndpoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

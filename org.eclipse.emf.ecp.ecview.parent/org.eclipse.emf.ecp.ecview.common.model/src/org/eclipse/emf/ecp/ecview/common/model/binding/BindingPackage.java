@@ -283,13 +283,22 @@ public interface BindingPackage extends EPackage {
 	int YDETAIL_VALUE_BINDING_ENDPOINT__TYPE = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Emf NS Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>YDetail Value Binding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDETAIL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 3;
+	int YDETAIL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -601,6 +610,17 @@ public interface BindingPackage extends EPackage {
 	EAttribute getYDetailValueBindingEndpoint_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getEmfNSUri <em>Emf NS Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Emf NS Uri</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getEmfNSUri()
+	 * @see #getYDetailValueBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYDetailValueBindingEndpoint_EmfNSUri();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -791,6 +811,14 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YDETAIL_VALUE_BINDING_ENDPOINT__TYPE = eINSTANCE.getYDetailValueBindingEndpoint_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Emf NS Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI = eINSTANCE.getYDetailValueBindingEndpoint_EmfNSUri();
 
 	}
 
