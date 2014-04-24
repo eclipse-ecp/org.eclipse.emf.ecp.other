@@ -28,7 +28,24 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YValueBindingEndpoint" abstract="true"
-      eSuperTypes="#//YBindingEndpoint"/>
+      eSuperTypes="#//YBindingEndpoint">
+    <eOperations name="createDetailValueEndpoint" eType="#//YDetailValueBindingEndpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YBeanBindingEndpoint" eSuperTypes="#//YValueBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YDetailValueBindingEndpoint" eSuperTypes="#//YValueBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterObservable" eType="#//YValueBindingEndpoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YListBindingEndpoint" abstract="true"
       eSuperTypes="#//YBindingEndpoint"/>
   <eClassifiers xsi:type="ecore:EClass" name="YBinding" abstract="true" eSuperTypes="core.ecore#//YElement">
@@ -50,10 +67,5 @@
         eType="#//YListBindingEndpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelEndpoint" lowerBound="1"
         eType="#//YListBindingEndpoint" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YBeanBindingEndpoint" eSuperTypes="#//YValueBindingEndpoint">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
-        transient="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

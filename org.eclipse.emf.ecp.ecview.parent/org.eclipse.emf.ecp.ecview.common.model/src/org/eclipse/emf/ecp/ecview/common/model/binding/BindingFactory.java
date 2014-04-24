@@ -58,6 +58,15 @@ public interface BindingFactory extends EFactory {
 	YBeanBindingEndpoint createYBeanBindingEndpoint();
 
 	/**
+	 * Returns a new object of class '<em>YDetail Value Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YDetail Value Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YDetailValueBindingEndpoint createYDetailValueBindingEndpoint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -157,7 +157,139 @@ public interface BindingPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYListBindingEndpoint()
 	 * @generated
 	 */
-	int YLIST_BINDING_ENDPOINT = 3;
+	int YLIST_BINDING_ENDPOINT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl <em>YBinding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBinding()
+	 * @generated
+	 */
+	int YBINDING = 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingImpl <em>YValue Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYValueBinding()
+	 * @generated
+	 */
+	int YVALUE_BINDING = 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingImpl <em>YList Binding</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYListBinding()
+	 * @generated
+	 */
+	int YLIST_BINDING = 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl <em>YBean Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBeanBindingEndpoint()
+	 * @generated
+	 */
+	int YBEAN_BINDING_ENDPOINT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT__ID = YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Bean</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT__BEAN = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT__PROPERTY_PATH = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YBean Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl <em>YDetail Value Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYDetailValueBindingEndpoint()
+	 * @generated
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT__ID = YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Master Observable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT__TYPE = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>YDetail Value Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -178,16 +310,6 @@ public interface BindingPackage extends EPackage {
 	int YLIST_BINDING_ENDPOINT_FEATURE_COUNT = YBINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl <em>YBinding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBinding()
-	 * @generated
-	 */
-	int YBINDING = 4;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,17 +326,6 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBINDING_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingImpl <em>YValue Binding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYValueBinding()
-	 * @generated
-	 */
-	int YVALUE_BINDING = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -253,16 +364,6 @@ public interface BindingPackage extends EPackage {
 	int YVALUE_BINDING_FEATURE_COUNT = YBINDING_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingImpl <em>YList Binding</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYListBinding()
-	 * @generated
-	 */
-	int YLIST_BINDING = 6;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,52 +398,6 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST_BINDING_FEATURE_COUNT = YBINDING_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl <em>YBean Binding Endpoint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBeanBindingEndpoint()
-	 * @generated
-	 */
-	int YBEAN_BINDING_ENDPOINT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_BINDING_ENDPOINT__ID = YVALUE_BINDING_ENDPOINT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Bean</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_BINDING_ENDPOINT__BEAN = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Property Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_BINDING_ENDPOINT__PROPERTY_PATH = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>YBean Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 
 	/**
@@ -503,6 +558,49 @@ public interface BindingPackage extends EPackage {
 	EAttribute getYBeanBindingEndpoint_PropertyPath();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint <em>YDetail Value Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YDetail Value Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint
+	 * @generated
+	 */
+	EClass getYDetailValueBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getMasterObservable <em>Master Observable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Master Observable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getMasterObservable()
+	 * @see #getYDetailValueBindingEndpoint()
+	 * @generated
+	 */
+	EReference getYDetailValueBindingEndpoint_MasterObservable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getPropertyPath <em>Property Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property Path</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getPropertyPath()
+	 * @see #getYDetailValueBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYDetailValueBindingEndpoint_PropertyPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint#getType()
+	 * @see #getYDetailValueBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYDetailValueBindingEndpoint_Type();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +757,40 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YBEAN_BINDING_ENDPOINT__PROPERTY_PATH = eINSTANCE.getYBeanBindingEndpoint_PropertyPath();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl <em>YDetail Value Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYDetailValueBindingEndpoint()
+		 * @generated
+		 */
+		EClass YDETAIL_VALUE_BINDING_ENDPOINT = eINSTANCE.getYDetailValueBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Master Observable</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE = eINSTANCE.getYDetailValueBindingEndpoint_MasterObservable();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH = eINSTANCE.getYDetailValueBindingEndpoint_PropertyPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDETAIL_VALUE_BINDING_ENDPOINT__TYPE = eINSTANCE.getYDetailValueBindingEndpoint_Type();
 
 	}
 

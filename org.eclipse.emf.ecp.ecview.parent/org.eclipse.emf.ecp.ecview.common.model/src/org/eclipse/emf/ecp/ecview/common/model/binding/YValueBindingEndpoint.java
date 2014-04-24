@@ -14,4 +14,12 @@ package org.eclipse.emf.ecp.ecview.common.model.binding;
  * @generated
  */
 public interface YValueBindingEndpoint extends YBindingEndpoint {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	YDetailValueBindingEndpoint createDetailValueEndpoint();
 } // YValueBindingEndpoint

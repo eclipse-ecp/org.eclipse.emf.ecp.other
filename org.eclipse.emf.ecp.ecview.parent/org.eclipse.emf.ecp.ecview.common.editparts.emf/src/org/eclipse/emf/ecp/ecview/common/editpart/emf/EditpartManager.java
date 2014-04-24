@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IDetailValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableCollectionEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableMultiSelectionEndpointEditpart;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartMan
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -86,6 +88,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ViewSetEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IBindingSetEditpart.class)) {
 			result = createNewInstance(BindingSetEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IDetailValueBindingEndpointEditpart.class)) {
+			result = createNewInstance(DetailValueBindingEndpointEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IValueBindingEditpart.class)) {
 			result = createNewInstance(ValueBindingEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IListBindingEditpart.class)) {
@@ -150,6 +154,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ListBindingEditpart.class);
 		} else if (yElement instanceof YContextBindingEndpoint) {
 			result = createNewInstance(ContextBindingEndpointEditpart.class);
+		} else if (yElement instanceof YDetailValueBindingEndpoint) {
+			result = createNewInstance(DetailValueBindingEndpointEditpart.class);
 		} else if (yElement instanceof YEmbeddableValueEndpoint) {
 			result = createNewInstance(EmbeddableValueBindingEndpointEditpart.class);
 		} else if (yElement instanceof YEmbeddableSelectionEndpoint) {

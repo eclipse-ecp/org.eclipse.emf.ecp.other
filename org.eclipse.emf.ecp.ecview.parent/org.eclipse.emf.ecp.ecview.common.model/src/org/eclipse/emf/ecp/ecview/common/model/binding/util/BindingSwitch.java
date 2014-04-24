@@ -87,6 +87,24 @@ public class BindingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BindingPackage.YBEAN_BINDING_ENDPOINT: {
+				YBeanBindingEndpoint yBeanBindingEndpoint = (YBeanBindingEndpoint)theEObject;
+				T result = caseYBeanBindingEndpoint(yBeanBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yBeanBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yBeanBindingEndpoint);
+				if (result == null) result = caseYElement(yBeanBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT: {
+				YDetailValueBindingEndpoint yDetailValueBindingEndpoint = (YDetailValueBindingEndpoint)theEObject;
+				T result = caseYDetailValueBindingEndpoint(yDetailValueBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yDetailValueBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yDetailValueBindingEndpoint);
+				if (result == null) result = caseYElement(yDetailValueBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case BindingPackage.YLIST_BINDING_ENDPOINT: {
 				YListBindingEndpoint yListBindingEndpoint = (YListBindingEndpoint)theEObject;
 				T result = caseYListBindingEndpoint(yListBindingEndpoint);
@@ -115,15 +133,6 @@ public class BindingSwitch<T> extends Switch<T> {
 				T result = caseYListBinding(yListBinding);
 				if (result == null) result = caseYBinding(yListBinding);
 				if (result == null) result = caseYElement(yListBinding);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case BindingPackage.YBEAN_BINDING_ENDPOINT: {
-				YBeanBindingEndpoint yBeanBindingEndpoint = (YBeanBindingEndpoint)theEObject;
-				T result = caseYBeanBindingEndpoint(yBeanBindingEndpoint);
-				if (result == null) result = caseYValueBindingEndpoint(yBeanBindingEndpoint);
-				if (result == null) result = caseYBindingEndpoint(yBeanBindingEndpoint);
-				if (result == null) result = caseYElement(yBeanBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,6 +257,21 @@ public class BindingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYBeanBindingEndpoint(YBeanBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDetail Value Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDetail Value Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDetailValueBindingEndpoint(YDetailValueBindingEndpoint object) {
 		return null;
 	}
 

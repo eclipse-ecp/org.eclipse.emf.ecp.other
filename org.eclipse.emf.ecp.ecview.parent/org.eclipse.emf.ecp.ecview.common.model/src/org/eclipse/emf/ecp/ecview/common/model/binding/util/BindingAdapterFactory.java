@@ -78,6 +78,14 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 				return createYValueBindingEndpointAdapter();
 			}
 			@Override
+			public Adapter caseYBeanBindingEndpoint(YBeanBindingEndpoint object) {
+				return createYBeanBindingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYDetailValueBindingEndpoint(YDetailValueBindingEndpoint object) {
+				return createYDetailValueBindingEndpointAdapter();
+			}
+			@Override
 			public Adapter caseYListBindingEndpoint(YListBindingEndpoint object) {
 				return createYListBindingEndpointAdapter();
 			}
@@ -92,10 +100,6 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYListBinding(YListBinding object) {
 				return createYListBindingAdapter();
-			}
-			@Override
-			public Adapter caseYBeanBindingEndpoint(YBeanBindingEndpoint object) {
-				return createYBeanBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -230,6 +234,20 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYBeanBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint <em>YDetail Value Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYDetailValueBindingEndpointAdapter() {
 		return null;
 	}
 
