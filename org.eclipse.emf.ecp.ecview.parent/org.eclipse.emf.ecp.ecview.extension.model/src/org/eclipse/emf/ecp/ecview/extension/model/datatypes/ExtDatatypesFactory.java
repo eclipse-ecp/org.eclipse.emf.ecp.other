@@ -94,6 +94,15 @@ public interface ExtDatatypesFactory extends EFactory {
 	YListDataType createYListDataType();
 
 	/**
+	 * Returns a new object of class '<em>YOptions Group Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YOptions Group Data Type</em>'.
+	 * @generated
+	 */
+	YOptionsGroupDataType createYOptionsGroupDataType();
+
+	/**
 	 * Returns a new object of class '<em>YBrowser Datatype</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

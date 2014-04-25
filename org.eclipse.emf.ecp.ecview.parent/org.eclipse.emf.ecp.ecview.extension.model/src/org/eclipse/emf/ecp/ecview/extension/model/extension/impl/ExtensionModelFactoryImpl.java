@@ -86,6 +86,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YSPAN_INFO: return (EObject)createYSpanInfo();
 			case ExtensionModelPackage.YTABLE: return (EObject)createYTable();
 			case ExtensionModelPackage.YTREE: return (EObject)createYTree();
+			case ExtensionModelPackage.YOPTIONS_GROUP: return (EObject)createYOptionsGroup();
 			case ExtensionModelPackage.YLIST: return (EObject)createYList();
 			case ExtensionModelPackage.YLABEL: return (EObject)createYLabel();
 			case ExtensionModelPackage.YTEXT_AREA: return (EObject)createYTextArea();
@@ -348,6 +349,16 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YTree createYTree() {
 		YTreeImpl yTree = new YTreeImpl();
 		return yTree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YOptionsGroup createYOptionsGroup() {
+		YOptionsGroupImpl yOptionsGroup = new YOptionsGroupImpl();
+		return yOptionsGroup;
 	}
 
 	/**

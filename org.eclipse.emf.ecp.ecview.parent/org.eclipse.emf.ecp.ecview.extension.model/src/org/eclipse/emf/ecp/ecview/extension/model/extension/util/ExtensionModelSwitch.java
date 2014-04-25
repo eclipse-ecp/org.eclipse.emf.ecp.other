@@ -228,6 +228,24 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtensionModelPackage.YOPTIONS_GROUP: {
+				YOptionsGroup yOptionsGroup = (YOptionsGroup)theEObject;
+				T result = caseYOptionsGroup(yOptionsGroup);
+				if (result == null) result = caseYInput(yOptionsGroup);
+				if (result == null) result = caseYCollectionBindable(yOptionsGroup);
+				if (result == null) result = caseYSelectionBindable(yOptionsGroup);
+				if (result == null) result = caseYMultiSelectionBindable(yOptionsGroup);
+				if (result == null) result = caseYField(yOptionsGroup);
+				if (result == null) result = caseYBindable(yOptionsGroup);
+				if (result == null) result = caseYEmbeddable(yOptionsGroup);
+				if (result == null) result = caseYEditable(yOptionsGroup);
+				if (result == null) result = caseYEnable(yOptionsGroup);
+				if (result == null) result = caseYElement(yOptionsGroup);
+				if (result == null) result = caseYCssAble(yOptionsGroup);
+				if (result == null) result = caseYVisibleable(yOptionsGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExtensionModelPackage.YLIST: {
 				YList yList = (YList)theEObject;
 				T result = caseYList(yList);
@@ -731,6 +749,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYTree(YTree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YOptions Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YOptions Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYOptionsGroup(YOptionsGroup object) {
 		return null;
 	}
 

@@ -145,6 +145,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYTreeAdapter();
 			}
 			@Override
+			public Adapter caseYOptionsGroup(YOptionsGroup object) {
+				return createYOptionsGroupAdapter();
+			}
+			@Override
 			public Adapter caseYList(YList object) {
 				return createYListAdapter();
 			}
@@ -581,6 +585,20 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYTreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup <em>YOptions Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup
+	 * @generated
+	 */
+	public Adapter createYOptionsGroupAdapter() {
 		return null;
 	}
 

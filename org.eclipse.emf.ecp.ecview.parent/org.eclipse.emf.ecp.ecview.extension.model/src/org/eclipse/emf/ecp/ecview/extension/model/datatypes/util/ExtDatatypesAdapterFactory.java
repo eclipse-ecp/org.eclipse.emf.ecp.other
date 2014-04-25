@@ -108,6 +108,10 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYListDataTypeAdapter();
 			}
 			@Override
+			public Adapter caseYOptionsGroupDataType(YOptionsGroupDataType object) {
+				return createYOptionsGroupDataTypeAdapter();
+			}
+			@Override
 			public Adapter caseYBrowserDatatype(YBrowserDatatype object) {
 				return createYBrowserDatatypeAdapter();
 			}
@@ -256,6 +260,20 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYListDataTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType <em>YOptions Group Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType
+	 * @generated
+	 */
+	public Adapter createYOptionsGroupDataTypeAdapter() {
 		return null;
 	}
 

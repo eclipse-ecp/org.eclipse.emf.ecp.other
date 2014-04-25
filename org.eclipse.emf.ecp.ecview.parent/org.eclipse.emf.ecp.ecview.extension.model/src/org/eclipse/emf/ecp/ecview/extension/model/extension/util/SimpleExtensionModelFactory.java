@@ -26,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCel
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
@@ -189,6 +190,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YList createList() {
 		return factory.createYList();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYOptionsGroup()
+	 */
+	public YOptionsGroup createOptionsGroup() {
+		return factory.createYOptionsGroup();
 	}
 
 	/**

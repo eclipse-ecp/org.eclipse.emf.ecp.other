@@ -211,6 +211,15 @@ public interface ExtensionModelFactory extends EFactory {
 	YTree createYTree();
 
 	/**
+	 * Returns a new object of class '<em>YOptions Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YOptions Group</em>'.
+	 * @generated
+	 */
+	YOptionsGroup createYOptionsGroup();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -498,6 +498,52 @@ public interface ExtDatatypesPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YOptionsGroupDataTypeImpl <em>YOptions Group Data Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YOptionsGroupDataTypeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYOptionsGroupDataType()
+	 * @generated
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YOptions Group Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl <em>YBrowser Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -505,7 +551,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYBrowserDatatype()
 	 * @generated
 	 */
-	int YBROWSER_DATATYPE = 8;
+	int YBROWSER_DATATYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -551,7 +597,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeDatatype()
 	 * @generated
 	 */
-	int YDATE_TIME_DATATYPE = 9;
+	int YDATE_TIME_DATATYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -606,7 +652,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYTreeDatatype()
 	 * @generated
 	 */
-	int YTREE_DATATYPE = 10;
+	int YTREE_DATATYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -652,7 +698,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeFormat()
 	 * @generated
 	 */
-	int YDATE_TIME_FORMAT = 11;
+	int YDATE_TIME_FORMAT = 12;
 
 
 	/**
@@ -800,6 +846,16 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYListDataType();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType <em>YOptions Group Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YOptions Group Data Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType
+	 * @generated
+	 */
+	EClass getYOptionsGroupDataType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype <em>YBrowser Datatype</em>}'.
@@ -1001,6 +1057,16 @@ public interface ExtDatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YLIST_DATA_TYPE = eINSTANCE.getYListDataType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YOptionsGroupDataTypeImpl <em>YOptions Group Data Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YOptionsGroupDataTypeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYOptionsGroupDataType()
+		 * @generated
+		 */
+		EClass YOPTIONS_GROUP_DATA_TYPE = eINSTANCE.getYOptionsGroupDataType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl <em>YBrowser Datatype</em>}' class.

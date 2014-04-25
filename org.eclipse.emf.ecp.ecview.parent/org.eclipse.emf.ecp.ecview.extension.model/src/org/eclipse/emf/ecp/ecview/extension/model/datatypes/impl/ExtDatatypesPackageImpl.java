@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
@@ -85,6 +86,13 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * @generated
 	 */
 	private EClass yListDataTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yOptionsGroupDataTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,6 +317,15 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYOptionsGroupDataType() {
+		return yOptionsGroupDataTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYBrowserDatatype() {
 		return yBrowserDatatypeEClass;
 	}
@@ -399,6 +416,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		yListDataTypeEClass = createEClass(YLIST_DATA_TYPE);
 
+		yOptionsGroupDataTypeEClass = createEClass(YOPTIONS_GROUP_DATA_TYPE);
+
 		yBrowserDatatypeEClass = createEClass(YBROWSER_DATATYPE);
 
 		yDateTimeDatatypeEClass = createEClass(YDATE_TIME_DATATYPE);
@@ -449,6 +468,7 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		yCheckBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yComboBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yListDataTypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yOptionsGroupDataTypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yBrowserDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yDateTimeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yTreeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
@@ -475,6 +495,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		initEClass(yComboBoxDatatypeEClass, YComboBoxDatatype.class, "YComboBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yListDataTypeEClass, YListDataType.class, "YListDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yOptionsGroupDataTypeEClass, YOptionsGroupDataType.class, "YOptionsGroupDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yBrowserDatatypeEClass, YBrowserDatatype.class, "YBrowserDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

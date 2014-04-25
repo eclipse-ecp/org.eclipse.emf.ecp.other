@@ -27,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -39,7 +40,9 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IOptionsGroupEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
@@ -73,10 +76,14 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TextFieldEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IGridLayoutEditpart.class)) {
 			result = createNewInstance(GridLayoutEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IListEditpart.class)) {
+			result = createNewInstance(ListEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITableEditpart.class)) {
 			result = createNewInstance(TableEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITreeEditpart.class)) {
 			result = createNewInstance(TreeEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IOptionsGroupEditpart.class)) {
+			result = createNewInstance(OptionsGroupEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ILabelEditpart.class)) {
 			result = createNewInstance(LabelEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITextAreaEditpart.class)) {
@@ -141,6 +148,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ComboBoxEditpart.class);
 		} else if (yElement instanceof YList) {
 			result = createNewInstance(ListEditpart.class);
+		} else if (yElement instanceof YOptionsGroup) {
+			result = createNewInstance(OptionsGroupEditpart.class);
 		} else if (yElement instanceof YNumericField) {
 			result = createNewInstance(NumericFieldEditpart.class);
 		} else if (yElement instanceof YDecimalField) {

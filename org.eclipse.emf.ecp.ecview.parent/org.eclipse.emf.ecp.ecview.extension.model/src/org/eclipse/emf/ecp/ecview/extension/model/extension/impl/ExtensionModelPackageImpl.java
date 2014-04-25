@@ -32,6 +32,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
@@ -203,6 +204,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * @generated
 	 */
 	private EClass yTreeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yOptionsGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1131,6 +1139,78 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYOptionsGroup() {
+		return yOptionsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYOptionsGroup_Datadescription() {
+		return (EReference)yOptionsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYOptionsGroup_Datatype() {
+		return (EReference)yOptionsGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYOptionsGroup_SelectionType() {
+		return (EAttribute)yOptionsGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYOptionsGroup_Selection() {
+		return (EAttribute)yOptionsGroupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYOptionsGroup_MultiSelection() {
+		return (EAttribute)yOptionsGroupEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYOptionsGroup_Collection() {
+		return (EAttribute)yOptionsGroupEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYOptionsGroup_Type() {
+		return (EAttribute)yOptionsGroupEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getYButtonClickListener() {
 		return yButtonClickListenerEDataType;
 	}
@@ -1238,6 +1318,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEAttribute(yTreeEClass, YTREE__MULTI_SELECTION);
 		createEAttribute(yTreeEClass, YTREE__COLLECTION);
 		createEAttribute(yTreeEClass, YTREE__TYPE);
+
+		yOptionsGroupEClass = createEClass(YOPTIONS_GROUP);
+		createEReference(yOptionsGroupEClass, YOPTIONS_GROUP__DATADESCRIPTION);
+		createEReference(yOptionsGroupEClass, YOPTIONS_GROUP__DATATYPE);
+		createEAttribute(yOptionsGroupEClass, YOPTIONS_GROUP__SELECTION_TYPE);
+		createEAttribute(yOptionsGroupEClass, YOPTIONS_GROUP__SELECTION);
+		createEAttribute(yOptionsGroupEClass, YOPTIONS_GROUP__MULTI_SELECTION);
+		createEAttribute(yOptionsGroupEClass, YOPTIONS_GROUP__COLLECTION);
+		createEAttribute(yOptionsGroupEClass, YOPTIONS_GROUP__TYPE);
 
 		yListEClass = createEClass(YLIST);
 		createEReference(yListEClass, YLIST__DATADESCRIPTION);
@@ -1357,6 +1446,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
 		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
+		yOptionsGroupEClass.getESuperTypes().add(this.getYInput());
+		yOptionsGroupEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
+		yOptionsGroupEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
+		yOptionsGroupEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
 		yListEClass.getESuperTypes().add(this.getYInput());
 		yListEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yListEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
@@ -1458,6 +1551,18 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYTree_Type(), g1, "type", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yOptionsGroupEClass, YOptionsGroup.class, "YOptionsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYOptionsGroup_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYOptionsGroup_Datatype(), theExtDatatypesPackage.getYOptionsGroupDataType(), null, "datatype", null, 0, 1, YOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYOptionsGroup_SelectionType(), this.getYSelectionType(), "selectionType", null, 0, 1, YOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYOptionsGroup_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YOptionsGroup.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYOptionsGroup_MultiSelection(), ecorePackage.getEJavaObject(), "multiSelection", null, 0, -1, YOptionsGroup.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYOptionsGroup_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YOptionsGroup.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYOptionsGroup_Type(), g1, "type", null, 0, 1, YOptionsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yListEClass, YList.class, "YList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYList_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

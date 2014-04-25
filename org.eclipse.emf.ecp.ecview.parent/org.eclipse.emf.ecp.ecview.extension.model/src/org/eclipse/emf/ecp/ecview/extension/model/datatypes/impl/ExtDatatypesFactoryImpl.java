@@ -72,6 +72,7 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 			case ExtDatatypesPackage.YCHECK_BOX_DATATYPE: return (EObject)createYCheckBoxDatatype();
 			case ExtDatatypesPackage.YCOMBO_BOX_DATATYPE: return (EObject)createYComboBoxDatatype();
 			case ExtDatatypesPackage.YLIST_DATA_TYPE: return (EObject)createYListDataType();
+			case ExtDatatypesPackage.YOPTIONS_GROUP_DATA_TYPE: return (EObject)createYOptionsGroupDataType();
 			case ExtDatatypesPackage.YBROWSER_DATATYPE: return (EObject)createYBrowserDatatype();
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE: return (EObject)createYDateTimeDatatype();
 			case ExtDatatypesPackage.YTREE_DATATYPE: return (EObject)createYTreeDatatype();
@@ -188,6 +189,16 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	public YListDataType createYListDataType() {
 		YListDataTypeImpl yListDataType = new YListDataTypeImpl();
 		return yListDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YOptionsGroupDataType createYOptionsGroupDataType() {
+		YOptionsGroupDataTypeImpl yOptionsGroupDataType = new YOptionsGroupDataTypeImpl();
+		return yOptionsGroupDataType;
 	}
 
 	/**

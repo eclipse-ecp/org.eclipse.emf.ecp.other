@@ -140,6 +140,14 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtDatatypesPackage.YOPTIONS_GROUP_DATA_TYPE: {
+				YOptionsGroupDataType yOptionsGroupDataType = (YOptionsGroupDataType)theEObject;
+				T result = caseYOptionsGroupDataType(yOptionsGroupDataType);
+				if (result == null) result = caseYDatatype(yOptionsGroupDataType);
+				if (result == null) result = caseYDtBase(yOptionsGroupDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExtDatatypesPackage.YBROWSER_DATATYPE: {
 				YBrowserDatatype yBrowserDatatype = (YBrowserDatatype)theEObject;
 				T result = caseYBrowserDatatype(yBrowserDatatype);
@@ -285,6 +293,21 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYListDataType(YListDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YOptions Group Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YOptions Group Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYOptionsGroupDataType(YOptionsGroupDataType object) {
 		return null;
 	}
 
