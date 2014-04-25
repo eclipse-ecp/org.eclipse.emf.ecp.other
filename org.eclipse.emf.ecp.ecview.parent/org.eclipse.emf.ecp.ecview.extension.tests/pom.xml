@@ -5,8 +5,8 @@
     <artifactId>org.eclipse.emf.ecp.ecview</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>org.eclipse.emf.ecp.ecview.extension.model.tests</artifactId>
+  <artifactId>org.eclipse.emf.ecp.ecview.extension.tests</artifactId>
   <packaging>eclipse-test-plugin</packaging>
-  <name>Extension Model Test</name>
-  <description>Tests the extension model</description>
+  <name>Extension Test</name>
+  <description>Tests the extensions</description>
 </project>

@@ -84,7 +84,7 @@
 			</build>
 			<modules>
 				<!-- <module>org.eclipse.emf.ecp.ecview.common.model.tests</module> -->
-				<!-- <module>org.eclipse.emf.ecp.ecview.extension.model.tests</module> -->
+				<!-- <module>org.eclipse.emf.ecp.ecview.extension.tests</module> -->
 				<!-- <module>org.eclipse.emf.ecp.ecview.databinding.tests</module> -->
 				<!-- <module>org.eclipse.emf.ecp.ecview.common.tests</module> -->
 				<module>org.eclipse.emf.ecp.ecview.target.kepler</module>
@@ -161,7 +161,7 @@
 				<module>org.eclipse.emf.ecp.ecview.example.swt</module>
 
 				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
@@ -222,7 +222,7 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.common</module>
 
 				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.extension.model.tests</module>
+				<module>org.eclipse.emf.ecp.ecview.extension.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
 				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
 				<!-- P2 bundles -->

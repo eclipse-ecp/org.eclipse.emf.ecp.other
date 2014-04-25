@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Extension Tests
+Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.extension.tests
+Bundle-Version: 0.0.1.qualifier
+Require-Bundle: org.junit;bundle-version="4.10.0",
+ org.eclipse.emf.ecp.ecview.extension.editparts;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.extension.editparts.emf;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.extension.model;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
