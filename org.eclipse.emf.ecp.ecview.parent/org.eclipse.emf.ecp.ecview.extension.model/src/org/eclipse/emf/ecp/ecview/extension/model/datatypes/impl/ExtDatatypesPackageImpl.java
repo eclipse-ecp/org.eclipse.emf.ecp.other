@@ -19,6 +19,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
@@ -114,6 +115,13 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * @generated
 	 */
 	private EClass yTreeDatatypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yProgressBarDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -362,6 +370,15 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYProgressBarDatatype() {
+		return yProgressBarDatatypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYDateTimeFormat() {
 		return yDateTimeFormatEEnum;
 	}
@@ -425,6 +442,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		yTreeDatatypeEClass = createEClass(YTREE_DATATYPE);
 
+		yProgressBarDatatypeEClass = createEClass(YPROGRESS_BAR_DATATYPE);
+
 		// Create enums
 		yDateTimeFormatEEnum = createEEnum(YDATE_TIME_FORMAT);
 	}
@@ -472,6 +491,7 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		yBrowserDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yDateTimeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yTreeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yProgressBarDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -504,6 +524,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		initEAttribute(getYDateTimeDatatype_Format(), this.getYDateTimeFormat(), "format", "DATE", 0, 1, YDateTimeDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yTreeDatatypeEClass, YTreeDatatype.class, "YTreeDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yProgressBarDatatypeEClass, YProgressBarDatatype.class, "YProgressBarDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(yDateTimeFormatEEnum, YDateTimeFormat.class, "YDateTimeFormat");

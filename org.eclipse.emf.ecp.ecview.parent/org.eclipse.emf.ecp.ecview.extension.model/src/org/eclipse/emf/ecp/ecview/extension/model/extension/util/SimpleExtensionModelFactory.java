@@ -8,6 +8,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
@@ -46,6 +48,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTextField createTextField() {
 		return factory.createYTextField();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYProgressBar()
+	 */
+	public YProgressBar createProgressBar() {
+		return factory.createYProgressBar();
 	}
 
 	/**
@@ -214,6 +224,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTextDatatype createTextDatatype() {
 		return dtFactory.createYTextDatatype();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory#createYProgressBarDatatype()
+	 */
+	public YProgressBarDatatype createProgressBarDatatype() {
+		return dtFactory.createYProgressBarDatatype();
 	}
 
 	/**

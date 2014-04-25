@@ -33,6 +33,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
@@ -197,6 +198,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * @generated
 	 */
 	private EClass yToggleButtonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yProgressBarEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1067,6 +1075,42 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYProgressBar() {
+		return yProgressBarEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYProgressBar_Datatype() {
+		return (EReference)yProgressBarEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYProgressBar_Datadescription() {
+		return (EReference)yProgressBarEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYProgressBar_Value() {
+		return (EAttribute)yProgressBarEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYTree() {
 		return yTreeEClass;
 	}
@@ -1385,6 +1429,11 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yToggleButtonEClass = createEClass(YTOGGLE_BUTTON);
 		createEReference(yToggleButtonEClass, YTOGGLE_BUTTON__DATADESCRIPTION);
 
+		yProgressBarEClass = createEClass(YPROGRESS_BAR);
+		createEReference(yProgressBarEClass, YPROGRESS_BAR__DATATYPE);
+		createEReference(yProgressBarEClass, YPROGRESS_BAR__DATADESCRIPTION);
+		createEAttribute(yProgressBarEClass, YPROGRESS_BAR__VALUE);
+
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
 		ySelectionTypeEEnum = createEEnum(YSELECTION_TYPE);
@@ -1474,6 +1523,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYAction());
 		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYActivateable());
+		yProgressBarEClass.getESuperTypes().add(this.getYInput());
+		yProgressBarEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1632,6 +1683,11 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		initEClass(yToggleButtonEClass, YToggleButton.class, "YToggleButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYToggleButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YToggleButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yProgressBarEClass, YProgressBar.class, "YProgressBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYProgressBar_Datatype(), theExtDatatypesPackage.getYProgressBarDatatype(), null, "datatype", null, 0, 1, YProgressBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYProgressBar_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YProgressBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYProgressBar_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, YProgressBar.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");

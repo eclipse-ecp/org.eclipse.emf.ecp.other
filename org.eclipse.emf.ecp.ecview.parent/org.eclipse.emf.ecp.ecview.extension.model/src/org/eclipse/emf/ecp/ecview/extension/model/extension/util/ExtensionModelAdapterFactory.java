@@ -193,6 +193,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYToggleButtonAdapter();
 			}
 			@Override
+			public Adapter caseYProgressBar(YProgressBar object) {
+				return createYProgressBarAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -571,6 +575,20 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYToggleButtonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar <em>YProgress Bar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar
+	 * @generated
+	 */
+	public Adapter createYProgressBarAdapter() {
 		return null;
 	}
 

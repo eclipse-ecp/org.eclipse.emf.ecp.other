@@ -281,4 +281,10 @@
     <eLiterals name="SINGLE" literal=""/>
     <eLiterals name="MULTI" value="1" literal="MULTI"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YProgressBar" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YValueBindable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YProgressBarDatatype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        transient="true"/>
+  </eClassifiers>
 </ecore:EPackage>

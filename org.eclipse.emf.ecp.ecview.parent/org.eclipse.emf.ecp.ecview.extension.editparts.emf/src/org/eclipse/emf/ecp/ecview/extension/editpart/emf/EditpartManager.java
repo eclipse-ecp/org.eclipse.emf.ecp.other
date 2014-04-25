@@ -28,6 +28,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IOptionsGroupEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IProgressBarEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
@@ -100,6 +102,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(BrowserEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IDateTimeEditpart.class)) {
 			result = createNewInstance(DateTimeEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IProgressBarEditpart.class)) {
+			result = createNewInstance(ProgressBarEditpart.class);
 		}
 
 		if (result != null) {
@@ -158,6 +162,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(DateTimeEditpart.class);
 		} else if (yElement instanceof YBrowser) {
 			result = createNewInstance(BrowserEditpart.class);
+		} else if (yElement instanceof YProgressBar) {
+			result = createNewInstance(ProgressBarEditpart.class);
 		}
 
 		if (result != null) {

@@ -691,6 +691,52 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTREE_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl <em>YProgress Bar Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYProgressBarDatatype()
+	 * @generated
+	 */
+	int YPROGRESS_BAR_DATATYPE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR_DATATYPE__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR_DATATYPE__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YProgress Bar Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -698,7 +744,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeFormat()
 	 * @generated
 	 */
-	int YDATE_TIME_FORMAT = 12;
+	int YDATE_TIME_FORMAT = 13;
 
 
 	/**
@@ -897,6 +943,16 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYTreeDatatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype <em>YProgress Bar Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YProgress Bar Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype
+	 * @generated
+	 */
+	EClass getYProgressBarDatatype();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}'.
@@ -1105,6 +1161,16 @@ public interface ExtDatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YTREE_DATATYPE = eINSTANCE.getYTreeDatatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl <em>YProgress Bar Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYProgressBarDatatype()
+		 * @generated
+		 */
+		EClass YPROGRESS_BAR_DATATYPE = eINSTANCE.getYProgressBarDatatype();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.

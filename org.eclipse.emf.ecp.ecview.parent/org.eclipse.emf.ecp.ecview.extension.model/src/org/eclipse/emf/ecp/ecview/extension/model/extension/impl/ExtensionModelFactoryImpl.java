@@ -98,6 +98,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YCOMBO_BOX: return (EObject)createYComboBox();
 			case ExtensionModelPackage.YBUTTON: return (EObject)createYButton();
 			case ExtensionModelPackage.YTOGGLE_BUTTON: return (EObject)createYToggleButton();
+			case ExtensionModelPackage.YPROGRESS_BAR: return (EObject)createYProgressBar();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -339,6 +340,16 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YToggleButton createYToggleButton() {
 		YToggleButtonImpl yToggleButton = new YToggleButtonImpl();
 		return yToggleButton;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YProgressBar createYProgressBar() {
+		YProgressBarImpl yProgressBar = new YProgressBarImpl();
+		return yProgressBar;
 	}
 
 	/**

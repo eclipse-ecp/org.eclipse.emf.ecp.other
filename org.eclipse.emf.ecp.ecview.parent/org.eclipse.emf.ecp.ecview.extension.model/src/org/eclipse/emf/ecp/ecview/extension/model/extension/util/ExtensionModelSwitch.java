@@ -418,6 +418,22 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtensionModelPackage.YPROGRESS_BAR: {
+				YProgressBar yProgressBar = (YProgressBar)theEObject;
+				T result = caseYProgressBar(yProgressBar);
+				if (result == null) result = caseYInput(yProgressBar);
+				if (result == null) result = caseYValueBindable(yProgressBar);
+				if (result == null) result = caseYField(yProgressBar);
+				if (result == null) result = caseYBindable(yProgressBar);
+				if (result == null) result = caseYEmbeddable(yProgressBar);
+				if (result == null) result = caseYEditable(yProgressBar);
+				if (result == null) result = caseYEnable(yProgressBar);
+				if (result == null) result = caseYElement(yProgressBar);
+				if (result == null) result = caseYCssAble(yProgressBar);
+				if (result == null) result = caseYVisibleable(yProgressBar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -734,6 +750,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYToggleButton(YToggleButton object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YProgress Bar</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YProgress Bar</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYProgressBar(YProgressBar object) {
 		return null;
 	}
 
