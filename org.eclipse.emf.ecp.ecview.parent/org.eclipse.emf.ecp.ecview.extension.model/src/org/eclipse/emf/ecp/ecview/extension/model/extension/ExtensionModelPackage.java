@@ -3026,6 +3026,143 @@ public interface ExtensionModelPackage extends EPackage {
 	int YPROGRESS_BAR_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabSheetImpl <em>YTab Sheet</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabSheetImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTabSheet()
+	 * @generated
+	 */
+	int YTAB_SHEET = 24;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__ID = CoreModelPackage.YEMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__CSS_CLASS = CoreModelPackage.YEMBEDDABLE__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__CSS_ID = CoreModelPackage.YEMBEDDABLE__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__INITIAL_VISIBLE = CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__VISIBLE = CoreModelPackage.YEMBEDDABLE__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Tabs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__TABS = CoreModelPackage.YEMBEDDABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YTab Sheet</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_FEATURE_COUNT = CoreModelPackage.YEMBEDDABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl <em>YTab</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTab()
+	 * @generated
+	 */
+	int YTAB = 25;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__ID = CoreModelPackage.YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__CSS_CLASS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__CSS_ID = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__PARENT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Embeddable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__EMBEDDABLE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>YTab</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3033,7 +3170,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 	 * @generated
 	 */
-	int YBUTTON_CLICK_LISTENER = 26;
+	int YBUTTON_CLICK_LISTENER = 28;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
@@ -3043,7 +3180,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 24;
+	int YALIGNMENT = 26;
 
 
 	/**
@@ -3054,7 +3191,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYSelectionType()
 	 * @generated
 	 */
-	int YSELECTION_TYPE = 25;
+	int YSELECTION_TYPE = 27;
 
 
 	/**
@@ -4013,6 +4150,59 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYProgressBar_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet <em>YTab Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YTab Sheet</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet
+	 * @generated
+	 */
+	EClass getYTabSheet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet#getTabs <em>Tabs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tabs</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet#getTabs()
+	 * @see #getYTabSheet()
+	 * @generated
+	 */
+	EReference getYTabSheet_Tabs();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTab <em>YTab</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YTab</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab
+	 * @generated
+	 */
+	EClass getYTab();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getParent()
+	 * @see #getYTab()
+	 * @generated
+	 */
+	EReference getYTab_Parent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getEmbeddable <em>Embeddable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Embeddable</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getEmbeddable()
+	 * @see #getYTab()
+	 * @generated
+	 */
+	EReference getYTab_Embeddable();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree <em>YTree</em>}'.
@@ -4996,6 +5186,50 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YPROGRESS_BAR__VALUE = eINSTANCE.getYProgressBar_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabSheetImpl <em>YTab Sheet</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabSheetImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTabSheet()
+		 * @generated
+		 */
+		EClass YTAB_SHEET = eINSTANCE.getYTabSheet();
+
+		/**
+		 * The meta object literal for the '<em><b>Tabs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTAB_SHEET__TABS = eINSTANCE.getYTabSheet_Tabs();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl <em>YTab</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTab()
+		 * @generated
+		 */
+		EClass YTAB = eINSTANCE.getYTab();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTAB__PARENT = eINSTANCE.getYTab_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Embeddable</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTAB__EMBEDDABLE = eINSTANCE.getYTab_Embeddable();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl <em>YTree</em>}' class.

@@ -128,6 +128,10 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYProgressBarDatatypeAdapter();
 			}
 			@Override
+			public Adapter caseYTabSheetDatatype(YTabSheetDatatype object) {
+				return createYTabSheetDatatypeAdapter();
+			}
+			@Override
 			public Adapter caseYDtBase(YDtBase object) {
 				return createYDtBaseAdapter();
 			}
@@ -334,6 +338,20 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYProgressBarDatatypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype <em>YTab Sheet Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype
+	 * @generated
+	 */
+	public Adapter createYTabSheetDatatypeAdapter() {
 		return null;
 	}
 

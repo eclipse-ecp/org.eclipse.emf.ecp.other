@@ -211,6 +211,24 @@ public interface ExtensionModelFactory extends EFactory {
 	YProgressBar createYProgressBar();
 
 	/**
+	 * Returns a new object of class '<em>YTab Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YTab Sheet</em>'.
+	 * @generated
+	 */
+	YTabSheet createYTabSheet();
+
+	/**
+	 * Returns a new object of class '<em>YTab</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YTab</em>'.
+	 * @generated
+	 */
+	YTab createYTab();
+
+	/**
 	 * Returns a new object of class '<em>YTree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

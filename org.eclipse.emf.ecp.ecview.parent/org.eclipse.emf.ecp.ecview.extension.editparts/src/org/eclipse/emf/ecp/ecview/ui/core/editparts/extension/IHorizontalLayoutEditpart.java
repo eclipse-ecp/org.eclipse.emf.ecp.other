@@ -13,8 +13,7 @@ package org.eclipse.emf.ecp.ecview.ui.core.editparts.extension;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 
 /**
- * The abstraction for an horizontal layout. The grid layout extends layout and it is an elementContainer that can contain
- * other embeddables.
+ * The abstraction for an horizontal layout.
  */
 public interface IHorizontalLayoutEditpart extends ILayoutEditpart {
 

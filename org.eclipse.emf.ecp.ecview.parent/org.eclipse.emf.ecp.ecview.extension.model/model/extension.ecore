@@ -287,4 +287,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         transient="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YTabSheet" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tabs" upperBound="-1" eType="#//YTab"
+        containment="true" eOpposite="#//YTab/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YTab" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YElement ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YCssAble">
+    <eOperations name="getView" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//YTabSheet" eOpposite="#//YTabSheet/tabs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="embeddable" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

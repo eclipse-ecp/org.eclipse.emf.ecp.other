@@ -77,6 +77,7 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE: return (EObject)createYDateTimeDatatype();
 			case ExtDatatypesPackage.YTREE_DATATYPE: return (EObject)createYTreeDatatype();
 			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE: return (EObject)createYProgressBarDatatype();
+			case ExtDatatypesPackage.YTAB_SHEET_DATATYPE: return (EObject)createYTabSheetDatatype();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -240,6 +241,16 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	public YProgressBarDatatype createYProgressBarDatatype() {
 		YProgressBarDatatypeImpl yProgressBarDatatype = new YProgressBarDatatypeImpl();
 		return yProgressBarDatatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YTabSheetDatatype createYTabSheetDatatype() {
+		YTabSheetDatatypeImpl yTabSheetDatatype = new YTabSheetDatatypeImpl();
+		return yTabSheetDatatype;
 	}
 
 	/**

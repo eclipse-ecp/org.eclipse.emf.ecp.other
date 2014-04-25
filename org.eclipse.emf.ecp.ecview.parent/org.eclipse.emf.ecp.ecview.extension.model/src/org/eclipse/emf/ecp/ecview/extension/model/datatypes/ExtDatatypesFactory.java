@@ -139,6 +139,15 @@ public interface ExtDatatypesFactory extends EFactory {
 	YProgressBarDatatype createYProgressBarDatatype();
 
 	/**
+	 * Returns a new object of class '<em>YTab Sheet Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YTab Sheet Datatype</em>'.
+	 * @generated
+	 */
+	YTabSheetDatatype createYTabSheetDatatype();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

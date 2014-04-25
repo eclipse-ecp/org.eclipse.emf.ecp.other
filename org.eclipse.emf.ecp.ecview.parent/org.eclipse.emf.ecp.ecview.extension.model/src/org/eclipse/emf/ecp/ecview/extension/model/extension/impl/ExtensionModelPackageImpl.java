@@ -36,6 +36,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -205,6 +207,20 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * @generated
 	 */
 	private EClass yProgressBarEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yTabSheetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yTabEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1111,6 +1127,51 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYTabSheet() {
+		return yTabSheetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYTabSheet_Tabs() {
+		return (EReference)yTabSheetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYTab() {
+		return yTabEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYTab_Parent() {
+		return (EReference)yTabEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYTab_Embeddable() {
+		return (EReference)yTabEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYTree() {
 		return yTreeEClass;
 	}
@@ -1434,6 +1495,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yProgressBarEClass, YPROGRESS_BAR__DATADESCRIPTION);
 		createEAttribute(yProgressBarEClass, YPROGRESS_BAR__VALUE);
 
+		yTabSheetEClass = createEClass(YTAB_SHEET);
+		createEReference(yTabSheetEClass, YTAB_SHEET__TABS);
+
+		yTabEClass = createEClass(YTAB);
+		createEReference(yTabEClass, YTAB__PARENT);
+		createEReference(yTabEClass, YTAB__EMBEDDABLE);
+
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
 		ySelectionTypeEEnum = createEEnum(YSELECTION_TYPE);
@@ -1525,6 +1593,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yToggleButtonEClass.getESuperTypes().add(theCoreModelPackage.getYActivateable());
 		yProgressBarEClass.getESuperTypes().add(this.getYInput());
 		yProgressBarEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
+		yTabSheetEClass.getESuperTypes().add(theCoreModelPackage.getYEmbeddable());
+		yTabEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
+		yTabEClass.getESuperTypes().add(theCoreModelPackage.getYCssAble());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1688,6 +1759,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEReference(getYProgressBar_Datatype(), theExtDatatypesPackage.getYProgressBarDatatype(), null, "datatype", null, 0, 1, YProgressBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYProgressBar_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YProgressBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYProgressBar_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, YProgressBar.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yTabSheetEClass, YTabSheet.class, "YTabSheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYTabSheet_Tabs(), this.getYTab(), this.getYTab_Parent(), "tabs", null, 0, -1, YTabSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yTabEClass, YTab.class, "YTab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYTab_Parent(), this.getYTabSheet(), this.getYTabSheet_Tabs(), "parent", null, 1, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYTab_Embeddable(), theCoreModelPackage.getYEmbeddable(), null, "embeddable", null, 1, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(yTabEClass, theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");

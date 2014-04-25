@@ -434,6 +434,24 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtensionModelPackage.YTAB_SHEET: {
+				YTabSheet yTabSheet = (YTabSheet)theEObject;
+				T result = caseYTabSheet(yTabSheet);
+				if (result == null) result = caseYEmbeddable(yTabSheet);
+				if (result == null) result = caseYElement(yTabSheet);
+				if (result == null) result = caseYCssAble(yTabSheet);
+				if (result == null) result = caseYVisibleable(yTabSheet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExtensionModelPackage.YTAB: {
+				YTab yTab = (YTab)theEObject;
+				T result = caseYTab(yTab);
+				if (result == null) result = caseYElement(yTab);
+				if (result == null) result = caseYCssAble(yTab);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -765,6 +783,36 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYProgressBar(YProgressBar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YTab Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YTab Sheet</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTabSheet(YTabSheet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YTab</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YTab</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTab(YTab object) {
 		return null;
 	}
 

@@ -737,6 +737,52 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YPROGRESS_BAR_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTabSheetDatatypeImpl <em>YTab Sheet Datatype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTabSheetDatatypeImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYTabSheetDatatype()
+	 * @generated
+	 */
+	int YTAB_SHEET_DATATYPE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_DATATYPE__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_DATATYPE__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>YTab Sheet Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,7 +790,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYDateTimeFormat()
 	 * @generated
 	 */
-	int YDATE_TIME_FORMAT = 13;
+	int YDATE_TIME_FORMAT = 14;
 
 
 	/**
@@ -953,6 +999,16 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYProgressBarDatatype();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype <em>YTab Sheet Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YTab Sheet Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype
+	 * @generated
+	 */
+	EClass getYTabSheetDatatype();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}'.
@@ -1171,6 +1227,16 @@ public interface ExtDatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YPROGRESS_BAR_DATATYPE = eINSTANCE.getYProgressBarDatatype();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTabSheetDatatypeImpl <em>YTab Sheet Datatype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTabSheetDatatypeImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl#getYTabSheetDatatype()
+		 * @generated
+		 */
+		EClass YTAB_SHEET_DATATYPE = eINSTANCE.getYTabSheetDatatype();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.

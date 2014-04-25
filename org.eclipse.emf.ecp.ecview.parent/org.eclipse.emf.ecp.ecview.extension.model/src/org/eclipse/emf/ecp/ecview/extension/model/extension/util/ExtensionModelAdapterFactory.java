@@ -197,6 +197,14 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYProgressBarAdapter();
 			}
 			@Override
+			public Adapter caseYTabSheet(YTabSheet object) {
+				return createYTabSheetAdapter();
+			}
+			@Override
+			public Adapter caseYTab(YTab object) {
+				return createYTabAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -589,6 +597,34 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYProgressBarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet <em>YTab Sheet</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet
+	 * @generated
+	 */
+	public Adapter createYTabSheetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTab <em>YTab</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab
+	 * @generated
+	 */
+	public Adapter createYTabAdapter() {
 		return null;
 	}
 

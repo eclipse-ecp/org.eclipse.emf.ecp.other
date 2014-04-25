@@ -180,6 +180,14 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtDatatypesPackage.YTAB_SHEET_DATATYPE: {
+				YTabSheetDatatype yTabSheetDatatype = (YTabSheetDatatype)theEObject;
+				T result = caseYTabSheetDatatype(yTabSheetDatatype);
+				if (result == null) result = caseYDatatype(yTabSheetDatatype);
+				if (result == null) result = caseYDtBase(yTabSheetDatatype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -376,6 +384,21 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYProgressBarDatatype(YProgressBarDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YTab Sheet Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YTab Sheet Datatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYTabSheetDatatype(YTabSheetDatatype object) {
 		return null;
 	}
 

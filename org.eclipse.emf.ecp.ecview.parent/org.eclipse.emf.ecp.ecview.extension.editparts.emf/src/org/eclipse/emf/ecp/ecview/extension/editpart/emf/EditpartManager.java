@@ -29,6 +29,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -45,6 +47,8 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IOptionsGroupEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IProgressBarEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITabEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITabSheetEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
@@ -104,6 +108,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(DateTimeEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IProgressBarEditpart.class)) {
 			result = createNewInstance(ProgressBarEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ITabSheetEditpart.class)) {
+			result = createNewInstance(TabSheetEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ITabEditpart.class)) {
+			result = createNewInstance(TabEditpart.class);
 		}
 
 		if (result != null) {
@@ -164,6 +172,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(BrowserEditpart.class);
 		} else if (yElement instanceof YProgressBar) {
 			result = createNewInstance(ProgressBarEditpart.class);
+		} else if (yElement instanceof YTabSheet) {
+			result = createNewInstance(TabSheetEditpart.class);
+		} else if (yElement instanceof YTab) {
+			result = createNewInstance(TabEditpart.class);
 		}
 
 		if (result != null) {
