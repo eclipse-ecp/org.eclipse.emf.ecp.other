@@ -7,7 +7,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
@@ -25,6 +28,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -185,13 +190,21 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		isInited = true;
 
 		// Initialize simple dependencies
+		CoreModelPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
+		BindingPackage.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
+
+		// Obtain or create and register interdependencies
+		ExtensionModelPackageImpl theExtensionModelPackage = (ExtensionModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI) instanceof ExtensionModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI) : ExtensionModelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExtDatatypesPackage.createPackageContents();
+		theExtensionModelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtDatatypesPackage.initializePackageContents();
+		theExtensionModelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtDatatypesPackage.freeze();
@@ -462,7 +475,7 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Obtain other dependent packages
 		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
-		org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage theValidationPackage = (org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage.eNS_URI);
+		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
 
 		// Create type parameters
 

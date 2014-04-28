@@ -11,13 +11,13 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 
@@ -37,7 +37,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
  *
  * @generated
  */
-public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
+public class YListDataTypeImpl extends MinimalEObjectImpl.Container implements YListDataType {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -106,7 +106,7 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> validators;
+	protected EList<YValidator> validators;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,9 +195,9 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> getValidators() {
+	public EList<YValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectResolvingEList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>(org.eclipse.emf.ecp.ecview.common.model.validation.YValidator.class, this, ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS);
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS);
 		}
 		return validators;
 	}
@@ -242,7 +242,7 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 				return;
 			case ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS:
 				getValidators().clear();
-				getValidators().addAll((Collection<? extends org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>)newValue);
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

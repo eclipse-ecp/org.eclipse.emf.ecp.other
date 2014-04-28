@@ -3,12 +3,10 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
@@ -141,7 +139,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @generated
 	 */
 	public YEmbeddableCollectionEndpoint getCollectionBindingEndpoint() {
-		if (collectionBindingEndpoint != null && ((EObject)collectionBindingEndpoint).eIsProxy()) {
+		if (collectionBindingEndpoint != null && collectionBindingEndpoint.eIsProxy()) {
 			InternalEObject oldCollectionBindingEndpoint = (InternalEObject)collectionBindingEndpoint;
 			collectionBindingEndpoint = (YEmbeddableCollectionEndpoint)eResolveProxy(oldCollectionBindingEndpoint);
 			if (collectionBindingEndpoint != oldCollectionBindingEndpoint) {
@@ -177,7 +175,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @generated
 	 */
 	public YEmbeddableSelectionEndpoint getSelectionBindingEndpoint() {
-		if (selectionBindingEndpoint != null && ((EObject)selectionBindingEndpoint).eIsProxy()) {
+		if (selectionBindingEndpoint != null && selectionBindingEndpoint.eIsProxy()) {
 			InternalEObject oldSelectionBindingEndpoint = (InternalEObject)selectionBindingEndpoint;
 			selectionBindingEndpoint = (YEmbeddableSelectionEndpoint)eResolveProxy(oldSelectionBindingEndpoint);
 			if (selectionBindingEndpoint != oldSelectionBindingEndpoint) {
@@ -236,7 +234,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
-		if (datadescription != null && ((EObject)datadescription).eIsProxy()) {
+		if (datadescription != null && datadescription.eIsProxy()) {
 			InternalEObject oldDatadescription = (InternalEObject)datadescription;
 			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {
@@ -271,7 +269,7 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @generated
 	 */
 	public YComboBoxDatatype getDatatype() {
-		if (datatype != null && ((EObject)datatype).eIsProxy()) {
+		if (datatype != null && datatype.eIsProxy()) {
 			InternalEObject oldDatatype = (InternalEObject)datatype;
 			datatype = (YComboBoxDatatype)eResolveProxy(oldDatatype);
 			if (datatype != oldDatatype) {

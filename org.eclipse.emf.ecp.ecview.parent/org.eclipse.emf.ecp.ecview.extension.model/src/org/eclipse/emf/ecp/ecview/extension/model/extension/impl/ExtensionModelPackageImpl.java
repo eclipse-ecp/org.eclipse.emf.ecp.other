@@ -11,9 +11,12 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -303,13 +306,21 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		isInited = true;
 
 		// Initialize simple dependencies
-		ExtDatatypesPackage.eINSTANCE.eClass();
+		CoreModelPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
+		BindingPackage.eINSTANCE.eClass();
+		DatatypesPackage.eINSTANCE.eClass();
+
+		// Obtain or create and register interdependencies
+		ExtDatatypesPackageImpl theExtDatatypesPackage = (ExtDatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI) instanceof ExtDatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI) : ExtDatatypesPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExtensionModelPackage.createPackageContents();
+		theExtDatatypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtensionModelPackage.initializePackageContents();
+		theExtDatatypesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtensionModelPackage.freeze();

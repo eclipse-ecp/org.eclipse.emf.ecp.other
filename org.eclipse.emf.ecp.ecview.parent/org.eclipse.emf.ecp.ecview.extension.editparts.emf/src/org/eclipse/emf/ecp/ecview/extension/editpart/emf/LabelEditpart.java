@@ -10,7 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.EmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
  * The implementation of the IUiLabelEditpart.
  */
 @SuppressWarnings("restriction")
-public class LabelEditpart extends FieldEditpart<YLabel> implements
+public class LabelEditpart extends EmbeddableEditpart<YLabel> implements
 		ILabelEditpart {
 
 	@Override

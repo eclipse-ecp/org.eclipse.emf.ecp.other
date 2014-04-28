@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -83,31 +84,31 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExtensionModelPackage.YTEXT_FIELD: return (EObject)createYTextField();
-			case ExtensionModelPackage.YGRID_LAYOUT: return (EObject)createYGridLayout();
-			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE: return (EObject)createYGridLayoutCellStyle();
-			case ExtensionModelPackage.YHORIZONTAL_LAYOUT: return (EObject)createYHorizontalLayout();
-			case ExtensionModelPackage.YHORIZONTAL_LAYOUT_CELL_STYLE: return (EObject)createYHorizontalLayoutCellStyle();
-			case ExtensionModelPackage.YVERTICAL_LAYOUT: return (EObject)createYVerticalLayout();
-			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE: return (EObject)createYVerticalLayoutCellStyle();
-			case ExtensionModelPackage.YSPAN_INFO: return (EObject)createYSpanInfo();
-			case ExtensionModelPackage.YTABLE: return (EObject)createYTable();
-			case ExtensionModelPackage.YTREE: return (EObject)createYTree();
-			case ExtensionModelPackage.YOPTIONS_GROUP: return (EObject)createYOptionsGroup();
-			case ExtensionModelPackage.YLIST: return (EObject)createYList();
-			case ExtensionModelPackage.YLABEL: return (EObject)createYLabel();
-			case ExtensionModelPackage.YTEXT_AREA: return (EObject)createYTextArea();
-			case ExtensionModelPackage.YCHECK_BOX: return (EObject)createYCheckBox();
-			case ExtensionModelPackage.YBROWSER: return (EObject)createYBrowser();
-			case ExtensionModelPackage.YDATE_TIME: return (EObject)createYDateTime();
-			case ExtensionModelPackage.YDECIMAL_FIELD: return (EObject)createYDecimalField();
-			case ExtensionModelPackage.YNUMERIC_FIELD: return (EObject)createYNumericField();
-			case ExtensionModelPackage.YCOMBO_BOX: return (EObject)createYComboBox();
-			case ExtensionModelPackage.YBUTTON: return (EObject)createYButton();
-			case ExtensionModelPackage.YTOGGLE_BUTTON: return (EObject)createYToggleButton();
-			case ExtensionModelPackage.YPROGRESS_BAR: return (EObject)createYProgressBar();
-			case ExtensionModelPackage.YTAB_SHEET: return (EObject)createYTabSheet();
-			case ExtensionModelPackage.YTAB: return (EObject)createYTab();
+			case ExtensionModelPackage.YTEXT_FIELD: return createYTextField();
+			case ExtensionModelPackage.YGRID_LAYOUT: return createYGridLayout();
+			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE: return createYGridLayoutCellStyle();
+			case ExtensionModelPackage.YHORIZONTAL_LAYOUT: return createYHorizontalLayout();
+			case ExtensionModelPackage.YHORIZONTAL_LAYOUT_CELL_STYLE: return createYHorizontalLayoutCellStyle();
+			case ExtensionModelPackage.YVERTICAL_LAYOUT: return createYVerticalLayout();
+			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE: return createYVerticalLayoutCellStyle();
+			case ExtensionModelPackage.YSPAN_INFO: return createYSpanInfo();
+			case ExtensionModelPackage.YTABLE: return createYTable();
+			case ExtensionModelPackage.YTREE: return createYTree();
+			case ExtensionModelPackage.YOPTIONS_GROUP: return createYOptionsGroup();
+			case ExtensionModelPackage.YLIST: return createYList();
+			case ExtensionModelPackage.YLABEL: return createYLabel();
+			case ExtensionModelPackage.YTEXT_AREA: return createYTextArea();
+			case ExtensionModelPackage.YCHECK_BOX: return createYCheckBox();
+			case ExtensionModelPackage.YBROWSER: return createYBrowser();
+			case ExtensionModelPackage.YDATE_TIME: return createYDateTime();
+			case ExtensionModelPackage.YDECIMAL_FIELD: return createYDecimalField();
+			case ExtensionModelPackage.YNUMERIC_FIELD: return createYNumericField();
+			case ExtensionModelPackage.YCOMBO_BOX: return createYComboBox();
+			case ExtensionModelPackage.YBUTTON: return createYButton();
+			case ExtensionModelPackage.YTOGGLE_BUTTON: return createYToggleButton();
+			case ExtensionModelPackage.YPROGRESS_BAR: return createYProgressBar();
+			case ExtensionModelPackage.YTAB_SHEET: return createYTabSheet();
+			case ExtensionModelPackage.YTAB: return createYTab();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

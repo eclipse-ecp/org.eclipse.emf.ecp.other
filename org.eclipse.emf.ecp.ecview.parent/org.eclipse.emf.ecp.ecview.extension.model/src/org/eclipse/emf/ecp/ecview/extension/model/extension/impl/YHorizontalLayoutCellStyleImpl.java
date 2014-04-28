@@ -4,10 +4,9 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCel
  *
  * @generated
  */
-public class YHorizontalLayoutCellStyleImpl extends EObjectImpl implements YHorizontalLayoutCellStyle {
+public class YHorizontalLayoutCellStyleImpl extends MinimalEObjectImpl.Container implements YHorizontalLayoutCellStyle {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -84,7 +83,7 @@ public class YHorizontalLayoutCellStyleImpl extends EObjectImpl implements YHori
 	 * @generated
 	 */
 	public YEmbeddable getTarget() {
-		if (target != null && ((EObject)target).eIsProxy()) {
+		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
 			target = (YEmbeddable)eResolveProxy(oldTarget);
 			if (target != oldTarget) {

@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +32,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
  * @model
  * @generated
  */
-public interface YSpanInfo {
+public interface YSpanInfo extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Column From</b></em>' attribute.
 	 * <!-- begin-user-doc -->

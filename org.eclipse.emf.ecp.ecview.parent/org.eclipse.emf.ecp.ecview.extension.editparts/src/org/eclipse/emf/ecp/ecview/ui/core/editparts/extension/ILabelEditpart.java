@@ -10,11 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.core.editparts.extension;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 
 /**
  * An edit part for labels.
  */
-public interface ILabelEditpart extends IFieldEditpart {
+public interface ILabelEditpart extends IEmbeddableEditpart {
 
 }

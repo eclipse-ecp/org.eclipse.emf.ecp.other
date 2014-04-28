@@ -5,10 +5,9 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
@@ -30,7 +29,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
  *
  * @generated
  */
-public class YGridLayoutCellStyleImpl extends EObjectImpl implements
+public class YGridLayoutCellStyleImpl extends MinimalEObjectImpl.Container implements
 		YGridLayoutCellStyle {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -90,7 +89,7 @@ public class YGridLayoutCellStyleImpl extends EObjectImpl implements
 	 * @generated
 	 */
 	public YEmbeddable getTarget() {
-		if (target != null && ((EObject)target).eIsProxy()) {
+		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
 			target = (YEmbeddable)eResolveProxy(oldTarget);
 			if (target != oldTarget) {

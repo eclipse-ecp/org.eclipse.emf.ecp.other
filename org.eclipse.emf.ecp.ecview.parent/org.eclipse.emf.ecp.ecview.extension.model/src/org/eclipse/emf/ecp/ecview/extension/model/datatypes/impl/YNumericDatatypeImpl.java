@@ -11,13 +11,13 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 
@@ -39,7 +39,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
  *
  * @generated
  */
-public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatype {
+public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implements YNumericDatatype {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,7 +108,7 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> validators;
+	protected EList<YValidator> validators;
 
 	/**
 	 * The default value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
@@ -237,9 +237,9 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> getValidators() {
+	public EList<YValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectResolvingEList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>(org.eclipse.emf.ecp.ecview.common.model.validation.YValidator.class, this, ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS);
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS);
 		}
 		return validators;
 	}
@@ -330,7 +330,7 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
 				getValidators().clear();
-				getValidators().addAll((Collection<? extends org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>)newValue);
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				setGrouping((Boolean)newValue);

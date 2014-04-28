@@ -72,18 +72,18 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 		switch (eClass.getClassifierID()) {
 			case ExtDatatypesPackage.YTEXT_DATATYPE: return createYTextDatatype();
 			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE: return createYTextAreaDatatype();
-			case ExtDatatypesPackage.YNUMERIC_DATATYPE: return (EObject)createYNumericDatatype();
-			case ExtDatatypesPackage.YDECIMAL_DATATYPE: return (EObject)createYDecimalDatatype();
-			case ExtDatatypesPackage.YTABLE_DATATYPE: return (EObject)createYTableDatatype();
-			case ExtDatatypesPackage.YCHECK_BOX_DATATYPE: return (EObject)createYCheckBoxDatatype();
-			case ExtDatatypesPackage.YCOMBO_BOX_DATATYPE: return (EObject)createYComboBoxDatatype();
-			case ExtDatatypesPackage.YLIST_DATA_TYPE: return (EObject)createYListDataType();
-			case ExtDatatypesPackage.YOPTIONS_GROUP_DATA_TYPE: return (EObject)createYOptionsGroupDataType();
-			case ExtDatatypesPackage.YBROWSER_DATATYPE: return (EObject)createYBrowserDatatype();
-			case ExtDatatypesPackage.YDATE_TIME_DATATYPE: return (EObject)createYDateTimeDatatype();
-			case ExtDatatypesPackage.YTREE_DATATYPE: return (EObject)createYTreeDatatype();
-			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE: return (EObject)createYProgressBarDatatype();
-			case ExtDatatypesPackage.YTAB_SHEET_DATATYPE: return (EObject)createYTabSheetDatatype();
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE: return createYNumericDatatype();
+			case ExtDatatypesPackage.YDECIMAL_DATATYPE: return createYDecimalDatatype();
+			case ExtDatatypesPackage.YTABLE_DATATYPE: return createYTableDatatype();
+			case ExtDatatypesPackage.YCHECK_BOX_DATATYPE: return createYCheckBoxDatatype();
+			case ExtDatatypesPackage.YCOMBO_BOX_DATATYPE: return createYComboBoxDatatype();
+			case ExtDatatypesPackage.YLIST_DATA_TYPE: return createYListDataType();
+			case ExtDatatypesPackage.YOPTIONS_GROUP_DATA_TYPE: return createYOptionsGroupDataType();
+			case ExtDatatypesPackage.YBROWSER_DATATYPE: return createYBrowserDatatype();
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE: return createYDateTimeDatatype();
+			case ExtDatatypesPackage.YTREE_DATATYPE: return createYTreeDatatype();
+			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE: return createYProgressBarDatatype();
+			case ExtDatatypesPackage.YTAB_SHEET_DATATYPE: return createYTabSheetDatatype();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

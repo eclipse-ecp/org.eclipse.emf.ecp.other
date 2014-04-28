@@ -5,7 +5,6 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -109,7 +108,7 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * @generated
 	 */
 	public YEmbeddableValueEndpoint getValueBindingEndpoint() {
-		if (valueBindingEndpoint != null && ((EObject)valueBindingEndpoint).eIsProxy()) {
+		if (valueBindingEndpoint != null && valueBindingEndpoint.eIsProxy()) {
 			InternalEObject oldValueBindingEndpoint = (InternalEObject)valueBindingEndpoint;
 			valueBindingEndpoint = (YEmbeddableValueEndpoint)eResolveProxy(oldValueBindingEndpoint);
 			if (valueBindingEndpoint != oldValueBindingEndpoint) {
@@ -203,7 +202,7 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * @generated
 	 */
 	public YDatadescription getDatadescription() {
-		if (datadescription != null && ((EObject)datadescription).eIsProxy()) {
+		if (datadescription != null && datadescription.eIsProxy()) {
 			InternalEObject oldDatadescription = (InternalEObject)datadescription;
 			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
 			if (datadescription != oldDatadescription) {

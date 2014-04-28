@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 
 /**
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
  * @model
  * @generated
  */
-public interface YHorizontalLayoutCellStyle {
+public interface YHorizontalLayoutCellStyle extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->

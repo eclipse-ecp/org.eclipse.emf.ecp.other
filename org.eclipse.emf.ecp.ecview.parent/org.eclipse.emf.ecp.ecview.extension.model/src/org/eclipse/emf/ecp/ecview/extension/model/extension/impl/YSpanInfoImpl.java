@@ -5,7 +5,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
 
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
  *
  * @generated
  */
-public class YSpanInfoImpl extends EObjectImpl implements YSpanInfo {
+public class YSpanInfoImpl extends MinimalEObjectImpl.Container implements YSpanInfo {
 	/**
 	 * The default value of the '{@link #getColumnFrom() <em>Column From</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
  *
  * @generated
  */
-public class YTabImpl extends EObjectImpl implements YTab {
+public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -193,7 +193,7 @@ public class YTabImpl extends EObjectImpl implements YTab {
 	 */
 	public void setParent(YTabSheet newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ExtensionModelPackage.YTAB__PARENT && newParent != null)) {
-			if (EcoreUtil.isAncestor(this, (EObject)newParent))
+			if (EcoreUtil.isAncestor(this, newParent))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
