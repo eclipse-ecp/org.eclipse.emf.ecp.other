@@ -10,13 +10,17 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
+import static org.junit.Assert.fail;
+
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -155,5 +159,63 @@ public class FieldEditpartTest {
 			// END SUPRESS CATCH EXCEPTION
 			// expected
 		}
+
+		try {
+			field1Editpart.getValidators();
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+
+		try {
+			field1Editpart.addValidator(DelegatingEditPartManager.getInstance()
+					.createEditpart(ValidationPackage.eNS_URI,
+							IValidatorEditpart.class));
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+
+		try {
+			field1Editpart.addValidator(DelegatingEditPartManager.getInstance()
+					.createEditpart(ValidationPackage.eNS_URI,
+							IValidatorEditpart.class));
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
 	}
+
+	@Test
+	public void test_validatorsDisposed_AfterDispose() {
+		fail("Implement");
+	}
+
+	@Test
+	public void test_addRemoveValidator() {
+		fail("Implement");
+		// See LayoutEditpartTest#test_addAndRemove_Embedded()
+		// #test_moveEmbedded_byEditpart()
+		//
+	}
+
+	@Test
+	public void test_addRemoveValidatorByModel() {
+		fail("Implement");
+		// See LayoutEditpartTest#test_addAndRemove_Embedded()
+		// #test_moveEmbedded_byModel()
+	}
+
+	@Test
+	public void test_Validators_unmodifieable() {
+		fail("Implement");
+		// See LayoutEditpartTest#test_getElements_unmodifyable()
+	}
+
 }
