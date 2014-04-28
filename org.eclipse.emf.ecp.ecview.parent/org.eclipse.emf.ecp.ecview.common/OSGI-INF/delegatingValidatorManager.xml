@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.emf.ecp.ecview.common.validators.factorymanager">
-   <implementation class="org.eclipse.emf.ecp.ecview.common.validation.DelegatingValidatorManager$Component"/>
-   <reference bind="addDelegate" cardinality="0..n" interface="org.eclipse.emf.ecp.ecview.common.validation.IValidatorManager" name="delegates" policy="dynamic" unbind="removeDelegate"/>
-</scr:component>

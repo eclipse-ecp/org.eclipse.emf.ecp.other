@@ -11,4 +11,11 @@ public class MinLenghtValidatorTest {
 		fail("Implement");
 	}
 
+	public void test_updateParameter() {
+		fail("Implement");
+	}
+
+	public void test_updateParameterCalledByEditpart() {
+		fail("Implement");
+	}
 }

@@ -23,6 +23,6 @@ public interface IValidatorEditpart extends IElementEditpart {
 	 * 
 	 * @return
 	 */
-	IValidator getValidator();
+	<A extends IValidator> A getValidator();
 
 }

@@ -8,19 +8,25 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.validation;
+package org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;
+
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidationCodes;
+import org.eclipse.emf.ecp.ecview.common.validation.Status;
+import org.eclipse.emf.ecp.ecview.common.validation.StringValidator;
 
 public class MinLengthValidator extends StringValidator {
 
-	private final int minLength;
+	private int minLength;
 
-	public MinLengthValidator(int minLength) {
-		this(minLength, null);
+	public MinLengthValidator(YMinLengthValidator yValidator) {
+		this(yValidator, null);
 	}
 
-	public MinLengthValidator(int minLength, String message) {
+	public MinLengthValidator(YMinLengthValidator yValidator, String message) {
 		super(message);
-		this.minLength = minLength;
+		updateParameter(yValidator);
 	}
 
 	@Override
@@ -44,10 +50,11 @@ public class MinLengthValidator extends StringValidator {
 				"Minimum length is %d. Length of %s is %d", minLength, value,
 				value.trim().length());
 	};
-	
+
 	@Override
 	public void updateParameter(Object model) {
-		// nothing to do
+		YMinLengthValidator yValidator = (YMinLengthValidator) model;
+		this.minLength = yValidator.getMinLength();
 	};
 
 }

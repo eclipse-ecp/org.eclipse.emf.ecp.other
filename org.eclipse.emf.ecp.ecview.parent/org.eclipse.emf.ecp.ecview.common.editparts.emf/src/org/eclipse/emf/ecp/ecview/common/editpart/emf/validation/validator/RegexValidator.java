@@ -8,10 +8,16 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.validation;
+package org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidationCodes;
+import org.eclipse.emf.ecp.ecview.common.validation.Status;
+import org.eclipse.emf.ecp.ecview.common.validation.StringValidator;
 
 /**
  * Validates the string value if it matches the given regular expression.
@@ -22,30 +28,13 @@ public class RegexValidator extends StringValidator {
 	private Matcher matcher = null;
 	private String regexp;
 
-	/**
-	 * Creates a validator to check that the regular expression matches the
-	 * string to validate.
-	 * 
-	 * @param regexp
-	 *            the regular expression
-	 */
-	public RegexValidator(String regexp) {
-		this(regexp, null);
+	public RegexValidator(YRegexpValidator yValidator) {
+		this(yValidator, null);
 	}
 
-	/**
-	 * Creates a validator to check that the regular expression matches the
-	 * string to validate.
-	 * 
-	 * @param regexp
-	 *            the regular expression
-	 * @param errorMessage
-	 *            the message if the value does not validate.
-	 */
-	public RegexValidator(String regexp, String errorMessage) {
-		super(errorMessage);
-		this.regexp = regexp;
-		this.pattern = Pattern.compile(regexp);
+	public RegexValidator(YRegexpValidator yValidator, String message) {
+		super(message);
+		updateParameter(yValidator);
 	}
 
 	/**
@@ -84,7 +73,10 @@ public class RegexValidator extends StringValidator {
 
 	@Override
 	public void updateParameter(Object model) {
-		// nothing to do
+		YRegexpValidator yValidator = (YRegexpValidator) model;
+		this.regexp = yValidator.getRegexp();
+		this.pattern = Pattern.compile(regexp);
+		this.matcher = null;
 	};
 
 }

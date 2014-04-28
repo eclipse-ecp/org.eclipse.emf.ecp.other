@@ -8,19 +8,25 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.validation;
+package org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;
+
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidationCodes;
+import org.eclipse.emf.ecp.ecview.common.validation.Status;
+import org.eclipse.emf.ecp.ecview.common.validation.StringValidator;
 
 public class MaxLengthValidator extends StringValidator {
 
-	private final int maxLength;
+	private int maxLength;
 
-	public MaxLengthValidator(int maxLength) {
-		this(maxLength, null);
+	public MaxLengthValidator(YMaxLengthValidator yValidator) {
+		this(yValidator, null);
 	}
 
-	public MaxLengthValidator(int maxLength, String message) {
+	public MaxLengthValidator(YMaxLengthValidator yValidator, String message) {
 		super(message);
-		this.maxLength = maxLength;
+		updateParameter(yValidator);
 	}
 
 	@Override
@@ -46,7 +52,8 @@ public class MaxLengthValidator extends StringValidator {
 
 	@Override
 	public void updateParameter(Object model) {
-		// nothing to do
+		YMaxLengthValidator yValidator = (YMaxLengthValidator) model;
+		this.maxLength = yValidator.getMaxLength();
 	};
 
 }
