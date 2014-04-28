@@ -7,16 +7,25 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,7 +88,11 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				YTextDatatype yTextDatatype = (YTextDatatype)theEObject;
 				T result = caseYTextDatatype(yTextDatatype);
 				if (result == null) result = caseYDatatype(yTextDatatype);
+				if (result == null) result = caseYMinLengthValidatable(yTextDatatype);
+				if (result == null) result = caseYMaxLengthValidatable(yTextDatatype);
+				if (result == null) result = caseYRegexpValidatable(yTextDatatype);
 				if (result == null) result = caseYDtBase(yTextDatatype);
+				if (result == null) result = caseYValidatable(yTextDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,7 +100,11 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				YTextAreaDatatype yTextAreaDatatype = (YTextAreaDatatype)theEObject;
 				T result = caseYTextAreaDatatype(yTextAreaDatatype);
 				if (result == null) result = caseYDatatype(yTextAreaDatatype);
+				if (result == null) result = caseYMinLengthValidatable(yTextAreaDatatype);
+				if (result == null) result = caseYMaxLengthValidatable(yTextAreaDatatype);
+				if (result == null) result = caseYRegexpValidatable(yTextAreaDatatype);
 				if (result == null) result = caseYDtBase(yTextAreaDatatype);
+				if (result == null) result = caseYValidatable(yTextAreaDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -429,6 +446,66 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYDatatype(YDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YValidatable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YValidatable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYValidatable(YValidatable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMin Length Validatable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMin Length Validatable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMinLengthValidatable(YMinLengthValidatable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMax Length Validatable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMax Length Validatable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMaxLengthValidatable(YMaxLengthValidatable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YRegexp Validatable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YRegexp Validatable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYRegexpValidatable(YRegexpValidatable object) {
 		return null;
 	}
 

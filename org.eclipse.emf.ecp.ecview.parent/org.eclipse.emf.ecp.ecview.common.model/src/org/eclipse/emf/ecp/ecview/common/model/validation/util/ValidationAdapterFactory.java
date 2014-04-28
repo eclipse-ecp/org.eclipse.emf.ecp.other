@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.validation.*;
 
 /**
@@ -98,6 +99,10 @@ public class ValidationAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYRegexpValidatable(YRegexpValidatable object) {
 				return createYRegexpValidatableAdapter();
+			}
+			@Override
+			public Adapter caseYElement(YElement object) {
+				return createYElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -228,6 +233,20 @@ public class ValidationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYRegexpValidatableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YElement <em>YElement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YElement
+	 * @generated
+	 */
+	public Adapter createYElementAdapter() {
 		return null;
 	}
 

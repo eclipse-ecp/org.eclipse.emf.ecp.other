@@ -11,7 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.model.datatypes;
 
 import org.eclipse.emf.common.util.EList;
-import validation.YValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 
 
 /**
@@ -34,7 +34,7 @@ public interface YDatatype extends YDtBase {
 
 	/**
 	 * Returns the value of the '<em><b>Validators</b></em>' reference list.
-	 * The list contents are of type {@link validation.YValidator}.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validators</em>' reference list isn't clear,

@@ -5,7 +5,6 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.validation;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
 
 /**

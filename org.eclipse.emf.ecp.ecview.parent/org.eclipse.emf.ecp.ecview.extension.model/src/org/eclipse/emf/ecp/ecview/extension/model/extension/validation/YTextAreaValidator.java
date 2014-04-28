@@ -5,7 +5,6 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.validation;
 
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 
 /**

@@ -8,17 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,8 +70,8 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExtDatatypesPackage.YTEXT_DATATYPE: return (EObject)createYTextDatatype();
-			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE: return (EObject)createYTextAreaDatatype();
+			case ExtDatatypesPackage.YTEXT_DATATYPE: return createYTextDatatype();
+			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE: return createYTextAreaDatatype();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE: return (EObject)createYNumericDatatype();
 			case ExtDatatypesPackage.YDECIMAL_DATATYPE: return (EObject)createYDecimalDatatype();
 			case ExtDatatypesPackage.YTABLE_DATATYPE: return (EObject)createYTableDatatype();

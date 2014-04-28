@@ -16,7 +16,7 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
  * </p>
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYRegexpValidatable()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface YRegexpValidatable extends YValidatable {

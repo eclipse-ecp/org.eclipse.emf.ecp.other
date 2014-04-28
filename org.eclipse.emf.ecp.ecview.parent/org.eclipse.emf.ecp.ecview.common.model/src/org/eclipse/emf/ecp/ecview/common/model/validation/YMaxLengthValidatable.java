@@ -16,7 +16,7 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
  * </p>
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYMaxLengthValidatable()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface YMaxLengthValidatable extends YValidatable {

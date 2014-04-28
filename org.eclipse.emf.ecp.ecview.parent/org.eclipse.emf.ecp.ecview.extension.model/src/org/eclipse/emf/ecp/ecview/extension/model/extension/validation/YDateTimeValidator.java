@@ -5,8 +5,8 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.validation;
 
 import java.util.Date;
-import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
 
 /**

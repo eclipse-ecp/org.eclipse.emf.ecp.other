@@ -16,7 +16,7 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
  * </p>
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYMinLengthValidatable()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface YMinLengthValidatable extends YValidatable {

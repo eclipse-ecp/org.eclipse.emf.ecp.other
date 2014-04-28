@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYValidatable()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface YValidatable extends EObject {

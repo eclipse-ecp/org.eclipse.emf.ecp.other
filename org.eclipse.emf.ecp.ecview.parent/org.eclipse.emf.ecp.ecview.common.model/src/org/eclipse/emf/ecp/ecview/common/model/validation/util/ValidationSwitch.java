@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.validation.*;
 
 /**
@@ -69,6 +70,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 			case ValidationPackage.YVALIDATOR: {
 				YValidator yValidator = (YValidator)theEObject;
 				T result = caseYValidator(yValidator);
+				if (result == null) result = caseYElement(yValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -76,6 +78,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YMinLengthValidator yMinLengthValidator = (YMinLengthValidator)theEObject;
 				T result = caseYMinLengthValidator(yMinLengthValidator);
 				if (result == null) result = caseYValidator(yMinLengthValidator);
+				if (result == null) result = caseYElement(yMinLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -83,6 +86,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YMaxLengthValidator yMaxLengthValidator = (YMaxLengthValidator)theEObject;
 				T result = caseYMaxLengthValidator(yMaxLengthValidator);
 				if (result == null) result = caseYValidator(yMaxLengthValidator);
+				if (result == null) result = caseYElement(yMaxLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,6 +94,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YRegexpValidator yRegexpValidator = (YRegexpValidator)theEObject;
 				T result = caseYRegexpValidator(yRegexpValidator);
 				if (result == null) result = caseYValidator(yRegexpValidator);
+				if (result == null) result = caseYElement(yRegexpValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -241,6 +246,21 @@ public class ValidationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYRegexpValidatable(YRegexpValidatable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YElement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YElement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYElement(YElement object) {
 		return null;
 	}
 

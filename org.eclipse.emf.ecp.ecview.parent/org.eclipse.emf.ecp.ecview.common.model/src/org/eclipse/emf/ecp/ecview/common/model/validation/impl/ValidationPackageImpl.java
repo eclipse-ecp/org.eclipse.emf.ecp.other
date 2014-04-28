@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
@@ -343,11 +344,15 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		yValidatorEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yMinLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
 		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
 		yRegexpValidatorEClass.getESuperTypes().add(this.getYValidator());
@@ -355,7 +360,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		yMaxLengthValidatableEClass.getESuperTypes().add(this.getYValidatable());
 		yRegexpValidatableEClass.getESuperTypes().add(this.getYValidatable());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(yValidatorEClass, YValidator.class, "YValidator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yMinLengthValidatorEClass, YMinLengthValidator.class, "YMinLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -367,15 +372,15 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		initEClass(yRegexpValidatorEClass, YRegexpValidator.class, "YRegexpValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYRegexpValidator_Regexp(), ecorePackage.getEString(), "regexp", null, 1, 1, YRegexpValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yValidatableEClass, YValidatable.class, "YValidatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yValidatableEClass, YValidatable.class, "YValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yMinLengthValidatableEClass, YMinLengthValidatable.class, "YMinLengthValidatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yMinLengthValidatableEClass, YMinLengthValidatable.class, "YMinLengthValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYMinLengthValidatable_MinLength(), ecorePackage.getEInt(), "minLength", null, 1, 1, YMinLengthValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yMaxLengthValidatableEClass, YMaxLengthValidatable.class, "YMaxLengthValidatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yMaxLengthValidatableEClass, YMaxLengthValidatable.class, "YMaxLengthValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYMaxLengthValidatable_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 1, 1, YMaxLengthValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yRegexpValidatableEClass, YRegexpValidatable.class, "YRegexpValidatable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yRegexpValidatableEClass, YRegexpValidatable.class, "YRegexpValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYRegexpValidatable_RegExpression(), ecorePackage.getEInt(), "regExpression", null, 1, 1, YRegexpValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

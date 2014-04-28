@@ -25,8 +25,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
-import validation.ValidationPackage;
-import validation.impl.ValidationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -189,16 +187,11 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		// Initialize simple dependencies
 		DatatypesPackage.eINSTANCE.eClass();
 
-		// Obtain or create and register interdependencies
-		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theExtDatatypesPackage.createPackageContents();
-		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtDatatypesPackage.initializePackageContents();
-		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtDatatypesPackage.freeze();
@@ -216,33 +209,6 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 */
 	public EClass getYTextDatatype() {
 		return yTextDatatypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYTextDatatype_Maxlength() {
-		return (EAttribute)yTextDatatypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYTextDatatype_Minlength() {
-		return (EAttribute)yTextDatatypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYTextDatatype_Regexpression() {
-		return (EAttribute)yTextDatatypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -436,9 +402,6 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Create classes and their features
 		yTextDatatypeEClass = createEClass(YTEXT_DATATYPE);
-		createEAttribute(yTextDatatypeEClass, YTEXT_DATATYPE__MAXLENGTH);
-		createEAttribute(yTextDatatypeEClass, YTEXT_DATATYPE__MINLENGTH);
-		createEAttribute(yTextDatatypeEClass, YTEXT_DATATYPE__REGEXPRESSION);
 
 		yTextAreaDatatypeEClass = createEClass(YTEXT_AREA_DATATYPE);
 
@@ -499,6 +462,7 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Obtain other dependent packages
 		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+		org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage theValidationPackage = (org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -506,7 +470,13 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Add supertypes to classes
 		yTextDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidatable());
+		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidatable());
+		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidatable());
 		yTextAreaDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidatable());
+		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidatable());
+		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidatable());
 		yNumericDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yDecimalDatatypeEClass.getESuperTypes().add(this.getYNumericDatatype());
 		yTableDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
@@ -522,9 +492,6 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYTextDatatype_Maxlength(), ecorePackage.getEInt(), "maxlength", "-1", 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTextDatatype_Minlength(), ecorePackage.getEInt(), "minlength", "-1", 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYTextDatatype_Regexpression(), ecorePackage.getEString(), "regexpression", null, 0, 1, YTextDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class, "YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

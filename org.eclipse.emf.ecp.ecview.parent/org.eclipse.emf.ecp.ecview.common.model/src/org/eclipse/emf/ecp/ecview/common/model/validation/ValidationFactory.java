@@ -49,42 +49,6 @@ public interface ValidationFactory extends EFactory {
 	YRegexpValidator createYRegexpValidator();
 
 	/**
-	 * Returns a new object of class '<em>YValidatable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YValidatable</em>'.
-	 * @generated
-	 */
-	YValidatable createYValidatable();
-
-	/**
-	 * Returns a new object of class '<em>YMin Length Validatable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YMin Length Validatable</em>'.
-	 * @generated
-	 */
-	YMinLengthValidatable createYMinLengthValidatable();
-
-	/**
-	 * Returns a new object of class '<em>YMax Length Validatable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YMax Length Validatable</em>'.
-	 * @generated
-	 */
-	YMaxLengthValidatable createYMaxLengthValidatable();
-
-	/**
-	 * Returns a new object of class '<em>YRegexp Validatable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YRegexp Validatable</em>'.
-	 * @generated
-	 */
-	YRegexpValidatable createYRegexpValidatable();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

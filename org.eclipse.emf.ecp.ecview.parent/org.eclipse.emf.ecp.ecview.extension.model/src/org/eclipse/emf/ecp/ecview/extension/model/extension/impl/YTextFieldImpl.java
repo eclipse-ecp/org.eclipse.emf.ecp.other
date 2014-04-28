@@ -168,7 +168,7 @@ public class YTextFieldImpl extends YInputImpl implements YTextField {
 	 * @generated
 	 */
 	public YTextDatatype getDatatype() {
-		if (datatype != null && ((EObject)datatype).eIsProxy()) {
+		if (datatype != null && datatype.eIsProxy()) {
 			InternalEObject oldDatatype = (InternalEObject)datatype;
 			datatype = (YTextDatatype)eResolveProxy(oldDatatype);
 			if (datatype != oldDatatype) {

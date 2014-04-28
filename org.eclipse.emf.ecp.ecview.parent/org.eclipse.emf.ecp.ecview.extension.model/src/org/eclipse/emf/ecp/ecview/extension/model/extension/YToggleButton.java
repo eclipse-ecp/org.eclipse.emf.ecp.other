@@ -4,7 +4,6 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
 /**

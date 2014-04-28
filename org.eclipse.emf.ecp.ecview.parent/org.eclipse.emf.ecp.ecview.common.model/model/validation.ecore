@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="validation" nsURI="http://eclipse.org/emf/ecp/ecview/common/validation"
     nsPrefix="validation">
-  <eClassifiers xsi:type="ecore:EClass" name="YValidator" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YValidator" abstract="true" eSuperTypes="core.ecore#//YElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidator" eSuperTypes="#//YValidator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -15,16 +15,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexp" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YValidatable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidatable" eSuperTypes="#//YValidatable">
+  <eClassifiers xsi:type="ecore:EClass" name="YValidatable" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidatable" abstract="true"
+      interface="true" eSuperTypes="#//YValidatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YMaxLengthValidatable" eSuperTypes="#//YValidatable">
+  <eClassifiers xsi:type="ecore:EClass" name="YMaxLengthValidatable" abstract="true"
+      interface="true" eSuperTypes="#//YValidatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YRegexpValidatable" eSuperTypes="#//YValidatable">
+  <eClassifiers xsi:type="ecore:EClass" name="YRegexpValidatable" abstract="true"
+      interface="true" eSuperTypes="#//YValidatable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regExpression" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>

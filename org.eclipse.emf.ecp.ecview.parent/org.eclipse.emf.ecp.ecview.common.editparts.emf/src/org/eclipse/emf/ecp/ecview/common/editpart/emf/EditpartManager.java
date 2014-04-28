@@ -32,6 +32,12 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingSetEditpart
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ListBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MaxLengthValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MinLengthValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.RegexpValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IMaxLengthValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IMinLengthValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IRegexpValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -50,6 +56,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
 
 /**
  * An implementation of IEditPartManager for eObjects with
@@ -88,7 +97,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(ViewSetEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IBindingSetEditpart.class)) {
 			result = createNewInstance(BindingSetEditpart.class);
-		} else if (editPartClazz.isAssignableFrom(IDetailValueBindingEndpointEditpart.class)) {
+		} else if (editPartClazz
+				.isAssignableFrom(IDetailValueBindingEndpointEditpart.class)) {
 			result = createNewInstance(DetailValueBindingEndpointEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IValueBindingEditpart.class)) {
 			result = createNewInstance(ValueBindingEditpart.class);
@@ -112,6 +122,15 @@ public class EditpartManager extends AbstractEditpartManager {
 		} else if (editPartClazz
 				.isAssignableFrom(IBeanBindingEndpointEditpart.class)) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IMinLengthValidatorEditpart.class)) {
+			result = createNewInstance(MinLengthValidatorEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IMaxLengthValidatorEditpart.class)) {
+			result = createNewInstance(MaxLengthValidatorEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IRegexpValidatorEditpart.class)) {
+			result = createNewInstance(RegexpValidatorEditpart.class);
 		}
 
 		if (result != null) {
@@ -166,6 +185,12 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(EmbeddableCollectionBindingEndpointEditpart.class);
 		} else if (yElement instanceof YBeanBindingEndpoint) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
+		} else if (yElement instanceof YMinLengthValidator) {
+			result = createNewInstance(MinLengthValidatorEditpart.class);
+		} else if (yElement instanceof YMaxLengthValidator) {
+			result = createNewInstance(MaxLengthValidatorEditpart.class);
+		} else if (yElement instanceof YRegexpValidator) {
+			result = createNewInstance(RegexpValidatorEditpart.class);
 		}
 
 		if (result != null) {

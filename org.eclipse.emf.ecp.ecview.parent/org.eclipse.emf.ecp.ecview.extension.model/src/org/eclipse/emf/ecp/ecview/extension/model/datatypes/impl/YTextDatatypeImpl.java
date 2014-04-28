@@ -11,15 +11,20 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
-import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,9 +37,9 @@ import validation.YValidator;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getValidators <em>Validators</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getMaxlength <em>Maxlength</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getMinlength <em>Minlength</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getRegexpression <em>Regexpression</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getMinLength <em>Min Length</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getMaxLength <em>Max Length</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getRegExpression <em>Reg Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,67 +114,67 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<YValidator> validators;
+	protected EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> validators;
 
 	/**
-	 * The default value of the '{@link #getMaxlength() <em>Maxlength</em>}' attribute.
+	 * The default value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxlength()
+	 * @see #getMinLength()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAXLENGTH_EDEFAULT = -1;
+	protected static final int MIN_LENGTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMaxlength() <em>Maxlength</em>}' attribute.
+	 * The cached value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaxlength()
+	 * @see #getMinLength()
 	 * @generated
 	 * @ordered
 	 */
-	protected int maxlength = MAXLENGTH_EDEFAULT;
+	protected int minLength = MIN_LENGTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMinlength() <em>Minlength</em>}' attribute.
+	 * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMinlength()
+	 * @see #getMaxLength()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MINLENGTH_EDEFAULT = -1;
+	protected static final int MAX_LENGTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMinlength() <em>Minlength</em>}' attribute.
+	 * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMinlength()
+	 * @see #getMaxLength()
 	 * @generated
 	 * @ordered
 	 */
-	protected int minlength = MINLENGTH_EDEFAULT;
+	protected int maxLength = MAX_LENGTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRegexpression() <em>Regexpression</em>}' attribute.
+	 * The default value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRegexpression()
+	 * @see #getRegExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REGEXPRESSION_EDEFAULT = null;
+	protected static final int REG_EXPRESSION_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getRegexpression() <em>Regexpression</em>}' attribute.
+	 * The cached value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRegexpression()
+	 * @see #getRegExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected String regexpression = REGEXPRESSION_EDEFAULT;
+	protected int regExpression = REG_EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,9 +263,9 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<YValidator> getValidators() {
+	public EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS);
+			validators = new EObjectResolvingEList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>(org.eclipse.emf.ecp.ecview.common.model.validation.YValidator.class, this, ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS);
 		}
 		return validators;
 	}
@@ -270,8 +275,8 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaxlength() {
-		return maxlength;
+	public int getMinLength() {
+		return minLength;
 	}
 
 	/**
@@ -279,11 +284,11 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxlength(int newMaxlength) {
-		int oldMaxlength = maxlength;
-		maxlength = newMaxlength;
+	public void setMinLength(int newMinLength) {
+		int oldMinLength = minLength;
+		minLength = newMinLength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH, oldMaxlength, maxlength));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH, oldMinLength, minLength));
 	}
 
 	/**
@@ -291,8 +296,8 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMinlength() {
-		return minlength;
+	public int getMaxLength() {
+		return maxLength;
 	}
 
 	/**
@@ -300,11 +305,11 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMinlength(int newMinlength) {
-		int oldMinlength = minlength;
-		minlength = newMinlength;
+	public void setMaxLength(int newMaxLength) {
+		int oldMaxLength = maxLength;
+		maxLength = newMaxLength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH, oldMinlength, minlength));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH, oldMaxLength, maxLength));
 	}
 
 	/**
@@ -312,8 +317,8 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRegexpression() {
-		return regexpression;
+	public int getRegExpression() {
+		return regExpression;
 	}
 
 	/**
@@ -321,11 +326,11 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRegexpression(String newRegexpression) {
-		String oldRegexpression = regexpression;
-		regexpression = newRegexpression;
+	public void setRegExpression(int newRegExpression) {
+		int oldRegExpression = regExpression;
+		regExpression = newRegExpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION, oldRegexpression, regexpression));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION, oldRegExpression, regExpression));
 	}
 
 	/**
@@ -344,12 +349,12 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 				return getDescription();
 			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
 				return getValidators();
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
-				return getMaxlength();
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
-				return getMinlength();
-			case ExtDatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
-				return getRegexpression();
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH:
+				return getMinLength();
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH:
+				return getMaxLength();
+			case ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION:
+				return getRegExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -374,16 +379,16 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 				return;
 			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
 				getValidators().clear();
-				getValidators().addAll((Collection<? extends YValidator>)newValue);
+				getValidators().addAll((Collection<? extends org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>)newValue);
 				return;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
-				setMaxlength((Integer)newValue);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH:
+				setMinLength((Integer)newValue);
 				return;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
-				setMinlength((Integer)newValue);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH:
+				setMaxLength((Integer)newValue);
 				return;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
-				setRegexpression((String)newValue);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION:
+				setRegExpression((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -409,14 +414,14 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
 				getValidators().clear();
 				return;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
-				setMaxlength(MAXLENGTH_EDEFAULT);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH:
+				setMinLength(MIN_LENGTH_EDEFAULT);
 				return;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
-				setMinlength(MINLENGTH_EDEFAULT);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH:
+				setMaxLength(MAX_LENGTH_EDEFAULT);
 				return;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
-				setRegexpression(REGEXPRESSION_EDEFAULT);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION:
+				setRegExpression(REG_EXPRESSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -438,14 +443,80 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
 				return validators != null && !validators.isEmpty();
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
-				return maxlength != MAXLENGTH_EDEFAULT;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
-				return minlength != MINLENGTH_EDEFAULT;
-			case ExtDatatypesPackage.YTEXT_DATATYPE__REGEXPRESSION:
-				return REGEXPRESSION_EDEFAULT == null ? regexpression != null : !REGEXPRESSION_EDEFAULT.equals(regexpression);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH:
+				return minLength != MIN_LENGTH_EDEFAULT;
+			case ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH:
+				return maxLength != MAX_LENGTH_EDEFAULT;
+			case ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION:
+				return regExpression != REG_EXPRESSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == YValidatable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YMinLengthValidatable.class) {
+			switch (derivedFeatureID) {
+				case ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH;
+				default: return -1;
+			}
+		}
+		if (baseClass == YMaxLengthValidatable.class) {
+			switch (derivedFeatureID) {
+				case ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH;
+				default: return -1;
+			}
+		}
+		if (baseClass == YRegexpValidatable.class) {
+			switch (derivedFeatureID) {
+				case ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION: return ValidationPackage.YREGEXP_VALIDATABLE__REG_EXPRESSION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == YValidatable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YMinLengthValidatable.class) {
+			switch (baseFeatureID) {
+				case ValidationPackage.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH: return ExtDatatypesPackage.YTEXT_DATATYPE__MIN_LENGTH;
+				default: return -1;
+			}
+		}
+		if (baseClass == YMaxLengthValidatable.class) {
+			switch (baseFeatureID) {
+				case ValidationPackage.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH: return ExtDatatypesPackage.YTEXT_DATATYPE__MAX_LENGTH;
+				default: return -1;
+			}
+		}
+		if (baseClass == YRegexpValidatable.class) {
+			switch (baseFeatureID) {
+				case ValidationPackage.YREGEXP_VALIDATABLE__REG_EXPRESSION: return ExtDatatypesPackage.YTEXT_DATATYPE__REG_EXPRESSION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -464,12 +535,12 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", maxlength: ");
-		result.append(maxlength);
-		result.append(", minlength: ");
-		result.append(minlength);
-		result.append(", regexpression: ");
-		result.append(regexpression);
+		result.append(", minLength: ");
+		result.append(minLength);
+		result.append(", maxLength: ");
+		result.append(maxLength);
+		result.append(", regExpression: ");
+		result.append(regExpression);
 		result.append(')');
 		return result.toString();
 	}

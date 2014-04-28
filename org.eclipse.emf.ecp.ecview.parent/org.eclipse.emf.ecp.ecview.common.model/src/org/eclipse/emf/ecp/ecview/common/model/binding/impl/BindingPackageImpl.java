@@ -21,7 +21,6 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -139,16 +138,11 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		CoreModelPackageImpl theCoreModelPackage = (CoreModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) instanceof CoreModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) : CoreModelPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theBindingPackage.createPackageContents();
-		theCoreModelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theBindingPackage.initializePackageContents();
-		theCoreModelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theBindingPackage.freeze();

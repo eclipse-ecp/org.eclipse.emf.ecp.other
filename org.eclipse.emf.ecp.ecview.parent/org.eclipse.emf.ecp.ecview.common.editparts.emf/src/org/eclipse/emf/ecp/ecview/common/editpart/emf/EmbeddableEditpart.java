@@ -45,8 +45,7 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	@Override
 	public ILayoutEditpart getParent() {
 		YLayout yParent = getModel().getParent();
-		return yParent != null ? (ILayoutEditpart) getEditpart(yParent)
-				: null;
+		return yParent != null ? (ILayoutEditpart) getEditpart(yParent) : null;
 	}
 
 	@Override
@@ -72,8 +71,19 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	public <A extends IWidgetPresentation<?>> A getPresentation() {
 		if (presentation == null) {
 			presentation = createPresenter();
+
+			doInitPresentation(presentation);
 		}
 		return (A) presentation;
+	}
+
+	/**
+	 * A hook method to initialize the presentation after creation.
+	 * 
+	 * @param presentation
+	 */
+	protected void doInitPresentation(IWidgetPresentation<?> presentation) {
+
 	}
 
 	/**

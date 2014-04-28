@@ -20,8 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
-import validation.ValidationPackage;
-import validation.impl.ValidationPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,16 +96,11 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		isInited = true;
 
-		// Obtain or create and register interdependencies
-		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
-
 		// Create package meta-data objects
 		theDatatypesPackage.createPackageContents();
-		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatatypesPackage.initializePackageContents();
-		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatatypesPackage.freeze();

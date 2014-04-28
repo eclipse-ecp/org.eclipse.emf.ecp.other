@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.presentation;
 
+import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
+
 /**
  * FieldPresentations are elements that display information but can not embed
  * any further widgets like layouts.
@@ -18,4 +20,17 @@ package org.eclipse.emf.ecp.ecview.common.presentation;
  */
 public interface IFieldPresentation<C> extends IWidgetPresentation<C> {
 
+	/**
+	 * Adds the validator to the field.
+	 * 
+	 * @param validator
+	 */
+	void addValidator(IValidator validator);
+
+	/**
+	 * Removes the validator from the field.
+	 * 
+	 * @param validator
+	 */
+	void removeValidator(IValidator validator);
 }

@@ -3,14 +3,10 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 
 /**

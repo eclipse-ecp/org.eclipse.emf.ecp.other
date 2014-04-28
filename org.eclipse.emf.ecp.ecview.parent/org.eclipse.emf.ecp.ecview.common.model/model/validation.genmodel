@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.common.model/src" modelPluginID="org.eclipse.emf.ecp.ecview.common.model"
     modelName="Validation" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="core.genmodel#//core binding.genmodel#//binding" importOrganizing="true">
   <foreignModel>validation.ecore</foreignModel>
   <genPackages prefix="Validation" basePackage="org.eclipse.emf.ecp.ecview.common.model"
       disposableProviderFactory="true" ecorePackage="validation.ecore#/">
@@ -16,6 +16,16 @@
     </genClasses>
     <genClasses ecoreClass="validation.ecore#//YRegexpValidator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YRegexpValidator/regexp"/>
+    </genClasses>
+    <genClasses ecoreClass="validation.ecore#//YValidatable"/>
+    <genClasses ecoreClass="validation.ecore#//YMinLengthValidatable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YMinLengthValidatable/minLength"/>
+    </genClasses>
+    <genClasses ecoreClass="validation.ecore#//YMaxLengthValidatable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YMaxLengthValidatable/maxLength"/>
+    </genClasses>
+    <genClasses ecoreClass="validation.ecore#//YRegexpValidatable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YRegexpValidatable/regExpression"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -59,10 +59,6 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 			case ValidationPackage.YMIN_LENGTH_VALIDATOR: return createYMinLengthValidator();
 			case ValidationPackage.YMAX_LENGTH_VALIDATOR: return createYMaxLengthValidator();
 			case ValidationPackage.YREGEXP_VALIDATOR: return createYRegexpValidator();
-			case ValidationPackage.YVALIDATABLE: return createYValidatable();
-			case ValidationPackage.YMIN_LENGTH_VALIDATABLE: return createYMinLengthValidatable();
-			case ValidationPackage.YMAX_LENGTH_VALIDATABLE: return createYMaxLengthValidatable();
-			case ValidationPackage.YREGEXP_VALIDATABLE: return createYRegexpValidatable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -96,46 +92,6 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	public YRegexpValidator createYRegexpValidator() {
 		YRegexpValidatorImpl yRegexpValidator = new YRegexpValidatorImpl();
 		return yRegexpValidator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YValidatable createYValidatable() {
-		YValidatableImpl yValidatable = new YValidatableImpl();
-		return yValidatable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YMinLengthValidatable createYMinLengthValidatable() {
-		YMinLengthValidatableImpl yMinLengthValidatable = new YMinLengthValidatableImpl();
-		return yMinLengthValidatable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YMaxLengthValidatable createYMaxLengthValidatable() {
-		YMaxLengthValidatableImpl yMaxLengthValidatable = new YMaxLengthValidatableImpl();
-		return yMaxLengthValidatable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YRegexpValidatable createYRegexpValidatable() {
-		YRegexpValidatableImpl yRegexpValidatable = new YRegexpValidatableImpl();
-		return yRegexpValidatable;
 	}
 
 	/**

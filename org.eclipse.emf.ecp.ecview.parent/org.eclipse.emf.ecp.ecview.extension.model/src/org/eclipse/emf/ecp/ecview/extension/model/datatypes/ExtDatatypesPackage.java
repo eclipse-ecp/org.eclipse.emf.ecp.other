@@ -103,31 +103,31 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
-	 * The feature id for the '<em><b>Maxlength</b></em>' attribute.
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DATATYPE__MAXLENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+	int YTEXT_DATATYPE__MIN_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Minlength</b></em>' attribute.
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DATATYPE__MINLENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
+	int YTEXT_DATATYPE__MAX_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Regexpression</b></em>' attribute.
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DATATYPE__REGEXPRESSION = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 2;
+	int YTEXT_DATATYPE__REG_EXPRESSION = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>YText Datatype</em>' class.
@@ -185,13 +185,40 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_AREA_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DATATYPE__MIN_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DATATYPE__MAX_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DATATYPE__REG_EXPRESSION = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>YText Area Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_AREA_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+	int YTEXT_AREA_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl <em>YNumeric Datatype</em>}' class.
@@ -930,39 +957,6 @@ public interface ExtDatatypesPackage extends EPackage {
 	EClass getYTextDatatype();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype#getMaxlength <em>Maxlength</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maxlength</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype#getMaxlength()
-	 * @see #getYTextDatatype()
-	 * @generated
-	 */
-	EAttribute getYTextDatatype_Maxlength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype#getMinlength <em>Minlength</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Minlength</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype#getMinlength()
-	 * @see #getYTextDatatype()
-	 * @generated
-	 */
-	EAttribute getYTextDatatype_Minlength();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype#getRegexpression <em>Regexpression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Regexpression</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype#getRegexpression()
-	 * @see #getYTextDatatype()
-	 * @generated
-	 */
-	EAttribute getYTextDatatype_Regexpression();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype <em>YText Area Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1177,30 +1171,6 @@ public interface ExtDatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YTEXT_DATATYPE = eINSTANCE.getYTextDatatype();
-
-		/**
-		 * The meta object literal for the '<em><b>Maxlength</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YTEXT_DATATYPE__MAXLENGTH = eINSTANCE.getYTextDatatype_Maxlength();
-
-		/**
-		 * The meta object literal for the '<em><b>Minlength</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YTEXT_DATATYPE__MINLENGTH = eINSTANCE.getYTextDatatype_Minlength();
-
-		/**
-		 * The meta object literal for the '<em><b>Regexpression</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YTEXT_DATATYPE__REGEXPRESSION = eINSTANCE.getYTextDatatype_Regexpression();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextAreaDatatypeImpl <em>YText Area Datatype</em>}' class.

@@ -4,12 +4,10 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
-import validation.YValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -90,20 +87,6 @@ public class YLabelImpl extends YFieldImpl implements YLabel {
 	@Override
 	protected EClass eStaticClass() {
 		return ExtensionModelPackage.Literals.YLABEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific element type known in this context.
-	 * @generated
-	 */
-	@Override
-	public EList<YValidator> getValidators() {
-		if (validators == null) {
-			validators = new EObjectContainmentEList<YValidator>(YValidator.class, this, ExtensionModelPackage.YLABEL__VALIDATORS);
-		}
-		return validators;
 	}
 
 	/**

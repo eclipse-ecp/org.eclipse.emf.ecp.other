@@ -11,6 +11,9 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes;
 
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
 
 
 /**
@@ -23,5 +26,5 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
  * @model
  * @generated
  */
-public interface YTextAreaDatatype extends YDatatype {
+public interface YTextAreaDatatype extends YDatatype, YMinLengthValidatable, YMaxLengthValidatable, YRegexpValidatable {
 } // YTextAreaDatatype

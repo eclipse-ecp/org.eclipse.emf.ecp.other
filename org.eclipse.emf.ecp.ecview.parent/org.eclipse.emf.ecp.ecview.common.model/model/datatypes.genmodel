@@ -7,7 +7,8 @@
     editorPluginClass="org.eclipse.emf.ecp.ecview.common.model.datatypes.presentation.DatatypesEditorPlugin"
     rootExtendsInterface="" rootImplementsInterface="" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="5.0" copyrightFields="false" providerRootExtendsClass="" editPluginID="org.eclipse.emf.ecp.ecview.common.model.edit"
-    editorPluginID="org.eclipse.emf.ecp.ecview.common.modeleditor">
+    editorPluginID="org.eclipse.emf.ecp.ecview.common.modeleditor"
+    usedGenPackages="core.genmodel#//core validation.genmodel#//validation binding.genmodel#//binding">
   <foreignModel>datatypes.ecore</foreignModel>
   <genPackages prefix="Datatypes" basePackage="org.eclipse.emf.ecp.ecview.common.model"
       disposableProviderFactory="true" ecorePackage="datatypes.ecore#/">

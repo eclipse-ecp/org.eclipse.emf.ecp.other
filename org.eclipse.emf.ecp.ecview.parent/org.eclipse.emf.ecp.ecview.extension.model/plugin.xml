@@ -13,14 +13,6 @@
             genModel="model/extdatatypes.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated extdatatypes -->
-      <package
-            uri="http://eclipse.org/emf/ecp/ecview/common/validation"
-            class="validation.ValidationPackage"
-            genModel="model/extdatatypes.genmodel"/>
-   </extension>
-   
   <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://eclipse.org/emf/ecp/ecview/extension/view"

@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.common.model/src" modelPluginID="org.eclipse.emf.ecp.ecview.common.model"
     modelName="Core" modelPluginClass="" rootExtendsInterface="" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false" importOrganizing="true"
-    usedGenPackages="binding.genmodel#//binding">
+    usedGenPackages="binding.genmodel#//binding validation.genmodel#//validation">
   <foreignModel>core.ecore</foreignModel>
   <genPackages prefix="CoreModel" basePackage="org.eclipse.emf.ecp.ecview.common.model"
       disposableProviderFactory="true" ecorePackage="core.ecore#/">

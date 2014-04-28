@@ -12,7 +12,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
-import validation.YValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 
 
 /**
@@ -35,7 +35,7 @@ public interface YField extends YEmbeddable, YEditable, YEnable {
 
 	/**
 	 * Returns the value of the '<em><b>Validators</b></em>' containment reference list.
-	 * The list contents are of type {@link validation.YValidator}.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validators</em>' containment reference list isn't clear,

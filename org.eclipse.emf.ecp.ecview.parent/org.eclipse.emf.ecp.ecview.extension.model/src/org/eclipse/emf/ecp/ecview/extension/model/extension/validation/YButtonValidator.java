@@ -5,11 +5,8 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.validation;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButtonType;
-
 import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 
 /**

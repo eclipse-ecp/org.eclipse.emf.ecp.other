@@ -3,19 +3,16 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
-import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,7 +100,7 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<YValidator> validators;
+	protected EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> validators;
 
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -212,9 +209,9 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<YValidator> getValidators() {
+	public EList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS);
+			validators = new EObjectResolvingEList<org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>(org.eclipse.emf.ecp.ecview.common.model.validation.YValidator.class, this, ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS);
 		}
 		return validators;
 	}
@@ -282,7 +279,7 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 				return;
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS:
 				getValidators().clear();
-				getValidators().addAll((Collection<? extends YValidator>)newValue);
+				getValidators().addAll((Collection<? extends org.eclipse.emf.ecp.ecview.common.model.validation.YValidator>)newValue);
 				return;
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__FORMAT:
 				setFormat((YDateTimeFormat)newValue);
