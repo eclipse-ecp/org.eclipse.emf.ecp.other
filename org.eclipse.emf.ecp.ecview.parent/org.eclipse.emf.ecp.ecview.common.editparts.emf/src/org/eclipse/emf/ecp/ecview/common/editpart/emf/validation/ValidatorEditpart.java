@@ -46,12 +46,6 @@ public abstract class ValidatorEditpart<M extends YValidator> extends ElementEdi
 			super.internalDispose();
 		}
 	}
-
-	@Override
-	public IStatus validate(Object value) {
-		return null;
-	}
-
 	@Override
 	public IValidator getValidator() {
 		if (this.validator == null) {

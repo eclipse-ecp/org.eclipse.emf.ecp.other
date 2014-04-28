@@ -4,6 +4,7 @@ package org.eclipse.emf.ecp.ecview.common.model.validation.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -158,6 +159,15 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYValidator_Type() {
+		return (EAttribute)yValidatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYMinLengthValidator() {
 		return yMinLengthValidatorEClass;
 	}
@@ -299,6 +309,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		// Create classes and their features
 		yValidatorEClass = createEClass(YVALIDATOR);
+		createEAttribute(yValidatorEClass, YVALIDATOR__TYPE);
 
 		yMinLengthValidatorEClass = createEClass(YMIN_LENGTH_VALIDATOR);
 		createEAttribute(yMinLengthValidatorEClass, YMIN_LENGTH_VALIDATOR__MIN_LENGTH);
@@ -362,6 +373,10 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yValidatorEClass, YValidator.class, "YValidator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYValidator_Type(), g1, "type", null, 0, 1, YValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yMinLengthValidatorEClass, YMinLengthValidator.class, "YMinLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYMinLengthValidator_MinLength(), ecorePackage.getEInt(), "minLength", null, 1, 1, YMinLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

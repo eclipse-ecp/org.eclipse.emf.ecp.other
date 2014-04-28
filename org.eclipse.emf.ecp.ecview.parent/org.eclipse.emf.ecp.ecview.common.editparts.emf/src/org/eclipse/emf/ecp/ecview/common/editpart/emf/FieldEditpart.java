@@ -22,7 +22,6 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.common.presentation.IFieldPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
-import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,8 +55,8 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 		IFieldPresentation<?> fieldPresentation = (IFieldPresentation<?>) presentation;
 
 		ensureValidatorsLoaded();
-		for (IValidator validator : validators) {
-			fieldPresentation.addValidator(validator);
+		for (IValidatorEditpart validatorEditpart : validators) {
+			fieldPresentation.addValidator(validatorEditpart.getValidator());
 		}
 	}
 
@@ -120,21 +119,21 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	 * Is called to change the internal state and add the given editpart to the
 	 * list of validators.
 	 * 
-	 * @param validator
+	 * @param validatorEditpart
 	 *            The editpart to be added
 	 */
-	protected void internalAddValidator(IValidatorEditpart validator) {
+	protected void internalAddValidator(IValidatorEditpart validatorEditpart) {
 		checkDisposed();
 
 		ensureValidatorsLoaded();
-		if (!validators.contains(validator)) {
-			validators.add(validator);
+		if (!validators.contains(validatorEditpart)) {
+			validators.add(validatorEditpart);
 
 			// handle the presentation
 			//
 			if (isPresentationPresent()) {
 				IFieldPresentation<?> presenter = getPresentation();
-				presenter.addValidator(validator);
+				presenter.addValidator(validatorEditpart.getValidator());
 			}
 		}
 	}
@@ -183,24 +182,24 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	 * Is called to change the internal state and remove the given editpart from
 	 * the list of validators.
 	 * 
-	 * @param validator
+	 * @param validatorEditpart
 	 *            The editpart to be removed
 	 */
-	protected void internalRemoveValidator(IValidatorEditpart validator) {
+	protected void internalRemoveValidator(IValidatorEditpart validatorEditpart) {
 		checkDisposed();
 
-		if (validators != null && validator != null) {
-			validators.remove(validator);
+		if (validators != null && validatorEditpart != null) {
+			validators.remove(validatorEditpart);
 
 			// handle the presentation
 			//
 			if (isPresentationPresent()) {
 				IFieldPresentation<?> presenter = getPresentation();
-				presenter.removeValidator(validator);
+				presenter.removeValidator(validatorEditpart.getValidator());
 			}
 		}
 
-		validator.dispose();
+		validatorEditpart.dispose();
 	}
 
 	@Override
@@ -219,10 +218,11 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 			if (validators != null || getModel().getValidators().size() > 0) {
 				List<IValidatorEditpart> tempElements = getValidators();
 				synchronized (validators) {
-					for (IValidatorEditpart validator : tempElements
+					for (IValidatorEditpart validatorEditpart : tempElements
 							.toArray(new IValidatorEditpart[tempElements.size()])) {
-						presentation.removeValidator(validator);
-						validator.dispose();
+						presentation.removeValidator(validatorEditpart
+								.getValidator());
+						validatorEditpart.dispose();
 					}
 				}
 				validators = null;

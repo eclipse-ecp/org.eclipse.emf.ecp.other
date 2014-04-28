@@ -16,11 +16,27 @@ package org.eclipse.emf.ecp.ecview.common.validation;
 public interface IValidator {
 
 	/**
+	 * Is called to update the validation parameter of this validator. For
+	 * instance the minLength of a MinLengthValidator.
+	 * 
+	 * @param model
+	 */
+	void updateParameter(Object model);
+
+	/**
 	 * Checks if the given value is valid.
 	 * 
 	 * @param value
 	 * @return
 	 */
-	IStatus validate(Object value);
+	IStatus validateValue(Object value);
+
+	/**
+	 * Returns the expected type of the value. If <code>null</code> is returned,
+	 * the type will not become checked.
+	 * 
+	 * @return type - the expected type of the value or <code>null</code>
+	 */
+	Class<?> getType();
 
 }

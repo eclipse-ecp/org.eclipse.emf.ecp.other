@@ -26,7 +26,12 @@ public abstract class StringValidator implements IValidator {
 	}
 
 	@Override
-	public IStatus validate(Object value) {
+	public Class<?> getType() {
+		return String.class;
+	}
+
+	@Override
+	public IStatus validateValue(Object value) {
 		if (!(value instanceof String)) {
 			return IStatus.OK;
 		}

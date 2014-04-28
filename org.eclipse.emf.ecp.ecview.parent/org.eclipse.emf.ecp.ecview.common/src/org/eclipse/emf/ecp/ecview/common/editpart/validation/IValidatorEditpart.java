@@ -16,7 +16,7 @@ import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
 /**
  * An editpart responsible to handle validations.
  */
-public interface IValidatorEditpart extends IElementEditpart, IValidator {
+public interface IValidatorEditpart extends IElementEditpart {
 
 	/**
 	 * Returns the validator for this editpart.

@@ -44,5 +44,10 @@ public class MinLengthValidator extends StringValidator {
 				"Minimum length is %d. Length of %s is %d", minLength, value,
 				value.trim().length());
 	};
+	
+	@Override
+	public void updateParameter(Object model) {
+		// nothing to do
+	};
 
 }

@@ -42,6 +42,11 @@ public class MaxLengthValidator extends StringValidator {
 		return this.message != null ? message : String.format(
 				"Maximum length is %d. Length of %s is %d", maxLength, value,
 				value.trim().length());
+	}
+
+	@Override
+	public void updateParameter(Object model) {
+		// nothing to do
 	};
 
 }

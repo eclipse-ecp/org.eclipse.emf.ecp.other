@@ -33,4 +33,41 @@ public interface IFieldPresentation<C> extends IWidgetPresentation<C> {
 	 * @param validator
 	 */
 	void removeValidator(IValidator validator);
+
+	/**
+	 * An event to indicate added or removed validator.
+	 */
+	public static class Event {
+
+		public static final byte ADD = 0;
+		public static final byte REMOVE = 1;
+
+		private final short type;
+		private final IValidator validator;
+
+		public Event(byte type, IValidator validator) {
+			super();
+			this.type = type;
+			this.validator = validator;
+		}
+
+		/**
+		 * Returns the event. May be {@link #ADD} or {@link #REMOVE}.
+		 * 
+		 * @return
+		 */
+		public short getType() {
+			return type;
+		}
+
+		/**
+		 * Returns the validator.
+		 * 
+		 * @return
+		 */
+		public IValidator getValidator() {
+			return validator;
+		}
+
+	}
 }

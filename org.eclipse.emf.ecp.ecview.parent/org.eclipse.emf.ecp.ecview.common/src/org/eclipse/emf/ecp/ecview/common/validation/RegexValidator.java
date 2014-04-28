@@ -82,4 +82,9 @@ public class RegexValidator extends StringValidator {
 				"The value %s does not match the pattern %s", value, regexp);
 	}
 
+	@Override
+	public void updateParameter(Object model) {
+		// nothing to do
+	};
+
 }

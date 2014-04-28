@@ -76,13 +76,22 @@ public interface ValidationPackage extends EPackage {
 	int YVALIDATOR__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALIDATOR__TYPE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>YValidator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVALIDATOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+	int YVALIDATOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YMinLengthValidatorImpl <em>YMin Length Validator</em>}' class.
@@ -102,6 +111,15 @@ public interface ValidationPackage extends EPackage {
 	 * @ordered
 	 */
 	int YMIN_LENGTH_VALIDATOR__ID = YVALIDATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMIN_LENGTH_VALIDATOR__TYPE = YVALIDATOR__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
@@ -141,6 +159,15 @@ public interface ValidationPackage extends EPackage {
 	int YMAX_LENGTH_VALIDATOR__ID = YVALIDATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMAX_LENGTH_VALIDATOR__TYPE = YVALIDATOR__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,6 +203,15 @@ public interface ValidationPackage extends EPackage {
 	 * @ordered
 	 */
 	int YREGEXP_VALIDATOR__ID = YVALIDATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_VALIDATOR__TYPE = YVALIDATOR__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Regexp</b></em>' attribute.
@@ -307,6 +343,17 @@ public interface ValidationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYValidator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidator#getType()
+	 * @see #getYValidator()
+	 * @generated
+	 */
+	EAttribute getYValidator_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator <em>YMin Length Validator</em>}'.
@@ -476,6 +523,14 @@ public interface ValidationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YVALIDATOR = eINSTANCE.getYValidator();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YVALIDATOR__TYPE = eINSTANCE.getYValidator_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YMinLengthValidatorImpl <em>YMin Length Validator</em>}' class.
