@@ -10,12 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#isGrouping <em>Grouping</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#isMarkNegative <em>Mark Negative</em>}</li>
  * </ul>
@@ -94,6 +99,16 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> validators;
 
 	/**
 	 * The default value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
@@ -222,6 +237,18 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YValidator> getValidators() {
+		if (validators == null) {
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS);
+		}
+		return validators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isGrouping() {
 		return grouping;
 	}
@@ -273,6 +300,8 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 				return getName();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__DESCRIPTION:
 				return getDescription();
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
+				return getValidators();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				return isGrouping();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__MARK_NEGATIVE:
@@ -286,6 +315,7 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -297,6 +327,10 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				setGrouping((Boolean)newValue);
@@ -325,6 +359,9 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				setGrouping(GROUPING_EDEFAULT);
 				return;
@@ -349,6 +386,8 @@ public class YNumericDatatypeImpl extends EObjectImpl implements YNumericDatatyp
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
+				return validators != null && !validators.isEmpty();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				return grouping != GROUPING_EDEFAULT;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__MARK_NEGATIVE:

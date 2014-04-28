@@ -94,6 +94,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Maxlength</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,6 +176,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_AREA_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YText Area Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -211,6 +229,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YNUMERIC_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
@@ -275,6 +302,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_DATATYPE__DESCRIPTION = YNUMERIC_DATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_DATATYPE__VALIDATORS = YNUMERIC_DATATYPE__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
@@ -350,6 +386,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTABLE_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YTable Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,6 +439,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCHECK_BOX_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
 	 * The number of structural features of the '<em>YCheck Box Datatype</em>' class.
@@ -442,6 +496,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YCOMBO_BOX_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YCombo Box Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +549,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST_DATA_TYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_DATA_TYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
 	 * The number of structural features of the '<em>YList Data Type</em>' class.
@@ -535,6 +607,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YOPTIONS_GROUP_DATA_TYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YOptions Group Data Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +662,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YBROWSER_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YBrowser Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -625,6 +715,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDATE_TIME_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -682,6 +781,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTREE_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YTree Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -728,6 +836,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YPROGRESS_BAR_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YProgress Bar Datatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -772,6 +889,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTAB_SHEET_DATATYPE__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
 	 * The number of structural features of the '<em>YTab Sheet Datatype</em>' class.

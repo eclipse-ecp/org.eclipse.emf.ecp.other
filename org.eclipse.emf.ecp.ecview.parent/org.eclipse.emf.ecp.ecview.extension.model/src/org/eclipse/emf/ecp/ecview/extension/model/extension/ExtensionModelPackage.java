@@ -150,6 +150,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YINPUT__ENABLED = CoreModelPackage.YFIELD__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__VALIDATORS = CoreModelPackage.YFIELD__VALIDATORS;
+
+	/**
 	 * The number of structural features of the '<em>YInput</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +257,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_FIELD__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
@@ -906,6 +924,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1206,6 +1233,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTREE__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1396,6 +1432,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YOPTIONS_GROUP__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1574,6 +1619,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
@@ -1756,6 +1810,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLABEL__ENABLED = CoreModelPackage.YFIELD__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__VALIDATORS = CoreModelPackage.YFIELD__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1871,6 +1934,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_AREA__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
@@ -1999,6 +2071,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCHECK_BOX__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2123,6 +2204,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBROWSER__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
@@ -2251,6 +2341,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDATE_TIME__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2375,6 +2474,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_FIELD__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
@@ -2503,6 +2611,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YNUMERIC_FIELD__ENABLED = YINPUT__ENABLED;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2627,6 +2744,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCOMBO_BOX__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
@@ -2979,6 +3105,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YPROGRESS_BAR__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR__VALIDATORS = YINPUT__VALIDATORS;
 
 	/**
 	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.

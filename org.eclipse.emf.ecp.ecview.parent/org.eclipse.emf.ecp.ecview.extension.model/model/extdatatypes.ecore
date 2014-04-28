@@ -2,14 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatypes" nsURI="http://eclipse.org/emf/ecp/ecview/extension/datatypes"
     nsPrefix="datatypes">
-  <eClassifiers xsi:type="ecore:EClass" name="YTextDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minlength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="-1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YTextAreaDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YTextDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype ../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YMinLengthValidatable ../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YMaxLengthValidatable ../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YRegexpValidatable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YTextAreaDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype ../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YMinLengthValidatable ../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YMaxLengthValidatable ../../org.eclipse.emf.ecp.ecview.common.model/model/validation.ecore#//YRegexpValidatable"/>
   <eClassifiers xsi:type="ecore:EClass" name="YNumericDatatype" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatatype">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="grouping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>

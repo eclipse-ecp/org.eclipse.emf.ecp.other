@@ -2,15 +2,19 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
+import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl#getValidators <em>Validators</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +92,16 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> validators;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +190,18 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YValidator> getValidators() {
+		if (validators == null) {
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__VALIDATORS);
+		}
+		return validators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -184,6 +211,8 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 				return getName();
 			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__DESCRIPTION:
 				return getDescription();
+			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__VALIDATORS:
+				return getValidators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,6 +222,7 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -204,6 +234,10 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 				return;
 			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,6 +260,9 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,6 +281,8 @@ public class YProgressBarDatatypeImpl extends EObjectImpl implements YProgressBa
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE__VALIDATORS:
+				return validators != null && !validators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -46,6 +46,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
+import validation.ValidationPackage;
+import validation.impl.ValidationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -306,11 +308,16 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		// Initialize simple dependencies
 		ExtDatatypesPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theExtensionModelPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtensionModelPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtensionModelPackage.freeze();

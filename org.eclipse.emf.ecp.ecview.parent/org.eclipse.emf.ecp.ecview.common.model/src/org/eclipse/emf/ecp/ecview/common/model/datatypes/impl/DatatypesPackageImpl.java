@@ -13,12 +13,15 @@ package org.eclipse.emf.ecp.ecview.common.model.datatypes.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
+import validation.ValidationPackage;
+import validation.impl.ValidationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -94,11 +97,16 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theDatatypesPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatatypesPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatatypesPackage.freeze();
@@ -152,6 +160,15 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 */
 	public EClass getYDatatype() {
 		return yDatatypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYDatatype_Validators() {
+		return (EReference)yDatatypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -215,6 +232,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		createEAttribute(yDtBaseEClass, YDT_BASE__DESCRIPTION);
 
 		yDatatypeEClass = createEClass(YDATATYPE);
+		createEReference(yDatatypeEClass, YDATATYPE__VALIDATORS);
 
 		yDatadescriptionEClass = createEClass(YDATADESCRIPTION);
 		createEAttribute(yDatadescriptionEClass, YDATADESCRIPTION__LABEL);
@@ -244,6 +262,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -259,6 +280,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEAttribute(getYDtBase_Description(), ecorePackage.getEString(), "description", null, 0, 1, YDtBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDatatypeEClass, YDatatype.class, "YDatatype", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYDatatype_Validators(), theValidationPackage.getYValidator(), null, "validators", null, 0, -1, YDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDatadescriptionEClass, YDatadescription.class, "YDatadescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYDatadescription_Label(), ecorePackage.getEString(), "label", null, 0, 1, YDatadescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

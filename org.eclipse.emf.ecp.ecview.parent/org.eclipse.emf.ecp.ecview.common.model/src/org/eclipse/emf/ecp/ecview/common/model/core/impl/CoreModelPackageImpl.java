@@ -53,6 +53,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
+import validation.ValidationPackage;
+import validation.impl.ValidationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -325,14 +327,17 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		isInited = true;
 
 		// Obtain or create and register interdependencies
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
 		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCoreModelPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
 		theBindingPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCoreModelPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
 		theBindingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -387,6 +392,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EClass getYField() {
 		return yFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYField_Validators() {
+		return (EReference)yFieldEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -955,6 +969,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEReference(yLayoutEClass, YLAYOUT__ELEMENTS);
 
 		yFieldEClass = createEClass(YFIELD);
+		createEReference(yFieldEClass, YFIELD__VALIDATORS);
 
 		yViewEClass = createEClass(YVIEW);
 		createEReference(yViewEClass, YVIEW__ROOT);
@@ -1069,6 +1084,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
 		BindingPackage theBindingPackage = (BindingPackage)EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI);
 
 		// Create type parameters
@@ -1114,6 +1130,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYLayout_Elements(), this.getYEmbeddable(), null, "elements", null, 0, -1, YLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yFieldEClass, YField.class, "YField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYField_Validators(), theValidationPackage.getYValidator(), null, "validators", null, 0, -1, YField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(yFieldEClass, ecorePackage.getEBoolean(), "addValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueChangeListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);

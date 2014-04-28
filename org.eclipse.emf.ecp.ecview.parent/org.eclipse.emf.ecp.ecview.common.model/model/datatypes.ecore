@@ -9,7 +9,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YDatatype" abstract="true" interface="true"
-      eSuperTypes="#//YDtBase"/>
+      eSuperTypes="#//YDtBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validators" upperBound="-1"
+        eType="ecore:EClass validation.ecore#//YValidator"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YDatadescription" eSuperTypes="#//YDtBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelI18nKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -25,6 +25,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
+import validation.ValidationPackage;
+import validation.impl.ValidationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -187,11 +189,16 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		// Initialize simple dependencies
 		DatatypesPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theExtDatatypesPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtDatatypesPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtDatatypesPackage.freeze();

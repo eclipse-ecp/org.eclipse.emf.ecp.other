@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.model.datatypes;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -146,13 +147,22 @@ public interface DatatypesPackage extends EPackage {
 	int YDATATYPE__DESCRIPTION = YDT_BASE__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATATYPE__VALIDATORS = YDT_BASE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>YDatatype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDATATYPE_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 0;
+	int YDATATYPE_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.YDatadescriptionImpl <em>YDatadescription</em>}' class.
@@ -272,6 +282,17 @@ public interface DatatypesPackage extends EPackage {
 	EClass getYDatatype();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype#getValidators <em>Validators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Validators</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype#getValidators()
+	 * @see #getYDatatype()
+	 * @generated
+	 */
+	EReference getYDatatype_Validators();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription <em>YDatadescription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +389,14 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YDATATYPE = eINSTANCE.getYDatatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Validators</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YDATATYPE__VALIDATORS = eINSTANCE.getYDatatype_Validators();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.YDatadescriptionImpl <em>YDatadescription</em>}' class.

@@ -323,13 +323,22 @@ public interface CoreModelPackage extends EPackage {
 	int YFIELD__ENABLED = YEMBEDDABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__VALIDATORS = YEMBEDDABLE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>YField</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 4;
+	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.
@@ -1313,6 +1322,17 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYField();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#getValidators <em>Validators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Validators</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YField#getValidators()
+	 * @see #getYField()
+	 * @generated
+	 */
+	EReference getYField_Validators();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView <em>YView</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2002,6 +2022,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YFIELD = eINSTANCE.getYField();
+
+		/**
+		 * The meta object literal for the '<em><b>Validators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YFIELD__VALIDATORS = eINSTANCE.getYField_Validators();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.

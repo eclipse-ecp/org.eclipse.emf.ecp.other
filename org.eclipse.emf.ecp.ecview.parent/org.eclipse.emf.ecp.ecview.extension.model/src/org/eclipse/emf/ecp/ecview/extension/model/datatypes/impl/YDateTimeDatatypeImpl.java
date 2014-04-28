@@ -2,16 +2,20 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
+import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl#getFormat <em>Format</em>}</li>
  * </ul>
  * </p>
@@ -89,6 +94,16 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> validators;
 
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -197,6 +212,18 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YValidator> getValidators() {
+		if (validators == null) {
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS);
+		}
+		return validators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YDateTimeFormat getFormat() {
 		return format;
 	}
@@ -227,6 +254,8 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 				return getName();
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__DESCRIPTION:
 				return getDescription();
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS:
+				return getValidators();
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__FORMAT:
 				return getFormat();
 		}
@@ -238,6 +267,7 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -249,6 +279,10 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 				return;
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__FORMAT:
 				setFormat((YDateTimeFormat)newValue);
@@ -274,6 +308,9 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				return;
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
@@ -295,6 +332,8 @@ public class YDateTimeDatatypeImpl extends EObjectImpl implements YDateTimeDatat
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__VALIDATORS:
+				return validators != null && !validators.isEmpty();
 			case ExtDatatypesPackage.YDATE_TIME_DATATYPE__FORMAT:
 				return format != FORMAT_EDEFAULT;
 		}

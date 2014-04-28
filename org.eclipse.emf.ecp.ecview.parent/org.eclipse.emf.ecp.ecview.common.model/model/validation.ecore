@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="validation" nsURI="http://eclipse.org/emf/ecp/ecview/common/validation"
+    nsPrefix="validation">
+  <eClassifiers xsi:type="ecore:EClass" name="YValidator" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidator" eSuperTypes="#//YValidator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YMaxLengthValidator" eSuperTypes="#//YValidator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YRegexpValidator" eSuperTypes="#//YValidator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regexp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YValidatable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidatable" eSuperTypes="#//YValidatable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YMaxLengthValidatable" eSuperTypes="#//YValidatable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YRegexpValidatable" eSuperTypes="#//YValidatable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regExpression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

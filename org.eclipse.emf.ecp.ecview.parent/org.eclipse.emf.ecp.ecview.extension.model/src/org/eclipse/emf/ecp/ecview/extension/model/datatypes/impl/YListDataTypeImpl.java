@@ -10,12 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
+import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YListDataTypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YListDataTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YListDataTypeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YListDataTypeImpl#getValidators <em>Validators</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +97,16 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> validators;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +195,18 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YValidator> getValidators() {
+		if (validators == null) {
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS);
+		}
+		return validators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -189,6 +216,8 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 				return getName();
 			case ExtDatatypesPackage.YLIST_DATA_TYPE__DESCRIPTION:
 				return getDescription();
+			case ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS:
+				return getValidators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,6 +227,7 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -209,6 +239,10 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 				return;
 			case ExtDatatypesPackage.YLIST_DATA_TYPE__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS:
+				getValidators().clear();
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,6 +265,9 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 			case ExtDatatypesPackage.YLIST_DATA_TYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS:
+				getValidators().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +286,8 @@ public class YListDataTypeImpl extends EObjectImpl implements YListDataType {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExtDatatypesPackage.YLIST_DATA_TYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ExtDatatypesPackage.YLIST_DATA_TYPE__VALIDATORS:
+				return validators != null && !validators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

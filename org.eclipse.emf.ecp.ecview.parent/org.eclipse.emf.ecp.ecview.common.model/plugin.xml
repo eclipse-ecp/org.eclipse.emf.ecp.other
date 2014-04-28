@@ -12,6 +12,14 @@
             class="org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
             genModel="model/core.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated core -->
+      <package
+            uri="http://eclipse.org/emf/ecp/ecview/common/validation"
+            class="validation.ValidationPackage"
+            genModel="model/core.genmodel"/>
+   </extension>
    
   <extension point="org.eclipse.emf.ecore.generated_package">
       <package
@@ -26,6 +34,14 @@
             uri="http://eclipse.org/emf/ecp/ecview/common/binding"
             class="org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
             genModel="model/binding.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated validation -->
+      <package
+            uri="http://eclipse.org/emf/ecp/ecview/common/validation"
+            class="org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
+            genModel="model/validation.genmodel"/>
    </extension>
 
 </plugin>

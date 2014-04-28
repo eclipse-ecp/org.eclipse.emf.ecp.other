@@ -10,12 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
+import validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getValidators <em>Validators</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getMaxlength <em>Maxlength</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getMinlength <em>Minlength</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextDatatypeImpl#getRegexpression <em>Regexpression</em>}</li>
@@ -95,6 +100,16 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> validators;
 
 	/**
 	 * The default value of the '{@link #getMaxlength() <em>Maxlength</em>}' attribute.
@@ -243,6 +258,18 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YValidator> getValidators() {
+		if (validators == null) {
+			validators = new EObjectResolvingEList<YValidator>(YValidator.class, this, ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS);
+		}
+		return validators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getMaxlength() {
 		return maxlength;
 	}
@@ -315,6 +342,8 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 				return getName();
 			case ExtDatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				return getDescription();
+			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
+				return getValidators();
 			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
 				return getMaxlength();
 			case ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH:
@@ -330,6 +359,7 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -341,6 +371,10 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 				return;
 			case ExtDatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
 			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
 				setMaxlength((Integer)newValue);
@@ -372,6 +406,9 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 			case ExtDatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
+				getValidators().clear();
+				return;
 			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
 				setMaxlength(MAXLENGTH_EDEFAULT);
 				return;
@@ -399,6 +436,8 @@ public class YTextDatatypeImpl extends EObjectImpl implements YTextDatatype {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExtDatatypesPackage.YTEXT_DATATYPE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ExtDatatypesPackage.YTEXT_DATATYPE__VALIDATORS:
+				return validators != null && !validators.isEmpty();
 			case ExtDatatypesPackage.YTEXT_DATATYPE__MAXLENGTH:
 				return maxlength != MAXLENGTH_EDEFAULT;
 			case ExtDatatypesPackage.YTEXT_DATATYPE__MINLENGTH:

@@ -26,4 +26,5 @@ Export-Package: org.eclipse.emf.ecp.ecview.common,
  org.eclipse.emf.ecp.ecview.common.notification,
  org.eclipse.emf.ecp.ecview.common.presentation,
  org.eclipse.emf.ecp.ecview.common.services,
- org.eclipse.emf.ecp.ecview.common.uri
+ org.eclipse.emf.ecp.ecview.common.uri,
+ org.eclipse.emf.ecp.ecview.common.validation

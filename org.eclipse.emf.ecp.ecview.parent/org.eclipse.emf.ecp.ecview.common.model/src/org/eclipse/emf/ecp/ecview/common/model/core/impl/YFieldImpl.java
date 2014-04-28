@@ -11,18 +11,25 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.custom.ChangeAdapter;
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
+import validation.YValidator;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -34,6 +41,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListen
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#isEditable <em>Editable</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#isInitialEnabled <em>Initial Enabled</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#isEnabled <em>Enabled</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#getValidators <em>Validators</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +117,15 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 	 */
 	protected boolean enabled = ENABLED_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getValidators() <em>Validators</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> validators;
 	/**
 	 * A list with all value change listeners registered.
 	 * 
@@ -214,6 +231,18 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 		enabled = newEnabled;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YFIELD__ENABLED, oldEnabled, enabled));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<YValidator> getValidators() {
+		if (validators == null) {
+			validators = new EObjectContainmentEList<YValidator>(YValidator.class, this, CoreModelPackage.YFIELD__VALIDATORS);
+		}
+		return validators;
 	}
 
 	/**
@@ -337,6 +366,20 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CoreModelPackage.YFIELD__VALIDATORS:
+				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * Returns a list of all available value change listeners.
 	 * 
 	 * @return
@@ -361,6 +404,8 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 				return isInitialEnabled();
 			case CoreModelPackage.YFIELD__ENABLED:
 				return isEnabled();
+			case CoreModelPackage.YFIELD__VALIDATORS:
+				return getValidators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -385,6 +430,10 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 			case CoreModelPackage.YFIELD__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
+			case CoreModelPackage.YFIELD__VALIDATORS:
+				getValidators().clear();
+				getValidators().addAll((Collection<? extends YValidator>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -408,6 +457,9 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 			case CoreModelPackage.YFIELD__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
 				return;
+			case CoreModelPackage.YFIELD__VALIDATORS:
+				getValidators().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -427,6 +479,8 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 				return initialEnabled != INITIAL_ENABLED_EDEFAULT;
 			case CoreModelPackage.YFIELD__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
+			case CoreModelPackage.YFIELD__VALIDATORS:
+				return validators != null && !validators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
