@@ -144,4 +144,5 @@
         eType="#//YActivateable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="YValueChangeListener" instanceClassName="org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YDtWrapper" eSuperTypes="datatypes.ecore#//YDatatype"/>
 </ecore:EPackage>

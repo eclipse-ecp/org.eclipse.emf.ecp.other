@@ -44,7 +44,7 @@ public interface YField extends YEmbeddable, YEditable, YEnable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Validators</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYField_Validators()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<YValidator> getValidators();

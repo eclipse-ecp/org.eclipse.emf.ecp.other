@@ -32,7 +32,7 @@ public interface YValueBinding extends YBinding {
 	 * @return the value of the '<em>Target Endpoint</em>' containment reference.
 	 * @see #setTargetEndpoint(YValueBindingEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYValueBinding_TargetEndpoint()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	YValueBindingEndpoint getTargetEndpoint();
@@ -58,7 +58,7 @@ public interface YValueBinding extends YBinding {
 	 * @return the value of the '<em>Model Endpoint</em>' containment reference.
 	 * @see #setModelEndpoint(YValueBindingEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYValueBinding_ModelEndpoint()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	YValueBindingEndpoint getModelEndpoint();

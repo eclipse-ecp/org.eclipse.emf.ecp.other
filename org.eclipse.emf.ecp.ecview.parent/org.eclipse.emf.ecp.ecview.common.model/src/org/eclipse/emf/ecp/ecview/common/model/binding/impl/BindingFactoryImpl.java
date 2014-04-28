@@ -53,11 +53,11 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case BindingPackage.YBINDING_SET: return (EObject)createYBindingSet();
-			case BindingPackage.YBEAN_BINDING_ENDPOINT: return (EObject)createYBeanBindingEndpoint();
-			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT: return (EObject)createYDetailValueBindingEndpoint();
-			case BindingPackage.YVALUE_BINDING: return (EObject)createYValueBinding();
-			case BindingPackage.YLIST_BINDING: return (EObject)createYListBinding();
+			case BindingPackage.YBINDING_SET: return createYBindingSet();
+			case BindingPackage.YBEAN_BINDING_ENDPOINT: return createYBeanBindingEndpoint();
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT: return createYDetailValueBindingEndpoint();
+			case BindingPackage.YVALUE_BINDING: return createYValueBinding();
+			case BindingPackage.YLIST_BINDING: return createYListBinding();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

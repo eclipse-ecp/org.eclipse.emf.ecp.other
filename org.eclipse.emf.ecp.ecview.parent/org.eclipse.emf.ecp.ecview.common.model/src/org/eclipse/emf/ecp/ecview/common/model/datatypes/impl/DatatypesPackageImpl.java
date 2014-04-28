@@ -15,12 +15,17 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,11 +101,22 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		CoreModelPackageImpl theCoreModelPackage = (CoreModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) instanceof CoreModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) : CoreModelPackage.eINSTANCE);
+		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
+		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theDatatypesPackage.createPackageContents();
+		theCoreModelPackage.createPackageContents();
+		theValidationPackage.createPackageContents();
+		theBindingPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatatypesPackage.initializePackageContents();
+		theCoreModelPackage.initializePackageContents();
+		theValidationPackage.initializePackageContents();
+		theBindingPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatatypesPackage.freeze();

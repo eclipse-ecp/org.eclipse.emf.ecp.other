@@ -116,6 +116,29 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * @generated
 	 */
 	public YValueBindingEndpoint getMasterObservable() {
+		if (masterObservable != null && masterObservable.eIsProxy()) {
+			InternalEObject oldMasterObservable = (InternalEObject)masterObservable;
+			masterObservable = (YValueBindingEndpoint)eResolveProxy(oldMasterObservable);
+			if (masterObservable != oldMasterObservable) {
+				InternalEObject newMasterObservable = (InternalEObject)masterObservable;
+				NotificationChain msgs = oldMasterObservable.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE, null, null);
+				if (newMasterObservable.eInternalContainer() == null) {
+					msgs = newMasterObservable.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE, oldMasterObservable, masterObservable));
+			}
+		}
+		return masterObservable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YValueBindingEndpoint basicGetMasterObservable() {
 		return masterObservable;
 	}
 
@@ -239,7 +262,8 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE:
-				return getMasterObservable();
+				if (resolve) return getMasterObservable();
+				return basicGetMasterObservable();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				return getPropertyPath();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:

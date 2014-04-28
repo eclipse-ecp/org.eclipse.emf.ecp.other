@@ -239,7 +239,7 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 	 */
 	public EList<YValidator> getValidators() {
 		if (validators == null) {
-			validators = new EObjectContainmentEList<YValidator>(YValidator.class, this, CoreModelPackage.YFIELD__VALIDATORS);
+			validators = new EObjectContainmentEList.Resolving<YValidator>(YValidator.class, this, CoreModelPackage.YFIELD__VALIDATORS);
 		}
 		return validators;
 	}

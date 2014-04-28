@@ -13,7 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.model.datatypes.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
  *
  * @generated
  */
-public class YDatadescriptionImpl extends EObjectImpl implements YDatadescription {
+public class YDatadescriptionImpl extends MinimalEObjectImpl.Container implements YDatadescription {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -17,6 +17,8 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.*;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -308,6 +310,14 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYEmbeddableBindingEndpoint(yActivatedEndpoint);
 				if (result == null) result = caseYBindingEndpoint(yActivatedEndpoint);
 				if (result == null) result = caseYElement(yActivatedEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YDT_WRAPPER: {
+				YDtWrapper yDtWrapper = (YDtWrapper)theEObject;
+				T result = caseYDtWrapper(yDtWrapper);
+				if (result == null) result = caseYDatatype(yDtWrapper);
+				if (result == null) result = caseYDtBase(yDtWrapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -736,6 +746,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDt Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDt Wrapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDtWrapper(YDtWrapper object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YBinding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -777,6 +802,36 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYListBindingEndpoint(YListBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDt Base</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDt Base</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDtBase(YDtBase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDatatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDatatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDatatype(YDatatype object) {
 		return null;
 	}
 

@@ -13,10 +13,9 @@ package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -46,7 +45,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  *
  * @generated
  */
-public class YViewImpl extends EObjectImpl implements YView {
+public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -255,6 +254,29 @@ public class YViewImpl extends EObjectImpl implements YView {
 	 * @generated
 	 */
 	public YEmbeddable getContent() {
+		if (content != null && content.eIsProxy()) {
+			InternalEObject oldContent = (InternalEObject)content;
+			content = (YEmbeddable)eResolveProxy(oldContent);
+			if (content != oldContent) {
+				InternalEObject newContent = (InternalEObject)content;
+				NotificationChain msgs = oldContent.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__CONTENT, null, null);
+				if (newContent.eInternalContainer() == null) {
+					msgs = newContent.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__CONTENT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoreModelPackage.YVIEW__CONTENT, oldContent, content));
+			}
+		}
+		return content;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddable basicGetContent() {
 		return content;
 	}
 
@@ -296,6 +318,29 @@ public class YViewImpl extends EObjectImpl implements YView {
 	 * @generated
 	 */
 	public YBindingSet getBindingSet() {
+		if (bindingSet != null && bindingSet.eIsProxy()) {
+			InternalEObject oldBindingSet = (InternalEObject)bindingSet;
+			bindingSet = (YBindingSet)eResolveProxy(oldBindingSet);
+			if (bindingSet != oldBindingSet) {
+				InternalEObject newBindingSet = (InternalEObject)bindingSet;
+				NotificationChain msgs = oldBindingSet.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__BINDING_SET, null, null);
+				if (newBindingSet.eInternalContainer() == null) {
+					msgs = newBindingSet.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__BINDING_SET, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoreModelPackage.YVIEW__BINDING_SET, oldBindingSet, bindingSet));
+			}
+		}
+		return bindingSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingSet basicGetBindingSet() {
 		return bindingSet;
 	}
 
@@ -381,6 +426,16 @@ public class YViewImpl extends EObjectImpl implements YView {
 	 */
 	public YViewSet getRoot() {
 		if (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT) return null;
+		return (YViewSet)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YViewSet basicGetRoot() {
+		if (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT) return null;
 		return (YViewSet)eInternalContainer();
 	}
 
@@ -400,7 +455,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 	 */
 	public void setRoot(YViewSet newRoot) {
 		if (newRoot != eInternalContainer() || (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT && newRoot != null)) {
-			if (EcoreUtil.isAncestor(this, (EObject)newRoot))
+			if (EcoreUtil.isAncestor(this, newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
@@ -479,13 +534,16 @@ public class YViewImpl extends EObjectImpl implements YView {
 			case CoreModelPackage.YVIEW__MARGIN:
 				return isMargin();
 			case CoreModelPackage.YVIEW__ROOT:
-				return getRoot();
+				if (resolve) return getRoot();
+				return basicGetRoot();
 			case CoreModelPackage.YVIEW__VIEW_NAME:
 				return getViewName();
 			case CoreModelPackage.YVIEW__CONTENT:
-				return getContent();
+				if (resolve) return getContent();
+				return basicGetContent();
 			case CoreModelPackage.YVIEW__BINDING_SET:
-				return getBindingSet();
+				if (resolve) return getBindingSet();
+				return basicGetBindingSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -577,7 +635,7 @@ public class YViewImpl extends EObjectImpl implements YView {
 			case CoreModelPackage.YVIEW__MARGIN:
 				return margin != MARGIN_EDEFAULT;
 			case CoreModelPackage.YVIEW__ROOT:
-				return getRoot() != null;
+				return basicGetRoot() != null;
 			case CoreModelPackage.YVIEW__VIEW_NAME:
 				return VIEW_NAME_EDEFAULT == null ? viewName != null : !VIEW_NAME_EDEFAULT.equals(viewName);
 			case CoreModelPackage.YVIEW__CONTENT:

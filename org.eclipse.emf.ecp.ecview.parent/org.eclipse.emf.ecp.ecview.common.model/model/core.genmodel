@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.common.model/src" modelPluginID="org.eclipse.emf.ecp.ecview.common.model"
-    modelName="Core" modelPluginClass="" rootExtendsInterface="" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" importOrganizing="true"
-    usedGenPackages="binding.genmodel#//binding validation.genmodel#//validation">
+    modelName="Core" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
+    copyrightFields="false" classNamePattern="" importOrganizing="true">
   <foreignModel>core.ecore</foreignModel>
   <genPackages prefix="CoreModel" basePackage="org.eclipse.emf.ecp.ecview.common.model"
       disposableProviderFactory="true" ecorePackage="core.ecore#/">
@@ -12,17 +12,29 @@
       <genEnumLiterals ecoreEnumLiteral="core.ecore#//YUnit/Em"/>
     </genEnums>
     <genDataTypes ecoreDataType="core.ecore#//YURI"/>
+    <genDataTypes ecoreDataType="core.ecore#//YValueChangeListener"/>
     <genClasses image="false" ecoreClass="core.ecore#//YElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YElement/id"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//YLayout">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YLayout/elements"/>
     </genClasses>
-    <genClasses ecoreClass="core.ecore#//YField"/>
+    <genClasses ecoreClass="core.ecore#//YField">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YField/validators"/>
+      <genOperations ecoreOperation="core.ecore#//YField/addValueChangeListener">
+        <genParameters ecoreParameter="core.ecore#//YField/addValueChangeListener/listener"/>
+      </genOperations>
+      <genOperations ecoreOperation="core.ecore#//YField/removeValueChangeListener">
+        <genParameters ecoreParameter="core.ecore#//YField/removeValueChangeListener/listener"/>
+      </genOperations>
+      <genOperations ecoreOperation="core.ecore#//YField/removeAllValueChangListeners"/>
+    </genClasses>
     <genClasses ecoreClass="core.ecore#//YView">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference core.ecore#//YView/root"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YView/viewName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YView/content"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YView/bindingSet"/>
+      <genOperations ecoreOperation="core.ecore#//YView/getOrCreateBindingSet"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//YViewSet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YViewSet/views"/>
@@ -49,6 +61,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YWidthable/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YWidthable/widthUnit"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YActivateable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YActivateable/initialActivated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YActivateable/activated"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//YVisibleable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YVisibleable/initialVisible"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YVisibleable/visible"/>
@@ -62,11 +78,141 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YEnable/enabled"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//YAction"/>
+    <genClasses image="false" ecoreClass="core.ecore#//YBindable"/>
     <genClasses image="false" ecoreClass="core.ecore#//YValueBindable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YValueBindable/valueBindableValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YValueBindable/valueBindingEndpoint"/>
+      <genOperations ecoreOperation="core.ecore#//YValueBindable/createValueEndpoint"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//YSelectionBindable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YSelectionBindable/selectionBindableValue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YSelectionBindable/selectionBindingEndpoint"/>
+      <genOperations ecoreOperation="core.ecore#//YSelectionBindable/createSelectionEndpoint"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YMultiSelectionBindable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YMultiSelectionBindable/multiSelectionBindingEndpoint"/>
+      <genOperations ecoreOperation="core.ecore#//YMultiSelectionBindable/createMultiSelectionEndpoint"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YCollectionBindable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YCollectionBindable/collectionBindingEndpoint"/>
+      <genOperations ecoreOperation="core.ecore#//YCollectionBindable/createCollectionEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YContextBindingEndpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YContextBindingEndpoint/urlString"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="core.ecore#//YEmbeddableBindingEndpoint">
+      <genOperations ecoreOperation="core.ecore#//YEmbeddableBindingEndpoint/getElement"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YEmbeddableValueEndpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YEmbeddableValueEndpoint/element"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YEmbeddableSelectionEndpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YEmbeddableSelectionEndpoint/element"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YEmbeddableMultiSelectionEndpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YEmbeddableMultiSelectionEndpoint/element"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YEmbeddableCollectionEndpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YEmbeddableCollectionEndpoint/element"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YActivatedEndpoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YActivatedEndpoint/element"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YDtWrapper"/>
+  </genPackages>
+  <genPackages prefix="Validation" basePackage="org.eclipse.emf.ecp.ecview.common.model"
+      disposableProviderFactory="true" ecorePackage="validation.ecore#/">
+    <genClasses image="false" ecoreClass="validation.ecore#//YValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YValidator/type"/>
+    </genClasses>
+    <genClasses ecoreClass="validation.ecore#//YMinLengthValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YMinLengthValidator/minLength"/>
+    </genClasses>
+    <genClasses ecoreClass="validation.ecore#//YMaxLengthValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YMaxLengthValidator/maxLength"/>
+    </genClasses>
+    <genClasses ecoreClass="validation.ecore#//YRegexpValidator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YRegexpValidator/regexp"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="validation.ecore#//YValidatable"/>
+    <genClasses image="false" ecoreClass="validation.ecore#//YMinLengthValidatable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YMinLengthValidatable/minLength"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="validation.ecore#//YMaxLengthValidatable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YMaxLengthValidatable/maxLength"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="validation.ecore#//YRegexpValidatable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute validation.ecore#//YRegexpValidatable/regExpression"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Binding" basePackage="org.eclipse.emf.ecp.ecview.common.model"
+      disposableProviderFactory="true" ecorePackage="binding.ecore#/">
+    <genClasses ecoreClass="binding.ecore#//YBindingSet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference binding.ecore#//YBindingSet/bindings"/>
+      <genOperations ecoreOperation="binding.ecore#//YBindingSet/addBinding">
+        <genParameters ecoreParameter="binding.ecore#//YBindingSet/addBinding/targetValue"/>
+        <genParameters ecoreParameter="binding.ecore#//YBindingSet/addBinding/modelValue"/>
+      </genOperations>
+      <genOperations ecoreOperation="binding.ecore#//YBindingSet/addBinding.1">
+        <genParameters ecoreParameter="binding.ecore#//YBindingSet/addBinding.1/targetValue"/>
+        <genParameters ecoreParameter="binding.ecore#//YBindingSet/addBinding.1/modelValue"/>
+      </genOperations>
+      <genOperations ecoreOperation="binding.ecore#//YBindingSet/getView"/>
+      <genOperations ecoreOperation="binding.ecore#//YBindingSet/addBinding.2">
+        <genParameters ecoreParameter="binding.ecore#//YBindingSet/addBinding.2/binding"/>
+      </genOperations>
+      <genOperations ecoreOperation="binding.ecore#//YBindingSet/removeBinding">
+        <genParameters ecoreParameter="binding.ecore#//YBindingSet/removeBinding/binding"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="binding.ecore#//YBindingEndpoint">
+      <genOperations ecoreOperation="binding.ecore#//YBindingEndpoint/getBinding"/>
+      <genOperations ecoreOperation="binding.ecore#//YBindingEndpoint/isBindsElement">
+        <genParameters ecoreParameter="binding.ecore#//YBindingEndpoint/isBindsElement/element"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="binding.ecore#//YValueBindingEndpoint">
+      <genOperations ecoreOperation="binding.ecore#//YValueBindingEndpoint/createDetailValueEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="binding.ecore#//YBeanBindingEndpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YBeanBindingEndpoint/bean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YBeanBindingEndpoint/propertyPath"/>
+    </genClasses>
+    <genClasses ecoreClass="binding.ecore#//YDetailValueBindingEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference binding.ecore#//YDetailValueBindingEndpoint/masterObservable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YDetailValueBindingEndpoint/propertyPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YDetailValueBindingEndpoint/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YDetailValueBindingEndpoint/emfNSUri"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="binding.ecore#//YListBindingEndpoint"/>
+    <genClasses image="false" ecoreClass="binding.ecore#//YBinding">
+      <genOperations ecoreOperation="binding.ecore#//YBinding/getBindingSet"/>
+      <genOperations ecoreOperation="binding.ecore#//YBinding/isBindsElement">
+        <genParameters ecoreParameter="binding.ecore#//YBinding/isBindsElement/element"/>
+      </genOperations>
+      <genOperations ecoreOperation="binding.ecore#//YBinding/getTargetEndpoint"/>
+      <genOperations ecoreOperation="binding.ecore#//YBinding/getModelEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="binding.ecore#//YValueBinding">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference binding.ecore#//YValueBinding/targetEndpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference binding.ecore#//YValueBinding/modelEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="binding.ecore#//YListBinding">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference binding.ecore#//YListBinding/targetEndpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference binding.ecore#//YListBinding/modelEndpoint"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Datatypes" basePackage="org.eclipse.emf.ecp.ecview.common.model"
+      disposableProviderFactory="true" ecorePackage="datatypes.ecore#/">
+    <genClasses image="false" ecoreClass="datatypes.ecore#//YDtBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDtBase/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDtBase/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDtBase/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="datatypes.ecore#//YDatatype">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatypes.ecore#//YDatatype/validators"/>
+    </genClasses>
+    <genClasses ecoreClass="datatypes.ecore#//YDatadescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDatadescription/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDatadescription/labelI18nKey"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

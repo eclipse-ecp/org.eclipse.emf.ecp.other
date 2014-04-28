@@ -4,7 +4,6 @@ package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl;
@@ -62,7 +61,7 @@ public class YActivatedEndpointImpl extends YValueBindingEndpointImpl implements
 	 * @generated
 	 */
 	public YActivateable getElement() {
-		if (element != null && ((EObject)element).eIsProxy()) {
+		if (element != null && element.eIsProxy()) {
 			InternalEObject oldElement = (InternalEObject)element;
 			element = (YActivateable)eResolveProxy(oldElement);
 			if (element != oldElement) {

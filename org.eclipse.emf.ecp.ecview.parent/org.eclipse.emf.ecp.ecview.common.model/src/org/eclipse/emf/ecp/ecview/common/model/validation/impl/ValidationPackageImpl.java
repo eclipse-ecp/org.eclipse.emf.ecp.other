@@ -6,10 +6,13 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.DatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
@@ -130,11 +133,22 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		CoreModelPackageImpl theCoreModelPackage = (CoreModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) instanceof CoreModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) : CoreModelPackage.eINSTANCE);
+		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
+		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theValidationPackage.createPackageContents();
+		theCoreModelPackage.createPackageContents();
+		theBindingPackage.createPackageContents();
+		theDatatypesPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theValidationPackage.initializePackageContents();
+		theCoreModelPackage.initializePackageContents();
+		theBindingPackage.initializePackageContents();
+		theDatatypesPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theValidationPackage.freeze();

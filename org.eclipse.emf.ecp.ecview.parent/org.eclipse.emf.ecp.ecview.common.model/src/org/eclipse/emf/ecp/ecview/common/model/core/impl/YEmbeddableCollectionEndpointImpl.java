@@ -3,13 +3,9 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingEndpointImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
@@ -64,7 +60,7 @@ public class YEmbeddableCollectionEndpointImpl extends YListBindingEndpointImpl 
 	 * @generated
 	 */
 	public YCollectionBindable getElement() {
-		if (element != null && ((EObject)element).eIsProxy()) {
+		if (element != null && element.eIsProxy()) {
 			InternalEObject oldElement = (InternalEObject)element;
 			element = (YCollectionBindable)eResolveProxy(oldElement);
 			if (element != oldElement) {

@@ -11,14 +11,13 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -39,7 +38,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  *
  * @generated
  */
-public class YViewSetImpl extends EObjectImpl implements YViewSet {
+public class YViewSetImpl extends MinimalEObjectImpl.Container implements YViewSet {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -117,7 +116,7 @@ public class YViewSetImpl extends EObjectImpl implements YViewSet {
 	 */
 	public EList<YView> getViews() {
 		if (views == null) {
-			views = new EObjectContainmentWithInverseEList<YView>(YView.class, this, CoreModelPackage.YVIEW_SET__VIEWS, CoreModelPackage.YVIEW__ROOT);
+			views = new EObjectContainmentWithInverseEList.Resolving<YView>(YView.class, this, CoreModelPackage.YVIEW_SET__VIEWS, CoreModelPackage.YVIEW__ROOT);
 		}
 		return views;
 	}

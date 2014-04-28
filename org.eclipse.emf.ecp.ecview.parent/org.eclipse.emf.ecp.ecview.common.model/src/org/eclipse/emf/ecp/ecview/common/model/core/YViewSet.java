@@ -42,7 +42,7 @@ public interface YViewSet extends YElement {
 	 * @return the value of the '<em>Views</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYViewSet_Views()
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot
-	 * @model opposite="root" containment="true"
+	 * @model opposite="root" containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<YView> getViews();

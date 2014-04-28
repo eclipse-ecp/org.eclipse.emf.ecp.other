@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +29,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YElement {
+public interface YElement extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.

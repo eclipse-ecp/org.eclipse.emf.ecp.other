@@ -5,7 +5,7 @@ package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  *
  * @generated
  */
-public abstract class YBindingEndpointImpl extends EObjectImpl implements YBindingEndpoint {
+public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container implements YBindingEndpoint {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

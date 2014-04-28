@@ -5,7 +5,6 @@ package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl;
@@ -63,7 +62,7 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 	 * @generated
 	 */
 	public YSelectionBindable getElement() {
-		if (element != null && ((EObject)element).eIsProxy()) {
+		if (element != null && element.eIsProxy()) {
 			InternalEObject oldElement = (InternalEObject)element;
 			element = (YSelectionBindable)eResolveProxy(oldElement);
 			if (element != oldElement) {

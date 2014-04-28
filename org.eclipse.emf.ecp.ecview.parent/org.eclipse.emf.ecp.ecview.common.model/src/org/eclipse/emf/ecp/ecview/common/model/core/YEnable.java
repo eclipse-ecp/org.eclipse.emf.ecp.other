@@ -2,6 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +22,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YEnable {
+public interface YEnable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Initial Enabled</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

@@ -34,7 +34,7 @@ public interface YDetailValueBindingEndpoint extends YValueBindingEndpoint {
 	 * @return the value of the '<em>Master Observable</em>' containment reference.
 	 * @see #setMasterObservable(YValueBindingEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYDetailValueBindingEndpoint_MasterObservable()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YValueBindingEndpoint getMasterObservable();

@@ -1,32 +1,21 @@
 /**
- * Copyright (c) 2012 Lunifera GmbH (Austria) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Florian Pirchner - initial API and implementation
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.net.URI;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecp.ecview.common.model.core.*;
+
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.common.model.core.YUnit;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,17 +61,18 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case CoreModelPackage.YLAYOUT: return (EObject)createYLayout();
-			case CoreModelPackage.YFIELD: return (EObject)createYField();
-			case CoreModelPackage.YVIEW: return (EObject)createYView();
-			case CoreModelPackage.YVIEW_SET: return (EObject)createYViewSet();
-			case CoreModelPackage.YACTION: return (EObject)createYAction();
-			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return (EObject)createYContextBindingEndpoint();
-			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return (EObject)createYEmbeddableValueEndpoint();
-			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return (EObject)createYEmbeddableSelectionEndpoint();
-			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: return (EObject)createYEmbeddableMultiSelectionEndpoint();
-			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT: return (EObject)createYEmbeddableCollectionEndpoint();
-			case CoreModelPackage.YACTIVATED_ENDPOINT: return (EObject)createYActivatedEndpoint();
+			case CoreModelPackage.YLAYOUT: return createYLayout();
+			case CoreModelPackage.YFIELD: return createYField();
+			case CoreModelPackage.YVIEW: return createYView();
+			case CoreModelPackage.YVIEW_SET: return createYViewSet();
+			case CoreModelPackage.YACTION: return createYAction();
+			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return createYContextBindingEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return createYEmbeddableValueEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return createYEmbeddableSelectionEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: return createYEmbeddableMultiSelectionEndpoint();
+			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT: return createYEmbeddableCollectionEndpoint();
+			case CoreModelPackage.YACTIVATED_ENDPOINT: return createYActivatedEndpoint();
+			case CoreModelPackage.YDT_WRAPPER: return createYDtWrapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -241,6 +231,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public YDtWrapper createYDtWrapper() {
+		YDtWrapperImpl yDtWrapper = new YDtWrapperImpl();
+		return yDtWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YUnit createYUnitFromString(EDataType eDataType, String initialValue) {
 		YUnit result = YUnit.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -312,4 +312,4 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 		return CoreModelPackage.eINSTANCE;
 	}
 
-} //UiModelFactoryImpl
+} //CoreModelFactoryImpl

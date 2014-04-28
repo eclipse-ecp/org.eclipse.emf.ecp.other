@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.datatypes;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +31,7 @@ package org.eclipse.emf.ecp.ecview.common.model.datatypes;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YDtBase {
+public interface YDtBase extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->

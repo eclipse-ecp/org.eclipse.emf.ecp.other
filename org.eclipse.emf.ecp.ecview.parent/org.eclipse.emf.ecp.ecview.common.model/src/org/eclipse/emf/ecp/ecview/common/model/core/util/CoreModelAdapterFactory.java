@@ -18,6 +18,8 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.*;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
@@ -206,6 +208,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYActivatedEndpointAdapter();
 			}
 			@Override
+			public Adapter caseYDtWrapper(YDtWrapper object) {
+				return createYDtWrapperAdapter();
+			}
+			@Override
 			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
 				return createYBindingEndpointAdapter();
 			}
@@ -216,6 +222,14 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYListBindingEndpoint(YListBindingEndpoint object) {
 				return createYListBindingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYDtBase(YDtBase object) {
+				return createYDtBaseAdapter();
+			}
+			@Override
+			public Adapter caseYDatatype(YDatatype object) {
+				return createYDatatypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -630,6 +644,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper <em>YDt Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper
+	 * @generated
+	 */
+	public Adapter createYDtWrapperAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint <em>YBinding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -668,6 +696,34 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYListBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase <em>YDt Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase
+	 * @generated
+	 */
+	public Adapter createYDtBaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype <em>YDatatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype
+	 * @generated
+	 */
+	public Adapter createYDatatypeAdapter() {
 		return null;
 	}
 

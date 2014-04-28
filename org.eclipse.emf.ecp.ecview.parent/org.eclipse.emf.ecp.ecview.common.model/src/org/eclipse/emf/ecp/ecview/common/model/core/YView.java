@@ -70,7 +70,7 @@ public interface YView extends YElement, YCssAble, YMarginable {
 	 * @return the value of the '<em>Content</em>' containment reference.
 	 * @see #setContent(YEmbeddable)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_Content()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YEmbeddable getContent();
@@ -96,7 +96,7 @@ public interface YView extends YElement, YCssAble, YMarginable {
 	 * @return the value of the '<em>Binding Set</em>' containment reference.
 	 * @see #setBindingSet(YBindingSet)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_BindingSet()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YBindingSet getBindingSet();

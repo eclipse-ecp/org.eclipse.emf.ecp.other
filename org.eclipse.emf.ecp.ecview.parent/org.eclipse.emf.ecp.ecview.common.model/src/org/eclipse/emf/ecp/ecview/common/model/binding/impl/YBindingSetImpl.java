@@ -3,14 +3,13 @@
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
  *
  * @generated
  */
-public class YBindingSetImpl extends EObjectImpl implements YBindingSet {
+public class YBindingSetImpl extends MinimalEObjectImpl.Container implements YBindingSet {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -106,7 +105,7 @@ public class YBindingSetImpl extends EObjectImpl implements YBindingSet {
 	 */
 	public EList<YBinding> getBindings() {
 		if (bindings == null) {
-			bindings = new EObjectContainmentEList<YBinding>(YBinding.class, this, BindingPackage.YBINDING_SET__BINDINGS);
+			bindings = new EObjectContainmentEList.Resolving<YBinding>(YBinding.class, this, BindingPackage.YBINDING_SET__BINDINGS);
 		}
 		return bindings;
 	}

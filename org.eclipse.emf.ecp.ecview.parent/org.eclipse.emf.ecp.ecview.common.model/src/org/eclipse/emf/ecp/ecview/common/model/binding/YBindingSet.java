@@ -34,7 +34,7 @@ public interface YBindingSet extends YElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBindingSet_Bindings()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<YBinding> getBindings();

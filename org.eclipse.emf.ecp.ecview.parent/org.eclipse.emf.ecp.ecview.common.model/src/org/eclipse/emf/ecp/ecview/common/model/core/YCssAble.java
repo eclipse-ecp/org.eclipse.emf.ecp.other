@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +30,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YCssAble {
+public interface YCssAble extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Css Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->

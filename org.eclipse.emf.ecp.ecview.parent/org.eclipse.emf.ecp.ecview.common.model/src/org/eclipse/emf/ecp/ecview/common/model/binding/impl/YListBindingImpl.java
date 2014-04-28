@@ -71,6 +71,29 @@ public class YListBindingImpl extends YBindingImpl implements YListBinding {
 	 * @generated
 	 */
 	public YListBindingEndpoint getTargetEndpoint() {
+		if (targetEndpoint != null && targetEndpoint.eIsProxy()) {
+			InternalEObject oldTargetEndpoint = (InternalEObject)targetEndpoint;
+			targetEndpoint = (YListBindingEndpoint)eResolveProxy(oldTargetEndpoint);
+			if (targetEndpoint != oldTargetEndpoint) {
+				InternalEObject newTargetEndpoint = (InternalEObject)targetEndpoint;
+				NotificationChain msgs = oldTargetEndpoint.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YLIST_BINDING__TARGET_ENDPOINT, null, null);
+				if (newTargetEndpoint.eInternalContainer() == null) {
+					msgs = newTargetEndpoint.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YLIST_BINDING__TARGET_ENDPOINT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YLIST_BINDING__TARGET_ENDPOINT, oldTargetEndpoint, targetEndpoint));
+			}
+		}
+		return targetEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YListBindingEndpoint basicGetTargetEndpoint() {
 		return targetEndpoint;
 	}
 
@@ -114,6 +137,29 @@ public class YListBindingImpl extends YBindingImpl implements YListBinding {
 	 * @generated
 	 */
 	public YListBindingEndpoint getModelEndpoint() {
+		if (modelEndpoint != null && modelEndpoint.eIsProxy()) {
+			InternalEObject oldModelEndpoint = (InternalEObject)modelEndpoint;
+			modelEndpoint = (YListBindingEndpoint)eResolveProxy(oldModelEndpoint);
+			if (modelEndpoint != oldModelEndpoint) {
+				InternalEObject newModelEndpoint = (InternalEObject)modelEndpoint;
+				NotificationChain msgs = oldModelEndpoint.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YLIST_BINDING__MODEL_ENDPOINT, null, null);
+				if (newModelEndpoint.eInternalContainer() == null) {
+					msgs = newModelEndpoint.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BindingPackage.YLIST_BINDING__MODEL_ENDPOINT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BindingPackage.YLIST_BINDING__MODEL_ENDPOINT, oldModelEndpoint, modelEndpoint));
+			}
+		}
+		return modelEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YListBindingEndpoint basicGetModelEndpoint() {
 		return modelEndpoint;
 	}
 
@@ -176,9 +222,11 @@ public class YListBindingImpl extends YBindingImpl implements YListBinding {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case BindingPackage.YLIST_BINDING__TARGET_ENDPOINT:
-				return getTargetEndpoint();
+				if (resolve) return getTargetEndpoint();
+				return basicGetTargetEndpoint();
 			case BindingPackage.YLIST_BINDING__MODEL_ENDPOINT:
-				return getModelEndpoint();
+				if (resolve) return getModelEndpoint();
+				return basicGetModelEndpoint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

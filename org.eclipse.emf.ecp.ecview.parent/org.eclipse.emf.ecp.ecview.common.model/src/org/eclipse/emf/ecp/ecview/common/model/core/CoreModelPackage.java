@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -1238,6 +1239,61 @@ public interface CoreModelPackage extends EPackage {
 	int YACTIVATED_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDtWrapperImpl <em>YDt Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YDtWrapperImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYDtWrapper()
+	 * @generated
+	 */
+	int YDT_WRAPPER = 28;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDT_WRAPPER__ID = DatatypesPackage.YDATATYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDT_WRAPPER__NAME = DatatypesPackage.YDATATYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDT_WRAPPER__DESCRIPTION = DatatypesPackage.YDATATYPE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDT_WRAPPER__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
+
+	/**
+	 * The number of structural features of the '<em>YDt Wrapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDT_WRAPPER_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1245,7 +1301,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 28;
+	int YUNIT = 29;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -1255,7 +1311,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 29;
+	int YURI = 30;
 
 
 	/**
@@ -1266,7 +1322,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
 	 * @generated
 	 */
-	int YVALUE_CHANGE_LISTENER = 30;
+	int YVALUE_CHANGE_LISTENER = 31;
 
 
 	/**
@@ -1924,6 +1980,16 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYActivatedEndpoint_Element();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper <em>YDt Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YDt Wrapper</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper
+	 * @generated
+	 */
+	EClass getYDtWrapper();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2528,6 +2594,16 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YACTIVATED_ENDPOINT__ELEMENT = eINSTANCE.getYActivatedEndpoint_Element();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDtWrapperImpl <em>YDt Wrapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YDtWrapperImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYDtWrapper()
+		 * @generated
+		 */
+		EClass YDT_WRAPPER = eINSTANCE.getYDtWrapper();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

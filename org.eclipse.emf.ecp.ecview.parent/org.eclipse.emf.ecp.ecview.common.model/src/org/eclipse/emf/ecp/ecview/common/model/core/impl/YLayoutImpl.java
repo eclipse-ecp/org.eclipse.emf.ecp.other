@@ -11,7 +11,6 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -67,7 +66,7 @@ public class YLayoutImpl extends YEmbeddableImpl implements YLayout {
 	 */
 	public EList<YEmbeddable> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<YEmbeddable>(YEmbeddable.class, this, CoreModelPackage.YLAYOUT__ELEMENTS);
+			elements = new EObjectContainmentEList.Resolving<YEmbeddable>(YEmbeddable.class, this, CoreModelPackage.YLAYOUT__ELEMENTS);
 		}
 		return elements;
 	}
