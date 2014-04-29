@@ -108,6 +108,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yLayout);
 				if (result == null) result = caseYCssAble(yLayout);
 				if (result == null) result = caseYVisibleable(yLayout);
+				if (result == null) result = caseYVisibilityProcessable(yLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,6 +121,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yField);
 				if (result == null) result = caseYCssAble(yField);
 				if (result == null) result = caseYVisibleable(yField);
+				if (result == null) result = caseYVisibilityProcessable(yField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,6 +131,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yView);
 				if (result == null) result = caseYCssAble(yView);
 				if (result == null) result = caseYMarginable(yView);
+				if (result == null) result = caseYVisibilityProcessable(yView);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,12 +142,19 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YBEAN_SLOT: {
+				YBeanSlot yBeanSlot = (YBeanSlot)theEObject;
+				T result = caseYBeanSlot(yBeanSlot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CoreModelPackage.YEMBEDDABLE: {
 				YEmbeddable yEmbeddable = (YEmbeddable)theEObject;
 				T result = caseYEmbeddable(yEmbeddable);
 				if (result == null) result = caseYElement(yEmbeddable);
 				if (result == null) result = caseYCssAble(yEmbeddable);
 				if (result == null) result = caseYVisibleable(yEmbeddable);
+				if (result == null) result = caseYVisibilityProcessable(yEmbeddable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +221,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yAction);
 				if (result == null) result = caseYCssAble(yAction);
 				if (result == null) result = caseYVisibleable(yAction);
+				if (result == null) result = caseYVisibilityProcessable(yAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,6 +332,12 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YVISIBILITY_PROCESSABLE: {
+				YVisibilityProcessable yVisibilityProcessable = (YVisibilityProcessable)theEObject;
+				T result = caseYVisibilityProcessable(yVisibilityProcessable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -397,6 +414,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYViewSet(YViewSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBean Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBean Slot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBeanSlot(YBeanSlot object) {
 		return null;
 	}
 
@@ -757,6 +789,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYDtWrapper(YDtWrapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YVisibility Processable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YVisibility Processable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYVisibilityProcessable(YVisibilityProcessable object) {
 		return null;
 	}
 

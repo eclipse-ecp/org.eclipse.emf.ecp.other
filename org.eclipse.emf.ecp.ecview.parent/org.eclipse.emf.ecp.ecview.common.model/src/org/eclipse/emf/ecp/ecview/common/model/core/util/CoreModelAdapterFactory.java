@@ -116,6 +116,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYViewSetAdapter();
 			}
 			@Override
+			public Adapter caseYBeanSlot(YBeanSlot object) {
+				return createYBeanSlotAdapter();
+			}
+			@Override
 			public Adapter caseYEmbeddable(YEmbeddable object) {
 				return createYEmbeddableAdapter();
 			}
@@ -210,6 +214,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYDtWrapper(YDtWrapper object) {
 				return createYDtWrapperAdapter();
+			}
+			@Override
+			public Adapter caseYVisibilityProcessable(YVisibilityProcessable object) {
+				return createYVisibilityProcessableAdapter();
 			}
 			@Override
 			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
@@ -318,6 +326,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYViewSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot <em>YBean Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot
+	 * @generated
+	 */
+	public Adapter createYBeanSlotAdapter() {
 		return null;
 	}
 
@@ -654,6 +676,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYDtWrapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable <em>YVisibility Processable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable
+	 * @generated
+	 */
+	public Adapter createYVisibilityProcessableAdapter() {
 		return null;
 	}
 

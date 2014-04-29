@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="validators" upperBound="-1"
         eType="ecore:EClass validation.ecore#//YValidator" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YView" eSuperTypes="#//YElement #//YCssAble #//YMarginable">
+  <eClassifiers xsi:type="ecore:EClass" name="YView" eSuperTypes="#//YElement #//YCssAble #//YMarginable #//YVisibilityProcessable">
     <eOperations name="getOrCreateBindingSet" eType="ecore:EClass binding.ecore#//YBindingSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//YViewSet"
         eOpposite="#//YViewSet/views"/>
@@ -30,12 +30,24 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingSet" eType="ecore:EClass binding.ecore#//YBindingSet"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beanSlots" upperBound="-1"
+        eType="#//YBeanSlot" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YViewSet" eSuperTypes="#//YElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
         eType="#//YView" containment="true" eOpposite="#//YView/root"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beanSlots" upperBound="-1"
+        eType="#//YBeanSlot" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddable" abstract="true" eSuperTypes="#//YElement #//YCssAble #//YVisibleable">
+  <eClassifiers xsi:type="ecore:EClass" name="YBeanSlot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YEmbeddable" abstract="true" eSuperTypes="#//YElement #//YCssAble #//YVisibleable #//YVisibilityProcessable">
     <eOperations name="getParent" eType="#//YLayout"/>
     <eOperations name="getView" eType="#//YView"/>
   </eClassifiers>
@@ -145,4 +157,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="YValueChangeListener" instanceClassName="org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener"/>
   <eClassifiers xsi:type="ecore:EClass" name="YDtWrapper" eSuperTypes="datatypes.ecore#//YDatatype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProcessable" abstract="true"
+      interface="true"/>
 </ecore:EPackage>

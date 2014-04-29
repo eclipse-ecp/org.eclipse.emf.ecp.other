@@ -10,21 +10,27 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -40,6 +46,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBindingSet <em>Binding Set</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBeanSlots <em>Bean Slots</em>}</li>
  * </ul>
  * </p>
  *
@@ -155,6 +162,16 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @ordered
 	 */
 	protected YBindingSet bindingSet;
+
+	/**
+	 * The cached value of the '{@link #getBeanSlots() <em>Bean Slots</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBeanSlots()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YBeanSlot> beanSlots;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -378,6 +395,18 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<YBeanSlot> getBeanSlots() {
+		if (beanSlots == null) {
+			beanSlots = new EObjectContainmentEList.Resolving<YBeanSlot>(YBeanSlot.class, this, CoreModelPackage.YVIEW__BEAN_SLOTS);
+		}
+		return beanSlots;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -500,6 +529,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return basicSetContent(null, msgs);
 			case CoreModelPackage.YVIEW__BINDING_SET:
 				return basicSetBindingSet(null, msgs);
+			case CoreModelPackage.YVIEW__BEAN_SLOTS:
+				return ((InternalEList<?>)getBeanSlots()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -544,6 +575,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__BINDING_SET:
 				if (resolve) return getBindingSet();
 				return basicGetBindingSet();
+			case CoreModelPackage.YVIEW__BEAN_SLOTS:
+				return getBeanSlots();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -580,6 +613,10 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__BINDING_SET:
 				setBindingSet((YBindingSet)newValue);
 				return;
+			case CoreModelPackage.YVIEW__BEAN_SLOTS:
+				getBeanSlots().clear();
+				getBeanSlots().addAll((Collection<? extends YBeanSlot>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -615,6 +652,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__BINDING_SET:
 				setBindingSet((YBindingSet)null);
 				return;
+			case CoreModelPackage.YVIEW__BEAN_SLOTS:
+				getBeanSlots().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -642,6 +682,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return content != null;
 			case CoreModelPackage.YVIEW__BINDING_SET:
 				return bindingSet != null;
+			case CoreModelPackage.YVIEW__BEAN_SLOTS:
+				return beanSlots != null && !beanSlots.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -665,6 +707,11 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				default: return -1;
 			}
 		}
+		if (baseClass == YVisibilityProcessable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -684,6 +731,11 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		if (baseClass == YMarginable.class) {
 			switch (baseFeatureID) {
 				case CoreModelPackage.YMARGINABLE__MARGIN: return CoreModelPackage.YVIEW__MARGIN;
+				default: return -1;
+			}
+		}
+		if (baseClass == YVisibilityProcessable.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

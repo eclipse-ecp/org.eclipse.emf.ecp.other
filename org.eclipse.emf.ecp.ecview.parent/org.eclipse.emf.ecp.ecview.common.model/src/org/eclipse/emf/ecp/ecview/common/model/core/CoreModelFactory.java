@@ -66,6 +66,15 @@ public interface CoreModelFactory extends EFactory {
 	YViewSet createYViewSet();
 
 	/**
+	 * Returns a new object of class '<em>YBean Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YBean Slot</em>'.
+	 * @generated
+	 */
+	YBeanSlot createYBeanSlot();
+
+	/**
 	 * Returns a new object of class '<em>YAction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

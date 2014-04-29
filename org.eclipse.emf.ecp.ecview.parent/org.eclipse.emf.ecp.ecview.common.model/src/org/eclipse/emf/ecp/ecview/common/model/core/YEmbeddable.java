@@ -21,7 +21,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
  * @model abstract="true"
  * @generated
  */
-public interface YEmbeddable extends YElement, YCssAble, YVisibleable {
+public interface YEmbeddable extends YElement, YCssAble, YVisibleable, YVisibilityProcessable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <p>

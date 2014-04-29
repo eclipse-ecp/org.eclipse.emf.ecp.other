@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews <em>Views</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getBeanSlots <em>Bean Slots</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +47,21 @@ public interface YViewSet extends YElement {
 	 * @generated
 	 */
 	EList<YView> getViews();
+
+	/**
+	 * Returns the value of the '<em><b>Bean Slots</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bean Slots</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bean Slots</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYViewSet_BeanSlots()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<YBeanSlot> getBeanSlots();
 
 } // YUiViewSet

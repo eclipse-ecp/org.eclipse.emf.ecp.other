@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 
 /**
@@ -406,6 +407,11 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container imple
 				default: return -1;
 			}
 		}
+		if (baseClass == YVisibilityProcessable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -427,6 +433,11 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container imple
 			switch (baseFeatureID) {
 				case CoreModelPackage.YVISIBLEABLE__INITIAL_VISIBLE: return CoreModelPackage.YEMBEDDABLE__INITIAL_VISIBLE;
 				case CoreModelPackage.YVISIBLEABLE__VISIBLE: return CoreModelPackage.YEMBEDDABLE__VISIBLE;
+				default: return -1;
+			}
+		}
+		if (baseClass == YVisibilityProcessable.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

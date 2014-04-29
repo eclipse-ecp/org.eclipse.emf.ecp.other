@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.services.emf.behaviour.api;
 
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 
 /**
  * Implementations handle the visibility of UI elements based on domain data.
@@ -19,22 +20,24 @@ import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
  * Clients should implement {@link AbstractVisibilityProcessor} since API may
  * change.
  */
-public interface IVisibilityProcessor<E> {
+public interface IVisibilityProcessor {
 
 	/**
 	 * Registers the element. The visibility options of the element will become
 	 * managed.
 	 * 
 	 * @param element
+	 * @param adapter
+	 *            - The visibility adapter
 	 */
-	void register(E element);
+	void register(YVisibilityProcessable element, IVisibilityAdapter adapter);
 
 	/**
 	 * Unregisters the element.
 	 * 
 	 * @param element
 	 */
-	void unregister(E element);
+	void unregister(YVisibilityProcessable element);
 
 	/**
 	 * The context may be used to access the underlying domain model and further
@@ -43,10 +46,5 @@ public interface IVisibilityProcessor<E> {
 	 * @param context
 	 */
 	void setContext(IViewContext context);
-
-	/**
-	 * The visibility options should be updated.
-	 */
-	void fire();
 
 }

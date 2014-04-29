@@ -65,6 +65,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YFIELD: return createYField();
 			case CoreModelPackage.YVIEW: return createYView();
 			case CoreModelPackage.YVIEW_SET: return createYViewSet();
+			case CoreModelPackage.YBEAN_SLOT: return createYBeanSlot();
 			case CoreModelPackage.YACTION: return createYAction();
 			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return createYContextBindingEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return createYEmbeddableValueEndpoint();
@@ -154,6 +155,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YViewSet createYViewSet() {
 		YViewSetImpl yViewSet = new YViewSetImpl();
 		return yViewSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBeanSlot createYBeanSlot() {
+		YBeanSlotImpl yBeanSlot = new YBeanSlotImpl();
+		return yBeanSlot;
 	}
 
 	/**

@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 
 
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getContent <em>Content</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBindingSet <em>Binding Set</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBeanSlots <em>Bean Slots</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,7 +34,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
  * @model
  * @generated
  */
-public interface YView extends YElement, YCssAble, YMarginable {
+public interface YView extends YElement, YCssAble, YMarginable, YVisibilityProcessable {
 	/**
 	 * Returns the value of the '<em><b>View Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -110,6 +112,22 @@ public interface YView extends YElement, YCssAble, YMarginable {
 	 * @generated
 	 */
 	void setBindingSet(YBindingSet value);
+
+	/**
+	 * Returns the value of the '<em><b>Bean Slots</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bean Slots</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bean Slots</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_BeanSlots()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<YBeanSlot> getBeanSlots();
 
 	/**
 	 * <!-- begin-user-doc -->
