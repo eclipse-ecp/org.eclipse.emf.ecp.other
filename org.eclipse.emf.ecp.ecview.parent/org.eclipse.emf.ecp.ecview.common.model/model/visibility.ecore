@@ -2,8 +2,43 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="visibility" nsURI="http://eclipse.org/emf/ecp/ecview/common/visibility"
     nsPrefix="visibility">
-  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProcessor" eSuperTypes="core.ecore#//YElement">
-    <eStructuralFeatures xsi:type="ecore:EReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProcessor" abstract="true"
+      eSuperTypes="core.ecore#//YElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onMatch" lowerBound="1"
+        eType="#//YVisibilityProperties" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityRule" eSuperTypes="core.ecore#//YElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YRuledVisibilityProcessor" eSuperTypes="#//YVisibilityProcessor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//YVisibilityRule"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityRule" abstract="true" interface="true"
+      eSuperTypes="core.ecore#//YElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProperties" eSuperTypes="core.ecore#//YElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="editable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="border" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="italic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strikethrough" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="underline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundColor" eType="#//YColor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foregroundColor" eType="#//YColor"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YColor" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="red" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="green" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="themeId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//YColorType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="YColorType">
+    <eLiterals name="THEME" literal="THEME"/>
+    <eLiterals name="RGB" value="1" literal="RGB"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -132,6 +132,15 @@ public class BeanScope extends AbstractScope {
 	}
 
 	/**
+	 * Returns the selector that points to the target value in the bean scope.
+	 * 
+	 * @return
+	 */
+	public String getSelector() {
+		return selector;
+	}
+
+	/**
 	 * Returns the fragment scope
 	 * 
 	 * @return FragmentScope

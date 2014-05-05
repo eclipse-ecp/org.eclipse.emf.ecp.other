@@ -161,6 +161,16 @@ public class ViewSetEditpartTest {
 		Assert.assertEquals(1, viewSet2Editpart.getViews().size());
 	}
 
+	@Test
+	public void test_addBeanSlotByModel() {
+		Assert.fail("Implement");
+	}
+
+	@Test
+	public void test_removeBeanSlotByModel() {
+		Assert.fail("Implement - should not be removed!");
+	}
+
 	/**
 	 * Tests the move of embedded elements by the editpart.
 	 */

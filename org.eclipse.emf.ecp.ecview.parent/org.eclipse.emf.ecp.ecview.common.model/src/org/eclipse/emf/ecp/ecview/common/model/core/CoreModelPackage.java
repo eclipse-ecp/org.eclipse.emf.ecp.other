@@ -151,13 +151,22 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE__VISIBLE = YELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE__VISIBILITY_PROCESSOR = YELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>YEmbeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 4;
+	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl <em>YLayout</em>}' class.
@@ -213,6 +222,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLAYOUT__VISIBLE = YEMBEDDABLE__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLAYOUT__VISIBILITY_PROCESSOR = YEMBEDDABLE__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -286,6 +304,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YFIELD__VISIBLE = YEMBEDDABLE__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__VISIBILITY_PROCESSOR = YEMBEDDABLE__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -388,13 +415,22 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW__MARGIN = YELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVIEW__VISIBILITY_PROCESSOR = YELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW__ROOT = YELEMENT_FEATURE_COUNT + 3;
+	int YVIEW__ROOT = YELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>View Name</b></em>' attribute.
@@ -403,7 +439,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW__VIEW_NAME = YELEMENT_FEATURE_COUNT + 4;
+	int YVIEW__VIEW_NAME = YELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
@@ -412,7 +448,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW__CONTENT = YELEMENT_FEATURE_COUNT + 5;
+	int YVIEW__CONTENT = YELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Binding Set</b></em>' containment reference.
@@ -421,7 +457,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW__BINDING_SET = YELEMENT_FEATURE_COUNT + 6;
+	int YVIEW__BINDING_SET = YELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Bean Slots</b></em>' containment reference list.
@@ -430,7 +466,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW__BEAN_SLOTS = YELEMENT_FEATURE_COUNT + 7;
+	int YVIEW__BEAN_SLOTS = YELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>YView</em>' class.
@@ -439,7 +475,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 8;
+	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
@@ -914,6 +950,15 @@ public interface CoreModelPackage extends EPackage {
 	int YACTION__VISIBLE = YEMBEDDABLE__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTION__VISIBILITY_PROCESSOR = YEMBEDDABLE__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1090,6 +1135,52 @@ public interface CoreModelPackage extends EPackage {
 	int YCONTEXT_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl <em>YBean Slot Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotBindingEndpoint()
+	 * @generated
+	 */
+	int YBEAN_SLOT_BINDING_ENDPOINT = 23;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Attribute Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_BINDING_ENDPOINT__ATTRIBUTE_PATH = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Bean Slot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_BINDING_ENDPOINT__BEAN_SLOT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YBean Slot Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1097,7 +1188,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableBindingEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT = 23;
+	int YEMBEDDABLE_BINDING_ENDPOINT = 24;
 
 	/**
 	 * The number of structural features of the '<em>YEmbeddable Binding Endpoint</em>' class.
@@ -1116,7 +1207,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableValueEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT = 24;
+	int YEMBEDDABLE_VALUE_ENDPOINT = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1153,7 +1244,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableSelectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT = 25;
+	int YEMBEDDABLE_SELECTION_ENDPOINT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1190,7 +1281,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableMultiSelectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT = 26;
+	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1227,7 +1318,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableCollectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_COLLECTION_ENDPOINT = 27;
+	int YEMBEDDABLE_COLLECTION_ENDPOINT = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1264,7 +1355,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYActivatedEndpoint()
 	 * @generated
 	 */
-	int YACTIVATED_ENDPOINT = 28;
+	int YACTIVATED_ENDPOINT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1301,7 +1392,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYDtWrapper()
 	 * @generated
 	 */
-	int YDT_WRAPPER = 29;
+	int YDT_WRAPPER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1356,7 +1447,16 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYVisibilityProcessable()
 	 * @generated
 	 */
-	int YVISIBILITY_PROCESSABLE = 30;
+	int YVISIBILITY_PROCESSABLE = 31;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR = 0;
 
 	/**
 	 * The number of structural features of the '<em>YVisibility Processable</em>' class.
@@ -1365,7 +1465,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YVISIBILITY_PROCESSABLE_FEATURE_COUNT = 0;
+	int YVISIBILITY_PROCESSABLE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
@@ -1375,7 +1475,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 31;
+	int YUNIT = 32;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -1385,7 +1485,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 32;
+	int YURI = 33;
 
 
 	/**
@@ -1396,7 +1496,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
 	 * @generated
 	 */
-	int YVALUE_CHANGE_LISTENER = 33;
+	int YVALUE_CHANGE_LISTENER = 34;
 
 
 	/**
@@ -1993,6 +2093,38 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYContextBindingEndpoint_UrlString();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint <em>YBean Slot Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YBean Slot Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint
+	 * @generated
+	 */
+	EClass getYBeanSlotBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getAttributePath <em>Attribute Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attribute Path</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getAttributePath()
+	 * @see #getYBeanSlotBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYBeanSlotBindingEndpoint_AttributePath();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getBeanSlot <em>Bean Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bean Slot</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getBeanSlot()
+	 * @see #getYBeanSlotBindingEndpoint()
+	 * @generated
+	 */
+	EReference getYBeanSlotBindingEndpoint_BeanSlot();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2126,6 +2258,17 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYVisibilityProcessable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable#getVisibilityProcessor <em>Visibility Processor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Visibility Processor</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable#getVisibilityProcessor()
+	 * @see #getYVisibilityProcessable()
+	 * @generated
+	 */
+	EReference getYVisibilityProcessable_VisibilityProcessor();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
@@ -2676,6 +2819,32 @@ public interface CoreModelPackage extends EPackage {
 		EAttribute YCONTEXT_BINDING_ENDPOINT__URL_STRING = eINSTANCE.getYContextBindingEndpoint_UrlString();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl <em>YBean Slot Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotBindingEndpoint()
+		 * @generated
+		 */
+		EClass YBEAN_SLOT_BINDING_ENDPOINT = eINSTANCE.getYBeanSlotBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_SLOT_BINDING_ENDPOINT__ATTRIBUTE_PATH = eINSTANCE.getYBeanSlotBindingEndpoint_AttributePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Bean Slot</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YBEAN_SLOT_BINDING_ENDPOINT__BEAN_SLOT = eINSTANCE.getYBeanSlotBindingEndpoint_BeanSlot();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2794,6 +2963,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YVISIBILITY_PROCESSABLE = eINSTANCE.getYVisibilityProcessable();
+
+		/**
+		 * The meta object literal for the '<em><b>Visibility Processor</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR = eINSTANCE.getYVisibilityProcessable_VisibilityProcessor();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

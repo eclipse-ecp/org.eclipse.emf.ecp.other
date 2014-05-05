@@ -26,6 +26,8 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.DatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -147,18 +149,21 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		CoreModelPackageImpl theCoreModelPackage = (CoreModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) instanceof CoreModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) : CoreModelPackage.eINSTANCE);
 		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
+		VisibilityPackageImpl theVisibilityPackage = (VisibilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) instanceof VisibilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) : VisibilityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theBindingPackage.createPackageContents();
 		theCoreModelPackage.createPackageContents();
 		theValidationPackage.createPackageContents();
 		theDatatypesPackage.createPackageContents();
+		theVisibilityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theBindingPackage.initializePackageContents();
 		theCoreModelPackage.initializePackageContents();
 		theValidationPackage.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
+		theVisibilityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theBindingPackage.freeze();

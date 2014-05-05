@@ -31,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getCssClass <em>Css Class</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#isMargin <em>Margin</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getVisibilityProcessor <em>Visibility Processor</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getContent <em>Content</em>}</li>
@@ -126,6 +128,16 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @ordered
 	 */
 	protected boolean margin = MARGIN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVisibilityProcessor() <em>Visibility Processor</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVisibilityProcessor()
+	 * @generated
+	 * @ordered
+	 */
+	protected YVisibilityProcessor visibilityProcessor;
 
 	/**
 	 * The default value of the '{@link #getViewName() <em>View Name</em>}' attribute.
@@ -450,6 +462,72 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YVisibilityProcessor getVisibilityProcessor() {
+		if (visibilityProcessor != null && visibilityProcessor.eIsProxy()) {
+			InternalEObject oldVisibilityProcessor = (InternalEObject)visibilityProcessor;
+			visibilityProcessor = (YVisibilityProcessor)eResolveProxy(oldVisibilityProcessor);
+			if (visibilityProcessor != oldVisibilityProcessor) {
+				InternalEObject newVisibilityProcessor = (InternalEObject)visibilityProcessor;
+				NotificationChain msgs = oldVisibilityProcessor.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, null);
+				if (newVisibilityProcessor.eInternalContainer() == null) {
+					msgs = newVisibilityProcessor.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, oldVisibilityProcessor, visibilityProcessor));
+			}
+		}
+		return visibilityProcessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YVisibilityProcessor basicGetVisibilityProcessor() {
+		return visibilityProcessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVisibilityProcessor(YVisibilityProcessor newVisibilityProcessor, NotificationChain msgs) {
+		YVisibilityProcessor oldVisibilityProcessor = visibilityProcessor;
+		visibilityProcessor = newVisibilityProcessor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, oldVisibilityProcessor, newVisibilityProcessor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVisibilityProcessor(YVisibilityProcessor newVisibilityProcessor) {
+		if (newVisibilityProcessor != visibilityProcessor) {
+			NotificationChain msgs = null;
+			if (visibilityProcessor != null)
+				msgs = ((InternalEObject)visibilityProcessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+			if (newVisibilityProcessor != null)
+				msgs = ((InternalEObject)newVisibilityProcessor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+			msgs = basicSetVisibilityProcessor(newVisibilityProcessor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, newVisibilityProcessor, newVisibilityProcessor));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -523,6 +601,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
+				return basicSetVisibilityProcessor(null, msgs);
 			case CoreModelPackage.YVIEW__ROOT:
 				return basicSetRoot(null, msgs);
 			case CoreModelPackage.YVIEW__CONTENT:
@@ -564,6 +644,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return getCssID();
 			case CoreModelPackage.YVIEW__MARGIN:
 				return isMargin();
+			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
+				if (resolve) return getVisibilityProcessor();
+				return basicGetVisibilityProcessor();
 			case CoreModelPackage.YVIEW__ROOT:
 				if (resolve) return getRoot();
 				return basicGetRoot();
@@ -600,6 +683,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return;
 			case CoreModelPackage.YVIEW__MARGIN:
 				setMargin((Boolean)newValue);
+				return;
+			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
+				setVisibilityProcessor((YVisibilityProcessor)newValue);
 				return;
 			case CoreModelPackage.YVIEW__ROOT:
 				setRoot((YViewSet)newValue);
@@ -640,6 +726,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__MARGIN:
 				setMargin(MARGIN_EDEFAULT);
 				return;
+			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
+				setVisibilityProcessor((YVisibilityProcessor)null);
+				return;
 			case CoreModelPackage.YVIEW__ROOT:
 				setRoot((YViewSet)null);
 				return;
@@ -674,6 +763,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return CSS_ID_EDEFAULT == null ? cssID != null : !CSS_ID_EDEFAULT.equals(cssID);
 			case CoreModelPackage.YVIEW__MARGIN:
 				return margin != MARGIN_EDEFAULT;
+			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
+				return visibilityProcessor != null;
 			case CoreModelPackage.YVIEW__ROOT:
 				return basicGetRoot() != null;
 			case CoreModelPackage.YVIEW__VIEW_NAME:
@@ -709,6 +800,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		}
 		if (baseClass == YVisibilityProcessable.class) {
 			switch (derivedFeatureID) {
+				case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR: return CoreModelPackage.YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR;
 				default: return -1;
 			}
 		}
@@ -736,6 +828,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		}
 		if (baseClass == YVisibilityProcessable.class) {
 			switch (baseFeatureID) {
+				case CoreModelPackage.YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR: return CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR;
 				default: return -1;
 			}
 		}

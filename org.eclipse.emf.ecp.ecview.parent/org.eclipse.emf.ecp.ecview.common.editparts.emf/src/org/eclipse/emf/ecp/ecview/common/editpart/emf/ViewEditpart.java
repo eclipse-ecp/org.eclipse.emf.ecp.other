@@ -27,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
@@ -381,19 +382,36 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 					.getNewValue();
 			IBindingSetEditpart bsEditPart = (IBindingSetEditpart) getEditpart(yNewBindingSet);
 			internalSetBindingSet(bsEditPart);
-			// handle the presentation
-			//
-			if (isRendered()) {
-				// getPresentation().setContent(editPart != null ?
-				// editPart.getPresentation() : null);
-			}
 
 			// fire event
 			firePropertyChangedEditpart(PROP_CONTENT, notification);
+		default:
+			break;
+		}
+	}
+
+	@Override
+	protected void handleModelAdd(int featureId, Notification notification) {
+		checkDisposed();
+
+		switch (featureId) {
+		case CoreModelPackage.YVIEW__BEAN_SLOTS:
+			YBeanSlot yBeanSlot = (YBeanSlot) notification.getNewValue();
+			internalAddBeanSlot(yBeanSlot);
 			break;
 		default:
 			break;
 		}
+	}
+
+	/**
+	 * Registers the given bean slot.
+	 * 
+	 * @param yBeanSlot
+	 */
+	protected void internalAddBeanSlot(YBeanSlot yBeanSlot) {
+		checkDisposed();
+		context.createBeanSlot(yBeanSlot.getName(), yBeanSlot.getValueType());
 	}
 
 	/**

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.slf4j.Logger;
@@ -30,9 +31,11 @@ import org.slf4j.LoggerFactory;
  * 
  * @param <M>
  */
-public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> implements IViewSetEditpart {
+public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M>
+		implements IViewSetEditpart {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ViewSetEditpart.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(ViewSetEditpart.class);
 
 	private List<IViewEditpart> uiViewEditparts;
 
@@ -81,12 +84,14 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> impl
 	@Override
 	protected void internalDispose() {
 		try {
-			// lazy loading: view parts also have to be disposed if they have not been loaded yet,
+			// lazy loading: view parts also have to be disposed if they have
+			// not been loaded yet,
 			// but exist in the model.
 			if (uiViewEditparts != null || getModel().getViews().size() > 0) {
 				List<IViewEditpart> tempViews = getViews();
 				synchronized (uiViewEditparts) {
-					for (IViewEditpart editpart : tempViews.toArray(new IViewEditpart[tempViews.size()])) {
+					for (IViewEditpart editpart : tempViews
+							.toArray(new IViewEditpart[tempViews.size()])) {
 						editpart.dispose();
 					}
 				}
@@ -135,7 +140,7 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> impl
 
 	/**
 	 * {@inheritDoc}
-	 */ 
+	 */
 	protected void handleModelAdd(int featureId, Notification notification) {
 		checkDisposed();
 
@@ -144,9 +149,23 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> impl
 			YView yElement = (YView) notification.getNewValue();
 			internalAddElement((IViewEditpart) getEditpart(yElement));
 			break;
+		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+			YBeanSlot yBeanSlot = (YBeanSlot) notification.getNewValue();
+			internalAddBeanSlot(yBeanSlot);
+			break;
 		default:
 			break;
 		}
+	}
+
+	/**
+	 * Registers the given bean slot.
+	 * 
+	 * @param yBeanSlot
+	 */
+	protected void internalAddBeanSlot(YBeanSlot yBeanSlot) {
+		checkDisposed();
+		context.createBeanSlot(yBeanSlot.getName(), yBeanSlot.getValueType());
 	}
 
 	/**
@@ -166,9 +185,11 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> impl
 	}
 
 	/**
-	 * Is called to change the internal state and add the given editpart to the list of elements.
+	 * Is called to change the internal state and add the given editpart to the
+	 * list of elements.
 	 * 
-	 * @param editpart The editpart to be added
+	 * @param editpart
+	 *            The editpart to be added
 	 */
 	protected void internalAddElement(IViewEditpart editpart) {
 		checkDisposed();
@@ -182,9 +203,11 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M> impl
 	}
 
 	/**
-	 * Is called to change the internal state and remove the given editpart from the list of elements.
+	 * Is called to change the internal state and remove the given editpart from
+	 * the list of elements.
 	 * 
-	 * @param editpart The editpart to be removed
+	 * @param editpart
+	 *            The editpart to be removed
 	 */
 	protected void internalRemoveElement(IViewEditpart editpart) {
 		checkDisposed();

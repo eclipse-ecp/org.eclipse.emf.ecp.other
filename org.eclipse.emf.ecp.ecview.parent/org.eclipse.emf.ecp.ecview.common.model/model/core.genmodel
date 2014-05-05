@@ -34,10 +34,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YView/viewName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YView/content"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YView/bindingSet"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YView/beanSlots"/>
       <genOperations ecoreOperation="core.ecore#//YView/getOrCreateBindingSet"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//YViewSet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YViewSet/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YViewSet/beanSlots"/>
+    </genClasses>
+    <genClasses ecoreClass="core.ecore#//YBeanSlot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YBeanSlot/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YBeanSlot/valueType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//YEmbeddable">
       <genOperations ecoreOperation="core.ecore#//YEmbeddable/getParent"/>
@@ -98,6 +104,10 @@
     <genClasses ecoreClass="core.ecore#//YContextBindingEndpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YContextBindingEndpoint/urlString"/>
     </genClasses>
+    <genClasses ecoreClass="core.ecore#//YBeanSlotBindingEndpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute core.ecore#//YBeanSlotBindingEndpoint/attributePath"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YBeanSlotBindingEndpoint/beanSlot"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="core.ecore#//YEmbeddableBindingEndpoint">
       <genOperations ecoreOperation="core.ecore#//YEmbeddableBindingEndpoint/getElement"/>
     </genClasses>
@@ -117,6 +127,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference core.ecore#//YActivatedEndpoint/element"/>
     </genClasses>
     <genClasses ecoreClass="core.ecore#//YDtWrapper"/>
+    <genClasses image="false" ecoreClass="core.ecore#//YVisibilityProcessable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference core.ecore#//YVisibilityProcessable/visibilityProcessor"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Validation" basePackage="org.eclipse.emf.ecp.ecview.common.model"
       disposableProviderFactory="true" ecorePackage="validation.ecore#/">
@@ -213,6 +226,39 @@
     <genClasses ecoreClass="datatypes.ecore#//YDatadescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDatadescription/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//YDatadescription/labelI18nKey"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Visibility" basePackage="org.eclipse.emf.ecp.ecview.common.model"
+      disposableProviderFactory="true" ecorePackage="visibility.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="visibility.ecore#//YColorType">
+      <genEnumLiterals ecoreEnumLiteral="visibility.ecore#//YColorType/THEME"/>
+      <genEnumLiterals ecoreEnumLiteral="visibility.ecore#//YColorType/RGB"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="visibility.ecore#//YVisibilityProcessor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference visibility.ecore#//YVisibilityProcessor/onMatch"/>
+    </genClasses>
+    <genClasses ecoreClass="visibility.ecore#//YRuledVisibilityProcessor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference visibility.ecore#//YRuledVisibilityProcessor/rule"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="visibility.ecore#//YVisibilityRule"/>
+    <genClasses ecoreClass="visibility.ecore#//YVisibilityProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/visible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/editable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/border"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/bold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/italic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/strikethrough"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YVisibilityProperties/underline"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference visibility.ecore#//YVisibilityProperties/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference visibility.ecore#//YVisibilityProperties/foregroundColor"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="visibility.ecore#//YColor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YColor/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YColor/red"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YColor/green"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YColor/blue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute visibility.ecore#//YColor/themeId"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

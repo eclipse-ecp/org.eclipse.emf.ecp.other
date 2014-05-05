@@ -35,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -433,6 +434,16 @@ public class ViewEditpartTest {
 		Assert.fail("To be implented");
 	}
 
+	@Test
+	public void test_addBeanSlotByModel() {
+		Assert.fail("Implement");
+	}
+
+	@Test
+	public void test_removeBeanSlotByModel() {
+		Assert.fail("Implement - should not be removed!");
+	}
+
 	/**
 	 * A helper presentation.
 	 */
@@ -511,7 +522,7 @@ public class ViewEditpartTest {
 
 		@Override
 		public void exec(Runnable runnable) {
-			
+
 		}
 
 		@Override

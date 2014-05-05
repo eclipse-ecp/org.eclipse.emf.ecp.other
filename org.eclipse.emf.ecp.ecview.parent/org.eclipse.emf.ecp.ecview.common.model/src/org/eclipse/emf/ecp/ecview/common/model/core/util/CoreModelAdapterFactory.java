@@ -188,6 +188,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYContextBindingEndpointAdapter();
 			}
 			@Override
+			public Adapter caseYBeanSlotBindingEndpoint(YBeanSlotBindingEndpoint object) {
+				return createYBeanSlotBindingEndpointAdapter();
+			}
+			@Override
 			public Adapter caseYEmbeddableBindingEndpoint(YEmbeddableBindingEndpoint object) {
 				return createYEmbeddableBindingEndpointAdapter();
 			}
@@ -578,6 +582,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYContextBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint <em>YBean Slot Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYBeanSlotBindingEndpointAdapter() {
 		return null;
 	}
 

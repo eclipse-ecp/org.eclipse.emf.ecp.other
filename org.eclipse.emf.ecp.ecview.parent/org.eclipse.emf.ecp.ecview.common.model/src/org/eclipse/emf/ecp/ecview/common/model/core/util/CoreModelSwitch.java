@@ -268,6 +268,15 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YBEAN_SLOT_BINDING_ENDPOINT: {
+				YBeanSlotBindingEndpoint yBeanSlotBindingEndpoint = (YBeanSlotBindingEndpoint)theEObject;
+				T result = caseYBeanSlotBindingEndpoint(yBeanSlotBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yBeanSlotBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yBeanSlotBindingEndpoint);
+				if (result == null) result = caseYElement(yBeanSlotBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CoreModelPackage.YEMBEDDABLE_BINDING_ENDPOINT: {
 				YEmbeddableBindingEndpoint yEmbeddableBindingEndpoint = (YEmbeddableBindingEndpoint)theEObject;
 				T result = caseYEmbeddableBindingEndpoint(yEmbeddableBindingEndpoint);
@@ -684,6 +693,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYContextBindingEndpoint(YContextBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBean Slot Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBean Slot Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBeanSlotBindingEndpoint(YBeanSlotBindingEndpoint object) {
 		return null;
 	}
 

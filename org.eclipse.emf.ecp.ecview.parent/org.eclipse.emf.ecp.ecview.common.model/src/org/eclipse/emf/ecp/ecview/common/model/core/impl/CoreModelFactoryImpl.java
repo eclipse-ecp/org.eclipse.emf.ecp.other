@@ -68,6 +68,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YBEAN_SLOT: return createYBeanSlot();
 			case CoreModelPackage.YACTION: return createYAction();
 			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return createYContextBindingEndpoint();
+			case CoreModelPackage.YBEAN_SLOT_BINDING_ENDPOINT: return createYBeanSlotBindingEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return createYEmbeddableValueEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return createYEmbeddableSelectionEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: return createYEmbeddableMultiSelectionEndpoint();
@@ -185,6 +186,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YContextBindingEndpoint createYContextBindingEndpoint() {
 		YContextBindingEndpointImpl yContextBindingEndpoint = new YContextBindingEndpointImpl();
 		return yContextBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBeanSlotBindingEndpoint createYBeanSlotBindingEndpoint() {
+		YBeanSlotBindingEndpointImpl yBeanSlotBindingEndpoint = new YBeanSlotBindingEndpointImpl();
+		return yBeanSlotBindingEndpoint;
 	}
 
 	/**

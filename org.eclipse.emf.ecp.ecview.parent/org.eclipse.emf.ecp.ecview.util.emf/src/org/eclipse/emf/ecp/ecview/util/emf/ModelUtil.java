@@ -1,10 +1,12 @@
 package org.eclipse.emf.ecp.ecview.util.emf;
 
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.databinding.Binding;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.binding.IECViewBindingManager;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.IViewSetContext;
@@ -19,6 +21,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
@@ -27,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.notification.ILifecycleService;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 
 public class ModelUtil {
 
@@ -264,4 +269,54 @@ public class ModelUtil {
 	public static IECViewBindingManager getBindingManager(IViewContext context) {
 		return context.getService(IECViewBindingManager.class.getName());
 	}
+
+	/**
+	 * Returns the URI for the given bean slot. The URI may be used with the
+	 * {@link URIHelper} to access the bean slot.
+	 * 
+	 * @param yBeanSlot
+	 * @return
+	 */
+	public static URI getURI(YBeanSlot yBeanSlot) {
+		EObject container = yBeanSlot.eContainer();
+		URI uri = null;
+		if (container instanceof YView) {
+			uri = URIHelper.view().bean(yBeanSlot.getName()).toURI();
+		} else if (container instanceof YViewSet) {
+			uri = URIHelper.viewset().bean(yBeanSlot.getName()).toURI();
+		} else {
+			throw new RuntimeException(container + " is not a valid type!");
+		}
+
+		return uri;
+	}
+
+	/**
+	 * Returns the URI for the given bean slot endpoint. The URI may be used
+	 * with the {@link URIHelper} to access the bean the URI points to.
+	 * 
+	 * @param yBeanSlotBindingEndpoint
+	 * @return
+	 */
+	public static URI getURI(YBeanSlotBindingEndpoint yBeanSlotEndpoint) {
+
+		YBeanSlot beanSlot = yBeanSlotEndpoint.getBeanSlot();
+		if (beanSlot == null) {
+			throw new IllegalArgumentException("BeanSlot mus not be null!");
+		}
+		EObject container = beanSlot.eContainer();
+		URI uri = null;
+		if (container instanceof YView) {
+			uri = URIHelper.view().bean(beanSlot.getName())
+					.fragment(yBeanSlotEndpoint.getAttributePath()).toURI();
+		} else if (container instanceof YViewSet) {
+			uri = URIHelper.viewset().bean(beanSlot.getName())
+					.fragment(yBeanSlotEndpoint.getAttributePath()).toURI();
+		} else {
+			throw new RuntimeException(container + " is not a valid type!");
+		}
+
+		return uri;
+	}
+
 }

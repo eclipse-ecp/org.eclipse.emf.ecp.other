@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
@@ -60,6 +61,8 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.DatatypesPackageIm
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 
 import org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -234,6 +237,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yBeanSlotBindingEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass yEmbeddableBindingEndpointEClass = null;
 
 	/**
@@ -356,18 +366,21 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
 		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
+		VisibilityPackageImpl theVisibilityPackage = (VisibilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) instanceof VisibilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) : VisibilityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCoreModelPackage.createPackageContents();
 		theValidationPackage.createPackageContents();
 		theBindingPackage.createPackageContents();
 		theDatatypesPackage.createPackageContents();
+		theVisibilityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCoreModelPackage.initializePackageContents();
 		theValidationPackage.initializePackageContents();
 		theBindingPackage.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
+		theVisibilityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCoreModelPackage.freeze();
@@ -887,6 +900,33 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYBeanSlotBindingEndpoint() {
+		return yBeanSlotBindingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYBeanSlotBindingEndpoint_AttributePath() {
+		return (EAttribute)yBeanSlotBindingEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYBeanSlotBindingEndpoint_BeanSlot() {
+		return (EReference)yBeanSlotBindingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYEmbeddableBindingEndpoint() {
 		return yEmbeddableBindingEndpointEClass;
 	}
@@ -997,6 +1037,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EClass getYVisibilityProcessable() {
 		return yVisibilityProcessableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYVisibilityProcessable_VisibilityProcessor() {
+		return (EReference)yVisibilityProcessableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1133,6 +1182,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yContextBindingEndpointEClass = createEClass(YCONTEXT_BINDING_ENDPOINT);
 		createEAttribute(yContextBindingEndpointEClass, YCONTEXT_BINDING_ENDPOINT__URL_STRING);
 
+		yBeanSlotBindingEndpointEClass = createEClass(YBEAN_SLOT_BINDING_ENDPOINT);
+		createEAttribute(yBeanSlotBindingEndpointEClass, YBEAN_SLOT_BINDING_ENDPOINT__ATTRIBUTE_PATH);
+		createEReference(yBeanSlotBindingEndpointEClass, YBEAN_SLOT_BINDING_ENDPOINT__BEAN_SLOT);
+
 		yEmbeddableBindingEndpointEClass = createEClass(YEMBEDDABLE_BINDING_ENDPOINT);
 
 		yEmbeddableValueEndpointEClass = createEClass(YEMBEDDABLE_VALUE_ENDPOINT);
@@ -1153,6 +1206,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yDtWrapperEClass = createEClass(YDT_WRAPPER);
 
 		yVisibilityProcessableEClass = createEClass(YVISIBILITY_PROCESSABLE);
+		createEReference(yVisibilityProcessableEClass, YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR);
 
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
@@ -1189,6 +1243,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
 		BindingPackage theBindingPackage = (BindingPackage)EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI);
 		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
+		VisibilityPackage theVisibilityPackage = (VisibilityPackage)EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1216,6 +1271,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yMultiSelectionBindableEClass.getESuperTypes().add(this.getYBindable());
 		yCollectionBindableEClass.getESuperTypes().add(this.getYBindable());
 		yContextBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
+		yBeanSlotBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
 		yEmbeddableValueEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
 		yEmbeddableValueEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yEmbeddableSelectionEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
@@ -1333,6 +1389,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEClass(yContextBindingEndpointEClass, YContextBindingEndpoint.class, "YContextBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYContextBindingEndpoint_UrlString(), ecorePackage.getEString(), "urlString", null, 1, 1, YContextBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(yBeanSlotBindingEndpointEClass, YBeanSlotBindingEndpoint.class, "YBeanSlotBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYBeanSlotBindingEndpoint_AttributePath(), ecorePackage.getEString(), "attributePath", null, 1, 1, YBeanSlotBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYBeanSlotBindingEndpoint_BeanSlot(), this.getYBeanSlot(), null, "beanSlot", null, 1, 1, YBeanSlotBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(yEmbeddableBindingEndpointEClass, YEmbeddableBindingEndpoint.class, "YEmbeddableBindingEndpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(yEmbeddableBindingEndpointEClass, this.getYBindable(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1355,6 +1415,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEClass(yDtWrapperEClass, YDtWrapper.class, "YDtWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yVisibilityProcessableEClass, YVisibilityProcessable.class, "YVisibilityProcessable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYVisibilityProcessable_VisibilityProcessor(), theVisibilityPackage.getYVisibilityProcessor(), null, "visibilityProcessor", null, 0, 1, YVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");
