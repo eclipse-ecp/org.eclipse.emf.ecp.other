@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core.util;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -74,6 +75,15 @@ public class SimpleCoreModelFactory {
 	 */
 	public YBeanBindingEndpoint createBeanBindingEndpoint() {
 		return BindingFactory.eINSTANCE.createYBeanBindingEndpoint();
+	}
+	
+	/**
+	 * Creates an instance of {@link YBeanSlot}
+	 * 
+	 * @return
+	 */
+	public YBeanSlot createBeanSlot() {
+		return CoreModelFactory.eINSTANCE.createYBeanSlot();
 	}
 
 }

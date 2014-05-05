@@ -10,6 +10,14 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+
+import java.util.List;
+
+import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -18,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.junit.Assert;
@@ -163,12 +172,45 @@ public class ViewSetEditpartTest {
 
 	@Test
 	public void test_addBeanSlotByModel() {
-		Assert.fail("Implement");
+		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI,
+						IViewSetEditpart.class);
+		ViewSetContext context = new ViewSetContext(viewSetEditpart);
+		YViewSet yViewSet = (YViewSet) viewSetEditpart.getModel();
+		assertNull(context.getBeanSlot("myfoo"));
+
+		// add a bean slot
+		YBeanSlot yBeanSlot = modelFactory.createYBeanSlot();
+		yBeanSlot.setName("myFoo");
+		yBeanSlot.setValueType(List.class);
+		yViewSet.getBeanSlots().add(yBeanSlot);
+
+		ISlot slot = context.getBeanSlot("myFoo");
+		assertEquals(List.class, slot.getValueType());
 	}
 
 	@Test
 	public void test_removeBeanSlotByModel() {
-		Assert.fail("Implement - should not be removed!");
+		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI,
+						IViewSetEditpart.class);
+		ViewSetContext context = new ViewSetContext(viewSetEditpart);
+		YViewSet yViewSet = (YViewSet) viewSetEditpart.getModel();
+		assertNull(context.getBeanSlot("myFoo"));
+
+		// add a bean slot
+		YBeanSlot yBeanSlot = modelFactory.createYBeanSlot();
+		yBeanSlot.setName("myFoo");
+		yBeanSlot.setValueType(List.class);
+		yViewSet.getBeanSlots().add(yBeanSlot);
+
+		try {
+			// remove of bean slot not possible in runtime
+			yViewSet.getBeanSlots().remove(yBeanSlot);
+			fail("must throw exception!");
+		} catch (Exception e) {
+		}
+		assertNotNull(context.getBeanSlot("myFoo"));
 	}
 
 	/**

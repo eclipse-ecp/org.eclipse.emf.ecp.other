@@ -404,6 +404,18 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 	}
 
+	@Override
+	protected void handleModelRemove(int featureId, Notification notification) {
+		checkDisposed();
+
+		switch (featureId) {
+		case CoreModelPackage.YVIEW__BEAN_SLOTS:
+			throw new IllegalStateException("Viewslots must not be removed!");
+		default:
+			break;
+		}
+	}
+
 	/**
 	 * Registers the given bean slot.
 	 * 

@@ -19,23 +19,23 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
+import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IBeanSlotBindingEndpointEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
 import org.junit.Before;
@@ -76,6 +76,8 @@ public class BeanSlotBindingEndpointEditpartTest {
 		// END SUPRESS CATCH EXCEPTION
 		YBeanSlotBindingEndpoint yEndpoint = factory
 				.createYBeanSlotBindingEndpoint();
+		yEndpoint.setAttributePath("Huhu");
+		yEndpoint.setBeanSlot(factory.createYBeanSlot());
 		IBeanSlotBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 
@@ -84,7 +86,7 @@ public class BeanSlotBindingEndpointEditpartTest {
 			fail();
 		} catch (RuntimeException e) {
 			// expected
-			assertEquals("View must not be null!", e.getMessage());
+			assertEquals("null is not a valid super type!", e.getMessage());
 		}
 	}
 
@@ -93,7 +95,7 @@ public class BeanSlotBindingEndpointEditpartTest {
 	 */
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public void test_getObservable() {
+	public void test_getObservable_For_ViewContext() {
 		// END SUPRESS CATCH EXCEPTION
 		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
 				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
@@ -107,20 +109,54 @@ public class BeanSlotBindingEndpointEditpartTest {
 		yBeanSlot.setValueType(Bean.class);
 		yView.getBeanSlots().add(yBeanSlot);
 
-		// register the binding set
-		YBindingSet bs = bindingFactory.createYBindingSet();
-		yView.setBindingSet(bs);
+		// create the model endpoint and register
+		YBeanSlotBindingEndpoint yEndpoint = factory
+				.createYBeanSlotBindingEndpoint();
+		yEndpoint.setBeanSlot(yBeanSlot);
+		yEndpoint.setAttributePath("value");
+
+		IBeanSlotBindingEndpointEditpart editpart = editpartManager
+				.getEditpart(yEndpoint);
+		IObservableValue value = editpart.getObservable();
+
+		final int[] counter = new int[1];
+		value.addValueChangeListener(new IValueChangeListener() {
+			@Override
+			public void handleValueChange(ValueChangeEvent event) {
+				counter[0] = counter[0] + 1;
+			}
+		});
+		assertEquals(0, counter[0]);
+
+		context.setBean("myFoo", new Bean("Test2"));
+		assertEquals(1, counter[0]);
+	}
+
+	/**
+	 * Tests the getObservable method without a valid view.
+	 */
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_getObservable_For_ViewSetContext() {
+		// END SUPRESS CATCH EXCEPTION
+		IViewSetEditpart viewSetEditpart = (IViewSetEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI,
+						IViewSetEditpart.class);
+		ViewSetContext context = new ViewSetContext(viewSetEditpart);
+		context.setBean("bean1", new Bean("Test"));
+		YViewSet yViewSet = (YViewSet) viewSetEditpart.getModel();
+
+		// add a bean slot
+		YBeanSlot yBeanSlot = factory.createYBeanSlot();
+		yBeanSlot.setName("myFoo");
+		yBeanSlot.setValueType(Bean.class);
+		yViewSet.getBeanSlots().add(yBeanSlot);
 
 		// create the model endpoint and register
 		YBeanSlotBindingEndpoint yEndpoint = factory
 				.createYBeanSlotBindingEndpoint();
 		yEndpoint.setBeanSlot(yBeanSlot);
-		yEndpoint.setAttributePath("myFoo#value");
-
-		// add the endpoint to a binding, that the yView can be accessed
-		YValueBinding binding = bindingFactory.createYValueBinding();
-		binding.setModelEndpoint(yEndpoint);
-		bs.addBinding(binding);
+		yEndpoint.setAttributePath("value");
 
 		IBeanSlotBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
@@ -147,16 +183,20 @@ public class BeanSlotBindingEndpointEditpartTest {
 	public void test_bind() {
 		// END SUPRESS CATCH EXCEPTION
 
-		fail("Implement");
-
 		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
 				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
 
 		ViewContext context = new ViewContext(viewEditpart);
 		context.createBeanSlot("slo1", String.class);
 		YBindingSet bs = bindingFactory.createYBindingSet();
-		YView view = (YView) viewEditpart.getModel();
-		view.setBindingSet(bs);
+		YView yView = (YView) viewEditpart.getModel();
+		yView.setBindingSet(bs);
+
+		// add a bean slot
+		YBeanSlot yBeanSlot = factory.createYBeanSlot();
+		yBeanSlot.setName("myFoo");
+		yBeanSlot.setValueType(Bean.class);
+		yView.getBeanSlots().add(yBeanSlot);
 
 		// activate the bindingSet editpart
 		//
@@ -166,9 +206,10 @@ public class BeanSlotBindingEndpointEditpartTest {
 
 		// context endpoint
 		//
-		YContextBindingEndpoint yTargetEndpoint = factory
-				.createYContextBindingEndpoint();
-		yTargetEndpoint.setUrlString("view://bean/slo1#value");
+		YBeanSlotBindingEndpoint yTargetEndpoint = factory
+				.createYBeanSlotBindingEndpoint();
+		yTargetEndpoint.setBeanSlot(yBeanSlot);
+		yTargetEndpoint.setAttributePath("value");
 
 		// bean endpoint
 		//
@@ -181,7 +222,7 @@ public class BeanSlotBindingEndpointEditpartTest {
 		bs.addBinding(yTargetEndpoint, yModelEndpoint);
 
 		// write to bean
-		BeanScope scope = URIHelper.toScope("view://bean/slo1#value")
+		BeanScope scope = URIHelper.toScope("view://bean/myFoo#value")
 				.getBeanScope();
 		assertEquals(bean.getValue(), (String) scope.access(context));
 
@@ -202,11 +243,9 @@ public class BeanSlotBindingEndpointEditpartTest {
 	public void test_dispose() {
 		// END SUPRESS CATCH EXCEPTION
 
-		fail("Implement");
-
-		YContextBindingEndpoint yEndpoint = factory
-				.createYContextBindingEndpoint();
-		IContextBindingEndpointEditpart editpart = editpartManager
+		YBeanSlotBindingEndpoint yEndpoint = factory
+				.createYBeanSlotBindingEndpoint();
+		IBeanSlotBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 
 		assertFalse(editpart.isDisposed());

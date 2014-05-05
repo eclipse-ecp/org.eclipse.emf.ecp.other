@@ -17,9 +17,9 @@ import java.net.URI;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
 import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextBindingDelegate;
-import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.uri.AccessibleScope;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
@@ -30,13 +30,13 @@ public class ContextBeanBindingDelegate extends ContextBindingDelegate {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean isFor(IViewContext context, URI bindingURI) {
+	public boolean isFor(IBeanRegistry registry, URI bindingURI) {
 		AccessibleScope scope = URIHelper.toScope(bindingURI);
 		BeanScope beanScope = scope.getBeanScope();
 		if (beanScope == null) {
 			return false;
 		}
-		ISlot slot = beanScope.accessBeanSlot(context);
+		ISlot slot = beanScope.accessBeanSlot(registry);
 		// TODO: if attribute.path == 1 --> use bean binding since slot is
 		// observable
 		if (slot == null || !hasPropertyChangeSupport(slot.getValueType())) {
@@ -76,18 +76,18 @@ public class ContextBeanBindingDelegate extends ContextBindingDelegate {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IObservableValue observeValue(IViewContext context, URI bindingURI) {
-		return observeValue(Realm.getDefault(), context, bindingURI);
+	public IObservableValue observeValue(IBeanRegistry registry, URI bindingURI) {
+		return observeValue(Realm.getDefault(), registry, bindingURI);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IObservableValue observeValue(Realm realm, IViewContext context,
+	public IObservableValue observeValue(Realm realm, IBeanRegistry registry,
 			URI bindingURI) {
 		AccessibleScope scope = URIHelper.toScope(bindingURI);
-		ISlot slot = scope.getBeanScope().accessBeanSlot(context);
+		ISlot slot = scope.getBeanScope().accessBeanSlot(registry);
 
 		if (slot == null) {
 			throw new IllegalArgumentException("Bean slot must be available!");

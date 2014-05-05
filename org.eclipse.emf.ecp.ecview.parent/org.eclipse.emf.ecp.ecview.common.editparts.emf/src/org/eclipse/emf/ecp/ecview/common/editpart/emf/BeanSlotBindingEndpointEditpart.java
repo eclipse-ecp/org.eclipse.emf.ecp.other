@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IBeanSlotBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
@@ -46,14 +47,6 @@ public class BeanSlotBindingEndpointEditpart extends
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends IObservableValue> A getObservable() {
-		YView yView = null;
-		try {
-			yView = getModel().getBinding().getBindingSet().getView();
-		} catch (NullPointerException e) {
-			logger.error("{}", e);
-			throw new RuntimeException("View must not be null!", e);
-		}
-
 		if (getModel().getAttributePath() == null
 				|| getModel().getAttributePath().equals("")) {
 			logger.error("Attribute path must not be null!");
@@ -66,11 +59,24 @@ public class BeanSlotBindingEndpointEditpart extends
 			return null;
 		}
 
-		URI targetURI = getURI(yBeanSlot);
-		IViewEditpart viewEditpart = DelegatingEditPartManager.getInstance()
-				.getEditpart(yView);
-		return (A) ContextObservables.observeValue(viewEditpart.getContext(),
-				targetURI);
+		// view or viewset
+		Object container = getModel().getBeanSlot().eContainer();
+		if (container instanceof YView) {
+			URI targetURI = getURI(yBeanSlot);
+			IViewEditpart viewEditpart = DelegatingEditPartManager
+					.getInstance().getEditpart(container);
+			return (A) ContextObservables.observeValue(
+					viewEditpart.getContext(), targetURI);
+		} else if (container instanceof YViewSet) {
+			URI targetURI = getURI(yBeanSlot);
+			IViewSetEditpart viewSetEditpart = DelegatingEditPartManager
+					.getInstance().getEditpart(container);
+			return (A) ContextObservables.observeValue(
+					viewSetEditpart.getContext(), targetURI);
+		}
+
+		throw new IllegalArgumentException(container
+				+ " is not a valid super type!");
 	}
 
 	/**
@@ -80,13 +86,15 @@ public class BeanSlotBindingEndpointEditpart extends
 	 * @param yBeanSlot
 	 * @return
 	 */
-	private static URI getURI(YBeanSlot yBeanSlot) {
+	private URI getURI(YBeanSlot yBeanSlot) {
 		EObject container = yBeanSlot.eContainer();
 		URI uri = null;
 		if (container instanceof YView) {
-			uri = URIHelper.view().bean(yBeanSlot.getName()).toURI();
+			uri = URIHelper.view().bean(yBeanSlot.getName())
+					.fragment(getModel().getAttributePath()).toURI();
 		} else if (container instanceof YViewSet) {
-			uri = URIHelper.viewset().bean(yBeanSlot.getName()).toURI();
+			uri = URIHelper.viewset().bean(yBeanSlot.getName())
+					.fragment(getModel().getAttributePath()).toURI();
 		} else {
 			throw new RuntimeException(container + " is not a valid type!");
 		}

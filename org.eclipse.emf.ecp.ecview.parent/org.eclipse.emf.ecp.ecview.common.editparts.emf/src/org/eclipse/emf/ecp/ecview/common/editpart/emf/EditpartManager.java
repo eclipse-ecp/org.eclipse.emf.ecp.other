@@ -58,6 +58,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
@@ -74,10 +75,12 @@ public class EditpartManager extends AbstractEditpartManager {
 			String uriString = ((EObject) element).eClass().getEPackage()
 					.getNsURI();
 			return uriString.equals(CoreModelPackage.eNS_URI)
-					|| uriString.equals(BindingPackage.eNS_URI);
+					|| uriString.equals(BindingPackage.eNS_URI)
+					|| uriString.equals(ValidationPackage.eNS_URI);
 		} else if (element instanceof String) {
 			return element.equals(CoreModelPackage.eNS_URI)
-					|| element.equals(BindingPackage.eNS_URI);
+					|| element.equals(BindingPackage.eNS_URI)
+					|| element.equals(ValidationPackage.eNS_URI);
 		}
 		return false;
 	}

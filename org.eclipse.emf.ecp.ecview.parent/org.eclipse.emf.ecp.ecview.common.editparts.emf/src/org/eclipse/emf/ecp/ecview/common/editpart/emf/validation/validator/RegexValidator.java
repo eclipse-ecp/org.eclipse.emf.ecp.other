@@ -75,7 +75,7 @@ public class RegexValidator extends StringValidator {
 	public void updateParameter(Object model) {
 		YRegexpValidator yValidator = (YRegexpValidator) model;
 		this.regexp = yValidator.getRegexp();
-		this.pattern = Pattern.compile(regexp);
+		this.pattern = Pattern.compile(regexp != null ? regexp : "");
 		this.matcher = null;
 	};
 

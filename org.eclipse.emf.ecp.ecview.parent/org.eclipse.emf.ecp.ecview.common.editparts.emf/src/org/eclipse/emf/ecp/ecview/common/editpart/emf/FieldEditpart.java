@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -198,30 +199,29 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 				presenter.removeValidator(validatorEditpart.getValidator());
 			}
 		}
-
-		validatorEditpart.dispose();
 	}
 
 	@Override
 	public List<IValidatorEditpart> getValidators() {
 		ensureValidatorsLoaded();
-		return new ArrayList<IValidatorEditpart>(validators);
+		return Collections.unmodifiableList(validators);
 	}
 
 	@Override
 	protected void internalDispose() {
 		try {
-			IFieldPresentation<?> presentation = getPresentation();
-
 			// lazy loading: edit parts also have to be disposed if they have
 			// not been loaded yet, but exist in the model.
 			if (validators != null || getModel().getValidators().size() > 0) {
 				List<IValidatorEditpart> tempElements = getValidators();
+				IFieldPresentation<?> presentation = internalGetPresentation();
 				synchronized (validators) {
 					for (IValidatorEditpart validatorEditpart : tempElements
 							.toArray(new IValidatorEditpart[tempElements.size()])) {
-						presentation.removeValidator(validatorEditpart
-								.getValidator());
+						if (presentation != null) {
+							presentation.removeValidator(validatorEditpart
+									.getValidator());
+						}
 						validatorEditpart.dispose();
 					}
 				}

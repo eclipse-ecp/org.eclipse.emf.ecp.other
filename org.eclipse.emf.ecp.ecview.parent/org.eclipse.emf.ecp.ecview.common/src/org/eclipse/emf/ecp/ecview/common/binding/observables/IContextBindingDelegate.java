@@ -16,8 +16,8 @@ import java.net.URI;
 
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 
 /**
  * Binding delegates are used to offer a common interface for databinding.
@@ -36,18 +36,18 @@ public interface IContextBindingDelegate {
 	/**
 	 * Returns true if that binding delegate can be used for the URI.
 	 * 
-	 * @param context
+	 * @param registry
 	 * @param bindingURI
 	 * @return
 	 */
-	boolean isFor(IViewContext context, URI bindingURI);
+	boolean isFor(IBeanRegistry registry, URI bindingURI);
 
 	/**
 	 * Returns an observable value tracking the value of the context described
 	 * by the binding URI.
 	 * 
-	 * @param context
-	 *            the view context.
+	 * @param registry
+	 *            the registry.
 	 * @param bindingURI
 	 *            the URI that keeps the binding target information.
 	 * @return an observable value tracking the value of the context described
@@ -55,7 +55,7 @@ public interface IContextBindingDelegate {
 	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
 	 *        created yet.
 	 */
-	IObservableValue observeValue(IViewContext context, URI bindingURI);
+	IObservableValue observeValue(IBeanRegistry registry, URI bindingURI);
 
 	/**
 	 * Returns an observable value tracking the value of the context described
@@ -63,8 +63,8 @@ public interface IContextBindingDelegate {
 	 * 
 	 * @param realm
 	 *            the realm
-	 * @param context
-	 *            the view context.
+	 * @param registry
+	 *            the registry.
 	 * @param bindingURI
 	 *            the URI that keeps the binding target information.
 	 * @return an observable value tracking the value of the context described
@@ -72,7 +72,7 @@ public interface IContextBindingDelegate {
 	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
 	 *        created yet.
 	 */
-	IObservableValue observeValue(Realm realm, IViewContext context,
+	IObservableValue observeValue(Realm realm, IBeanRegistry registry,
 			URI bindingURI);
 
 }

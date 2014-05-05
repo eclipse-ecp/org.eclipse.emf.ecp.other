@@ -10,7 +10,10 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
@@ -20,7 +23,9 @@ import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,17 +62,17 @@ public class FieldEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_parent() {
 		// END SUPRESS CATCH EXCEPTION
-		// ...> layout1
-		// ......> field1
-		YLayout layout1 = modelFactory.createYLayout();
-		YField field1 = modelFactory.createYField();
-		layout1.getElements().add(field1);
-		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(layout1);
-		IFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
+		// ...> yLayout1
+		// ......> yField1
+		YLayout yLayout1 = modelFactory.createYLayout();
+		YField yField1 = modelFactory.createYField();
+		yLayout1.getElements().add(yField1);
+		ILayoutEditpart layout1Editpart = editpartManager.getEditpart(yLayout1);
+		IFieldEditpart field1Editpart = editpartManager.getEditpart(yField1);
 
 		Assert.assertEquals(1, layout1Editpart.getElements().size());
 		Assert.assertSame(layout1Editpart, field1Editpart.getParent());
-		Assert.assertSame(layout1, field1.getParent());
+		Assert.assertSame(yLayout1, yField1.getParent());
 
 		// dispose the field
 		//
@@ -76,7 +81,7 @@ public class FieldEditpartTest {
 		Assert.assertTrue(field1Editpart.isDisposed());
 
 		Assert.assertEquals(0, layout1Editpart.getElements().size());
-		Assert.assertNull(field1.getParent());
+		Assert.assertNull(yField1.getParent());
 	}
 
 	/**
@@ -86,10 +91,10 @@ public class FieldEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
 		// END SUPRESS CATCH EXCEPTION
-		// ...> layout1
-		// ......> field1
-		YField field1 = modelFactory.createYField();
-		IFieldEditpart field1Editpart = editpartManager.getEditpart(field1);
+		// ...> yLayout1
+		// ......> yField1
+		YField yField1 = modelFactory.createYField();
+		IFieldEditpart field1Editpart = editpartManager.getEditpart(yField1);
 
 		Assert.assertFalse(field1Editpart.isDisposed());
 		field1Editpart.dispose();
@@ -181,8 +186,8 @@ public class FieldEditpartTest {
 		}
 
 		try {
-			field1Editpart.addValidator(DelegatingEditPartManager.getInstance()
-					.createEditpart(ValidationPackage.eNS_URI,
+			field1Editpart.removeValidator(DelegatingEditPartManager
+					.getInstance().createEditpart(ValidationPackage.eNS_URI,
 							IValidatorEditpart.class));
 			Assert.fail();
 			// BEGIN SUPRESS CATCH EXCEPTION
@@ -192,30 +197,168 @@ public class FieldEditpartTest {
 		}
 	}
 
+	/**
+	 * Tests the automatic disposal of validators.
+	 */
 	@Test
 	public void test_validatorsDisposed_AfterDispose() {
-		fail("Implement");
+		// ...> yLayout1
+		// ......> yField1
+		YLayout yLayout1 = modelFactory.createYLayout();
+		YField yField1 = modelFactory.createYField();
+		yLayout1.getElements().add(yField1);
+		IFieldEditpart fieldEditpart = editpartManager.getEditpart(yField1);
+		assertFalse(fieldEditpart.isDisposed());
+
+		// create and add validator
+		//
+		YMinLengthValidator yValidator = ValidationFactory.eINSTANCE
+				.createYMinLengthValidator();
+		YMinLengthValidator yValidator2 = ValidationFactory.eINSTANCE
+				.createYMinLengthValidator();
+		IValidatorEditpart validatorEditpart = editpartManager
+				.getEditpart(yValidator);
+		IValidatorEditpart validatorEditpart2 = editpartManager
+				.getEditpart(yValidator2);
+		fieldEditpart.addValidator(validatorEditpart);
+		fieldEditpart.addValidator(validatorEditpart2);
+		assertFalse(validatorEditpart.isDisposed());
+		assertFalse(validatorEditpart2.isDisposed());
+
+		// dispose parent
+		//
+		fieldEditpart.dispose();
+		assertTrue(fieldEditpart.isDisposed());
+		assertTrue(validatorEditpart.isDisposed());
+		assertTrue(validatorEditpart2.isDisposed());
 	}
 
+	/**
+	 * Tests the addition and removal of validators by the edit parts.
+	 */
 	@Test
 	public void test_addRemoveValidator() {
-		fail("Implement");
-		// See LayoutEditpartTest#test_addAndRemove_Embedded()
-		// #test_moveEmbedded_byEditpart()
+
+		// ...> yLayout1
+		// ......> yField1
+		YLayout yLayout1 = modelFactory.createYLayout();
+		YField yField1 = modelFactory.createYField();
+		yLayout1.getElements().add(yField1);
+		IFieldEditpart field1Editpart = editpartManager.getEditpart(yField1);
+
+		// create and add validator by editpart
 		//
+		YMinLengthValidator yValidator = ValidationFactory.eINSTANCE
+				.createYMinLengthValidator();
+		IValidatorEditpart validatorEditpart = editpartManager
+				.getEditpart(yValidator);
+
+		assertEquals(0, field1Editpart.getValidators().size());
+		assertEquals(0, yField1.getValidators().size());
+
+		// add
+		field1Editpart.addValidator(validatorEditpart);
+
+		assertEquals(1, field1Editpart.getValidators().size());
+		assertEquals(1, yField1.getValidators().size());
+		assertSame(validatorEditpart, field1Editpart.getValidators().get(0));
+
+		// add twice -> no effect
+		field1Editpart.addValidator(validatorEditpart);
+
+		assertEquals(1, field1Editpart.getValidators().size());
+		assertEquals(1, yField1.getValidators().size());
+
+		// remove validator by editpart
+		//
+		field1Editpart.removeValidator(validatorEditpart);
+
+		assertEquals(0, field1Editpart.getValidators().size());
+		assertEquals(0, yField1.getValidators().size());
+
+		// remove twice
+		//
+		field1Editpart.removeValidator(validatorEditpart);
+
+		assertEquals(0, field1Editpart.getValidators().size());
+		assertEquals(0, yField1.getValidators().size());
 	}
 
+	/**
+	 * Tests the addition and removal of validators by the model.
+	 */
 	@Test
 	public void test_addRemoveValidatorByModel() {
-		fail("Implement");
-		// See LayoutEditpartTest#test_addAndRemove_Embedded()
-		// #test_moveEmbedded_byModel()
+		// ...> yLayout1
+		// ......> yField1
+		YLayout yLayout1 = modelFactory.createYLayout();
+		YField yField1 = modelFactory.createYField();
+		yLayout1.getElements().add(yField1);
+		ILayoutEditpart layout1Editpart = (ILayoutEditpart) editpartManager
+				.getEditpart(yLayout1);
+		IFieldEditpart field1Editpart = editpartManager.getEditpart(yField1);
+
+		Assert.assertEquals(1, layout1Editpart.getElements().size());
+		Assert.assertSame(yLayout1, yField1.getParent());
+
+		// create validator
+		//
+		ValidationFactory vf = ValidationFactory.eINSTANCE;
+		YMinLengthValidator yValidator = vf.createYMinLengthValidator();
+		assertEquals(0, yField1.getValidators().size());
+		assertEquals(0, field1Editpart.getValidators().size());
+
+		// add by model
+
+		yField1.getValidators().add(yValidator);
+
+		assertEquals(1, yField1.getValidators().size());
+		assertEquals(1, field1Editpart.getValidators().size());
+		assertSame(yValidator, yField1.getValidators().get(0));
+
+		// add twice -> no effect
+		//
+		yField1.getValidators().add(yValidator);
+
+		assertEquals(1, yField1.getValidators().size());
+		assertEquals(1, field1Editpart.getValidators().size());
+		assertSame(yValidator, yField1.getValidators().get(0));
+
+		// remove validator by model
+		//
+		yField1.getValidators().remove(yValidator);
+
+		assertEquals(0, yField1.getValidators().size());
+		assertEquals(0, field1Editpart.getValidators().size());
+
+		// remove twice
+		//
+		yField1.getValidators().remove(yValidator);
+
+		assertEquals(0, yField1.getValidators().size());
+		assertEquals(0, field1Editpart.getValidators().size());
+
 	}
 
+	/**
+	 * Tests whether the list of validators for an editpart is unmodifiable
+	 * (only the list within the model may be modified).
+	 */
 	@Test
-	public void test_Validators_unmodifieable() {
-		fail("Implement");
-		// See LayoutEditpartTest#test_getElements_unmodifyable()
+	public void test_Validators_unmodifiable() {
+		YField yField1 = modelFactory.createYField();
+		IFieldEditpart field1Editpart = editpartManager.getEditpart(yField1);
+
+		ValidationFactory vf = ValidationFactory.eINSTANCE;
+		YMinLengthValidator yValidator = vf.createYMinLengthValidator();
+		IValidatorEditpart validatorEditpart = editpartManager
+				.getEditpart(yValidator);
+
+		try {
+			field1Editpart.getValidators().add(validatorEditpart);
+			Assert.fail("Must be unmodifieable");
+		} catch (Exception e) {
+		}
 	}
 
 }

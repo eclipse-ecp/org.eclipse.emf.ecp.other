@@ -19,5 +19,6 @@ Import-Package: org.eclipse.emf.databinding,
 Export-Package: org.eclipse.emf.ecp.ecview.common.editpart.emf;x-internal:=true,
  org.eclipse.emf.ecp.ecview.common.editpart.emf.binding,
  org.eclipse.emf.ecp.ecview.common.editpart.emf.common,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.internal;x-internal:=true
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.internal;x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator
 Service-Component: OSGI-INF/editPartManager.xml

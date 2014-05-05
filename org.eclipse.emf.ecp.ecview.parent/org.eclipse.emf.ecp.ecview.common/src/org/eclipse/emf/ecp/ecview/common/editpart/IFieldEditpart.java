@@ -15,16 +15,31 @@ import java.util.List;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 
 /**
- * An IUiFieldEditpart is an abstraction of an input field. For normal it does not contain any children, but is
- * contained by {@link ILayoutEditpart}.<br>
+ * An IUiFieldEditpart is an abstraction of an input field. For normal it does
+ * not contain any children, but is contained by {@link ILayoutEditpart}.<br>
  * See also {@link IEmbeddableEditpart}
  */
 public interface IFieldEditpart extends IEmbeddableEditpart {
 
+	/**
+	 * Adds a validator to the field. Adding a validator twice has no effect.
+	 * 
+	 * @param validator
+	 */
 	void addValidator(IValidatorEditpart validator);
 
+	/**
+	 * Removes the validator from the field.
+	 * 
+	 * @param validator
+	 */
 	void removeValidator(IValidatorEditpart validator);
 
+	/**
+	 * Returns an unmodifiable list of validators.
+	 * 
+	 * @return
+	 */
 	List<IValidatorEditpart> getValidators();
 
 }

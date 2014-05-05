@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -205,6 +206,8 @@ public class LayoutEditpartTest {
 		Assert.assertEquals(0, layout2Editpart.getElements().size());
 		Assert.assertSame(layout1, field1.getParent());
 
+		
+		
 		// move it
 		//
 		layout2Editpart.addElement(field1Editpart);

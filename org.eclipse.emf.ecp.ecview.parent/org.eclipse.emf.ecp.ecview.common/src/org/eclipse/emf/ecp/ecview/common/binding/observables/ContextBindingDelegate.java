@@ -14,7 +14,7 @@ import java.net.URI;
 
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 
 /**
  * The base class of {@link IContextBindingDelegate} that should be overridden by
@@ -23,17 +23,17 @@ import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 public class ContextBindingDelegate implements IContextBindingDelegate {
 
 	@Override
-	public boolean isFor(IViewContext context, URI bindingURI) {
+	public boolean isFor(IBeanRegistry registry, URI bindingURI) {
 		return false;
 	}
 
 	@Override
-	public IObservableValue observeValue(IViewContext context, URI bindingURI) {
+	public IObservableValue observeValue(IBeanRegistry registry, URI bindingURI) {
 		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public IObservableValue observeValue(Realm realm, IViewContext context,
+	public IObservableValue observeValue(Realm realm, IBeanRegistry registry,
 			URI bindingURI) {
 		throw new UnsupportedOperationException();
 	}

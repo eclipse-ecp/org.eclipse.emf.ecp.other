@@ -83,7 +83,7 @@ public abstract class ValidatorEditpart<M extends YValidator> extends
 		if (changeFeatures != null
 				&& changeFeatures.contains(notification.getFeature())) {
 			if (validator != null) {
-				validator.updateParameter(notification.getNewValue());
+				validator.updateParameter(notification.getNotifier());
 			}
 		}
 		super.handleModelSet(featureId, notification);

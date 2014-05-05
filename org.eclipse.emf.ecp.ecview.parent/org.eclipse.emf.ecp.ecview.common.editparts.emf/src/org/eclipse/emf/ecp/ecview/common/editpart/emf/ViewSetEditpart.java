@@ -179,6 +179,8 @@ public class ViewSetEditpart<M extends YViewSet> extends ElementEditpart<M>
 			YView yElement = (YView) notification.getOldValue();
 			internalRemoveElement((IViewEditpart) getEditpart(yElement));
 			break;
+		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+			throw new IllegalStateException("Viewslots must not be removed!");
 		default:
 			break;
 		}
