@@ -16,6 +16,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeListener;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -31,7 +33,8 @@ import org.slf4j.LoggerFactory;
  * @param <M>
  */
 public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
-		ElementEditpart<M> implements IEmbeddableEditpart {
+		ElementEditpart<M> implements IEmbeddableEditpart,
+		DatatypeChangeListener {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(EmbeddableEditpart.class);
@@ -151,8 +154,8 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		// unregisters the datatype editpart
 		YDatatype yDatatype = internalGetDatatype();
 		if (yDatatype != null) {
-			IDatatypeEditpart datatypeEditpart = findEditPartFor(yDatatype);
-			datatypeEditpart.unregister(this);
+			IDatatypeEditpart datatypeEditpart = getEditpart(yDatatype);
+			datatypeEditpart.addListener(this);
 		}
 	}
 
@@ -164,9 +167,14 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		// unregisters the datatype editpart
 		YDatatype yDatatype = internalGetDatatype();
 		if (yDatatype != null) {
-			IDatatypeEditpart datatypeEditpart = findEditPartFor(yDatatype);
-			datatypeEditpart.unregister(this);
+			IDatatypeEditpart datatypeEditpart = getEditpart(yDatatype);
+			datatypeEditpart.removeListener(this);
 		}
+	}
+
+	@Override
+	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
+		
 	}
 
 	/**

@@ -5,10 +5,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
@@ -20,40 +23,24 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 public abstract class DatatypeEditpart<M extends YDatatype> extends
 		ElementEditpart<M> implements IDatatypeEditpart {
 
-	private Set<IEmbeddableEditpart> uiElements = Collections
-			.synchronizedSet(new HashSet<IEmbeddableEditpart>());
+	private Set<DatatypeChangeListener> listeners = Collections
+			.synchronizedSet(new HashSet<DatatypeChangeListener>());
 
 	@Override
-	public void register(IEmbeddableEditpart yEmbeddable) {
-		uiElements.add(yEmbeddable);
-
-		if (yEmbeddable instanceof IFieldEditpart) {
-			YField yField = (YField) yEmbeddable;
-			internalUpdateValidators(yField);
-		}
-	}
-
-	/**
-	 * Updates the given field with the internal validators.
-	 * 
-	 * @param yField
-	 */
-	protected void internalUpdateValidators(YField yField) {
-		// remove all internal validator
-		// TODO later only remove the validators that have been added
-		yField.getInternalValidators().clear();
-		// add the new created validators
-		yField.getInternalValidators().addAll(internalGetValidators());
+	public DatatypeChangeEvent getInitialInformation() {
+		List<YValidator> validators = internalGetValidators();
+		
+		return null;
 	}
 
 	@Override
-	public void unregister(IEmbeddableEditpart yEmbeddable) {
-		if (yEmbeddable instanceof IFieldEditpart) {
-			YField yField = (YField) yEmbeddable;
-			yField.getInternalValidators().clear();
-		}
-
-		uiElements.remove(yEmbeddable);
+	public void addListener(DatatypeChangeListener listener) {
+		listeners.add(listener);
+	}
+	
+	@Override
+	public void removeListener(DatatypeChangeListener listener) {
+		listeners.remove(listener);
 	}
 
 	/**
@@ -67,19 +54,21 @@ public abstract class DatatypeEditpart<M extends YDatatype> extends
 		return Collections.emptyList();
 	}
 
-	/**
-	 * Returns the UI elements.
-	 * 
-	 * @return
-	 */
-	public Set<IEmbeddableEditpart> getUiElements() {
-		return uiElements;
+	@Override
+	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+
+		// forward the notification to the UI elements
+		for (DatatypeChangeListener listener : listeners) {
+			YEmbeddable yEmbeddable = (YEmbeddable) listener.getModel();
+			yEmbeddable.eNotify(notification);
+		}
 	}
 
 	@Override
 	protected void internalDispose() {
 		try {
-			uiElements = null;
+			listeners = null;
 		} finally {
 			super.internalDispose();
 		}
