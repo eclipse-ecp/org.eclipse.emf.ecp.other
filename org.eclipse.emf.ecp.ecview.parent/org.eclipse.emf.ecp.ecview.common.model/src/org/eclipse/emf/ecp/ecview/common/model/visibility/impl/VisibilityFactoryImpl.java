@@ -6,12 +6,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.emf.ecp.ecview.common.model.visibility.*;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityFactory;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
 
 /**
  * <!-- begin-user-doc -->

@@ -4,12 +4,14 @@ package org.eclipse.emf.ecp.ecview.common.model.visibility.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-
-import org.eclipse.emf.ecp.ecview.common.model.visibility.*;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YColor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
 
 /**
  * <!-- begin-user-doc -->

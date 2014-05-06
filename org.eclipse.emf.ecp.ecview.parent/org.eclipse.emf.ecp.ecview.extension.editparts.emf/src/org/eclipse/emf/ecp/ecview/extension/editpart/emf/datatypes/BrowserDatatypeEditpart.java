@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.datatypes.DatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
@@ -22,5 +21,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IBrowser
 @SuppressWarnings("restriction")
 public class BrowserDatatypeEditpart extends DatatypeEditpart<YBrowserDatatype>
 		implements IBrowserDatatypeEditpart {
+
+	@Override
+	protected YBrowserDatatype createModel() {
+		return ExtDatatypesFactory.eINSTANCE.createYBrowserDatatype();
+	}
 
 }

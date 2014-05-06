@@ -10,7 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;
 
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidationCodes;
 import org.eclipse.emf.ecp.ecview.common.validation.Status;
@@ -20,11 +20,12 @@ public class MaxLengthValidator extends StringValidator {
 
 	private int maxLength;
 
-	public MaxLengthValidator(YMaxLengthValidatable yValidator) {
+	public MaxLengthValidator(YMaxLengthValidationConfig yValidator) {
 		this(yValidator, null);
 	}
 
-	public MaxLengthValidator(YMaxLengthValidatable yValidator, String message) {
+	public MaxLengthValidator(YMaxLengthValidationConfig yValidator,
+			String message) {
 		super(message);
 		updateParameter(yValidator);
 	}
@@ -52,7 +53,7 @@ public class MaxLengthValidator extends StringValidator {
 
 	@Override
 	public void updateParameter(Object model) {
-		YMaxLengthValidatable yValidator = (YMaxLengthValidatable) model;
+		YMaxLengthValidationConfig yValidator = (YMaxLengthValidationConfig) model;
 		this.maxLength = yValidator.getMaxLength();
 	};
 

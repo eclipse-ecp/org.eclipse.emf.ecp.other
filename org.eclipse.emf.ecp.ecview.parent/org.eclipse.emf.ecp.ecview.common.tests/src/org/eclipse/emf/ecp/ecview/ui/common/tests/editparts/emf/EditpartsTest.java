@@ -812,6 +812,15 @@ public class EditpartsTest {
 		}
 	}
 
+	@Test
+	public void test_EditpartFromModel_DifferentEditpartsRegisteredAsAdapter() {
+		// Different adapters (editparts) are registered as listener at the
+		// eObject.
+		// ElementEditpart.findEditpart(yElement) needs to return the editpart
+		// that is associated with the yElement.
+		Assert.fail();
+	}
+
 	/**
 	 * Tests the disposal of edit parts.
 	 */
@@ -1232,7 +1241,7 @@ public class EditpartsTest {
 
 		@Override
 		public void exec(Runnable runnable) {
-			
+
 		}
 
 		@Override

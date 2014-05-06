@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
@@ -460,26 +460,26 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == YValidatable.class) {
+		if (baseClass == YValidationConfig.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == YMinLengthValidatable.class) {
+		if (baseClass == YMinLengthValidationConfig.class) {
 			switch (derivedFeatureID) {
-				case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH;
+				case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH;
 				default: return -1;
 			}
 		}
-		if (baseClass == YMaxLengthValidatable.class) {
+		if (baseClass == YMaxLengthValidationConfig.class) {
 			switch (derivedFeatureID) {
-				case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH;
+				case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH;
 				default: return -1;
 			}
 		}
-		if (baseClass == YRegexpValidatable.class) {
+		if (baseClass == YRegexpValidationConfig.class) {
 			switch (derivedFeatureID) {
-				case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION: return ValidationPackage.YREGEXP_VALIDATABLE__REG_EXPRESSION;
+				case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION: return ValidationPackage.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION;
 				default: return -1;
 			}
 		}
@@ -493,26 +493,26 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == YValidatable.class) {
+		if (baseClass == YValidationConfig.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == YMinLengthValidatable.class) {
+		if (baseClass == YMinLengthValidationConfig.class) {
 			switch (baseFeatureID) {
-				case ValidationPackage.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH: return ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MIN_LENGTH;
+				case ValidationPackage.YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH: return ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MIN_LENGTH;
 				default: return -1;
 			}
 		}
-		if (baseClass == YMaxLengthValidatable.class) {
+		if (baseClass == YMaxLengthValidationConfig.class) {
 			switch (baseFeatureID) {
-				case ValidationPackage.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH: return ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MAX_LENGTH;
+				case ValidationPackage.YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH: return ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MAX_LENGTH;
 				default: return -1;
 			}
 		}
-		if (baseClass == YRegexpValidatable.class) {
+		if (baseClass == YRegexpValidationConfig.class) {
 			switch (baseFeatureID) {
-				case ValidationPackage.YREGEXP_VALIDATABLE__REG_EXPRESSION: return ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION;
+				case ValidationPackage.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION: return ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION;
 				default: return -1;
 			}
 		}

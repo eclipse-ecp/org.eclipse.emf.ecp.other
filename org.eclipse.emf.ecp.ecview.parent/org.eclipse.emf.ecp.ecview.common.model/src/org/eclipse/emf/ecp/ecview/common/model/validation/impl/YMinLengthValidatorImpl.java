@@ -3,15 +3,12 @@
 package org.eclipse.emf.ecp.ecview.common.model.validation.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 
 /**
  * <!-- begin-user-doc -->
@@ -152,14 +149,14 @@ public class YMinLengthValidatorImpl extends YValidatorImpl implements YMinLengt
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == YValidatable.class) {
+		if (baseClass == YValidationConfig.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == YMinLengthValidatable.class) {
+		if (baseClass == YMinLengthValidationConfig.class) {
 			switch (derivedFeatureID) {
-				case ValidationPackage.YMIN_LENGTH_VALIDATOR__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH;
+				case ValidationPackage.YMIN_LENGTH_VALIDATOR__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH;
 				default: return -1;
 			}
 		}
@@ -173,14 +170,14 @@ public class YMinLengthValidatorImpl extends YValidatorImpl implements YMinLengt
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == YValidatable.class) {
+		if (baseClass == YValidationConfig.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == YMinLengthValidatable.class) {
+		if (baseClass == YMinLengthValidationConfig.class) {
 			switch (baseFeatureID) {
-				case ValidationPackage.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATOR__MIN_LENGTH;
+				case ValidationPackage.YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH: return ValidationPackage.YMIN_LENGTH_VALIDATOR__MIN_LENGTH;
 				default: return -1;
 			}
 		}

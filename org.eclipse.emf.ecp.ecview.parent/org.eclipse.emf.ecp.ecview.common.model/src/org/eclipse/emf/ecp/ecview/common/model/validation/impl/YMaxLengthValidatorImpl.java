@@ -3,15 +3,12 @@
 package org.eclipse.emf.ecp.ecview.common.model.validation.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 
 /**
  * <!-- begin-user-doc -->
@@ -152,14 +149,14 @@ public class YMaxLengthValidatorImpl extends YValidatorImpl implements YMaxLengt
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == YValidatable.class) {
+		if (baseClass == YValidationConfig.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == YMaxLengthValidatable.class) {
+		if (baseClass == YMaxLengthValidationConfig.class) {
 			switch (derivedFeatureID) {
-				case ValidationPackage.YMAX_LENGTH_VALIDATOR__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH;
+				case ValidationPackage.YMAX_LENGTH_VALIDATOR__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH;
 				default: return -1;
 			}
 		}
@@ -173,14 +170,14 @@ public class YMaxLengthValidatorImpl extends YValidatorImpl implements YMaxLengt
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == YValidatable.class) {
+		if (baseClass == YValidationConfig.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == YMaxLengthValidatable.class) {
+		if (baseClass == YMaxLengthValidationConfig.class) {
 			switch (baseFeatureID) {
-				case ValidationPackage.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATOR__MAX_LENGTH;
+				case ValidationPackage.YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH: return ValidationPackage.YMAX_LENGTH_VALIDATOR__MAX_LENGTH;
 				default: return -1;
 			}
 		}

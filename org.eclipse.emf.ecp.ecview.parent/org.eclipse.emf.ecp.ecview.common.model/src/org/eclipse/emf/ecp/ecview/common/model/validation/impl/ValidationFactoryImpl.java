@@ -5,12 +5,13 @@ package org.eclipse.emf.ecp.ecview.common.model.validation.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipse.emf.ecp.ecview.common.model.validation.*;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
 
 /**
  * <!-- begin-user-doc -->

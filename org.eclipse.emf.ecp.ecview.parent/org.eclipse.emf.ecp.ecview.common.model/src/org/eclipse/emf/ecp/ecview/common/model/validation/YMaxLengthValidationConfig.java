@@ -5,21 +5,21 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YMax Length Validatable</b></em>'.
+ * A representation of the model object '<em><b>YMax Length Validation Config</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable#getMaxLength <em>Max Length</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig#getMaxLength <em>Max Length</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYMaxLengthValidatable()
+ * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYMaxLengthValidationConfig()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YMaxLengthValidatable extends YValidatable {
+public interface YMaxLengthValidationConfig extends YValidationConfig {
 	/**
 	 * Returns the value of the '<em><b>Max Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -30,14 +30,14 @@ public interface YMaxLengthValidatable extends YValidatable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Length</em>' attribute.
 	 * @see #setMaxLength(int)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYMaxLengthValidatable_MaxLength()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYMaxLengthValidationConfig_MaxLength()
 	 * @model required="true"
 	 * @generated
 	 */
 	int getMaxLength();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable#getMaxLength <em>Max Length</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig#getMaxLength <em>Max Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Max Length</em>' attribute.
@@ -46,4 +46,4 @@ public interface YMaxLengthValidatable extends YValidatable {
 	 */
 	void setMaxLength(int value);
 
-} // YMaxLengthValidatable
+} // YMaxLengthValidationConfig

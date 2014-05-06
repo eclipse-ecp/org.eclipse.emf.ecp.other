@@ -11,10 +11,12 @@
 package org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidationConfig;
 
 /**
  * An edit part for datatypes.
  */
-public interface ICheckBoxDatatypeEditpart extends IDatatypeEditpart {
+public interface ICheckBoxDatatypeEditpart extends IDatatypeEditpart,
+		IValidationConfig {
 
 }

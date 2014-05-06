@@ -213,15 +213,6 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	}
 
 	/**
-	 * Ensures that the validators are loaded properly.
-	 */
-	private void ensureInternalValidators() {
-		if (internalValidators == null) {
-			internalValidators = new ArrayList<>();
-		}
-	}
-
-	/**
 	 * Is called to load and initialize all validators.
 	 */
 	protected void internalLoadValidators() {
@@ -319,6 +310,11 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	 */
 	protected boolean isPresentationPresent() {
 		return internalGetPresentation() != null;
+	}
+
+	@Override
+	public List<IValidatorEditpart> getDatatypeValidators() {
+		return Collections.unmodifiableList(internalValidators);
 	}
 
 }

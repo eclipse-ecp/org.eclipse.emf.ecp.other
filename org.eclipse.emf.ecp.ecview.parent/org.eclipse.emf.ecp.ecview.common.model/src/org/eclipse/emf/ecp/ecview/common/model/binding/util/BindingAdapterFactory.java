@@ -6,7 +6,16 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecp.ecview.common.model.binding.*;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**

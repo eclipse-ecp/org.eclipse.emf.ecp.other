@@ -4,12 +4,9 @@ package org.eclipse.emf.ecp.ecview.common.model.visibility.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;

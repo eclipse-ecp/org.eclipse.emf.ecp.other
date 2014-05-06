@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes;
 
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +29,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.datatypes;
  * @model
  * @generated
  */
-public interface YDecimalDatatype extends YNumericDatatype {
+public interface YDecimalDatatype extends YNumericDatatype, YRegexpValidationConfig {
 	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.
 	 * The default value is <code>"2"</code>.

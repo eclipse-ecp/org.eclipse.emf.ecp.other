@@ -4,14 +4,23 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator.Regex
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IRegexpValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
 
 public class RegexpValidatorEditpart extends
 		ValidatorEditpart<YRegexpValidator> implements IRegexpValidatorEditpart {
 
+	private ValidationConfigToValidatorBridge bridgeObserver;
+
+	public static boolean isValidRegExpression(String regexp) {
+		return regexp != null && !regexp.equals("");
+	}
+
 	public RegexpValidatorEditpart() {
-		super(ValidationPackage.Literals.YREGEXP_VALIDATABLE__REG_EXPRESSION);
+		super(
+				ValidationPackage.Literals.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION);
 	}
 
 	@Override
@@ -22,6 +31,32 @@ public class RegexpValidatorEditpart extends
 	@Override
 	protected IValidator createValidator() {
 		return new RegexValidator(getModel());
+	}
+
+	@Override
+	public void setConfig(IValidationConfig config) {
+		YRegexpValidationConfig validatable = (YRegexpValidationConfig) config
+				.getValidationSettings();
+		// create an observer that transfers the changes at the validatable to
+		// the validator
+		bridgeObserver = ValidationConfigToValidatorBridge
+				.createObserver(
+						validatable,
+						ValidationPackage.Literals.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION,
+						getModel(),
+						ValidationPackage.Literals.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION);
+	}
+
+	@Override
+	protected void internalDispose() {
+		try {
+			if (bridgeObserver != null) {
+				bridgeObserver.dispose();
+				bridgeObserver = null;
+			}
+		} finally {
+			super.internalDispose();
+		}
 	}
 
 }

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
-import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeListener;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeBridge;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		ElementEditpart<M> implements IEmbeddableEditpart,
-		DatatypeChangeListener {
+		DatatypeBridge {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(EmbeddableEditpart.class);
@@ -155,7 +155,7 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		YDatatype yDatatype = internalGetDatatype();
 		if (yDatatype != null) {
 			IDatatypeEditpart datatypeEditpart = getEditpart(yDatatype);
-			datatypeEditpart.addListener(this);
+			datatypeEditpart.addBridge(this);
 		}
 	}
 
@@ -168,7 +168,7 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		YDatatype yDatatype = internalGetDatatype();
 		if (yDatatype != null) {
 			IDatatypeEditpart datatypeEditpart = getEditpart(yDatatype);
-			datatypeEditpart.removeListener(this);
+			datatypeEditpart.removeBridge(this);
 		}
 	}
 

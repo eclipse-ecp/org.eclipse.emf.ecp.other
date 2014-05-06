@@ -17,6 +17,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
@@ -32,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#getRegExpression <em>Reg Expression</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#isGrouping <em>Grouping</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl#isMarkNegative <em>Mark Negative</em>}</li>
  * </ul>
@@ -109,6 +113,26 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected EList<YValidator> validators;
+
+	/**
+	 * The default value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REG_EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String regExpression = REG_EXPRESSION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isGrouping() <em>Grouping</em>}' attribute.
@@ -249,6 +273,27 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRegExpression() {
+		return regExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRegExpression(String newRegExpression) {
+		String oldRegExpression = regExpression;
+		regExpression = newRegExpression;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION, oldRegExpression, regExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isGrouping() {
 		return grouping;
 	}
@@ -302,6 +347,8 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 				return getDescription();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
 				return getValidators();
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION:
+				return getRegExpression();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				return isGrouping();
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__MARK_NEGATIVE:
@@ -331,6 +378,9 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends YValidator>)newValue);
+				return;
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION:
+				setRegExpression((String)newValue);
 				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				setGrouping((Boolean)newValue);
@@ -362,6 +412,9 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
 				getValidators().clear();
 				return;
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION:
+				setRegExpression(REG_EXPRESSION_EDEFAULT);
+				return;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				setGrouping(GROUPING_EDEFAULT);
 				return;
@@ -388,12 +441,56 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION:
+				return REG_EXPRESSION_EDEFAULT == null ? regExpression != null : !REG_EXPRESSION_EDEFAULT.equals(regExpression);
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__GROUPING:
 				return grouping != GROUPING_EDEFAULT;
 			case ExtDatatypesPackage.YNUMERIC_DATATYPE__MARK_NEGATIVE:
 				return markNegative != MARK_NEGATIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == YValidationConfig.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YRegexpValidationConfig.class) {
+			switch (derivedFeatureID) {
+				case ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION: return ValidationPackage.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == YValidationConfig.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YRegexpValidationConfig.class) {
+			switch (baseFeatureID) {
+				case ValidationPackage.YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION: return ExtDatatypesPackage.YNUMERIC_DATATYPE__REG_EXPRESSION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -412,6 +509,8 @@ public class YNumericDatatypeImpl extends MinimalEObjectImpl.Container implement
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", regExpression: ");
+		result.append(regExpression);
 		result.append(", grouping: ");
 		result.append(grouping);
 		result.append(", markNegative: ");

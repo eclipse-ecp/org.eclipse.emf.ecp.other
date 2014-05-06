@@ -232,33 +232,33 @@ public interface ValidationPackage extends EPackage {
 	int YREGEXP_VALIDATOR_FEATURE_COUNT = YVALIDATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYValidationConfig()
 	 * @generated
 	 */
-	int YVALIDATABLE = 4;
+	int YVALIDATION_CONFIG = 4;
 
 	/**
-	 * The number of structural features of the '<em>YValidatable</em>' class.
+	 * The number of structural features of the '<em>YValidation Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVALIDATABLE_FEATURE_COUNT = 0;
+	int YVALIDATION_CONFIG_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable <em>YMin Length Validatable</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMinLengthValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMinLengthValidationConfig()
 	 * @generated
 	 */
-	int YMIN_LENGTH_VALIDATABLE = 5;
+	int YMIN_LENGTH_VALIDATION_CONFIG = 5;
 
 	/**
 	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
@@ -267,26 +267,26 @@ public interface ValidationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YMIN_LENGTH_VALIDATABLE__MIN_LENGTH = YVALIDATABLE_FEATURE_COUNT + 0;
+	int YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH = YVALIDATION_CONFIG_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>YMin Length Validatable</em>' class.
+	 * The number of structural features of the '<em>YMin Length Validation Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YMIN_LENGTH_VALIDATABLE_FEATURE_COUNT = YVALIDATABLE_FEATURE_COUNT + 1;
+	int YMIN_LENGTH_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable <em>YMax Length Validatable</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMaxLengthValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMaxLengthValidationConfig()
 	 * @generated
 	 */
-	int YMAX_LENGTH_VALIDATABLE = 6;
+	int YMAX_LENGTH_VALIDATION_CONFIG = 6;
 
 	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
@@ -295,26 +295,26 @@ public interface ValidationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YMAX_LENGTH_VALIDATABLE__MAX_LENGTH = YVALIDATABLE_FEATURE_COUNT + 0;
+	int YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH = YVALIDATION_CONFIG_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>YMax Length Validatable</em>' class.
+	 * The number of structural features of the '<em>YMax Length Validation Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YMAX_LENGTH_VALIDATABLE_FEATURE_COUNT = YVALIDATABLE_FEATURE_COUNT + 1;
+	int YMAX_LENGTH_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable <em>YRegexp Validatable</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYRegexpValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYRegexpValidationConfig()
 	 * @generated
 	 */
-	int YREGEXP_VALIDATABLE = 7;
+	int YREGEXP_VALIDATION_CONFIG = 7;
 
 	/**
 	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
@@ -323,16 +323,16 @@ public interface ValidationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YREGEXP_VALIDATABLE__REG_EXPRESSION = YVALIDATABLE_FEATURE_COUNT + 0;
+	int YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION = YVALIDATION_CONFIG_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>YRegexp Validatable</em>' class.
+	 * The number of structural features of the '<em>YRegexp Validation Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YREGEXP_VALIDATABLE_FEATURE_COUNT = YVALIDATABLE_FEATURE_COUNT + 1;
+	int YREGEXP_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator <em>YValidator</em>}'.
@@ -386,77 +386,77 @@ public interface ValidationPackage extends EPackage {
 	EClass getYRegexpValidator();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YValidatable</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable
+	 * @return the meta object for class '<em>YValidation Config</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig
 	 * @generated
 	 */
-	EClass getYValidatable();
+	EClass getYValidationConfig();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable <em>YMin Length Validatable</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YMin Length Validatable</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable
+	 * @return the meta object for class '<em>YMin Length Validation Config</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig
 	 * @generated
 	 */
-	EClass getYMinLengthValidatable();
+	EClass getYMinLengthValidationConfig();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable#getMinLength <em>Min Length</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig#getMinLength <em>Min Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Min Length</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable#getMinLength()
-	 * @see #getYMinLengthValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig#getMinLength()
+	 * @see #getYMinLengthValidationConfig()
 	 * @generated
 	 */
-	EAttribute getYMinLengthValidatable_MinLength();
+	EAttribute getYMinLengthValidationConfig_MinLength();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable <em>YMax Length Validatable</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YMax Length Validatable</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable
+	 * @return the meta object for class '<em>YMax Length Validation Config</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig
 	 * @generated
 	 */
-	EClass getYMaxLengthValidatable();
+	EClass getYMaxLengthValidationConfig();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable#getMaxLength <em>Max Length</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig#getMaxLength <em>Max Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Max Length</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable#getMaxLength()
-	 * @see #getYMaxLengthValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig#getMaxLength()
+	 * @see #getYMaxLengthValidationConfig()
 	 * @generated
 	 */
-	EAttribute getYMaxLengthValidatable_MaxLength();
+	EAttribute getYMaxLengthValidationConfig_MaxLength();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable <em>YRegexp Validatable</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YRegexp Validatable</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable
+	 * @return the meta object for class '<em>YRegexp Validation Config</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig
 	 * @generated
 	 */
-	EClass getYRegexpValidatable();
+	EClass getYRegexpValidationConfig();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable#getRegExpression <em>Reg Expression</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig#getRegExpression <em>Reg Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Reg Expression</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable#getRegExpression()
-	 * @see #getYRegexpValidatable()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig#getRegExpression()
+	 * @see #getYRegexpValidationConfig()
 	 * @generated
 	 */
-	EAttribute getYRegexpValidatable_RegExpression();
+	EAttribute getYRegexpValidationConfig_RegExpression();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -530,24 +530,24 @@ public interface ValidationPackage extends EPackage {
 		EClass YREGEXP_VALIDATOR = eINSTANCE.getYRegexpValidator();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYValidatable()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYValidationConfig()
 		 * @generated
 		 */
-		EClass YVALIDATABLE = eINSTANCE.getYValidatable();
+		EClass YVALIDATION_CONFIG = eINSTANCE.getYValidationConfig();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable <em>YMin Length Validatable</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMinLengthValidatable()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMinLengthValidationConfig()
 		 * @generated
 		 */
-		EClass YMIN_LENGTH_VALIDATABLE = eINSTANCE.getYMinLengthValidatable();
+		EClass YMIN_LENGTH_VALIDATION_CONFIG = eINSTANCE.getYMinLengthValidationConfig();
 
 		/**
 		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
@@ -555,17 +555,17 @@ public interface ValidationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YMIN_LENGTH_VALIDATABLE__MIN_LENGTH = eINSTANCE.getYMinLengthValidatable_MinLength();
+		EAttribute YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH = eINSTANCE.getYMinLengthValidationConfig_MinLength();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable <em>YMax Length Validatable</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMaxLengthValidatable()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMaxLengthValidationConfig()
 		 * @generated
 		 */
-		EClass YMAX_LENGTH_VALIDATABLE = eINSTANCE.getYMaxLengthValidatable();
+		EClass YMAX_LENGTH_VALIDATION_CONFIG = eINSTANCE.getYMaxLengthValidationConfig();
 
 		/**
 		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
@@ -573,17 +573,17 @@ public interface ValidationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YMAX_LENGTH_VALIDATABLE__MAX_LENGTH = eINSTANCE.getYMaxLengthValidatable_MaxLength();
+		EAttribute YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH = eINSTANCE.getYMaxLengthValidationConfig_MaxLength();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable <em>YRegexp Validatable</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable
-		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYRegexpValidatable()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYRegexpValidationConfig()
 		 * @generated
 		 */
-		EClass YREGEXP_VALIDATABLE = eINSTANCE.getYRegexpValidatable();
+		EClass YREGEXP_VALIDATION_CONFIG = eINSTANCE.getYRegexpValidationConfig();
 
 		/**
 		 * The meta object literal for the '<em><b>Reg Expression</b></em>' attribute feature.
@@ -591,7 +591,7 @@ public interface ValidationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YREGEXP_VALIDATABLE__REG_EXPRESSION = eINSTANCE.getYRegexpValidatable_RegExpression();
+		EAttribute YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION = eINSTANCE.getYRegexpValidationConfig_RegExpression();
 
 	}
 

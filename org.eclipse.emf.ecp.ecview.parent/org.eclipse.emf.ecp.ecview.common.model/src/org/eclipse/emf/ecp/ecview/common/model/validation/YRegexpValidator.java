@@ -13,6 +13,6 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
  * @model
  * @generated
  */
-public interface YRegexpValidator extends YValidator, YRegexpValidatable {
+public interface YRegexpValidator extends YValidator, YRegexpValidationConfig {
 
 } // YRegexpValidator

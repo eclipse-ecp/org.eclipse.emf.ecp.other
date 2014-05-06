@@ -8,7 +8,11 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.slf4j.Logger;
@@ -36,6 +40,11 @@ public class ActionEditpart<M extends YAction> extends EmbeddableEditpart<M>
 	@Override
 	protected M createModel() {
 		return (M) CoreModelFactory.eINSTANCE.createYAction();
+	}
+
+	@Override
+	public List<IValidatorEditpart> getDatatypeValidators() {
+		return Collections.emptyList();
 	}
 
 }

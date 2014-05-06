@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
@@ -30,9 +31,11 @@ import org.slf4j.LoggerFactory;
  * 
  * @param <M>
  */
-public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> implements ILayoutEditpart {
+public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
+		implements ILayoutEditpart {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(LayoutEditpart.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(LayoutEditpart.class);
 
 	private List<IEmbeddableEditpart> uiElementEditparts;
 
@@ -60,13 +63,16 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 	@Override
 	protected void internalDispose() {
 		try {
-			// lazy loading: edit parts also have to be disposed if they have not been loaded yet,
+			// lazy loading: edit parts also have to be disposed if they have
+			// not been loaded yet,
 			// but exist in the model.
-			if (uiElementEditparts != null || getModel().getElements().size() > 0) {
+			if (uiElementEditparts != null
+					|| getModel().getElements().size() > 0) {
 				List<IEmbeddableEditpart> tempElements = getElements();
 				synchronized (uiElementEditparts) {
-					for (IEmbeddableEditpart editpart : tempElements.toArray(new IEmbeddableEditpart[tempElements
-						.size()])) {
+					for (IEmbeddableEditpart editpart : tempElements
+							.toArray(new IEmbeddableEditpart[tempElements
+									.size()])) {
 						editpart.dispose();
 					}
 				}
@@ -88,7 +94,7 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 			YEmbeddable yElement = (YEmbeddable) element.getModel();
 			yLayout.getElements().add(yElement);
 			// BEGIN SUPRESS CATCH EXCEPTION
-		} catch (RuntimeException e) { 
+		} catch (RuntimeException e) {
 			// END SUPRESS CATCH EXCEPTION
 			LOGGER.error("{}", e);
 			throw e;
@@ -158,7 +164,8 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 			//
 			if (isPresentationPresent()) {
 				ILayoutPresentation<?> presenter = getPresentation();
-				presenter.move(editPart.getPresentation(), notification.getPosition());
+				presenter.move(editPart.getPresentation(),
+						notification.getPosition());
 			}
 			break;
 		default:
@@ -203,7 +210,8 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 	// /**
 	// * {@inheritDoc}
 	// */
-	// protected void handleModel_Move(int featureId, Notification notification) {
+	// protected void handleModel_Move(int featureId, Notification notification)
+	// {
 	// checkDisposed();
 	//
 	// switch (featureId) {
@@ -215,9 +223,11 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 	// }
 
 	/**
-	 * Is called to change the internal state and add the given editpart to the list of elements.
+	 * Is called to change the internal state and add the given editpart to the
+	 * list of elements.
 	 * 
-	 * @param editpart The editpart to be added
+	 * @param editpart
+	 *            The editpart to be added
 	 */
 	protected void internalAddElement(IEmbeddableEditpart editpart) {
 		checkDisposed();
@@ -231,10 +241,13 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 	}
 
 	/**
-	 * Is called to change the internal state and to move the given editpart in the list of elements.
+	 * Is called to change the internal state and to move the given editpart in
+	 * the list of elements.
 	 * 
-	 * @param editpart The editpart to be inserted
-	 * @param index The index to move the element.
+	 * @param editpart
+	 *            The editpart to be inserted
+	 * @param index
+	 *            The index to move the element.
 	 */
 	protected void internalMoveElement(IEmbeddableEditpart editpart, int index) {
 		checkDisposed();
@@ -242,7 +255,9 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 		if (uiElementEditparts == null) {
 			internalLoadElements();
 		} else if (!uiElementEditparts.contains(editpart)) {
-			throw new RuntimeException(String.format("Editpart %s is not contained in elements", editpart.getId()));
+			throw new RuntimeException(String.format(
+					"Editpart %s is not contained in elements",
+					editpart.getId()));
 		} else {
 			uiElementEditparts.remove(editpart);
 			uiElementEditparts.add(index, editpart);
@@ -250,9 +265,11 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 	}
 
 	/**
-	 * Is called to change the internal state and remove the given editpart from the list of elements.
+	 * Is called to change the internal state and remove the given editpart from
+	 * the list of elements.
 	 * 
-	 * @param editpart The editpart to be removed
+	 * @param editpart
+	 *            The editpart to be removed
 	 */
 	protected void internalRemoveElement(IEmbeddableEditpart editpart) {
 		checkDisposed();
@@ -276,4 +293,10 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M> imp
 			}
 		}
 	}
+
+	@Override
+	public List<IValidatorEditpart> getDatatypeValidators() {
+		return Collections.emptyList();
+	}
+
 }

@@ -24,17 +24,21 @@ import org.slf4j.LoggerFactory;
  * Abstract base implementation of {@link IEditPartManager}.
  */
 public abstract class AbstractEditpartManager implements IEditPartManager {
-	private static final Logger LOGGER = LoggerFactory.getLogger(AbstractEditpartManager.class);
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(AbstractEditpartManager.class);
 
 	/**
 	 * Returns the edit part for the given model yElement.
 	 * 
-	 * @param <A> an instance of IUiElementEditpart
-	 * @param yElement the model element
+	 * @param <A>
+	 *            an instance of IUiElementEditpart
+	 * @param yElement
+	 *            the model element
 	 * @return editpart
 	 */
 	@SuppressWarnings("unchecked")
-	public static <A extends IElementEditpart> A findEditPartFor(YElement yElement) {
+	public static <A extends IElementEditpart> A findEditPartFor(
+			YElement yElement) {
 		if (yElement == null) {
 			return null;
 		}
@@ -43,11 +47,15 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 		for (Adapter adapter : ((EObject) yElement).eAdapters()) {
 			if (adapter instanceof IElementEditpartProvider) {
 				editPartProvider = (IElementEditpartProvider) adapter;
-				break;
+				// only break, if the editpart is for the given model element
+				if (yElement == editPartProvider.getEditpart().getModel()) {
+					break;
+				}
 			}
 		}
 
-		return editPartProvider != null ? (A) editPartProvider.getEditpart() : null;
+		return editPartProvider != null ? (A) editPartProvider.getEditpart()
+				: null;
 	}
 
 	/**
@@ -78,21 +86,27 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 	/**
 	 * Creates a new instance of the edit part.
 	 * 
-	 * @param <A> an instance of IUiElementEditpart
-	 * @param yElement the model element
+	 * @param <A>
+	 *            an instance of IUiElementEditpart
+	 * @param yElement
+	 *            the model element
 	 * @return editpart
 	 */
-	protected abstract <A extends IElementEditpart> A createEditpart(Object yElement);
+	protected abstract <A extends IElementEditpart> A createEditpart(
+			Object yElement);
 
 	/**
 	 * Creates a new instance of the required edit part.
 	 * 
-	 * @param <A> An instance of {@link IElementEditpart}
-	 * @param type the type of the editpart to be returned
+	 * @param <A>
+	 *            An instance of {@link IElementEditpart}
+	 * @param type
+	 *            the type of the editpart to be returned
 	 * @return editpart
 	 */
 	@SuppressWarnings("unchecked")
-	protected <A extends IElementEditpart> A createNewInstance(Class<? extends IElementEditpart> type) {
+	protected <A extends IElementEditpart> A createNewInstance(
+			Class<? extends IElementEditpart> type) {
 		A result = null;
 		ElementEditpart<YElement> editPart = null;
 		try {
@@ -111,14 +125,18 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 	/**
 	 * Returns a new instance of the type.
 	 * 
-	 * @param type the type of the editpart to be created
+	 * @param type
+	 *            the type of the editpart to be created
 	 * @return editpart
 	 * 
-	 * @throws InstantiationException exception
-	 * @throws IllegalAccessException exception
+	 * @throws InstantiationException
+	 *             exception
+	 * @throws IllegalAccessException
+	 *             exception
 	 */
-	protected abstract IElementEditpart newInstance(Class<? extends IElementEditpart> type)
-		throws InstantiationException, IllegalAccessException;
+	protected abstract IElementEditpart newInstance(
+			Class<? extends IElementEditpart> type)
+			throws InstantiationException, IllegalAccessException;
 
 	/**
 	 * Casts element to eObject.
@@ -129,18 +147,21 @@ public abstract class AbstractEditpartManager implements IEditPartManager {
 	protected EObject castEObject(Object element) {
 		return (EObject) element;
 	}
-	
+
 	/**
-	 * Asserts that only one IUiElementEditpartProvider exists for the given element.
+	 * Asserts that only one IUiElementEditpartProvider exists for the given
+	 * element.
 	 * 
-	 * @param element the model element
+	 * @param element
+	 *            the model element
 	 */
 	protected void assertOneEditpartForModelelement(Object element) {
 		YElement yElement = (YElement) element;
 		for (Adapter adapter : castEObject(yElement).eAdapters()) {
 			if (adapter instanceof IElementEditpartProvider) {
 				LOGGER.error("For a modelelement instance only one editpart can be created!");
-				throw new RuntimeException("For a modelelement instance only one editpart can be created!");
+				throw new RuntimeException(
+						"For a modelelement instance only one editpart can be created!");
 			}
 		}
 	}

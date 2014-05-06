@@ -4,11 +4,17 @@ package org.eclipse.emf.ecp.ecview.common.model.validation.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.validation.*;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,9 +84,9 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YMinLengthValidator yMinLengthValidator = (YMinLengthValidator)theEObject;
 				T result = caseYMinLengthValidator(yMinLengthValidator);
 				if (result == null) result = caseYValidator(yMinLengthValidator);
-				if (result == null) result = caseYMinLengthValidatable(yMinLengthValidator);
+				if (result == null) result = caseYMinLengthValidationConfig(yMinLengthValidator);
 				if (result == null) result = caseYElement(yMinLengthValidator);
-				if (result == null) result = caseYValidatable(yMinLengthValidator);
+				if (result == null) result = caseYValidationConfig(yMinLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,9 +94,9 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YMaxLengthValidator yMaxLengthValidator = (YMaxLengthValidator)theEObject;
 				T result = caseYMaxLengthValidator(yMaxLengthValidator);
 				if (result == null) result = caseYValidator(yMaxLengthValidator);
-				if (result == null) result = caseYMaxLengthValidatable(yMaxLengthValidator);
+				if (result == null) result = caseYMaxLengthValidationConfig(yMaxLengthValidator);
 				if (result == null) result = caseYElement(yMaxLengthValidator);
-				if (result == null) result = caseYValidatable(yMaxLengthValidator);
+				if (result == null) result = caseYValidationConfig(yMaxLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,36 +104,36 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YRegexpValidator yRegexpValidator = (YRegexpValidator)theEObject;
 				T result = caseYRegexpValidator(yRegexpValidator);
 				if (result == null) result = caseYValidator(yRegexpValidator);
-				if (result == null) result = caseYRegexpValidatable(yRegexpValidator);
+				if (result == null) result = caseYRegexpValidationConfig(yRegexpValidator);
 				if (result == null) result = caseYElement(yRegexpValidator);
-				if (result == null) result = caseYValidatable(yRegexpValidator);
+				if (result == null) result = caseYValidationConfig(yRegexpValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ValidationPackage.YVALIDATABLE: {
-				YValidatable yValidatable = (YValidatable)theEObject;
-				T result = caseYValidatable(yValidatable);
+			case ValidationPackage.YVALIDATION_CONFIG: {
+				YValidationConfig yValidationConfig = (YValidationConfig)theEObject;
+				T result = caseYValidationConfig(yValidationConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ValidationPackage.YMIN_LENGTH_VALIDATABLE: {
-				YMinLengthValidatable yMinLengthValidatable = (YMinLengthValidatable)theEObject;
-				T result = caseYMinLengthValidatable(yMinLengthValidatable);
-				if (result == null) result = caseYValidatable(yMinLengthValidatable);
+			case ValidationPackage.YMIN_LENGTH_VALIDATION_CONFIG: {
+				YMinLengthValidationConfig yMinLengthValidationConfig = (YMinLengthValidationConfig)theEObject;
+				T result = caseYMinLengthValidationConfig(yMinLengthValidationConfig);
+				if (result == null) result = caseYValidationConfig(yMinLengthValidationConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ValidationPackage.YMAX_LENGTH_VALIDATABLE: {
-				YMaxLengthValidatable yMaxLengthValidatable = (YMaxLengthValidatable)theEObject;
-				T result = caseYMaxLengthValidatable(yMaxLengthValidatable);
-				if (result == null) result = caseYValidatable(yMaxLengthValidatable);
+			case ValidationPackage.YMAX_LENGTH_VALIDATION_CONFIG: {
+				YMaxLengthValidationConfig yMaxLengthValidationConfig = (YMaxLengthValidationConfig)theEObject;
+				T result = caseYMaxLengthValidationConfig(yMaxLengthValidationConfig);
+				if (result == null) result = caseYValidationConfig(yMaxLengthValidationConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ValidationPackage.YREGEXP_VALIDATABLE: {
-				YRegexpValidatable yRegexpValidatable = (YRegexpValidatable)theEObject;
-				T result = caseYRegexpValidatable(yRegexpValidatable);
-				if (result == null) result = caseYValidatable(yRegexpValidatable);
+			case ValidationPackage.YREGEXP_VALIDATION_CONFIG: {
+				YRegexpValidationConfig yRegexpValidationConfig = (YRegexpValidationConfig)theEObject;
+				T result = caseYRegexpValidationConfig(yRegexpValidationConfig);
+				if (result == null) result = caseYValidationConfig(yRegexpValidationConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -196,62 +202,62 @@ public class ValidationSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YValidatable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YValidation Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YValidatable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YValidation Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYValidatable(YValidatable object) {
+	public T caseYValidationConfig(YValidationConfig object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YMin Length Validatable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YMin Length Validation Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YMin Length Validatable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YMin Length Validation Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYMinLengthValidatable(YMinLengthValidatable object) {
+	public T caseYMinLengthValidationConfig(YMinLengthValidationConfig object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YMax Length Validatable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YMax Length Validation Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YMax Length Validatable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YMax Length Validation Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYMaxLengthValidatable(YMaxLengthValidatable object) {
+	public T caseYMaxLengthValidationConfig(YMaxLengthValidationConfig object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YRegexp Validatable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YRegexp Validation Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YRegexp Validatable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YRegexp Validation Config</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYRegexpValidatable(YRegexpValidatable object) {
+	public T caseYRegexpValidationConfig(YRegexpValidationConfig object) {
 		return null;
 	}
 

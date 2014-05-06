@@ -13,6 +13,6 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
  * @model
  * @generated
  */
-public interface YMaxLengthValidator extends YValidator, YMaxLengthValidatable {
+public interface YMaxLengthValidator extends YValidator, YMaxLengthValidationConfig {
 
 } // YMaxLengthValidator

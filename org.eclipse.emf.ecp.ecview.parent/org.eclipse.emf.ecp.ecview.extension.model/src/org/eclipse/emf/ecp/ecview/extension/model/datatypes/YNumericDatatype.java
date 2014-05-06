@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.extension.model.datatypes;
 
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
 
 
 /**
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
  * @model
  * @generated
  */
-public interface YNumericDatatype extends YDatatype {
+public interface YNumericDatatype extends YDatatype, YRegexpValidationConfig {
 	/**
 	 * Returns the value of the '<em><b>Grouping</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

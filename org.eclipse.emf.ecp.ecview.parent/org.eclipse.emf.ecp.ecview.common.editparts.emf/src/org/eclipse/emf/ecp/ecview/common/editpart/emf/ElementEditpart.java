@@ -103,6 +103,27 @@ public abstract class ElementEditpart<M extends YElement> extends AdapterImpl
 	}
 
 	/**
+	 * Returns an existing edit part or creates a new one.
+	 * 
+	 * @param <A>
+	 *            An instance of {@link IElementEditpart}
+	 * @param yElement
+	 *            the model element
+	 * @return editpart
+	 */
+	public static <A extends IElementEditpart> A getEditpart(YElement yElement) {
+		if (yElement == null) {
+			return null;
+		}
+
+		A editPart = findEditPartFor(yElement);
+		if (editPart != null) {
+			return editPart;
+		}
+		return DelegatingEditPartManager.getInstance().getEditpart(yElement);
+	}
+
+	/**
 	 * The default constructor.
 	 */
 	protected ElementEditpart() {
@@ -291,27 +312,6 @@ public abstract class ElementEditpart<M extends YElement> extends AdapterImpl
 	 * @return model
 	 */
 	protected abstract M createModel();
-
-	/**
-	 * Returns an existing edit part or creates a new one.
-	 * 
-	 * @param <A>
-	 *            An instance of {@link IElementEditpart}
-	 * @param yElement
-	 *            the model element
-	 * @return editpart
-	 */
-	public <A extends IElementEditpart> A getEditpart(YElement yElement) {
-		if (yElement == null) {
-			return null;
-		}
-
-		A editPart = findEditPartFor(yElement);
-		if (editPart != null) {
-			return editPart;
-		}
-		return DelegatingEditPartManager.getInstance().getEditpart(yElement);
-	}
 
 	/**
 	 * Implementation of {@link IElementEditpartProvider} and returns

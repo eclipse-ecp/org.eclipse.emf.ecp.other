@@ -340,6 +340,21 @@ public class FieldEditpartTest {
 
 	}
 
+	@Test
+	public void test_addRemoveInternalValidator() {
+		Assert.fail();
+	}
+
+	@Test
+	public void test_addRemoveInternalValidatorByModel() {
+		Assert.fail();
+	}
+
+	@Test
+	public void test_getDatatypeValidators() {
+		Assert.fail();
+	}
+
 	/**
 	 * Tests whether the list of validators for an editpart is unmodifiable
 	 * (only the list within the model may be modified).
@@ -359,6 +374,33 @@ public class FieldEditpartTest {
 			Assert.fail("Must be unmodifieable");
 		} catch (Exception e) {
 		}
+	}
+
+	@Test
+	public void test_setNewDatatypeToText() {
+		Assert.fail();
+	}
+
+	@Test
+	public void test_internalValidatorEditparts_Disposed() {
+		// ensure that the internal validators are disposed after disposing the
+		// field editpart
+		Assert.fail();
+	}
+
+	@Test
+	public void test_fieldEditpart_unregisteredFromDatatypeEditpart_AfterDispose() {
+		// ensure that the fieldEditpart was unregistered as a bridge at the
+		// datatype editpart
+		Assert.fail();
+	}
+
+	@Test
+	public void test_disposeDatatypeEditpart_whileFieldEditpart_registeredAsBridge() {
+		// test proper functionality if the datatype editpart was disposed while
+		// the field editpart is registered as a ValidationBridge at the
+		// datatype editpart. No idea for now what should happen :)
+		Assert.fail();
 	}
 
 }

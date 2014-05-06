@@ -3,18 +3,17 @@ package org.eclipse.emf.ecp.ecview.ui.common.tests.validation;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
-import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus.Severity;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -88,4 +87,22 @@ public class MaxLenghtValidatorTest {
 				status.getMessage());
 	}
 
+	@Test
+	public void test_setConfig() {
+		Assert.fail();
+	}
+
+	@Test
+	public void test_changeDatatype_Property() {
+		// if a datatype property is changed, the validator must be updated
+		// internally.
+		Assert.fail();
+	}
+
+	@Test
+	public void test_dispose() {
+		// if a datatype property is changed, the validator must be updated
+		// internally.
+		Assert.fail();
+	}
 }

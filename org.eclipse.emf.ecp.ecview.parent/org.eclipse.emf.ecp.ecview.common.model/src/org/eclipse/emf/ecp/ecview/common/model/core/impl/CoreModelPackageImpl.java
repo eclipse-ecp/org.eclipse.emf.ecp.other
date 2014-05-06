@@ -12,11 +12,8 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -53,13 +50,10 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.DatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
-
 import org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl;

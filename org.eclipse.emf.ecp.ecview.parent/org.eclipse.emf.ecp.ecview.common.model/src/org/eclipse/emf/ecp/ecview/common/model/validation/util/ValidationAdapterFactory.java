@@ -4,13 +4,18 @@ package org.eclipse.emf.ecp.ecview.common.model.validation.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.validation.*;
+import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,20 +90,20 @@ public class ValidationAdapterFactory extends AdapterFactoryImpl {
 				return createYRegexpValidatorAdapter();
 			}
 			@Override
-			public Adapter caseYValidatable(YValidatable object) {
-				return createYValidatableAdapter();
+			public Adapter caseYValidationConfig(YValidationConfig object) {
+				return createYValidationConfigAdapter();
 			}
 			@Override
-			public Adapter caseYMinLengthValidatable(YMinLengthValidatable object) {
-				return createYMinLengthValidatableAdapter();
+			public Adapter caseYMinLengthValidationConfig(YMinLengthValidationConfig object) {
+				return createYMinLengthValidationConfigAdapter();
 			}
 			@Override
-			public Adapter caseYMaxLengthValidatable(YMaxLengthValidatable object) {
-				return createYMaxLengthValidatableAdapter();
+			public Adapter caseYMaxLengthValidationConfig(YMaxLengthValidationConfig object) {
+				return createYMaxLengthValidationConfigAdapter();
 			}
 			@Override
-			public Adapter caseYRegexpValidatable(YRegexpValidatable object) {
-				return createYRegexpValidatableAdapter();
+			public Adapter caseYRegexpValidationConfig(YRegexpValidationConfig object) {
+				return createYRegexpValidationConfigAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -181,58 +186,58 @@ public class ValidationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig
 	 * @generated
 	 */
-	public Adapter createYValidatableAdapter() {
+	public Adapter createYValidationConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable <em>YMin Length Validatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig
 	 * @generated
 	 */
-	public Adapter createYMinLengthValidatableAdapter() {
+	public Adapter createYMinLengthValidationConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable <em>YMax Length Validatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig
 	 * @generated
 	 */
-	public Adapter createYMaxLengthValidatableAdapter() {
+	public Adapter createYMaxLengthValidationConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable <em>YRegexp Validatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig
 	 * @generated
 	 */
-	public Adapter createYRegexpValidatableAdapter() {
+	public Adapter createYRegexpValidationConfigAdapter() {
 		return null;
 	}
 

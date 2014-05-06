@@ -13,6 +13,6 @@ package org.eclipse.emf.ecp.ecview.common.model.validation;
  * @model
  * @generated
  */
-public interface YMinLengthValidator extends YValidator, YMinLengthValidatable {
+public interface YMinLengthValidator extends YValidator, YMinLengthValidationConfig {
 
 } // YMinLengthValidator

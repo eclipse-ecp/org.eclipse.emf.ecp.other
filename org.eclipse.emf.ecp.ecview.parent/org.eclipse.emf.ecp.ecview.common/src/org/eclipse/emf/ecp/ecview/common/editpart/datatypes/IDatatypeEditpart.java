@@ -10,10 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.datatypes;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
-import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 
 /**
  * An editpart responsible to handle datatypes.
@@ -26,24 +27,26 @@ public interface IDatatypeEditpart extends IElementEditpart {
 	 * 
 	 * @return
 	 */
-	DatatypeChangeEvent getInitialInformation();
+	DatatypeChangeEvent getCurrentState();
 
 	/**
-	 * Adds a listener the the datatype editpart.
+	 * Adds the given bridge to the datatype editpart. See
+	 * {@link DatatypeBridge}.
 	 * <p>
 	 * Note that the datatype is not part of the containment tree of the UI
 	 * element. So many UI elements may share the same instance of the datatype.
 	 * 
-	 * @param listener
+	 * @param bridge
 	 */
-	void addListener(DatatypeChangeListener listener);
+	void addBridge(DatatypeBridge bridge);
 
 	/**
-	 * Unregisters the given listener from the datatype.
+	 * Unregisters the given bridge from the datatype. See
+	 * {@link DatatypeBridge}.
 	 * 
-	 * @param listener
+	 * @param bridge
 	 */
-	void removeListener(DatatypeChangeListener listener);
+	void removeBridge(DatatypeBridge bridge);
 
 	/**
 	 * This event is fired if the datatype changed.
@@ -52,17 +55,17 @@ public interface IDatatypeEditpart extends IElementEditpart {
 
 		private final IDatatypeEditpart editpart;
 		private final Object changeObject;
-		private final boolean valiadtorUpdate;
-		private final List<IValidator> validators;
+		private final List<IValidatorEditpart> removedValidators;
+		private final List<IValidatorEditpart> addedValidators;
 
 		public DatatypeChangeEvent(IDatatypeEditpart editpart,
-				Object changeObject, boolean valiadtorUpdate,
-				List<IValidator> validators) {
+				Object changeObject, List<IValidatorEditpart> addedValidators,
+				List<IValidatorEditpart> removedValidators) {
 			super();
 			this.editpart = editpart;
 			this.changeObject = changeObject;
-			this.valiadtorUpdate = valiadtorUpdate;
-			this.validators = validators;
+			this.addedValidators = addedValidators;
+			this.removedValidators = removedValidators;
 		}
 
 		/**
@@ -86,29 +89,34 @@ public interface IDatatypeEditpart extends IElementEditpart {
 
 		/**
 		 * Returns a list of validators that should be attached to the ui
-		 * fields. See {@link #isValiadtorUpdate()}.
+		 * fields.
 		 * 
 		 * @return
 		 */
-		public List<IValidator> getValidators() {
-			return validators;
+		public List<IValidatorEditpart> getAddedValidators() {
+			return addedValidators != null ? addedValidators : Collections
+					.<IValidatorEditpart> emptyList();
 		}
 
 		/**
-		 * Returns true, if the validator need to be updated. False otherwise.
+		 * Returns a list of validators that should be removed from the ui
+		 * fields.
 		 * 
 		 * @return
 		 */
-		public boolean isValiadtorUpdate() {
-			return valiadtorUpdate;
+		public List<IValidatorEditpart> getRemovedValidators() {
+			return removedValidators != null ? removedValidators : Collections
+					.<IValidatorEditpart> emptyList();
 		}
 
 	}
 
 	/**
-	 * Listeners are notified if the datatype changed.
+	 * This bridge allows the implementor to react for changes in the datatype.
+	 * And it provides the datatype editpart with available validators that have
+	 * been provided by the datatype editpart.
 	 */
-	public static interface DatatypeChangeListener {
+	public static interface DatatypeBridge {
 
 		/**
 		 * Notifies the listener about the change.
@@ -116,5 +124,14 @@ public interface IDatatypeEditpart extends IElementEditpart {
 		 * @param event
 		 */
 		void notifyDatatypeChanged(DatatypeChangeEvent event);
+
+		/**
+		 * Returns a list with currently available validators that have been
+		 * provided by the datatype editpart. Must never return
+		 * <code>null</code>.
+		 * 
+		 * @return
+		 */
+		List<IValidatorEditpart> getDatatypeValidators();
 	}
 }

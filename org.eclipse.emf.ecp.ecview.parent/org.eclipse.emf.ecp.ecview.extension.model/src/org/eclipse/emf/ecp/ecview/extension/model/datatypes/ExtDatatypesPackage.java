@@ -103,22 +103,22 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
-	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_DATATYPE__MIN_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTEXT_DATATYPE__MAX_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
+	int YTEXT_DATATYPE__MAX_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_DATATYPE__MIN_LENGTH = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
@@ -267,13 +267,22 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YNUMERIC_DATATYPE__VALIDATORS = DatatypesPackage.YDATATYPE__VALIDATORS;
 
 	/**
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_DATATYPE__REG_EXPRESSION = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Grouping</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_DATATYPE__GROUPING = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+	int YNUMERIC_DATATYPE__GROUPING = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Mark Negative</b></em>' attribute.
@@ -282,7 +291,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_DATATYPE__MARK_NEGATIVE = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
+	int YNUMERIC_DATATYPE__MARK_NEGATIVE = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>YNumeric Datatype</em>' class.
@@ -291,7 +300,7 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YNUMERIC_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 2;
+	int YNUMERIC_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDecimalDatatypeImpl <em>YDecimal Datatype</em>}' class.
@@ -338,6 +347,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_DATATYPE__VALIDATORS = YNUMERIC_DATATYPE__VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_DATATYPE__REG_EXPRESSION = YNUMERIC_DATATYPE__REG_EXPRESSION;
 
 	/**
 	 * The feature id for the '<em><b>Grouping</b></em>' attribute.

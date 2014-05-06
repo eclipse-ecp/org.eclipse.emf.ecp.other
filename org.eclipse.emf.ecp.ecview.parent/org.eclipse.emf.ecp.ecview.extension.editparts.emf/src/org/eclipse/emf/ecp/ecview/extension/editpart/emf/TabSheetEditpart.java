@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.EmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.LayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
@@ -41,7 +42,7 @@ public class TabSheetEditpart extends EmbeddableEditpart<YTabSheet> implements
 	public TabSheetEditpart() {
 
 	}
-	
+
 	@Override
 	protected YTabSheet createModel() {
 		return ExtensionModelFactory.eINSTANCE.createYTabSheet();
@@ -269,5 +270,10 @@ public class TabSheetEditpart extends EmbeddableEditpart<YTabSheet> implements
 				internalAddElement(editPart);
 			}
 		}
+	}
+
+	@Override
+	public List<IValidatorEditpart> getDatatypeValidators() {
+		return Collections.emptyList();
 	}
 }

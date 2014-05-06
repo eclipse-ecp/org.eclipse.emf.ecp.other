@@ -1,9 +1,10 @@
 package org.eclipse.emf.ecp.ecview.ui.common.tests.validation;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
@@ -84,6 +85,25 @@ public class MinLenghtValidatorTest {
 		assertEquals(Severity.ERROR, status.getSeverity());
 		assertEquals("Minimum length is 8. Length of 123456 is 6",
 				status.getMessage());
+	}
+
+	@Test
+	public void test_setConfig() {
+		Assert.fail();
+	}
+
+	@Test
+	public void test_changeDatatype_Property() {
+		// if a datatype property is changed, the validator must be updated
+		// internally.
+		Assert.fail();
+	}
+
+	@Test
+	public void test_dispose() {
+		// if a datatype property is changed, the validator must be updated
+		// internally.
+		Assert.fail();
 	}
 
 }

@@ -9,25 +9,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -154,20 +140,20 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYDatatypeAdapter();
 			}
 			@Override
-			public Adapter caseYValidatable(YValidatable object) {
-				return createYValidatableAdapter();
+			public Adapter caseYValidationConfig(YValidationConfig object) {
+				return createYValidationConfigAdapter();
 			}
 			@Override
-			public Adapter caseYMinLengthValidatable(YMinLengthValidatable object) {
-				return createYMinLengthValidatableAdapter();
+			public Adapter caseYMaxLengthValidationConfig(YMaxLengthValidationConfig object) {
+				return createYMaxLengthValidationConfigAdapter();
 			}
 			@Override
-			public Adapter caseYMaxLengthValidatable(YMaxLengthValidatable object) {
-				return createYMaxLengthValidatableAdapter();
+			public Adapter caseYMinLengthValidationConfig(YMinLengthValidationConfig object) {
+				return createYMinLengthValidationConfigAdapter();
 			}
 			@Override
-			public Adapter caseYRegexpValidatable(YRegexpValidatable object) {
-				return createYRegexpValidatableAdapter();
+			public Adapter caseYRegexpValidationConfig(YRegexpValidationConfig object) {
+				return createYRegexpValidationConfigAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -428,58 +414,58 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig
 	 * @generated
 	 */
-	public Adapter createYValidatableAdapter() {
+	public Adapter createYValidationConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable <em>YMin Length Validatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig
 	 * @generated
 	 */
-	public Adapter createYMinLengthValidatableAdapter() {
+	public Adapter createYMaxLengthValidationConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable <em>YMax Length Validatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig
 	 * @generated
 	 */
-	public Adapter createYMaxLengthValidatableAdapter() {
+	public Adapter createYMinLengthValidationConfigAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable <em>YRegexp Validatable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig
 	 * @generated
 	 */
-	public Adapter createYRegexpValidatableAdapter() {
+	public Adapter createYRegexpValidationConfigAdapter() {
 		return null;
 	}
 

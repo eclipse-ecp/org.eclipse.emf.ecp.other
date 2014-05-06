@@ -7,7 +7,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.common.model.binding.*;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 
 /**
  * <!-- begin-user-doc -->

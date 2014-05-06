@@ -10,7 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.EmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
@@ -30,6 +34,11 @@ public class BrowserEditpart extends EmbeddableEditpart<YBrowser> implements
 	@Override
 	protected YBrowser createModel() {
 		return (YBrowser) ExtensionModelFactory.eINSTANCE.createYBrowser();
+	}
+
+	@Override
+	public List<IValidatorEditpart> getDatatypeValidators() {
+		return Collections.emptyList();
 	}
 
 }

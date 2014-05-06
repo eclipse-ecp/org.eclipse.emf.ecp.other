@@ -15,13 +15,13 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.DatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl;
@@ -66,28 +66,28 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yValidatableEClass = null;
+	private EClass yValidationConfigEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yMinLengthValidatableEClass = null;
+	private EClass yMinLengthValidationConfigEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yMaxLengthValidatableEClass = null;
+	private EClass yMaxLengthValidationConfigEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yRegexpValidatableEClass = null;
+	private EClass yRegexpValidationConfigEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -214,8 +214,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYValidatable() {
-		return yValidatableEClass;
+	public EClass getYValidationConfig() {
+		return yValidationConfigEClass;
 	}
 
 	/**
@@ -223,8 +223,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYMinLengthValidatable() {
-		return yMinLengthValidatableEClass;
+	public EClass getYMinLengthValidationConfig() {
+		return yMinLengthValidationConfigEClass;
 	}
 
 	/**
@@ -232,8 +232,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYMinLengthValidatable_MinLength() {
-		return (EAttribute)yMinLengthValidatableEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYMinLengthValidationConfig_MinLength() {
+		return (EAttribute)yMinLengthValidationConfigEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -241,8 +241,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYMaxLengthValidatable() {
-		return yMaxLengthValidatableEClass;
+	public EClass getYMaxLengthValidationConfig() {
+		return yMaxLengthValidationConfigEClass;
 	}
 
 	/**
@@ -250,8 +250,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYMaxLengthValidatable_MaxLength() {
-		return (EAttribute)yMaxLengthValidatableEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYMaxLengthValidationConfig_MaxLength() {
+		return (EAttribute)yMaxLengthValidationConfigEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -259,8 +259,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYRegexpValidatable() {
-		return yRegexpValidatableEClass;
+	public EClass getYRegexpValidationConfig() {
+		return yRegexpValidationConfigEClass;
 	}
 
 	/**
@@ -268,8 +268,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYRegexpValidatable_RegExpression() {
-		return (EAttribute)yRegexpValidatableEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYRegexpValidationConfig_RegExpression() {
+		return (EAttribute)yRegexpValidationConfigEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -309,16 +309,16 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		yRegexpValidatorEClass = createEClass(YREGEXP_VALIDATOR);
 
-		yValidatableEClass = createEClass(YVALIDATABLE);
+		yValidationConfigEClass = createEClass(YVALIDATION_CONFIG);
 
-		yMinLengthValidatableEClass = createEClass(YMIN_LENGTH_VALIDATABLE);
-		createEAttribute(yMinLengthValidatableEClass, YMIN_LENGTH_VALIDATABLE__MIN_LENGTH);
+		yMinLengthValidationConfigEClass = createEClass(YMIN_LENGTH_VALIDATION_CONFIG);
+		createEAttribute(yMinLengthValidationConfigEClass, YMIN_LENGTH_VALIDATION_CONFIG__MIN_LENGTH);
 
-		yMaxLengthValidatableEClass = createEClass(YMAX_LENGTH_VALIDATABLE);
-		createEAttribute(yMaxLengthValidatableEClass, YMAX_LENGTH_VALIDATABLE__MAX_LENGTH);
+		yMaxLengthValidationConfigEClass = createEClass(YMAX_LENGTH_VALIDATION_CONFIG);
+		createEAttribute(yMaxLengthValidationConfigEClass, YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH);
 
-		yRegexpValidatableEClass = createEClass(YREGEXP_VALIDATABLE);
-		createEAttribute(yRegexpValidatableEClass, YREGEXP_VALIDATABLE__REG_EXPRESSION);
+		yRegexpValidationConfigEClass = createEClass(YREGEXP_VALIDATION_CONFIG);
+		createEAttribute(yRegexpValidationConfigEClass, YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION);
 	}
 
 	/**
@@ -354,14 +354,14 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		// Add supertypes to classes
 		yValidatorEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yMinLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
-		yMinLengthValidatorEClass.getESuperTypes().add(this.getYMinLengthValidatable());
+		yMinLengthValidatorEClass.getESuperTypes().add(this.getYMinLengthValidationConfig());
 		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
-		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYMaxLengthValidatable());
+		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYMaxLengthValidationConfig());
 		yRegexpValidatorEClass.getESuperTypes().add(this.getYValidator());
-		yRegexpValidatorEClass.getESuperTypes().add(this.getYRegexpValidatable());
-		yMinLengthValidatableEClass.getESuperTypes().add(this.getYValidatable());
-		yMaxLengthValidatableEClass.getESuperTypes().add(this.getYValidatable());
-		yRegexpValidatableEClass.getESuperTypes().add(this.getYValidatable());
+		yRegexpValidatorEClass.getESuperTypes().add(this.getYRegexpValidationConfig());
+		yMinLengthValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
+		yMaxLengthValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
+		yRegexpValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yValidatorEClass, YValidator.class, "YValidator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -376,16 +376,16 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		initEClass(yRegexpValidatorEClass, YRegexpValidator.class, "YRegexpValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yValidatableEClass, YValidatable.class, "YValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yValidationConfigEClass, YValidationConfig.class, "YValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yMinLengthValidatableEClass, YMinLengthValidatable.class, "YMinLengthValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYMinLengthValidatable_MinLength(), ecorePackage.getEInt(), "minLength", null, 1, 1, YMinLengthValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yMinLengthValidationConfigEClass, YMinLengthValidationConfig.class, "YMinLengthValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYMinLengthValidationConfig_MinLength(), ecorePackage.getEInt(), "minLength", null, 1, 1, YMinLengthValidationConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yMaxLengthValidatableEClass, YMaxLengthValidatable.class, "YMaxLengthValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYMaxLengthValidatable_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 1, 1, YMaxLengthValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yMaxLengthValidationConfigEClass, YMaxLengthValidationConfig.class, "YMaxLengthValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYMaxLengthValidationConfig_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 1, 1, YMaxLengthValidationConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yRegexpValidatableEClass, YRegexpValidatable.class, "YRegexpValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYRegexpValidatable_RegExpression(), ecorePackage.getEString(), "regExpression", null, 1, 1, YRegexpValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yRegexpValidationConfigEClass, YRegexpValidationConfig.class, "YRegexpValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYRegexpValidationConfig_RegExpression(), ecorePackage.getEString(), "regExpression", null, 1, 1, YRegexpValidationConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

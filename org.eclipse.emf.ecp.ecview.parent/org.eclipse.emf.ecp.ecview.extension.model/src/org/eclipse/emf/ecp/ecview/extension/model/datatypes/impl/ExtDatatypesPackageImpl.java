@@ -485,15 +485,17 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Add supertypes to classes
 		yTextDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidatable());
-		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidatable());
-		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidatable());
+		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidationConfig());
+		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidationConfig());
+		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
 		yTextAreaDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidatable());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidatable());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidatable());
+		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidationConfig());
+		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidationConfig());
+		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
 		yNumericDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yNumericDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
 		yDecimalDatatypeEClass.getESuperTypes().add(this.getYNumericDatatype());
+		yDecimalDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
 		yTableDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yCheckBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yComboBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
