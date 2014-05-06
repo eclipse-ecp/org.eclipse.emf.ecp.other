@@ -15,6 +15,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.ExtDatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
@@ -310,6 +311,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		ValidationPackage.eINSTANCE.eClass();
 		BindingPackage.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
+		VisibilityPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		ExtDatatypesPackageImpl theExtDatatypesPackage = (ExtDatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI) instanceof ExtDatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI) : ExtDatatypesPackage.eINSTANCE);

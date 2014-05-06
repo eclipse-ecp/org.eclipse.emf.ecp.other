@@ -5,6 +5,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.datatypes.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
@@ -93,6 +94,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYRegexpValidatable(yTextDatatype);
 				if (result == null) result = caseYDtBase(yTextDatatype);
 				if (result == null) result = caseYValidatable(yTextDatatype);
+				if (result == null) result = caseYElement(yTextDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -105,6 +107,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYRegexpValidatable(yTextAreaDatatype);
 				if (result == null) result = caseYDtBase(yTextAreaDatatype);
 				if (result == null) result = caseYValidatable(yTextAreaDatatype);
+				if (result == null) result = caseYElement(yTextAreaDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,6 +116,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYNumericDatatype(yNumericDatatype);
 				if (result == null) result = caseYDatatype(yNumericDatatype);
 				if (result == null) result = caseYDtBase(yNumericDatatype);
+				if (result == null) result = caseYElement(yNumericDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,6 +126,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYNumericDatatype(yDecimalDatatype);
 				if (result == null) result = caseYDatatype(yDecimalDatatype);
 				if (result == null) result = caseYDtBase(yDecimalDatatype);
+				if (result == null) result = caseYElement(yDecimalDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +135,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYTableDatatype(yTableDatatype);
 				if (result == null) result = caseYDatatype(yTableDatatype);
 				if (result == null) result = caseYDtBase(yTableDatatype);
+				if (result == null) result = caseYElement(yTableDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,6 +144,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYCheckBoxDatatype(yCheckBoxDatatype);
 				if (result == null) result = caseYDatatype(yCheckBoxDatatype);
 				if (result == null) result = caseYDtBase(yCheckBoxDatatype);
+				if (result == null) result = caseYElement(yCheckBoxDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +153,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYComboBoxDatatype(yComboBoxDatatype);
 				if (result == null) result = caseYDatatype(yComboBoxDatatype);
 				if (result == null) result = caseYDtBase(yComboBoxDatatype);
+				if (result == null) result = caseYElement(yComboBoxDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +162,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYListDataType(yListDataType);
 				if (result == null) result = caseYDatatype(yListDataType);
 				if (result == null) result = caseYDtBase(yListDataType);
+				if (result == null) result = caseYElement(yListDataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -162,6 +171,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYOptionsGroupDataType(yOptionsGroupDataType);
 				if (result == null) result = caseYDatatype(yOptionsGroupDataType);
 				if (result == null) result = caseYDtBase(yOptionsGroupDataType);
+				if (result == null) result = caseYElement(yOptionsGroupDataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,6 +180,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYBrowserDatatype(yBrowserDatatype);
 				if (result == null) result = caseYDatatype(yBrowserDatatype);
 				if (result == null) result = caseYDtBase(yBrowserDatatype);
+				if (result == null) result = caseYElement(yBrowserDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -178,6 +189,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYDateTimeDatatype(yDateTimeDatatype);
 				if (result == null) result = caseYDatatype(yDateTimeDatatype);
 				if (result == null) result = caseYDtBase(yDateTimeDatatype);
+				if (result == null) result = caseYElement(yDateTimeDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -186,6 +198,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYTreeDatatype(yTreeDatatype);
 				if (result == null) result = caseYDatatype(yTreeDatatype);
 				if (result == null) result = caseYDtBase(yTreeDatatype);
+				if (result == null) result = caseYElement(yTreeDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,6 +207,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYProgressBarDatatype(yProgressBarDatatype);
 				if (result == null) result = caseYDatatype(yProgressBarDatatype);
 				if (result == null) result = caseYDtBase(yProgressBarDatatype);
+				if (result == null) result = caseYElement(yProgressBarDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -202,6 +216,7 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				T result = caseYTabSheetDatatype(yTabSheetDatatype);
 				if (result == null) result = caseYDatatype(yTabSheetDatatype);
 				if (result == null) result = caseYDtBase(yTabSheetDatatype);
+				if (result == null) result = caseYElement(yTabSheetDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -416,6 +431,21 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYTabSheetDatatype(YTabSheetDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YElement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YElement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYElement(YElement object) {
 		return null;
 	}
 

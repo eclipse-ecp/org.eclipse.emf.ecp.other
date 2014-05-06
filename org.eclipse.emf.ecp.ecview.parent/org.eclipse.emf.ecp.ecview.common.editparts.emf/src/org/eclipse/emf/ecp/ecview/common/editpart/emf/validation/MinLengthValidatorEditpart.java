@@ -12,7 +12,7 @@ public class MinLengthValidatorEditpart extends
 		IMinLengthValidatorEditpart {
 
 	public MinLengthValidatorEditpart() {
-		super(ValidationPackage.Literals.YMIN_LENGTH_VALIDATOR__MIN_LENGTH);
+		super(ValidationPackage.Literals.YMIN_LENGTH_VALIDATABLE__MIN_LENGTH);
 	}
 
 	@Override

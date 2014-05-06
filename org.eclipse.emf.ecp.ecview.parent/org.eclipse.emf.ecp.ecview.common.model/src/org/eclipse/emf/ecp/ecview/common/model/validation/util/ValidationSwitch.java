@@ -78,7 +78,9 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YMinLengthValidator yMinLengthValidator = (YMinLengthValidator)theEObject;
 				T result = caseYMinLengthValidator(yMinLengthValidator);
 				if (result == null) result = caseYValidator(yMinLengthValidator);
+				if (result == null) result = caseYMinLengthValidatable(yMinLengthValidator);
 				if (result == null) result = caseYElement(yMinLengthValidator);
+				if (result == null) result = caseYValidatable(yMinLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -86,7 +88,9 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YMaxLengthValidator yMaxLengthValidator = (YMaxLengthValidator)theEObject;
 				T result = caseYMaxLengthValidator(yMaxLengthValidator);
 				if (result == null) result = caseYValidator(yMaxLengthValidator);
+				if (result == null) result = caseYMaxLengthValidatable(yMaxLengthValidator);
 				if (result == null) result = caseYElement(yMaxLengthValidator);
+				if (result == null) result = caseYValidatable(yMaxLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,7 +98,9 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YRegexpValidator yRegexpValidator = (YRegexpValidator)theEObject;
 				T result = caseYRegexpValidator(yRegexpValidator);
 				if (result == null) result = caseYValidator(yRegexpValidator);
+				if (result == null) result = caseYRegexpValidatable(yRegexpValidator);
 				if (result == null) result = caseYElement(yRegexpValidator);
+				if (result == null) result = caseYValidatable(yRegexpValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -338,6 +338,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				T result = caseYDtWrapper(yDtWrapper);
 				if (result == null) result = caseYDatatype(yDtWrapper);
 				if (result == null) result = caseYDtBase(yDtWrapper);
+				if (result == null) result = caseYElement(yDtWrapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

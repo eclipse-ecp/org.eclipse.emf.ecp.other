@@ -9,7 +9,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YRegexpValidatorImpl#getRegexp <em>Regexp</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YRegexpValidatorImpl#getRegExpression <em>Reg Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,24 +28,24 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
  */
 public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValidator {
 	/**
-	 * The default value of the '{@link #getRegexp() <em>Regexp</em>}' attribute.
+	 * The default value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRegexp()
+	 * @see #getRegExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REGEXP_EDEFAULT = null;
+	protected static final String REG_EXPRESSION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRegexp() <em>Regexp</em>}' attribute.
+	 * The cached value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRegexp()
+	 * @see #getRegExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected String regexp = REGEXP_EDEFAULT;
+	protected String regExpression = REG_EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,8 +71,8 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRegexp() {
-		return regexp;
+	public String getRegExpression() {
+		return regExpression;
 	}
 
 	/**
@@ -78,11 +80,11 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRegexp(String newRegexp) {
-		String oldRegexp = regexp;
-		regexp = newRegexp;
+	public void setRegExpression(String newRegExpression) {
+		String oldRegExpression = regExpression;
+		regExpression = newRegExpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.YREGEXP_VALIDATOR__REGEXP, oldRegexp, regexp));
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION, oldRegExpression, regExpression));
 	}
 
 	/**
@@ -93,8 +95,8 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ValidationPackage.YREGEXP_VALIDATOR__REGEXP:
-				return getRegexp();
+			case ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION:
+				return getRegExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,8 +109,8 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ValidationPackage.YREGEXP_VALIDATOR__REGEXP:
-				setRegexp((String)newValue);
+			case ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION:
+				setRegExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +124,8 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ValidationPackage.YREGEXP_VALIDATOR__REGEXP:
-				setRegexp(REGEXP_EDEFAULT);
+			case ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION:
+				setRegExpression(REG_EXPRESSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,10 +139,52 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ValidationPackage.YREGEXP_VALIDATOR__REGEXP:
-				return REGEXP_EDEFAULT == null ? regexp != null : !REGEXP_EDEFAULT.equals(regexp);
+			case ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION:
+				return REG_EXPRESSION_EDEFAULT == null ? regExpression != null : !REG_EXPRESSION_EDEFAULT.equals(regExpression);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == YValidatable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YRegexpValidatable.class) {
+			switch (derivedFeatureID) {
+				case ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION: return ValidationPackage.YREGEXP_VALIDATABLE__REG_EXPRESSION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == YValidatable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YRegexpValidatable.class) {
+			switch (baseFeatureID) {
+				case ValidationPackage.YREGEXP_VALIDATABLE__REG_EXPRESSION: return ValidationPackage.YREGEXP_VALIDATOR__REG_EXPRESSION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -153,8 +197,8 @@ public class YRegexpValidatorImpl extends YValidatorImpl implements YRegexpValid
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (regexp: ");
-		result.append(regexp);
+		result.append(" (regExpression: ");
+		result.append(regExpression);
 		result.append(')');
 		return result.toString();
 	}

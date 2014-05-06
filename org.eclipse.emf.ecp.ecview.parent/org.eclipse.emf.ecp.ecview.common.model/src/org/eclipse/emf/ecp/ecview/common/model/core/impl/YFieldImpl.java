@@ -41,6 +41,7 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#isInitialEnabled <em>Initial Enabled</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#isEnabled <em>Enabled</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl#getInternalValidators <em>Internal Validators</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +126,15 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 	 * @ordered
 	 */
 	protected EList<YValidator> validators;
+	/**
+	 * The cached value of the '{@link #getInternalValidators() <em>Internal Validators</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInternalValidators()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YValidator> internalValidators;
 	/**
 	 * A list with all value change listeners registered.
 	 * 
@@ -242,6 +252,18 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 			validators = new EObjectContainmentEList.Resolving<YValidator>(YValidator.class, this, CoreModelPackage.YFIELD__VALIDATORS);
 		}
 		return validators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<YValidator> getInternalValidators() {
+		if (internalValidators == null) {
+			internalValidators = new EObjectContainmentEList.Resolving<YValidator>(YValidator.class, this, CoreModelPackage.YFIELD__INTERNAL_VALIDATORS);
+		}
+		return internalValidators;
 	}
 
 	/**
@@ -374,6 +396,8 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 		switch (featureID) {
 			case CoreModelPackage.YFIELD__VALIDATORS:
 				return ((InternalEList<?>)getValidators()).basicRemove(otherEnd, msgs);
+			case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+				return ((InternalEList<?>)getInternalValidators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -405,6 +429,8 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 				return isEnabled();
 			case CoreModelPackage.YFIELD__VALIDATORS:
 				return getValidators();
+			case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+				return getInternalValidators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -433,6 +459,10 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 				getValidators().clear();
 				getValidators().addAll((Collection<? extends YValidator>)newValue);
 				return;
+			case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+				getInternalValidators().clear();
+				getInternalValidators().addAll((Collection<? extends YValidator>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -459,6 +489,9 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 			case CoreModelPackage.YFIELD__VALIDATORS:
 				getValidators().clear();
 				return;
+			case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+				getInternalValidators().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -480,6 +513,8 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 				return enabled != ENABLED_EDEFAULT;
 			case CoreModelPackage.YFIELD__VALIDATORS:
 				return validators != null && !validators.isEmpty();
+			case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+				return internalValidators != null && !internalValidators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

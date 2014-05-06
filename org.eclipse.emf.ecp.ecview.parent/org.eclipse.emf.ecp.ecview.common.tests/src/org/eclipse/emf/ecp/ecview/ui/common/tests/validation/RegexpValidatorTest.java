@@ -49,7 +49,7 @@ public class RegexpValidatorTest {
 		IValidatorEditpart validatorEditpart = editpartManager
 				.getEditpart(yValidator);
 		IValidator validator = validatorEditpart.getValidator();
-		yValidator.setRegexp("H..lo");
+		yValidator.setRegExpression("H..lo");
 
 		IStatus status = validator.validateValue("Hello");
 		assertTrue(status.isOK());
@@ -75,13 +75,13 @@ public class RegexpValidatorTest {
 				.getEditpart(yValidator);
 		IValidator validator = validatorEditpart.getValidator();
 
-		yValidator.setRegexp("H..lo");
+		yValidator.setRegExpression("H..lo");
 		IStatus status = validator.validateValue("Hello");
 		assertTrue(status.isOK());
 		assertEquals(Severity.OK, status.getSeverity());
 		assertEquals(null, status.getMessage());
 
-		yValidator.setRegexp("Worl?d");
+		yValidator.setRegExpression("Worl?d");
 		status = validator.validateValue("Hello");
 		assertFalse(status.isOK());
 		assertEquals(Severity.ERROR, status.getSeverity());

@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.model.datatypes.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
@@ -78,6 +79,7 @@ public class DatatypesSwitch<T> extends Switch<T> {
 			case DatatypesPackage.YDT_BASE: {
 				YDtBase yDtBase = (YDtBase)theEObject;
 				T result = caseYDtBase(yDtBase);
+				if (result == null) result = caseYElement(yDtBase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -85,6 +87,7 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				YDatatype yDatatype = (YDatatype)theEObject;
 				T result = caseYDatatype(yDatatype);
 				if (result == null) result = caseYDtBase(yDatatype);
+				if (result == null) result = caseYElement(yDatatype);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -92,6 +95,7 @@ public class DatatypesSwitch<T> extends Switch<T> {
 				YDatadescription yDatadescription = (YDatadescription)theEObject;
 				T result = caseYDatadescription(yDatadescription);
 				if (result == null) result = caseYDtBase(yDatadescription);
+				if (result == null) result = caseYElement(yDatadescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,6 +145,21 @@ public class DatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYDatadescription(YDatadescription object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YElement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YElement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYElement(YElement object) {
 		return null;
 	}
 

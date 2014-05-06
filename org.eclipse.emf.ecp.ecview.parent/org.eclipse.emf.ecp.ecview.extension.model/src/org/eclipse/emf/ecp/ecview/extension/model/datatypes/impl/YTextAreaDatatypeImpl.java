@@ -164,7 +164,7 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int REG_EXPRESSION_EDEFAULT = 0;
+	protected static final String REG_EXPRESSION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getRegExpression() <em>Reg Expression</em>}' attribute.
@@ -174,7 +174,7 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected int regExpression = REG_EXPRESSION_EDEFAULT;
+	protected String regExpression = REG_EXPRESSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -317,7 +317,7 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getRegExpression() {
+	public String getRegExpression() {
 		return regExpression;
 	}
 
@@ -326,8 +326,8 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRegExpression(int newRegExpression) {
-		int oldRegExpression = regExpression;
+	public void setRegExpression(String newRegExpression) {
+		String oldRegExpression = regExpression;
 		regExpression = newRegExpression;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION, oldRegExpression, regExpression));
@@ -388,7 +388,7 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 				setMaxLength((Integer)newValue);
 				return;
 			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION:
-				setRegExpression((Integer)newValue);
+				setRegExpression((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -448,7 +448,7 @@ public class YTextAreaDatatypeImpl extends MinimalEObjectImpl.Container implemen
 			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__MAX_LENGTH:
 				return maxLength != MAX_LENGTH_EDEFAULT;
 			case ExtDatatypesPackage.YTEXT_AREA_DATATYPE__REG_EXPRESSION:
-				return regExpression != REG_EXPRESSION_EDEFAULT;
+				return REG_EXPRESSION_EDEFAULT == null ? regExpression != null : !REG_EXPRESSION_EDEFAULT.equals(regExpression);
 		}
 		return super.eIsSet(featureID);
 	}

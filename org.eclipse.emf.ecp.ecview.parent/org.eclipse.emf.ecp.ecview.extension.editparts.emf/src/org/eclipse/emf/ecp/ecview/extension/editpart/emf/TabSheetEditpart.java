@@ -41,7 +41,7 @@ public class TabSheetEditpart extends EmbeddableEditpart<YTabSheet> implements
 	public TabSheetEditpart() {
 
 	}
-
+	
 	@Override
 	protected YTabSheet createModel() {
 		return ExtensionModelFactory.eINSTANCE.createYTabSheet();

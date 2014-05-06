@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 
@@ -21,6 +22,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 @SuppressWarnings("restriction")
 public class TableEditpart extends FieldEditpart<YTable> implements
 		ITableEditpart {
+
+	public TableEditpart() {
+		super(ExtensionModelPackage.Literals.YTABLE__DATATYPE);
+	}
 
 	@Override
 	protected YTable createModel() {

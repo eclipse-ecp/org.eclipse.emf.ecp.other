@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IComboBoxEditpart;
 
@@ -22,10 +23,13 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IComboBoxEditpart;
 public class ComboBoxEditpart extends FieldEditpart<YComboBox> implements
 		IComboBoxEditpart {
 
+	public ComboBoxEditpart() {
+		super(ExtensionModelPackage.Literals.YCOMBO_BOX__DATATYPE);
+	}
+
 	@Override
 	protected YComboBox createModel() {
-		return (YComboBox) ExtensionModelFactory.eINSTANCE
-				.createYComboBox();
+		return (YComboBox) ExtensionModelFactory.eINSTANCE.createYComboBox();
 	}
 
 }

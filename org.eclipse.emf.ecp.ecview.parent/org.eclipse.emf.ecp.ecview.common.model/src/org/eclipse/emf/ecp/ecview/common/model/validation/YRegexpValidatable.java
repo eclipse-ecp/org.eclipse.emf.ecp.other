@@ -29,12 +29,12 @@ public interface YRegexpValidatable extends YValidatable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reg Expression</em>' attribute.
-	 * @see #setRegExpression(int)
+	 * @see #setRegExpression(String)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage#getYRegexpValidatable_RegExpression()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getRegExpression();
+	String getRegExpression();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable#getRegExpression <em>Reg Expression</em>}' attribute.
@@ -44,6 +44,6 @@ public interface YRegexpValidatable extends YValidatable {
 	 * @see #getRegExpression()
 	 * @generated
 	 */
-	void setRegExpression(int value);
+	void setRegExpression(String value);
 
 } // YRegexpValidatable

@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITreeEditpart;
 
@@ -20,6 +21,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITreeEditpart;
  */
 @SuppressWarnings("restriction")
 public class TreeEditpart extends FieldEditpart<YTree> implements ITreeEditpart {
+
+	public TreeEditpart() {
+		super(ExtensionModelPackage.Literals.YTREE__DATATYPE);
+	}
 
 	@Override
 	protected YTree createModel() {

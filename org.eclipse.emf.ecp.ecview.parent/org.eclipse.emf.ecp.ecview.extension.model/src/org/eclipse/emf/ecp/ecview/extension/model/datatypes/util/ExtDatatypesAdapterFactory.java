@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidatable;
@@ -139,6 +140,10 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYTabSheetDatatype(YTabSheetDatatype object) {
 				return createYTabSheetDatatypeAdapter();
+			}
+			@Override
+			public Adapter caseYElement(YElement object) {
+				return createYElementAdapter();
 			}
 			@Override
 			public Adapter caseYDtBase(YDtBase object) {
@@ -377,6 +382,20 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYTabSheetDatatypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YElement <em>YElement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YElement
+	 * @generated
+	 */
+	public Adapter createYElementAdapter() {
 		return null;
 	}
 

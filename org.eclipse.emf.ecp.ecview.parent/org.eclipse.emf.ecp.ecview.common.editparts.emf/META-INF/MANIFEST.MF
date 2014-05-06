@@ -17,8 +17,10 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.databinding,
  org.slf4j;version="1.6.4"
 Export-Package: org.eclipse.emf.ecp.ecview.common.editpart.emf;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.binding,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.common,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.common;x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.datatypes;x-internal:=true,
  org.eclipse.emf.ecp.ecview.common.editpart.emf.internal;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.validation;x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;x-internal:=true
 Service-Component: OSGI-INF/editPartManager.xml

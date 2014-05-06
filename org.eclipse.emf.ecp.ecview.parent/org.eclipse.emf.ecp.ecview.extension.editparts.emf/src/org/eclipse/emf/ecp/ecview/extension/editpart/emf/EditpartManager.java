@@ -15,6 +15,33 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.BrowserDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.CheckBoxDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.ComboBoxDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.DateTimeDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.DecimalDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.ListDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.NumericDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.OptionsGroupDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.ProgressBarDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.TabSheetDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.TableDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.TextDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.TreeDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
@@ -53,6 +80,20 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITreeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IBrowserDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ICheckBoxDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IComboBoxDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IDateTimeDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IDecimalDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IListDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.INumericDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IOptionsGroupDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IProgressBarDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITabSheetDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITableDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITextAreaDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITextDatatypeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITreeDatatypeEditpart;
 
 /**
  * An implementation of IEditPartManager for eObjects with
@@ -112,6 +153,44 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TabSheetEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITabEditpart.class)) {
 			result = createNewInstance(TabEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IBrowserDatatypeEditpart.class)) {
+			result = createNewInstance(BrowserDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(ICheckBoxDatatypeEditpart.class)) {
+			result = createNewInstance(CheckBoxDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IComboBoxDatatypeEditpart.class)) {
+			result = createNewInstance(ComboBoxDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IDateTimeDatatypeEditpart.class)) {
+			result = createNewInstance(DateTimeDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IDecimalDatatypeEditpart.class)) {
+			result = createNewInstance(DecimalDatatypeEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IListDatatypeEditpart.class)) {
+			result = createNewInstance(ListDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(INumericDatatypeEditpart.class)) {
+			result = createNewInstance(NumericDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IOptionsGroupDatatypeEditpart.class)) {
+			result = createNewInstance(OptionsGroupDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IProgressBarDatatypeEditpart.class)) {
+			result = createNewInstance(ProgressBarDatatypeEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ITableDatatypeEditpart.class)) {
+			result = createNewInstance(TableDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(ITabSheetDatatypeEditpart.class)) {
+			result = createNewInstance(TabSheetDatatypeEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(ITextAreaDatatypeEditpart.class)) {
+			result = createNewInstance(TextAreaEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ITextDatatypeEditpart.class)) {
+			result = createNewInstance(TextDatatypeEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ITreeDatatypeEditpart.class)) {
+			result = createNewInstance(TreeDatatypeEditpart.class);
 		}
 
 		if (result != null) {
@@ -176,6 +255,34 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TabSheetEditpart.class);
 		} else if (yElement instanceof YTab) {
 			result = createNewInstance(TabEditpart.class);
+		} else if (yElement instanceof YBrowserDatatype) {
+			result = createNewInstance(BrowserDatatypeEditpart.class);
+		} else if (yElement instanceof YCheckBoxDatatype) {
+			result = createNewInstance(CheckBoxDatatypeEditpart.class);
+		} else if (yElement instanceof YComboBoxDatatype) {
+			result = createNewInstance(ComboBoxDatatypeEditpart.class);
+		} else if (yElement instanceof YDateTimeDatatype) {
+			result = createNewInstance(DateTimeDatatypeEditpart.class);
+		} else if (yElement instanceof YDecimalDatatype) {
+			result = createNewInstance(DecimalDatatypeEditpart.class);
+		} else if (yElement instanceof YListDataType) {
+			result = createNewInstance(ListDatatypeEditpart.class);
+		} else if (yElement instanceof YNumericDatatype) {
+			result = createNewInstance(NumericDatatypeEditpart.class);
+		} else if (yElement instanceof YOptionsGroupDataType) {
+			result = createNewInstance(OptionsGroupDatatypeEditpart.class);
+		} else if (yElement instanceof YProgressBarDatatype) {
+			result = createNewInstance(ProgressBarDatatypeEditpart.class);
+		} else if (yElement instanceof YTableDatatype) {
+			result = createNewInstance(TableDatatypeEditpart.class);
+		} else if (yElement instanceof YTabSheetDatatype) {
+			result = createNewInstance(TabSheetDatatypeEditpart.class);
+		} else if (yElement instanceof YTextAreaDatatype) {
+			result = createNewInstance(TextAreaEditpart.class);
+		} else if (yElement instanceof YTextDatatype) {
+			result = createNewInstance(TextDatatypeEditpart.class);
+		} else if (yElement instanceof YTreeDatatype) {
+			result = createNewInstance(TreeDatatypeEditpart.class);
 		}
 
 		if (result != null) {

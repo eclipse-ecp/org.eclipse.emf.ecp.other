@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 
@@ -22,6 +23,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 public class ListEditpart extends FieldEditpart<YList> implements
 		IListEditpart {
 
+	public ListEditpart() {
+		super(ExtensionModelPackage.Literals.YLIST__DATATYPE);
+	}
+	
 	@Override
 	protected YList createModel() {
 		return (YList) ExtensionModelFactory.eINSTANCE

@@ -12,12 +12,17 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IOptionsGroupEditpart;
 
 @SuppressWarnings("restriction")
 public class OptionsGroupEditpart extends FieldEditpart<YOptionsGroup>
 		implements IOptionsGroupEditpart {
+
+	public OptionsGroupEditpart() {
+		super(ExtensionModelPackage.Literals.YOPTIONS_GROUP__DATATYPE);
+	}
 
 	@Override
 	protected YOptionsGroup createModel() {

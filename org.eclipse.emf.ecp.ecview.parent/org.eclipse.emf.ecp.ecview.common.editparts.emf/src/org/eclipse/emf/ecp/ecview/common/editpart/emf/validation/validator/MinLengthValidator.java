@@ -10,7 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;
 
-import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidatable;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidationCodes;
 import org.eclipse.emf.ecp.ecview.common.validation.Status;
@@ -20,11 +20,11 @@ public class MinLengthValidator extends StringValidator {
 
 	private int minLength;
 
-	public MinLengthValidator(YMinLengthValidator yValidator) {
+	public MinLengthValidator(YMinLengthValidatable yValidator) {
 		this(yValidator, null);
 	}
 
-	public MinLengthValidator(YMinLengthValidator yValidator, String message) {
+	public MinLengthValidator(YMinLengthValidatable yValidator, String message) {
 		super(message);
 		updateParameter(yValidator);
 	}
@@ -53,7 +53,7 @@ public class MinLengthValidator extends StringValidator {
 
 	@Override
 	public void updateParameter(Object model) {
-		YMinLengthValidator yValidator = (YMinLengthValidator) model;
+		YMinLengthValidatable yValidator = (YMinLengthValidatable) model;
 		this.minLength = yValidator.getMinLength();
 	};
 

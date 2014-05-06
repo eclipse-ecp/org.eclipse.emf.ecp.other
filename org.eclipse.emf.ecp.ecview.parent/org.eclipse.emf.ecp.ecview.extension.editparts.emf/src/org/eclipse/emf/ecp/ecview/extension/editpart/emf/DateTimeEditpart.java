@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 
@@ -21,6 +22,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 @SuppressWarnings("restriction")
 public class DateTimeEditpart extends FieldEditpart<YDateTime> implements
 		IDateTimeEditpart {
+
+	public DateTimeEditpart() {
+		super(ExtensionModelPackage.Literals.YDATE_TIME__DATATYPE);
+	}
 
 	@Override
 	protected YDateTime createModel() {

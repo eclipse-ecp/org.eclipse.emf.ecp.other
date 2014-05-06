@@ -114,6 +114,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YINPUT__VISIBLE = CoreModelPackage.YFIELD__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__VISIBILITY_PROCESSOR = CoreModelPackage.YFIELD__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +230,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_FIELD__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -366,6 +384,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YGRID_LAYOUT__VISIBLE = CoreModelPackage.YLAYOUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YGRID_LAYOUT__VISIBILITY_PROCESSOR = CoreModelPackage.YLAYOUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -541,6 +568,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YHORIZONTAL_LAYOUT__VISIBLE = CoreModelPackage.YLAYOUT__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHORIZONTAL_LAYOUT__VISIBILITY_PROCESSOR = CoreModelPackage.YLAYOUT__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -685,6 +721,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVERTICAL_LAYOUT__VISIBLE = CoreModelPackage.YLAYOUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVERTICAL_LAYOUT__VISIBILITY_PROCESSOR = CoreModelPackage.YLAYOUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -886,6 +931,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTABLE__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -1197,6 +1251,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTREE__VISIBLE = YINPUT__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1396,6 +1459,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YOPTIONS_GROUP__VISIBLE = YINPUT__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1583,6 +1655,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -1774,6 +1855,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLABEL__VISIBLE = CoreModelPackage.YFIELD__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__VISIBILITY_PROCESSOR = CoreModelPackage.YFIELD__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1898,6 +1988,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_AREA__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -2035,6 +2134,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCHECK_BOX__VISIBLE = YINPUT__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2168,6 +2276,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBROWSER__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -2305,6 +2422,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDATE_TIME__VISIBLE = YINPUT__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2438,6 +2564,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_FIELD__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -2575,6 +2710,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YNUMERIC_FIELD__VISIBLE = YINPUT__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2708,6 +2852,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCOMBO_BOX__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -2872,6 +3025,15 @@ public interface ExtensionModelPackage extends EPackage {
 	int YBUTTON__VISIBLE = CoreModelPackage.YACTION__VISIBLE;
 
 	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__VISIBILITY_PROCESSOR = CoreModelPackage.YACTION__VISIBILITY_PROCESSOR;
+
+	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2960,6 +3122,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTOGGLE_BUTTON__VISIBLE = CoreModelPackage.YACTION__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__VISIBILITY_PROCESSOR = CoreModelPackage.YACTION__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
@@ -3069,6 +3240,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YPROGRESS_BAR__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -3214,6 +3394,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTAB_SHEET__VISIBLE = CoreModelPackage.YEMBEDDABLE__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__VISIBILITY_PROCESSOR = CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR;
 
 	/**
 	 * The feature id for the '<em><b>Tabs</b></em>' containment reference list.

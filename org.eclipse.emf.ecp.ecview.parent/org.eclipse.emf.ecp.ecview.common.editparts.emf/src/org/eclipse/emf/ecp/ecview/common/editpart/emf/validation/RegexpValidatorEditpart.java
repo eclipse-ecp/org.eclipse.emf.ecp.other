@@ -11,7 +11,7 @@ public class RegexpValidatorEditpart extends
 		ValidatorEditpart<YRegexpValidator> implements IRegexpValidatorEditpart {
 
 	public RegexpValidatorEditpart() {
-		super(ValidationPackage.Literals.YREGEXP_VALIDATOR__REGEXP);
+		super(ValidationPackage.Literals.YREGEXP_VALIDATABLE__REG_EXPRESSION);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidatable;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidationCodes;
 import org.eclipse.emf.ecp.ecview.common.validation.Status;
@@ -28,11 +28,11 @@ public class RegexValidator extends StringValidator {
 	private Matcher matcher = null;
 	private String regexp;
 
-	public RegexValidator(YRegexpValidator yValidator) {
+	public RegexValidator(YRegexpValidatable yValidator) {
 		this(yValidator, null);
 	}
 
-	public RegexValidator(YRegexpValidator yValidator, String message) {
+	public RegexValidator(YRegexpValidatable yValidator, String message) {
 		super(message);
 		updateParameter(yValidator);
 	}
@@ -73,8 +73,8 @@ public class RegexValidator extends StringValidator {
 
 	@Override
 	public void updateParameter(Object model) {
-		YRegexpValidator yValidator = (YRegexpValidator) model;
-		this.regexp = yValidator.getRegexp();
+		YRegexpValidatable yValidator = (YRegexpValidatable) model;
+		this.regexp = yValidator.getRegExpression();
 		this.pattern = Pattern.compile(regexp != null ? regexp : "");
 		this.matcher = null;
 	};

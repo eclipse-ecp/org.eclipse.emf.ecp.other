@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IProgressBarEditpart;
 
@@ -21,6 +22,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IProgressBarEditpa
 @SuppressWarnings("restriction")
 public class ProgressBarEditpart extends FieldEditpart<YProgressBar> implements
 		IProgressBarEditpart {
+
+	public ProgressBarEditpart() {
+		super(ExtensionModelPackage.Literals.YPROGRESS_BAR__DATATYPE);
+	}
 
 	@Override
 	protected YProgressBar createModel() {

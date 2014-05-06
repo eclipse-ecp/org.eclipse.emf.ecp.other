@@ -12,7 +12,7 @@ public class MaxLengthValidatorEditpart extends
 		IMaxLengthValidatorEditpart {
 
 	public MaxLengthValidatorEditpart() {
-		super(ValidationPackage.Literals.YMAX_LENGTH_VALIDATOR__MAX_LENGTH);
+		super(ValidationPackage.Literals.YMAX_LENGTH_VALIDATABLE__MAX_LENGTH);
 	}
 
 	@Override

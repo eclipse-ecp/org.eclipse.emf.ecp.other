@@ -360,13 +360,22 @@ public interface CoreModelPackage extends EPackage {
 	int YFIELD__VALIDATORS = YEMBEDDABLE_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__INTERNAL_VALIDATORS = YEMBEDDABLE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>YField</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 5;
+	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.
@@ -1563,6 +1572,17 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYField_Validators();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#getInternalValidators <em>Internal Validators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Internal Validators</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YField#getInternalValidators()
+	 * @see #getYField()
+	 * @generated
+	 */
+	EReference getYField_InternalValidators();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView <em>YView</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2377,6 +2397,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YFIELD__VALIDATORS = eINSTANCE.getYField_Validators();
+
+		/**
+		 * The meta object literal for the '<em><b>Internal Validators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YFIELD__INTERNAL_VALIDATORS = eINSTANCE.getYField_InternalValidators();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.

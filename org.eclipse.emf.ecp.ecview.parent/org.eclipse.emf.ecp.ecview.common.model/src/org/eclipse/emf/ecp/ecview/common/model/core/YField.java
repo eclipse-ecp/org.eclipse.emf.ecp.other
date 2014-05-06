@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#getValidators <em>Validators</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#getInternalValidators <em>Internal Validators</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +49,22 @@ public interface YField extends YEmbeddable, YEditable, YEnable {
 	 * @generated
 	 */
 	EList<YValidator> getValidators();
+
+	/**
+	 * Returns the value of the '<em><b>Internal Validators</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Internal Validators</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Internal Validators</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYField_InternalValidators()
+	 * @model containment="true" resolveProxies="true" transient="true"
+	 * @generated
+	 */
+	EList<YValidator> getInternalValidators();
 
 	/**
 	 * <!-- begin-user-doc -->

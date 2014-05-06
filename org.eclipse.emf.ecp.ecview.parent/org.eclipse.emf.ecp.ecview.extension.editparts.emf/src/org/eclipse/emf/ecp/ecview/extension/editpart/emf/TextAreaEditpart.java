@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 
@@ -22,10 +23,13 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 public class TextAreaEditpart extends FieldEditpart<YTextArea> implements
 		ITextAreaEditpart {
 
+	public TextAreaEditpart() {
+		super(ExtensionModelPackage.Literals.YTEXT_AREA__DATATYPE);
+	}
+
 	@Override
 	protected YTextArea createModel() {
-		return (YTextArea) ExtensionModelFactory.eINSTANCE
-				.createYTextArea();
+		return (YTextArea) ExtensionModelFactory.eINSTANCE.createYTextArea();
 	}
 
 }

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
@@ -117,6 +118,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yInput);
 				if (result == null) result = caseYCssAble(yInput);
 				if (result == null) result = caseYVisibleable(yInput);
+				if (result == null) result = caseYVisibilityProcessable(yInput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,6 +135,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yTextField);
 				if (result == null) result = caseYCssAble(yTextField);
 				if (result == null) result = caseYVisibleable(yTextField);
+				if (result == null) result = caseYVisibilityProcessable(yTextField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +149,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yGridLayout);
 				if (result == null) result = caseYCssAble(yGridLayout);
 				if (result == null) result = caseYVisibleable(yGridLayout);
+				if (result == null) result = caseYVisibilityProcessable(yGridLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -165,6 +169,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yHorizontalLayout);
 				if (result == null) result = caseYCssAble(yHorizontalLayout);
 				if (result == null) result = caseYVisibleable(yHorizontalLayout);
+				if (result == null) result = caseYVisibilityProcessable(yHorizontalLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -184,6 +189,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yVerticalLayout);
 				if (result == null) result = caseYCssAble(yVerticalLayout);
 				if (result == null) result = caseYVisibleable(yVerticalLayout);
+				if (result == null) result = caseYVisibilityProcessable(yVerticalLayout);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -214,6 +220,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yTable);
 				if (result == null) result = caseYCssAble(yTable);
 				if (result == null) result = caseYVisibleable(yTable);
+				if (result == null) result = caseYVisibilityProcessable(yTable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,6 +239,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yTree);
 				if (result == null) result = caseYCssAble(yTree);
 				if (result == null) result = caseYVisibleable(yTree);
+				if (result == null) result = caseYVisibilityProcessable(yTree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -250,6 +258,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yOptionsGroup);
 				if (result == null) result = caseYCssAble(yOptionsGroup);
 				if (result == null) result = caseYVisibleable(yOptionsGroup);
+				if (result == null) result = caseYVisibilityProcessable(yOptionsGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -268,6 +277,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yList);
 				if (result == null) result = caseYCssAble(yList);
 				if (result == null) result = caseYVisibleable(yList);
+				if (result == null) result = caseYVisibilityProcessable(yList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -283,6 +293,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yLabel);
 				if (result == null) result = caseYCssAble(yLabel);
 				if (result == null) result = caseYVisibleable(yLabel);
+				if (result == null) result = caseYVisibilityProcessable(yLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -299,6 +310,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yTextArea);
 				if (result == null) result = caseYCssAble(yTextArea);
 				if (result == null) result = caseYVisibleable(yTextArea);
+				if (result == null) result = caseYVisibilityProcessable(yTextArea);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -315,6 +327,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yCheckBox);
 				if (result == null) result = caseYCssAble(yCheckBox);
 				if (result == null) result = caseYVisibleable(yCheckBox);
+				if (result == null) result = caseYVisibilityProcessable(yCheckBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -331,6 +344,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yBrowser);
 				if (result == null) result = caseYCssAble(yBrowser);
 				if (result == null) result = caseYVisibleable(yBrowser);
+				if (result == null) result = caseYVisibilityProcessable(yBrowser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -347,6 +361,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yDateTime);
 				if (result == null) result = caseYCssAble(yDateTime);
 				if (result == null) result = caseYVisibleable(yDateTime);
+				if (result == null) result = caseYVisibilityProcessable(yDateTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -363,6 +378,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yDecimalField);
 				if (result == null) result = caseYCssAble(yDecimalField);
 				if (result == null) result = caseYVisibleable(yDecimalField);
+				if (result == null) result = caseYVisibilityProcessable(yDecimalField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -379,6 +395,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yNumericField);
 				if (result == null) result = caseYCssAble(yNumericField);
 				if (result == null) result = caseYVisibleable(yNumericField);
+				if (result == null) result = caseYVisibilityProcessable(yNumericField);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -396,6 +413,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yComboBox);
 				if (result == null) result = caseYCssAble(yComboBox);
 				if (result == null) result = caseYVisibleable(yComboBox);
+				if (result == null) result = caseYVisibilityProcessable(yComboBox);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -408,6 +426,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yButton);
 				if (result == null) result = caseYCssAble(yButton);
 				if (result == null) result = caseYVisibleable(yButton);
+				if (result == null) result = caseYVisibilityProcessable(yButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -422,6 +441,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yToggleButton);
 				if (result == null) result = caseYCssAble(yToggleButton);
 				if (result == null) result = caseYVisibleable(yToggleButton);
+				if (result == null) result = caseYVisibilityProcessable(yToggleButton);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -438,6 +458,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yProgressBar);
 				if (result == null) result = caseYCssAble(yProgressBar);
 				if (result == null) result = caseYVisibleable(yProgressBar);
+				if (result == null) result = caseYVisibilityProcessable(yProgressBar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -448,6 +469,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYElement(yTabSheet);
 				if (result == null) result = caseYCssAble(yTabSheet);
 				if (result == null) result = caseYVisibleable(yTabSheet);
+				if (result == null) result = caseYVisibilityProcessable(yTabSheet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -895,6 +917,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYVisibleable(YVisibleable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YVisibility Processable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YVisibility Processable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYVisibilityProcessable(YVisibilityProcessable object) {
 		return null;
 	}
 

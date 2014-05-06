@@ -10,7 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.datatypes;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 
 /**
@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getDescription <em>Description</em>}</li>
  * </ul>
@@ -31,33 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface YDtBase extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage#getYDtBase_Id()
-	 * @model id="true" required="true"
-	 * @generated
-	 */
-	String getId();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(String value);
-
+public interface YDtBase extends YElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

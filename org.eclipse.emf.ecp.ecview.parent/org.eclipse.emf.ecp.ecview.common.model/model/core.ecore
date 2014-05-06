@@ -20,6 +20,8 @@
     <eOperations name="removeAllValueChangListeners"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validators" upperBound="-1"
         eType="ecore:EClass validation.ecore#//YValidator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="internalValidators" upperBound="-1"
+        eType="ecore:EClass validation.ecore#//YValidator" transient="true" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YView" eSuperTypes="#//YElement #//YCssAble #//YMarginable #//YVisibilityProcessable">
     <eOperations name="getOrCreateBindingSet" eType="ecore:EClass binding.ecore#//YBindingSet"/>

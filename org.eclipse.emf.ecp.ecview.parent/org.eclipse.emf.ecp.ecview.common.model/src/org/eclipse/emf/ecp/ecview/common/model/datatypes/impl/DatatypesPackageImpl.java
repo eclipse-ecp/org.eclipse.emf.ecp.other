@@ -146,7 +146,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDtBase_Id() {
+	public EAttribute getYDtBase_Name() {
 		return (EAttribute)yDtBaseEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -155,17 +155,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDtBase_Name() {
-		return (EAttribute)yDtBaseEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getYDtBase_Description() {
-		return (EAttribute)yDtBaseEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)yDtBaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -242,7 +233,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		// Create classes and their features
 		yDtBaseEClass = createEClass(YDT_BASE);
-		createEAttribute(yDtBaseEClass, YDT_BASE__ID);
 		createEAttribute(yDtBaseEClass, YDT_BASE__NAME);
 		createEAttribute(yDtBaseEClass, YDT_BASE__DESCRIPTION);
 
@@ -278,6 +268,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
 		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
 
 		// Create type parameters
@@ -285,12 +276,12 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		yDtBaseEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yDatatypeEClass.getESuperTypes().add(this.getYDtBase());
 		yDatadescriptionEClass.getESuperTypes().add(this.getYDtBase());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yDtBaseEClass, YDtBase.class, "YDtBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYDtBase_Id(), ecorePackage.getEString(), "id", null, 1, 1, YDtBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDtBase_Name(), ecorePackage.getEString(), "name", null, 0, 1, YDtBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDtBase_Description(), ecorePackage.getEString(), "description", null, 0, 1, YDtBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

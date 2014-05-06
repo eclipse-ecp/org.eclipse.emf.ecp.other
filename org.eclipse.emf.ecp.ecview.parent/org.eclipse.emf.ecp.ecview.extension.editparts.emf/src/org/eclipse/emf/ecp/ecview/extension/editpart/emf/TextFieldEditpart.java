@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
 
@@ -19,11 +20,15 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart
  * The implementation of the IUiTextFieldEditpart.
  */
 @SuppressWarnings("restriction")
-public class TextFieldEditpart extends FieldEditpart<YTextField> implements ITextFieldEditpart {
+public class TextFieldEditpart extends FieldEditpart<YTextField> implements
+		ITextFieldEditpart {
+
+	public TextFieldEditpart() {
+		super(ExtensionModelPackage.Literals.YTEXT_FIELD__DATATYPE);
+	}
 
 	@Override
 	protected YTextField createModel() {
 		return (YTextField) ExtensionModelFactory.eINSTANCE.createYTextField();
 	}
-
 }

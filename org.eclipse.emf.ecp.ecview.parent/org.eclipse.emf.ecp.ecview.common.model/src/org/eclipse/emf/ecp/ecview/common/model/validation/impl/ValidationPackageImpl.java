@@ -196,15 +196,6 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYMinLengthValidator_MinLength() {
-		return (EAttribute)yMinLengthValidatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYMaxLengthValidator() {
 		return yMaxLengthValidatorEClass;
 	}
@@ -214,26 +205,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYMaxLengthValidator_MaxLength() {
-		return (EAttribute)yMaxLengthValidatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYRegexpValidator() {
 		return yRegexpValidatorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYRegexpValidator_Regexp() {
-		return (EAttribute)yRegexpValidatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -331,13 +304,10 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		createEAttribute(yValidatorEClass, YVALIDATOR__TYPE);
 
 		yMinLengthValidatorEClass = createEClass(YMIN_LENGTH_VALIDATOR);
-		createEAttribute(yMinLengthValidatorEClass, YMIN_LENGTH_VALIDATOR__MIN_LENGTH);
 
 		yMaxLengthValidatorEClass = createEClass(YMAX_LENGTH_VALIDATOR);
-		createEAttribute(yMaxLengthValidatorEClass, YMAX_LENGTH_VALIDATOR__MAX_LENGTH);
 
 		yRegexpValidatorEClass = createEClass(YREGEXP_VALIDATOR);
-		createEAttribute(yRegexpValidatorEClass, YREGEXP_VALIDATOR__REGEXP);
 
 		yValidatableEClass = createEClass(YVALIDATABLE);
 
@@ -384,8 +354,11 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		// Add supertypes to classes
 		yValidatorEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yMinLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
+		yMinLengthValidatorEClass.getESuperTypes().add(this.getYMinLengthValidatable());
 		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
+		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYMaxLengthValidatable());
 		yRegexpValidatorEClass.getESuperTypes().add(this.getYValidator());
+		yRegexpValidatorEClass.getESuperTypes().add(this.getYRegexpValidatable());
 		yMinLengthValidatableEClass.getESuperTypes().add(this.getYValidatable());
 		yMaxLengthValidatableEClass.getESuperTypes().add(this.getYValidatable());
 		yRegexpValidatableEClass.getESuperTypes().add(this.getYValidatable());
@@ -398,13 +371,10 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		initEAttribute(getYValidator_Type(), g1, "type", null, 0, 1, YValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yMinLengthValidatorEClass, YMinLengthValidator.class, "YMinLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYMinLengthValidator_MinLength(), ecorePackage.getEInt(), "minLength", null, 1, 1, YMinLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yMaxLengthValidatorEClass, YMaxLengthValidator.class, "YMaxLengthValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYMaxLengthValidator_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 1, 1, YMaxLengthValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yRegexpValidatorEClass, YRegexpValidator.class, "YRegexpValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYRegexpValidator_Regexp(), ecorePackage.getEString(), "regexp", null, 1, 1, YRegexpValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yValidatableEClass, YValidatable.class, "YValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -415,7 +385,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		initEAttribute(getYMaxLengthValidatable_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 1, 1, YMaxLengthValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yRegexpValidatableEClass, YRegexpValidatable.class, "YRegexpValidatable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYRegexpValidatable_RegExpression(), ecorePackage.getEInt(), "regExpression", null, 1, 1, YRegexpValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYRegexpValidatable_RegExpression(), ecorePackage.getEString(), "regExpression", null, 1, 1, YRegexpValidatable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

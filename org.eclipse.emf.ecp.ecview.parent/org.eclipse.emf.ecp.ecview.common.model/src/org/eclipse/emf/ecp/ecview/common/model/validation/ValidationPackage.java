@@ -214,13 +214,13 @@ public interface ValidationPackage extends EPackage {
 	int YREGEXP_VALIDATOR__TYPE = YVALIDATOR__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Regexp</b></em>' attribute.
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YREGEXP_VALIDATOR__REGEXP = YVALIDATOR_FEATURE_COUNT + 0;
+	int YREGEXP_VALIDATOR__REG_EXPRESSION = YVALIDATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>YRegexp Validator</em>' class.
@@ -366,17 +366,6 @@ public interface ValidationPackage extends EPackage {
 	EClass getYMinLengthValidator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator#getMinLength <em>Min Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Length</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator#getMinLength()
-	 * @see #getYMinLengthValidator()
-	 * @generated
-	 */
-	EAttribute getYMinLengthValidator_MinLength();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator <em>YMax Length Validator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -387,17 +376,6 @@ public interface ValidationPackage extends EPackage {
 	EClass getYMaxLengthValidator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator#getMaxLength <em>Max Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Max Length</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator#getMaxLength()
-	 * @see #getYMaxLengthValidator()
-	 * @generated
-	 */
-	EAttribute getYMaxLengthValidator_MaxLength();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator <em>YRegexp Validator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -406,17 +384,6 @@ public interface ValidationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYRegexpValidator();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator#getRegexp <em>Regexp</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Regexp</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator#getRegexp()
-	 * @see #getYRegexpValidator()
-	 * @generated
-	 */
-	EAttribute getYRegexpValidator_Regexp();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}'.
@@ -543,14 +510,6 @@ public interface ValidationPackage extends EPackage {
 		EClass YMIN_LENGTH_VALIDATOR = eINSTANCE.getYMinLengthValidator();
 
 		/**
-		 * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YMIN_LENGTH_VALIDATOR__MIN_LENGTH = eINSTANCE.getYMinLengthValidator_MinLength();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YMaxLengthValidatorImpl <em>YMax Length Validator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -561,14 +520,6 @@ public interface ValidationPackage extends EPackage {
 		EClass YMAX_LENGTH_VALIDATOR = eINSTANCE.getYMaxLengthValidator();
 
 		/**
-		 * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YMAX_LENGTH_VALIDATOR__MAX_LENGTH = eINSTANCE.getYMaxLengthValidator_MaxLength();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YRegexpValidatorImpl <em>YRegexp Validator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -577,14 +528,6 @@ public interface ValidationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YREGEXP_VALIDATOR = eINSTANCE.getYRegexpValidator();
-
-		/**
-		 * The meta object literal for the '<em><b>Regexp</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YREGEXP_VALIDATOR__REGEXP = eINSTANCE.getYRegexpValidator_Regexp();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidatable <em>YValidatable</em>}' class.

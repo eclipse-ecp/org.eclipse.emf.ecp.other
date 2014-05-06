@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +81,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_BASE__ID = 0;
+	int YDT_BASE__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -89,7 +90,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_BASE__NAME = 1;
+	int YDT_BASE__NAME = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -98,7 +99,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_BASE__DESCRIPTION = 2;
+	int YDT_BASE__DESCRIPTION = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>YDt Base</em>' class.
@@ -107,7 +108,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDT_BASE_FEATURE_COUNT = 3;
+	int YDT_BASE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype <em>YDatatype</em>}' class.
@@ -239,17 +240,6 @@ public interface DatatypesPackage extends EPackage {
 	EClass getYDtBase();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getId()
-	 * @see #getYDtBase()
-	 * @generated
-	 */
-	EAttribute getYDtBase_Id();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,14 +345,6 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YDT_BASE = eINSTANCE.getYDtBase();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute YDT_BASE__ID = eINSTANCE.getYDtBase_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

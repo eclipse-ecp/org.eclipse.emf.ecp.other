@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.extension.editpart.emf;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.FieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 
@@ -21,6 +22,10 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditp
 @SuppressWarnings("restriction")
 public class NumericFieldEditpart extends FieldEditpart<YNumericField>
 		implements INumericFieldEditpart {
+
+	public NumericFieldEditpart() {
+		super(ExtensionModelPackage.Literals.YNUMERIC_FIELD__DATATYPE);
+	}
 
 	@Override
 	protected YNumericField createModel() {

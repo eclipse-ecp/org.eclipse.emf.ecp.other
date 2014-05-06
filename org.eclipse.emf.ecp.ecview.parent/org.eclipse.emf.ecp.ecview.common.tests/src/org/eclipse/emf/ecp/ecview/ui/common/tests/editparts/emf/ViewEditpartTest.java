@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.eclipse.core.databinding.observable.IObservable;
@@ -49,7 +51,6 @@ import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory
 import org.eclipse.emf.ecp.ecview.common.presentation.IPresentationFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -427,14 +428,50 @@ public class ViewEditpartTest {
 
 	}
 
+	/**
+	 * IMPORTANT: Each UI-Kit has to implement this test method too.
+	 */
 	@Test
 	public void testExec() {
-		Assert.fail("To be implented");
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+		ViewContext context = new ViewContext(viewEditpart);
+
+		context.exec(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
 	}
 
+	/**
+	 * IMPORTANT: Each UI-Kit has to implement this test method too.
+	 * 
+	 * @throws InterruptedException
+	 */
 	@Test
-	public void testAsncExec() {
-		Assert.fail("To be implented");
+	public void testAsncExec() throws InterruptedException {
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+		ViewContext context = new ViewContext(viewEditpart);
+
+		Future<?> future = context.execAsync(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		assertFalse(future.isDone());
+
+		Thread.sleep(1000);
+
+		assertTrue(future.isDone());
+
 	}
 
 	@Test
@@ -556,12 +593,13 @@ public class ViewEditpartTest {
 
 		@Override
 		public void exec(Runnable runnable) {
-
+			runnable.run();
 		}
 
 		@Override
 		public Future execAsync(Runnable runnable) {
-			return null;
+			ExecutorService executor = Executors.newSingleThreadExecutor();
+			return executor.submit(runnable);
 		}
 
 		@Override

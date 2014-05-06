@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -38,11 +39,21 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 			.getLogger(FieldEditpart.class);
 
 	private List<IValidatorEditpart> validators;
+	private List<IValidatorEditpart> internalValidators;
 
 	/**
 	 * A default constructor.
 	 */
 	protected FieldEditpart() {
+	}
+
+	/**
+	 * A constructor that becomes passed the datatype feature.
+	 * 
+	 * @param datatypeFeature
+	 */
+	public FieldEditpart(EStructuralFeature datatypeFeature) {
+		super(datatypeFeature);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -59,6 +70,9 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 		for (IValidatorEditpart validatorEditpart : validators) {
 			fieldPresentation.addValidator(validatorEditpart.getValidator());
 		}
+
+		// registers the element at the datatype to become updated
+		registerAtDatatype();
 	}
 
 	@Override
@@ -110,10 +124,15 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 			IValidatorEditpart editPart = (IValidatorEditpart) getEditpart(yValidator);
 			internalAddValidator(editPart);
 			break;
+		case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+			yValidator = (YValidator) notification.getNewValue();
+
+			editPart = (IValidatorEditpart) getEditpart(yValidator);
+			internalAddInternalValidator(editPart);
+			break;
 		default:
 			break;
 		}
-
 	}
 
 	/**
@@ -139,6 +158,29 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 		}
 	}
 
+	/**
+	 * Is called to change the internal state and add the given editpart to the
+	 * list of internal validators.
+	 * 
+	 * @param validatorEditpart
+	 *            The editpart to be added
+	 */
+	protected void internalAddInternalValidator(
+			IValidatorEditpart validatorEditpart) {
+		checkDisposed();
+
+		if (!internalValidators.contains(validatorEditpart)) {
+			internalValidators.add(validatorEditpart);
+
+			// handle the presentation
+			//
+			if (isPresentationPresent()) {
+				IFieldPresentation<?> presenter = getPresentation();
+				presenter.addValidator(validatorEditpart.getValidator());
+			}
+		}
+	}
+
 	@Override
 	protected void handleModelRemove(int featureId, Notification notification) {
 		checkDisposed();
@@ -149,6 +191,12 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 
 			IValidatorEditpart editPart = (IValidatorEditpart) getEditpart(yValidator);
 			internalRemoveValidator(editPart);
+			break;
+		case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
+			yValidator = (YValidator) notification.getNewValue();
+
+			editPart = (IValidatorEditpart) getEditpart(yValidator);
+			internalRemoveInternalValidator(editPart);
 			break;
 		default:
 			break;
@@ -161,6 +209,15 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	private void ensureValidatorsLoaded() {
 		if (validators == null) {
 			internalLoadValidators();
+		}
+	}
+
+	/**
+	 * Ensures that the validators are loaded properly.
+	 */
+	private void ensureInternalValidators() {
+		if (internalValidators == null) {
+			internalValidators = new ArrayList<>();
 		}
 	}
 
@@ -191,6 +248,29 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 
 		if (validators != null && validatorEditpart != null) {
 			validators.remove(validatorEditpart);
+
+			// handle the presentation
+			//
+			if (isPresentationPresent()) {
+				IFieldPresentation<?> presenter = getPresentation();
+				presenter.removeValidator(validatorEditpart.getValidator());
+			}
+		}
+	}
+
+	/**
+	 * Is called to change the internal state and remove the given editpart from
+	 * the list of internal validators.
+	 * 
+	 * @param validatorEditpart
+	 *            The editpart to be removed
+	 */
+	protected void internalRemoveInternalValidator(
+			IValidatorEditpart validatorEditpart) {
+		checkDisposed();
+
+		if (internalValidators != null && validatorEditpart != null) {
+			internalValidators.remove(validatorEditpart);
 
 			// handle the presentation
 			//
@@ -237,7 +317,7 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	 * 
 	 * @return
 	 */
-	private boolean isPresentationPresent() {
+	protected boolean isPresentationPresent() {
 		return internalGetPresentation() != null;
 	}
 

@@ -450,6 +450,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYField_InternalValidators() {
+		return (EReference)yFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYView() {
 		return yViewEClass;
 	}
@@ -1111,6 +1120,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		yFieldEClass = createEClass(YFIELD);
 		createEReference(yFieldEClass, YFIELD__VALIDATORS);
+		createEReference(yFieldEClass, YFIELD__INTERNAL_VALIDATORS);
 
 		yViewEClass = createEClass(YVIEW);
 		createEReference(yViewEClass, YVIEW__ROOT);
@@ -1293,6 +1303,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		initEClass(yFieldEClass, YField.class, "YField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYField_Validators(), theValidationPackage.getYValidator(), null, "validators", null, 0, -1, YField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYField_InternalValidators(), theValidationPackage.getYValidator(), null, "internalValidators", null, 0, -1, YField.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(yFieldEClass, ecorePackage.getEBoolean(), "addValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueChangeListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
