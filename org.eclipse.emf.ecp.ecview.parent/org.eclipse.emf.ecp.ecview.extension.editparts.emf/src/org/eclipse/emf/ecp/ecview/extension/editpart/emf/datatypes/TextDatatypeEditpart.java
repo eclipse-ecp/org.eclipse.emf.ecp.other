@@ -10,7 +10,6 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.datatypes.DatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
@@ -27,6 +26,5 @@ public class TextDatatypeEditpart extends DatatypeEditpart<YTextDatatype>
 	protected YTextDatatype createModel() {
 		return ExtDatatypesFactory.eINSTANCE.createYTextDatatype();
 	}
-
 
 }

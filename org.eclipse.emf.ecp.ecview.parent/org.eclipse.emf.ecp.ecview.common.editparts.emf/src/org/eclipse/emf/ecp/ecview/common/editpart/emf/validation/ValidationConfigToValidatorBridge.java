@@ -19,6 +19,7 @@ public class ValidationConfigToValidatorBridge extends AdapterImpl {
 
 	private final Map<EStructuralFeature, EStructuralFeature> mapping;
 	private boolean disposed;
+	private boolean calledAfterDispose;
 
 	/**
 	 * Creates an instance for the given values.
@@ -51,8 +52,14 @@ public class ValidationConfigToValidatorBridge extends AdapterImpl {
 
 	@Override
 	public void notifyChanged(Notification notification) {
-		if (disposed) {
+		if (calledAfterDispose) {
 			throw new IllegalStateException("Observer is disposed!");
+		}
+
+		// this method is called after disposal once, since the eObjects are
+		// nested. So one call after dispose is fine.
+		if (disposed) {
+			calledAfterDispose = true;
 		}
 
 		EStructuralFeature sourceFeature = (EStructuralFeature) notification
@@ -69,7 +76,6 @@ public class ValidationConfigToValidatorBridge extends AdapterImpl {
 	public void dispose() {
 		try {
 			sourceValidatable.eAdapters().remove(this);
-			mapping.clear();
 		} finally {
 			disposed = true;
 		}

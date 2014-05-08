@@ -177,7 +177,7 @@ public class ValidatorByConfigFactory {
 			Class<? extends YValidator> clazz) {
 		List<IValidatorEditpart> toRemove = new ArrayList<IValidatorEditpart>();
 		for (IValidatorEditpart editpart : activeValidators) {
-			if (editpart.getModel().getClass() == clazz) {
+			if (clazz.isAssignableFrom(editpart.getModel().getClass())) {
 				toRemove.add(editpart);
 			}
 		}

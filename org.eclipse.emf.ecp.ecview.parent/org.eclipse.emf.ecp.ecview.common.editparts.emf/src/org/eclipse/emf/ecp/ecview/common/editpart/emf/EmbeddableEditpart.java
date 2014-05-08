@@ -10,14 +10,18 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeBridge;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -33,8 +37,7 @@ import org.slf4j.LoggerFactory;
  * @param <M>
  */
 public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
-		ElementEditpart<M> implements IEmbeddableEditpart,
-		DatatypeBridge {
+		ElementEditpart<M> implements IEmbeddableEditpart, DatatypeBridge {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(EmbeddableEditpart.class);
@@ -131,12 +134,25 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	}
 
 	@Override
+	public void initialize(M model) {
+		super.initialize(model);
+
+		// directly after initialization the embeddable needs to become
+		// registered at the datatype editpart. No lazy loading can be used
+		// here.
+		registerAtDatatype();
+	}
+
+	@Override
 	protected void handleModelSet(int featureId, Notification notification) {
 		checkDisposed();
 
 		if (notification.getFeature() == datatypeFeature) {
-			// unregister the element from the datatype
-			unregisterFromDatatype();
+			YDatatype oldYDatatype = (YDatatype) notification.getOldValue();
+			if (oldYDatatype != null) {
+				// unregister the element from the old datatype
+				unregisterFromDatatype(oldYDatatype);
+			}
 
 			// an register the field to the new datatype if available
 			YDatatype newYDatatype = (YDatatype) notification.getNewValue();
@@ -156,6 +172,8 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		if (yDatatype != null) {
 			IDatatypeEditpart datatypeEditpart = getEditpart(yDatatype);
 			datatypeEditpart.addBridge(this);
+
+			notifyDatatypeChanged(datatypeEditpart.getCurrentState());
 		}
 	}
 
@@ -163,18 +181,34 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	 * Unregisters the element from the datatype. So changes on the datatype do
 	 * not update the embeddable anymore.
 	 */
-	protected void unregisterFromDatatype() {
+	protected void unregisterFromDatatype(YDatatype yDatatype) {
 		// unregisters the datatype editpart
-		YDatatype yDatatype = internalGetDatatype();
 		if (yDatatype != null) {
 			IDatatypeEditpart datatypeEditpart = getEditpart(yDatatype);
 			datatypeEditpart.removeBridge(this);
+			notifyDatatypeChanged(createDatatypeUnsetEvent(datatypeEditpart));
 		}
+	}
+
+	/**
+	 * Create an internal event that resets the datatype information.
+	 * 
+	 * @param datatypeEditpart
+	 * @return
+	 */
+	private DatatypeChangeEvent createDatatypeUnsetEvent(
+			IDatatypeEditpart datatypeEditpart) {
+
+		List<IValidatorEditpart> toRemove = new ArrayList<>(
+				getDatatypeValidators());
+		DatatypeChangeEvent event = new DatatypeChangeEvent(datatypeEditpart,
+				null, null, toRemove);
+		return event;
 	}
 
 	@Override
 	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
-		
+
 	}
 
 	/**
@@ -185,7 +219,10 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 		try {
 
 			// unregister the element from the datatype
-			unregisterFromDatatype();
+			YDatatype yDatatype = internalGetDatatype();
+			if (yDatatype != null) {
+				unregisterFromDatatype(yDatatype);
+			}
 
 			// if directly attached to a view, then remove it
 			IViewEditpart view = getView();

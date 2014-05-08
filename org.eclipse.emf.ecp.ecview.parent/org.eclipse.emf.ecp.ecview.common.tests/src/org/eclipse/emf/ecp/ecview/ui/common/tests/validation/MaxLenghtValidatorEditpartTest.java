@@ -4,25 +4,29 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MaxLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus.Severity;
+import org.eclipse.emf.ecp.ecview.common.validation.IValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.util.SimpleExtensionModelFactory;
+import org.eclipse.emf.ecp.ecview.util.emf.ModelUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MaxLenghtValidatorTest {
+public class MaxLenghtValidatorEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
 	private SimpleExtensionModelFactory factory = new SimpleExtensionModelFactory();
-	private CoreModelFactory modelFactory = CoreModelFactory.eINSTANCE;
 
 	/**
 	 * Setup.
@@ -87,22 +91,75 @@ public class MaxLenghtValidatorTest {
 				status.getMessage());
 	}
 
-	@Test
-	public void test_setConfig() {
-		Assert.fail();
-	}
-
+	@SuppressWarnings("restriction")
 	@Test
 	public void test_changeDatatype_Property() {
-		// if a datatype property is changed, the validator must be updated
-		// internally.
-		Assert.fail();
+		// if the datatype was updated, the validator needs to updated too.
+		YMaxLengthValidationConfig yConfig = factory.createTextDatatype();
+		IValidationConfig config = ModelUtil
+				.getEditpart((YTextDatatype) yConfig);
+
+		YMaxLengthValidator yValidator = ValidationFactory.eINSTANCE
+				.createYMaxLengthValidator();
+		MaxLengthValidatorEditpart editpart = ModelUtil.getEditpart(yValidator);
+		editpart.setConfig(config);
+
+		assertEquals(0, yValidator.getMaxLength());
+
+		yConfig.setMaxLength(100);
+		assertEquals(100, yValidator.getMaxLength());
+
+		yConfig.setMaxLength(-1);
+		assertEquals(-1, yValidator.getMaxLength());
 	}
 
 	@Test
+	@SuppressWarnings("restriction")
 	public void test_dispose() {
-		// if a datatype property is changed, the validator must be updated
-		// internally.
-		Assert.fail();
+		
+		YMaxLengthValidator yValidator = ValidationFactory.eINSTANCE
+				.createYMaxLengthValidator();
+		MaxLengthValidatorEditpart editpart = ModelUtil.getEditpart(yValidator);
+		editpart.dispose();
+		
+		try {
+			editpart.addDisposeListener(new IDisposable.Listener() {
+				@Override
+				public void notifyDisposed(IDisposable notifier) {
+				}
+			});
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+
+		try {
+			editpart.getId();
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+
+		try {
+			editpart.getModel();
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
+
+		try {
+			editpart.setConfig(null);
+			Assert.fail();
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (Exception e) {
+			// END SUPRESS CATCH EXCEPTION
+			// expected
+		}
 	}
 }

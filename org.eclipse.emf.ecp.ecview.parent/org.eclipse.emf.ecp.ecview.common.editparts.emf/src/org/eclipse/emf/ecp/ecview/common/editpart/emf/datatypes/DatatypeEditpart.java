@@ -21,8 +21,9 @@ import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
-import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidationConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The datatype editpart is responsible to observe the {@link YDatatype} model
@@ -31,12 +32,28 @@ import org.eclipse.emf.ecp.ecview.common.validation.IValidationConfig;
 public abstract class DatatypeEditpart<M extends YDatatype> extends
 		ElementEditpart<M> implements IDatatypeEditpart, IValidationConfig {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(DatatypeEditpart.class);
+
 	private Set<DatatypeBridge> bridges = Collections
 			.synchronizedSet(new HashSet<DatatypeBridge>());
 
 	@Override
 	public DatatypeChangeEvent getCurrentState() {
 		ValidatorDelta delta = internalGetAllValidators();
+		DatatypeChangeEvent event = new DatatypeChangeEvent(this, null,
+				delta.getToAdd(), null);
+		return event;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public DatatypeChangeEvent getDisposeDatatypeChangeEvent(
+			DatatypeBridge bridge) {
+		ValidatorDelta delta = internalGetAllValidators();
+
 		DatatypeChangeEvent event = new DatatypeChangeEvent(this, null,
 				delta.getToAdd(), null);
 		return event;
@@ -102,15 +119,17 @@ public abstract class DatatypeEditpart<M extends YDatatype> extends
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 
-		// forward the notification to the listeners elements
-		for (DatatypeBridge bridge : bridges.toArray(new DatatypeBridge[bridges
-				.size()])) {
+		if (notification.getEventType() != Notification.REMOVING_ADAPTER) {
+			// forward the notification to the listeners elements
+			for (DatatypeBridge bridge : bridges
+					.toArray(new DatatypeBridge[bridges.size()])) {
 
-			ValidatorDelta delta = internalGetValidatorsDelta(bridge,
-					notification);
-			DatatypeChangeEvent event = new DatatypeChangeEvent(this,
-					notification, delta.getToAdd(), delta.getToRemove());
-			bridge.notifyDatatypeChanged(event);
+				ValidatorDelta delta = internalGetValidatorsDelta(bridge,
+						notification);
+				DatatypeChangeEvent event = new DatatypeChangeEvent(this,
+						notification, delta.getToAdd(), delta.getToRemove());
+				bridge.notifyDatatypeChanged(event);
+			}
 		}
 	}
 
@@ -125,35 +144,35 @@ public abstract class DatatypeEditpart<M extends YDatatype> extends
 	}
 
 	/**
-	 * Tries to find all validators of the given type. Each validator of the
-	 * same type will then be removed.
-	 * <p>
-	 * Note: If we need detailed control of the validators to remove (for
-	 * instance only validators that have been created by this instance of
-	 * datatype editpart), then we have to add a "marker adapter" to the
-	 * prepared {@link YValidator}. This marker adapter will keep a reference to
-	 * this datatype editpart, and then we can separate validators that have
-	 * been added by different editparts. For now, there is no need for it.
+	 * Returns an unmodifiable collection of bridges.
 	 * 
-	 * @param activeValidators
-	 * @param oldValue
 	 * @return
 	 */
-	protected List<IValidatorEditpart> findToRemoveValidators(
-			List<IValidatorEditpart> activeValidators,
-			Class<? extends YValidator> clazz) {
-		List<IValidatorEditpart> toRemove = new ArrayList<IValidatorEditpart>();
-		for (IValidatorEditpart editpart : activeValidators) {
-			if (editpart.getModel().getClass() == clazz) {
-				toRemove.add(editpart);
-			}
-		}
-		return toRemove;
+	protected Set<DatatypeBridge> getBridges() {
+		checkDisposed();
+
+		return Collections.unmodifiableSet(bridges);
 	}
 
 	@Override
 	protected void internalDispose() {
 		try {
+
+			if (bridges.size() > 0) {
+				logger.error("Attention: The DatatypeEditpart is disposed! "
+						+ "All connections from consuming elements like UI fields are interrupted. "
+						+ "And they can not be installed anymore without resetting the datatype feature again.");
+			}
+
+			// remove all validators and all settings from the observing
+			// listeners
+			for (DatatypeBridge bridge : bridges
+					.toArray(new DatatypeBridge[bridges.size()])) {
+				DatatypeChangeEvent event = new DatatypeChangeEvent(this, null,
+						null, new ArrayList<>(bridge.getDatatypeValidators()));
+				bridge.notifyDatatypeChanged(event);
+			}
+
 			bridges = null;
 		} finally {
 			super.internalDispose();

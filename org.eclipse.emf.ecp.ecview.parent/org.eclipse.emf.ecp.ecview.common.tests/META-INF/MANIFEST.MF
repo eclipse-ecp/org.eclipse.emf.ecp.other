@@ -16,6 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.databinding.beans;bundle-version="1.2.200",
  org.eclipse.core.databinding;bundle-version="1.4.1",
  org.eclipse.emf.ecp.ecview.databinding.beans;bundle-version="0.0.1",
- org.eclipse.emf.ecp.ecview.databinding.emf;bundle-version="0.0.1"
+ org.eclipse.emf.ecp.ecview.databinding.emf;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.util.emf
 Bundle-Activator: org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf.Activator
 Import-Package: org.slf4j;version="1.6.4"

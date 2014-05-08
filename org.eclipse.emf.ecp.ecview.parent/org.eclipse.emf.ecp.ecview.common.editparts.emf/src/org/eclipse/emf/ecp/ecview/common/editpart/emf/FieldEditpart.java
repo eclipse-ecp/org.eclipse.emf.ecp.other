@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -70,9 +71,24 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 		for (IValidatorEditpart validatorEditpart : validators) {
 			fieldPresentation.addValidator(validatorEditpart.getValidator());
 		}
+	}
 
-		// registers the element at the datatype to become updated
-		registerAtDatatype();
+	@Override
+	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
+
+		// Remove the validators that should be removed
+		//
+		for (IValidatorEditpart validator : event.getRemovedValidators()) {
+			getModel().getInternalValidators().remove(
+					(YValidator) validator.getModel());
+		}
+
+		// Add the validators that should be added
+		//
+		for (IValidatorEditpart validator : event.getAddedValidators()) {
+			getModel().getInternalValidators().add(
+					(YValidator) validator.getModel());
+		}
 	}
 
 	@Override
@@ -169,6 +185,10 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 			IValidatorEditpart validatorEditpart) {
 		checkDisposed();
 
+		if (internalValidators == null) {
+			internalValidators = new ArrayList<>();
+		}
+
 		if (!internalValidators.contains(validatorEditpart)) {
 			internalValidators.add(validatorEditpart);
 
@@ -193,7 +213,7 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 			internalRemoveValidator(editPart);
 			break;
 		case CoreModelPackage.YFIELD__INTERNAL_VALIDATORS:
-			yValidator = (YValidator) notification.getNewValue();
+			yValidator = (YValidator) notification.getOldValue();
 
 			editPart = (IValidatorEditpart) getEditpart(yValidator);
 			internalRemoveInternalValidator(editPart);
@@ -269,6 +289,8 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 				IFieldPresentation<?> presenter = getPresentation();
 				presenter.removeValidator(validatorEditpart.getValidator());
 			}
+
+			validatorEditpart.dispose();
 		}
 	}
 
@@ -314,7 +336,9 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 
 	@Override
 	public List<IValidatorEditpart> getDatatypeValidators() {
-		return Collections.unmodifiableList(internalValidators);
+		return internalValidators != null ? Collections
+				.unmodifiableList(internalValidators) : Collections
+				.<IValidatorEditpart> emptyList();
 	}
 
 }
