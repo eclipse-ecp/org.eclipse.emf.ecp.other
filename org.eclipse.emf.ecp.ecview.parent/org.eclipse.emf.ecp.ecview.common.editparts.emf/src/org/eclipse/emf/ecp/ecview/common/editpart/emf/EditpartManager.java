@@ -36,9 +36,15 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartMan
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MaxLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MinLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.RegexpValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.RuledVisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.VisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.VisibilityPropertiesEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IMaxLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IMinLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IRegexpValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IRuledVisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityPropertiesEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -139,6 +145,15 @@ public class EditpartManager extends AbstractEditpartManager {
 		} else if (editPartClazz
 				.isAssignableFrom(IRegexpValidatorEditpart.class)) {
 			result = createNewInstance(RegexpValidatorEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IRuledVisibilityProcessorEditpart.class)) {
+			result = createNewInstance(RuledVisibilityProcessorEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IVisibilityProcessorEditpart.class)) {
+			result = createNewInstance(VisibilityProcessorEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IVisibilityPropertiesEditpart.class)) {
+			result = createNewInstance(VisibilityPropertiesEditpart.class);
 		}
 
 		if (result != null) {
