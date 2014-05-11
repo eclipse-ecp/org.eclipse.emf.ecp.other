@@ -58,6 +58,22 @@ public interface YBindingSet extends YElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model targetValueRequired="true" modelValueRequired="true" targetToModelStrategyRequired="true" modelToTargetStrategyRequired="true"
+	 * @generated
+	 */
+	YValueBinding addBinding(YValueBindingEndpoint targetValue, YValueBindingEndpoint modelValue, YBindingUpdateStrategy targetToModelStrategy, YBindingUpdateStrategy modelToTargetStrategy);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model targetValueRequired="true" modelValueRequired="true" targetToModelStrategyRequired="true" modelToTargetStrategyRequired="true"
+	 * @generated
+	 */
+	YListBinding addBinding(YListBindingEndpoint targetValue, YListBindingEndpoint modelValue, YBindingUpdateStrategy targetToModelStrategy, YBindingUpdateStrategy modelToTargetStrategy);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */

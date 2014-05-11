@@ -10,6 +10,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
@@ -19,6 +20,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getModelToTargetStrategy <em>Model To Target Strategy</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getTargetToModelStrategy <em>Target To Model Strategy</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +47,46 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getModelToTargetStrategy() <em>Model To Target Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelToTargetStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final YBindingUpdateStrategy MODEL_TO_TARGET_STRATEGY_EDEFAULT = YBindingUpdateStrategy.UPDATE;
+
+	/**
+	 * The cached value of the '{@link #getModelToTargetStrategy() <em>Model To Target Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModelToTargetStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected YBindingUpdateStrategy modelToTargetStrategy = MODEL_TO_TARGET_STRATEGY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTargetToModelStrategy() <em>Target To Model Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetToModelStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final YBindingUpdateStrategy TARGET_TO_MODEL_STRATEGY_EDEFAULT = YBindingUpdateStrategy.UPDATE;
+
+	/**
+	 * The cached value of the '{@link #getTargetToModelStrategy() <em>Target To Model Strategy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetToModelStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected YBindingUpdateStrategy targetToModelStrategy = TARGET_TO_MODEL_STRATEGY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -79,6 +122,48 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingUpdateStrategy getModelToTargetStrategy() {
+		return modelToTargetStrategy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setModelToTargetStrategy(YBindingUpdateStrategy newModelToTargetStrategy) {
+		YBindingUpdateStrategy oldModelToTargetStrategy = modelToTargetStrategy;
+		modelToTargetStrategy = newModelToTargetStrategy == null ? MODEL_TO_TARGET_STRATEGY_EDEFAULT : newModelToTargetStrategy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY, oldModelToTargetStrategy, modelToTargetStrategy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingUpdateStrategy getTargetToModelStrategy() {
+		return targetToModelStrategy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetToModelStrategy(YBindingUpdateStrategy newTargetToModelStrategy) {
+		YBindingUpdateStrategy oldTargetToModelStrategy = targetToModelStrategy;
+		targetToModelStrategy = newTargetToModelStrategy == null ? TARGET_TO_MODEL_STRATEGY_EDEFAULT : newTargetToModelStrategy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY, oldTargetToModelStrategy, targetToModelStrategy));
 	}
 
 	/**
@@ -156,6 +241,10 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case BindingPackage.YBINDING__ID:
 				return getId();
+			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
+				return getModelToTargetStrategy();
+			case BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY:
+				return getTargetToModelStrategy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,6 +258,12 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case BindingPackage.YBINDING__ID:
 				setId((String)newValue);
+				return;
+			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
+				setModelToTargetStrategy((YBindingUpdateStrategy)newValue);
+				return;
+			case BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY:
+				setTargetToModelStrategy((YBindingUpdateStrategy)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,6 +279,12 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 			case BindingPackage.YBINDING__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
+				setModelToTargetStrategy(MODEL_TO_TARGET_STRATEGY_EDEFAULT);
+				return;
+			case BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY:
+				setTargetToModelStrategy(TARGET_TO_MODEL_STRATEGY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,6 +298,10 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case BindingPackage.YBINDING__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
+				return modelToTargetStrategy != MODEL_TO_TARGET_STRATEGY_EDEFAULT;
+			case BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY:
+				return targetToModelStrategy != TARGET_TO_MODEL_STRATEGY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -212,6 +317,10 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", modelToTargetStrategy: ");
+		result.append(modelToTargetStrategy);
+		result.append(", targetToModelStrategy: ");
+		result.append(targetToModelStrategy);
 		result.append(')');
 		return result.toString();
 	}

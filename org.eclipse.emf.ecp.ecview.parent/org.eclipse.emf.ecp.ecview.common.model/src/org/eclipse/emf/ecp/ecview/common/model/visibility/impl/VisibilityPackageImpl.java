@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProces
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +67,13 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 * @generated
 	 */
 	private EClass yColorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yVisibilityRuleBindingEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +200,15 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 */
 	public EClass getYVisibilityRule() {
 		return yVisibilityRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYVisibilityRule_BindingEndpoints() {
+		return (EReference)yVisibilityRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -352,6 +369,33 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYVisibilityRuleBindingEndpoint() {
+		return yVisibilityRuleBindingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYVisibilityRuleBindingEndpoint_Rule() {
+		return (EReference)yVisibilityRuleBindingEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYVisibilityRuleBindingEndpoint_Attribute() {
+		return (EAttribute)yVisibilityRuleBindingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYColorType() {
 		return yColorTypeEEnum;
 	}
@@ -391,6 +435,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		createEReference(yRuledVisibilityProcessorEClass, YRULED_VISIBILITY_PROCESSOR__RULE);
 
 		yVisibilityRuleEClass = createEClass(YVISIBILITY_RULE);
+		createEReference(yVisibilityRuleEClass, YVISIBILITY_RULE__BINDING_ENDPOINTS);
 
 		yVisibilityPropertiesEClass = createEClass(YVISIBILITY_PROPERTIES);
 		createEAttribute(yVisibilityPropertiesEClass, YVISIBILITY_PROPERTIES__VISIBLE);
@@ -410,6 +455,10 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		createEAttribute(yColorEClass, YCOLOR__BLUE);
 		createEAttribute(yColorEClass, YCOLOR__THEME_ID);
 		createEAttribute(yColorEClass, YCOLOR__TYPE);
+
+		yVisibilityRuleBindingEndpointEClass = createEClass(YVISIBILITY_RULE_BINDING_ENDPOINT);
+		createEReference(yVisibilityRuleBindingEndpointEClass, YVISIBILITY_RULE_BINDING_ENDPOINT__RULE);
+		createEAttribute(yVisibilityRuleBindingEndpointEClass, YVISIBILITY_RULE_BINDING_ENDPOINT__ATTRIBUTE);
 
 		// Create enums
 		yColorTypeEEnum = createEEnum(YCOLOR_TYPE);
@@ -440,6 +489,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 
 		// Obtain other dependent packages
 		CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
+		BindingPackage theBindingPackage = (BindingPackage)EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -450,6 +500,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		yRuledVisibilityProcessorEClass.getESuperTypes().add(this.getYVisibilityProcessor());
 		yVisibilityRuleEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yVisibilityPropertiesEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
+		yVisibilityRuleBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yVisibilityProcessorEClass, YVisibilityProcessor.class, "YVisibilityProcessor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -458,7 +509,10 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		initEClass(yRuledVisibilityProcessorEClass, YRuledVisibilityProcessor.class, "YRuledVisibilityProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYRuledVisibilityProcessor_Rule(), this.getYVisibilityRule(), null, "rule", null, 0, 1, YRuledVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yVisibilityRuleEClass, YVisibilityRule.class, "YVisibilityRule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yVisibilityRuleEClass, YVisibilityRule.class, "YVisibilityRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYVisibilityRule_BindingEndpoints(), this.getYVisibilityRuleBindingEndpoint(), this.getYVisibilityRuleBindingEndpoint_Rule(), "bindingEndpoints", null, 0, -1, YVisibilityRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(yVisibilityRuleEClass, this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yVisibilityPropertiesEClass, YVisibilityProperties.class, "YVisibilityProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYVisibilityProperties_Visible(), ecorePackage.getEBoolean(), "visible", null, 0, 1, YVisibilityProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -478,6 +532,10 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		initEAttribute(getYColor_Blue(), ecorePackage.getEInt(), "blue", "0", 0, 1, YColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYColor_ThemeId(), ecorePackage.getEString(), "themeId", null, 0, 1, YColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYColor_Type(), this.getYColorType(), "type", null, 1, 1, YColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yVisibilityRuleBindingEndpointEClass, YVisibilityRuleBindingEndpoint.class, "YVisibilityRuleBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYVisibilityRuleBindingEndpoint_Rule(), this.getYVisibilityRule(), this.getYVisibilityRule_BindingEndpoints(), "rule", null, 1, 1, YVisibilityRuleBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYVisibilityRuleBindingEndpoint_Attribute(), ecorePackage.getEString(), "attribute", null, 0, 1, YVisibilityRuleBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yColorTypeEEnum, YColorType.class, "YColorType");

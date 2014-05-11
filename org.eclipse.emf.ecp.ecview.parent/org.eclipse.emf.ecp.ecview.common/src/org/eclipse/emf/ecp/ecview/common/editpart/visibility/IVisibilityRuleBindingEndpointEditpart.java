@@ -10,19 +10,11 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.visibility;
 
-import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableValueEndpointEditpart;
 
 /**
- * An editpart responsible to handle rules that will be
+ * An editpart resonsible to provide observable values for rules.
  */
-public interface IVisibilityRule {
-
-	/**
-	 * Fires the rule and returns the status. If {@link IStatus#OK} is returned,
-	 * then the rule matches. Else the rule does not match.
-	 * 
-	 * @return
-	 */
-	IStatus fire();
+public interface IVisibilityRuleBindingEndpointEditpart extends IBindableValueEndpointEditpart {
 
 }

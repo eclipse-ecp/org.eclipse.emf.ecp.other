@@ -22,6 +22,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 public interface YCollectionBindable extends YBindable {
 	/**
 	 * Returns the value of the '<em><b>Collection Binding Endpoint</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Collection Binding Endpoint</em>' reference isn't clear,
@@ -31,7 +32,8 @@ public interface YCollectionBindable extends YBindable {
 	 * @return the value of the '<em>Collection Binding Endpoint</em>' reference.
 	 * @see #setCollectionBindingEndpoint(YEmbeddableCollectionEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYCollectionBindable_CollectionBindingEndpoint()
-	 * @model
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint#getElement
+	 * @model opposite="element"
 	 * @generated
 	 */
 	YEmbeddableCollectionEndpoint getCollectionBindingEndpoint();

@@ -11,10 +11,29 @@
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.DelegatingVisibilityFactory;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityRule;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityRuleEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 
 public abstract class VisibilityRuleEditpart<M extends YVisibilityRule> extends
 		ElementEditpart<M> implements IVisibilityRuleEditpart {
+
+	private IVisibilityRule rule;
+
+	@Override
+	public IStatus fire() {
+		return rule.fire();
+	}
+
+	@Override
+	public IVisibilityRule getRule() {
+		if (rule == null) {
+			rule = DelegatingVisibilityFactory.getInstance().createRule(
+					getModel());
+		}
+		return rule;
+	}
 
 }

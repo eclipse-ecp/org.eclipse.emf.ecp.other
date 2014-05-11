@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.*;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityFactory;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType;
@@ -60,6 +61,7 @@ public class VisibilityFactoryImpl extends EFactoryImpl implements VisibilityFac
 		switch (eClass.getClassifierID()) {
 			case VisibilityPackage.YRULED_VISIBILITY_PROCESSOR: return createYRuledVisibilityProcessor();
 			case VisibilityPackage.YVISIBILITY_PROPERTIES: return createYVisibilityProperties();
+			case VisibilityPackage.YVISIBILITY_RULE_BINDING_ENDPOINT: return createYVisibilityRuleBindingEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +115,16 @@ public class VisibilityFactoryImpl extends EFactoryImpl implements VisibilityFac
 	public YVisibilityProperties createYVisibilityProperties() {
 		YVisibilityPropertiesImpl yVisibilityProperties = new YVisibilityPropertiesImpl();
 		return yVisibilityProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YVisibilityRuleBindingEndpoint createYVisibilityRuleBindingEndpoint() {
+		YVisibilityRuleBindingEndpointImpl yVisibilityRuleBindingEndpoint = new YVisibilityRuleBindingEndpointImpl();
+		return yVisibilityRuleBindingEndpoint;
 	}
 
 	/**

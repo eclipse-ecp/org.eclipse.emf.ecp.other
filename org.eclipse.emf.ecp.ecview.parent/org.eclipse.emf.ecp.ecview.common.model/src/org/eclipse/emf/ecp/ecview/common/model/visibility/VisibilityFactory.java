@@ -40,6 +40,15 @@ public interface VisibilityFactory extends EFactory {
 	YVisibilityProperties createYVisibilityProperties();
 
 	/**
+	 * Returns a new object of class '<em>YVisibility Rule Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YVisibility Rule Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YVisibilityRuleBindingEndpoint createYVisibilityRuleBindingEndpoint();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

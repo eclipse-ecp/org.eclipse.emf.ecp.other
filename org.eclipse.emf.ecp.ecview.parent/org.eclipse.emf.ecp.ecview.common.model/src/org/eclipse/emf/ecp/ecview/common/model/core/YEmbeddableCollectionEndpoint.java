@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 public interface YEmbeddableCollectionEndpoint extends YListBindingEndpoint, YEmbeddableBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable#getCollectionBindingEndpoint <em>Collection Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Element</em>' reference isn't clear,
@@ -33,7 +34,8 @@ public interface YEmbeddableCollectionEndpoint extends YListBindingEndpoint, YEm
 	 * @return the value of the '<em>Element</em>' reference.
 	 * @see #setElement(YCollectionBindable)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddableCollectionEndpoint_Element()
-	 * @model required="true"
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable#getCollectionBindingEndpoint
+	 * @model opposite="collectionBindingEndpoint" required="true"
 	 * @generated
 	 */
 	YCollectionBindable getElement();

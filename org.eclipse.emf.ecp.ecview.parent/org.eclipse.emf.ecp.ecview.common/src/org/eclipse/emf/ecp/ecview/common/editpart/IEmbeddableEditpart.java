@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessorEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 
 /**
@@ -59,5 +60,20 @@ public interface IEmbeddableEditpart extends IElementEditpart {
 	 *         UI.
 	 */
 	<A extends IWidgetPresentation<?>> A getPresentation();
+
+	/**
+	 * Sets the visibility processor.
+	 * 
+	 * @param visibilityProcessor
+	 */
+	void setVisisibiltyProcessor(
+			IVisibilityProcessorEditpart visibilityProcessor);
+
+	/**
+	 * Returns the visibility processor.
+	 * 
+	 * @return
+	 */
+	IVisibilityProcessorEditpart getVisibilityProcessor();
 
 }

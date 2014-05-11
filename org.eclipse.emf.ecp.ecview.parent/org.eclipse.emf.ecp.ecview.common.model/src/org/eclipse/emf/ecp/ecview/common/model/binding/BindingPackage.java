@@ -4,6 +4,7 @@ package org.eclipse.emf.ecp.ecview.common.model.binding;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -328,13 +329,31 @@ public interface BindingPackage extends EPackage {
 	int YBINDING__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Model To Target Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDING__MODEL_TO_TARGET_STRATEGY = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Target To Model Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDING__TARGET_TO_MODEL_STRATEGY = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>YBinding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YBINDING_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+	int YBINDING_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -344,6 +363,24 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVALUE_BINDING__ID = YBINDING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Model To Target Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDING__MODEL_TO_TARGET_STRATEGY = YBINDING__MODEL_TO_TARGET_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Target To Model Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDING__TARGET_TO_MODEL_STRATEGY = YBINDING__TARGET_TO_MODEL_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Target Endpoint</b></em>' containment reference.
@@ -382,6 +419,24 @@ public interface BindingPackage extends EPackage {
 	int YLIST_BINDING__ID = YBINDING__ID;
 
 	/**
+	 * The feature id for the '<em><b>Model To Target Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_BINDING__MODEL_TO_TARGET_STRATEGY = YBINDING__MODEL_TO_TARGET_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Target To Model Strategy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_BINDING__TARGET_TO_MODEL_STRATEGY = YBINDING__TARGET_TO_MODEL_STRATEGY;
+
+	/**
 	 * The feature id for the '<em><b>Target Endpoint</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -407,6 +462,17 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST_BINDING_FEATURE_COUNT = YBINDING_FEATURE_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindingUpdateStrategy()
+	 * @generated
+	 */
+	int YBINDING_UPDATE_STRATEGY = 9;
 
 
 	/**
@@ -471,6 +537,28 @@ public interface BindingPackage extends EPackage {
 	EClass getYBinding();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelToTargetStrategy <em>Model To Target Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Model To Target Strategy</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelToTargetStrategy()
+	 * @see #getYBinding()
+	 * @generated
+	 */
+	EAttribute getYBinding_ModelToTargetStrategy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetToModelStrategy <em>Target To Model Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target To Model Strategy</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetToModelStrategy()
+	 * @see #getYBinding()
+	 * @generated
+	 */
+	EAttribute getYBinding_TargetToModelStrategy();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding <em>YValue Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -533,6 +621,16 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYListBinding_ModelEndpoint();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>YBinding Update Strategy</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy
+	 * @generated
+	 */
+	EEnum getYBindingUpdateStrategy();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint <em>YBean Binding Endpoint</em>}'.
@@ -701,6 +799,22 @@ public interface BindingPackage extends EPackage {
 		EClass YBINDING = eINSTANCE.getYBinding();
 
 		/**
+		 * The meta object literal for the '<em><b>Model To Target Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBINDING__MODEL_TO_TARGET_STRATEGY = eINSTANCE.getYBinding_ModelToTargetStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Target To Model Strategy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBINDING__TARGET_TO_MODEL_STRATEGY = eINSTANCE.getYBinding_TargetToModelStrategy();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingImpl <em>YValue Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -751,6 +865,16 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YLIST_BINDING__MODEL_ENDPOINT = eINSTANCE.getYListBinding_ModelEndpoint();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindingUpdateStrategy()
+		 * @generated
+		 */
+		EEnum YBINDING_UPDATE_STRATEGY = eINSTANCE.getYBindingUpdateStrategy();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl <em>YBean Binding Endpoint</em>}' class.

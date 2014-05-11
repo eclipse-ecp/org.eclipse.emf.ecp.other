@@ -22,10 +22,13 @@ import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeBridge;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.slf4j.Logger;
@@ -44,6 +47,7 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	private IWidgetPresentation<?> presentation;
 
 	private EStructuralFeature datatypeFeature;
+	private IVisibilityProcessorEditpart visibilityProcessor;
 
 	/**
 	 * The default constructor.
@@ -144,6 +148,60 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	}
 
 	@Override
+	public void setVisisibiltyProcessor(
+			IVisibilityProcessorEditpart visibilityProcessor) {
+		try {
+			checkDisposed();
+
+			// add the element by using the model
+			//
+			M yEmbeddable = getModel();
+			YVisibilityProcessor yVisibilityProcessor = (YVisibilityProcessor) visibilityProcessor
+					.getModel();
+			yEmbeddable.setVisibilityProcessor(yVisibilityProcessor);
+
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (RuntimeException e) {
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
+			throw e;
+		}
+	}
+
+	@Override
+	public IVisibilityProcessorEditpart getVisibilityProcessor() {
+		checkDisposed();
+
+		if (visibilityProcessor == null) {
+			loadVisibilityProcessor();
+		}
+		return visibilityProcessor;
+	}
+
+	/**
+	 * Loads the content of the view.
+	 */
+	protected void loadVisibilityProcessor() {
+		if (visibilityProcessor == null) {
+			YVisibilityProcessor yVisibilityProcessor = getModel()
+					.getVisibilityProcessor();
+			internalSetVisibilityProcessor((IVisibilityProcessorEditpart) getEditpart(yVisibilityProcessor));
+		}
+	}
+
+	/**
+	 * May be invoked by a model change and the content of the edit part should
+	 * be set.
+	 * 
+	 * @param modelValue
+	 *            The content to be set
+	 */
+	protected void internalSetVisibilityProcessor(
+			IVisibilityProcessorEditpart visibilityProcessor) {
+		this.visibilityProcessor = visibilityProcessor;
+	}
+
+	@Override
 	protected void handleModelSet(int featureId, Notification notification) {
 		checkDisposed();
 
@@ -158,6 +216,17 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 			YDatatype newYDatatype = (YDatatype) notification.getNewValue();
 			if (newYDatatype != null) {
 				registerAtDatatype();
+			}
+		} else {
+			switch (featureId) {
+			case CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR:
+				YVisibilityProcessor yVisibilityProcessor = (YVisibilityProcessor) notification
+						.getNewValue();
+				IVisibilityProcessorEditpart editPart = (IVisibilityProcessorEditpart) getEditpart(yVisibilityProcessor);
+				internalSetVisibilityProcessor(editPart);
+				break;
+			default:
+				break;
 			}
 		}
 	}

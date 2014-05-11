@@ -11,6 +11,18 @@
       <eParameters name="targetValue" lowerBound="1" eType="#//YListBindingEndpoint"/>
       <eParameters name="modelValue" lowerBound="1" eType="#//YListBindingEndpoint"/>
     </eOperations>
+    <eOperations name="addBinding" eType="#//YValueBinding">
+      <eParameters name="targetValue" lowerBound="1" eType="#//YValueBindingEndpoint"/>
+      <eParameters name="modelValue" lowerBound="1" eType="#//YValueBindingEndpoint"/>
+      <eParameters name="targetToModelStrategy" lowerBound="1" eType="#//YBindingUpdateStrategy"/>
+      <eParameters name="modelToTargetStrategy" lowerBound="1" eType="#//YBindingUpdateStrategy"/>
+    </eOperations>
+    <eOperations name="addBinding" eType="#//YListBinding">
+      <eParameters name="targetValue" lowerBound="1" eType="#//YListBindingEndpoint"/>
+      <eParameters name="modelValue" lowerBound="1" eType="#//YListBindingEndpoint"/>
+      <eParameters name="targetToModelStrategy" lowerBound="1" eType="#//YBindingUpdateStrategy"/>
+      <eParameters name="modelToTargetStrategy" lowerBound="1" eType="#//YBindingUpdateStrategy"/>
+    </eOperations>
     <eOperations name="getView" eType="ecore:EClass core.ecore#//YView"/>
     <eOperations name="addBinding">
       <eParameters name="binding" lowerBound="1" eType="#//YBinding"/>
@@ -56,6 +68,10 @@
     </eOperations>
     <eOperations name="getTargetEndpoint" eType="#//YBindingEndpoint"/>
     <eOperations name="getModelEndpoint" eType="#//YBindingEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelToTargetStrategy"
+        eType="#//YBindingUpdateStrategy" defaultValueLiteral="UPDATE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetToModelStrategy"
+        eType="#//YBindingUpdateStrategy" defaultValueLiteral="UPDATE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YValueBinding" eSuperTypes="#//YBinding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetEndpoint" lowerBound="1"
@@ -68,5 +84,10 @@
         eType="#//YListBindingEndpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelEndpoint" lowerBound="1"
         eType="#//YListBindingEndpoint" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="YBindingUpdateStrategy">
+    <eLiterals name="UPDATE" literal="UPDATE"/>
+    <eLiterals name="ON_REQUEST" value="1" literal="ON_REQUEST"/>
+    <eLiterals name="NEVER" value="2" literal="NEVER"/>
   </eClassifiers>
 </ecore:EPackage>

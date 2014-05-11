@@ -3,10 +3,12 @@
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.common.model.binding.*;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
@@ -74,6 +76,36 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case BindingPackage.YBINDING_UPDATE_STRATEGY:
+				return createYBindingUpdateStrategyFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case BindingPackage.YBINDING_UPDATE_STRATEGY:
+				return convertYBindingUpdateStrategyToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YBindingSet createYBindingSet() {
 		YBindingSetImpl yBindingSet = new YBindingSetImpl();
 		return yBindingSet;
@@ -97,6 +129,26 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	public YListBinding createYListBinding() {
 		YListBindingImpl yListBinding = new YListBindingImpl();
 		return yListBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBindingUpdateStrategy createYBindingUpdateStrategyFromString(EDataType eDataType, String initialValue) {
+		YBindingUpdateStrategy result = YBindingUpdateStrategy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYBindingUpdateStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -11,8 +11,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//YVisibilityRule"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityRule" abstract="true" interface="true"
-      eSuperTypes="core.ecore#//YElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityRule" abstract="true" eSuperTypes="core.ecore#//YElement">
+    <eOperations name="createRuleEndpoint" eType="#//YVisibilityRuleBindingEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingEndpoints" upperBound="-1"
+        eType="#//YVisibilityRuleBindingEndpoint" eOpposite="#//YVisibilityRuleBindingEndpoint/rule"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProperties" eSuperTypes="core.ecore#//YElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="editable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -40,5 +43,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="YColorType">
     <eLiterals name="THEME" literal="THEME"/>
     <eLiterals name="RGB" value="1" literal="RGB"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YVisibilityRuleBindingEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//YVisibilityRule"
+        eOpposite="#//YVisibilityRule/bindingEndpoints"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

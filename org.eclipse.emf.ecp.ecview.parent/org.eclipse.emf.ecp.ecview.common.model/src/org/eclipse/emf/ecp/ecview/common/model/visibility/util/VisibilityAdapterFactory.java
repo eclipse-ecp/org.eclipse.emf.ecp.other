@@ -6,13 +6,10 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YColor;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,8 +88,20 @@ public class VisibilityAdapterFactory extends AdapterFactoryImpl {
 				return createYColorAdapter();
 			}
 			@Override
+			public Adapter caseYVisibilityRuleBindingEndpoint(YVisibilityRuleBindingEndpoint object) {
+				return createYVisibilityRuleBindingEndpointAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
+			}
+			@Override
+			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
+				return createYBindingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYValueBindingEndpoint(YValueBindingEndpoint object) {
+				return createYValueBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -185,6 +194,20 @@ public class VisibilityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint <em>YVisibility Rule Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYVisibilityRuleBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YElement <em>YElement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -195,6 +218,34 @@ public class VisibilityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint <em>YBinding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint <em>YValue Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYValueBindingEndpointAdapter() {
 		return null;
 	}
 

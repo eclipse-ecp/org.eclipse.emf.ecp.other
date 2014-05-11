@@ -3,6 +3,7 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -85,11 +86,63 @@ public class YEmbeddableMultiSelectionEndpointImpl extends YListBindingEndpointI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(YMultiSelectionBindable newElement) {
+	public NotificationChain basicSetElement(YMultiSelectionBindable newElement, NotificationChain msgs) {
 		YMultiSelectionBindable oldElement = element;
 		element = newElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT, oldElement, element));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT, oldElement, newElement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElement(YMultiSelectionBindable newElement) {
+		if (newElement != element) {
+			NotificationChain msgs = null;
+			if (element != null)
+				msgs = ((InternalEObject)element).eInverseRemove(this, CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT, YMultiSelectionBindable.class, msgs);
+			if (newElement != null)
+				msgs = ((InternalEObject)newElement).eInverseAdd(this, CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT, YMultiSelectionBindable.class, msgs);
+			msgs = basicSetElement(newElement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT, newElement, newElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT:
+				if (element != null)
+					msgs = ((InternalEObject)element).eInverseRemove(this, CoreModelPackage.YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT, YMultiSelectionBindable.class, msgs);
+				return basicSetElement((YMultiSelectionBindable)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT:
+				return basicSetElement(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

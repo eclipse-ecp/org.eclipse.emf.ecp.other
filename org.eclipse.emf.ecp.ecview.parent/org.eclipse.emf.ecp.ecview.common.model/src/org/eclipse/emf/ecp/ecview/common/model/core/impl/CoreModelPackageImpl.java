@@ -1382,12 +1382,12 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		addEOperation(ySelectionBindableEClass, this.getYEmbeddableSelectionEndpoint(), "createSelectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yMultiSelectionBindableEClass, YMultiSelectionBindable.class, "YMultiSelectionBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYMultiSelectionBindable_MultiSelectionBindingEndpoint(), this.getYEmbeddableMultiSelectionEndpoint(), null, "multiSelectionBindingEndpoint", null, 0, 1, YMultiSelectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYMultiSelectionBindable_MultiSelectionBindingEndpoint(), this.getYEmbeddableMultiSelectionEndpoint(), this.getYEmbeddableMultiSelectionEndpoint_Element(), "multiSelectionBindingEndpoint", null, 0, 1, YMultiSelectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yMultiSelectionBindableEClass, this.getYEmbeddableMultiSelectionEndpoint(), "createMultiSelectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yCollectionBindableEClass, YCollectionBindable.class, "YCollectionBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYCollectionBindable_CollectionBindingEndpoint(), this.getYEmbeddableCollectionEndpoint(), null, "collectionBindingEndpoint", null, 0, 1, YCollectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYCollectionBindable_CollectionBindingEndpoint(), this.getYEmbeddableCollectionEndpoint(), this.getYEmbeddableCollectionEndpoint_Element(), "collectionBindingEndpoint", null, 0, 1, YCollectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yCollectionBindableEClass, this.getYEmbeddableCollectionEndpoint(), "createCollectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1409,10 +1409,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYEmbeddableSelectionEndpoint_Element(), this.getYSelectionBindable(), this.getYSelectionBindable_SelectionBindingEndpoint(), "element", null, 1, 1, YEmbeddableSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEmbeddableMultiSelectionEndpointEClass, YEmbeddableMultiSelectionEndpoint.class, "YEmbeddableMultiSelectionEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYEmbeddableMultiSelectionEndpoint_Element(), this.getYMultiSelectionBindable(), null, "element", null, 1, 1, YEmbeddableMultiSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYEmbeddableMultiSelectionEndpoint_Element(), this.getYMultiSelectionBindable(), this.getYMultiSelectionBindable_MultiSelectionBindingEndpoint(), "element", null, 1, 1, YEmbeddableMultiSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEmbeddableCollectionEndpointEClass, YEmbeddableCollectionEndpoint.class, "YEmbeddableCollectionEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYEmbeddableCollectionEndpoint_Element(), this.getYCollectionBindable(), null, "element", null, 1, 1, YEmbeddableCollectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYEmbeddableCollectionEndpoint_Element(), this.getYCollectionBindable(), this.getYCollectionBindable_CollectionBindingEndpoint(), "element", null, 1, 1, YEmbeddableCollectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yActivatedEndpointEClass, YActivatedEndpoint.class, "YActivatedEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYActivatedEndpoint_Element(), this.getYActivateable(), null, "element", null, 1, 1, YActivatedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 
 /**
@@ -141,10 +142,10 @@ public interface VisibilityPackage extends EPackage {
 	int YRULED_VISIBILITY_PROCESSOR_FEATURE_COUNT = YVISIBILITY_PROCESSOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule <em>YVisibility Rule</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl <em>YVisibility Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl
 	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYVisibilityRule()
 	 * @generated
 	 */
@@ -160,13 +161,22 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_RULE__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE__BINDING_ENDPOINTS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>YVisibility Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVISIBILITY_RULE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
+	int YVISIBILITY_RULE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl <em>YVisibility Properties</em>}' class.
@@ -351,6 +361,52 @@ public interface VisibilityPackage extends EPackage {
 	int YCOLOR_FEATURE_COUNT = 5;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleBindingEndpointImpl <em>YVisibility Rule Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYVisibilityRuleBindingEndpoint()
+	 * @generated
+	 */
+	int YVISIBILITY_RULE_BINDING_ENDPOINT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Rule</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE_BINDING_ENDPOINT__RULE = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE_BINDING_ENDPOINT__ATTRIBUTE = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YVisibility Rule Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,7 +414,7 @@ public interface VisibilityPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYColorType()
 	 * @generated
 	 */
-	int YCOLOR_TYPE = 5;
+	int YCOLOR_TYPE = 6;
 
 
 	/**
@@ -412,6 +468,17 @@ public interface VisibilityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYVisibilityRule();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#getBindingEndpoints <em>Binding Endpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Binding Endpoints</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#getBindingEndpoints()
+	 * @see #getYVisibilityRule()
+	 * @generated
+	 */
+	EReference getYVisibilityRule_BindingEndpoints();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties <em>YVisibility Properties</em>}'.
@@ -599,6 +666,38 @@ public interface VisibilityPackage extends EPackage {
 	EAttribute getYColor_Type();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint <em>YVisibility Rule Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YVisibility Rule Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint
+	 * @generated
+	 */
+	EClass getYVisibilityRuleBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint#getRule <em>Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Rule</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint#getRule()
+	 * @see #getYVisibilityRuleBindingEndpoint()
+	 * @generated
+	 */
+	EReference getYVisibilityRuleBindingEndpoint_Rule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attribute</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint#getAttribute()
+	 * @see #getYVisibilityRuleBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYVisibilityRuleBindingEndpoint_Attribute();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -667,14 +766,22 @@ public interface VisibilityPackage extends EPackage {
 		EReference YRULED_VISIBILITY_PROCESSOR__RULE = eINSTANCE.getYRuledVisibilityProcessor_Rule();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule <em>YVisibility Rule</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl <em>YVisibility Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl
 		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYVisibilityRule()
 		 * @generated
 		 */
 		EClass YVISIBILITY_RULE = eINSTANCE.getYVisibilityRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Binding Endpoints</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVISIBILITY_RULE__BINDING_ENDPOINTS = eINSTANCE.getYVisibilityRule_BindingEndpoints();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl <em>YVisibility Properties</em>}' class.
@@ -815,6 +922,32 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YCOLOR__TYPE = eINSTANCE.getYColor_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleBindingEndpointImpl <em>YVisibility Rule Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYVisibilityRuleBindingEndpoint()
+		 * @generated
+		 */
+		EClass YVISIBILITY_RULE_BINDING_ENDPOINT = eINSTANCE.getYVisibilityRuleBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Rule</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVISIBILITY_RULE_BINDING_ENDPOINT__RULE = eINSTANCE.getYVisibilityRuleBindingEndpoint_Rule();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YVISIBILITY_RULE_BINDING_ENDPOINT__ATTRIBUTE = eINSTANCE.getYVisibilityRuleBindingEndpoint_Attribute();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}' enum.

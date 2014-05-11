@@ -17,6 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
@@ -36,7 +37,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
  *
  * @generated
  */
-public class YBindingSetImpl extends MinimalEObjectImpl.Container implements YBindingSet {
+public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
+		YBindingSet {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -129,16 +131,8 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements YBi
 	 */
 	public YValueBinding addBinding(YValueBindingEndpoint targetValue,
 			YValueBindingEndpoint modelValue) {
-
-		// create a new binding
-		YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
-		binding.setTargetEndpoint(targetValue);
-		binding.setModelEndpoint(modelValue);
-
-		// add the binding to the internal list of bindings
-		getBindings().add(binding);
-
-		return binding;
+		return addBinding(targetValue, modelValue,
+				YBindingUpdateStrategy.UPDATE, YBindingUpdateStrategy.UPDATE);
 	}
 
 	/**
@@ -159,16 +153,81 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements YBi
 	 */
 	public YListBinding addBinding(YListBindingEndpoint targetValue,
 			YListBindingEndpoint modelValue) {
- 
+		return addBinding(targetValue, modelValue,
+				YBindingUpdateStrategy.UPDATE, YBindingUpdateStrategy.UPDATE);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YValueBinding addBinding(YValueBindingEndpoint targetValue,
+			YValueBindingEndpoint modelValue,
+			YBindingUpdateStrategy targetToModelStrategy,
+			YBindingUpdateStrategy modelToTargetStrategy) {
+
 		// create a new binding
-		YListBinding binding = BindingFactory.eINSTANCE.createYListBinding();
+		YValueBinding binding = BindingFactory.eINSTANCE.createYValueBinding();
 		binding.setTargetEndpoint(targetValue);
 		binding.setModelEndpoint(modelValue);
+		binding.setModelToTargetStrategy(modelToTargetStrategy);
+		binding.setTargetToModelStrategy(targetToModelStrategy);
 
 		// add the binding to the internal list of bindings
 		getBindings().add(binding);
 
 		return binding;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public YListBinding addBinding(YListBindingEndpoint targetValue,
+			YListBindingEndpoint modelValue,
+			YBindingUpdateStrategy targetToModelStrategy,
+			YBindingUpdateStrategy modelToTargetStrategy) {
+
+		// create a new binding
+		YListBinding binding = BindingFactory.eINSTANCE.createYListBinding();
+		binding.setTargetEndpoint(targetValue);
+		binding.setModelEndpoint(modelValue);
+		binding.setModelToTargetStrategy(modelToTargetStrategy);
+		binding.setTargetToModelStrategy(targetToModelStrategy);
+
+		// add the binding to the internal list of bindings
+		getBindings().add(binding);
+
+		return binding;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YValueBinding addBindingGen(YValueBindingEndpoint targetValue,
+			YValueBindingEndpoint modelValue,
+			YBindingUpdateStrategy targetToModelStrategy,
+			YBindingUpdateStrategy modelToTargetStrategy) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YListBinding addBindingGen(YListBindingEndpoint targetValue,
+			YListBindingEndpoint modelValue,
+			YBindingUpdateStrategy targetToModelStrategy,
+			YBindingUpdateStrategy modelToTargetStrategy) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

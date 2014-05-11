@@ -22,6 +22,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 public interface YMultiSelectionBindable extends YBindable {
 	/**
 	 * Returns the value of the '<em><b>Multi Selection Binding Endpoint</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Multi Selection Binding Endpoint</em>' reference isn't clear,
@@ -31,7 +32,8 @@ public interface YMultiSelectionBindable extends YBindable {
 	 * @return the value of the '<em>Multi Selection Binding Endpoint</em>' reference.
 	 * @see #setMultiSelectionBindingEndpoint(YEmbeddableMultiSelectionEndpoint)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYMultiSelectionBindable_MultiSelectionBindingEndpoint()
-	 * @model
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint#getElement
+	 * @model opposite="element"
 	 * @generated
 	 */
 	YEmbeddableMultiSelectionEndpoint getMultiSelectionBindingEndpoint();

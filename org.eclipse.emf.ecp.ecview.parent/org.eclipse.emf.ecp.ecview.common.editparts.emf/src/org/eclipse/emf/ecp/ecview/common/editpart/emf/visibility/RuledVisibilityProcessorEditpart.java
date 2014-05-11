@@ -164,7 +164,9 @@ public class RuledVisibilityProcessorEditpart extends
 
 	@Override
 	public void fire() {
-
+		IVisibilityRuleEditpart rule = getRule();
+		if (rule != null) {
+			rule.fire();
+		}
 	}
-
 }

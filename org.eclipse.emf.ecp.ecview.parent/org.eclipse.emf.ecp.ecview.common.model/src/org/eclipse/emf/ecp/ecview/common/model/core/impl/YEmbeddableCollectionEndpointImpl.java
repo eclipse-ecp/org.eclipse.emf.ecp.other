@@ -3,6 +3,7 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -85,11 +86,63 @@ public class YEmbeddableCollectionEndpointImpl extends YListBindingEndpointImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(YCollectionBindable newElement) {
+	public NotificationChain basicSetElement(YCollectionBindable newElement, NotificationChain msgs) {
 		YCollectionBindable oldElement = element;
 		element = newElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT, oldElement, element));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT, oldElement, newElement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setElement(YCollectionBindable newElement) {
+		if (newElement != element) {
+			NotificationChain msgs = null;
+			if (element != null)
+				msgs = ((InternalEObject)element).eInverseRemove(this, CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT, YCollectionBindable.class, msgs);
+			if (newElement != null)
+				msgs = ((InternalEObject)newElement).eInverseAdd(this, CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT, YCollectionBindable.class, msgs);
+			msgs = basicSetElement(newElement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT, newElement, newElement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT:
+				if (element != null)
+					msgs = ((InternalEObject)element).eInverseRemove(this, CoreModelPackage.YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT, YCollectionBindable.class, msgs);
+				return basicSetElement((YCollectionBindable)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT:
+				return basicSetElement(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
