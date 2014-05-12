@@ -12,13 +12,16 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IRuledVisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityPropertiesEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityRuleEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityFactory;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -166,7 +169,26 @@ public class RuledVisibilityProcessorEditpart extends
 	public void fire() {
 		IVisibilityRuleEditpart rule = getRule();
 		if (rule != null) {
-			rule.fire();
+			IStatus status = rule.fire();
+			IVisibilityProcessable processable = getEditpart((YElement) getModel()
+					.getParent());
+			if (status == IStatus.OK) {
+				processable.apply(getOnMatch());
+			} else {
+				processable.resetVisibilityProperties();
+			}
 		}
+	}
+
+	/**
+	 * Is notified by the rule, that any of the nested rules is dirty and all
+	 * rules have to be fired.
+	 * 
+	 * @param event
+	 *            - the rule dirty event
+	 */
+	@Override
+	public void ruleDirty(RuleDirtyEvent event) {
+		fire();
 	}
 }

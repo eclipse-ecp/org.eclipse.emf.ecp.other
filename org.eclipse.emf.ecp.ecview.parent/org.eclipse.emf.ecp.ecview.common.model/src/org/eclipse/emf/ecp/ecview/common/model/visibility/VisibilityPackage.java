@@ -87,13 +87,22 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_PROCESSOR__ON_MATCH = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_PROCESSOR__PARENT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>YVisibility Processor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVISIBILITY_PROCESSOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+	int YVISIBILITY_PROCESSOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRuledVisibilityProcessorImpl <em>YRuled Visibility Processor</em>}' class.
@@ -122,6 +131,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YRULED_VISIBILITY_PROCESSOR__ON_MATCH = YVISIBILITY_PROCESSOR__ON_MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YRULED_VISIBILITY_PROCESSOR__PARENT = YVISIBILITY_PROCESSOR__PARENT;
 
 	/**
 	 * The feature id for the '<em><b>Rule</b></em>' containment reference.
@@ -624,6 +642,17 @@ public interface VisibilityPackage extends EPackage {
 	EReference getYVisibilityProcessor_OnMatch();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor#getParent()
+	 * @see #getYVisibilityProcessor()
+	 * @generated
+	 */
+	EReference getYVisibilityProcessor_Parent();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor <em>YRuled Visibility Processor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,6 +1044,14 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YVISIBILITY_PROCESSOR__ON_MATCH = eINSTANCE.getYVisibilityProcessor_OnMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVISIBILITY_PROCESSOR__PARENT = eINSTANCE.getYVisibilityProcessor_Parent();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRuledVisibilityProcessorImpl <em>YRuled Visibility Processor</em>}' class.

@@ -25,6 +25,13 @@ public interface IVisibilityRule {
 	void initialize(Object model);
 
 	/**
+	 * Sets the handler that handles ruleDirtyEvents.
+	 * 
+	 * @param handler
+	 */
+	void setRuleDirtyHandler(IRuleDirtyHandler handler);
+
+	/**
 	 * Fires the rule and returns the status. If {@link IStatus#OK} is returned,
 	 * then the rule matches. Else the rule does not match.
 	 * 

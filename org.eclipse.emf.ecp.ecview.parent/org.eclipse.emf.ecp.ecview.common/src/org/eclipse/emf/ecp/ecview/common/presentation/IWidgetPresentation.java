@@ -16,6 +16,7 @@ import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessable;
 
 /**
  * Widget presenter are used to create and provide widgets that will be
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
  * 
  * @param <C>
  */
-public interface IWidgetPresentation<C> extends IDisposable {
+public interface IWidgetPresentation<C> extends IDisposable, IVisibilityProcessable {
 
 	/**
 	 * Returns the model associated with this presenter.<br>

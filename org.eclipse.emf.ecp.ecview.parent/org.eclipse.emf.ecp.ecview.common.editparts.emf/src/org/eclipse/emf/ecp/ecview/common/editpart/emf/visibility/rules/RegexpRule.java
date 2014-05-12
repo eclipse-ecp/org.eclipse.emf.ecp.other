@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.rules;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 
@@ -74,7 +75,12 @@ public class RegexpRule extends AbstractVisibilityRule {
 	 *            the value to set
 	 */
 	public void setValue(String value) {
+		String oldValue = this.value;
 		this.value = value;
+
+		if (!StringUtils.equals(oldValue, value)) {
+			fireRuleDirty();
+		}
 	}
 
 }

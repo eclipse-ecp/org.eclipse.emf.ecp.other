@@ -16,7 +16,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.visibility;
  * parent editparts to handle this.
  */
 public interface IRuledVisibilityProcessorEditpart extends
-		IVisibilityProcessorEditpart {
+		IVisibilityProcessorEditpart, IRuleDirtyHandler {
 
 	/**
 	 * Fires the visibility rule. Rules will fire automatically at domain model

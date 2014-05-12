@@ -6,6 +6,8 @@
       eSuperTypes="core.ecore#//YElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="onMatch" lowerBound="1"
         eType="#//YVisibilityProperties" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="ecore:EClass core.ecore#//YVisibilityProcessable" eOpposite="core.ecore#//YVisibilityProcessable/visibilityProcessor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YRuledVisibilityProcessor" eSuperTypes="#//YVisibilityProcessor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="#//YVisibilityRule"

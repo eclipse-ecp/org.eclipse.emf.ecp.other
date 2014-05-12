@@ -168,6 +168,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProcessable" abstract="true"
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="visibilityProcessor" eType="ecore:EClass visibility.ecore#//YVisibilityProcessor"
-        containment="true"/>
+        containment="true" eOpposite="visibility.ecore#//YVisibilityProcessor/parent"/>
   </eClassifiers>
 </ecore:EPackage>

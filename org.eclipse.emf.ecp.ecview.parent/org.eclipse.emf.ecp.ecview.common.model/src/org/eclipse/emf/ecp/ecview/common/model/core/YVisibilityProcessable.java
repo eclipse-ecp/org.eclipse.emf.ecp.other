@@ -25,6 +25,7 @@ public interface YVisibilityProcessable extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Visibility Processor</em>' containment reference isn't clear,
@@ -34,7 +35,8 @@ public interface YVisibilityProcessable extends EObject {
 	 * @return the value of the '<em>Visibility Processor</em>' containment reference.
 	 * @see #setVisibilityProcessor(YVisibilityProcessor)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYVisibilityProcessable_VisibilityProcessor()
-	 * @model containment="true" resolveProxies="true"
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor#getParent
+	 * @model opposite="parent" containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YVisibilityProcessor getVisibilityProcessor();

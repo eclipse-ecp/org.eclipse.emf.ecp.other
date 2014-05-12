@@ -34,29 +34,5 @@ public interface IVisibilityRuleEditpart extends IElementEditpart {
 	 */
 	IVisibilityRule getRule();
 
-	/**
-	 * This event is fired if a rule became dirty and the rules needs to be
-	 * evaluated again. The event is passed to the parent. Combined rules need
-	 * to pass the event up to the visibility processor. It will decide how to
-	 * fire the rules again.
-	 */
-	public static class RuleDirtyEvent {
-
-		private final IVisibilityRuleEditpart editpart;
-
-		public RuleDirtyEvent(IVisibilityRuleEditpart editpart) {
-			super();
-			this.editpart = editpart;
-		}
-
-		/**
-		 * Returns the rule that fired the change.
-		 * 
-		 * @return
-		 */
-		public IVisibilityRuleEditpart getEditpart() {
-			return editpart;
-		}
-	}
 
 }

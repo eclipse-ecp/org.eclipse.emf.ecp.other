@@ -40,6 +40,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityPropertiesEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -605,6 +606,16 @@ public class ViewEditpartTest {
 		@Override
 		public Set getUIBindings() {
 			return null;
+		}
+
+		@Override
+		public void apply(IVisibilityPropertiesEditpart properties) {
+			
+		}
+
+		@Override
+		public void resetVisibilityProperties() {
+			
 		}
 
 	}

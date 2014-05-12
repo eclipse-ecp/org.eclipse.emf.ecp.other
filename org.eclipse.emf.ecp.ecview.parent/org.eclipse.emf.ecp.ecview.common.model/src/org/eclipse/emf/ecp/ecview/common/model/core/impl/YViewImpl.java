@@ -32,6 +32,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 
 /**
@@ -473,9 +474,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			visibilityProcessor = (YVisibilityProcessor)eResolveProxy(oldVisibilityProcessor);
 			if (visibilityProcessor != oldVisibilityProcessor) {
 				InternalEObject newVisibilityProcessor = (InternalEObject)visibilityProcessor;
-				NotificationChain msgs = oldVisibilityProcessor.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, null);
+				NotificationChain msgs =  oldVisibilityProcessor.eInverseRemove(this, VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT, YVisibilityProcessor.class, null);
 				if (newVisibilityProcessor.eInternalContainer() == null) {
-					msgs = newVisibilityProcessor.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+					msgs =  newVisibilityProcessor.eInverseAdd(this, VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT, YVisibilityProcessor.class, msgs);
 				}
 				if (msgs != null) msgs.dispatch();
 				if (eNotificationRequired())
@@ -518,9 +519,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		if (newVisibilityProcessor != visibilityProcessor) {
 			NotificationChain msgs = null;
 			if (visibilityProcessor != null)
-				msgs = ((InternalEObject)visibilityProcessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+				msgs = ((InternalEObject)visibilityProcessor).eInverseRemove(this, VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT, YVisibilityProcessor.class, msgs);
 			if (newVisibilityProcessor != null)
-				msgs = ((InternalEObject)newVisibilityProcessor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+				msgs = ((InternalEObject)newVisibilityProcessor).eInverseAdd(this, VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT, YVisibilityProcessor.class, msgs);
 			msgs = basicSetVisibilityProcessor(newVisibilityProcessor, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -586,6 +587,10 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
+				if (visibilityProcessor != null)
+					msgs = ((InternalEObject)visibilityProcessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
+				return basicSetVisibilityProcessor((YVisibilityProcessor)otherEnd, msgs);
 			case CoreModelPackage.YVIEW__ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

@@ -213,6 +213,15 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYVisibilityProcessor_Parent() {
+		return (EReference)yVisibilityProcessorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYRuledVisibilityProcessor() {
 		return yRuledVisibilityProcessorEClass;
 	}
@@ -535,6 +544,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		// Create classes and their features
 		yVisibilityProcessorEClass = createEClass(YVISIBILITY_PROCESSOR);
 		createEReference(yVisibilityProcessorEClass, YVISIBILITY_PROCESSOR__ON_MATCH);
+		createEReference(yVisibilityProcessorEClass, YVISIBILITY_PROCESSOR__PARENT);
 
 		yRuledVisibilityProcessorEClass = createEClass(YRULED_VISIBILITY_PROCESSOR);
 		createEReference(yRuledVisibilityProcessorEClass, YRULED_VISIBILITY_PROCESSOR__RULE);
@@ -624,6 +634,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		// Initialize classes and features; add operations and parameters
 		initEClass(yVisibilityProcessorEClass, YVisibilityProcessor.class, "YVisibilityProcessor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYVisibilityProcessor_OnMatch(), this.getYVisibilityProperties(), null, "onMatch", null, 1, 1, YVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYVisibilityProcessor_Parent(), theCoreModelPackage.getYVisibilityProcessable(), theCoreModelPackage.getYVisibilityProcessable_VisibilityProcessor(), "parent", null, 1, 1, YVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yRuledVisibilityProcessorEClass, YRuledVisibilityProcessor.class, "YRuledVisibilityProcessor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYRuledVisibilityProcessor_Rule(), this.getYVisibilityRule(), null, "rule", null, 0, 1, YRuledVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

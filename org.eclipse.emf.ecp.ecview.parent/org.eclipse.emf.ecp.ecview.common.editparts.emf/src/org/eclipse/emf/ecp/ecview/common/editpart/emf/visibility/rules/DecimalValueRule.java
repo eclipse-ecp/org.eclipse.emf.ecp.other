@@ -69,7 +69,12 @@ public class DecimalValueRule extends AbstractVisibilityRule {
 	 *            the value to set
 	 */
 	public void setValue(double value) {
+		double oldValue = this.value;
 		this.value = value;
+
+		if (oldValue != this.value) {
+			fireRuleDirty();
+		}
 	}
 
 }

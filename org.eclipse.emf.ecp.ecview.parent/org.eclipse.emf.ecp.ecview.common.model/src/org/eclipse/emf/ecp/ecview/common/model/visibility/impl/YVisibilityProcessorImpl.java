@@ -8,6 +8,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
@@ -21,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getOnMatch <em>On Match</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -168,13 +172,96 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public YVisibilityProcessable getParent() {
+		if (eContainerFeatureID() != VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT) return null;
+		return (YVisibilityProcessable)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YVisibilityProcessable basicGetParent() {
+		if (eContainerFeatureID() != VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT) return null;
+		return (YVisibilityProcessable)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(YVisibilityProcessable newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(YVisibilityProcessable newParent) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, CoreModelPackage.YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR, YVisibilityProcessable.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((YVisibilityProcessable)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				return basicSetOnMatch(null, msgs);
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				return eInternalContainer().eInverseRemove(this, CoreModelPackage.YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR, YVisibilityProcessable.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -190,6 +277,9 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				if (resolve) return getOnMatch();
 				return basicGetOnMatch();
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				if (resolve) return getParent();
+				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,6 +297,9 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 				return;
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				setOnMatch((YVisibilityProperties)newValue);
+				return;
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				setParent((YVisibilityProcessable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,6 +319,9 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				setOnMatch((YVisibilityProperties)null);
 				return;
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				setParent((YVisibilityProcessable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -242,6 +338,8 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				return onMatch != null;
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
+				return basicGetParent() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.rules;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IRuleDirtyHandler;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityRule;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
@@ -20,11 +21,17 @@ import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 public abstract class AbstractVisibilityRule implements IVisibilityRule {
 
 	private boolean matchMeansFalse;
+	private IRuleDirtyHandler handler;
 
 	@Override
 	public void initialize(Object model) {
 		YVisibilityRule yRule = (YVisibilityRule) model;
 		matchMeansFalse = yRule.isMatchMeansFalse();
+	}
+
+	@Override
+	public void setRuleDirtyHandler(IRuleDirtyHandler handler) {
+		this.handler = handler;
 	}
 
 	@Override
@@ -44,6 +51,19 @@ public abstract class AbstractVisibilityRule implements IVisibilityRule {
 	 */
 	public boolean isMatchMeansFalse() {
 		return matchMeansFalse;
+	}
+
+	/**
+	 * Returns the ruleDirtyHandler.
+	 */
+	protected IRuleDirtyHandler getRuleDirtyHandler() {
+		return handler;
+	}
+
+	protected void fireRuleDirty() {
+		if (handler != null) {
+			handler.ruleDirty(new IRuleDirtyHandler.RuleDirtyEvent(this));
+		}
 	}
 
 }

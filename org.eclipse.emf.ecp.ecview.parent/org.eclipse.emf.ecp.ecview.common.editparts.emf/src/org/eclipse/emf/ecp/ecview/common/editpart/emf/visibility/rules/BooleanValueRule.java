@@ -39,7 +39,11 @@ public class BooleanValueRule extends AbstractVisibilityRule {
 	 * @param value
 	 */
 	public void setValue(boolean value) {
+		boolean oldValue = this.value;
 		this.value = value;
-	}
 
+		if (oldValue != this.value) {
+			fireRuleDirty();
+		}
+	}
 }

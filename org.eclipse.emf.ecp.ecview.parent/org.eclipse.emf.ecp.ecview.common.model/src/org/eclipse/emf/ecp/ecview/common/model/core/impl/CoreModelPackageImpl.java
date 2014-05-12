@@ -1420,7 +1420,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEClass(yDtWrapperEClass, YDtWrapper.class, "YDtWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yVisibilityProcessableEClass, YVisibilityProcessable.class, "YVisibilityProcessable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYVisibilityProcessable_VisibilityProcessor(), theVisibilityPackage.getYVisibilityProcessor(), null, "visibilityProcessor", null, 0, 1, YVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYVisibilityProcessable_VisibilityProcessor(), theVisibilityPackage.getYVisibilityProcessor(), theVisibilityPackage.getYVisibilityProcessor_Parent(), "visibilityProcessor", null, 0, 1, YVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.Da
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessorEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityPropertiesEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
@@ -109,6 +110,22 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	 */
 	protected void doInitPresentation(IWidgetPresentation<?> presentation) {
 
+	}
+
+	@Override
+	public void apply(IVisibilityPropertiesEditpart properties) {
+		IWidgetPresentation<?> presentation = getPresentation();
+		if (presentation != null) {
+			presentation.apply(properties);
+		}
+	}
+
+	@Override
+	public void resetVisibilityProperties() {
+		IWidgetPresentation<?> presentation = getPresentation();
+		if (presentation != null) {
+			presentation.resetVisibilityProperties();
+		}
 	}
 
 	/**

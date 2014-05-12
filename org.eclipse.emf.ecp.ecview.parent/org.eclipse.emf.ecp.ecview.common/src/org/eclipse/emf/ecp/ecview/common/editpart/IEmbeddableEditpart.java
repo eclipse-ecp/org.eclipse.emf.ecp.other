@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessorEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 
@@ -18,7 +19,8 @@ import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
  * a {@link ILayoutEditpart}.</br> They have an assigned parent, that must never
  * be <code>null</code> if the IUiEmbeddableEditpart is attached to its parent.
  */
-public interface IEmbeddableEditpart extends IElementEditpart {
+public interface IEmbeddableEditpart extends IElementEditpart,
+		IVisibilityProcessable {
 
 	/**
 	 * Name for "parent" property.
