@@ -12,9 +12,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YVisibilityRule" abstract="true" eSuperTypes="core.ecore#//YElement">
-    <eOperations name="createRuleEndpoint" eType="#//YVisibilityRuleBindingEndpoint"/>
+    <eOperations name="createRuleEndpoint" eType="#//YVisibilityRuleBindingEndpoint">
+      <eParameters name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingEndpoints" upperBound="-1"
         eType="#//YVisibilityRuleBindingEndpoint" eOpposite="#//YVisibilityRuleBindingEndpoint/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matchMeansFalse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YVisibilityProperties" eSuperTypes="core.ecore#//YElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -48,5 +51,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//YVisibilityRule"
         eOpposite="#//YVisibilityRule/bindingEndpoints"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YBooleanValueRule" abstract="true" eSuperTypes="#//YVisibilityRule">
+    <eOperations name="createRuleEndpoint" eType="#//YVisibilityRuleBindingEndpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YRegexpRule" abstract="true" eSuperTypes="#//YVisibilityRule">
+    <eOperations name="createRuleEndpoint" eType="#//YVisibilityRuleBindingEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="regExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YDecimalValueRule" abstract="true" eSuperTypes="#//YVisibilityRule">
+    <eOperations name="createRuleEndpoint" eType="#//YVisibilityRuleBindingEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="option" eType="#//YDecimalValueRuleOption"
+        defaultValueLiteral="EQUAL"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="YDecimalValueRuleOption">
+    <eLiterals name="EQUAL" literal="EQUAL"/>
+    <eLiterals name="LOWER" value="1" literal="LOWER"/>
+    <eLiterals name="LOWER_EQUAL" value="2" literal="LOWER_EQUAL"/>
+    <eLiterals name="GREATER" value="3" literal="GREATER"/>
+    <eLiterals name="GREATER_EQUAL" value="4" literal="GREATER_EQUAL"/>
+    <eLiterals name="NOT_EQUAL" value="5" literal="NOT_EQUAL"/>
   </eClassifiers>
 </ecore:EPackage>

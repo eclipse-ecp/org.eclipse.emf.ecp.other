@@ -18,6 +18,13 @@ import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
 public interface IVisibilityRule {
 
 	/**
+	 * Is called to initialize the rule by the given model element.
+	 * 
+	 * @param model
+	 */
+	void initialize(Object model);
+
+	/**
 	 * Fires the rule and returns the status. If {@link IStatus#OK} is returned,
 	 * then the rule matches. Else the rule does not match.
 	 * 

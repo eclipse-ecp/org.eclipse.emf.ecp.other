@@ -37,6 +37,17 @@ public class Status implements IStatus {
 	}
 
 	/**
+	 * Creates an ERROR status.
+	 * 
+	 * @return
+	 */
+	public static IStatus createErrorStatus() {
+		Status status = new Status();
+		status.severity = Severity.ERROR;
+		return status;
+	}
+
+	/**
 	 * Creates a status for the given parameters.
 	 * 
 	 * @param code

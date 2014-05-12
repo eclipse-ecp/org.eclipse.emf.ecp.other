@@ -111,6 +111,30 @@ public class VisibilitySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VisibilityPackage.YBOOLEAN_VALUE_RULE: {
+				YBooleanValueRule yBooleanValueRule = (YBooleanValueRule)theEObject;
+				T result = caseYBooleanValueRule(yBooleanValueRule);
+				if (result == null) result = caseYVisibilityRule(yBooleanValueRule);
+				if (result == null) result = caseYElement(yBooleanValueRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VisibilityPackage.YREGEXP_RULE: {
+				YRegexpRule yRegexpRule = (YRegexpRule)theEObject;
+				T result = caseYRegexpRule(yRegexpRule);
+				if (result == null) result = caseYVisibilityRule(yRegexpRule);
+				if (result == null) result = caseYElement(yRegexpRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VisibilityPackage.YDECIMAL_VALUE_RULE: {
+				YDecimalValueRule yDecimalValueRule = (YDecimalValueRule)theEObject;
+				T result = caseYDecimalValueRule(yDecimalValueRule);
+				if (result == null) result = caseYVisibilityRule(yDecimalValueRule);
+				if (result == null) result = caseYElement(yDecimalValueRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -202,6 +226,51 @@ public class VisibilitySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYVisibilityRuleBindingEndpoint(YVisibilityRuleBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBoolean Value Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBoolean Value Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBooleanValueRule(YBooleanValueRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YRegexp Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YRegexp Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYRegexpRule(YRegexpRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDecimal Value Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDecimal Value Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDecimalValueRule(YDecimalValueRule object) {
 		return null;
 	}
 

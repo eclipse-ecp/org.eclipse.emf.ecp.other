@@ -27,6 +27,11 @@ public interface IStatus {
 	 * A constant for cancel status.
 	 */
 	public static final IStatus CANCEL = Status.createCancelStatus();
+	
+	/**
+	 * A constant for error status.
+	 */
+	public static final IStatus ERROR = Status.createErrorStatus();
 
 	/**
 	 * Returns the id of the status. It is prepared by the pattern

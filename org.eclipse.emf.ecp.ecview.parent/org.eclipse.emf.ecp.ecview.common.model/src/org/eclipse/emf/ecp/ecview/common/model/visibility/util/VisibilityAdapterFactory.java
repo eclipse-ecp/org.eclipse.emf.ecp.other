@@ -92,6 +92,18 @@ public class VisibilityAdapterFactory extends AdapterFactoryImpl {
 				return createYVisibilityRuleBindingEndpointAdapter();
 			}
 			@Override
+			public Adapter caseYBooleanValueRule(YBooleanValueRule object) {
+				return createYBooleanValueRuleAdapter();
+			}
+			@Override
+			public Adapter caseYRegexpRule(YRegexpRule object) {
+				return createYRegexpRuleAdapter();
+			}
+			@Override
+			public Adapter caseYDecimalValueRule(YDecimalValueRule object) {
+				return createYDecimalValueRuleAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -204,6 +216,48 @@ public class VisibilityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYVisibilityRuleBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule <em>YBoolean Value Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule
+	 * @generated
+	 */
+	public Adapter createYBooleanValueRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule <em>YRegexp Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule
+	 * @generated
+	 */
+	public Adapter createYRegexpRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule <em>YDecimal Value Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule
+	 * @generated
+	 */
+	public Adapter createYDecimalValueRuleAdapter() {
 		return null;
 	}
 

@@ -170,13 +170,22 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_RULE__BINDING_ENDPOINTS = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Match Means False</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE__MATCH_MEANS_FALSE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>YVisibility Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVISIBILITY_RULE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
+	int YVISIBILITY_RULE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl <em>YVisibility Properties</em>}' class.
@@ -407,6 +416,171 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_RULE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YBooleanValueRuleImpl <em>YBoolean Value Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YBooleanValueRuleImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYBooleanValueRule()
+	 * @generated
+	 */
+	int YBOOLEAN_VALUE_RULE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBOOLEAN_VALUE_RULE__ID = YVISIBILITY_RULE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBOOLEAN_VALUE_RULE__BINDING_ENDPOINTS = YVISIBILITY_RULE__BINDING_ENDPOINTS;
+
+	/**
+	 * The feature id for the '<em><b>Match Means False</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBOOLEAN_VALUE_RULE__MATCH_MEANS_FALSE = YVISIBILITY_RULE__MATCH_MEANS_FALSE;
+
+	/**
+	 * The number of structural features of the '<em>YBoolean Value Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBOOLEAN_VALUE_RULE_FEATURE_COUNT = YVISIBILITY_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRegexpRuleImpl <em>YRegexp Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRegexpRuleImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYRegexpRule()
+	 * @generated
+	 */
+	int YREGEXP_RULE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_RULE__ID = YVISIBILITY_RULE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_RULE__BINDING_ENDPOINTS = YVISIBILITY_RULE__BINDING_ENDPOINTS;
+
+	/**
+	 * The feature id for the '<em><b>Match Means False</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_RULE__MATCH_MEANS_FALSE = YVISIBILITY_RULE__MATCH_MEANS_FALSE;
+
+	/**
+	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_RULE__REG_EXPRESSION = YVISIBILITY_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YRegexp Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_RULE_FEATURE_COUNT = YVISIBILITY_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YDecimalValueRuleImpl <em>YDecimal Value Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YDecimalValueRuleImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYDecimalValueRule()
+	 * @generated
+	 */
+	int YDECIMAL_VALUE_RULE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE__ID = YVISIBILITY_RULE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE__BINDING_ENDPOINTS = YVISIBILITY_RULE__BINDING_ENDPOINTS;
+
+	/**
+	 * The feature id for the '<em><b>Match Means False</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE__MATCH_MEANS_FALSE = YVISIBILITY_RULE__MATCH_MEANS_FALSE;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE__OPTION = YVISIBILITY_RULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE__REFERENCE_VALUE = YVISIBILITY_RULE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YDecimal Value Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE_FEATURE_COUNT = YVISIBILITY_RULE_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,7 +588,18 @@ public interface VisibilityPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYColorType()
 	 * @generated
 	 */
-	int YCOLOR_TYPE = 6;
+	int YCOLOR_TYPE = 9;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRuleOption <em>YDecimal Value Rule Option</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRuleOption
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYDecimalValueRuleOption()
+	 * @generated
+	 */
+	int YDECIMAL_VALUE_RULE_OPTION = 10;
 
 
 	/**
@@ -479,6 +664,17 @@ public interface VisibilityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYVisibilityRule_BindingEndpoints();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#isMatchMeansFalse <em>Match Means False</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Match Means False</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#isMatchMeansFalse()
+	 * @see #getYVisibilityRule()
+	 * @generated
+	 */
+	EAttribute getYVisibilityRule_MatchMeansFalse();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties <em>YVisibility Properties</em>}'.
@@ -698,6 +894,69 @@ public interface VisibilityPackage extends EPackage {
 	EAttribute getYVisibilityRuleBindingEndpoint_Attribute();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule <em>YBoolean Value Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YBoolean Value Rule</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule
+	 * @generated
+	 */
+	EClass getYBooleanValueRule();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule <em>YRegexp Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YRegexp Rule</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule
+	 * @generated
+	 */
+	EClass getYRegexpRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule#getRegExpression <em>Reg Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reg Expression</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule#getRegExpression()
+	 * @see #getYRegexpRule()
+	 * @generated
+	 */
+	EAttribute getYRegexpRule_RegExpression();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule <em>YDecimal Value Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YDecimal Value Rule</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule
+	 * @generated
+	 */
+	EClass getYDecimalValueRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Option</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule#getOption()
+	 * @see #getYDecimalValueRule()
+	 * @generated
+	 */
+	EAttribute getYDecimalValueRule_Option();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule#getReferenceValue <em>Reference Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule#getReferenceValue()
+	 * @see #getYDecimalValueRule()
+	 * @generated
+	 */
+	EAttribute getYDecimalValueRule_ReferenceValue();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -706,6 +965,16 @@ public interface VisibilityPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getYColorType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRuleOption <em>YDecimal Value Rule Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>YDecimal Value Rule Option</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRuleOption
+	 * @generated
+	 */
+	EEnum getYDecimalValueRuleOption();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -782,6 +1051,14 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YVISIBILITY_RULE__BINDING_ENDPOINTS = eINSTANCE.getYVisibilityRule_BindingEndpoints();
+
+		/**
+		 * The meta object literal for the '<em><b>Match Means False</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YVISIBILITY_RULE__MATCH_MEANS_FALSE = eINSTANCE.getYVisibilityRule_MatchMeansFalse();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl <em>YVisibility Properties</em>}' class.
@@ -950,6 +1227,60 @@ public interface VisibilityPackage extends EPackage {
 		EAttribute YVISIBILITY_RULE_BINDING_ENDPOINT__ATTRIBUTE = eINSTANCE.getYVisibilityRuleBindingEndpoint_Attribute();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YBooleanValueRuleImpl <em>YBoolean Value Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YBooleanValueRuleImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYBooleanValueRule()
+		 * @generated
+		 */
+		EClass YBOOLEAN_VALUE_RULE = eINSTANCE.getYBooleanValueRule();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRegexpRuleImpl <em>YRegexp Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRegexpRuleImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYRegexpRule()
+		 * @generated
+		 */
+		EClass YREGEXP_RULE = eINSTANCE.getYRegexpRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Reg Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YREGEXP_RULE__REG_EXPRESSION = eINSTANCE.getYRegexpRule_RegExpression();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YDecimalValueRuleImpl <em>YDecimal Value Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YDecimalValueRuleImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYDecimalValueRule()
+		 * @generated
+		 */
+		EClass YDECIMAL_VALUE_RULE = eINSTANCE.getYDecimalValueRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDECIMAL_VALUE_RULE__OPTION = eINSTANCE.getYDecimalValueRule_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDECIMAL_VALUE_RULE__REFERENCE_VALUE = eINSTANCE.getYDecimalValueRule_ReferenceValue();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -958,6 +1289,16 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum YCOLOR_TYPE = eINSTANCE.getYColorType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRuleOption <em>YDecimal Value Rule Option</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRuleOption
+		 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.impl.VisibilityPackageImpl#getYDecimalValueRuleOption()
+		 * @generated
+		 */
+		EEnum YDECIMAL_VALUE_RULE_OPTION = eINSTANCE.getYDecimalValueRuleOption();
 
 	}
 

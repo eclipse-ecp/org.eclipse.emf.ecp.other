@@ -14,6 +14,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#getBindingEndpoints <em>Binding Endpoints</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#isMatchMeansFalse <em>Match Means False</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,10 +43,36 @@ public interface YVisibilityRule extends YElement {
 	EList<YVisibilityRuleBindingEndpoint> getBindingEndpoints();
 
 	/**
+	 * Returns the value of the '<em><b>Match Means False</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Match Means False</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Match Means False</em>' attribute.
+	 * @see #setMatchMeansFalse(boolean)
+	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage#getYVisibilityRule_MatchMeansFalse()
+	 * @model
+	 * @generated
+	 */
+	boolean isMatchMeansFalse();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#isMatchMeansFalse <em>Match Means False</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Match Means False</em>' attribute.
+	 * @see #isMatchMeansFalse()
+	 * @generated
+	 */
+	void setMatchMeansFalse(boolean value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	YVisibilityRuleBindingEndpoint createRuleEndpoint();
+	YVisibilityRuleBindingEndpoint createRuleEndpoint(String attribute);
 } // YVisibilityRule
