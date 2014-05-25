@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler.core" sequenceNumber="82">
+<?pde version="3.8"?><target includeMode="feature" name="org.eclipse.emf.ecp.ecview.ui.target.kepler.core" sequenceNumber="83">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
@@ -31,6 +31,11 @@
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.riena.build.feature.sdk.e4.feature.group" version="5.0.0.v20130910_5_0_0_SR1"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.apache.commons.lang.source" version="2.6.0.v201205030909"/>
+<unit id="org.apache.commons.lang" version="2.6.0.v201205030909"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
 </location>
 </locations>
 </target>
