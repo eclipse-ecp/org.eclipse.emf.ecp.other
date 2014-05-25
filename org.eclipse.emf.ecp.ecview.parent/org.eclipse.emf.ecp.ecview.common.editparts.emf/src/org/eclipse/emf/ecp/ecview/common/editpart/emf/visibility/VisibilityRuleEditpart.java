@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.DelegatingVisibilityFactory;
+import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IRuleDirtyHandler;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityRule;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityRuleEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
@@ -21,6 +22,7 @@ public abstract class VisibilityRuleEditpart<M extends YVisibilityRule> extends
 		ElementEditpart<M> implements IVisibilityRuleEditpart {
 
 	private IVisibilityRule rule;
+	private IRuleDirtyHandler handler;
 
 	@Override
 	public IStatus fire() {
@@ -28,12 +30,25 @@ public abstract class VisibilityRuleEditpart<M extends YVisibilityRule> extends
 	}
 
 	@Override
+	public void setRuleDirtyHandler(IRuleDirtyHandler handler) {
+		this.handler = handler;
+	}
+
+	@Override
 	public IVisibilityRule getRule() {
 		if (rule == null) {
 			rule = DelegatingVisibilityFactory.getInstance().createRule(
 					getModel());
+			rule.setRuleDirtyHandler(this);
 		}
 		return rule;
+	}
+
+	@Override
+	public void ruleDirty(RuleDirtyEvent event) {
+		if (handler != null) {
+			handler.ruleDirty(event);
+		}
 	}
 
 }

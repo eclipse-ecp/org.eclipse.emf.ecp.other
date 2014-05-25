@@ -17,7 +17,8 @@ import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
  * An editpart responsible to handle rules that will be used to trigger the
  * visibility properties.
  */
-public interface IVisibilityRuleEditpart extends IElementEditpart {
+public interface IVisibilityRuleEditpart extends IElementEditpart,
+		IRuleDirtyHandler {
 
 	/**
 	 * Fires the rule.
@@ -34,5 +35,12 @@ public interface IVisibilityRuleEditpart extends IElementEditpart {
 	 */
 	IVisibilityRule getRule();
 
+	/**
+	 * Sets the handler that handles ruleDirtyEvents. Rule dirty events should
+	 * be forwarded to the {@link IVisibilityProcessorEditpart}.
+	 * 
+	 * @param handler
+	 */
+	void setRuleDirtyHandler(IRuleDirtyHandler handler);
 
 }

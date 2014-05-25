@@ -85,6 +85,7 @@ public class RuledVisibilityProcessorEditpart extends
 	 */
 	protected void internalSetRule(IVisibilityRuleEditpart rule) {
 		this.rule = rule;
+		this.rule.setRuleDirtyHandler(this);
 
 		// fire the rule
 		fire();
