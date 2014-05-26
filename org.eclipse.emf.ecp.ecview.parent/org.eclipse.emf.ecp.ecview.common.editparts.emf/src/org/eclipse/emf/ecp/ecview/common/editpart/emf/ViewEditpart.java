@@ -90,6 +90,11 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			configuration.beforeUiRendering(getContext());
 		}
 
+		// ensure that the bean slots are initialized
+		for (YBeanSlot yBeanSlot : getModel().getBeanSlots()) {
+			internalAddBeanSlot(yBeanSlot);
+		}
+
 		// render the view presentation
 		renderPresentation(options);
 

@@ -244,24 +244,6 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEmbeddable(YEmbeddable newEmbeddable) {
-		if (newEmbeddable != embeddable) {
-			NotificationChain msgs = null;
-			if (embeddable != null)
-				msgs = ((InternalEObject)embeddable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YTAB__EMBEDDABLE, null, msgs);
-			if (newEmbeddable != null)
-				msgs = ((InternalEObject)newEmbeddable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YTAB__EMBEDDABLE, null, msgs);
-			msgs = basicSetEmbeddable(newEmbeddable, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTAB__EMBEDDABLE, newEmbeddable, newEmbeddable));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -297,6 +279,24 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		datadescription = newDatadescription;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTAB__DATADESCRIPTION, oldDatadescription, datadescription));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmbeddable(YEmbeddable newEmbeddable) {
+		if (newEmbeddable != embeddable) {
+			NotificationChain msgs = null;
+			if (embeddable != null)
+				msgs = ((InternalEObject)embeddable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YTAB__EMBEDDABLE, null, msgs);
+			if (newEmbeddable != null)
+				msgs = ((InternalEObject)newEmbeddable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YTAB__EMBEDDABLE, null, msgs);
+			msgs = basicSetEmbeddable(newEmbeddable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTAB__EMBEDDABLE, newEmbeddable, newEmbeddable));
 	}
 
 	/**
