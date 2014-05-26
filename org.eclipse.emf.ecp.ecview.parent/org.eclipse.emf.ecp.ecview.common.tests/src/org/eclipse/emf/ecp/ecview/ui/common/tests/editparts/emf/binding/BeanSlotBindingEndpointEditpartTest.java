@@ -15,6 +15,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
@@ -235,6 +238,62 @@ public class BeanSlotBindingEndpointEditpartTest {
 
 	}
 
+	@Test
+	// BEGIN SUPRESS CATCH EXCEPTION
+	public void test_bind_WithList() {
+		// END SUPRESS CATCH EXCEPTION
+
+		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
+				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
+
+		ViewContext context = new ViewContext(viewEditpart);
+		YBindingSet bs = bindingFactory.createYBindingSet();
+		YView yView = (YView) viewEditpart.getModel();
+		yView.setBindingSet(bs);
+
+		// add a bean slot
+		YBeanSlot yBeanSlot = factory.createYBeanSlot();
+		yBeanSlot.setName("myFoo");
+		yBeanSlot.setValueType(Bean.class);
+		yView.getBeanSlots().add(yBeanSlot);
+
+		// activate the bindingSet editpart
+		//
+		IBindingSetEditpart bsEditpart = editpartManager.getEditpart(bs);
+		bsEditpart.setBindingManager(new DefaultBindingManager());
+		bsEditpart.activate();
+
+		// context endpoint
+		//
+		YBeanSlotBindingEndpoint yTargetEndpoint = factory
+				.createYBeanSlotBindingEndpoint();
+		yTargetEndpoint.setBeanSlot(yBeanSlot);
+		yTargetEndpoint.setAttributePath("value");
+
+		// bean endpoint
+		//
+		Bean bean = new Bean("Test");
+		YBeanBindingEndpoint yModelEndpoint = BindingFactory.eINSTANCE
+				.createYBeanBindingEndpoint();
+		yModelEndpoint.setBean(bean);
+		yModelEndpoint.setPropertyPath("value");
+
+		bs.addBinding(yTargetEndpoint, yModelEndpoint);
+
+		// write to bean
+		BeanScope scope = URIHelper.toScope("view://bean/myFoo#value")
+				.getBeanScope();
+		assertEquals(bean.getValue(), (String) scope.access(context));
+
+		bean.setValue("Othervalue");
+		assertEquals(bean.getValue(), (String) scope.access(context));
+
+		// write to context
+		scope.accessBeanSlot(context).setValue("FromContext");
+		assertEquals(bean.getValue(), "FromContext");
+
+	}
+
 	/**
 	 * Tests the disposal.
 	 */
@@ -320,6 +379,7 @@ public class BeanSlotBindingEndpointEditpartTest {
 	public class Bean extends AbstractBean {
 
 		private String value;
+		private List<String> values = new ArrayList<String>();
 
 		public Bean(String value) {
 			super();
@@ -339,6 +399,14 @@ public class BeanSlotBindingEndpointEditpartTest {
 		 */
 		public void setValue(String value) {
 			firePropertyChanged("value", this.value, this.value = value);
+		}
+
+		public List<String> getValues() {
+			return values;
+		}
+
+		public void setValues(List<String> values) {
+			this.values = values;
 		}
 
 	}

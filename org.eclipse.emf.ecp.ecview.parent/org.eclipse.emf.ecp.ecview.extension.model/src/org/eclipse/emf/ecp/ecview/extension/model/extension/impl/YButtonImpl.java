@@ -3,6 +3,7 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -212,6 +213,34 @@ public class YButtonImpl extends YActionImpl implements YButton {
 		result.append(clickListeners);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * Sets the label by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabel(String label) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescription(label));
+		} else {
+			ds.setLabel(label);
+		}
+	}
+
+	/**
+	 * Sets the label i18nKey by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabelI18nKey(String i18nKey) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescriptionForI18n(i18nKey));
+		} else {
+			ds.setLabelI18nKey(i18nKey);
+		}
 	}
 
 } // YButtonImpl

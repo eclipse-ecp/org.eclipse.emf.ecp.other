@@ -30,6 +30,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSpanInfo;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -120,6 +122,22 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTable createTable() {
 		return factory.createYTable();
+	}
+	
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYTable()
+	 */
+	public YTabSheet createTabSheet() {
+		return factory.createYTabSheet();
+	}
+	
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYTable()
+	 */
+	public YTab createTab() {
+		return factory.createYTab();
 	}
 
 	/**

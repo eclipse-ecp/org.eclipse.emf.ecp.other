@@ -587,4 +587,16 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 		return result.toString();
 	}
 
+	@Override
+	public void setLabel(String label) {
+		// nothing to do
+		
+	}
+
+	@Override
+	public void setLabelI18nKey(String i18nKey) {
+		// nothing to do
+		
+	}
+
 } // YUiFieldImpl

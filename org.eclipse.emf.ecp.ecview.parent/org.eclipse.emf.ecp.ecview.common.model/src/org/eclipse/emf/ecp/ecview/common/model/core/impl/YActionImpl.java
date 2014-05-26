@@ -245,4 +245,16 @@ public class YActionImpl extends YEmbeddableImpl implements YAction {
 		return result.toString();
 	}
 
+	@Override
+	public void setLabel(String label) {
+		// nothing to do
+		
+	}
+
+	@Override
+	public void setLabelI18nKey(String i18nKey) {
+		// nothing to do
+		
+	}
+
 } //YActionImpl

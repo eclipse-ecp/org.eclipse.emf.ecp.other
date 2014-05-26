@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface YMarginable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Margin</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Margin</em>' attribute isn't clear,
@@ -41,7 +42,7 @@ public interface YMarginable extends EObject {
 	 * @return the value of the '<em>Margin</em>' attribute.
 	 * @see #setMargin(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYMarginable_Margin()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isMargin();

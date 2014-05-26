@@ -2,6 +2,7 @@ package org.eclipse.emf.ecp.ecview.databinding.emf.common;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ import org.eclipse.core.internal.databinding.conversion.NumberToFloatConverter;
 import org.eclipse.core.internal.databinding.conversion.NumberToIntegerConverter;
 import org.eclipse.core.internal.databinding.conversion.NumberToLongConverter;
 import org.eclipse.core.internal.databinding.conversion.NumberToShortConverter;
+import org.eclipse.core.internal.databinding.conversion.ObjectToStringConverter;
 import org.eclipse.emf.databinding.EMFUpdateValueStrategy;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EDataType;
@@ -96,6 +98,8 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 					if (converter != null) {
 						return converter;
 					}
+				} else if (toTypeClass == String.class) {
+					return new ObjectToStringConverter();
 				}
 			}
 		} else if (fromType instanceof EAttribute) {
@@ -167,6 +171,27 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 	private boolean isNumber(Object type) {
 		return type instanceof Class
 				&& (((Class<?>) type).isAssignableFrom(Number.class) || isPrimitiveNumber((Class<?>) type));
+	}
+
+	/**
+	 * Returns true, if the given type is a date.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	private boolean isDate(Object type) {
+		return type instanceof Class
+				&& (((Class<?>) type).isAssignableFrom(Date.class));
+	}
+
+	/**
+	 * Returns true, if the given type is a string.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	private boolean isString(Object type) {
+		return type == String.class;
 	}
 
 	/**

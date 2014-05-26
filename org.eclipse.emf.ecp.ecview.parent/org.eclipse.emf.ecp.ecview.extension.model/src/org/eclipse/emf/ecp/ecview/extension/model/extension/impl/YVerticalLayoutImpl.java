@@ -47,7 +47,7 @@ public class YVerticalLayoutImpl extends YLayoutImpl implements YVerticalLayout 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SPACING_EDEFAULT = false;
+	protected static final boolean SPACING_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isSpacing() <em>Spacing</em>}' attribute.
@@ -67,7 +67,7 @@ public class YVerticalLayoutImpl extends YLayoutImpl implements YVerticalLayout 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MARGIN_EDEFAULT = false;
+	protected static final boolean MARGIN_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.

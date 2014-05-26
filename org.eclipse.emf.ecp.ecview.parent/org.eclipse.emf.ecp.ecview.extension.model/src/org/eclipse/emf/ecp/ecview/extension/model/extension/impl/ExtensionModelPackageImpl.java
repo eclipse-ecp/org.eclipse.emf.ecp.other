@@ -1184,6 +1184,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYTab_Datadescription() {
+		return (EReference)yTabEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYTree() {
 		return yTreeEClass;
 	}
@@ -1513,6 +1522,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yTabEClass = createEClass(YTAB);
 		createEReference(yTabEClass, YTAB__PARENT);
 		createEReference(yTabEClass, YTAB__EMBEDDABLE);
+		createEReference(yTabEClass, YTAB__DATADESCRIPTION);
 
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
@@ -1778,6 +1788,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEClass(yTabEClass, YTab.class, "YTab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTab_Parent(), this.getYTabSheet(), this.getYTabSheet_Tabs(), "parent", null, 1, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTab_Embeddable(), theCoreModelPackage.getYEmbeddable(), null, "embeddable", null, 1, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYTab_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yTabEClass, theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 

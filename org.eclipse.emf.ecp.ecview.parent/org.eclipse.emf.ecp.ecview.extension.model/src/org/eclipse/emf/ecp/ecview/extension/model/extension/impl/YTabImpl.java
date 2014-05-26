@@ -14,6 +14,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesFactory;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTab;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getEmbeddable <em>Embeddable</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getDatadescription <em>Datadescription</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +96,16 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	 * @ordered
 	 */
 	protected YEmbeddable embeddable;
+
+	/**
+	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatadescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected YDatadescription datadescription;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -249,6 +262,44 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDatadescription getDatadescription() {
+		if (datadescription != null && datadescription.eIsProxy()) {
+			InternalEObject oldDatadescription = (InternalEObject)datadescription;
+			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
+			if (datadescription != oldDatadescription) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTAB__DATADESCRIPTION, oldDatadescription, datadescription));
+			}
+		}
+		return datadescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDatadescription basicGetDatadescription() {
+		return datadescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatadescription(YDatadescription newDatadescription) {
+		YDatadescription oldDatadescription = datadescription;
+		datadescription = newDatadescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTAB__DATADESCRIPTION, oldDatadescription, datadescription));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -336,6 +387,9 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 				return getParent();
 			case ExtensionModelPackage.YTAB__EMBEDDABLE:
 				return getEmbeddable();
+			case ExtensionModelPackage.YTAB__DATADESCRIPTION:
+				if (resolve) return getDatadescription();
+				return basicGetDatadescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -361,6 +415,9 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 				return;
 			case ExtensionModelPackage.YTAB__EMBEDDABLE:
 				setEmbeddable((YEmbeddable)newValue);
+				return;
+			case ExtensionModelPackage.YTAB__DATADESCRIPTION:
+				setDatadescription((YDatadescription)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -388,6 +445,9 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 			case ExtensionModelPackage.YTAB__EMBEDDABLE:
 				setEmbeddable((YEmbeddable)null);
 				return;
+			case ExtensionModelPackage.YTAB__DATADESCRIPTION:
+				setDatadescription((YDatadescription)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -409,6 +469,8 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 				return getParent() != null;
 			case ExtensionModelPackage.YTAB__EMBEDDABLE:
 				return embeddable != null;
+			case ExtensionModelPackage.YTAB__DATADESCRIPTION:
+				return datadescription != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -462,6 +524,48 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		result.append(cssID);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * Sets the label by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabel(String label) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescription(label));
+		} else {
+			ds.setLabel(label);
+		}
+	}
+
+	/**
+	 * Sets the label i18nKey by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabelI18nKey(String i18nKey) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescriptionForI18n(i18nKey));
+		} else {
+			ds.setLabelI18nKey(i18nKey);
+		}
+	}
+	
+	protected YDatadescription createDatadescription(String label) {
+		YDatadescription dsc = DatatypesFactory.eINSTANCE
+				.createYDatadescription();
+		dsc.setLabel(label);
+		return dsc;
+	}
+
+	protected YDatadescription createDatadescriptionForI18n(String i18nKey) {
+		YDatadescription dsc = DatatypesFactory.eINSTANCE
+				.createYDatadescription();
+		dsc.setLabelI18nKey(i18nKey);
+		return dsc;
 	}
 
 } // YTabImpl

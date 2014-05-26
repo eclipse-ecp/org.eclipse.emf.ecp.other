@@ -3613,13 +3613,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTAB__EMBEDDABLE = CoreModelPackage.YELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__DATADESCRIPTION = CoreModelPackage.YELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>YTab</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTAB_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 4;
+	int YTAB_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
@@ -4664,6 +4673,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYTab_Embeddable();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getDatadescription()
+	 * @see #getYTab()
+	 * @generated
+	 */
+	EReference getYTab_Datadescription();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree <em>YTree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5689,6 +5709,14 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YTAB__EMBEDDABLE = eINSTANCE.getYTab_Embeddable();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YTAB__DATADESCRIPTION = eINSTANCE.getYTab_Datadescription();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl <em>YTree</em>}' class.

@@ -1338,10 +1338,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEAttribute(getYCssAble_CssID(), ecorePackage.getEString(), "cssID", null, 0, 1, YCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yMarginableEClass, YMarginable.class, "YMarginable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYMarginable_Margin(), ecorePackage.getEBoolean(), "margin", null, 0, 1, YMarginable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYMarginable_Margin(), ecorePackage.getEBoolean(), "margin", "true", 0, 1, YMarginable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ySpacingableEClass, YSpacingable.class, "YSpacingable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYSpacingable_Spacing(), ecorePackage.getEBoolean(), "spacing", null, 0, 1, YSpacingable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYSpacingable_Spacing(), ecorePackage.getEBoolean(), "spacing", "true", 0, 1, YSpacingable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yHeightableEClass, YHeightable.class, "YHeightable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYHeightable_Height(), ecorePackage.getEInt(), "height", "100", 0, 1, YHeightable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

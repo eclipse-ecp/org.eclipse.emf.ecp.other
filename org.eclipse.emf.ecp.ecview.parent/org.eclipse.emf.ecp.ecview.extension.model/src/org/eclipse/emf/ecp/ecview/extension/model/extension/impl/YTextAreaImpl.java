@@ -463,4 +463,32 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 		return result.toString();
 	}
 
+	/**
+	 * Sets the label by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabel(String label) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescription(label));
+		} else {
+			ds.setLabel(label);
+		}
+	}
+
+	/**
+	 * Sets the label i18nKey by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabelI18nKey(String i18nKey) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescriptionForI18n(i18nKey));
+		} else {
+			ds.setLabelI18nKey(i18nKey);
+		}
+	}
+	
 } //YUiTextAreaImpl

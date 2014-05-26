@@ -3,6 +3,7 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -204,15 +205,37 @@ public class YListImpl extends YInputImpl implements YList {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCollectionBindingEndpoint(YEmbeddableCollectionEndpoint newCollectionBindingEndpoint, NotificationChain msgs) {
+		YEmbeddableCollectionEndpoint oldCollectionBindingEndpoint = collectionBindingEndpoint;
+		collectionBindingEndpoint = newCollectionBindingEndpoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, newCollectionBindingEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCollectionBindingEndpoint(
 			YEmbeddableCollectionEndpoint newCollectionBindingEndpoint) {
-		YEmbeddableCollectionEndpoint oldCollectionBindingEndpoint = collectionBindingEndpoint;
-		collectionBindingEndpoint = newCollectionBindingEndpoint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT, oldCollectionBindingEndpoint, collectionBindingEndpoint));
+		if (newCollectionBindingEndpoint != collectionBindingEndpoint) {
+			NotificationChain msgs = null;
+			if (collectionBindingEndpoint != null)
+				msgs = ((InternalEObject)collectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT, YEmbeddableCollectionEndpoint.class, msgs);
+			if (newCollectionBindingEndpoint != null)
+				msgs = ((InternalEObject)newCollectionBindingEndpoint).eInverseAdd(this, CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT, YEmbeddableCollectionEndpoint.class, msgs);
+			msgs = basicSetCollectionBindingEndpoint(newCollectionBindingEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT, newCollectionBindingEndpoint, newCollectionBindingEndpoint));
 	}
 
 	/**
@@ -305,11 +328,33 @@ public class YListImpl extends YInputImpl implements YList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMultiSelectionBindingEndpoint(YEmbeddableMultiSelectionEndpoint newMultiSelectionBindingEndpoint) {
+	public NotificationChain basicSetMultiSelectionBindingEndpoint(YEmbeddableMultiSelectionEndpoint newMultiSelectionBindingEndpoint, NotificationChain msgs) {
 		YEmbeddableMultiSelectionEndpoint oldMultiSelectionBindingEndpoint = multiSelectionBindingEndpoint;
 		multiSelectionBindingEndpoint = newMultiSelectionBindingEndpoint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT, oldMultiSelectionBindingEndpoint, multiSelectionBindingEndpoint));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT, oldMultiSelectionBindingEndpoint, newMultiSelectionBindingEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMultiSelectionBindingEndpoint(YEmbeddableMultiSelectionEndpoint newMultiSelectionBindingEndpoint) {
+		if (newMultiSelectionBindingEndpoint != multiSelectionBindingEndpoint) {
+			NotificationChain msgs = null;
+			if (multiSelectionBindingEndpoint != null)
+				msgs = ((InternalEObject)multiSelectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT, YEmbeddableMultiSelectionEndpoint.class, msgs);
+			if (newMultiSelectionBindingEndpoint != null)
+				msgs = ((InternalEObject)newMultiSelectionBindingEndpoint).eInverseAdd(this, CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT, YEmbeddableMultiSelectionEndpoint.class, msgs);
+			msgs = basicSetMultiSelectionBindingEndpoint(newMultiSelectionBindingEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT, newMultiSelectionBindingEndpoint, newMultiSelectionBindingEndpoint));
 	}
 
 	/**
@@ -539,10 +584,18 @@ public class YListImpl extends YInputImpl implements YList {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT:
+				if (collectionBindingEndpoint != null)
+					msgs = ((InternalEObject)collectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT__ELEMENT, YEmbeddableCollectionEndpoint.class, msgs);
+				return basicSetCollectionBindingEndpoint((YEmbeddableCollectionEndpoint)otherEnd, msgs);
 			case ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT:
 				if (selectionBindingEndpoint != null)
 					msgs = ((InternalEObject)selectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT, YEmbeddableSelectionEndpoint.class, msgs);
 				return basicSetSelectionBindingEndpoint((YEmbeddableSelectionEndpoint)otherEnd, msgs);
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT:
+				if (multiSelectionBindingEndpoint != null)
+					msgs = ((InternalEObject)multiSelectionBindingEndpoint).eInverseRemove(this, CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT, YEmbeddableMultiSelectionEndpoint.class, msgs);
+				return basicSetMultiSelectionBindingEndpoint((YEmbeddableMultiSelectionEndpoint)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -555,8 +608,12 @@ public class YListImpl extends YInputImpl implements YList {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ExtensionModelPackage.YLIST__COLLECTION_BINDING_ENDPOINT:
+				return basicSetCollectionBindingEndpoint(null, msgs);
 			case ExtensionModelPackage.YLIST__SELECTION_BINDING_ENDPOINT:
 				return basicSetSelectionBindingEndpoint(null, msgs);
+			case ExtensionModelPackage.YLIST__MULTI_SELECTION_BINDING_ENDPOINT:
+				return basicSetMultiSelectionBindingEndpoint(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -798,6 +855,34 @@ public class YListImpl extends YInputImpl implements YList {
 		result.append(type);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * Sets the label by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabel(String label) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescription(label));
+		} else {
+			ds.setLabel(label);
+		}
+	}
+
+	/**
+	 * Sets the label i18nKey by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabelI18nKey(String i18nKey) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescriptionForI18n(i18nKey));
+		} else {
+			ds.setLabelI18nKey(i18nKey);
+		}
 	}
 
 } // YUiListImpl

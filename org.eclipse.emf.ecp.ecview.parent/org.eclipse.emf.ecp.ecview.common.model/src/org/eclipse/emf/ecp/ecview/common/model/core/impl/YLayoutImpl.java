@@ -172,4 +172,16 @@ public class YLayoutImpl extends YEmbeddableImpl implements YLayout {
 		return getElements().get(index);
 	}
 
+	@Override
+	public void setLabel(String label) {
+		// nothing to do
+		
+	}
+
+	@Override
+	public void setLabelI18nKey(String i18nKey) {
+		// nothing to do
+		
+	}
+
 } // YUiLayoutImpl

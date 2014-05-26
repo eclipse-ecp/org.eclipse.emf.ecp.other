@@ -17,6 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
@@ -47,7 +48,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SPACING_EDEFAULT = false;
+	protected static final boolean SPACING_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isSpacing() <em>Spacing</em>}' attribute.
@@ -65,7 +66,7 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean MARGIN_EDEFAULT = false;
+	protected static final boolean MARGIN_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isMargin() <em>Margin</em>}' attribute.
@@ -465,5 +466,6 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 		getCellStyles().add(yStyle);
 		return yStyle;
 	}
+	
 
 } // YUiGridLayoutImpl

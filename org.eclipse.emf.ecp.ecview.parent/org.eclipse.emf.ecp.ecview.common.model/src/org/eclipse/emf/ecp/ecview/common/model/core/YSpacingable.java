@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface YSpacingable extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Spacing</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Spacing</em>' attribute isn't clear,
@@ -41,7 +42,7 @@ public interface YSpacingable extends EObject {
 	 * @return the value of the '<em>Spacing</em>' attribute.
 	 * @see #setSpacing(boolean)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYSpacingable_Spacing()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isSpacing();
