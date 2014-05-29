@@ -198,5 +198,14 @@ public interface YView extends YElement, YCssAble, YMarginable,
 	 * @return
 	 */
 	YBeanSlot addBeanSlot(String name, Class<?> type);
+	
+	
+	/**
+	 * Returns the bean slot for the given name. Or <code>null</code> if no bean slot is available.
+	 * 
+	 * @param name
+	 * @return
+	 */
+	YBeanSlot getBeanSlot(String name);
 
 } // YUiView

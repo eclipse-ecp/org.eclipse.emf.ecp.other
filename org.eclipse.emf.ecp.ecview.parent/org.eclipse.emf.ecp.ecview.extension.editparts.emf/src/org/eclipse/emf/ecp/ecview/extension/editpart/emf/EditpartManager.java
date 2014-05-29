@@ -95,6 +95,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITableDa
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITextAreaDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITextDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITreeDatatypeEditpart;
+import org.osgi.service.component.ComponentContext;
 
 /**
  * An implementation of IEditPartManager for eObjects with
@@ -102,6 +103,14 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ITreeDat
  */
 @SuppressWarnings("restriction")
 public class EditpartManager extends AbstractEditpartManager {
+
+	protected void activate(ComponentContext context) {
+
+	}
+
+	protected void deactivate(ComponentContext context) {
+
+	}
 
 	@Override
 	public boolean isFor(Object element) {

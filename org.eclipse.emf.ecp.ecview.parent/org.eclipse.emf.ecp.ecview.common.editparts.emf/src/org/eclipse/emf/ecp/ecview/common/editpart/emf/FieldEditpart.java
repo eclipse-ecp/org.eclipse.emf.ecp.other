@@ -71,6 +71,13 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 		for (IValidatorEditpart validatorEditpart : validators) {
 			fieldPresentation.addValidator(validatorEditpart.getValidator());
 		}
+
+		if (internalValidators != null) {
+			for (IValidatorEditpart validatorEditpart : internalValidators) {
+				fieldPresentation
+						.addValidator(validatorEditpart.getValidator());
+			}
+		}
 	}
 
 	@Override

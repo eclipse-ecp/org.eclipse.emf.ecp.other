@@ -110,7 +110,8 @@ public class ValidatorByConfigFactory {
 		List<IValidatorEditpart> toAdd = new ArrayList<IValidatorEditpart>();
 		List<IValidatorEditpart> toRemove = new ArrayList<IValidatorEditpart>();
 
-		List<IValidatorEditpart> activeValidators = bridge.getDatatypeValidators();
+		List<IValidatorEditpart> activeValidators = bridge
+				.getDatatypeValidators();
 		if (notification.getFeature() == ValidationPackage.Literals.YMAX_LENGTH_VALIDATION_CONFIG__MAX_LENGTH) {
 			int oldValue = notification.getOldIntValue();
 			int newValue = notification.getNewIntValue();
@@ -194,6 +195,9 @@ public class ValidatorByConfigFactory {
 			IValidationConfig config) {
 
 		List<IValidatorEditpart> toAdd = new ArrayList<IValidatorEditpart>();
+		if (!(config.getValidationSettings() instanceof YValidationConfig)) {
+			return new DatatypeEditpart.ValidatorDelta(toAdd, null);
+		}
 
 		YValidationConfig yValidationConfig = (YValidationConfig) config
 				.getValidationSettings();
@@ -220,5 +224,4 @@ public class ValidatorByConfigFactory {
 
 		return new DatatypeEditpart.ValidatorDelta(toAdd, null);
 	}
-
 }

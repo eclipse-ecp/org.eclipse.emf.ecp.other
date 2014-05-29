@@ -73,7 +73,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
  * <em>Bean Slots</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
@@ -1030,14 +1030,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 
 	@Override
 	public YBeanSlot addBeanSlot(String name, Class<?> type) {
-		YBeanSlot result = null;
-		for (YBeanSlot ySlot : getBeanSlots()) {
-			if (ySlot.getName().equals(name)) {
-				result = ySlot;
-				break;
-			}
-		}
-
+		YBeanSlot result = getBeanSlot(name);
 		if (result == null) {
 			result = CoreModelFactory.eINSTANCE.createYBeanSlot();
 			result.setName(name);
@@ -1045,6 +1038,18 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			getBeanSlots().add(result);
 		}
 
+		return result;
+	}
+
+	@Override
+	public YBeanSlot getBeanSlot(String name) {
+		YBeanSlot result = null;
+		for (YBeanSlot ySlot : getBeanSlots()) {
+			if (ySlot.getName().equals(name)) {
+				result = ySlot;
+				break;
+			}
+		}
 		return result;
 	}
 
