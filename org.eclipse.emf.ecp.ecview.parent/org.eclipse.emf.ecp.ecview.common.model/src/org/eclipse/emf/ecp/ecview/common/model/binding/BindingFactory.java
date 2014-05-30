@@ -49,6 +49,15 @@ public interface BindingFactory extends EFactory {
 	YListBinding createYListBinding();
 
 	/**
+	 * Returns a new object of class '<em>YEnum List Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YEnum List Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YEnumListBindingEndpoint createYEnumListBindingEndpoint();
+
+	/**
 	 * Returns a new object of class '<em>YBean Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

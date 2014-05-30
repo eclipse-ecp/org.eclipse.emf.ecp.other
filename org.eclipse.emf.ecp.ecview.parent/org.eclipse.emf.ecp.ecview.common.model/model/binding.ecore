@@ -90,4 +90,11 @@
     <eLiterals name="ON_REQUEST" value="1" literal="ON_REQUEST"/>
     <eLiterals name="NEVER" value="2" literal="NEVER"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YEnumListBindingEndpoint" eSuperTypes="#//YListBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enum" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
 </ecore:EPackage>

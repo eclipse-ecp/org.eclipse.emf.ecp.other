@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
@@ -86,6 +87,13 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * @generated
 	 */
 	private EClass yListBindingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yEnumListBindingEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,6 +322,24 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYEnumListBindingEndpoint() {
+		return yEnumListBindingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYEnumListBindingEndpoint_Enum() {
+		return (EAttribute)yEnumListBindingEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYBindingUpdateStrategy() {
 		return yBindingUpdateStrategyEEnum;
 	}
@@ -449,6 +475,9 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		createEReference(yListBindingEClass, YLIST_BINDING__TARGET_ENDPOINT);
 		createEReference(yListBindingEClass, YLIST_BINDING__MODEL_ENDPOINT);
 
+		yEnumListBindingEndpointEClass = createEClass(YENUM_LIST_BINDING_ENDPOINT);
+		createEAttribute(yEnumListBindingEndpointEClass, YENUM_LIST_BINDING_ENDPOINT__ENUM);
+
 		// Create enums
 		yBindingUpdateStrategyEEnum = createEEnum(YBINDING_UPDATE_STRATEGY);
 	}
@@ -493,6 +522,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		yBindingEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yValueBindingEClass.getESuperTypes().add(this.getYBinding());
 		yListBindingEClass.getESuperTypes().add(this.getYBinding());
+		yEnumListBindingEndpointEClass.getESuperTypes().add(this.getYListBindingEndpoint());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yBindingSetEClass, YBindingSet.class, "YBindingSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -572,6 +602,12 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		initEClass(yListBindingEClass, YListBinding.class, "YListBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYListBinding_TargetEndpoint(), this.getYListBindingEndpoint(), null, "targetEndpoint", null, 1, 1, YListBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYListBinding_ModelEndpoint(), this.getYListBindingEndpoint(), null, "modelEndpoint", null, 1, 1, YListBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yEnumListBindingEndpointEClass, YEnumListBindingEndpoint.class, "YEnumListBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYEnumListBindingEndpoint_Enum(), g1, "enum", null, 1, 1, YEnumListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yBindingUpdateStrategyEEnum, YBindingUpdateStrategy.class, "YBindingUpdateStrategy");

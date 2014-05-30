@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecp.ecview.common.model.binding.*;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
@@ -109,6 +110,10 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYListBinding(YListBinding object) {
 				return createYListBindingAdapter();
+			}
+			@Override
+			public Adapter caseYEnumListBindingEndpoint(YEnumListBindingEndpoint object) {
+				return createYEnumListBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter caseYElement(YElement object) {
@@ -229,6 +234,20 @@ public class BindingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYListBindingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint <em>YEnum List Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYEnumListBindingEndpointAdapter() {
 		return null;
 	}
 

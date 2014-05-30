@@ -465,6 +465,43 @@ public interface BindingPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEnumListBindingEndpointImpl <em>YEnum List Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEnumListBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYEnumListBindingEndpoint()
+	 * @generated
+	 */
+	int YENUM_LIST_BINDING_ENDPOINT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENUM_LIST_BINDING_ENDPOINT__ID = YLIST_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENUM_LIST_BINDING_ENDPOINT__ENUM = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YEnum List Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENUM_LIST_BINDING_ENDPOINT_FEATURE_COUNT = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,7 +509,7 @@ public interface BindingPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYBindingUpdateStrategy()
 	 * @generated
 	 */
-	int YBINDING_UPDATE_STRATEGY = 9;
+	int YBINDING_UPDATE_STRATEGY = 10;
 
 
 	/**
@@ -621,6 +658,27 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYListBinding_ModelEndpoint();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint <em>YEnum List Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YEnum List Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint
+	 * @generated
+	 */
+	EClass getYEnumListBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint#getEnum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enum</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint#getEnum()
+	 * @see #getYEnumListBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYEnumListBindingEndpoint_Enum();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}'.
@@ -865,6 +923,24 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YLIST_BINDING__MODEL_ENDPOINT = eINSTANCE.getYListBinding_ModelEndpoint();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEnumListBindingEndpointImpl <em>YEnum List Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEnumListBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl#getYEnumListBindingEndpoint()
+		 * @generated
+		 */
+		EClass YENUM_LIST_BINDING_ENDPOINT = eINSTANCE.getYEnumListBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Enum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YENUM_LIST_BINDING_ENDPOINT__ENUM = eINSTANCE.getYEnumListBindingEndpoint_Enum();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}' enum.

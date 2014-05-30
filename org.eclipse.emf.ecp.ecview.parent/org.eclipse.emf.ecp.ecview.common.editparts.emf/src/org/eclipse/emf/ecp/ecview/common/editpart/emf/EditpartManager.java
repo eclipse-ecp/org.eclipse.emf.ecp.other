@@ -26,10 +26,12 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IEnumListBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IListBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BeanBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.EnumListBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ListBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
@@ -49,6 +51,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -137,6 +140,9 @@ public class EditpartManager extends AbstractEditpartManager {
 				.isAssignableFrom(IBeanBindingEndpointEditpart.class)) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
 		} else if (editPartClazz
+				.isAssignableFrom(IEnumListBindingEndpointEditpart.class)) {
+			result = createNewInstance(EnumListBindingEndpointEditpart.class);
+		} else if (editPartClazz
 				.isAssignableFrom(IMinLengthValidatorEditpart.class)) {
 			result = createNewInstance(MinLengthValidatorEditpart.class);
 		} else if (editPartClazz
@@ -210,6 +216,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(EmbeddableCollectionBindingEndpointEditpart.class);
 		} else if (yElement instanceof YBeanBindingEndpoint) {
 			result = createNewInstance(BeanBindingEndpointEditpart.class);
+		} else if (yElement instanceof YEnumListBindingEndpoint) {
+			result = createNewInstance(EnumListBindingEndpointEditpart.class);
 		} else if (yElement instanceof YMinLengthValidator) {
 			result = createNewInstance(MinLengthValidatorEditpart.class);
 		} else if (yElement instanceof YMaxLengthValidator) {

@@ -66,6 +66,7 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT: return createYDetailValueBindingEndpoint();
 			case BindingPackage.YVALUE_BINDING: return createYValueBinding();
 			case BindingPackage.YLIST_BINDING: return createYListBinding();
+			case BindingPackage.YENUM_LIST_BINDING_ENDPOINT: return createYEnumListBindingEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -129,6 +130,16 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	public YListBinding createYListBinding() {
 		YListBindingImpl yListBinding = new YListBindingImpl();
 		return yListBinding;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEnumListBindingEndpoint createYEnumListBindingEndpoint() {
+		YEnumListBindingEndpointImpl yEnumListBindingEndpoint = new YEnumListBindingEndpointImpl();
+		return yEnumListBindingEndpoint;
 	}
 
 	/**

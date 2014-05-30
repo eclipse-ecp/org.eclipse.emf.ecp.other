@@ -18,8 +18,10 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
@@ -317,6 +319,20 @@ public class ModelUtil {
 		}
 
 		return uri;
+	}
+
+	/**
+	 * Creates and {@link YEnumListBindingEndpoint} for the given enum.
+	 * 
+	 * @param xEnum
+	 * @return
+	 */
+	public static YEnumListBindingEndpoint getEnumListBinding(
+			Class<? extends Enum<?>> xEnum) {
+		YEnumListBindingEndpoint yEndpoint = BindingFactory.eINSTANCE
+				.createYEnumListBindingEndpoint();
+		yEndpoint.setEnum(xEnum);
+		return yEndpoint;
 	}
 
 }

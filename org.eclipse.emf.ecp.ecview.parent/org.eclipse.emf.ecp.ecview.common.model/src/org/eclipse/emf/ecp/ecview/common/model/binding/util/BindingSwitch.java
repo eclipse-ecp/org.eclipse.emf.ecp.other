@@ -5,6 +5,7 @@ package org.eclipse.emf.ecp.ecview.common.model.binding.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.common.model.binding.*;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
@@ -145,6 +146,15 @@ public class BindingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BindingPackage.YENUM_LIST_BINDING_ENDPOINT: {
+				YEnumListBindingEndpoint yEnumListBindingEndpoint = (YEnumListBindingEndpoint)theEObject;
+				T result = caseYEnumListBindingEndpoint(yEnumListBindingEndpoint);
+				if (result == null) result = caseYListBindingEndpoint(yEnumListBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yEnumListBindingEndpoint);
+				if (result == null) result = caseYElement(yEnumListBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -251,6 +261,21 @@ public class BindingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYListBinding(YListBinding object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEnum List Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEnum List Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYEnumListBindingEndpoint(YEnumListBindingEndpoint object) {
 		return null;
 	}
 
