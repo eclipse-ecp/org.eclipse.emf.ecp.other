@@ -24,6 +24,18 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 public interface IViewContext extends IContext {
 
 	/**
+	 * A Map<String, Object> can be provided by the parameter at rendering time.
+	 * This map will be used to initialize the services.
+	 */
+	public static final String PARAM_SERVICES = "viewcontext.services";
+
+	/**
+	 * Allows to pass an instance of {@link IConfiguration}. It will be set to
+	 * the view context before starting rendering.
+	 */
+	public static final String PARAM_CONFIGURATION = "viewcontext.configuration";
+
+	/**
 	 * Returns the URI that specifies the UI kit to be used.
 	 * 
 	 * @return presentationURI

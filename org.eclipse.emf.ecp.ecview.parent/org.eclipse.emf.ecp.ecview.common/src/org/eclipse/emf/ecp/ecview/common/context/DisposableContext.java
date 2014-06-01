@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.common.context;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
@@ -40,6 +41,30 @@ public abstract class DisposableContext extends AbstractDisposable implements
 
 	private Map<String, Object> services = Collections
 			.synchronizedMap(new HashMap<String, Object>());
+
+	private Locale locale = Locale.getDefault();
+
+	@Override
+	public void setLocale(Locale locale) {
+		Locale oldLocale = this.locale;
+		this.locale = locale;
+
+		if (oldLocale != this.locale) {
+			updateLocale(this.locale);
+		}
+	}
+
+	/**
+	 * The locale changed and needs to become updated.
+	 * 
+	 * @param locale
+	 */
+	protected abstract void updateLocale(Locale locale);
+
+	@Override
+	public Locale getLocale() {
+		return locale;
+	}
 
 	/**
 	 * {@inheritDoc}

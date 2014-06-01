@@ -10,9 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.common.context;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.slf4j.Logger;
@@ -67,11 +71,20 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	 * @param selector
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	protected <S> S delegateGetService(String selector) {
 		IViewSetContext parentContext = getParentContext();
-		if (parentContext != null) {
-			return parentContext.getService(selector);
+
+		if (selector.equals(ILocaleChangedService.ID)) {
+			LocaleChangedService service = new LocaleChangedService();
+			registerService(selector, service);
+			return (S) service;
+		} else {
+			if (parentContext != null) {
+				return parentContext.getService(selector);
+			}
 		}
+
 		return null;
 	}
 
@@ -146,6 +159,27 @@ public class ViewContext extends DisposableContext implements IViewContext {
 			// start to render
 			//
 			IViewEditpart editPart = getViewEditpart();
+
+			if (parameter != null) {
+				// Set the configuration
+				IConfiguration config = (IConfiguration) parameter
+						.get(IViewContext.PARAM_CONFIGURATION);
+				if (config != null) {
+					editPart.setConfiguration(config);
+				}
+
+				// Register all services
+				@SuppressWarnings("unchecked")
+				Map<String, Object> services = (Map<String, Object>) parameter
+						.get(IViewContext.PARAM_SERVICES);
+				if (services != null) {
+					for (Map.Entry<String, Object> entry : services.entrySet()) {
+						registerService(entry.getKey(), entry.getValue());
+					}
+				}
+			}
+
+			// render the UI
 			editPart.render(parameter);
 
 		} finally {
@@ -177,6 +211,14 @@ public class ViewContext extends DisposableContext implements IViewContext {
 		return getViewEditpart().execAsync(runnable);
 	}
 
+	@Override
+	protected void updateLocale(Locale locale) {
+		ILocaleChangedService service = getService(ILocaleChangedService.ID);
+		if (service != null) {
+			service.notifyLocaleChanged(locale);
+		}
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -184,4 +226,54 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	public void internalDispose() {
 		viewEditpart.dispose();
 	}
+
+	/**
+	 * This service notifies interested parties about a locale change.
+	 */
+	public class LocaleChangedService extends AbstractDisposable implements
+			ILocaleChangedService {
+
+		private List<LocaleListener> listeners;
+
+		@Override
+		public void addLocaleListener(LocaleListener listener) {
+			checkDisposed();
+
+			if (listeners == null) {
+				listeners = new ArrayList<ILocaleChangedService.LocaleListener>();
+			}
+
+			if (!listeners.contains(listener)) {
+				listeners.add(listener);
+			}
+		}
+
+		@Override
+		public void removeLocaleListener(LocaleListener listener) {
+			checkDisposed();
+
+			if (listeners == null) {
+				return;
+			}
+
+			listeners.remove(listener);
+		}
+
+		public void notifyLocaleChanged(Locale locale) {
+			for (LocaleListener listener : listeners
+					.toArray(new LocaleListener[listeners.size()])) {
+				listener.localeChanged(locale);
+			}
+		}
+
+		@Override
+		protected void internalDispose() {
+			if (listeners != null) {
+				listeners.clear();
+				listeners = null;
+			}
+		}
+
+	}
+
 }

@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.common.context;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
@@ -19,14 +20,16 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 /**
  * Implementation of {@link IViewSetContext}.
  */
-public class ViewSetContext extends DisposableContext implements IViewSetContext {
+public class ViewSetContext extends DisposableContext implements
+		IViewSetContext {
 
 	private final IViewSetEditpart editPart;
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param editPart The viewSetEditpart
+	 * @param editPart
+	 *            The viewSetEditpart
 	 */
 	public ViewSetContext(IViewSetEditpart editPart) {
 		this.editPart = editPart;
@@ -66,11 +69,21 @@ public class ViewSetContext extends DisposableContext implements IViewSetContext
 	public void internalDispose() {
 		try {
 			List<IViewContext> temp = getViewContexts();
-			for (IViewContext childContext : temp.toArray(new IViewContext[temp.size()])) {
+			for (IViewContext childContext : temp.toArray(new IViewContext[temp
+					.size()])) {
 				childContext.dispose();
 			}
 
 		} finally {
+		}
+	}
+
+	@Override
+	protected void updateLocale(Locale locale) {
+		List<IViewContext> temp = getViewContexts();
+		for (IViewContext childContext : temp.toArray(new IViewContext[temp
+				.size()])) {
+			childContext.setLocale(locale);
 		}
 	}
 
