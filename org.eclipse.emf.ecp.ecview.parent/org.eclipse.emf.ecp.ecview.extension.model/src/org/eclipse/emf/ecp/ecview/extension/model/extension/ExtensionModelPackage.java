@@ -3631,6 +3631,214 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTAB_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl <em>YMaster Detail</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYMasterDetail()
+	 * @generated
+	 */
+	int YMASTER_DETAIL = 26;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__CSS_CLASS = YINPUT__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__CSS_ID = YINPUT__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__INITIAL_VISIBLE = YINPUT__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__VISIBLE = YINPUT__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__VISIBILITY_PROCESSOR = YINPUT__VISIBILITY_PROCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__INITIAL_EDITABLE = YINPUT__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__EDITABLE = YINPUT__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__INITIAL_ENABLED = YINPUT__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__ENABLED = YINPUT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__VALIDATORS = YINPUT__VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__INTERNAL_VALIDATORS = YINPUT__INTERNAL_VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Collection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__COLLECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__SELECTION_BINDING_ENDPOINT = YINPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__DATATYPE = YINPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__DATADESCRIPTION = YINPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__SELECTION = YINPUT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Collection</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__COLLECTION = YINPUT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__TYPE = YINPUT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Master Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__MASTER_ELEMENT = YINPUT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Detail Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__DETAIL_ELEMENT = YINPUT_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>YMaster Detail</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 9;
+
+	/**
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3638,7 +3846,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 	 * @generated
 	 */
-	int YBUTTON_CLICK_LISTENER = 28;
+	int YBUTTON_CLICK_LISTENER = 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
@@ -3648,7 +3856,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 26;
+	int YALIGNMENT = 27;
 
 
 	/**
@@ -3659,7 +3867,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYSelectionType()
 	 * @generated
 	 */
-	int YSELECTION_TYPE = 27;
+	int YSELECTION_TYPE = 28;
 
 
 	/**
@@ -4682,6 +4890,93 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYTab_Datadescription();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail <em>YMaster Detail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YMaster Detail</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail
+	 * @generated
+	 */
+	EClass getYMasterDetail();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDatatype()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EReference getYMasterDetail_Datatype();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDatadescription()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EReference getYMasterDetail_Datadescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getSelection()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EAttribute getYMasterDetail_Selection();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getCollection <em>Collection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Collection</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getCollection()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EAttribute getYMasterDetail_Collection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getType()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EAttribute getYMasterDetail_Type();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getMasterElement <em>Master Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Master Element</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getMasterElement()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EReference getYMasterDetail_MasterElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDetailElement <em>Detail Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Detail Element</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDetailElement()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EReference getYMasterDetail_DetailElement();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree <em>YTree</em>}'.
@@ -5717,6 +6012,72 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YTAB__DATADESCRIPTION = eINSTANCE.getYTab_Datadescription();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl <em>YMaster Detail</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYMasterDetail()
+		 * @generated
+		 */
+		EClass YMASTER_DETAIL = eINSTANCE.getYMasterDetail();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YMASTER_DETAIL__DATATYPE = eINSTANCE.getYMasterDetail_Datatype();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YMASTER_DETAIL__DATADESCRIPTION = eINSTANCE.getYMasterDetail_Datadescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YMASTER_DETAIL__SELECTION = eINSTANCE.getYMasterDetail_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YMASTER_DETAIL__COLLECTION = eINSTANCE.getYMasterDetail_Collection();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YMASTER_DETAIL__TYPE = eINSTANCE.getYMasterDetail_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Master Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YMASTER_DETAIL__MASTER_ELEMENT = eINSTANCE.getYMasterDetail_MasterElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Detail Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YMASTER_DETAIL__DETAIL_ELEMENT = eINSTANCE.getYMasterDetail_DetailElement();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl <em>YTree</em>}' class.

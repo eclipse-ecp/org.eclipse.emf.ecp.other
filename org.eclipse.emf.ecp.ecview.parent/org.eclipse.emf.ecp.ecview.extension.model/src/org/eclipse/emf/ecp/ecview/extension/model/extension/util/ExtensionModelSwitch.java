@@ -23,6 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
@@ -481,6 +482,24 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtensionModelPackage.YMASTER_DETAIL: {
+				YMasterDetail yMasterDetail = (YMasterDetail)theEObject;
+				T result = caseYMasterDetail(yMasterDetail);
+				if (result == null) result = caseYInput(yMasterDetail);
+				if (result == null) result = caseYCollectionBindable(yMasterDetail);
+				if (result == null) result = caseYSelectionBindable(yMasterDetail);
+				if (result == null) result = caseYField(yMasterDetail);
+				if (result == null) result = caseYBindable(yMasterDetail);
+				if (result == null) result = caseYEmbeddable(yMasterDetail);
+				if (result == null) result = caseYEditable(yMasterDetail);
+				if (result == null) result = caseYEnable(yMasterDetail);
+				if (result == null) result = caseYElement(yMasterDetail);
+				if (result == null) result = caseYCssAble(yMasterDetail);
+				if (result == null) result = caseYVisibleable(yMasterDetail);
+				if (result == null) result = caseYVisibilityProcessable(yMasterDetail);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -842,6 +861,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYTab(YTab object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMaster Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMaster Detail</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMasterDetail(YMasterDetail object) {
 		return null;
 	}
 

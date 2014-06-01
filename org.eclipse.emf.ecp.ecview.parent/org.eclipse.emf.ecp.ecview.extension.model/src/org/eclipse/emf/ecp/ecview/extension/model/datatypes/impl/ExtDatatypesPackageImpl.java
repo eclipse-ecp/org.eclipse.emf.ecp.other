@@ -21,6 +21,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
@@ -136,6 +137,13 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * @generated
 	 */
 	private EClass yTabSheetDatatypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yMasterDetailDatatypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -384,6 +392,15 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYMasterDetailDatatype() {
+		return yMasterDetailDatatypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYDateTimeFormat() {
 		return yDateTimeFormatEEnum;
 	}
@@ -448,6 +465,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		yTabSheetDatatypeEClass = createEClass(YTAB_SHEET_DATATYPE);
 
+		yMasterDetailDatatypeEClass = createEClass(YMASTER_DETAIL_DATATYPE);
+
 		// Create enums
 		yDateTimeFormatEEnum = createEEnum(YDATE_TIME_FORMAT);
 	}
@@ -506,6 +525,7 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		yTreeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yProgressBarDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yTabSheetDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yMasterDetailDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -539,6 +559,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		initEClass(yProgressBarDatatypeEClass, YProgressBarDatatype.class, "YProgressBarDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yTabSheetDatatypeEClass, YTabSheetDatatype.class, "YTabSheetDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(yMasterDetailDatatypeEClass, YMasterDetailDatatype.class, "YMasterDetailDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(yDateTimeFormatEEnum, YDateTimeFormat.class, "YDateTimeFormat");

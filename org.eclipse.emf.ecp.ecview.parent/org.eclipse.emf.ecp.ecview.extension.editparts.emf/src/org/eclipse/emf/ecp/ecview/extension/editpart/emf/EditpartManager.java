@@ -54,6 +54,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
@@ -72,6 +73,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditp
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IMasterDetailEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.INumericFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IOptionsGroupEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IProgressBarEditpart;
@@ -203,6 +205,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TextDatatypeEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITreeDatatypeEditpart.class)) {
 			result = createNewInstance(TreeDatatypeEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IMasterDetailEditpart.class)) {
+			result = createNewInstance(MasterDetailEditpart.class);
 		}
 
 		if (result != null) {
@@ -295,6 +299,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TextDatatypeEditpart.class);
 		} else if (yElement instanceof YTreeDatatype) {
 			result = createNewInstance(TreeDatatypeEditpart.class);
+		} else if (yElement instanceof YMasterDetail) {
+			result = createNewInstance(MasterDetailEditpart.class);
 		}
 
 		if (result != null) {

@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -108,6 +109,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YPROGRESS_BAR: return createYProgressBar();
 			case ExtensionModelPackage.YTAB_SHEET: return createYTabSheet();
 			case ExtensionModelPackage.YTAB: return createYTab();
+			case ExtensionModelPackage.YMASTER_DETAIL: return createYMasterDetail();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -379,6 +381,16 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YTab createYTab() {
 		YTabImpl yTab = new YTabImpl();
 		return yTab;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YMasterDetail createYMasterDetail() {
+		YMasterDetailImpl yMasterDetail = new YMasterDetailImpl();
+		return yMasterDetail;
 	}
 
 	/**

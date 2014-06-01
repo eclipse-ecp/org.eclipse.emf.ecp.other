@@ -210,6 +210,15 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtDatatypesPackage.YMASTER_DETAIL_DATATYPE: {
+				YMasterDetailDatatype yMasterDetailDatatype = (YMasterDetailDatatype)theEObject;
+				T result = caseYMasterDetailDatatype(yMasterDetailDatatype);
+				if (result == null) result = caseYDatatype(yMasterDetailDatatype);
+				if (result == null) result = caseYDtBase(yMasterDetailDatatype);
+				if (result == null) result = caseYElement(yMasterDetailDatatype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -421,6 +430,21 @@ public class ExtDatatypesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYTabSheetDatatype(YTabSheetDatatype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YMaster Detail Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YMaster Detail Datatype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYMasterDetailDatatype(YMasterDetailDatatype object) {
 		return null;
 	}
 

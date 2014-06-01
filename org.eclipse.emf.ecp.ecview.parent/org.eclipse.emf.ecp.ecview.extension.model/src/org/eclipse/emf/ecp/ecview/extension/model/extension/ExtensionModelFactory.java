@@ -229,6 +229,15 @@ public interface ExtensionModelFactory extends EFactory {
 	YTab createYTab();
 
 	/**
+	 * Returns a new object of class '<em>YMaster Detail</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YMaster Detail</em>'.
+	 * @generated
+	 */
+	YMasterDetail createYMasterDetail();
+
+	/**
 	 * Returns a new object of class '<em>YTree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

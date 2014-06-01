@@ -128,6 +128,10 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createYTabSheetDatatypeAdapter();
 			}
 			@Override
+			public Adapter caseYMasterDetailDatatype(YMasterDetailDatatype object) {
+				return createYMasterDetailDatatypeAdapter();
+			}
+			@Override
 			public Adapter caseYElement(YElement object) {
 				return createYElementAdapter();
 			}
@@ -368,6 +372,20 @@ public class ExtDatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYTabSheetDatatypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatype <em>YMaster Detail Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatype
+	 * @generated
+	 */
+	public Adapter createYMasterDetailDatatypeAdapter() {
 		return null;
 	}
 

@@ -165,6 +165,27 @@ public class ModelUtil {
 		IWidgetPresentation<?> presentation = getPresentation(yEmbeddable);
 		return presentation.getWidget();
 	}
+	
+	/**
+	 * Returns the view context for the given embeddable.
+	 * 
+	 * @param yEmbeddable
+	 * @return
+	 */
+	public static IViewContext getViewContext(YView yView) {
+		IViewEditpart viewEditpart = getViewEditpart(yView);
+		return viewEditpart != null ? viewEditpart.getContext() : null;
+	}
+	
+	/**
+	 * Returns the view editpart for the given yView.
+	 * 
+	 * @param yView
+	 * @return
+	 */
+	public static IViewEditpart getViewEditpart(YView yView) {
+		return getEditpart(yView);
+	}
 
 	/**
 	 * Returns the view context for the given embeddable.

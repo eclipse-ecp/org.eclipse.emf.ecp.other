@@ -34,6 +34,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCel
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
@@ -224,6 +225,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * @generated
 	 */
 	private EClass yTabEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yMasterDetailEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1193,6 +1201,78 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYMasterDetail() {
+		return yMasterDetailEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYMasterDetail_Datatype() {
+		return (EReference)yMasterDetailEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYMasterDetail_Datadescription() {
+		return (EReference)yMasterDetailEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYMasterDetail_Selection() {
+		return (EAttribute)yMasterDetailEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYMasterDetail_Collection() {
+		return (EAttribute)yMasterDetailEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYMasterDetail_Type() {
+		return (EAttribute)yMasterDetailEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYMasterDetail_MasterElement() {
+		return (EReference)yMasterDetailEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYMasterDetail_DetailElement() {
+		return (EReference)yMasterDetailEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYTree() {
 		return yTreeEClass;
 	}
@@ -1524,6 +1604,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yTabEClass, YTAB__EMBEDDABLE);
 		createEReference(yTabEClass, YTAB__DATADESCRIPTION);
 
+		yMasterDetailEClass = createEClass(YMASTER_DETAIL);
+		createEReference(yMasterDetailEClass, YMASTER_DETAIL__DATATYPE);
+		createEReference(yMasterDetailEClass, YMASTER_DETAIL__DATADESCRIPTION);
+		createEAttribute(yMasterDetailEClass, YMASTER_DETAIL__SELECTION);
+		createEAttribute(yMasterDetailEClass, YMASTER_DETAIL__COLLECTION);
+		createEAttribute(yMasterDetailEClass, YMASTER_DETAIL__TYPE);
+		createEReference(yMasterDetailEClass, YMASTER_DETAIL__MASTER_ELEMENT);
+		createEReference(yMasterDetailEClass, YMASTER_DETAIL__DETAIL_ELEMENT);
+
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
 		ySelectionTypeEEnum = createEEnum(YSELECTION_TYPE);
@@ -1618,6 +1707,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yTabSheetEClass.getESuperTypes().add(theCoreModelPackage.getYEmbeddable());
 		yTabEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yTabEClass.getESuperTypes().add(theCoreModelPackage.getYCssAble());
+		yMasterDetailEClass.getESuperTypes().add(this.getYInput());
+		yMasterDetailEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
+		yMasterDetailEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1791,6 +1883,18 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEReference(getYTab_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yTabEClass, theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yMasterDetailEClass, YMasterDetail.class, "YMasterDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYMasterDetail_Datatype(), theExtDatatypesPackage.getYMasterDetailDatatype(), null, "datatype", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYMasterDetail_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYMasterDetail_Selection(), ecorePackage.getEJavaObject(), "selection", null, 0, 1, YMasterDetail.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYMasterDetail_Collection(), ecorePackage.getEJavaObject(), "collection", null, 0, -1, YMasterDetail.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYMasterDetail_Type(), g1, "type", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYMasterDetail_MasterElement(), theCoreModelPackage.getYEmbeddable(), null, "masterElement", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYMasterDetail_DetailElement(), theCoreModelPackage.getYEmbeddable(), null, "detailElement", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");

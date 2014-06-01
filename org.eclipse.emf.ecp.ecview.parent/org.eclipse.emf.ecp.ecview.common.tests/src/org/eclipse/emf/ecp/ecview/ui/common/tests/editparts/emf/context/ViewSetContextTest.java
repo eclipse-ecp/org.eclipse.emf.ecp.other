@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf.context;
 
+import static org.junit.Assert.fail;
+
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
@@ -298,6 +300,11 @@ public class ViewSetContextTest {
 		Assert.assertSame(bean2, viewSetContext.getBeanSlot("bean1").getValue());
 		Assert.assertSame(bean2, wrapper.getValue());
 		Assert.assertSame(wrapper, viewSetContext.getBeanSlot("bean1"));
+	}
+
+	@Test
+	public void test_setLocaleNotifiesViewContexts() {
+		fail("Implement!");
 	}
 
 	/**

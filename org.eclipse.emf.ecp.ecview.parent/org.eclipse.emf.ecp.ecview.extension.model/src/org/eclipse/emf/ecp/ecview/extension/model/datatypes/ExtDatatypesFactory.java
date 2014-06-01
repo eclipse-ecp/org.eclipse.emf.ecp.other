@@ -148,6 +148,15 @@ public interface ExtDatatypesFactory extends EFactory {
 	YTabSheetDatatype createYTabSheetDatatype();
 
 	/**
+	 * Returns a new object of class '<em>YMaster Detail Datatype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YMaster Detail Datatype</em>'.
+	 * @generated
+	 */
+	YMasterDetailDatatype createYMasterDetailDatatype();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
@@ -84,6 +85,7 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 			case ExtDatatypesPackage.YTREE_DATATYPE: return createYTreeDatatype();
 			case ExtDatatypesPackage.YPROGRESS_BAR_DATATYPE: return createYProgressBarDatatype();
 			case ExtDatatypesPackage.YTAB_SHEET_DATATYPE: return createYTabSheetDatatype();
+			case ExtDatatypesPackage.YMASTER_DETAIL_DATATYPE: return createYMasterDetailDatatype();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -257,6 +259,16 @@ public class ExtDatatypesFactoryImpl extends EFactoryImpl implements ExtDatatype
 	public YTabSheetDatatype createYTabSheetDatatype() {
 		YTabSheetDatatypeImpl yTabSheetDatatype = new YTabSheetDatatypeImpl();
 		return yTabSheetDatatype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YMasterDetailDatatype createYMasterDetailDatatype() {
+		YMasterDetailDatatypeImpl yMasterDetailDatatype = new YMasterDetailDatatypeImpl();
+		return yMasterDetailDatatype;
 	}
 
 	/**
