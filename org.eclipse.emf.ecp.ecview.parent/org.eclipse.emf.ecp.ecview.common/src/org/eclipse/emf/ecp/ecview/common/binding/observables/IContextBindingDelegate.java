@@ -15,6 +15,7 @@ package org.eclipse.emf.ecp.ecview.common.binding.observables;
 import java.net.URI;
 
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
@@ -74,5 +75,43 @@ public interface IContextBindingDelegate {
 	 */
 	IObservableValue observeValue(Realm realm, IBeanRegistry registry,
 			URI bindingURI);
+
+	/**
+	 * Returns an observable list tracking the nested value of the context
+	 * described by the binding URI.
+	 * 
+	 * @param registry
+	 *            the registry.
+	 * @param bindingURI
+	 *            the URI that keeps the binding target information.
+	 * @param elementType
+	 *            the element type contained in the list.
+	 * @return an observable list tracking the nested value of the context
+	 *         described by the binding URI
+	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
+	 *        created yet.
+	 */
+	IObservableList observeList(IBeanRegistry registry, URI bindingURI,
+			Class<?> elementType);
+
+	/**
+	 * Returns an observable list tracking the nested value of the context
+	 * described by the binding URI.
+	 * 
+	 * @param realm
+	 *            the realm
+	 * @param registry
+	 *            the registry.
+	 * @param bindingURI
+	 *            the URI that keeps the binding target information.
+	 * @param elementType
+	 *            the element type contained in the list.
+	 * @return an observable list tracking the nested value of the context
+	 *         described by the binding URI
+	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
+	 *        created yet.
+	 */
+	IObservableList observeList(Realm realm, IBeanRegistry registry,
+			URI bindingURI, Class<?> elementType);
 
 }

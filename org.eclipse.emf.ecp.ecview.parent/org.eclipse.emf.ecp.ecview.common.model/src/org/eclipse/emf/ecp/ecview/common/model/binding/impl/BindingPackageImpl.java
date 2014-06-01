@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -65,6 +65,13 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yBeanValueBindingEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass yListBindingEndpointEClass = null;
 
 	/**
@@ -101,13 +108,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * @generated
 	 */
 	private EEnum yBindingUpdateStrategyEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass yBeanBindingEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,6 +232,33 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYBeanValueBindingEndpoint() {
+		return yBeanValueBindingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYBeanValueBindingEndpoint_Bean() {
+		return (EAttribute)yBeanValueBindingEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYBeanValueBindingEndpoint_PropertyPath() {
+		return (EAttribute)yBeanValueBindingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYListBindingEndpoint() {
 		return yListBindingEndpointEClass;
 	}
@@ -349,33 +376,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYBeanBindingEndpoint() {
-		return yBeanBindingEndpointEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYBeanBindingEndpoint_Bean() {
-		return (EAttribute)yBeanBindingEndpointEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getYBeanBindingEndpoint_PropertyPath() {
-		return (EAttribute)yBeanBindingEndpointEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYDetailValueBindingEndpoint() {
 		return yDetailValueBindingEndpointEClass;
 	}
@@ -451,9 +451,9 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		yValueBindingEndpointEClass = createEClass(YVALUE_BINDING_ENDPOINT);
 
-		yBeanBindingEndpointEClass = createEClass(YBEAN_BINDING_ENDPOINT);
-		createEAttribute(yBeanBindingEndpointEClass, YBEAN_BINDING_ENDPOINT__BEAN);
-		createEAttribute(yBeanBindingEndpointEClass, YBEAN_BINDING_ENDPOINT__PROPERTY_PATH);
+		yBeanValueBindingEndpointEClass = createEClass(YBEAN_VALUE_BINDING_ENDPOINT);
+		createEAttribute(yBeanValueBindingEndpointEClass, YBEAN_VALUE_BINDING_ENDPOINT__BEAN);
+		createEAttribute(yBeanValueBindingEndpointEClass, YBEAN_VALUE_BINDING_ENDPOINT__PROPERTY_PATH);
 
 		yDetailValueBindingEndpointEClass = createEClass(YDETAIL_VALUE_BINDING_ENDPOINT);
 		createEReference(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE);
@@ -516,7 +516,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		yBindingSetEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yBindingEndpointEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yValueBindingEndpointEClass.getESuperTypes().add(this.getYBindingEndpoint());
-		yBeanBindingEndpointEClass.getESuperTypes().add(this.getYValueBindingEndpoint());
+		yBeanValueBindingEndpointEClass.getESuperTypes().add(this.getYValueBindingEndpoint());
 		yDetailValueBindingEndpointEClass.getESuperTypes().add(this.getYValueBindingEndpoint());
 		yListBindingEndpointEClass.getESuperTypes().add(this.getYBindingEndpoint());
 		yBindingEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
@@ -567,9 +567,9 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		addEOperation(yValueBindingEndpointEClass, this.getYDetailValueBindingEndpoint(), "createDetailValueEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(yBeanBindingEndpointEClass, YBeanBindingEndpoint.class, "YBeanBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYBeanBindingEndpoint_Bean(), ecorePackage.getEJavaObject(), "bean", null, 0, 1, YBeanBindingEndpoint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYBeanBindingEndpoint_PropertyPath(), ecorePackage.getEString(), "propertyPath", null, 0, 1, YBeanBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yBeanValueBindingEndpointEClass, YBeanValueBindingEndpoint.class, "YBeanValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYBeanValueBindingEndpoint_Bean(), ecorePackage.getEJavaObject(), "bean", null, 0, 1, YBeanValueBindingEndpoint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYBeanValueBindingEndpoint_PropertyPath(), ecorePackage.getEString(), "propertyPath", null, 0, 1, YBeanValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDetailValueBindingEndpointEClass, YDetailValueBindingEndpoint.class, "YDetailValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYDetailValueBindingEndpoint_MasterObservable(), this.getYValueBindingEndpoint(), null, "masterObservable", null, 0, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

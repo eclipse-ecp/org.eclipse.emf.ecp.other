@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
@@ -98,6 +99,50 @@ public final class ContextObservables {
 	}
 
 	/**
+	 * Returns an observable list tracking the nested value of the context
+	 * described by the binding URI.
+	 * 
+	 * @param registry
+	 *            the registry.
+	 * @param bindingURI
+	 *            the URI that keeps the binding target information.
+	 * @param elementType
+	 *            the element type contained in the list.
+	 * @return an observable list tracking the nested value of the context
+	 *         described by the binding URI
+	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
+	 *        created yet.
+	 */
+	public static IObservableList observeList(IBeanRegistry registry,
+			URI bindingURI, Class<?> elementType) {
+		return ContextObservables.getInstance().doObserveList(registry,
+				bindingURI, elementType);
+	}
+
+	/**
+	 * Returns an observable list tracking the nested value of the context
+	 * described by the binding URI.
+	 * 
+	 * @param realm
+	 *            the realm
+	 * @param registry
+	 *            the registry.
+	 * @param bindingURI
+	 *            the URI that keeps the binding target information.
+	 * @param elementType
+	 *            the element type contained in the list.
+	 * @return an observable list tracking the nested value of the context
+	 *         described by the binding URI
+	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
+	 *        created yet.
+	 */
+	public static IObservableList observeList(Realm realm,
+			IBeanRegistry registry, URI bindingURI, Class<?> elementType) {
+		return ContextObservables.getInstance().doObserveList(realm, registry,
+				bindingURI, elementType);
+	}
+
+	/**
 	 * Returns an observable value tracking the value of the context described
 	 * by the binding URI.
 	 * 
@@ -122,6 +167,58 @@ public final class ContextObservables {
 	}
 
 	/**
+	 * Returns an observable list tracking the nested value of the context
+	 * described by the binding URI.
+	 * 
+	 * @param realm
+	 *            the realm
+	 * @param registry
+	 *            the registry.
+	 * @param bindingURI
+	 *            the URI that keeps the binding target information.
+	 * @return an observable list tracking the nested value of the context
+	 *         described by the binding URI
+	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
+	 *        created yet.
+	 */
+	protected IObservableValue doObserveValue(Realm realm,
+			IBeanRegistry registry, URI bindingURI) {
+		IContextBindingDelegate delegate = getDelegate(registry, bindingURI);
+		if (delegate != null) {
+			return delegate.observeValue(realm, registry, bindingURI);
+		}
+		LOGGER.error("No proper binding delegate found for element {}",
+				bindingURI);
+		return null;
+	}
+
+	/**
+	 * Returns an observable list tracking the nested value of the context
+	 * described by the binding URI.
+	 * 
+	 * @param registry
+	 *            the registry.
+	 * @param bindingURI
+	 *            the URI that keeps the binding target information.
+	 * @param elementType
+	 *            the element type contained in the list.
+	 * @return an observable list tracking the nested value of the context
+	 *         described by the binding URI
+	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
+	 *        created yet.
+	 */
+	protected IObservableList doObserveList(IBeanRegistry registry,
+			URI bindingURI, Class<?> elementType) {
+		IContextBindingDelegate delegate = getDelegate(registry, bindingURI);
+		if (delegate != null) {
+			return delegate.observeList(registry, bindingURI, elementType);
+		}
+		LOGGER.error("No proper binding delegate found for element {}",
+				bindingURI);
+		return null;
+	}
+
+	/**
 	 * Returns an observable value tracking the value of the context described
 	 * by the binding URI.
 	 * 
@@ -131,16 +228,18 @@ public final class ContextObservables {
 	 *            the registry.
 	 * @param bindingURI
 	 *            the URI that keeps the binding target information.
+	 * @param elementType
+	 *            the element type contained in the list.
 	 * @return an observable value tracking the value of the context described
 	 *         by the binding URI
 	 * @throw IllegalArgumentException if the {@link ISlot bean slot} was not
 	 *        created yet.
 	 */
-	protected IObservableValue doObserveValue(Realm realm,
-			IBeanRegistry registry, URI bindingURI) {
+	protected IObservableList doObserveList(Realm realm,
+			IBeanRegistry registry, URI bindingURI, Class<?> elementType) {
 		IContextBindingDelegate delegate = getDelegate(registry, bindingURI);
 		if (delegate != null) {
-			return delegate.observeValue(realm, registry, bindingURI);
+			return delegate.observeList(realm, registry, bindingURI, elementType);
 		}
 		LOGGER.error("No proper binding delegate found for element {}",
 				bindingURI);

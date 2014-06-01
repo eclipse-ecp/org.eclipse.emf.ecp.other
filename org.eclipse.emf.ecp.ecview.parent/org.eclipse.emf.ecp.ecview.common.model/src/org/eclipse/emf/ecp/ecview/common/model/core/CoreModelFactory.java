@@ -84,22 +84,31 @@ public interface CoreModelFactory extends EFactory {
 	YAction createYAction();
 
 	/**
-	 * Returns a new object of class '<em>YContext Binding Endpoint</em>'.
+	 * Returns a new object of class '<em>YContext Value Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YContext Binding Endpoint</em>'.
+	 * @return a new object of class '<em>YContext Value Binding Endpoint</em>'.
 	 * @generated
 	 */
-	YContextBindingEndpoint createYContextBindingEndpoint();
+	YContextValueBindingEndpoint createYContextValueBindingEndpoint();
 
 	/**
-	 * Returns a new object of class '<em>YBean Slot Binding Endpoint</em>'.
+	 * Returns a new object of class '<em>YBean Slot Value Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YBean Slot Binding Endpoint</em>'.
+	 * @return a new object of class '<em>YBean Slot Value Binding Endpoint</em>'.
 	 * @generated
 	 */
-	YBeanSlotBindingEndpoint createYBeanSlotBindingEndpoint();
+	YBeanSlotValueBindingEndpoint createYBeanSlotValueBindingEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>YBean Slot List Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YBean Slot List Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YBeanSlotListBindingEndpoint createYBeanSlotListBindingEndpoint();
 
 	/**
 	 * Returns a new object of class '<em>YEmbeddable Value Endpoint</em>'.

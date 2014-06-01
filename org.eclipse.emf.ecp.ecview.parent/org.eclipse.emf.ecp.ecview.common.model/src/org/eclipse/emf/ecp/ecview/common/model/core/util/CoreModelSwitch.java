@@ -16,39 +16,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
-import org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 
@@ -273,21 +241,30 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: {
-				YContextBindingEndpoint yContextBindingEndpoint = (YContextBindingEndpoint)theEObject;
-				T result = caseYContextBindingEndpoint(yContextBindingEndpoint);
-				if (result == null) result = caseYValueBindingEndpoint(yContextBindingEndpoint);
-				if (result == null) result = caseYBindingEndpoint(yContextBindingEndpoint);
-				if (result == null) result = caseYElement(yContextBindingEndpoint);
+			case CoreModelPackage.YCONTEXT_VALUE_BINDING_ENDPOINT: {
+				YContextValueBindingEndpoint yContextValueBindingEndpoint = (YContextValueBindingEndpoint)theEObject;
+				T result = caseYContextValueBindingEndpoint(yContextValueBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yContextValueBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yContextValueBindingEndpoint);
+				if (result == null) result = caseYElement(yContextValueBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CoreModelPackage.YBEAN_SLOT_BINDING_ENDPOINT: {
-				YBeanSlotBindingEndpoint yBeanSlotBindingEndpoint = (YBeanSlotBindingEndpoint)theEObject;
-				T result = caseYBeanSlotBindingEndpoint(yBeanSlotBindingEndpoint);
-				if (result == null) result = caseYValueBindingEndpoint(yBeanSlotBindingEndpoint);
-				if (result == null) result = caseYBindingEndpoint(yBeanSlotBindingEndpoint);
-				if (result == null) result = caseYElement(yBeanSlotBindingEndpoint);
+			case CoreModelPackage.YBEAN_SLOT_VALUE_BINDING_ENDPOINT: {
+				YBeanSlotValueBindingEndpoint yBeanSlotValueBindingEndpoint = (YBeanSlotValueBindingEndpoint)theEObject;
+				T result = caseYBeanSlotValueBindingEndpoint(yBeanSlotValueBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yBeanSlotValueBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yBeanSlotValueBindingEndpoint);
+				if (result == null) result = caseYElement(yBeanSlotValueBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT: {
+				YBeanSlotListBindingEndpoint yBeanSlotListBindingEndpoint = (YBeanSlotListBindingEndpoint)theEObject;
+				T result = caseYBeanSlotListBindingEndpoint(yBeanSlotListBindingEndpoint);
+				if (result == null) result = caseYListBindingEndpoint(yBeanSlotListBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yBeanSlotListBindingEndpoint);
+				if (result == null) result = caseYElement(yBeanSlotListBindingEndpoint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -697,32 +674,47 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YContext Binding Endpoint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YContext Value Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YContext Binding Endpoint</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YContext Value Binding Endpoint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYContextBindingEndpoint(YContextBindingEndpoint object) {
+	public T caseYContextValueBindingEndpoint(YContextValueBindingEndpoint object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>YBean Slot Binding Endpoint</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>YBean Slot Value Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>YBean Slot Binding Endpoint</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>YBean Slot Value Binding Endpoint</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseYBeanSlotBindingEndpoint(YBeanSlotBindingEndpoint object) {
+	public T caseYBeanSlotValueBindingEndpoint(YBeanSlotValueBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBean Slot List Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBean Slot List Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBeanSlotListBindingEndpoint(YBeanSlotListBindingEndpoint object) {
 		return null;
 	}
 

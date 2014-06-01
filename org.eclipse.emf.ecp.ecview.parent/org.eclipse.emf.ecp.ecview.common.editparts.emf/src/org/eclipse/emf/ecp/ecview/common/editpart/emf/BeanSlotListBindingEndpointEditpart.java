@@ -12,17 +12,17 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import java.net.URI;
 
-import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IBeanSlotBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IBeanSlotListBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableListEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
@@ -32,21 +32,21 @@ import org.slf4j.LoggerFactory;
 /**
  * Responsible to create a context observable based on the given bean slot.
  */
-public class BeanSlotBindingEndpointEditpart extends
-		BindableValueEndpointEditpart<YBeanSlotBindingEndpoint> implements
-		IBeanSlotBindingEndpointEditpart {
+public class BeanSlotListBindingEndpointEditpart extends
+		BindableListEndpointEditpart<YBeanSlotListBindingEndpoint> implements
+		IBeanSlotListBindingEndpointEditpart {
 	private static final Logger logger = LoggerFactory
-			.getLogger(BeanSlotBindingEndpointEditpart.class);
+			.getLogger(BeanSlotListBindingEndpointEditpart.class);
 
 	@Override
-	protected YBeanSlotBindingEndpoint createModel() {
+	protected YBeanSlotListBindingEndpoint createModel() {
 		checkDisposed();
-		return CoreModelFactory.eINSTANCE.createYBeanSlotBindingEndpoint();
+		return CoreModelFactory.eINSTANCE.createYBeanSlotListBindingEndpoint();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <A extends IObservableValue> A getObservable() {
+	public <A extends IObservableList> A getObservable() {
 		if (getModel().getAttributePath() == null
 				|| getModel().getAttributePath().equals("")) {
 			logger.error("Attribute path must not be null!");
@@ -65,14 +65,15 @@ public class BeanSlotBindingEndpointEditpart extends
 			URI targetURI = getURI(yBeanSlot);
 			IViewEditpart viewEditpart = DelegatingEditPartManager
 					.getInstance().getEditpart(container);
-			return (A) ContextObservables.observeValue(
-					viewEditpart.getContext(), targetURI);
+			return (A) ContextObservables.observeList(
+					viewEditpart.getContext(), targetURI, getModel()
+							.getCollectionType());
 		} else if (container instanceof YViewSet) {
 			URI targetURI = getURI(yBeanSlot);
 			IViewSetEditpart viewSetEditpart = DelegatingEditPartManager
 					.getInstance().getEditpart(container);
-			return (A) ContextObservables.observeValue(
-					viewSetEditpart.getContext(), targetURI);
+			return (A) ContextObservables.observeList(viewSetEditpart
+					.getContext(), targetURI, getModel().getCollectionType());
 		}
 
 		throw new IllegalArgumentException(container

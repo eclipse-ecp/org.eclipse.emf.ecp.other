@@ -11,11 +11,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueType
- * <em>Value Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueType <em>Value Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,12 +39,9 @@ public interface YBeanSlot extends EObject {
 	String getName();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getName
-	 * <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Name</em>' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
@@ -71,13 +65,10 @@ public interface YBeanSlot extends EObject {
 	Class<?> getValueType();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueType
-	 * <em>Value Type</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueType <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Value Type</em>' attribute.
+	 * @param value the new value of the '<em>Value Type</em>' attribute.
 	 * @see #getValueType()
 	 * @generated
 	 */
@@ -87,9 +78,19 @@ public interface YBeanSlot extends EObject {
 	 * Creates a binding endpoint that may be used to bind values against this
 	 * element.
 	 * 
-	 * @param path
+	 * @param path the attribute or a nested path "person.address.street"
 	 * @return
 	 */
-	YBeanSlotBindingEndpoint createBindingEndpoint(String path);
+	YBeanSlotValueBindingEndpoint createBindingEndpoint(String path);
+
+	/**
+	 * Creates a binding endpoint that may be used to bind lists against this
+	 * element.
+	 * 
+	 * @param path the attribute or a nested path "person.address.street"
+	 * @param collectionType the type contained in the collection
+	 * @return
+	 */
+	YBeanSlotListBindingEndpoint createListBindingEndpoint(String path, Class<?> collectionType);
 
 } // YBeanSlot

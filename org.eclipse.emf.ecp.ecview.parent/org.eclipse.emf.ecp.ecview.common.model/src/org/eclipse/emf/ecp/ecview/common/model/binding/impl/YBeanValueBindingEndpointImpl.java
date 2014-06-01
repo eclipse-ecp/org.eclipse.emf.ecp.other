@@ -6,27 +6,28 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>YBean Binding Endpoint</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>YBean Value Binding Endpoint</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl#getBean <em>Bean</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanValueBindingEndpointImpl#getBean <em>Bean</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanValueBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implements
-		YBeanBindingEndpoint {
+public class YBeanValueBindingEndpointImpl extends YValueBindingEndpointImpl implements YBeanValueBindingEndpoint {
 	/**
 	 * The default value of the '{@link #getBean() <em>Bean</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBean()
 	 * @generated
 	 * @ordered
@@ -35,7 +36,8 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 
 	/**
 	 * The cached value of the '{@link #getBean() <em>Bean</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getBean()
 	 * @generated
 	 * @ordered
@@ -44,8 +46,8 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 
 	/**
 	 * The default value of the '{@link #getPropertyPath() <em>Property Path</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPropertyPath()
 	 * @generated
 	 * @ordered
@@ -54,8 +56,8 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 
 	/**
 	 * The cached value of the '{@link #getPropertyPath() <em>Property Path</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getPropertyPath()
 	 * @generated
 	 * @ordered
@@ -63,24 +65,27 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 	protected String propertyPath = PROPERTY_PATH_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected YBeanBindingEndpointImpl() {
+	protected YBeanValueBindingEndpointImpl() {
 		super();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return BindingPackage.Literals.YBEAN_BINDING_ENDPOINT;
+		return BindingPackage.Literals.YBEAN_VALUE_BINDING_ENDPOINT;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getBean() {
@@ -88,18 +93,20 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setBean(Object newBean) {
 		Object oldBean = bean;
 		bean = newBean;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN, oldBean, bean));
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__BEAN, oldBean, bean));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getPropertyPath() {
@@ -107,42 +114,45 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setPropertyPath(String newPropertyPath) {
 		String oldPropertyPath = propertyPath;
 		propertyPath = newPropertyPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBEAN_BINDING_ENDPOINT__PROPERTY_PATH, oldPropertyPath, propertyPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__PROPERTY_PATH, oldPropertyPath, propertyPath));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__BEAN:
 				return getBean();
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__PROPERTY_PATH:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				return getPropertyPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__BEAN:
 				setBean(newValue);
 				return;
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__PROPERTY_PATH:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				setPropertyPath((String)newValue);
 				return;
 		}
@@ -150,16 +160,17 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__BEAN:
 				setBean(BEAN_EDEFAULT);
 				return;
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__PROPERTY_PATH:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				setPropertyPath(PROPERTY_PATH_EDEFAULT);
 				return;
 		}
@@ -167,22 +178,24 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__BEAN:
 				return BEAN_EDEFAULT == null ? bean != null : !BEAN_EDEFAULT.equals(bean);
-			case BindingPackage.YBEAN_BINDING_ENDPOINT__PROPERTY_PATH:
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				return PROPERTY_PATH_EDEFAULT == null ? propertyPath != null : !PROPERTY_PATH_EDEFAULT.equals(propertyPath);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -197,7 +210,7 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 		result.append(')');
 		return result.toString();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -206,4 +219,5 @@ public class YBeanBindingEndpointImpl extends YValueBindingEndpointImpl implemen
 	public boolean isBindsElement(YElement element) {
 		return false;
 	}
-} // YBeanBindingEndpointImpl
+
+} //YBeanValueBindingEndpointImpl

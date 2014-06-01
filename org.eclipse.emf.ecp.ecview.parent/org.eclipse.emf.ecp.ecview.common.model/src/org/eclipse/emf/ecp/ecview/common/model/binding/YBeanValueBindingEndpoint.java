@@ -5,22 +5,22 @@ package org.eclipse.emf.ecp.ecview.common.model.binding;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>YBean Binding Endpoint</b></em>'.
+ * A representation of the model object '<em><b>YBean Value Binding Endpoint</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getBean <em>Bean</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getPropertyPath <em>Property Path</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint#getBean <em>Bean</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint#getPropertyPath <em>Property Path</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBeanBindingEndpoint()
+ * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBeanValueBindingEndpoint()
  * @model
  * @generated
  */
-public interface YBeanBindingEndpoint extends YValueBindingEndpoint {
+public interface YBeanValueBindingEndpoint extends YValueBindingEndpoint {
 	/**
 	 * Returns the value of the '<em><b>Bean</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,14 +31,14 @@ public interface YBeanBindingEndpoint extends YValueBindingEndpoint {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bean</em>' attribute.
 	 * @see #setBean(Object)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBeanBindingEndpoint_Bean()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBeanValueBindingEndpoint_Bean()
 	 * @model transient="true"
 	 * @generated
 	 */
 	Object getBean();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getBean <em>Bean</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint#getBean <em>Bean</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Bean</em>' attribute.
@@ -57,14 +57,14 @@ public interface YBeanBindingEndpoint extends YValueBindingEndpoint {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property Path</em>' attribute.
 	 * @see #setPropertyPath(String)
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBeanBindingEndpoint_PropertyPath()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYBeanValueBindingEndpoint_PropertyPath()
 	 * @model
 	 * @generated
 	 */
 	String getPropertyPath();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint#getPropertyPath <em>Property Path</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint#getPropertyPath <em>Property Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Property Path</em>' attribute.
@@ -73,4 +73,4 @@ public interface YBeanBindingEndpoint extends YValueBindingEndpoint {
 	 */
 	void setPropertyPath(String value);
 
-} // YBeanBindingEndpoint
+} // YBeanValueBindingEndpoint

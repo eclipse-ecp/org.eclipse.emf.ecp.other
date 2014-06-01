@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests;
 
+import static org.junit.Assert.fail;
+
 import java.net.URI;
 
 import junit.framework.Assert;
@@ -195,6 +197,14 @@ public class PojoBindingDelegateTest {
 		person.setAddress(address);
 		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
 
+	}
+	
+	public void test_bindList(){
+		fail("Implement!");
+	}
+	
+	public void test_bindList_nested(){
+		fail("Implement!");
 	}
 
 	private static class TestRealm extends Realm {

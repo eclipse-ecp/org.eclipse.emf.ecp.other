@@ -23,7 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableValueEndpoint
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -93,8 +93,8 @@ public class BindingEditpartTest {
 
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep2.setBean(bean2);
 		yBinding.setModelEndpoint(ep1);
@@ -128,8 +128,8 @@ public class BindingEditpartTest {
 
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
@@ -300,9 +300,9 @@ public class BindingEditpartTest {
 		// ...> view1
 		YValueBinding binding = bindingFactory.createYValueBinding();
 		YValueBindingEndpoint targetEndpoint = factory
-				.createYContextBindingEndpoint();
+				.createYContextValueBindingEndpoint();
 		YValueBindingEndpoint modelEndpoint = factory
-				.createYContextBindingEndpoint();
+				.createYContextValueBindingEndpoint();
 		IValueBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
 		IBindableValueEndpointEditpart targetEndpointEditpart = editpartManager
 				.getEditpart(targetEndpoint);
@@ -342,9 +342,9 @@ public class BindingEditpartTest {
 		// ...> view1
 		YBinding binding = bindingFactory.createYValueBinding();
 		YBindingEndpoint targetEndpoint = factory
-				.createYContextBindingEndpoint();
+				.createYContextValueBindingEndpoint();
 		YBindingEndpoint modelEndpoint = factory
-				.createYContextBindingEndpoint();
+				.createYContextValueBindingEndpoint();
 		IValueBindingEditpart bindingEditpart = editpartManager.getEditpart(binding);
 		IBindableValueEndpointEditpart targetEndpointEditpart = editpartManager
 				.getEditpart(targetEndpoint);

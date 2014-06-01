@@ -9,13 +9,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecp.ecview.common.model.binding.*;
-import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +55,7 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case BindingPackage.YBINDING_SET: return createYBindingSet();
-			case BindingPackage.YBEAN_BINDING_ENDPOINT: return createYBeanBindingEndpoint();
+			case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT: return createYBeanValueBindingEndpoint();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT: return createYDetailValueBindingEndpoint();
 			case BindingPackage.YVALUE_BINDING: return createYValueBinding();
 			case BindingPackage.YLIST_BINDING: return createYListBinding();
@@ -117,6 +110,16 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public YBeanValueBindingEndpoint createYBeanValueBindingEndpoint() {
+		YBeanValueBindingEndpointImpl yBeanValueBindingEndpoint = new YBeanValueBindingEndpointImpl();
+		return yBeanValueBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YValueBinding createYValueBinding() {
 		YValueBindingImpl yValueBinding = new YValueBindingImpl();
 		return yValueBinding;
@@ -160,16 +163,6 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	 */
 	public String convertYBindingUpdateStrategyToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public YBeanBindingEndpoint createYBeanBindingEndpoint() {
-		YBeanBindingEndpointImpl yBeanBindingEndpoint = new YBeanBindingEndpointImpl();
-		return yBeanBindingEndpoint;
 	}
 
 	/**

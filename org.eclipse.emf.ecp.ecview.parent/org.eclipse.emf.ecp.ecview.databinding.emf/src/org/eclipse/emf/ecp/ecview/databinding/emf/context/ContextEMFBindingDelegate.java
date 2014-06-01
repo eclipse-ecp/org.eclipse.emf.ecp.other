@@ -14,8 +14,10 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
@@ -115,6 +117,71 @@ public class ContextEMFBindingDelegate extends ContextBindingDelegate {
 					masterObservable);
 		}
 		return observabelValue;
+	}
+
+	@Override
+	public IObservableList observeList(IBeanRegistry registry, URI bindingURI,
+			Class<?> elementType) {
+		return observeList(Realm.getDefault(), registry, bindingURI, elementType);
+	}
+
+	@Override
+	public IObservableList observeList(Realm realm, IBeanRegistry registry,
+			URI bindingURI, Class<?> elementType) {
+
+		AccessibleScope scope = URIHelper.toScope(bindingURI);
+		ISlot slot = scope.getBeanScope().accessBeanSlot(registry);
+
+		if (slot == null) {
+			throw new IllegalArgumentException("Bean slot must be available!");
+		}
+
+		// normalize bean fragment
+		String beanFragment = AccessibleScope
+				.removeSlotValueFragmentToken(scope.getBeanFragment());
+
+		IObservableList observabelList = null;
+		// no fragment specified
+		if (beanFragment.equals("")) {
+			return BeanProperties.list(slot.getClass(), ISlot.PROP_VALUE,
+					elementType).observe(realm, slot);
+		} else {
+			EObject eObject = (EObject) slot.getValue();
+
+			// build the feature path
+			//
+			EClass eClass = eObject.eClass();
+			List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
+			String[] properties = beanFragment.split("\\.");
+			for (String property : properties) {
+				EStructuralFeature feature = eClass
+						.getEStructuralFeature(property);
+				if (feature == null) {
+					throw new IllegalStateException(String.format(
+							"%s is not a valid feature for %s!", property,
+							eClass.getName()));
+				}
+
+				features.add(feature);
+				if (feature instanceof EReference) {
+					EReference eReference = (EReference) feature;
+					eClass = eReference.getEReferenceType();
+				}
+			}
+
+			FeaturePath path = FeaturePath.fromList(features
+					.toArray(new EStructuralFeature[features.size()]));
+
+			// observe detail
+			//
+			IObservableValue masterObservable = BeanProperties.value(
+					slot.getClass(), ISlot.PROP_VALUE, slot.getValueType()).observe(
+					realm, slot);
+			observabelList = EMFProperties.list(path).observeDetail(
+					masterObservable);
+		}
+		return observabelList;
+
 	}
 
 }

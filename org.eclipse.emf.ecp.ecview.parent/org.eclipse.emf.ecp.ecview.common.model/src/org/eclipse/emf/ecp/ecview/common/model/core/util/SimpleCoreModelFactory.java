@@ -11,10 +11,10 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.util;
 
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
@@ -60,23 +60,23 @@ public class SimpleCoreModelFactory {
 	}
 
 	/**
-	 * Creates an instance of {@link YContextBindingEndpoint}
+	 * Creates an instance of {@link YContextValueBindingEndpoint}
 	 * 
 	 * @return
 	 */
-	public YContextBindingEndpoint createContextBindingEndpoint() {
-		return CoreModelFactory.eINSTANCE.createYContextBindingEndpoint();
+	public YContextValueBindingEndpoint createContextBindingEndpoint() {
+		return CoreModelFactory.eINSTANCE.createYContextValueBindingEndpoint();
 	}
 
 	/**
-	 * Creates an instance of {@link YBeanBindingEndpoint}
+	 * Creates an instance of {@link YBeanValueBindingEndpoint}
 	 * 
 	 * @return
 	 */
-	public YBeanBindingEndpoint createBeanBindingEndpoint() {
-		return BindingFactory.eINSTANCE.createYBeanBindingEndpoint();
+	public YBeanValueBindingEndpoint createBeanBindingEndpoint() {
+		return BindingFactory.eINSTANCE.createYBeanValueBindingEndpoint();
 	}
-	
+
 	/**
 	 * Creates an instance of {@link YBeanSlot}
 	 * 

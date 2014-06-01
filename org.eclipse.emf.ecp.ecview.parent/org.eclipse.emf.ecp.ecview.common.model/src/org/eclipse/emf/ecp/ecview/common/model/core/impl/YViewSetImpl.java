@@ -34,15 +34,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getId
- * <em>Id</em>}</li>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getViews
- * <em>Views</em>}</li>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getBeanSlots
- * <em>Bean Slots</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getViews <em>Views</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getBeanSlots <em>Bean Slots</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,9 +65,8 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment
-	 * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getViews()
 	 * @generated
 	 * @ordered
@@ -81,9 +74,8 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 	protected EList<YView> views;
 
 	/**
-	 * The cached value of the '{@link #getBeanSlots() <em>Bean Slots</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getBeanSlots() <em>Bean Slots</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getBeanSlots()
 	 * @generated
 	 * @ordered
@@ -92,7 +84,6 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected YViewSetImpl() {
@@ -101,7 +92,6 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,7 +101,6 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -120,48 +109,39 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					CoreModelPackage.YVIEW_SET__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW_SET__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<YView> getViews() {
 		if (views == null) {
-			views = new EObjectContainmentWithInverseEList.Resolving<YView>(
-					YView.class, this, CoreModelPackage.YVIEW_SET__VIEWS,
-					CoreModelPackage.YVIEW__ROOT);
+			views = new EObjectContainmentWithInverseEList.Resolving<YView>(YView.class, this, CoreModelPackage.YVIEW_SET__VIEWS, CoreModelPackage.YVIEW__ROOT);
 		}
 		return views;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<YBeanSlot> getBeanSlots() {
 		if (beanSlots == null) {
-			beanSlots = new EObjectContainmentEList.Resolving<YBeanSlot>(
-					YBeanSlot.class, this,
-					CoreModelPackage.YVIEW_SET__BEAN_SLOTS);
+			beanSlots = new EObjectContainmentEList.Resolving<YBeanSlot>(YBeanSlot.class, this, CoreModelPackage.YVIEW_SET__BEAN_SLOTS);
 		}
 		return beanSlots;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -169,121 +149,112 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 	public NotificationChain eInverseAdd(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CoreModelPackage.YVIEW_SET__VIEWS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getViews())
-					.basicAdd(otherEnd, msgs);
+			case CoreModelPackage.YVIEW_SET__VIEWS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getViews()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd,
 			int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CoreModelPackage.YVIEW_SET__VIEWS:
-			return ((InternalEList<?>) getViews()).basicRemove(otherEnd, msgs);
-		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
-			return ((InternalEList<?>) getBeanSlots()).basicRemove(otherEnd,
-					msgs);
+			case CoreModelPackage.YVIEW_SET__VIEWS:
+				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
+			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+				return ((InternalEList<?>)getBeanSlots()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CoreModelPackage.YVIEW_SET__ID:
-			return getId();
-		case CoreModelPackage.YVIEW_SET__VIEWS:
-			return getViews();
-		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
-			return getBeanSlots();
+			case CoreModelPackage.YVIEW_SET__ID:
+				return getId();
+			case CoreModelPackage.YVIEW_SET__VIEWS:
+				return getViews();
+			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+				return getBeanSlots();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CoreModelPackage.YVIEW_SET__ID:
-			setId((String) newValue);
-			return;
-		case CoreModelPackage.YVIEW_SET__VIEWS:
-			getViews().clear();
-			getViews().addAll((Collection<? extends YView>) newValue);
-			return;
-		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
-			getBeanSlots().clear();
-			getBeanSlots().addAll((Collection<? extends YBeanSlot>) newValue);
-			return;
+			case CoreModelPackage.YVIEW_SET__ID:
+				setId((String)newValue);
+				return;
+			case CoreModelPackage.YVIEW_SET__VIEWS:
+				getViews().clear();
+				getViews().addAll((Collection<? extends YView>)newValue);
+				return;
+			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+				getBeanSlots().clear();
+				getBeanSlots().addAll((Collection<? extends YBeanSlot>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CoreModelPackage.YVIEW_SET__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case CoreModelPackage.YVIEW_SET__VIEWS:
-			getViews().clear();
-			return;
-		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
-			getBeanSlots().clear();
-			return;
+			case CoreModelPackage.YVIEW_SET__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case CoreModelPackage.YVIEW_SET__VIEWS:
+				getViews().clear();
+				return;
+			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+				getBeanSlots().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CoreModelPackage.YVIEW_SET__ID:
-			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-		case CoreModelPackage.YVIEW_SET__VIEWS:
-			return views != null && !views.isEmpty();
-		case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
-			return beanSlots != null && !beanSlots.isEmpty();
+			case CoreModelPackage.YVIEW_SET__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case CoreModelPackage.YVIEW_SET__VIEWS:
+				return views != null && !views.isEmpty();
+			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
+				return beanSlots != null && !beanSlots.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");

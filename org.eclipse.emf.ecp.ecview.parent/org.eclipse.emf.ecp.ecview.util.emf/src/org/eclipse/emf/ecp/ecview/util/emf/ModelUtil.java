@@ -24,7 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
@@ -300,7 +300,7 @@ public class ModelUtil {
 	 * @param yBeanSlotBindingEndpoint
 	 * @return
 	 */
-	public static URI getURI(YBeanSlotBindingEndpoint yBeanSlotEndpoint) {
+	public static URI getURI(YBeanSlotValueBindingEndpoint yBeanSlotEndpoint) {
 
 		YBeanSlot beanSlot = yBeanSlotEndpoint.getBeanSlot();
 		if (beanSlot == null) {

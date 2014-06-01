@@ -14,10 +14,10 @@ import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,24 +25,24 @@ import org.slf4j.LoggerFactory;
  * Responsible to create an observable. The model of this editpart is used to
  * access the getObservableValue from the underlying widget presentation.
  */
-public class BeanBindingEndpointEditpart extends
-		BindableValueEndpointEditpart<YBeanBindingEndpoint> implements
-		IBeanBindingEndpointEditpart {
+public class BeanValueBindingEndpointEditpart extends
+		BindableValueEndpointEditpart<YBeanValueBindingEndpoint> implements
+		IBeanValueBindingEndpointEditpart {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(BeanBindingEndpointEditpart.class);
+			.getLogger(BeanValueBindingEndpointEditpart.class);
 	private RefreshProvider refresh;
 
 	@Override
-	protected YBeanBindingEndpoint createModel() {
+	protected YBeanValueBindingEndpoint createModel() {
 		checkDisposed();
-		return BindingFactory.eINSTANCE.createYBeanBindingEndpoint();
+		return BindingFactory.eINSTANCE.createYBeanValueBindingEndpoint();
 	}
 
 	@Override
 	protected void handleModelSet(int featureId, Notification notification) {
 		switch (featureId) {
-		case BindingPackage.YBEAN_BINDING_ENDPOINT__BEAN:
+		case BindingPackage.YBEAN_VALUE_BINDING_ENDPOINT__BEAN:
 			refresh.refresh();
 			break;
 		default:

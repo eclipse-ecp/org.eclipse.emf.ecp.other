@@ -21,16 +21,17 @@ import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IContextValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.uri.BeanScope;
 import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
@@ -41,7 +42,7 @@ import org.junit.Test;
  * Tests the {@link ViewEditpart}.
  */
 @SuppressWarnings("restriction")
-public class ContextBindingEndpointEditpartTest {
+public class ContextValueBindingEndpointEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
@@ -70,9 +71,9 @@ public class ContextBindingEndpointEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getObservable_NPE() {
 		// END SUPRESS CATCH EXCEPTION
-		YContextBindingEndpoint yEndpoint = factory
-				.createYContextBindingEndpoint();
-		IContextBindingEndpointEditpart editpart = editpartManager
+		YContextValueBindingEndpoint yEndpoint = factory
+				.createYContextValueBindingEndpoint();
+		IContextValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 
 		try {
@@ -100,13 +101,13 @@ public class ContextBindingEndpointEditpartTest {
 		view.setBindingSet(bs);
 		YValueBinding binding = bindingFactory.createYValueBinding();
 
-		YContextBindingEndpoint yEndpoint = factory
-				.createYContextBindingEndpoint();
+		YContextValueBindingEndpoint yEndpoint = factory
+				.createYContextValueBindingEndpoint();
 		yEndpoint.setUrlString("view://bean/bean1#value");
 		binding.setModelEndpoint(yEndpoint);
 		bs.addBinding(binding);
 
-		IContextBindingEndpointEditpart editpart = editpartManager
+		IContextValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 		IObservableValue value = editpart.getObservable();
 
@@ -148,15 +149,15 @@ public class ContextBindingEndpointEditpartTest {
 
 		// context endpoint
 		//
-		YContextBindingEndpoint yTargetEndpoint = factory
-				.createYContextBindingEndpoint();
+		YContextValueBindingEndpoint yTargetEndpoint = factory
+				.createYContextValueBindingEndpoint();
 		yTargetEndpoint.setUrlString("view://bean/slo1#value");
 
 		// bean endpoint
 		//
 		Bean bean = new Bean("Test");
-		YBeanBindingEndpoint yModelEndpoint = BindingFactory.eINSTANCE
-				.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint yModelEndpoint = BindingFactory.eINSTANCE
+				.createYBeanValueBindingEndpoint();
 		yModelEndpoint.setBean(bean);
 		yModelEndpoint.setPropertyPath("value");
 
@@ -176,6 +177,11 @@ public class ContextBindingEndpointEditpartTest {
 
 	}
 
+	@Test
+	public void test_BindList() {
+		fail("Implement!");
+	}
+
 	/**
 	 * Tests the disposal.
 	 */
@@ -183,9 +189,9 @@ public class ContextBindingEndpointEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
 		// END SUPRESS CATCH EXCEPTION
-		YContextBindingEndpoint yEndpoint = factory
-				.createYContextBindingEndpoint();
-		IContextBindingEndpointEditpart editpart = editpartManager
+		YContextValueBindingEndpoint yEndpoint = factory
+				.createYContextValueBindingEndpoint();
+		IContextValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 
 		assertFalse(editpart.isDisposed());

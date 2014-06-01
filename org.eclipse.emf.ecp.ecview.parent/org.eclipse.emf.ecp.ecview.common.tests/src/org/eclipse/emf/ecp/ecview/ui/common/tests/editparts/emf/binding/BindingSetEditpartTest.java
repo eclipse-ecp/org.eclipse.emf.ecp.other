@@ -26,7 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -192,8 +192,8 @@ public class BindingSetEditpartTest {
 		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
@@ -242,8 +242,8 @@ public class BindingSetEditpartTest {
 
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
@@ -290,8 +290,8 @@ public class BindingSetEditpartTest {
 		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
@@ -354,8 +354,8 @@ public class BindingSetEditpartTest {
 		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
@@ -409,8 +409,8 @@ public class BindingSetEditpartTest {
 		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
 		Bean bean2 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2 = bindingFactory.createYBeanValueBindingEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");
 		ep2.setBean(bean2);
@@ -423,10 +423,10 @@ public class BindingSetEditpartTest {
 		YValueBinding binding2 = bindingFactory.createYValueBinding();
 		Bean bean2_1 = new Bean("value");
 		Bean bean2_2 = new Bean("value");
-		YBeanBindingEndpoint ep2_1 = bindingFactory
-				.createYBeanBindingEndpoint();
-		YBeanBindingEndpoint ep2_2 = bindingFactory
-				.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep2_1 = bindingFactory
+				.createYBeanValueBindingEndpoint();
+		YBeanValueBindingEndpoint ep2_2 = bindingFactory
+				.createYBeanValueBindingEndpoint();
 		ep2_1.setBean(bean2_1);
 		ep2_1.setPropertyPath("value");
 		ep2_2.setBean(bean2_2);
@@ -462,7 +462,7 @@ public class BindingSetEditpartTest {
 		// add binding 1
 		YValueBinding binding = bindingFactory.createYValueBinding();
 		Bean bean1 = new Bean("value");
-		YBeanBindingEndpoint ep1 = bindingFactory.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint ep1 = bindingFactory.createYBeanValueBindingEndpoint();
 		YEmbeddableValueEndpoint ep2 = text1.createValueEndpoint();
 		ep1.setBean(bean1);
 		ep1.setPropertyPath("value");

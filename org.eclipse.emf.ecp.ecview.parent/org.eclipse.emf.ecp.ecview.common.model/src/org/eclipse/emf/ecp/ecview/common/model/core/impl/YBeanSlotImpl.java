@@ -9,7 +9,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -17,12 +18,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getValueType
- * <em>Value Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getValueType <em>Value Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,7 +30,6 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -43,7 +39,6 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -51,9 +46,8 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getValueType()
 	 * @generated
 	 * @ordered
@@ -62,7 +56,6 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected YBeanSlotImpl() {
@@ -71,7 +64,6 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -81,7 +73,6 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -90,20 +81,17 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					CoreModelPackage.YBEAN_SLOT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YBEAN_SLOT__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Class<?> getValueType() {
@@ -112,96 +100,86 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setValueType(Class<?> newValueType) {
 		Class<?> oldValueType = valueType;
 		valueType = newValueType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					CoreModelPackage.YBEAN_SLOT__VALUE_TYPE, oldValueType,
-					valueType));
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YBEAN_SLOT__VALUE_TYPE, oldValueType, valueType));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CoreModelPackage.YBEAN_SLOT__NAME:
-			return getName();
-		case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
-			return getValueType();
+			case CoreModelPackage.YBEAN_SLOT__NAME:
+				return getName();
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
+				return getValueType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CoreModelPackage.YBEAN_SLOT__NAME:
-			setName((String) newValue);
-			return;
-		case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
-			setValueType((Class<?>) newValue);
-			return;
+			case CoreModelPackage.YBEAN_SLOT__NAME:
+				setName((String)newValue);
+				return;
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
+				setValueType((Class<?>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CoreModelPackage.YBEAN_SLOT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
-			setValueType((Class<?>) null);
-			return;
+			case CoreModelPackage.YBEAN_SLOT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
+				setValueType((Class<?>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CoreModelPackage.YBEAN_SLOT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
-			return valueType != null;
+			case CoreModelPackage.YBEAN_SLOT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
+				return valueType != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -213,10 +191,21 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	@Override
-	public YBeanSlotBindingEndpoint createBindingEndpoint(String path) {
-		YBeanSlotBindingEndpoint yEndpoint = CoreModelFactory.eINSTANCE
-				.createYBeanSlotBindingEndpoint();
+	public YBeanSlotValueBindingEndpoint createBindingEndpoint(String path) {
+		YBeanSlotValueBindingEndpoint yEndpoint = CoreModelFactory.eINSTANCE
+				.createYBeanSlotValueBindingEndpoint();
 		yEndpoint.setBeanSlot(this);
+		yEndpoint.setAttributePath(path);
+		return yEndpoint;
+	}
+
+	@Override
+	public YBeanSlotListBindingEndpoint createListBindingEndpoint(String path,
+			Class<?> collectionType) {
+		YBeanSlotListBindingEndpoint yEndpoint = CoreModelFactory.eINSTANCE
+				.createYBeanSlotListBindingEndpoint();
+		yEndpoint.setBeanSlot(this);
+		yEndpoint.setCollectionType(collectionType);
 		yEndpoint.setAttributePath(path);
 		return yEndpoint;
 	}

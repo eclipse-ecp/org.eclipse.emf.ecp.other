@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests;
 
+import static org.junit.Assert.fail;
+
 import java.net.URI;
 
 import junit.framework.Assert;
@@ -258,6 +260,14 @@ public class ContextObservablesTest {
 		// pojo binding does not send events!
 		Assert.assertFalse(changed);
 	}
+	
+	public void test_bindList(){
+		fail("Implement!");
+	}
+	
+	public void test_bindList_nested(){
+		fail("Implement!");
+	}
 
 	/**
 	 * Creates a new instance of person. All references are properly setup and
@@ -275,7 +285,7 @@ public class ContextObservablesTest {
 		address.setCountry(country);
 		return person;
 	}
-
+	
 	private static class TestRealm extends Realm {
 
 		private TestRealm() {

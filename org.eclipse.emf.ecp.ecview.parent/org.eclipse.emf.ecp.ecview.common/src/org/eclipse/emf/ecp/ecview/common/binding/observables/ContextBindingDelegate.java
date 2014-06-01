@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.binding.observables;
 import java.net.URI;
 
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 
@@ -35,6 +36,17 @@ public class ContextBindingDelegate implements IContextBindingDelegate {
 	@Override
 	public IObservableValue observeValue(Realm realm, IBeanRegistry registry,
 			URI bindingURI) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public IObservableList observeList(IBeanRegistry registry, URI bindingURI, Class<?> elementType) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public IObservableList observeList(Realm realm, IBeanRegistry registry,
+			URI bindingURI, Class<?> elementType) {
 		throw new UnsupportedOperationException();
 	}
 

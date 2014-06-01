@@ -15,11 +15,11 @@ import java.net.URI;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.binding.observables.ContextObservables;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.IContextBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IContextValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,16 +27,16 @@ import org.slf4j.LoggerFactory;
 /**
  * Responsible to create a context observables.
  */
-public class ContextBindingEndpointEditpart extends
-		BindableValueEndpointEditpart<YContextBindingEndpoint> implements
-		IContextBindingEndpointEditpart {
+public class ContextValueBindingEndpointEditpart extends
+		BindableValueEndpointEditpart<YContextValueBindingEndpoint> implements
+		IContextValueBindingEndpointEditpart {
 	private static final Logger logger = LoggerFactory
-			.getLogger(ContextBindingEndpointEditpart.class);
+			.getLogger(ContextValueBindingEndpointEditpart.class);
 
 	@Override
-	protected YContextBindingEndpoint createModel() {
+	protected YContextValueBindingEndpoint createModel() {
 		checkDisposed();
-		return CoreModelFactory.eINSTANCE.createYContextBindingEndpoint();
+		return CoreModelFactory.eINSTANCE.createYContextValueBindingEndpoint();
 	}
 
 	@SuppressWarnings("unchecked")

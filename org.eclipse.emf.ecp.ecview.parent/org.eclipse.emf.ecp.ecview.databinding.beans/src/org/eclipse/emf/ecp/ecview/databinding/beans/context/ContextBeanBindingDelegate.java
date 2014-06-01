@@ -14,8 +14,10 @@ import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
 import java.net.URI;
 
+import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.ecp.ecview.common.beans.IBeanRegistry;
 import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
@@ -117,6 +119,52 @@ public class ContextBeanBindingDelegate extends ContextBindingDelegate {
 				//
 				return BeansObservables.observeDetailValue(slotObservable,
 						slot.getValueType(), beanFragment, null);
+			}
+		}
+	}
+
+	@Override
+	public IObservableList observeList(IBeanRegistry registry, URI bindingURI,
+			Class<?> elementType) {
+		return observeList(Realm.getDefault(), registry, bindingURI,
+				elementType);
+	}
+
+	@Override
+	public IObservableList observeList(Realm realm, IBeanRegistry registry,
+			URI bindingURI, Class<?> elementType) {
+		AccessibleScope scope = URIHelper.toScope(bindingURI);
+		ISlot slot = scope.getBeanScope().accessBeanSlot(registry);
+
+		if (slot == null) {
+			throw new IllegalArgumentException("Bean slot must be available!");
+		}
+
+		String beanFragment = scope.getBeanFragment();
+		// if value-property was references inside the slot, then return the
+		// observable
+		if (beanFragment.equals(ISlot.PROP_VALUE)) {
+			return BeanProperties.list(slot.getClass(), ISlot.PROP_VALUE,
+					elementType).observe(realm, slot);
+		} else {
+			// normalize bean fragment
+			beanFragment = AccessibleScope
+					.removeSlotValueFragmentToken(beanFragment);
+			if (beanFragment.equals("")) {
+				// if no bean fragment was specified, then the bean slot is
+				// addressed and it can not be observed since it is stable.
+				return null;
+			} else {
+				// observe master
+				//
+				IObservableValue slotObservable = BeanProperties.value(
+						slot.getClass(), ISlot.PROP_VALUE, slot.getValueType())
+						.observe(realm, slot);
+
+				// observe detail
+				//
+				return BeansObservables.observeDetailList(slotObservable,
+						beanFragment, elementType);
 			}
 		}
 	}

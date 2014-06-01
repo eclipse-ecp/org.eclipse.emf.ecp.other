@@ -29,9 +29,9 @@ public class YBindingSetTest {
 		assertEquals(0, set.getBindings().size());
 
 		YValueBindingEndpoint value1 = CoreModelFactory.eINSTANCE
-				.createYContextBindingEndpoint();
+				.createYContextValueBindingEndpoint();
 		YValueBindingEndpoint value2 = CoreModelFactory.eINSTANCE
-				.createYContextBindingEndpoint();
+				.createYContextValueBindingEndpoint();
 
 		YBinding binding = set.addBinding(value1, value2);
 		assertEquals(1, set.getBindings().size());

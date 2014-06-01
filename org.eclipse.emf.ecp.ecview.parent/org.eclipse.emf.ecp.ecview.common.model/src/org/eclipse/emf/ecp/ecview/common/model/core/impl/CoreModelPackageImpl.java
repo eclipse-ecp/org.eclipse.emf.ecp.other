@@ -3,7 +3,6 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
 import java.net.URI;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -21,10 +20,11 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
@@ -224,14 +224,21 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yContextBindingEndpointEClass = null;
+	private EClass yContextValueBindingEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass yBeanSlotBindingEndpointEClass = null;
+	private EClass yBeanSlotValueBindingEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yBeanSlotListBindingEndpointEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -885,8 +892,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYContextBindingEndpoint() {
-		return yContextBindingEndpointEClass;
+	public EClass getYContextValueBindingEndpoint() {
+		return yContextValueBindingEndpointEClass;
 	}
 
 	/**
@@ -894,8 +901,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYContextBindingEndpoint_UrlString() {
-		return (EAttribute)yContextBindingEndpointEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYContextValueBindingEndpoint_UrlString() {
+		return (EAttribute)yContextValueBindingEndpointEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -903,8 +910,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getYBeanSlotBindingEndpoint() {
-		return yBeanSlotBindingEndpointEClass;
+	public EClass getYBeanSlotValueBindingEndpoint() {
+		return yBeanSlotValueBindingEndpointEClass;
 	}
 
 	/**
@@ -912,8 +919,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYBeanSlotBindingEndpoint_AttributePath() {
-		return (EAttribute)yBeanSlotBindingEndpointEClass.getEStructuralFeatures().get(0);
+	public EAttribute getYBeanSlotValueBindingEndpoint_AttributePath() {
+		return (EAttribute)yBeanSlotValueBindingEndpointEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -921,8 +928,44 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getYBeanSlotBindingEndpoint_BeanSlot() {
-		return (EReference)yBeanSlotBindingEndpointEClass.getEStructuralFeatures().get(1);
+	public EReference getYBeanSlotValueBindingEndpoint_BeanSlot() {
+		return (EReference)yBeanSlotValueBindingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYBeanSlotListBindingEndpoint() {
+		return yBeanSlotListBindingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYBeanSlotListBindingEndpoint_AttributePath() {
+		return (EAttribute)yBeanSlotListBindingEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYBeanSlotListBindingEndpoint_BeanSlot() {
+		return (EReference)yBeanSlotListBindingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYBeanSlotListBindingEndpoint_CollectionType() {
+		return (EAttribute)yBeanSlotListBindingEndpointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1183,12 +1226,17 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yCollectionBindableEClass = createEClass(YCOLLECTION_BINDABLE);
 		createEReference(yCollectionBindableEClass, YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT);
 
-		yContextBindingEndpointEClass = createEClass(YCONTEXT_BINDING_ENDPOINT);
-		createEAttribute(yContextBindingEndpointEClass, YCONTEXT_BINDING_ENDPOINT__URL_STRING);
+		yContextValueBindingEndpointEClass = createEClass(YCONTEXT_VALUE_BINDING_ENDPOINT);
+		createEAttribute(yContextValueBindingEndpointEClass, YCONTEXT_VALUE_BINDING_ENDPOINT__URL_STRING);
 
-		yBeanSlotBindingEndpointEClass = createEClass(YBEAN_SLOT_BINDING_ENDPOINT);
-		createEAttribute(yBeanSlotBindingEndpointEClass, YBEAN_SLOT_BINDING_ENDPOINT__ATTRIBUTE_PATH);
-		createEReference(yBeanSlotBindingEndpointEClass, YBEAN_SLOT_BINDING_ENDPOINT__BEAN_SLOT);
+		yBeanSlotValueBindingEndpointEClass = createEClass(YBEAN_SLOT_VALUE_BINDING_ENDPOINT);
+		createEAttribute(yBeanSlotValueBindingEndpointEClass, YBEAN_SLOT_VALUE_BINDING_ENDPOINT__ATTRIBUTE_PATH);
+		createEReference(yBeanSlotValueBindingEndpointEClass, YBEAN_SLOT_VALUE_BINDING_ENDPOINT__BEAN_SLOT);
+
+		yBeanSlotListBindingEndpointEClass = createEClass(YBEAN_SLOT_LIST_BINDING_ENDPOINT);
+		createEAttribute(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__ATTRIBUTE_PATH);
+		createEReference(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__BEAN_SLOT);
+		createEAttribute(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE);
 
 		yEmbeddableBindingEndpointEClass = createEClass(YEMBEDDABLE_BINDING_ENDPOINT);
 
@@ -1274,8 +1322,9 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		ySelectionBindableEClass.getESuperTypes().add(this.getYBindable());
 		yMultiSelectionBindableEClass.getESuperTypes().add(this.getYBindable());
 		yCollectionBindableEClass.getESuperTypes().add(this.getYBindable());
-		yContextBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
-		yBeanSlotBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
+		yContextValueBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
+		yBeanSlotValueBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
+		yBeanSlotListBindingEndpointEClass.getESuperTypes().add(theBindingPackage.getYListBindingEndpoint());
 		yEmbeddableValueEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
 		yEmbeddableValueEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yEmbeddableSelectionEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
@@ -1391,12 +1440,20 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		addEOperation(yCollectionBindableEClass, this.getYEmbeddableCollectionEndpoint(), "createCollectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(yContextBindingEndpointEClass, YContextBindingEndpoint.class, "YContextBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYContextBindingEndpoint_UrlString(), ecorePackage.getEString(), "urlString", null, 1, 1, YContextBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yContextValueBindingEndpointEClass, YContextValueBindingEndpoint.class, "YContextValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYContextValueBindingEndpoint_UrlString(), ecorePackage.getEString(), "urlString", null, 1, 1, YContextValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(yBeanSlotBindingEndpointEClass, YBeanSlotBindingEndpoint.class, "YBeanSlotBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYBeanSlotBindingEndpoint_AttributePath(), ecorePackage.getEString(), "attributePath", null, 1, 1, YBeanSlotBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getYBeanSlotBindingEndpoint_BeanSlot(), this.getYBeanSlot(), null, "beanSlot", null, 1, 1, YBeanSlotBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yBeanSlotValueBindingEndpointEClass, YBeanSlotValueBindingEndpoint.class, "YBeanSlotValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYBeanSlotValueBindingEndpoint_AttributePath(), ecorePackage.getEString(), "attributePath", null, 1, 1, YBeanSlotValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYBeanSlotValueBindingEndpoint_BeanSlot(), this.getYBeanSlot(), null, "beanSlot", null, 1, 1, YBeanSlotValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yBeanSlotListBindingEndpointEClass, YBeanSlotListBindingEndpoint.class, "YBeanSlotListBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYBeanSlotListBindingEndpoint_AttributePath(), ecorePackage.getEString(), "attributePath", null, 1, 1, YBeanSlotListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYBeanSlotListBindingEndpoint_BeanSlot(), this.getYBeanSlot(), null, "beanSlot", null, 1, 1, YBeanSlotListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYBeanSlotListBindingEndpoint_CollectionType(), g1, "collectionType", null, 1, 1, YBeanSlotListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEmbeddableBindingEndpointEClass, YEmbeddableBindingEndpoint.class, "YEmbeddableBindingEndpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -31,6 +31,15 @@ public interface BindingFactory extends EFactory {
 	YBindingSet createYBindingSet();
 
 	/**
+	 * Returns a new object of class '<em>YBean Value Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YBean Value Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YBeanValueBindingEndpoint createYBeanValueBindingEndpoint();
+
+	/**
 	 * Returns a new object of class '<em>YValue Binding</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,15 +65,6 @@ public interface BindingFactory extends EFactory {
 	 * @generated
 	 */
 	YEnumListBindingEndpoint createYEnumListBindingEndpoint();
-
-	/**
-	 * Returns a new object of class '<em>YBean Binding Endpoint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>YBean Binding Endpoint</em>'.
-	 * @generated
-	 */
-	YBeanBindingEndpoint createYBeanBindingEndpoint();
 
 	/**
 	 * Returns a new object of class '<em>YDetail Value Binding Endpoint</em>'.

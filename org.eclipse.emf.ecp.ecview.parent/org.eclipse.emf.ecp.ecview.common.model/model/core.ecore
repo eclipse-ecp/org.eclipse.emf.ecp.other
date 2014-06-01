@@ -131,15 +131,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="collectionBindingEndpoint"
         eType="#//YEmbeddableCollectionEndpoint" eOpposite="#//YEmbeddableCollectionEndpoint/element"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YContextBindingEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint">
+  <eClassifiers xsi:type="ecore:EClass" name="YContextValueBindingEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlString" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YBeanSlotBindingEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint">
+  <eClassifiers xsi:type="ecore:EClass" name="YBeanSlotValueBindingEndpoint" eSuperTypes="binding.ecore#//YValueBindingEndpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributePath" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="beanSlot" lowerBound="1"
         eType="#//YBeanSlot"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YBeanSlotListBindingEndpoint" eSuperTypes="binding.ecore#//YListBindingEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributePath" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beanSlot" lowerBound="1"
+        eType="#//YBeanSlot"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collectionType" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YEmbeddableBindingEndpoint" abstract="true"
       interface="true">

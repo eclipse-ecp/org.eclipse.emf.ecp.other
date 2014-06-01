@@ -9,23 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.common.model.core.YUnit;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 
 /**
@@ -78,8 +62,9 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YVIEW_SET: return createYViewSet();
 			case CoreModelPackage.YBEAN_SLOT: return createYBeanSlot();
 			case CoreModelPackage.YACTION: return createYAction();
-			case CoreModelPackage.YCONTEXT_BINDING_ENDPOINT: return createYContextBindingEndpoint();
-			case CoreModelPackage.YBEAN_SLOT_BINDING_ENDPOINT: return createYBeanSlotBindingEndpoint();
+			case CoreModelPackage.YCONTEXT_VALUE_BINDING_ENDPOINT: return createYContextValueBindingEndpoint();
+			case CoreModelPackage.YBEAN_SLOT_VALUE_BINDING_ENDPOINT: return createYBeanSlotValueBindingEndpoint();
+			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT: return createYBeanSlotListBindingEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_VALUE_ENDPOINT: return createYEmbeddableValueEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT: return createYEmbeddableSelectionEndpoint();
 			case CoreModelPackage.YEMBEDDABLE_MULTI_SELECTION_ENDPOINT: return createYEmbeddableMultiSelectionEndpoint();
@@ -194,9 +179,9 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YContextBindingEndpoint createYContextBindingEndpoint() {
-		YContextBindingEndpointImpl yContextBindingEndpoint = new YContextBindingEndpointImpl();
-		return yContextBindingEndpoint;
+	public YContextValueBindingEndpoint createYContextValueBindingEndpoint() {
+		YContextValueBindingEndpointImpl yContextValueBindingEndpoint = new YContextValueBindingEndpointImpl();
+		return yContextValueBindingEndpoint;
 	}
 
 	/**
@@ -204,9 +189,19 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YBeanSlotBindingEndpoint createYBeanSlotBindingEndpoint() {
-		YBeanSlotBindingEndpointImpl yBeanSlotBindingEndpoint = new YBeanSlotBindingEndpointImpl();
-		return yBeanSlotBindingEndpoint;
+	public YBeanSlotValueBindingEndpoint createYBeanSlotValueBindingEndpoint() {
+		YBeanSlotValueBindingEndpointImpl yBeanSlotValueBindingEndpoint = new YBeanSlotValueBindingEndpointImpl();
+		return yBeanSlotValueBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YBeanSlotListBindingEndpoint createYBeanSlotListBindingEndpoint() {
+		YBeanSlotListBindingEndpointImpl yBeanSlotListBindingEndpoint = new YBeanSlotListBindingEndpointImpl();
+		return yBeanSlotListBindingEndpoint;
 	}
 
 	/**

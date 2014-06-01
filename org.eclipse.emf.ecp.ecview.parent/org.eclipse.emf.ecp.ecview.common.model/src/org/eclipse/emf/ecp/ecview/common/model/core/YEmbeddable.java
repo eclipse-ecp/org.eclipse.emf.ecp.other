@@ -13,8 +13,8 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>YUi Embeddable</b></em>'. <!-- end-user-doc -->
- * 
- * 
+ *
+ *
  * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddable()
  * @model abstract="true"
  * @generated
@@ -28,7 +28,6 @@ public interface YEmbeddable extends YElement, YCssAble, YVisibleable,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -36,7 +35,6 @@ public interface YEmbeddable extends YElement, YCssAble, YVisibleable,
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */

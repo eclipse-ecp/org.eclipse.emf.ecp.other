@@ -1107,14 +1107,14 @@ public interface CoreModelPackage extends EPackage {
 	int YCOLLECTION_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl <em>YContext Binding Endpoint</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextValueBindingEndpointImpl <em>YContext Value Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextBindingEndpoint()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextValueBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextValueBindingEndpoint()
 	 * @generated
 	 */
-	int YCONTEXT_BINDING_ENDPOINT = 22;
+	int YCONTEXT_VALUE_BINDING_ENDPOINT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1123,7 +1123,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCONTEXT_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+	int YCONTEXT_VALUE_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Url String</b></em>' attribute.
@@ -1132,26 +1132,26 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YCONTEXT_BINDING_ENDPOINT__URL_STRING = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+	int YCONTEXT_VALUE_BINDING_ENDPOINT__URL_STRING = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>YContext Binding Endpoint</em>' class.
+	 * The number of structural features of the '<em>YContext Value Binding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCONTEXT_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+	int YCONTEXT_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl <em>YBean Slot Binding Endpoint</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotValueBindingEndpointImpl <em>YBean Slot Value Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotBindingEndpoint()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotValueBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotValueBindingEndpoint()
 	 * @generated
 	 */
-	int YBEAN_SLOT_BINDING_ENDPOINT = 23;
+	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1160,7 +1160,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Path</b></em>' attribute.
@@ -1169,7 +1169,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT_BINDING_ENDPOINT__ATTRIBUTE_PATH = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT__ATTRIBUTE_PATH = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Bean Slot</b></em>' reference.
@@ -1178,16 +1178,71 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT_BINDING_ENDPOINT__BEAN_SLOT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT__BEAN_SLOT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>YBean Slot Binding Endpoint</em>' class.
+	 * The number of structural features of the '<em>YBean Slot Value Binding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl <em>YBean Slot List Binding Endpoint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotListBindingEndpoint()
+	 * @generated
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__ID = BindingPackage.YLIST_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Attribute Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__ATTRIBUTE_PATH = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Bean Slot</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__BEAN_SLOT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Collection Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>YBean Slot List Binding Endpoint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.
@@ -1197,7 +1252,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableBindingEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT = 24;
+	int YEMBEDDABLE_BINDING_ENDPOINT = 25;
 
 	/**
 	 * The number of structural features of the '<em>YEmbeddable Binding Endpoint</em>' class.
@@ -1216,7 +1271,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableValueEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT = 25;
+	int YEMBEDDABLE_VALUE_ENDPOINT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1253,7 +1308,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableSelectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT = 26;
+	int YEMBEDDABLE_SELECTION_ENDPOINT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1290,7 +1345,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableMultiSelectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT = 27;
+	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1327,7 +1382,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYEmbeddableCollectionEndpoint()
 	 * @generated
 	 */
-	int YEMBEDDABLE_COLLECTION_ENDPOINT = 28;
+	int YEMBEDDABLE_COLLECTION_ENDPOINT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1364,7 +1419,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYActivatedEndpoint()
 	 * @generated
 	 */
-	int YACTIVATED_ENDPOINT = 29;
+	int YACTIVATED_ENDPOINT = 30;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1401,7 +1456,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYDtWrapper()
 	 * @generated
 	 */
-	int YDT_WRAPPER = 30;
+	int YDT_WRAPPER = 31;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1456,7 +1511,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYVisibilityProcessable()
 	 * @generated
 	 */
-	int YVISIBILITY_PROCESSABLE = 31;
+	int YVISIBILITY_PROCESSABLE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
@@ -1484,7 +1539,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 32;
+	int YUNIT = 33;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -1494,7 +1549,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 33;
+	int YURI = 34;
 
 
 	/**
@@ -1505,7 +1560,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
 	 * @generated
 	 */
-	int YVALUE_CHANGE_LISTENER = 34;
+	int YVALUE_CHANGE_LISTENER = 35;
 
 
 	/**
@@ -2092,57 +2147,100 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYCollectionBindable_CollectionBindingEndpoint();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint <em>YContext Binding Endpoint</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint <em>YContext Value Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YContext Binding Endpoint</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint
+	 * @return the meta object for class '<em>YContext Value Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint
 	 * @generated
 	 */
-	EClass getYContextBindingEndpoint();
+	EClass getYContextValueBindingEndpoint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint#getUrlString <em>Url String</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint#getUrlString <em>Url String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Url String</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint#getUrlString()
-	 * @see #getYContextBindingEndpoint()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint#getUrlString()
+	 * @see #getYContextValueBindingEndpoint()
 	 * @generated
 	 */
-	EAttribute getYContextBindingEndpoint_UrlString();
+	EAttribute getYContextValueBindingEndpoint_UrlString();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint <em>YBean Slot Binding Endpoint</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint <em>YBean Slot Value Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>YBean Slot Binding Endpoint</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint
+	 * @return the meta object for class '<em>YBean Slot Value Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint
 	 * @generated
 	 */
-	EClass getYBeanSlotBindingEndpoint();
+	EClass getYBeanSlotValueBindingEndpoint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getAttributePath <em>Attribute Path</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint#getAttributePath <em>Attribute Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Attribute Path</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getAttributePath()
-	 * @see #getYBeanSlotBindingEndpoint()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint#getAttributePath()
+	 * @see #getYBeanSlotValueBindingEndpoint()
 	 * @generated
 	 */
-	EAttribute getYBeanSlotBindingEndpoint_AttributePath();
+	EAttribute getYBeanSlotValueBindingEndpoint_AttributePath();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getBeanSlot <em>Bean Slot</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint#getBeanSlot <em>Bean Slot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Bean Slot</em>'.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint#getBeanSlot()
-	 * @see #getYBeanSlotBindingEndpoint()
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint#getBeanSlot()
+	 * @see #getYBeanSlotValueBindingEndpoint()
 	 * @generated
 	 */
-	EReference getYBeanSlotBindingEndpoint_BeanSlot();
+	EReference getYBeanSlotValueBindingEndpoint_BeanSlot();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint <em>YBean Slot List Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YBean Slot List Binding Endpoint</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
+	 * @generated
+	 */
+	EClass getYBeanSlotListBindingEndpoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getAttributePath <em>Attribute Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attribute Path</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getAttributePath()
+	 * @see #getYBeanSlotListBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYBeanSlotListBindingEndpoint_AttributePath();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getBeanSlot <em>Bean Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bean Slot</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getBeanSlot()
+	 * @see #getYBeanSlotListBindingEndpoint()
+	 * @generated
+	 */
+	EReference getYBeanSlotListBindingEndpoint_BeanSlot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionType <em>Collection Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collection Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionType()
+	 * @see #getYBeanSlotListBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYBeanSlotListBindingEndpoint_CollectionType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}'.
@@ -2829,14 +2927,14 @@ public interface CoreModelPackage extends EPackage {
 		EReference YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT = eINSTANCE.getYCollectionBindable_CollectionBindingEndpoint();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl <em>YContext Binding Endpoint</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextValueBindingEndpointImpl <em>YContext Value Binding Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextBindingEndpointImpl
-		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextBindingEndpoint()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextValueBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYContextValueBindingEndpoint()
 		 * @generated
 		 */
-		EClass YCONTEXT_BINDING_ENDPOINT = eINSTANCE.getYContextBindingEndpoint();
+		EClass YCONTEXT_VALUE_BINDING_ENDPOINT = eINSTANCE.getYContextValueBindingEndpoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Url String</b></em>' attribute feature.
@@ -2844,17 +2942,17 @@ public interface CoreModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YCONTEXT_BINDING_ENDPOINT__URL_STRING = eINSTANCE.getYContextBindingEndpoint_UrlString();
+		EAttribute YCONTEXT_VALUE_BINDING_ENDPOINT__URL_STRING = eINSTANCE.getYContextValueBindingEndpoint_UrlString();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl <em>YBean Slot Binding Endpoint</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotValueBindingEndpointImpl <em>YBean Slot Value Binding Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotBindingEndpointImpl
-		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotBindingEndpoint()
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotValueBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotValueBindingEndpoint()
 		 * @generated
 		 */
-		EClass YBEAN_SLOT_BINDING_ENDPOINT = eINSTANCE.getYBeanSlotBindingEndpoint();
+		EClass YBEAN_SLOT_VALUE_BINDING_ENDPOINT = eINSTANCE.getYBeanSlotValueBindingEndpoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Attribute Path</b></em>' attribute feature.
@@ -2862,7 +2960,7 @@ public interface CoreModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute YBEAN_SLOT_BINDING_ENDPOINT__ATTRIBUTE_PATH = eINSTANCE.getYBeanSlotBindingEndpoint_AttributePath();
+		EAttribute YBEAN_SLOT_VALUE_BINDING_ENDPOINT__ATTRIBUTE_PATH = eINSTANCE.getYBeanSlotValueBindingEndpoint_AttributePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Bean Slot</b></em>' reference feature.
@@ -2870,7 +2968,41 @@ public interface CoreModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference YBEAN_SLOT_BINDING_ENDPOINT__BEAN_SLOT = eINSTANCE.getYBeanSlotBindingEndpoint_BeanSlot();
+		EReference YBEAN_SLOT_VALUE_BINDING_ENDPOINT__BEAN_SLOT = eINSTANCE.getYBeanSlotValueBindingEndpoint_BeanSlot();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl <em>YBean Slot List Binding Endpoint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYBeanSlotListBindingEndpoint()
+		 * @generated
+		 */
+		EClass YBEAN_SLOT_LIST_BINDING_ENDPOINT = eINSTANCE.getYBeanSlotListBindingEndpoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_SLOT_LIST_BINDING_ENDPOINT__ATTRIBUTE_PATH = eINSTANCE.getYBeanSlotListBindingEndpoint_AttributePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Bean Slot</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YBEAN_SLOT_LIST_BINDING_ENDPOINT__BEAN_SLOT = eINSTANCE.getYBeanSlotListBindingEndpoint_BeanSlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE = eINSTANCE.getYBeanSlotListBindingEndpoint_CollectionType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.

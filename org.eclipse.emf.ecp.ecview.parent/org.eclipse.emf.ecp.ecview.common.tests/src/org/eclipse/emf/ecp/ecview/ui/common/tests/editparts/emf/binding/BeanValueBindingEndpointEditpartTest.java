@@ -21,9 +21,9 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.junit.Before;
@@ -33,7 +33,7 @@ import org.junit.Test;
  * Tests the {@link ViewEditpart}.
  */
 @SuppressWarnings("restriction")
-public class BeanBindingEndpointEditpartTest {
+public class BeanValueBindingEndpointEditpartTest {
 
 	private DelegatingEditPartManager editpartManager = DelegatingEditPartManager
 			.getInstance();
@@ -61,9 +61,9 @@ public class BeanBindingEndpointEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_getObservable_Null() {
 		// END SUPRESS CATCH EXCEPTION
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		YBeanValueBindingEndpoint yEndpoint = bindingFactory
+				.createYBeanValueBindingEndpoint();
+		IBeanValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 		assertNull(editpart.getObservable());
 	}
@@ -79,14 +79,14 @@ public class BeanBindingEndpointEditpartTest {
 		YValueBinding binding = bindingFactory.createYValueBinding();
 
 		Bean bean = new Bean("Test");
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint yEndpoint = bindingFactory
+				.createYBeanValueBindingEndpoint();
 		yEndpoint.setBean(bean);
 		yEndpoint.setPropertyPath("value");
 		binding.setModelEndpoint(yEndpoint);
 		bs.addBinding(binding);
 
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		IBeanValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 		IObservableValue value = editpart.getObservable();
 
@@ -116,14 +116,14 @@ public class BeanBindingEndpointEditpartTest {
 
 		Bean inner = new Bean("InnerTest");
 		Bean outer = new Bean(inner);
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
+		YBeanValueBindingEndpoint yEndpoint = bindingFactory
+				.createYBeanValueBindingEndpoint();
 		yEndpoint.setBean(outer);
 		yEndpoint.setPropertyPath("inner.value");
 		binding.setModelEndpoint(yEndpoint);
 		bs.addBinding(binding);
 
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		IBeanValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 		IObservableValue value = editpart.getObservable();
 
@@ -150,9 +150,9 @@ public class BeanBindingEndpointEditpartTest {
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_dispose() {
 		// END SUPRESS CATCH EXCEPTION
-		YBeanBindingEndpoint yEndpoint = bindingFactory
-				.createYBeanBindingEndpoint();
-		IBeanBindingEndpointEditpart editpart = editpartManager
+		YBeanValueBindingEndpoint yEndpoint = bindingFactory
+				.createYBeanValueBindingEndpoint();
+		IBeanValueBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
 
 		assertFalse(editpart.isDisposed());

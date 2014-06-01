@@ -10,11 +10,12 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
-import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableValueEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableListEndpointEditpart;
 
 /**
- * An editpart resonsible to provide context observable values.
+ * An editpart resonsible to provide an observable list for bean slots.
  */
-public interface IContextBindingEndpointEditpart extends IBindableValueEndpointEditpart {
+public interface IBeanSlotListBindingEndpointEditpart extends
+		IBindableListEndpointEditpart {
 
 }

@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests;
 
+import static org.junit.Assert.fail;
+
 import java.net.URI;
 
 import junit.framework.Assert;
@@ -174,6 +176,14 @@ public class EMFBindingDelegateTest {
 
 		person.setAddress(address);
 		Assert.assertTrue(changed);
+	}
+	
+	public void test_bindList(){
+		fail("Implement!");
+	}
+	
+	public void test_bindList_nested(){
+		fail("Implement!");
 	}
 
 	/**

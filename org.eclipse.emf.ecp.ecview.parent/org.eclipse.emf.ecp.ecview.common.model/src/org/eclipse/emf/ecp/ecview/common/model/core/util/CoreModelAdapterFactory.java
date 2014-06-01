@@ -17,39 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
-import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
-import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YActivatedEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
-import org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
-import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YField;
-import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
-import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YView;
-import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
-import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
-import org.eclipse.emf.ecp.ecview.common.model.core.YWidthable;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase;
 
@@ -198,12 +166,16 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYCollectionBindableAdapter();
 			}
 			@Override
-			public Adapter caseYContextBindingEndpoint(YContextBindingEndpoint object) {
-				return createYContextBindingEndpointAdapter();
+			public Adapter caseYContextValueBindingEndpoint(YContextValueBindingEndpoint object) {
+				return createYContextValueBindingEndpointAdapter();
 			}
 			@Override
-			public Adapter caseYBeanSlotBindingEndpoint(YBeanSlotBindingEndpoint object) {
-				return createYBeanSlotBindingEndpointAdapter();
+			public Adapter caseYBeanSlotValueBindingEndpoint(YBeanSlotValueBindingEndpoint object) {
+				return createYBeanSlotValueBindingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseYBeanSlotListBindingEndpoint(YBeanSlotListBindingEndpoint object) {
+				return createYBeanSlotListBindingEndpointAdapter();
 			}
 			@Override
 			public Adapter caseYEmbeddableBindingEndpoint(YEmbeddableBindingEndpoint object) {
@@ -586,30 +558,44 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint <em>YContext Binding Endpoint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint <em>YContext Value Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextBindingEndpoint
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint
 	 * @generated
 	 */
-	public Adapter createYContextBindingEndpointAdapter() {
+	public Adapter createYContextValueBindingEndpointAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint <em>YBean Slot Binding Endpoint</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint <em>YBean Slot Value Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotBindingEndpoint
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint
 	 * @generated
 	 */
-	public Adapter createYBeanSlotBindingEndpointAdapter() {
+	public Adapter createYBeanSlotValueBindingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint <em>YBean Slot List Binding Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
+	 * @generated
+	 */
+	public Adapter createYBeanSlotListBindingEndpointAdapter() {
 		return null;
 	}
 

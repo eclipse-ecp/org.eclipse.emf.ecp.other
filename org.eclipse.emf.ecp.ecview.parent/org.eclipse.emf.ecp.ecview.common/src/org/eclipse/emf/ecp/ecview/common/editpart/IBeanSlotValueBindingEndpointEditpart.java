@@ -8,12 +8,13 @@
  * Contributors:
  *    Florian Pirchner - initial API and implementation
  */
-package org.eclipse.emf.ecp.ecview.common.editpart.binding;
+package org.eclipse.emf.ecp.ecview.common.editpart;
+
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableValueEndpointEditpart;
 
 /**
- * An editpart resonsible to provide context observable values for bean
- * bindings.
+ * An editpart resonsible to provide observable values for bean slots.
  */
-public interface IBeanBindingEndpointEditpart extends IBindableValueEndpointEditpart {
+public interface IBeanSlotValueBindingEndpointEditpart extends IBindableValueEndpointEditpart {
 
 }
