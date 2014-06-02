@@ -95,7 +95,7 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.e4.css.core</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.common</module>
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
+<!-- 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module> -->
 			</modules>
 		</profile>
 		<profile>
@@ -158,11 +158,11 @@
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt</module>
 				<module>org.eclipse.emf.ecp.ecview.example.swt</module>
 
-				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.extension.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module>
+<!-- 				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.extension.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.common.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.swt.tests</module> -->
 				<!-- P2 bundles -->
 			</modules>
 		</profile>
@@ -218,10 +218,10 @@
 
 				<module>org.eclipse.emf.ecp.ecview.ui.presentation.common</module>
 
-				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.extension.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module>
-				<module>org.eclipse.emf.ecp.ecview.common.tests</module>
+<!-- 				<module>org.eclipse.emf.ecp.ecview.common.model.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.extension.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.databinding.tests</module> -->
+<!-- 				<module>org.eclipse.emf.ecp.ecview.common.tests</module> -->
 				<!-- P2 bundles -->
 			</modules>
 		</profile>

@@ -53,13 +53,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.emf.ecp.ecview.databinding.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.emf.ecp.ecview.extension.editparts"
          download-size="0"
          install-size="0"
