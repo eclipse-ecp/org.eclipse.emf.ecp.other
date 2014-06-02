@@ -12,6 +12,7 @@ package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -1246,6 +1247,16 @@ public class EditpartsTest {
 
 		@Override
 		public Future<?> execAsync(Runnable runnable) {
+			return null;
+		}
+
+		@Override
+		public void setLocale(Locale locale) {
+			
+		}
+
+		@Override
+		public Locale getLocale() {
 			return null;
 		}
 	}
