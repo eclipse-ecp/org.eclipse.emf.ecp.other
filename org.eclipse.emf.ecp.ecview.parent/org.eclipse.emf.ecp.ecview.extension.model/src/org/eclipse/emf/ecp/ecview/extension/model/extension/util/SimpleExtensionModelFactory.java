@@ -26,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
@@ -350,6 +351,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 		yStyle.setTarget(yComponent);
 		yLayout.getCellStyles().add(yStyle);
 		return yStyle;
+	}
+
+	/**
+	 * Returns a master detail element.
+	 * @return
+	 */
+	public YMasterDetail createMasterDetail() {
+		return ExtensionModelFactory.eINSTANCE.createYMasterDetail();
 	}
 
 }

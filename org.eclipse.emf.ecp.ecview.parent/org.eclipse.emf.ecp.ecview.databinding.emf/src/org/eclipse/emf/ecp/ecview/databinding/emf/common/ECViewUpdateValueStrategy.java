@@ -87,10 +87,10 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 	@Override
 	protected IConverter createConverter(Object fromType, Object toType) {
 		if (toType instanceof EAttribute) {
+			final EAttribute eAttribute = (EAttribute) toType;
+			final EDataType eDataType = eAttribute.getEAttributeType();
+			final Class<?> toTypeClass = eDataType.getInstanceClass();
 			if (isNumber(fromType)) {
-				final EAttribute eAttribute = (EAttribute) toType;
-				final EDataType eDataType = eAttribute.getEAttributeType();
-				final Class<?> toTypeClass = eDataType.getInstanceClass();
 				if (isNumber(toTypeClass)) {
 					final Class<?> fromTypeClass = (Class<?>) fromType;
 					IConverter converter = findNumberToNumberConverter(
@@ -101,13 +101,15 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 				} else if (toTypeClass == String.class) {
 					return new ObjectToStringConverter();
 				}
+			} else if (fromType == String.class
+					&& (toTypeClass == String.class || toTypeClass == Object.class)) {
+				return null;
 			}
 		} else if (fromType instanceof EAttribute) {
+			final EAttribute eAttribute = (EAttribute) fromType;
+			final EDataType eDataType = eAttribute.getEAttributeType();
+			final Class<?> fromTypeClass = eDataType.getInstanceClass();
 			if (isNumber(toType)) {
-				final EAttribute eAttribute = (EAttribute) fromType;
-				final EDataType eDataType = eAttribute.getEAttributeType();
-				final Class<?> fromTypeClass = eDataType.getInstanceClass();
-
 				// if eAttribute == number
 				if (isNumber(fromTypeClass)) {
 					final Class<?> toTypeClass = (Class<?>) toType;
@@ -117,7 +119,9 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 						return converter;
 					}
 				}
-
+			} else if (toType == String.class
+					&& (fromTypeClass == String.class || fromTypeClass == Object.class)) {
+				return null;
 			}
 		}
 		return super.createConverter(fromType, toType);
