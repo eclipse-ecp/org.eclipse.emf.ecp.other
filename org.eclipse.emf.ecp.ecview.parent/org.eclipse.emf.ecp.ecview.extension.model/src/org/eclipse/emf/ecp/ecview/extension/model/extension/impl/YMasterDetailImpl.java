@@ -6,16 +6,12 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
+import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
@@ -23,11 +19,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
-
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
-
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatype;
-
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
 
@@ -513,7 +506,7 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableSelectionEndpoint createSelectionEndpoint() {
+	public YEmbeddableSelectionEndpoint createSelectionEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -524,10 +517,36 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public YEmbeddableCollectionEndpoint createCollectionEndpoint() {
+	public YEmbeddableCollectionEndpoint createCollectionEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * Creates a new instance of selection endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableSelectionEndpoint createSelectionEndpoint() {
+		YEmbeddableSelectionEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableSelectionEndpoint();
+		ep.setElement(this);
+		return ep;
+	}
+	
+	/**
+	 * Creates a new instance of collection endpoint with a reference to that
+	 * embeddable.
+	 * 
+	 * @generated NOT
+	 */
+	public YEmbeddableCollectionEndpoint createCollectionEndpoint() {
+		YEmbeddableCollectionEndpoint ep = CoreModelFactory.eINSTANCE
+				.createYEmbeddableCollectionEndpoint();
+		ep.setElement(this);
+		return ep;
 	}
 
 	/**

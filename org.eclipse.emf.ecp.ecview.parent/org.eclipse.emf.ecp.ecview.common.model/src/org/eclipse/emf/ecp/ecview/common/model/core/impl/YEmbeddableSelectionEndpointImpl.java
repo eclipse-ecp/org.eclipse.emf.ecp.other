@@ -21,6 +21,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableSelectionEndpointImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableSelectionEndpointImpl#getAttributePath <em>Attribute Path</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,6 +37,25 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 	 * @ordered
 	 */
 	protected YSelectionBindable element;
+
+	/**
+	 * The default value of the '{@link #getAttributePath() <em>Attribute Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ATTRIBUTE_PATH_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getAttributePath() <em>Attribute Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String attributePath = ATTRIBUTE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,6 +141,27 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAttributePath() {
+		return attributePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttributePath(String newAttributePath) {
+		String oldAttributePath = attributePath;
+		attributePath = newAttributePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH, oldAttributePath, attributePath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -157,6 +198,8 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT:
 				if (resolve) return getElement();
 				return basicGetElement();
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH:
+				return getAttributePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +214,9 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 		switch (featureID) {
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT:
 				setElement((YSelectionBindable)newValue);
+				return;
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH:
+				setAttributePath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,6 +233,9 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT:
 				setElement((YSelectionBindable)null);
 				return;
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH:
+				setAttributePath(ATTRIBUTE_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,10 +250,28 @@ public class YEmbeddableSelectionEndpointImpl extends YValueBindingEndpointImpl 
 		switch (featureID) {
 			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT:
 				return element != null;
+			case CoreModelPackage.YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH:
+				return ATTRIBUTE_PATH_EDEFAULT == null ? attributePath != null : !ATTRIBUTE_PATH_EDEFAULT.equals(attributePath);
 		}
 		return super.eIsSet(featureID);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (attributePath: ");
+		result.append(attributePath);
+		result.append(')');
+		return result.toString();
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

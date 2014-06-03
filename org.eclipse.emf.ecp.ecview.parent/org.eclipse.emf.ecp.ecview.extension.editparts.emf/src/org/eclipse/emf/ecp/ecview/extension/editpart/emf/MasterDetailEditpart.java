@@ -14,10 +14,12 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.EmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
@@ -51,6 +53,49 @@ public class MasterDetailEditpart extends EmbeddableEditpart<YMasterDetail>
 	@Override
 	public List<IValidatorEditpart> getDatatypeValidators() {
 		return Collections.emptyList();
+	}
+
+	protected void doInitPresentation(IWidgetPresentation<?> presentation) {
+
+		// Create a bean slot which is the input for the master detail. It is
+		// used by the presentation to bind the table, list,... to that slot.
+		IViewContext context = getView().getContext();
+		context.createBeanSlot(getCollectionBeanSlot(), getModel().getType());
+		// Creates a bean slot that is the input for the detail fields. It is
+		// used by the presentation to bind the detail fields to that slot.
+		context.createBeanSlot(getSelectionBeanSlot(), getModel().getType());
+
+		// load the elements
+		IEmbeddableEditpart masterEditpart = getMaster();
+		IEmbeddableEditpart detailEditpart = getDetail();
+
+		IMasterDetailPresentation<?> mdPresentation = (IMasterDetailPresentation<?>) presentation;
+
+		if (masterEditpart != null) {
+			mdPresentation.setMaster(masterEditpart.getPresentation());
+		}
+
+		if (detailEditpart != null) {
+			mdPresentation.setDetail(detailEditpart.getPresentation());
+		}
+	}
+
+	/**
+	 * Creates a bean slot that is the input for the detail fields. It is used
+	 * by the presentation to bind the detail fields to that slot.
+	 * 
+	 * @return
+	 */
+	protected String getSelectionBeanSlot() {
+		return "selection_" + getId();
+	}
+
+	/**
+	 * Create a bean slot which is the input for the master detail. It is used
+	 * by the presentation to bind the table, list,... to that slot.
+	 */
+	protected String getCollectionBeanSlot() {
+		return "input_" + getId();
 	}
 
 	@Override
@@ -93,8 +138,8 @@ public class MasterDetailEditpart extends EmbeddableEditpart<YMasterDetail>
 		checkDisposed();
 
 		if (detailEditpart == null) {
-			YEmbeddable yMaster = getModel().getDetailElement();
-			IEmbeddableEditpart editPart = getEditpart(yMaster);
+			YEmbeddable yDetail = getModel().getDetailElement();
+			IEmbeddableEditpart editPart = getEditpart(yDetail);
 			internalSetDetail(editPart);
 		}
 	}

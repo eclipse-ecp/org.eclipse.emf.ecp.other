@@ -30,7 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
  * the given object.
  * 
  * @noimplement - Do not directly implement the interface. Implement
- *              BaseBindingDelegate since methods declarations may be added.
+ *              ContextBindingDelegate since methods declarations may be added.
  */
 public interface IContextBindingDelegate {
 

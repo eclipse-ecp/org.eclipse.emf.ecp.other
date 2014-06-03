@@ -1329,13 +1329,22 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Attribute Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>YEmbeddable Selection Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
+	int YEMBEDDABLE_SELECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableMultiSelectionEndpointImpl <em>YEmbeddable Multi Selection Endpoint</em>}' class.
@@ -2295,6 +2304,17 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYEmbeddableSelectionEndpoint_Element();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint#getAttributePath <em>Attribute Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attribute Path</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint#getAttributePath()
+	 * @see #getYEmbeddableSelectionEndpoint()
+	 * @generated
+	 */
+	EAttribute getYEmbeddableSelectionEndpoint_AttributePath();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint <em>YEmbeddable Multi Selection Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3049,6 +3069,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT = eINSTANCE.getYEmbeddableSelectionEndpoint_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH = eINSTANCE.getYEmbeddableSelectionEndpoint_AttributePath();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableMultiSelectionEndpointImpl <em>YEmbeddable Multi Selection Endpoint</em>}' class.

@@ -1018,6 +1018,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYEmbeddableSelectionEndpoint_AttributePath() {
+		return (EAttribute)yEmbeddableSelectionEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYEmbeddableMultiSelectionEndpoint() {
 		return yEmbeddableMultiSelectionEndpointEClass;
 	}
@@ -1245,6 +1254,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		yEmbeddableSelectionEndpointEClass = createEClass(YEMBEDDABLE_SELECTION_ENDPOINT);
 		createEReference(yEmbeddableSelectionEndpointEClass, YEMBEDDABLE_SELECTION_ENDPOINT__ELEMENT);
+		createEAttribute(yEmbeddableSelectionEndpointEClass, YEMBEDDABLE_SELECTION_ENDPOINT__ATTRIBUTE_PATH);
 
 		yEmbeddableMultiSelectionEndpointEClass = createEClass(YEMBEDDABLE_MULTI_SELECTION_ENDPOINT);
 		createEReference(yEmbeddableMultiSelectionEndpointEClass, YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ELEMENT);
@@ -1464,6 +1474,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		initEClass(yEmbeddableSelectionEndpointEClass, YEmbeddableSelectionEndpoint.class, "YEmbeddableSelectionEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYEmbeddableSelectionEndpoint_Element(), this.getYSelectionBindable(), this.getYSelectionBindable_SelectionBindingEndpoint(), "element", null, 1, 1, YEmbeddableSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYEmbeddableSelectionEndpoint_AttributePath(), ecorePackage.getEString(), "attributePath", null, 0, 1, YEmbeddableSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEmbeddableMultiSelectionEndpointEClass, YEmbeddableMultiSelectionEndpoint.class, "YEmbeddableMultiSelectionEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYEmbeddableMultiSelectionEndpoint_Element(), this.getYMultiSelectionBindable(), this.getYMultiSelectionBindable_MultiSelectionBindingEndpoint(), "element", null, 1, 1, YEmbeddableMultiSelectionEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
