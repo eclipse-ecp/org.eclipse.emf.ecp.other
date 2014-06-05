@@ -21,8 +21,6 @@ import java.util.List;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.ListChangeEvent;
-import org.eclipse.core.databinding.observable.value.IValueChangeListener;
-import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.context.ViewSetContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
@@ -274,8 +272,10 @@ public class BeanSlotListBindingEndpointEditpartTest {
 		yModelEndpoint.setBean(bean);
 		yModelEndpoint.setPropertyPath("values");
 
-		bs.addBinding(yTargetEndpoint, yModelEndpoint);
-
+		// TODO
+		// bs.addBinding(yTargetEndpoint, yModelEndpoint);
+		fail("Implement");
+		
 		// write to bean
 		BeanScope scope = URIHelper.toScope("view://bean/myFoo#value")
 				.getBeanScope();

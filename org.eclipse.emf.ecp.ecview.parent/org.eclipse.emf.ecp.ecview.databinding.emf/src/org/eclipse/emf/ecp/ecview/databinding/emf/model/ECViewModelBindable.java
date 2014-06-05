@@ -10,20 +10,25 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.emf.model;
 
-import java.net.URI;
+import java.beans.PropertyChangeListener;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.databinding.beans.BeanProperties;
-import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.ecp.ecview.common.beans.ISlot;
-import org.eclipse.emf.ecp.ecview.common.uri.AccessibleScope;
-import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
+import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipse.emf.databinding.FeaturePath;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * Implementations are responsible to bind values inside the ECView UI model.
+ * This class is responsible to bind values inside the ECView UI model.
  * <p>
  * For now, 3 different types are known:<br>
  * In all cases the given bean is an EObject, since the ECView model is based on
@@ -40,111 +45,221 @@ import org.eclipse.emf.ecp.ecview.common.uri.URIHelper;
  * for YList#selection, and this binding is input for a Pojo-DetailBinding.</li>
  * </ul>
  */
-public class ECViewModelBindable extends
-		ECViewDetailBindingDelegate {
+public class ECViewModelBindable {
 
 	/**
-	 * {@inheritDoc}
+	 * Returns an observable value tracking the attribute path.
+	 * 
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param attributePath
+	 *            - The attribute path being tracked
+	 * @param elementType
+	 *            - The type that is contained in the yElement. For instance if
+	 *            YList#selection is of type Item.class, then this property is
+	 *            Item.class.
+	 * @return
 	 */
-	@Override
-	public boolean isFor(Object bean, String attributePath) {
-		// thats the default
-		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IObservableValue observeValue(Object bean, String attributePath) {
-		return observeValue(Realm.getDefault(), bean, attributePath);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public IObservableValue observeValue(Realm realm, Object bean,
-			String attributePath) {
-		if (bean == null) {
-			throw new IllegalArgumentException("Bean must not be null!");
-		}
-
-		String[] path = attributePath.split("\\.");
-		if (path.length == 1) {
-			return BeansObservables.observeValue(realm, bean, path[0]);
-		} else {
-			// normalize bean fragment
-			beanFragment = AccessibleScope
-					.removeSlotValueFragmentToken(beanFragment);
-			if (beanFragment.equals("")) {
-				// if no bean fragment was specified, then the bean slot is
-				// addressed and it can not be observed since it is stable.
-				return null;
-			} else {
-				// observe master
-				// Note: slot (master) is observable!
-				//
-				IObservableValue slotObservable = BeansObservables
-						.observeValue(realm, slot, ISlot.PROP_VALUE);
-
-				// observe detail
-				//
-				// from PojoObservables.observeDetailValue...
-				return PojoProperties.value(slot.getValueType(), beanFragment,
-						null).observeDetail(slotObservable);
-			}
-		}
-	}
-
-	@Override
-	public IObservableList observeList(Object bean, String attributePath,
-			Class<?> elementType) {
-		return observeList(Realm.getDefault(), registry, bindingURI,
+	public static IObservableValue observeValue(EObject yElement,
+			String attributePath, Class<?> elementType) {
+		return observeValue(Realm.getDefault(), yElement, attributePath,
 				elementType);
 	}
 
-	@Override
-	public IObservableList observeList(Object bean, String attributePath,
-			URI bindingURI, Class<?> elementType) {
-		AccessibleScope scope = URIHelper.toScope(bindingURI);
-		ISlot slot = scope.getBeanScope().accessBeanSlot(registry);
-
-		if (slot == null) {
-			throw new IllegalArgumentException("Bean slot must be available!");
+	/**
+	 * Returns an observable value tracking the attribute path.
+	 * 
+	 * @param realm
+	 *            - The realm
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param attributePath
+	 *            - The attribute path being tracked
+	 * @param elementType
+	 *            - The type that is contained in the yElement. For instance if
+	 *            YList#selection is of type Item.class, then this property is
+	 *            Item.class.
+	 * @return
+	 */
+	public static IObservableValue observeValue(Realm realm, EObject yElement,
+			String attributePath, Class<?> elementType) {
+		if (yElement == null) {
+			throw new IllegalArgumentException(
+					"ECView model element must not be null!");
 		}
 
-		String beanFragment = scope.getBeanFragment();
+		if (attributePath == null || attributePath.equals("")) {
+			throw new IllegalArgumentException(
+					"Attribute path must not be empty!");
+		}
 
-		// if value-property was references inside the slot, then return the
-		// observable
-		if (beanFragment.equals(ISlot.PROP_VALUE)) {
-			// in that special case do not use PojoBinding since slot is
-			// observable!
-			return BeansObservables.observeList(realm, slot, ISlot.PROP_VALUE,
-					slot.getValueType());
+		EClass eClass = yElement.eClass();
+		String[] properties = attributePath.split("\\.");
+		EStructuralFeature feature = eClass
+				.getEStructuralFeature(properties[0]);
+		if (feature == null) {
+			throw new IllegalStateException(String.format(
+					"%s is not a valid feature for %s!", properties[0],
+					eClass.getName()));
+		}
+
+		if (properties.length == 1
+				|| elementType.isAssignableFrom(EObject.class)) {
+			return EMFProperties.value(getFeaturePath(properties, eClass))
+					.observe(yElement);
+		} else if (hasPropertyChangeSupport(elementType)) {
+			IObservableValue masterObservable = EMFProperties.value(feature)
+					.observe(yElement);
+			return BeanProperties.value(elementType, attributePath)
+					.observeDetail(masterObservable);
 		} else {
-			// normalize bean fragment
-			beanFragment = AccessibleScope
-					.removeSlotValueFragmentToken(beanFragment);
-			if (beanFragment.equals("")) {
-				// if no bean fragment was specified, then the bean slot is
-				// addressed and it can not be observed since it is stable.
-				return null;
-			} else {
-				// observe master
-				// Note: slot (master) is observable!
-				//
-				IObservableValue slotObservable = BeanProperties.value(
-						slot.getClass(), ISlot.PROP_VALUE, slot.getValueType())
-						.observe(realm, slot);
+			IObservableValue masterObservable = EMFProperties.value(feature)
+					.observe(yElement);
+			return PojoProperties.value(elementType, attributePath)
+					.observeDetail(masterObservable);
+		}
+	}
 
-				// observe detail
-				//
-				// from PojoObservables.observeDetailValue...
-				return PojoProperties.list(slot.getValueType(), beanFragment,
-						elementType).observeDetail(slotObservable);
+	/**
+	 * Returns a feature path required for EMF databinding.
+	 * 
+	 * @param properties
+	 * @param eClass
+	 * @return
+	 */
+	public static FeaturePath getFeaturePath(String[] properties, EClass eClass) {
+		List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
+		for (String property : properties) {
+			EStructuralFeature feature = eClass.getEStructuralFeature(property);
+			if (feature == null) {
+				throw new IllegalStateException(String.format(
+						"%s is not a valid feature for %s!", property,
+						eClass.getName()));
 			}
+
+			features.add(feature);
+			if (feature instanceof EReference) {
+				EReference eReference = (EReference) feature;
+				eClass = eReference.getEReferenceType();
+			}
+		}
+
+		FeaturePath featurePath = FeaturePath.fromList(features
+				.toArray(new EStructuralFeature[features.size()]));
+		return featurePath;
+	}
+
+	/**
+	 * Returns an observable list tracking the attribute path.
+	 * 
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param attributePath
+	 *            - The attribute path being tracked
+	 * @param elementType
+	 *            - The type that is contained in the yElement. For instance if
+	 *            YList#selection is of type Item.class, then this property is
+	 *            Item.class.
+	 * @return
+	 */
+	public static IObservableList observeList(EObject yElement,
+			String attributePath, Class<?> elementType) {
+		return observeList(Realm.getDefault(), yElement, attributePath,
+				elementType);
+	}
+
+	/**
+	 * Returns an observable list tracking the attribute path.
+	 * 
+	 * @param realm
+	 *            - The realm
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param attributePath
+	 *            - The attribute path being tracked
+	 * @param elementType
+	 *            - The type that is contained in the yElement. For instance if
+	 *            YList#selection is of type Item.class, then this property is
+	 *            Item.class.
+	 * @return
+	 */
+	public static IObservableList observeList(Realm realm, EObject yElement,
+			String attributePath, Class<?> elementType) {
+		if (yElement == null) {
+			throw new IllegalArgumentException(
+					"ECView model element must not be null!");
+		}
+
+		if (attributePath == null || attributePath.equals("")) {
+			throw new IllegalArgumentException(
+					"Attribute path must not be empty!");
+		}
+
+		EClass eClass = yElement.eClass();
+		String[] properties = attributePath.split("\\.");
+		EStructuralFeature feature = eClass
+				.getEStructuralFeature(properties[0]);
+		if (feature == null) {
+			throw new IllegalStateException(String.format(
+					"%s is not a valid feature for %s!", properties[0],
+					eClass.getName()));
+		}
+
+		if (elementType.isAssignableFrom(EObject.class)) {
+			return EMFProperties.list(getFeaturePath(properties, eClass))
+					.observe(yElement);
+		} else if (hasPropertyChangeSupport(elementType)) {
+			IObservableValue masterObservable = EMFProperties.value(feature)
+					.observe(yElement);
+			return BeanProperties.list(elementType, attributePath)
+					.observeDetail(masterObservable);
+		} else {
+			IObservableValue masterObservable = EMFProperties.value(feature)
+					.observe(yElement);
+			return PojoProperties.list(elementType, attributePath)
+					.observeDetail(masterObservable);
+		}
+	}
+
+	/**
+	 * Returns true, if the bean has property change support.
+	 * 
+	 * @param valueType
+	 * @return
+	 */
+	public static boolean hasPropertyChangeSupport(Class<?> valueType) {
+		@SuppressWarnings("unused")
+		Method method = null;
+		try {
+			try {
+				method = valueType.getMethod("addPropertyChangeListener",
+						new Class[] { String.class,
+								PropertyChangeListener.class });
+				return true;
+			} catch (NoSuchMethodException e) {
+				method = valueType.getMethod("addPropertyChangeListener",
+						new Class[] { PropertyChangeListener.class });
+				return true;
+			}
+		} catch (SecurityException e) {
+		} catch (NoSuchMethodException e) {
+		}
+		return false;
+	}
+
+	/**
+	 * Creates an attribute path that may be used for bindings in that class.
+	 * 
+	 * @param eFeature
+	 * @param path
+	 * @return
+	 */
+	public static String getAttributePath(EStructuralFeature eFeature,
+			String path) {
+		if (path == null || path.equals("")) {
+			return eFeature.getName();
+		} else {
+			return eFeature.getName() + "." + path;
 		}
 	}
 
