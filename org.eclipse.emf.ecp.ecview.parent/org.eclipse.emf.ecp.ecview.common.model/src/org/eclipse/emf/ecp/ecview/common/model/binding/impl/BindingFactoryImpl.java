@@ -8,7 +8,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.common.model.binding.*;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +70,8 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 			case BindingPackage.YVALUE_BINDING: return createYValueBinding();
 			case BindingPackage.YLIST_BINDING: return createYListBinding();
 			case BindingPackage.YENUM_LIST_BINDING_ENDPOINT: return createYEnumListBindingEndpoint();
+			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT: return createYECViewModelValueBindingEndpoint();
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT: return createYECViewModelListBindingEndpoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,6 +155,26 @@ public class BindingFactoryImpl extends EFactoryImpl implements BindingFactory {
 	public YEnumListBindingEndpoint createYEnumListBindingEndpoint() {
 		YEnumListBindingEndpointImpl yEnumListBindingEndpoint = new YEnumListBindingEndpointImpl();
 		return yEnumListBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YECViewModelValueBindingEndpoint createYECViewModelValueBindingEndpoint() {
+		YECViewModelValueBindingEndpointImpl yecViewModelValueBindingEndpoint = new YECViewModelValueBindingEndpointImpl();
+		return yecViewModelValueBindingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YECViewModelListBindingEndpoint createYECViewModelListBindingEndpoint() {
+		YECViewModelListBindingEndpointImpl yecViewModelListBindingEndpoint = new YECViewModelListBindingEndpointImpl();
+		return yecViewModelListBindingEndpoint;
 	}
 
 	/**

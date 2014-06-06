@@ -8,7 +8,16 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
-import org.eclipse.emf.ecp.ecview.common.model.visibility.*;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YColor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YRuledVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule;
+import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBindingEndpoint;
 
 /**
  * <!-- begin-user-doc -->
