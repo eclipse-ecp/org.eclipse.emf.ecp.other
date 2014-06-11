@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
@@ -27,6 +29,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
@@ -238,6 +242,20 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yFormLayoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yFormLayoutCellStyleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass yTreeEClass = null;
 
 	/**
@@ -323,14 +341,17 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 
 		// Obtain or create and register interdependencies
 		ExtDatatypesPackageImpl theExtDatatypesPackage = (ExtDatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI) instanceof ExtDatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI) : ExtDatatypesPackage.eINSTANCE);
+		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExtensionModelPackage.createPackageContents();
 		theExtDatatypesPackage.createPackageContents();
+		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtensionModelPackage.initializePackageContents();
 		theExtDatatypesPackage.initializePackageContents();
+		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtensionModelPackage.freeze();
@@ -1273,6 +1294,60 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYFormLayout() {
+		return yFormLayoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYFormLayout_CellStyles() {
+		return (EReference)yFormLayoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYFormLayout_FillVertical() {
+		return (EAttribute)yFormLayoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYFormLayoutCellStyle() {
+		return yFormLayoutCellStyleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYFormLayoutCellStyle_Target() {
+		return (EReference)yFormLayoutCellStyleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYFormLayoutCellStyle_Alignment() {
+		return (EAttribute)yFormLayoutCellStyleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYTree() {
 		return yTreeEClass;
 	}
@@ -1613,6 +1688,14 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		createEReference(yMasterDetailEClass, YMASTER_DETAIL__MASTER_ELEMENT);
 		createEReference(yMasterDetailEClass, YMASTER_DETAIL__DETAIL_ELEMENT);
 
+		yFormLayoutEClass = createEClass(YFORM_LAYOUT);
+		createEReference(yFormLayoutEClass, YFORM_LAYOUT__CELL_STYLES);
+		createEAttribute(yFormLayoutEClass, YFORM_LAYOUT__FILL_VERTICAL);
+
+		yFormLayoutCellStyleEClass = createEClass(YFORM_LAYOUT_CELL_STYLE);
+		createEReference(yFormLayoutCellStyleEClass, YFORM_LAYOUT_CELL_STYLE__TARGET);
+		createEAttribute(yFormLayoutCellStyleEClass, YFORM_LAYOUT_CELL_STYLE__ALIGNMENT);
+
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
 		ySelectionTypeEEnum = createEEnum(YSELECTION_TYPE);
@@ -1710,6 +1793,9 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		yMasterDetailEClass.getESuperTypes().add(this.getYInput());
 		yMasterDetailEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yMasterDetailEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
+		yFormLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYLayout());
+		yFormLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYSpacingable());
+		yFormLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYMarginable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1895,6 +1981,14 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements Extension
 		initEAttribute(getYMasterDetail_Type(), g1, "type", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYMasterDetail_MasterElement(), theCoreModelPackage.getYEmbeddable(), null, "masterElement", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYMasterDetail_DetailElement(), theCoreModelPackage.getYEmbeddable(), null, "detailElement", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yFormLayoutEClass, YFormLayout.class, "YFormLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYFormLayout_CellStyles(), this.getYFormLayoutCellStyle(), null, "cellStyles", null, 0, -1, YFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYFormLayout_FillVertical(), ecorePackage.getEBoolean(), "fillVertical", "true", 0, 1, YFormLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yFormLayoutCellStyleEClass, YFormLayoutCellStyle.class, "YFormLayoutCellStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYFormLayoutCellStyle_Target(), theCoreModelPackage.getYEmbeddable(), null, "target", null, 1, 1, YFormLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYFormLayoutCellStyle_Alignment(), this.getYAlignment(), "alignment", "UNDEFINED", 0, 1, YFormLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yAlignmentEEnum, YAlignment.class, "YAlignment");

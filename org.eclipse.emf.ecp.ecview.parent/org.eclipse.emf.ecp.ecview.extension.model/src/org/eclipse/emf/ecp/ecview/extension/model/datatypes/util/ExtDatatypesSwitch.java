@@ -12,7 +12,22 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationCo
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig;
-import org.eclipse.emf.ecp.ecview.extension.model.datatypes.*;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YBrowserDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YCheckBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDecimalDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YNumericDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YOptionsGroupDataType;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YProgressBarDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTabSheetDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextAreaDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTextDatatype;
+import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
 
 /**
  * <!-- begin-user-doc -->

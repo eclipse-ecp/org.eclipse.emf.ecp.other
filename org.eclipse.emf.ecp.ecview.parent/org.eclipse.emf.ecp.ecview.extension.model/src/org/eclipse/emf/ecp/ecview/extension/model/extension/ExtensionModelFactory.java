@@ -238,6 +238,24 @@ public interface ExtensionModelFactory extends EFactory {
 	YMasterDetail createYMasterDetail();
 
 	/**
+	 * Returns a new object of class '<em>YForm Layout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YForm Layout</em>'.
+	 * @generated
+	 */
+	YFormLayout createYFormLayout();
+
+	/**
+	 * Returns a new object of class '<em>YForm Layout Cell Style</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YForm Layout Cell Style</em>'.
+	 * @generated
+	 */
+	YFormLayoutCellStyle createYFormLayoutCellStyle();
+
+	/**
 	 * Returns a new object of class '<em>YTree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

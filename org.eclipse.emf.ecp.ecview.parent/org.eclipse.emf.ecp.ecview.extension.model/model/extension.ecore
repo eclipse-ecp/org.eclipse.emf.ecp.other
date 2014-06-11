@@ -318,4 +318,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="detailElement" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YFormLayout" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YLayout ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YSpacingable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YMarginable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellStyles" upperBound="-1"
+        eType="#//YFormLayoutCellStyle" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillVertical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="If false, then the width of all elements contained in the grid layout will be decreased to their preferred height or their miminum height. If no alignment is defined for a child, this setting will become its default.&#xA;Eg if child has not a alignment, the vertical alignment will become FILL if fillVertical is true. Otherwise the ui-kit default will be used as the vertical alignment."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YFormLayoutCellStyle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YAlignment"
+        defaultValueLiteral="UNDEFINED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The alignment of the ui element relative to its grid cell."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
 </ecore:EPackage>
