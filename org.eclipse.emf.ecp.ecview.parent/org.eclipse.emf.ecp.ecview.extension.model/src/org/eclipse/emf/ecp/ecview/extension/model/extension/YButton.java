@@ -3,7 +3,11 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEnable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener;
 
@@ -24,7 +28,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClic
  * @model
  * @generated
  */
-public interface YButton extends YAction {
+public interface YButton extends YAction, YVisibleable, YEditable, YEnable {
 	/**
 	 * Returns the value of the '<em><b>Datadescription</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -82,5 +86,18 @@ public interface YButton extends YAction {
 	 * @generated
 	 */
 	void removeClickListener(YButtonClickListener listener);
+	
+	/**
+	 * Creates a binding endpoint to observe the editable property.
+	 * @return
+	 */
+	YValueBindingEndpoint createEditableEndpoint();
+	
+	
+	/**
+	 * Creates a binding endpoint to observe the enabled property.
+	 * @return
+	 */
+	YValueBindingEndpoint createEnabledEndpoint();
 
 } // YButton

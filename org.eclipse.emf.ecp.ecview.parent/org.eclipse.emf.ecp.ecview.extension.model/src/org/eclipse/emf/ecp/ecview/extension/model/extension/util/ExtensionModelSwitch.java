@@ -424,6 +424,7 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				YButton yButton = (YButton)theEObject;
 				T result = caseYButton(yButton);
 				if (result == null) result = caseYAction(yButton);
+				if (result == null) result = caseYEditable(yButton);
 				if (result == null) result = caseYEmbeddable(yButton);
 				if (result == null) result = caseYEnable(yButton);
 				if (result == null) result = caseYElement(yButton);

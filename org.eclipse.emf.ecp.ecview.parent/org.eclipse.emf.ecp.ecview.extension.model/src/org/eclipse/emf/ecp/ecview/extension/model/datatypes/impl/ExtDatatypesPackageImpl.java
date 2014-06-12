@@ -6,9 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
@@ -36,134 +34,135 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackag
 import org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
+ * end-user-doc -->
+ * 
  * @generated
  */
-public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatypesPackage {
+public class ExtDatatypesPackageImpl extends EPackageImpl implements
+		ExtDatatypesPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yTextDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yTextAreaDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yNumericDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yDecimalDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yTableDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yCheckBoxDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yComboBoxDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yListDataTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yOptionsGroupDataTypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yBrowserDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yDateTimeDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yTreeDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yProgressBarDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yTabSheetDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass yMasterDetailDatatypeEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EEnum yDateTimeFormatEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory
+	 * method {@link #init init()}, which also performs initialization of the
+	 * package, or returns the registered package, if one already exists. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage#eNS_URI
 	 * @see #init()
@@ -174,29 +173,36 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model,
+	 * and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link ExtDatatypesPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link ExtDatatypesPackage#eINSTANCE}
+	 * when that field is accessed. Clients should not invoke it directly.
+	 * Instead, they should simply access that field to obtain the package. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static ExtDatatypesPackage init() {
-		if (isInited) return (ExtDatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(ExtDatatypesPackage.eNS_URI);
+		if (isInited)
+			return (ExtDatatypesPackage) EPackage.Registry.INSTANCE
+					.getEPackage(ExtDatatypesPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ExtDatatypesPackageImpl theExtDatatypesPackage = (ExtDatatypesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExtDatatypesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExtDatatypesPackageImpl());
+		ExtDatatypesPackageImpl theExtDatatypesPackage = (ExtDatatypesPackageImpl) (EPackage.Registry.INSTANCE
+				.get(eNS_URI) instanceof ExtDatatypesPackageImpl ? EPackage.Registry.INSTANCE
+				.get(eNS_URI) : new ExtDatatypesPackageImpl());
 
 		isInited = true;
 
@@ -208,31 +214,31 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		VisibilityPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		ExtensionModelPackageImpl theExtensionModelPackage = (ExtensionModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI) instanceof ExtensionModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI) : ExtensionModelPackage.eINSTANCE);
-		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
+		ExtensionModelPackageImpl theExtensionModelPackage = (ExtensionModelPackageImpl) (EPackage.Registry.INSTANCE
+				.getEPackage(ExtensionModelPackage.eNS_URI) instanceof ExtensionModelPackageImpl ? EPackage.Registry.INSTANCE
+				.getEPackage(ExtensionModelPackage.eNS_URI)
+				: ExtensionModelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExtDatatypesPackage.createPackageContents();
 		theExtensionModelPackage.createPackageContents();
-		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtDatatypesPackage.initializePackageContents();
 		theExtensionModelPackage.initializePackageContents();
-		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtDatatypesPackage.freeze();
 
-  
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ExtDatatypesPackage.eNS_URI, theExtDatatypesPackage);
+		EPackage.Registry.INSTANCE.put(ExtDatatypesPackage.eNS_URI,
+				theExtDatatypesPackage);
 		return theExtDatatypesPackage;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYTextDatatype() {
@@ -240,8 +246,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYTextAreaDatatype() {
@@ -249,8 +255,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYNumericDatatype() {
@@ -258,26 +264,28 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getYNumericDatatype_Grouping() {
-		return (EAttribute)yNumericDatatypeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) yNumericDatatypeEClass.getEStructuralFeatures()
+				.get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getYNumericDatatype_MarkNegative() {
-		return (EAttribute)yNumericDatatypeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) yNumericDatatypeEClass.getEStructuralFeatures()
+				.get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYDecimalDatatype() {
@@ -285,17 +293,18 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getYDecimalDatatype_Precision() {
-		return (EAttribute)yDecimalDatatypeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) yDecimalDatatypeEClass.getEStructuralFeatures()
+				.get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYTableDatatype() {
@@ -303,8 +312,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYCheckBoxDatatype() {
@@ -312,8 +321,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYComboBoxDatatype() {
@@ -321,8 +330,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYListDataType() {
@@ -330,8 +339,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYOptionsGroupDataType() {
@@ -339,8 +348,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYBrowserDatatype() {
@@ -348,8 +357,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYDateTimeDatatype() {
@@ -357,17 +366,18 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EAttribute getYDateTimeDatatype_Format() {
-		return (EAttribute)yDateTimeDatatypeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) yDateTimeDatatypeEClass.getEStructuralFeatures()
+				.get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYTreeDatatype() {
@@ -375,8 +385,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYProgressBarDatatype() {
@@ -384,8 +394,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYTabSheetDatatype() {
@@ -393,8 +403,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getYMasterDetailDatatype() {
@@ -402,8 +412,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EEnum getYDateTimeFormat() {
@@ -411,30 +421,31 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ExtDatatypesFactory getExtDatatypesFactory() {
-		return (ExtDatatypesFactory)getEFactoryInstance();
+		return (ExtDatatypesFactory) getEFactoryInstance();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to
+	 * have no affect on any invocation but its first. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -444,7 +455,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		yNumericDatatypeEClass = createEClass(YNUMERIC_DATATYPE);
 		createEAttribute(yNumericDatatypeEClass, YNUMERIC_DATATYPE__GROUPING);
-		createEAttribute(yNumericDatatypeEClass, YNUMERIC_DATATYPE__MARK_NEGATIVE);
+		createEAttribute(yNumericDatatypeEClass,
+				YNUMERIC_DATATYPE__MARK_NEGATIVE);
 
 		yDecimalDatatypeEClass = createEClass(YDECIMAL_DATATYPE);
 		createEAttribute(yDecimalDatatypeEClass, YDECIMAL_DATATYPE__PRECISION);
@@ -477,21 +489,22 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This
+	 * method is guarded to have no affect on any invocation but its first. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -500,75 +513,142 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
-		ValidationPackage theValidationPackage = (ValidationPackage)EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI);
+		DatatypesPackage theDatatypesPackage = (DatatypesPackage) EPackage.Registry.INSTANCE
+				.getEPackage(DatatypesPackage.eNS_URI);
+		ValidationPackage theValidationPackage = (ValidationPackage) EPackage.Registry.INSTANCE
+				.getEPackage(ValidationPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		yTextDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidationConfig());
-		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidationConfig());
-		yTextDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMinLengthValidationConfig());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYMaxLengthValidationConfig());
-		yTextAreaDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
-		yNumericDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yNumericDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
+		yTextDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yTextDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYMaxLengthValidationConfig());
+		yTextDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYMinLengthValidationConfig());
+		yTextDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYRegexpValidationConfig());
+		yTextAreaDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yTextAreaDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYMinLengthValidationConfig());
+		yTextAreaDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYMaxLengthValidationConfig());
+		yTextAreaDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYRegexpValidationConfig());
+		yNumericDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yNumericDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYRegexpValidationConfig());
 		yDecimalDatatypeEClass.getESuperTypes().add(this.getYNumericDatatype());
-		yDecimalDatatypeEClass.getESuperTypes().add(theValidationPackage.getYRegexpValidationConfig());
-		yTableDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yCheckBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yComboBoxDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yListDataTypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yOptionsGroupDataTypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yBrowserDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yDateTimeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yTreeDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yProgressBarDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yTabSheetDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
-		yMasterDetailDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yDecimalDatatypeEClass.getESuperTypes().add(
+				theValidationPackage.getYRegexpValidationConfig());
+		yTableDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yCheckBoxDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yComboBoxDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yListDataTypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yOptionsGroupDataTypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yBrowserDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yDateTimeDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yTreeDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yProgressBarDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yTabSheetDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
+		yMasterDetailDatatypeEClass.getESuperTypes().add(
+				theDatatypesPackage.getYDatatype());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class, "YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class,
+				"YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yNumericDatatypeEClass, YNumericDatatype.class, "YNumericDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYNumericDatatype_Grouping(), ecorePackage.getEBoolean(), "grouping", "true", 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYNumericDatatype_MarkNegative(), ecorePackage.getEBoolean(), "markNegative", "true", 0, 1, YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yNumericDatatypeEClass, YNumericDatatype.class,
+				"YNumericDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYNumericDatatype_Grouping(),
+				ecorePackage.getEBoolean(), "grouping", "true", 0, 1,
+				YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getYNumericDatatype_MarkNegative(),
+				ecorePackage.getEBoolean(), "markNegative", "true", 0, 1,
+				YNumericDatatype.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
-		initEClass(yDecimalDatatypeEClass, YDecimalDatatype.class, "YDecimalDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYDecimalDatatype_Precision(), ecorePackage.getEInt(), "precision", "2", 0, 1, YDecimalDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yDecimalDatatypeEClass, YDecimalDatatype.class,
+				"YDecimalDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYDecimalDatatype_Precision(), ecorePackage.getEInt(),
+				"precision", "2", 0, 1, YDecimalDatatype.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(yTableDatatypeEClass, YTableDatatype.class, "YTableDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yTableDatatypeEClass, YTableDatatype.class,
+				"YTableDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yCheckBoxDatatypeEClass, YCheckBoxDatatype.class, "YCheckBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yCheckBoxDatatypeEClass, YCheckBoxDatatype.class,
+				"YCheckBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yComboBoxDatatypeEClass, YComboBoxDatatype.class, "YComboBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yComboBoxDatatypeEClass, YComboBoxDatatype.class,
+				"YComboBoxDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yListDataTypeEClass, YListDataType.class, "YListDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yListDataTypeEClass, YListDataType.class, "YListDataType",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yOptionsGroupDataTypeEClass, YOptionsGroupDataType.class, "YOptionsGroupDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yOptionsGroupDataTypeEClass, YOptionsGroupDataType.class,
+				"YOptionsGroupDataType", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yBrowserDatatypeEClass, YBrowserDatatype.class, "YBrowserDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yBrowserDatatypeEClass, YBrowserDatatype.class,
+				"YBrowserDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yDateTimeDatatypeEClass, YDateTimeDatatype.class, "YDateTimeDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getYDateTimeDatatype_Format(), this.getYDateTimeFormat(), "format", "DATE", 0, 1, YDateTimeDatatype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(yDateTimeDatatypeEClass, YDateTimeDatatype.class,
+				"YDateTimeDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYDateTimeDatatype_Format(),
+				this.getYDateTimeFormat(), "format", "DATE", 0, 1,
+				YDateTimeDatatype.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
-		initEClass(yTreeDatatypeEClass, YTreeDatatype.class, "YTreeDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yTreeDatatypeEClass, YTreeDatatype.class, "YTreeDatatype",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yProgressBarDatatypeEClass, YProgressBarDatatype.class, "YProgressBarDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yProgressBarDatatypeEClass, YProgressBarDatatype.class,
+				"YProgressBarDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yTabSheetDatatypeEClass, YTabSheetDatatype.class, "YTabSheetDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yTabSheetDatatypeEClass, YTabSheetDatatype.class,
+				"YTabSheetDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(yMasterDetailDatatypeEClass, YMasterDetailDatatype.class, "YMasterDetailDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(yMasterDetailDatatypeEClass, YMasterDetailDatatype.class,
+				"YMasterDetailDatatype", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(yDateTimeFormatEEnum, YDateTimeFormat.class, "YDateTimeFormat");
+		initEEnum(yDateTimeFormatEEnum, YDateTimeFormat.class,
+				"YDateTimeFormat");
 		addEEnumLiteral(yDateTimeFormatEEnum, YDateTimeFormat.DATE);
 		addEEnumLiteral(yDateTimeFormatEEnum, YDateTimeFormat.TIME);
 		addEEnumLiteral(yDateTimeFormatEEnum, YDateTimeFormat.DATE_TIME);
@@ -577,4 +657,4 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 		createResource(eNS_URI);
 	}
 
-} //ExtDatatypesPackageImpl
+} // ExtDatatypesPackageImpl

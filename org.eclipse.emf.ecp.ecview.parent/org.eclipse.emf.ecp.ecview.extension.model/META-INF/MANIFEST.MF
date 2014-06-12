@@ -7,8 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: 
- org.eclipse.emf.ecp.ecview.extension.model.datatypes,
+Export-Package: org.eclipse.emf.ecp.ecview.extension.model.datatypes,
  org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl,
  org.eclipse.emf.ecp.ecview.extension.model.datatypes.util,
  org.eclipse.emf.ecp.ecview.extension.model.extension,

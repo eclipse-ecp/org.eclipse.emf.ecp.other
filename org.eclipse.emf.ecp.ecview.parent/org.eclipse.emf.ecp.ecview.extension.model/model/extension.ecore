@@ -262,7 +262,7 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YButton" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YAction">
+  <eClassifiers xsi:type="ecore:EClass" name="YButton" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YAction ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YVisibleable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEditable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEnable">
     <eOperations name="addClickListener">
       <eParameters name="listener" eType="#//YButtonClickListener"/>
     </eOperations>
