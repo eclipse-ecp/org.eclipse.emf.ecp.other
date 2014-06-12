@@ -33,6 +33,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.EditpartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityPropertiesEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -810,6 +811,12 @@ public class ViewContextTest {
 
 		@Override
 		public void resetVisibilityProperties() {
+			
+		}
+
+		@Override
+		public void notifyDatatypeChanged(DatatypeChangeEvent event) {
+			// TODO Auto-generated method stub
 			
 		}
 
