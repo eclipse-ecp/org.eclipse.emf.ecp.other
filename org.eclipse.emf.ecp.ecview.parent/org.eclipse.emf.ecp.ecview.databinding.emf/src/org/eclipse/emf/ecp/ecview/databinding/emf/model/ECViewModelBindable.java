@@ -92,6 +92,9 @@ public class ECViewModelBindable {
 			throw new IllegalArgumentException(
 					"Attribute path must not be empty!");
 		}
+		
+		int separatorIndex = attributePath.indexOf(".");
+		String subPath = attributePath.substring(separatorIndex+1);
 
 		EClass eClass = yElement.eClass();
 		String[] properties = attributePath.split("\\.");
@@ -110,12 +113,12 @@ public class ECViewModelBindable {
 		} else if (hasPropertyChangeSupport(elementType)) {
 			IObservableValue masterObservable = EMFProperties.value(feature)
 					.observe(yElement);
-			return BeanProperties.value(elementType, attributePath)
+			return BeanProperties.value(elementType, subPath)
 					.observeDetail(masterObservable);
 		} else {
 			IObservableValue masterObservable = EMFProperties.value(feature)
 					.observe(yElement);
-			return PojoProperties.value(elementType, attributePath)
+			return PojoProperties.value(elementType, subPath)
 					.observeDetail(masterObservable);
 		}
 	}
