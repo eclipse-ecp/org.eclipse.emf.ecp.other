@@ -67,6 +67,24 @@ public interface BindingFactory extends EFactory {
 	YEnumListBindingEndpoint createYEnumListBindingEndpoint();
 
 	/**
+	 * Returns a new object of class '<em>YEC View Model Value Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YEC View Model Value Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YECViewModelValueBindingEndpoint createYECViewModelValueBindingEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>YEC View Model List Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YEC View Model List Binding Endpoint</em>'.
+	 * @generated
+	 */
+	YECViewModelListBindingEndpoint createYECViewModelListBindingEndpoint();
+
+	/**
 	 * Returns a new object of class '<em>YDetail Value Binding Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -10,6 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>YUi Embeddable</b></em>'. <!-- end-user-doc -->
@@ -53,5 +55,24 @@ public interface YEmbeddable extends YElement, YCssAble, YVisibleable,
 	 * @param label
 	 */
 	public void setLabelI18nKey(String i18nKey);
+	
+	
+	/**
+	 * Creates a binding endpoint to observe the visible property.
+	 * @return
+	 */
+	YValueBindingEndpoint createVisibleEndpoint();
+	
+	/**
+	 * Creates a binding endpoint to observe the cssId property.
+	 * @return
+	 */
+	YValueBindingEndpoint createCssIdEndpoint();
+	
+	/**
+	 * Creates a binding endpoint to observe the cssClass property.
+	 * @return
+	 */
+	YValueBindingEndpoint createCssClassEndpoint();
 
 } // YUiEmbeddable

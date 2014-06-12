@@ -27,7 +27,7 @@
             class="org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
             genModel="model/core.genmodel"/>
    </extension>
-   
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated binding -->
       <package

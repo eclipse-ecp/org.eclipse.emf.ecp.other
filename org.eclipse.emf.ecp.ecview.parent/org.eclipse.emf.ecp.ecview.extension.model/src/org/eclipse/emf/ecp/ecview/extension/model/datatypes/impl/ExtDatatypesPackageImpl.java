@@ -6,7 +6,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
@@ -207,14 +209,17 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements ExtDatatype
 
 		// Obtain or create and register interdependencies
 		ExtensionModelPackageImpl theExtensionModelPackage = (ExtensionModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI) instanceof ExtensionModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExtensionModelPackage.eNS_URI) : ExtensionModelPackage.eINSTANCE);
+		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExtDatatypesPackage.createPackageContents();
 		theExtensionModelPackage.createPackageContents();
+		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExtDatatypesPackage.initializePackageContents();
 		theExtensionModelPackage.initializePackageContents();
+		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExtDatatypesPackage.freeze();

@@ -5,7 +5,19 @@ package org.eclipse.emf.ecp.ecview.common.model.binding.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.emf.ecp.ecview.common.model.binding.*;
+import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YEnumListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
@@ -145,6 +157,24 @@ public class BindingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT: {
+				YECViewModelValueBindingEndpoint yecViewModelValueBindingEndpoint = (YECViewModelValueBindingEndpoint)theEObject;
+				T result = caseYECViewModelValueBindingEndpoint(yecViewModelValueBindingEndpoint);
+				if (result == null) result = caseYValueBindingEndpoint(yecViewModelValueBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yecViewModelValueBindingEndpoint);
+				if (result == null) result = caseYElement(yecViewModelValueBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT: {
+				YECViewModelListBindingEndpoint yecViewModelListBindingEndpoint = (YECViewModelListBindingEndpoint)theEObject;
+				T result = caseYECViewModelListBindingEndpoint(yecViewModelListBindingEndpoint);
+				if (result == null) result = caseYListBindingEndpoint(yecViewModelListBindingEndpoint);
+				if (result == null) result = caseYBindingEndpoint(yecViewModelListBindingEndpoint);
+				if (result == null) result = caseYElement(yecViewModelListBindingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -281,6 +311,36 @@ public class BindingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYEnumListBindingEndpoint(YEnumListBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEC View Model Value Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEC View Model Value Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYECViewModelValueBindingEndpoint(YECViewModelValueBindingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YEC View Model List Binding Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YEC View Model List Binding Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYECViewModelListBindingEndpoint(YECViewModelListBindingEndpoint object) {
 		return null;
 	}
 

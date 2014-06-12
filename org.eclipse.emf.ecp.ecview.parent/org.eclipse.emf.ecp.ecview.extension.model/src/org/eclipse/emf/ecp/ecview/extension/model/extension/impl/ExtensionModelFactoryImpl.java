@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -18,12 +17,15 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YNumericField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YProgressBar;
@@ -110,6 +112,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YTAB_SHEET: return createYTabSheet();
 			case ExtensionModelPackage.YTAB: return createYTab();
 			case ExtensionModelPackage.YMASTER_DETAIL: return createYMasterDetail();
+			case ExtensionModelPackage.YFORM_LAYOUT: return createYFormLayout();
+			case ExtensionModelPackage.YFORM_LAYOUT_CELL_STYLE: return createYFormLayoutCellStyle();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -391,6 +395,26 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YMasterDetail createYMasterDetail() {
 		YMasterDetailImpl yMasterDetail = new YMasterDetailImpl();
 		return yMasterDetail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YFormLayout createYFormLayout() {
+		YFormLayoutImpl yFormLayout = new YFormLayoutImpl();
+		return yFormLayout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YFormLayoutCellStyle createYFormLayoutCellStyle() {
+		YFormLayoutCellStyleImpl yFormLayoutCellStyle = new YFormLayoutCellStyleImpl();
+		return yFormLayoutCellStyle;
 	}
 
 	/**

@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
 
@@ -89,4 +90,19 @@ public interface YField extends YEmbeddable, YEditable, YEnable {
 	 * @generated
 	 */
 	void removeAllValueChangListeners();
+	
+	/**
+	 * Creates a binding endpoint to observe the editable property.
+	 * @return
+	 */
+	YValueBindingEndpoint createEditableEndpoint();
+	
+	
+	/**
+	 * Creates a binding endpoint to observe the enabled property.
+	 * @return
+	 */
+	YValueBindingEndpoint createEnabledEndpoint();
+	
+	
 } // YUiField

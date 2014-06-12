@@ -50,6 +50,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
@@ -70,7 +71,9 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IButtonEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ICheckboxEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDateTimeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IFormLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IHorizontalLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IMasterDetailEditpart;
@@ -83,6 +86,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITableEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextAreaEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITextFieldEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ITreeEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IVerticalLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IBrowserDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.ICheckBoxDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes.IComboBoxDatatypeEditpart;
@@ -137,6 +141,14 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TextFieldEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IGridLayoutEditpart.class)) {
 			result = createNewInstance(GridLayoutEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IHorizontalLayoutEditpart.class)) {
+			result = createNewInstance(HorizontalLayoutEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IVerticalLayoutEditpart.class)) {
+			result = createNewInstance(VerticalLayoutEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IFormLayoutEditpart.class)) {
+			result = createNewInstance(FormLayoutEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IListEditpart.class)) {
 			result = createNewInstance(ListEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(ITableEditpart.class)) {
@@ -239,6 +251,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(HorizontalLayoutEditpart.class);
 		} else if (yElement instanceof YVerticalLayout) {
 			result = createNewInstance(VerticalLayoutEditpart.class);
+		} else if (yElement instanceof YFormLayout) {
+			result = createNewInstance(FormLayoutEditpart.class);
 		} else if (yElement instanceof YTable) {
 			result = createNewInstance(TableEditpart.class);
 		} else if (yElement instanceof YTree) {

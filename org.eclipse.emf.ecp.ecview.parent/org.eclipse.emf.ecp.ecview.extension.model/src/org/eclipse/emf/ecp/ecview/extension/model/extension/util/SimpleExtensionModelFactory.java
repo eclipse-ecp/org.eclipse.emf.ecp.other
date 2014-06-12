@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
@@ -103,6 +104,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 
 	/**
 	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYFormLayout()
+	 */
+	public YFormLayout createFormLayout() {
+		return factory.createYFormLayout();
+	}
+
+	/**
+	 * @return
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYVerticalLayoutCellStyle()
 	 */
 	public YVerticalLayoutCellStyle createVerticalLayoutCellStyle() {
@@ -124,7 +133,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YTable createTable() {
 		return factory.createYTable();
 	}
-	
+
 	/**
 	 * @return
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYTable()
@@ -132,7 +141,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YTabSheet createTabSheet() {
 		return factory.createYTabSheet();
 	}
-	
+
 	/**
 	 * @return
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYTable()
@@ -355,6 +364,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 
 	/**
 	 * Returns a master detail element.
+	 * 
 	 * @return
 	 */
 	public YMasterDetail createMasterDetail() {
