@@ -16,6 +16,7 @@ import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
+import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessable;
 
 /**
@@ -25,7 +26,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.visibility.IVisibilityProcessa
  * 
  * @param <C>
  */
-public interface IWidgetPresentation<C> extends IDisposable, IVisibilityProcessable {
+public interface IWidgetPresentation<C> extends IDisposable,
+		IVisibilityProcessable {
 
 	/**
 	 * Returns the model associated with this presenter.<br>
@@ -91,5 +93,12 @@ public interface IWidgetPresentation<C> extends IDisposable, IVisibilityProcessa
 	 * @return
 	 */
 	Set<Binding> getUIBindings();
+
+	/**
+	 * Notifies the presentation about a changed datatype.
+	 * 
+	 * @param event
+	 */
+	void notifyDatatypeChanged(DatatypeChangeEvent event);
 
 }

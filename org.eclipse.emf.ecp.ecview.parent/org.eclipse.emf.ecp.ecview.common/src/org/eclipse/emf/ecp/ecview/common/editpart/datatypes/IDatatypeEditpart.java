@@ -57,11 +57,21 @@ public interface IDatatypeEditpart extends IElementEditpart {
 		private final Object changeObject;
 		private final List<IValidatorEditpart> removedValidators;
 		private final List<IValidatorEditpart> addedValidators;
+		private final boolean unsetEvent;
 
 		public DatatypeChangeEvent(IDatatypeEditpart editpart,
 				Object changeObject, List<IValidatorEditpart> addedValidators,
 				List<IValidatorEditpart> removedValidators) {
+			this(false, editpart, changeObject, addedValidators,
+					removedValidators);
+		}
+
+		public DatatypeChangeEvent(boolean unsetEvent,
+				IDatatypeEditpart editpart, Object changeObject,
+				List<IValidatorEditpart> addedValidators,
+				List<IValidatorEditpart> removedValidators) {
 			super();
+			this.unsetEvent = unsetEvent;
 			this.editpart = editpart;
 			this.changeObject = changeObject;
 			this.addedValidators = addedValidators;
@@ -107,6 +117,15 @@ public interface IDatatypeEditpart extends IElementEditpart {
 		public List<IValidatorEditpart> getRemovedValidators() {
 			return removedValidators != null ? removedValidators : Collections
 					.<IValidatorEditpart> emptyList();
+		}
+
+		/**
+		 * If true, then the datatype is unset.
+		 * 
+		 * @return the unsetEvent
+		 */
+		public boolean isUnsetEvent() {
+			return unsetEvent;
 		}
 
 	}

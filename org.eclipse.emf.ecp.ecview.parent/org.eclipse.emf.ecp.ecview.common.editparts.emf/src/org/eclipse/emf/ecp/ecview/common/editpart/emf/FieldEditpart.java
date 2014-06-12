@@ -83,6 +83,8 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	@Override
 	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
 
+		super.notifyDatatypeChanged(event);
+		
 		// Remove the validators that should be removed
 		//
 		for (IValidatorEditpart validator : event.getRemovedValidators()) {

@@ -47,19 +47,6 @@ public abstract class DatatypeEditpart<M extends YDatatype> extends
 	}
 
 	/**
-	 * 
-	 * @return
-	 */
-	public DatatypeChangeEvent getDisposeDatatypeChangeEvent(
-			DatatypeBridge bridge) {
-		ValidatorDelta delta = internalGetAllValidators();
-
-		DatatypeChangeEvent event = new DatatypeChangeEvent(this, null,
-				delta.getToAdd(), null);
-		return event;
-	}
-
-	/**
 	 * Returns a validator delta that should be applied to the internal
 	 * validators of the containing UI element.
 	 * 
@@ -168,7 +155,7 @@ public abstract class DatatypeEditpart<M extends YDatatype> extends
 			// listeners
 			for (DatatypeBridge bridge : bridges
 					.toArray(new DatatypeBridge[bridges.size()])) {
-				DatatypeChangeEvent event = new DatatypeChangeEvent(this, null,
+				DatatypeChangeEvent event = new DatatypeChangeEvent(true, this, null,
 						null, new ArrayList<>(bridge.getDatatypeValidators()));
 				bridge.notifyDatatypeChanged(event);
 			}

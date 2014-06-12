@@ -287,14 +287,15 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 
 		List<IValidatorEditpart> toRemove = new ArrayList<>(
 				getDatatypeValidators());
-		DatatypeChangeEvent event = new DatatypeChangeEvent(datatypeEditpart,
+		DatatypeChangeEvent event = new DatatypeChangeEvent(true, datatypeEditpart,
 				null, null, toRemove);
 		return event;
 	}
 
 	@Override
 	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
-
+		IWidgetPresentation<?> presentation = getPresentation();
+		presentation.notifyDatatypeChanged(event);
 	}
 
 	/**
