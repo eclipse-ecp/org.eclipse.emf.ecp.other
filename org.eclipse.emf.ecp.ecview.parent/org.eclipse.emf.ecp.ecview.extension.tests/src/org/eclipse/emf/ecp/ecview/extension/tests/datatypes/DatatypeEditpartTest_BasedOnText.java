@@ -13,8 +13,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.emf.ecp.ecview.common.context.ViewContext;
 import org.eclipse.emf.ecp.ecview.common.disposal.IDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeBridge;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeChangeEvent;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MaxLengthValidatorEditpart;
@@ -71,6 +73,9 @@ public class DatatypeEditpartTest_BasedOnText {
 		yLayout.getElements().add(yText);
 		yTextDatatype = factory.createTextDatatype();
 		yText.setDatatype(yTextDatatype);
+
+		IViewEditpart viewEditpart = ModelUtil.getEditpart(yView);
+		ViewContext context = new ViewContext(viewEditpart);
 
 		textEditpart = ModelUtil.getEditpart(yText);
 		textDatatypeEditpart = ModelUtil.getEditpart(yTextDatatype);

@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry#getIsoCode <em>Iso Code</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry#getCities <em>Cities</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +48,21 @@ public interface TCountry extends EObject {
 	 * @generated
 	 */
 	void setIsoCode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Cities</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cities</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cities</em>' attribute list.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage#getTCountry_Cities()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getCities();
 
 } // TCountry

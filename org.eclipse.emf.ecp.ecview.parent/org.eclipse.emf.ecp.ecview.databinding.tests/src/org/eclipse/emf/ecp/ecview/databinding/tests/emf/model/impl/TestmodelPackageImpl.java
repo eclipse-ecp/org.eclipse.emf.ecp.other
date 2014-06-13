@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TList;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelFactory;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
@@ -40,6 +41,13 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * @generated
 	 */
 	private EClass tCountryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tListEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -161,6 +169,33 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTCountry_Cities() {
+		return (EAttribute)tCountryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTList() {
+		return tListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTList_TObject() {
+		return (EAttribute)tListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TestmodelFactory getTestmodelFactory() {
 		return (TestmodelFactory)getEFactoryInstance();
 	}
@@ -192,6 +227,10 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 
 		tCountryEClass = createEClass(TCOUNTRY);
 		createEAttribute(tCountryEClass, TCOUNTRY__ISO_CODE);
+		createEAttribute(tCountryEClass, TCOUNTRY__CITIES);
+
+		tListEClass = createEClass(TLIST);
+		createEAttribute(tListEClass, TLIST__TOBJECT);
 	}
 
 	/**
@@ -232,6 +271,10 @@ public class TestmodelPackageImpl extends EPackageImpl implements TestmodelPacka
 
 		initEClass(tCountryEClass, TCountry.class, "TCountry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTCountry_IsoCode(), ecorePackage.getEString(), "isoCode", null, 0, 1, TCountry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTCountry_Cities(), ecorePackage.getEString(), "cities", null, 0, -1, TCountry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tListEClass, TList.class, "TList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTList_TObject(), ecorePackage.getEJavaObject(), "tObject", null, 0, 1, TList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

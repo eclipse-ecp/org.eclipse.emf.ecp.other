@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.*;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
@@ -28,7 +29,7 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	 */
 	public static TestmodelFactory init() {
 		try {
-			TestmodelFactory theTestmodelFactory = (TestmodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://eclipse.org/emf/ecp/ecview/databinding/emf/test"); 
+			TestmodelFactory theTestmodelFactory = (TestmodelFactory)EPackage.Registry.INSTANCE.getEFactory(TestmodelPackage.eNS_URI);
 			if (theTestmodelFactory != null) {
 				return theTestmodelFactory;
 			}
@@ -60,6 +61,7 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 			case TestmodelPackage.TPERSON: return createTPerson();
 			case TestmodelPackage.TADDRESS: return createTAddress();
 			case TestmodelPackage.TCOUNTRY: return createTCountry();
+			case TestmodelPackage.TLIST: return createTList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +95,16 @@ public class TestmodelFactoryImpl extends EFactoryImpl implements TestmodelFacto
 	public TCountry createTCountry() {
 		TCountryImpl tCountry = new TCountryImpl();
 		return tCountry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TList createTList() {
+		TListImpl tList = new TListImpl();
+		return tList;
 	}
 
 	/**

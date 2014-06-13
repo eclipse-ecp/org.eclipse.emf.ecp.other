@@ -302,11 +302,6 @@ public class ViewSetContextTest {
 		Assert.assertSame(wrapper, viewSetContext.getBeanSlot("bean1"));
 	}
 
-	@Test
-	public void test_setLocaleNotifiesViewContexts() {
-		fail("Implement!");
-	}
-
 	/**
 	 * Tests {@link IViewSetContext#getService(String)} and
 	 * {@link IViewSetContext#registerService(String, ISlot)} and

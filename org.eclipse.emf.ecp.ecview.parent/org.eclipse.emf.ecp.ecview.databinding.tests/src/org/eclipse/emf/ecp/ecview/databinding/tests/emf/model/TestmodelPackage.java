@@ -150,13 +150,22 @@ public interface TestmodelPackage extends EPackage {
 	int TCOUNTRY__ISO_CODE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Cities</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TCOUNTRY__CITIES = 1;
+
+	/**
 	 * The number of structural features of the '<em>TCountry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TCOUNTRY_FEATURE_COUNT = 1;
+	int TCOUNTRY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>TCountry</em>' class.
@@ -166,6 +175,44 @@ public interface TestmodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int TCOUNTRY_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TListImpl <em>TList</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TListImpl
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTList()
+	 * @generated
+	 */
+	int TLIST = 3;
+
+	/**
+	 * The feature id for the '<em><b>TObject</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TLIST__TOBJECT = 0;
+
+	/**
+	 * The number of structural features of the '<em>TList</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TLIST_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>TList</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TLIST_OPERATION_COUNT = 0;
 
 
 	/**
@@ -230,6 +277,38 @@ public interface TestmodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTCountry_IsoCode();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry#getCities <em>Cities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Cities</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry#getCities()
+	 * @see #getTCountry()
+	 * @generated
+	 */
+	EAttribute getTCountry_Cities();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TList <em>TList</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TList</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TList
+	 * @generated
+	 */
+	EClass getTList();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TList#getTObject <em>TObject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>TObject</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TList#getTObject()
+	 * @see #getTList()
+	 * @generated
+	 */
+	EAttribute getTList_TObject();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -307,6 +386,32 @@ public interface TestmodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TCOUNTRY__ISO_CODE = eINSTANCE.getTCountry_IsoCode();
+
+		/**
+		 * The meta object literal for the '<em><b>Cities</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TCOUNTRY__CITIES = eINSTANCE.getTCountry_Cities();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TListImpl <em>TList</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TListImpl
+		 * @see org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TestmodelPackageImpl#getTList()
+		 * @generated
+		 */
+		EClass TLIST = eINSTANCE.getTList();
+
+		/**
+		 * The meta object literal for the '<em><b>TObject</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TLIST__TOBJECT = eINSTANCE.getTList_TObject();
 
 	}
 

@@ -10,14 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.IECViewModelValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.databinding.emf.model.ECViewModelBindable;
 
 /**
  * Responsible to create an observable. The model of this editpart is used to
@@ -34,22 +36,22 @@ public class ECViewModelValueBindingEndpointEditpart extends
 				.createYECViewModelValueBindingEndpoint();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "restriction" })
 	@Override
 	public <A extends IObservableValue> A getObservable() {
 		YECViewModelValueBindingEndpoint model = getModel();
-
-		if (model.getFeatures().size() == 1) {
-			return (A) EMFProperties.value(model.getFeatures().get(0)).observe(
-					model.getElement());
-		} else if (model.getFeatures().size() > 1) {
-			FeaturePath path = FeaturePath
-					.fromList(model.getFeatures().toArray(
-							new EStructuralFeature[model.getFeatures().size()]));
-			return (A) EMFProperties.value(path).observe(getModel().getElement());
-		} else {
-			throw new IllegalStateException("Features need to be available");
+		if (model.getFeatures().size() > 0) {
+			List<EStructuralFeature> features = model.getFeatures();
+			return (A) ECViewModelBindable.observeValue(model.getElement(),
+					FeaturePath.fromList(features
+							.toArray(new EStructuralFeature[features.size()])));
+		} else if (model.getPropertyPath() != null
+				&& !model.getPropertyPath().equals("")) {
+			return (A) ECViewModelBindable.observeValue(model.getElement(),
+					model.getPropertyPath(), model.getType());
 		}
+
+		throw new IllegalArgumentException("Not a valid binding model " + model);
 	}
 
 	@Override

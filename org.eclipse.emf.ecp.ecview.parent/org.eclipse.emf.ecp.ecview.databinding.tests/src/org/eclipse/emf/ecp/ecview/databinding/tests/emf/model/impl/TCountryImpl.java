@@ -2,10 +2,13 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
 
@@ -17,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TestmodelPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl#getIsoCode <em>Iso Code</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.impl.TCountryImpl#getCities <em>Cities</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +46,16 @@ public class TCountryImpl extends MinimalEObjectImpl.Container implements TCount
 	 * @ordered
 	 */
 	protected String isoCode = ISO_CODE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCities() <em>Cities</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> cities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +102,25 @@ public class TCountryImpl extends MinimalEObjectImpl.Container implements TCount
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getCities() {
+		if (cities == null) {
+			cities = new EDataTypeUniqueEList<String>(String.class, this, TestmodelPackage.TCOUNTRY__CITIES);
+		}
+		return cities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TestmodelPackage.TCOUNTRY__ISO_CODE:
 				return getIsoCode();
+			case TestmodelPackage.TCOUNTRY__CITIES:
+				return getCities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -102,11 +130,16 @@ public class TCountryImpl extends MinimalEObjectImpl.Container implements TCount
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TestmodelPackage.TCOUNTRY__ISO_CODE:
 				setIsoCode((String)newValue);
+				return;
+			case TestmodelPackage.TCOUNTRY__CITIES:
+				getCities().clear();
+				getCities().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,6 +156,9 @@ public class TCountryImpl extends MinimalEObjectImpl.Container implements TCount
 			case TestmodelPackage.TCOUNTRY__ISO_CODE:
 				setIsoCode(ISO_CODE_EDEFAULT);
 				return;
+			case TestmodelPackage.TCOUNTRY__CITIES:
+				getCities().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,6 +173,8 @@ public class TCountryImpl extends MinimalEObjectImpl.Container implements TCount
 		switch (featureID) {
 			case TestmodelPackage.TCOUNTRY__ISO_CODE:
 				return ISO_CODE_EDEFAULT == null ? isoCode != null : !ISO_CODE_EDEFAULT.equals(isoCode);
+			case TestmodelPackage.TCOUNTRY__CITIES:
+				return cities != null && !cities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -153,6 +191,8 @@ public class TCountryImpl extends MinimalEObjectImpl.Container implements TCount
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (isoCode: ");
 		result.append(isoCode);
+		result.append(", cities: ");
+		result.append(cities);
 		result.append(')');
 		return result.toString();
 	}

@@ -6,9 +6,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -142,7 +140,6 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 		VisibilityPackageImpl theVisibilityPackage = (VisibilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) instanceof VisibilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) : VisibilityPackage.eINSTANCE);
-		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theValidationPackage.createPackageContents();
@@ -150,7 +147,6 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		theBindingPackage.createPackageContents();
 		theDatatypesPackage.createPackageContents();
 		theVisibilityPackage.createPackageContents();
-		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theValidationPackage.initializePackageContents();
@@ -158,7 +154,6 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		theBindingPackage.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
 		theVisibilityPackage.initializePackageContents();
-		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theValidationPackage.freeze();

@@ -10,5 +10,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TCountry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isoCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cities" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TList">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tObject" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -67,6 +67,11 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	protected void doInitPresentation(IWidgetPresentation<?> presentation) {
 		IFieldPresentation<?> fieldPresentation = (IFieldPresentation<?>) presentation;
 
+		if (fieldPresentation == null) {
+			LOGGER.warn("Presentation is null for " + getModel());
+			return;
+		}
+
 		ensureValidatorsLoaded();
 		for (IValidatorEditpart validatorEditpart : validators) {
 			fieldPresentation.addValidator(validatorEditpart.getValidator());
@@ -84,7 +89,7 @@ public class FieldEditpart<M extends YField> extends EmbeddableEditpart<M>
 	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
 
 		super.notifyDatatypeChanged(event);
-		
+
 		// Remove the validators that should be removed
 		//
 		for (IValidatorEditpart validator : event.getRemovedValidators()) {

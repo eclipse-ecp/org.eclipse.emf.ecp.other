@@ -49,6 +49,15 @@ public interface TestmodelFactory extends EFactory {
 	TCountry createTCountry();
 
 	/**
+	 * Returns a new object of class '<em>TList</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TList</em>'.
+	 * @generated
+	 */
+	TList createTList();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

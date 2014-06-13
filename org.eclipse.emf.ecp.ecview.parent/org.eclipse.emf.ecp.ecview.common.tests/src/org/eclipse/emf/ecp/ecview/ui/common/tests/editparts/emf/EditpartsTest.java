@@ -10,12 +10,15 @@
  */
 package org.eclipse.emf.ecp.ecview.ui.common.tests.editparts.emf;
 
+import static org.junit.Assert.*;
+
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -40,6 +43,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
+import org.eclipse.emf.ecp.ecview.extension.editpart.emf.TextFieldEditpart;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
@@ -819,7 +823,20 @@ public class EditpartsTest {
 		// eObject.
 		// ElementEditpart.findEditpart(yElement) needs to return the editpart
 		// that is associated with the yElement.
-		Assert.fail();
+		YView view1 = modelFactory.createYView();
+		YLayout layout1 = modelFactory.createYLayout();
+		view1.setContent(layout1);
+		YField yField1 = modelFactory.createYField();
+		layout1.getElements().add(yField1);
+		YField yField2 = modelFactory.createYField();
+		layout1.getElements().add(yField2);
+		
+		IFieldEditpart field1Editpart = editpartManager.getEditpart(yField1);
+		IFieldEditpart field2Editpart = editpartManager.getEditpart(yField2);
+		
+		yField1.eAdapters().add((Adapter) field2Editpart);
+		
+		assertSame(field1Editpart, ElementEditpart.findEditPartFor(yField1));
 	}
 
 	/**

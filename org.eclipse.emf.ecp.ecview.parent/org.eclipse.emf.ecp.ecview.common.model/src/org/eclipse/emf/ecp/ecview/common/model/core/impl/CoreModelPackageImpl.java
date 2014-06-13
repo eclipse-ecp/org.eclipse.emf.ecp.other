@@ -12,9 +12,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.impl.BindingPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
@@ -371,7 +369,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 		VisibilityPackageImpl theVisibilityPackage = (VisibilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) instanceof VisibilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) : VisibilityPackage.eINSTANCE);
-		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCoreModelPackage.createPackageContents();
@@ -379,7 +376,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		theBindingPackage.createPackageContents();
 		theDatatypesPackage.createPackageContents();
 		theVisibilityPackage.createPackageContents();
-		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCoreModelPackage.initializePackageContents();
@@ -387,7 +383,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		theBindingPackage.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
 		theVisibilityPackage.initializePackageContents();
-		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCoreModelPackage.freeze();
@@ -1373,7 +1368,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		addEOperation(yFieldEClass, null, "removeAllValueChangListeners", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yViewEClass, YView.class, "YView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYView_Root(), this.getYViewSet(), this.getYViewSet_Views(), "root", null, 1, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYView_Root(), this.getYViewSet(), this.getYViewSet_Views(), "root", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYView_ViewName(), ecorePackage.getEString(), "viewName", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_Content(), this.getYEmbeddable(), null, "content", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_BindingSet(), theBindingPackage.getYBindingSet(), null, "bindingSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

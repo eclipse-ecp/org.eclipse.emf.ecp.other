@@ -10,11 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.net.URI;
-
-import junit.framework.Assert;
 
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.core.databinding.observable.Realm;
@@ -53,7 +55,7 @@ public class PojoBindingDelegateTest {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input"));
-		Assert.assertNull(value);
+		assertNull(value);
 	}
 
 	/**
@@ -66,7 +68,7 @@ public class PojoBindingDelegateTest {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value"));
-		Assert.assertSame(person, value.getValue());
+		assertSame(person, value.getValue());
 
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
@@ -77,7 +79,7 @@ public class PojoBindingDelegateTest {
 		});
 
 		context.getBeanSlot("input").setValue(new BPerson());
-		Assert.assertFalse(changed);
+		assertTrue(changed);
 	}
 
 	/**
@@ -90,7 +92,7 @@ public class PojoBindingDelegateTest {
 		try {
 			IObservableValue value = binder.observeValue(context,
 					URI.create("view://bean/input#value"));
-			Assert.fail();
+			fail();
 		} catch (IllegalArgumentException e) {
 		}
 	}
@@ -105,7 +107,7 @@ public class PojoBindingDelegateTest {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address"));
-		Assert.assertSame(person.getAddress(), value.getValue());
+		assertSame(person.getAddress(), value.getValue());
 
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
@@ -117,8 +119,7 @@ public class PojoBindingDelegateTest {
 
 		context.setBean("input", new BPerson());
 
-		// Pojo-Binding does not notified observables
-		Assert.assertFalse(changed);
+		assertTrue(changed);
 	}
 
 	/**
@@ -130,8 +131,8 @@ public class PojoBindingDelegateTest {
 		context.setBean("input", person);
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address.country.isoCode"));
-		Assert.assertSame("AT", value.getValue());
-		
+		assertSame("AT", value.getValue());
+
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -141,7 +142,7 @@ public class PojoBindingDelegateTest {
 		});
 
 		person.getAddress().getCountry().setIsoCode("EN");
-		Assert.assertFalse(changed);
+		assertFalse(changed);
 	}
 
 	/**
@@ -154,8 +155,8 @@ public class PojoBindingDelegateTest {
 
 		IObservableValue value = binder.observeValue(context,
 				URI.create("view://bean/input#value.address.country.isoCode"));
-		Assert.assertSame("AT", value.getValue());
-		
+		assertSame("AT", value.getValue());
+
 		changed = false;
 		value.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -172,7 +173,7 @@ public class PojoBindingDelegateTest {
 		address.setCountry(country);
 
 		person.setAddress(address);
-		Assert.assertFalse(changed);
+		assertFalse(changed);
 	}
 
 	/**
@@ -183,27 +184,27 @@ public class PojoBindingDelegateTest {
 		BPerson person = BPerson.newInstance("AT");
 		IObservableValue value = BeanProperties.value(BPerson.class,
 				"address.country").observe(person);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
+		assertSame(person.getAddress().getCountry(), value.getValue());
 
 		BCountry other = new BCountry();
 		other.setIsoCode("Other");
 		person.getAddress().setCountry(other);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
+		assertSame(person.getAddress().getCountry(), value.getValue());
 
 		BAddress address = new BAddress();
 		BCountry another = new BCountry();
 		another.setIsoCode("Another");
 		address.setCountry(another);
 		person.setAddress(address);
-		Assert.assertSame(person.getAddress().getCountry(), value.getValue());
+		assertSame(person.getAddress().getCountry(), value.getValue());
 
 	}
-	
-	public void test_bindList(){
+
+	public void test_bindList() {
 		fail("Implement!");
 	}
-	
-	public void test_bindList_nested(){
+
+	public void test_bindList_nested() {
 		fail("Implement!");
 	}
 

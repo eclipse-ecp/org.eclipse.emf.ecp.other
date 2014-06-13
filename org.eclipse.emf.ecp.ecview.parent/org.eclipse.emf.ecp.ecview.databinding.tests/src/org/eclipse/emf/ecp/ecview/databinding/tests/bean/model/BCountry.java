@@ -10,9 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests.bean.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BCountry extends AbstractBean {
 
 	private String isoCode;
+	private List<String> cities = new ArrayList<String>();
 
 	/**
 	 * @return the isoCode
@@ -27,6 +31,14 @@ public class BCountry extends AbstractBean {
 	 */
 	public void setIsoCode(String isoCode) {
 		firePropertyChanged("isoCode", this.isoCode, this.isoCode = isoCode);
+	}
+
+	public List<String> getCities() {
+		return cities;
+	}
+
+	public void setCities(List<String> cities) {
+		this.cities = cities;
 	}
 
 }

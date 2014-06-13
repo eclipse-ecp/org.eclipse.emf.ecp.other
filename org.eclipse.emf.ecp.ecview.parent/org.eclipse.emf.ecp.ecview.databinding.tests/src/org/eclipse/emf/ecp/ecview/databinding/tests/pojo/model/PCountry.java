@@ -10,9 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests.pojo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PCountry {
 
 	private String isoCode;
+	private List<String> cities = new ArrayList<String>();
 
 	/**
 	 * @return the isoCode
@@ -28,5 +32,15 @@ public class PCountry {
 	public void setIsoCode(String isoCode) {
 		this.isoCode = isoCode;
 	}
+
+	public List<String> getCities() {
+		return cities;
+	}
+
+	public void setCities(List<String> cities) {
+		this.cities = cities;
+	}
+	
+	
 
 }

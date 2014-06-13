@@ -10,11 +10,13 @@
  */
 package org.eclipse.emf.ecp.ecview.databinding.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.net.URI;
-
-import junit.framework.Assert;
 
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
@@ -58,15 +60,15 @@ public class ContextObservablesTest {
 		ContextObservables.getInstance().addDelegate(10, delegate10);
 		ContextObservables.getInstance().addDelegate(20, delegate20);
 
-		Assert.assertEquals(10,
+		assertEquals(10,
 				ContextObservables.getInstance().getSequence(delegate10));
-		Assert.assertEquals(20,
+		assertEquals(20,
 				ContextObservables.getInstance().getSequence(delegate20));
-		Assert.assertEquals(30,
+		assertEquals(30,
 				ContextObservables.getInstance().getSequence(delegate30));
 
 		ContextObservables.getInstance().removeDelegate(delegate30);
-		Assert.assertEquals(-1,
+		assertEquals(-1,
 				ContextObservables.getInstance().getSequence(delegate30));
 	}
 
@@ -79,11 +81,11 @@ public class ContextObservablesTest {
 
 		ContextObservables.getInstance().addDelegate(10, delegate10);
 
-		Assert.assertEquals(10,
+		assertEquals(10,
 				ContextObservables.getInstance().getSequence(delegate10));
 
 		ContextObservables.getInstance().removeDelegate(delegate10);
-		Assert.assertEquals(-1,
+		assertEquals(-1,
 				ContextObservables.getInstance().getSequence(delegate10));
 	}
 
@@ -102,8 +104,10 @@ public class ContextObservablesTest {
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", BPerson.newInstance("AT"));
 
-		Assert.assertSame(expected, ContextObservables.getInstance()
-				.getDelegate(context, URI.create("view://bean/input#value")));
+		assertSame(
+				expected,
+				ContextObservables.getInstance().getDelegate(context,
+						URI.create("view://bean/input#value")));
 	}
 
 	/**
@@ -121,8 +125,10 @@ public class ContextObservablesTest {
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", BPerson.newInstance("AT"));
 
-		Assert.assertSame(expected, ContextObservables.getInstance()
-				.getDelegate(context, URI.create("view://bean/input#value")));
+		assertSame(
+				expected,
+				ContextObservables.getInstance().getDelegate(context,
+						URI.create("view://bean/input#value")));
 	}
 
 	/**
@@ -140,8 +146,10 @@ public class ContextObservablesTest {
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", PPerson.newInstance("AT"));
 
-		Assert.assertSame(expected, ContextObservables.getInstance()
-				.getDelegate(context, URI.create("view://bean/input#value")));
+		assertSame(
+				expected,
+				ContextObservables.getInstance().getDelegate(context,
+						URI.create("view://bean/input#value")));
 	}
 
 	/**
@@ -159,8 +167,10 @@ public class ContextObservablesTest {
 		TestViewContext context = new TestViewContext();
 		context.setBean("input", newPerson("AT"));
 
-		Assert.assertSame(expected, ContextObservables.getInstance()
-				.getDelegate(context, URI.create("view://bean/input#value")));
+		assertSame(
+				expected,
+				ContextObservables.getInstance().getDelegate(context,
+						URI.create("view://bean/input#value")));
 	}
 
 	/**
@@ -192,7 +202,7 @@ public class ContextObservablesTest {
 			}
 		});
 		context.setBean("input", new BPerson());
-		Assert.assertTrue(changed);
+		assertTrue(changed);
 	}
 
 	/**
@@ -224,7 +234,7 @@ public class ContextObservablesTest {
 			}
 		});
 		context.setBean("input", newPerson("AT"));
-		Assert.assertTrue(changed);
+		assertTrue(changed);
 	}
 
 	/**
@@ -256,16 +266,15 @@ public class ContextObservablesTest {
 			}
 		});
 		context.setBean("input", new PPerson());
-		
-		// pojo binding does not send events!
-		Assert.assertFalse(changed);
+
+		assertTrue(changed);
 	}
-	
-	public void test_bindList(){
+
+	public void test_bindList() {
 		fail("Implement!");
 	}
-	
-	public void test_bindList_nested(){
+
+	public void test_bindList_nested() {
 		fail("Implement!");
 	}
 
@@ -285,7 +294,7 @@ public class ContextObservablesTest {
 		address.setCountry(country);
 		return person;
 	}
-	
+
 	private static class TestRealm extends Realm {
 
 		private TestRealm() {

@@ -243,6 +243,7 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 				internalSetVisibilityProcessor(editPart);
 				break;
 			default:
+				super.handleModelSet(featureId, notification);
 				break;
 			}
 		}
@@ -287,15 +288,19 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 
 		List<IValidatorEditpart> toRemove = new ArrayList<>(
 				getDatatypeValidators());
-		DatatypeChangeEvent event = new DatatypeChangeEvent(true, datatypeEditpart,
-				null, null, toRemove);
+		DatatypeChangeEvent event = new DatatypeChangeEvent(true,
+				datatypeEditpart, null, null, toRemove);
 		return event;
 	}
 
 	@Override
 	public void notifyDatatypeChanged(DatatypeChangeEvent event) {
 		IWidgetPresentation<?> presentation = getPresentation();
-		presentation.notifyDatatypeChanged(event);
+		if (presentation != null) {
+			presentation.notifyDatatypeChanged(event);
+		} else {
+			LOGGER.warn("Presentation is null for " + getModel());
+		}
 	}
 
 	/**

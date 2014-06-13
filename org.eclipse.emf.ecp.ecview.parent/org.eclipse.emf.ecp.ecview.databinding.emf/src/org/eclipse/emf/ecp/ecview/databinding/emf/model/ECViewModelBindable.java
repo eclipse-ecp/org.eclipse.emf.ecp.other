@@ -92,9 +92,9 @@ public class ECViewModelBindable {
 			throw new IllegalArgumentException(
 					"Attribute path must not be empty!");
 		}
-		
+
 		int separatorIndex = attributePath.indexOf(".");
-		String subPath = attributePath.substring(separatorIndex+1);
+		String subPath = attributePath.substring(separatorIndex + 1);
 
 		EClass eClass = yElement.eClass();
 		String[] properties = attributePath.split("\\.");
@@ -106,50 +106,148 @@ public class ECViewModelBindable {
 					eClass.getName()));
 		}
 
-		if (properties.length == 1
-				|| elementType.isAssignableFrom(EObject.class)) {
-			return EMFProperties.value(getFeaturePath(properties, eClass))
-					.observe(yElement);
+		if (EObject.class.isAssignableFrom(elementType)) {
+			throw new IllegalStateException(
+					"Please use observeValue(EObject, FeaturePath)");
+		}
+
+		if (properties.length == 1) {
+			return EMFProperties.value(feature).observe(yElement);
 		} else if (hasPropertyChangeSupport(elementType)) {
 			IObservableValue masterObservable = EMFProperties.value(feature)
 					.observe(yElement);
-			return BeanProperties.value(elementType, subPath)
-					.observeDetail(masterObservable);
+			return BeanProperties.value(elementType, subPath).observeDetail(
+					masterObservable);
 		} else {
 			IObservableValue masterObservable = EMFProperties.value(feature)
 					.observe(yElement);
-			return PojoProperties.value(elementType, subPath)
-					.observeDetail(masterObservable);
+			return PojoProperties.value(elementType, subPath).observeDetail(
+					masterObservable);
 		}
+	}
+
+	/**
+	 * Returns an observable value tracking the attribute path. The difference
+	 * to {@link #observeValue(EObject, String, Class)} is, that the object
+	 * located in the given yElement is an EObject.
+	 * 
+	 * 
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param path
+	 *            - The feature path being tracked
+	 * @return
+	 */
+	public static IObservableValue observeValue(EObject yElement,
+			FeaturePath path) {
+		return observeValue(Realm.getDefault(), yElement, path);
+	}
+
+	/**
+	 * Returns an observable value tracking the attribute path. The difference
+	 * to {@link #observeValue(EObject, String, Class)} is, that the object
+	 * located in the given yElement is an EObject.
+	 * 
+	 * 
+	 * @param realm
+	 *            - The realm.
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param path
+	 *            - The feature path being tracked
+	 * @return
+	 */
+	public static IObservableValue observeValue(Realm realm, EObject yElement,
+			FeaturePath path) {
+		if (yElement == null) {
+			throw new IllegalArgumentException(
+					"ECView model element must not be null!");
+		}
+
+		if (path == null || path.getFeaturePath().length == 0) {
+			throw new IllegalArgumentException(
+					"Feature path must not be empty!");
+		}
+
+		return EMFProperties.value(path).observe(yElement);
 	}
 
 	/**
 	 * Returns a feature path required for EMF databinding.
 	 * 
-	 * @param properties
-	 * @param eClass
+	 * @param features
+	 *            - The features
 	 * @return
 	 */
-	public static FeaturePath getFeaturePath(String[] properties, EClass eClass) {
-		List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
-		for (String property : properties) {
-			EStructuralFeature feature = eClass.getEStructuralFeature(property);
-			if (feature == null) {
-				throw new IllegalStateException(String.format(
-						"%s is not a valid feature for %s!", property,
-						eClass.getName()));
-			}
+	public static FeaturePath getFeaturePath(List<EStructuralFeature> features) {
+		return FeaturePath.fromList(features
+				.toArray(new EStructuralFeature[features.size()]));
+	}
 
+	/**
+	 * Returns a feature path required for EMF databinding.
+	 * 
+	 * @param path
+	 *            - A dot notated path
+	 * @param yElementClass
+	 *            - the EClass of the yElement. See
+	 *            {@link #observeValue(EObject, FeaturePath)}
+	 * @param yElementTypeClass
+	 *            - the EClass of the object contained in the yElement for the
+	 *            first path-segment.
+	 * @return
+	 */
+	public static FeaturePath getFeaturePath(String path, EClass yElementClass,
+			EClass yElementTypeClass) {
+		return getFeaturePath(path.split("\\."), yElementClass,
+				yElementTypeClass);
+	}
+
+	/**
+	 * Returns a feature path required for EMF databinding.
+	 * 
+	 * @param path
+	 * @param yElementClass
+	 *            - the EClass of the yElement. See
+	 *            {@link #observeValue(EObject, FeaturePath)}
+	 * @param yElementTypeClass
+	 *            - the EClass of the object contained in the yElement for the
+	 *            first path-segment.
+	 * @return
+	 */
+	public static FeaturePath getFeaturePath(String[] path,
+			EClass yElementClass, EClass yElementTypeClass) {
+
+		if (path.length == 0) {
+			throw new IllegalArgumentException("Not a valid path");
+		}
+
+		// handle the first feature
+		List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
+		EStructuralFeature firstFeature = yElementClass
+				.getEStructuralFeature(path[0]);
+		features.add(firstFeature);
+
+		// handle all other
+		EClass currentClass = yElementTypeClass;
+		for (int i = 1; i < path.length && currentClass != null; i++) {
+			String string = path[i];
+
+			EStructuralFeature feature = currentClass
+					.getEStructuralFeature(string);
 			features.add(feature);
+
 			if (feature instanceof EReference) {
 				EReference eReference = (EReference) feature;
-				eClass = eReference.getEReferenceType();
+				currentClass = eReference.getEReferenceType();
+			} else {
+				currentClass = null;
 			}
 		}
 
-		FeaturePath featurePath = FeaturePath.fromList(features
+		return FeaturePath.fromList(features
 				.toArray(new EStructuralFeature[features.size()]));
-		return featurePath;
+
 	}
 
 	/**
@@ -198,6 +296,9 @@ public class ECViewModelBindable {
 					"Attribute path must not be empty!");
 		}
 
+		int separatorIndex = attributePath.indexOf(".");
+		String subPath = attributePath.substring(separatorIndex + 1);
+
 		EClass eClass = yElement.eClass();
 		String[] properties = attributePath.split("\\.");
 		EStructuralFeature feature = eClass
@@ -208,20 +309,66 @@ public class ECViewModelBindable {
 					eClass.getName()));
 		}
 
-		if (elementType.isAssignableFrom(EObject.class)) {
-			return EMFProperties.list(getFeaturePath(properties, eClass))
-					.observe(yElement);
+		if (EObject.class.isAssignableFrom(elementType)) {
+			throw new IllegalStateException("Please use observeEmfValue");
+		}
+
+		if (properties.length == 1) {
+			return EMFProperties.list(feature).observe(yElement);
 		} else if (hasPropertyChangeSupport(elementType)) {
 			IObservableValue masterObservable = EMFProperties.value(feature)
 					.observe(yElement);
-			return BeanProperties.list(elementType, attributePath)
-					.observeDetail(masterObservable);
+			return BeanProperties.list(elementType, subPath).observeDetail(
+					masterObservable);
 		} else {
 			IObservableValue masterObservable = EMFProperties.value(feature)
 					.observe(yElement);
-			return PojoProperties.list(elementType, attributePath)
-					.observeDetail(masterObservable);
+			return PojoProperties.list(elementType, subPath).observeDetail(
+					masterObservable);
 		}
+	}
+
+	/**
+	 * Returns an observable list tracking the attribute path. The difference to
+	 * {@link #observeList(EObject, String, Class)} is, that the object located
+	 * in the given yElement is an EObject.
+	 * 
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param path
+	 *            - The feature path being tracked
+	 * @return
+	 */
+	public static IObservableList observeList(EObject yElement, FeaturePath path) {
+		return observeList(Realm.getDefault(), yElement, path);
+	}
+
+	/**
+	 * Returns an observable list tracking the attribute path. The difference to
+	 * {@link #observeList(EObject, String, Class)} is, that the object located
+	 * in the given yElement is an EObject.
+	 * 
+	 * @param realm
+	 *            - The realm.
+	 * @param yElement
+	 *            - The ECView model element
+	 * @param path
+	 *            - The feature path being tracked
+	 * @return
+	 */
+	public static IObservableList observeList(Realm realm, EObject yElement,
+			FeaturePath path) {
+		if (yElement == null) {
+			throw new IllegalArgumentException(
+					"ECView model element must not be null!");
+		}
+
+		if (path == null || path.getFeaturePath().length == 0) {
+			throw new IllegalArgumentException(
+					"Feature path must not be empty!");
+		}
+
+		return EMFProperties.list(path).observe(yElement);
 	}
 
 	/**

@@ -446,35 +446,6 @@ public class ViewEditpartTest {
 		});
 	}
 
-	/**
-	 * IMPORTANT: Each UI-Kit has to implement this test method too.
-	 * 
-	 * @throws InterruptedException
-	 */
-	@Test
-	public void testAsncExec() throws InterruptedException {
-		IViewEditpart viewEditpart = (IViewEditpart) editpartManager
-				.createEditpart(CoreModelPackage.eNS_URI, IViewEditpart.class);
-		ViewContext context = new ViewContext(viewEditpart);
-
-		Future<?> future = context.execAsync(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		assertFalse(future.isDone());
-
-		Thread.sleep(1000);
-
-		assertTrue(future.isDone());
-
-	}
 
 	@Test
 	public void test_addBeanSlotByModel() {

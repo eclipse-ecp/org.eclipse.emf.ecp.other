@@ -12,7 +12,6 @@ package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
 import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.databinding.beans.BeansObservables;
@@ -20,10 +19,7 @@ import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.DelegatingEditPartManager;
 import org.eclipse.emf.ecp.ecview.common.editpart.IDetailValueBindingEndpointEditpart;
@@ -60,14 +56,14 @@ public class DetailValueBindingEndpointEditpart extends
 		}
 
 		if (EObject.class.isAssignableFrom(type)) {
-			if (getModel().getEmfNSUri() == null) {
-				throw new RuntimeException("EmfNamespaceURI must not be null");
+			if (getModel().getFeatures().size() == 0) {
+				throw new IllegalArgumentException(
+						"Please use features for EObjects");
 			}
 
-			EClass eClass = findEClass(type, getModel().getEmfNSUri());
-			FeaturePath path = createFeaturePath(eClass);
-			return (A) EMFProperties.value(path)
-					.observeDetail(masterObservable);
+			List<EStructuralFeature> features = getModel().getFeatures();
+			return (A) EMFProperties.value(FeaturePath.fromList(features
+					.toArray(new EStructuralFeature[features.size()]))).observeDetail(masterObservable);
 		} else if (hasPropertyChangeSupport(type)) {
 			return (A) BeansObservables.observeDetailValue(masterObservable,
 					type, getModel().getPropertyPath(), null);
@@ -77,40 +73,40 @@ public class DetailValueBindingEndpointEditpart extends
 		}
 	}
 
-	private FeaturePath createFeaturePath(EClass eClass) {
-		List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
-		String[] properties = getModel().getPropertyPath().split("\\.");
-		for (String property : properties) {
-			EStructuralFeature feature = eClass.getEStructuralFeature(property);
-			if (feature == null) {
-				throw new IllegalStateException(String.format(
-						"%s is not a valid feature for %s!", property,
-						eClass.getName()));
-			}
-
-			features.add(feature);
-			if (feature instanceof EReference) {
-				EReference eReference = (EReference) feature;
-				eClass = eReference.getEReferenceType();
-			}
-		}
-
-		FeaturePath path = FeaturePath.fromList(features
-				.toArray(new EStructuralFeature[features.size()]));
-		return path;
-	}
-
-	/**
-	 * Tries to find the eClass for the given type.
-	 * 
-	 * @param type
-	 * @return
-	 */
-	private EClass findEClass(Class<?> type, String nsURI) {
-		EClass eClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(nsURI)
-				.getEClassifier(type.getSimpleName());
-		return eClass;
-	}
+	// private FeaturePath createFeaturePath(EClass eClass) {
+	// List<EStructuralFeature> features = new ArrayList<EStructuralFeature>();
+	// String[] properties = getModel().getPropertyPath().split("\\.");
+	// for (String property : properties) {
+	// EStructuralFeature feature = eClass.getEStructuralFeature(property);
+	// if (feature == null) {
+	// throw new IllegalStateException(String.format(
+	// "%s is not a valid feature for %s!", property,
+	// eClass.getName()));
+	// }
+	//
+	// features.add(feature);
+	// if (feature instanceof EReference) {
+	// EReference eReference = (EReference) feature;
+	// eClass = eReference.getEReferenceType();
+	// }
+	// }
+	//
+	// FeaturePath path = FeaturePath.fromList(features
+	// .toArray(new EStructuralFeature[features.size()]));
+	// return path;
+	// }
+	//
+	// /**
+	// * Tries to find the eClass for the given type.
+	// *
+	// * @param type
+	// * @return
+	// */
+	// private EClass findEClass(Class<?> type, String nsURI) {
+	// EClass eClass = (EClass) EPackage.Registry.INSTANCE.getEPackage(nsURI)
+	// .getEClassifier(type.getSimpleName());
+	// return eClass;
+	// }
 
 	/**
 	 * Returns true, if the bean has property change support.

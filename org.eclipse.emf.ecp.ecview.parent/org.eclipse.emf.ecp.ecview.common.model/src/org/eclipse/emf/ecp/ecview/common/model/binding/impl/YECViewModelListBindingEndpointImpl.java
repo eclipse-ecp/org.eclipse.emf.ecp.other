@@ -24,6 +24,8 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEn
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +51,36 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 	 * @ordered
 	 */
 	protected EList<EStructuralFeature> features;
+
+	/**
+	 * The default value of the '{@link #getPropertyPath() <em>Property Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertyPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PROPERTY_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPropertyPath() <em>Property Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertyPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String propertyPath = PROPERTY_PATH_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<?> type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +156,48 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPropertyPath() {
+		return propertyPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPropertyPath(String newPropertyPath) {
+		String oldPropertyPath = propertyPath;
+		propertyPath = newPropertyPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH, oldPropertyPath, propertyPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Class<?> getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(Class<?> newType) {
+		Class<?> oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -132,6 +206,10 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 				return basicGetElement();
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__FEATURES:
 				return getFeatures();
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH:
+				return getPropertyPath();
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,6 +230,12 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends EStructuralFeature>)newValue);
 				return;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH:
+				setPropertyPath((String)newValue);
+				return;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
+				setType((Class<?>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -170,6 +254,12 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__FEATURES:
 				getFeatures().clear();
 				return;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH:
+				setPropertyPath(PROPERTY_PATH_EDEFAULT);
+				return;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
+				setType((Class<?>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -186,8 +276,30 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 				return element != null;
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__FEATURES:
 				return features != null && !features.isEmpty();
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH:
+				return PROPERTY_PATH_EDEFAULT == null ? propertyPath != null : !PROPERTY_PATH_EDEFAULT.equals(propertyPath);
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (propertyPath: ");
+		result.append(propertyPath);
+		result.append(", type: ");
+		result.append(type);
+		result.append(')');
+		return result.toString();
 	}
 
 } //YECViewModelListBindingEndpointImpl

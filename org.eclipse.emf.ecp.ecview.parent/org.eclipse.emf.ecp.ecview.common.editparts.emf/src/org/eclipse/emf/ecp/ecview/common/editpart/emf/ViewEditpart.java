@@ -15,6 +15,9 @@ import java.util.Map;
 import java.util.concurrent.Future;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
@@ -86,6 +89,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	public void render(Map<String, Object> options) throws ContextException {
 		checkDisposed();
 
+		validateModel();
+
 		if (configuration != null) {
 			configuration.beforeUiRendering(getContext());
 		}
@@ -119,6 +124,21 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 				throw new RuntimeException("ILifecycleService is required");
 			}
 			service.addHandler(this);
+		}
+	}
+
+	/**
+	 * Validates the model and throws an exception if model is not valid.
+	 * 
+	 * @throws ContextException
+	 */
+	protected void validateModel() throws ContextException {
+		YView yView = getModel();
+		EValidator validator = EObjectValidator.INSTANCE;
+		BasicDiagnostic diagnostic = new BasicDiagnostic();
+		boolean valid = validator.validate(yView, diagnostic, null);
+		if (!valid) {
+			throw new ContextException(diagnostic.toString());
 		}
 	}
 

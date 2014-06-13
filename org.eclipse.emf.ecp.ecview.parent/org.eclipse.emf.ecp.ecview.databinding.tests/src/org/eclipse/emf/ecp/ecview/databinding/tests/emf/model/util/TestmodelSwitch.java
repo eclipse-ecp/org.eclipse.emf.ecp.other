@@ -5,6 +5,7 @@ package org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.*;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TAddress;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TCountry;
 import org.eclipse.emf.ecp.ecview.databinding.tests.emf.model.TPerson;
@@ -85,6 +86,12 @@ public class TestmodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TestmodelPackage.TLIST: {
+				TList tList = (TList)theEObject;
+				T result = caseTList(tList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -131,6 +138,21 @@ public class TestmodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTCountry(TCountry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>TList</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>TList</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTList(TList object) {
 		return null;
 	}
 

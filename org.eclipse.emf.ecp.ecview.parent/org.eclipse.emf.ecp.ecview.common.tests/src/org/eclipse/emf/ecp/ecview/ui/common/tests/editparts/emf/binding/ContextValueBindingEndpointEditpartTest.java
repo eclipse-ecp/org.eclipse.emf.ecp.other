@@ -177,11 +177,6 @@ public class ContextValueBindingEndpointEditpartTest {
 
 	}
 
-	@Test
-	public void test_BindList() {
-		fail("Implement!");
-	}
-
 	/**
 	 * Tests the disposal.
 	 */

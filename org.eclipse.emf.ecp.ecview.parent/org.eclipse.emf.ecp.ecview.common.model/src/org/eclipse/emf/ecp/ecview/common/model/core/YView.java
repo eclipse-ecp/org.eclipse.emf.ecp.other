@@ -155,7 +155,7 @@ public interface YView extends YElement, YCssAble, YMarginable,
 	 * @see #setRoot(YViewSet)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_Root()
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews
-	 * @model opposite="views" required="true" transient="false"
+	 * @model opposite="views" transient="false"
 	 * @generated
 	 */
 	YViewSet getRoot();

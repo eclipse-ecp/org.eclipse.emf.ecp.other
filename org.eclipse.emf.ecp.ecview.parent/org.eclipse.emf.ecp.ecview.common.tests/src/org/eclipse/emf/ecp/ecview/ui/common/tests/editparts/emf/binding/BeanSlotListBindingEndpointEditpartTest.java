@@ -31,7 +31,6 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -209,7 +208,7 @@ public class BeanSlotListBindingEndpointEditpartTest {
 		YBeanSlotListBindingEndpoint yEndpoint = factory
 				.createYBeanSlotListBindingEndpoint();
 		yEndpoint.setBeanSlot(yBeanSlot);
-		yEndpoint.setAttributePath("value");
+		yEndpoint.setAttributePath("value.values");
 
 		IBeanSlotListBindingEndpointEditpart editpart = editpartManager
 				.getEditpart(yEndpoint);
@@ -231,6 +230,7 @@ public class BeanSlotListBindingEndpointEditpartTest {
 	/**
 	 * Tests the getObservable method without a valid view.
 	 */
+	@SuppressWarnings("unchecked")
 	@Test
 	// BEGIN SUPRESS CATCH EXCEPTION
 	public void test_bind() {
@@ -246,10 +246,16 @@ public class BeanSlotListBindingEndpointEditpartTest {
 		yView.setBindingSet(bs);
 
 		// add a bean slot
-		YBeanSlot yBeanSlot = factory.createYBeanSlot();
-		yBeanSlot.setName("myFoo");
-		yBeanSlot.setValueType(Bean.class);
-		yView.getBeanSlots().add(yBeanSlot);
+		YBeanSlot yBeanSlot1 = factory.createYBeanSlot();
+		yBeanSlot1.setName("myFoo");
+		yBeanSlot1.setValueType(Bean.class);
+		yView.getBeanSlots().add(yBeanSlot1);
+
+		// add a bean slot
+		YBeanSlot yBeanSlot2 = factory.createYBeanSlot();
+		yBeanSlot2.setName("myBar");
+		yBeanSlot2.setValueType(Bean.class);
+		yView.getBeanSlots().add(yBeanSlot2);
 
 		// activate the bindingSet editpart
 		//
@@ -257,37 +263,51 @@ public class BeanSlotListBindingEndpointEditpartTest {
 		bsEditpart.setBindingManager(new DefaultBindingManager());
 		bsEditpart.activate();
 
-		// context endpoint
+		// slot1 endpoint
 		//
-		YBeanSlotListBindingEndpoint yTargetEndpoint = factory
+		YBeanSlotListBindingEndpoint yEndpoint1 = factory
 				.createYBeanSlotListBindingEndpoint();
-		yTargetEndpoint.setBeanSlot(yBeanSlot);
-		yTargetEndpoint.setAttributePath("value");
+		yEndpoint1.setBeanSlot(yBeanSlot1);
+		yEndpoint1.setAttributePath("value.values");
 
-		// bean endpoint
+		// slot2 endpoint
 		//
-		Bean bean = new Bean("Test");
-		YBeanValueBindingEndpoint yModelEndpoint = BindingFactory.eINSTANCE
-				.createYBeanValueBindingEndpoint();
-		yModelEndpoint.setBean(bean);
-		yModelEndpoint.setPropertyPath("values");
+		YBeanSlotListBindingEndpoint yEndpoint2 = factory
+				.createYBeanSlotListBindingEndpoint();
+		yEndpoint2.setBeanSlot(yBeanSlot2);
+		yEndpoint2.setAttributePath("value.values");
 
-		// TODO
-		// bs.addBinding(yTargetEndpoint, yModelEndpoint);
-		fail("Implement");
-		
+		bs.addBinding(yEndpoint1, yEndpoint2);
+
 		// write to bean
-		BeanScope scope = URIHelper.toScope("view://bean/myFoo#value")
+		BeanScope fooScope = URIHelper.toScope("view://bean/myFoo#value.values")
 				.getBeanScope();
-		assertEquals(bean.getValue(), (String) scope.access(context));
+		BeanScope barScope = URIHelper.toScope("view://bean/myBar#value.values")
+				.getBeanScope();
 
-		bean.setValue("Othervalue");
-		assertEquals(bean.getValue(), (String) scope.access(context));
+		Bean newBean = new Bean(null);
+		newBean.getValues().add("hihi");
+		newBean.getValues().add("huhu");
+		newBean.getValues().add("haha");
+		
+		Bean bean2 = new Bean(null);
+		context.setBean("myBar", bean2);
+		context.setBean("myFoo", newBean);
 
-		// write to context
-		scope.accessBeanSlot(context).setValue("FromContext");
-		assertEquals(bean.getValue(), "FromContext");
+		int fooSize = ((List<Bean>) fooScope.access(context)).size();
+		int barSize = ((List<Bean>) barScope.access(context)).size();
+		assertEquals(fooSize, barSize);
+		assertEquals(3, barSize);
 
+		newBean = new Bean(null);
+		newBean.getValues().add("hihi");
+		newBean.getValues().add("huhu");
+
+		context.setBean("myBar", newBean);
+		fooSize = ((List<Bean>) fooScope.access(context)).size();
+		barSize = ((List<Bean>) barScope.access(context)).size();
+		assertEquals(fooSize, barSize);
+		assertEquals(2, barSize);
 	}
 
 	/**

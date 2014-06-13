@@ -10,14 +10,16 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.List;
+
 import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.IECViewModelListBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableListEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.databinding.emf.model.ECViewModelBindable;
 
 /**
  * Responsible to create an observable. The model of this editpart is used to
@@ -33,23 +35,22 @@ public class ECViewModelListBindingEndpointEditpart extends
 		return BindingFactory.eINSTANCE.createYECViewModelListBindingEndpoint();
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "restriction" })
 	@Override
 	public <A extends IObservableList> A getObservable() {
 		YECViewModelListBindingEndpoint model = getModel();
-
-		if (model.getFeatures().size() == 1) {
-			return (A) EMFProperties.list(model.getFeatures().get(0)).observe(
-					model.getElement());
-		} else if (model.getFeatures().size() > 1) {
-			FeaturePath path = FeaturePath
-					.fromList(model.getFeatures().toArray(
-							new EStructuralFeature[model.getFeatures().size()]));
-			return (A) EMFProperties.list(path)
-					.observe(getModel().getElement());
-		} else {
-			throw new IllegalStateException("Features need to be available");
+		if (model.getFeatures().size() > 0) {
+			List<EStructuralFeature> features = model.getFeatures();
+			return (A) ECViewModelBindable.observeList(model.getElement(),
+					FeaturePath.fromList(features
+							.toArray(new EStructuralFeature[features.size()])));
+		} else if (model.getPropertyPath() != null
+				&& !model.getPropertyPath().equals("")) {
+			return (A) ECViewModelBindable.observeList(model.getElement(),
+					model.getPropertyPath(), model.getType());
 		}
+
+		throw new IllegalArgumentException("Not a valid binding model " + model);
 	}
 
 	@Override

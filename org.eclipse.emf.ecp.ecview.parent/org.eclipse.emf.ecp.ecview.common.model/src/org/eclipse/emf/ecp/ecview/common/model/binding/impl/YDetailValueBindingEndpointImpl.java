@@ -2,11 +2,15 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YDetailValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
@@ -19,9 +23,9 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getMasterObservable <em>Master Observable</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YDetailValueBindingEndpointImpl#getEmfNSUri <em>Emf NS Uri</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,6 +41,16 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * @ordered
 	 */
 	protected YValueBindingEndpoint masterObservable;
+
+	/**
+	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatures()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EStructuralFeature> features;
 
 	/**
 	 * The default value of the '{@link #getPropertyPath() <em>Property Path</em>}' attribute.
@@ -67,26 +81,6 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * @ordered
 	 */
 	protected Class<?> type;
-
-	/**
-	 * The default value of the '{@link #getEmfNSUri() <em>Emf NS Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEmfNSUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String EMF_NS_URI_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEmfNSUri() <em>Emf NS Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEmfNSUri()
-	 * @generated
-	 * @ordered
-	 */
-	protected String emfNSUri = EMF_NS_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,6 +172,18 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EStructuralFeature> getFeatures() {
+		if (features == null) {
+			features = new EObjectResolvingEList<EStructuralFeature>(EStructuralFeature.class, this, BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__FEATURES);
+		}
+		return features;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getPropertyPath() {
 		return propertyPath;
 	}
@@ -220,27 +226,6 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEmfNSUri() {
-		return emfNSUri;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEmfNSUri(String newEmfNSUri) {
-		String oldEmfNSUri = emfNSUri;
-		emfNSUri = newEmfNSUri;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI, oldEmfNSUri, emfNSUri));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -261,12 +246,12 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE:
 				if (resolve) return getMasterObservable();
 				return basicGetMasterObservable();
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__FEATURES:
+				return getFeatures();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				return getPropertyPath();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				return getType();
-			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
-				return getEmfNSUri();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -276,20 +261,22 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE:
 				setMasterObservable((YValueBindingEndpoint)newValue);
 				return;
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__FEATURES:
+				getFeatures().clear();
+				getFeatures().addAll((Collection<? extends EStructuralFeature>)newValue);
+				return;
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				setPropertyPath((String)newValue);
 				return;
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)newValue);
-				return;
-			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
-				setEmfNSUri((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -306,14 +293,14 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE:
 				setMasterObservable((YValueBindingEndpoint)null);
 				return;
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__FEATURES:
+				getFeatures().clear();
+				return;
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				setPropertyPath(PROPERTY_PATH_EDEFAULT);
 				return;
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)null);
-				return;
-			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
-				setEmfNSUri(EMF_NS_URI_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -329,12 +316,12 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 		switch (featureID) {
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE:
 				return masterObservable != null;
+			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__FEATURES:
+				return features != null && !features.isEmpty();
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH:
 				return PROPERTY_PATH_EDEFAULT == null ? propertyPath != null : !PROPERTY_PATH_EDEFAULT.equals(propertyPath);
 			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__TYPE:
 				return type != null;
-			case BindingPackage.YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
-				return EMF_NS_URI_EDEFAULT == null ? emfNSUri != null : !EMF_NS_URI_EDEFAULT.equals(emfNSUri);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -353,8 +340,6 @@ public class YDetailValueBindingEndpointImpl extends YValueBindingEndpointImpl i
 		result.append(propertyPath);
 		result.append(", type: ");
 		result.append(type);
-		result.append(", emfNSUri: ");
-		result.append(emfNSUri);
 		result.append(')');
 		return result.toString();
 	}

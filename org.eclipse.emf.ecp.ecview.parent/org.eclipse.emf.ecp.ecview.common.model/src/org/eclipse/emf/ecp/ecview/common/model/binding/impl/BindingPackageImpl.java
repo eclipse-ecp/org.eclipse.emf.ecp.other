@@ -9,9 +9,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.impl.EcorePackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
@@ -185,7 +183,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		ValidationPackageImpl theValidationPackage = (ValidationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) instanceof ValidationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ValidationPackage.eNS_URI) : ValidationPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 		VisibilityPackageImpl theVisibilityPackage = (VisibilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) instanceof VisibilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) : VisibilityPackage.eINSTANCE);
-		EcorePackageImpl theEcorePackage = (EcorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) instanceof EcorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI) : EcorePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theBindingPackage.createPackageContents();
@@ -193,7 +190,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		theValidationPackage.createPackageContents();
 		theDatatypesPackage.createPackageContents();
 		theVisibilityPackage.createPackageContents();
-		theEcorePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theBindingPackage.initializePackageContents();
@@ -201,7 +197,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		theValidationPackage.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
 		theVisibilityPackage.initializePackageContents();
-		theEcorePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theBindingPackage.freeze();
@@ -415,6 +410,24 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYECViewModelValueBindingEndpoint_PropertyPath() {
+		return (EAttribute)yecViewModelValueBindingEndpointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYECViewModelValueBindingEndpoint_Type() {
+		return (EAttribute)yecViewModelValueBindingEndpointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYECViewModelListBindingEndpoint() {
 		return yecViewModelListBindingEndpointEClass;
 	}
@@ -435,6 +448,24 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 */
 	public EReference getYECViewModelListBindingEndpoint_Features() {
 		return (EReference)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYECViewModelListBindingEndpoint_PropertyPath() {
+		return (EAttribute)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYECViewModelListBindingEndpoint_Type() {
+		return (EAttribute)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -469,8 +500,8 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDetailValueBindingEndpoint_PropertyPath() {
-		return (EAttribute)yDetailValueBindingEndpointEClass.getEStructuralFeatures().get(1);
+	public EReference getYDetailValueBindingEndpoint_Features() {
+		return (EReference)yDetailValueBindingEndpointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -478,7 +509,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDetailValueBindingEndpoint_Type() {
+	public EAttribute getYDetailValueBindingEndpoint_PropertyPath() {
 		return (EAttribute)yDetailValueBindingEndpointEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -487,7 +518,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYDetailValueBindingEndpoint_EmfNSUri() {
+	public EAttribute getYDetailValueBindingEndpoint_Type() {
 		return (EAttribute)yDetailValueBindingEndpointEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -532,9 +563,9 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		yDetailValueBindingEndpointEClass = createEClass(YDETAIL_VALUE_BINDING_ENDPOINT);
 		createEReference(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__MASTER_OBSERVABLE);
+		createEReference(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__FEATURES);
 		createEAttribute(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH);
 		createEAttribute(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__TYPE);
-		createEAttribute(yDetailValueBindingEndpointEClass, YDETAIL_VALUE_BINDING_ENDPOINT__EMF_NS_URI);
 
 		yListBindingEndpointEClass = createEClass(YLIST_BINDING_ENDPOINT);
 
@@ -556,10 +587,14 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		yecViewModelValueBindingEndpointEClass = createEClass(YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT);
 		createEReference(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__ELEMENT);
 		createEReference(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__FEATURES);
+		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH);
+		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE);
 
 		yecViewModelListBindingEndpointEClass = createEClass(YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT);
 		createEReference(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__ELEMENT);
 		createEReference(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__FEATURES);
+		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH);
+		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE);
 
 		// Create enums
 		yBindingUpdateStrategyEEnum = createEEnum(YBINDING_UPDATE_STRATEGY);
@@ -590,7 +625,6 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		// Obtain other dependent packages
 		CoreModelPackage theCoreModelPackage = (CoreModelPackage)EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -658,13 +692,13 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		initEAttribute(getYBeanValueBindingEndpoint_PropertyPath(), ecorePackage.getEString(), "propertyPath", null, 0, 1, YBeanValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yDetailValueBindingEndpointEClass, YDetailValueBindingEndpoint.class, "YDetailValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getYDetailValueBindingEndpoint_MasterObservable(), this.getYValueBindingEndpoint(), null, "masterObservable", null, 0, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYDetailValueBindingEndpoint_MasterObservable(), this.getYValueBindingEndpoint(), null, "masterObservable", null, 1, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYDetailValueBindingEndpoint_Features(), ecorePackage.getEStructuralFeature(), null, "features", null, 0, -1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDetailValueBindingEndpoint_PropertyPath(), ecorePackage.getEString(), "propertyPath", null, 0, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEAttribute(getYDetailValueBindingEndpoint_Type(), g1, "type", null, 1, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getYDetailValueBindingEndpoint_EmfNSUri(), ecorePackage.getEString(), "emfNSUri", null, 0, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDetailValueBindingEndpoint_Type(), g1, "type", null, 0, 1, YDetailValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yListBindingEndpointEClass, YListBindingEndpoint.class, "YListBindingEndpoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -697,11 +731,21 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 
 		initEClass(yecViewModelValueBindingEndpointEClass, YECViewModelValueBindingEndpoint.class, "YECViewModelValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYECViewModelValueBindingEndpoint_Element(), ecorePackage.getEObject(), null, "element", null, 1, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getYECViewModelValueBindingEndpoint_Features(), theEcorePackage.getEStructuralFeature(), null, "features", null, 1, -1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYECViewModelValueBindingEndpoint_Features(), ecorePackage.getEStructuralFeature(), null, "features", null, 0, -1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYECViewModelValueBindingEndpoint_PropertyPath(), ecorePackage.getEString(), "propertyPath", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYECViewModelValueBindingEndpoint_Type(), g1, "type", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yecViewModelListBindingEndpointEClass, YECViewModelListBindingEndpoint.class, "YECViewModelListBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYECViewModelListBindingEndpoint_Element(), ecorePackage.getEObject(), null, "element", null, 1, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getYECViewModelListBindingEndpoint_Features(), theEcorePackage.getEStructuralFeature(), null, "features", null, 1, -1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYECViewModelListBindingEndpoint_Features(), ecorePackage.getEStructuralFeature(), null, "features", null, 0, -1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYECViewModelListBindingEndpoint_PropertyPath(), ecorePackage.getEString(), "propertyPath", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYECViewModelListBindingEndpoint_Type(), g1, "type", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yBindingUpdateStrategyEEnum, YBindingUpdateStrategy.class, "YBindingUpdateStrategy");

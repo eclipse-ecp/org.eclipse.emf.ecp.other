@@ -685,16 +685,6 @@ public class ViewContextTest {
 				.getName()));
 	}
 
-	@Test
-	public void testExec() {
-		Assert.fail("To be implented");
-	}
-
-	@Test
-	public void testAsncExec() {
-		Assert.fail("To be implented");
-	}
-
 	/**
 	 * A helper presenter factory.
 	 */
