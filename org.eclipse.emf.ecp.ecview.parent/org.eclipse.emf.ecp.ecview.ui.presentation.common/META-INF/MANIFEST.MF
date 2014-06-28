@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common API
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.ui.presentation.common
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.7.0
 Import-Package: org.apache.commons.logging;version="1.0.4",
  org.osgi.service.component;version="1.2.0",
  org.slf4j

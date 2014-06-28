@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Editparts API for extension model
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.extension.editparts
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.7.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.osgi.service.component;version="1.2.0",
  org.slf4j
 Service-Component: OSGI-INF/editPartManager.xml, OSGI-INF/presenterFactory.xml 
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.emf.ecp.ecview.ui.core.editparts.extension,
- org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes,
- org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.presentation
-Require-Bundle: org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1";visibility:=reexport,
+Export-Package: org.eclipse.emf.ecp.ecview.ui.core.editparts.extension;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.datatypes;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.presentation;version="0.7.0"
+Require-Bundle: org.eclipse.emf.ecp.ecview.common;bundle-version="[0.7.0,0.8.0)",
  org.eclipse.core.databinding;bundle-version="1.4.1"

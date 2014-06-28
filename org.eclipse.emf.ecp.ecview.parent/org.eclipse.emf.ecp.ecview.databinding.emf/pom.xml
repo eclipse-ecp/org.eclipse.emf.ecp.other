@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.eclipse.emf.ecp.ecview</groupId>
     <artifactId>org.eclipse.emf.ecp.ecview</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.7.0</version>
   </parent>
   <artifactId>org.eclipse.emf.ecp.ecview.databinding.emf</artifactId>
   <packaging>eclipse-plugin</packaging>

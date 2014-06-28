@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common API
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.common
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.7.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.commons.logging;version="1.0.4",
  org.osgi.framework;version="1.7.0",
@@ -13,21 +13,21 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: org.apache.commons.beanutils;bundle-version="1.8.0",
  org.eclipse.core.databinding.observable;bundle-version="1.4.1",
  org.eclipse.core.databinding;bundle-version="1.4.1"
-Export-Package: org.eclipse.emf.ecp.ecview.common,
- org.eclipse.emf.ecp.ecview.common.beans,
- org.eclipse.emf.ecp.ecview.common.binding,
- org.eclipse.emf.ecp.ecview.common.binding.observables,
- org.eclipse.emf.ecp.ecview.common.concurrent,
- org.eclipse.emf.ecp.ecview.common.concurrent.internal;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.context,
- org.eclipse.emf.ecp.ecview.common.disposal,
- org.eclipse.emf.ecp.ecview.common.editpart,
- org.eclipse.emf.ecp.ecview.common.editpart.binding,
- org.eclipse.emf.ecp.ecview.common.editpart.datatypes,
- org.eclipse.emf.ecp.ecview.common.editpart.validation,
- org.eclipse.emf.ecp.ecview.common.editpart.visibility,
- org.eclipse.emf.ecp.ecview.common.notification,
- org.eclipse.emf.ecp.ecview.common.presentation,
- org.eclipse.emf.ecp.ecview.common.services,
- org.eclipse.emf.ecp.ecview.common.uri,
- org.eclipse.emf.ecp.ecview.common.validation
+Export-Package: org.eclipse.emf.ecp.ecview.common;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.beans;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.binding;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.binding.observables;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.concurrent;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.concurrent.internal;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.context;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.disposal;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.editpart;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.editpart.binding;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.editpart.datatypes;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.editpart.validation;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.editpart.visibility;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.notification;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.presentation;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.services;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.uri;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.common.validation;version="0.7.0"

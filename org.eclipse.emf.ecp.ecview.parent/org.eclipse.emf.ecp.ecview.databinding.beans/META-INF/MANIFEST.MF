@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Beans and POJO binding delegates for ECView
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.databinding.beans
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.7.0
 Require-Bundle: org.eclipse.core.databinding.beans,
  org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.property,
- org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.common;bundle-version="[0.7.0,0.8.0)",
  org.apache.commons.beanutils;bundle-version="1.8.0"
 Service-Component: OSGI-INF/beanBindingDelegate.xml, OSGI-INF/pojoBindingDelegate.xml
-Export-Package: org.eclipse.emf.ecp.ecview.databinding.beans.context;x-internal:=true
+Export-Package: org.eclipse.emf.ecp.ecview.databinding.beans.context;version="0.7.0";x-internal:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

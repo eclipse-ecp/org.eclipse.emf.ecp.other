@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>org.eclipse.emf.ecp.ecview</artifactId>
 		<groupId>org.eclipse.emf.ecp.ecview</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.7.0</version>
 	</parent>
 	<artifactId>org.eclipse.emf.ecp.ecview.target.kepler</artifactId>
 	<packaging>eclipse-target-definition</packaging>

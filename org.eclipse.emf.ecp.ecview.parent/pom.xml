@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.emf.ecp.ecview</groupId>
 	<artifactId>org.eclipse.emf.ecp.ecview</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.7.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -60,6 +60,8 @@
 						</executions>
 						<configuration>
 							<newVersion>${next-release}</newVersion>
+							<artifacts>org.eclipse.emf.ecp.ecview
+							</artifacts>
 						</configuration>
 					</plugin>
 				</plugins>

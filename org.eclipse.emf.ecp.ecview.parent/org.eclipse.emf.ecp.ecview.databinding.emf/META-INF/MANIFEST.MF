@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EMF databinding delegate
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.databinding.emf
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.7.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.emf.databinding,
- org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1",
+ org.eclipse.emf.ecp.ecview.common;bundle-version="[0.7.0,0.8.0)",
  org.eclipse.core.databinding.beans,
  org.eclipse.core.databinding.property,
  com.ibm.icu
-Export-Package: org.eclipse.emf.ecp.ecview.databinding.emf.common,
- org.eclipse.emf.ecp.ecview.databinding.emf.context;x-internal:=true,
- org.eclipse.emf.ecp.ecview.databinding.emf.model;x-internal:=true
+Export-Package: org.eclipse.emf.ecp.ecview.databinding.emf.common;version="0.7.0",
+ org.eclipse.emf.ecp.ecview.databinding.emf.context;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.databinding.emf.model;version="0.7.0";x-internal:=true
 Service-Component: OSGI-INF/emfBindingDelegate.xml

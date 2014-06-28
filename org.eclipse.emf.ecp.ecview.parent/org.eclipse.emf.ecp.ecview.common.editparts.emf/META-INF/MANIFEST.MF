@@ -2,27 +2,27 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Emf editparts
 Bundle-SymbolicName: org.eclipse.emf.ecp.ecview.common.editparts.emf
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.7.0
 Bundle-Activator: org.eclipse.emf.ecp.ecview.common.editpart.emf.Activator
 Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
- org.eclipse.emf.ecp.ecview.common;bundle-version="0.0.1";visibility:=reexport,
+ org.eclipse.emf.ecp.ecview.common;bundle-version="[0.7.0,0.8.0)",
  org.eclipse.emf.ecore.xmi;bundle-version="2.8.0";visibility:=reexport,
- org.eclipse.emf.ecp.ecview.common.model;bundle-version="0.0.1";visibility:=reexport,
+ org.eclipse.emf.ecp.ecview.common.model;bundle-version="[0.7.0,0.8.0)",
  org.eclipse.core.databinding.observable;bundle-version="1.4.1",
  org.eclipse.core.databinding;bundle-version="1.4.1",
  org.eclipse.core.databinding.beans;bundle-version="1.2.200",
  org.eclipse.core.databinding.property;bundle-version="1.4.200",
  org.apache.commons.lang;bundle-version="2.6.0",
- org.eclipse.emf.ecp.ecview.databinding.emf;bundle-version="0.0.1"
+ org.eclipse.emf.ecp.ecview.databinding.emf;bundle-version="[0.7.0,0.8.0)"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.databinding,
  org.slf4j;version="1.6.4"
-Export-Package: org.eclipse.emf.ecp.ecview.common.editpart.emf;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.common;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.datatypes;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.internal;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.validation;x-internal:=true,
- org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;x-internal:=true
+Export-Package: org.eclipse.emf.ecp.ecview.common.editpart.emf;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.binding;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.common;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.datatypes;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.internal;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.validation;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.validator;version="0.7.0";x-internal:=true
 Service-Component: OSGI-INF/editPartManager.xml
