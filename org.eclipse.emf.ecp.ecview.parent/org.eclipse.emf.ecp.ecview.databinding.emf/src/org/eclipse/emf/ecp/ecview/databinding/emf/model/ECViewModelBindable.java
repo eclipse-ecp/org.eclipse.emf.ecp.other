@@ -83,6 +83,26 @@ public class ECViewModelBindable {
 	 */
 	public static IObservableValue observeValue(Realm realm, EObject yElement,
 			String attributePath, Class<?> elementType) {
+
+		if (EObject.class.isAssignableFrom(elementType)) {
+		FeaturePath path = getFeaturePath(attributePath, yElement.eClass(), elementType);
+			
+		} else {
+			return doObserveValue(yElement, attributePath, elementType);
+		}
+
+	}
+
+	/**
+	 * See {@link #observeValue(Realm, EObject, String, Class)}.
+	 * 
+	 * @param yElement
+	 * @param attributePath
+	 * @param elementType
+	 * @return
+	 */
+	protected static IObservableValue doObserveValue(EObject yElement,
+			String attributePath, Class<?> elementType) {
 		if (yElement == null) {
 			throw new IllegalArgumentException(
 					"ECView model element must not be null!");
