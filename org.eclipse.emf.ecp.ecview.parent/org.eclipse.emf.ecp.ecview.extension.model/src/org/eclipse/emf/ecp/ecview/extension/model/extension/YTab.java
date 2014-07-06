@@ -65,7 +65,7 @@ public interface YTab extends YElement, YCssAble {
 	 * @return the value of the '<em>Embeddable</em>' containment reference.
 	 * @see #setEmbeddable(YEmbeddable)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTab_Embeddable()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	YEmbeddable getEmbeddable();

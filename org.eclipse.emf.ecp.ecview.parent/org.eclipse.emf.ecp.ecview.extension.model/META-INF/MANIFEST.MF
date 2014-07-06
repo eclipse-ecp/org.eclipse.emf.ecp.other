@@ -8,10 +8,10 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipse.emf.ecp.ecview.extension.model.datatypes;version="0.7.0",
- org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl;x-internal:=true;version="0.7.0",
  org.eclipse.emf.ecp.ecview.extension.model.datatypes.util;version="0.7.0",
  org.eclipse.emf.ecp.ecview.extension.model.extension;version="0.7.0",
- org.eclipse.emf.ecp.ecview.extension.model.extension.impl;version="0.7.0";x-internal:=true,
+ org.eclipse.emf.ecp.ecview.extension.model.extension.impl;x-internal:=true;version="0.7.0",
  org.eclipse.emf.ecp.ecview.extension.model.extension.listener;version="0.7.0",
  org.eclipse.emf.ecp.ecview.extension.model.extension.util;version="0.7.0"
 Require-Bundle: org.eclipse.core.runtime,

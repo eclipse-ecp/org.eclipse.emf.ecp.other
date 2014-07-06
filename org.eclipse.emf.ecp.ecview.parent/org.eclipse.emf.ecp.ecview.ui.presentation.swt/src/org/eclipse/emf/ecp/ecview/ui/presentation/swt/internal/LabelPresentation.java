@@ -56,7 +56,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(1, false));
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 			if (modelAccess.isCssIdValid()) {
 				setCSSId(controlBase, modelAccess.getCssID());
 			} else {
@@ -72,7 +72,7 @@ public class LabelPresentation extends AbstractSWTWidgetPresenter {
 			if (modelAccess.isCssClassValid()) {
 				setCSSClass(label, modelAccess.getCssClass());
 			} else {
-				setCSSClass(label, CSS_CLASS__CONTROL);
+				setCSSClass(label, CSS_CLASS_CONTROL);
 			}
 
 			if (modelAccess.isLabelValid()) {

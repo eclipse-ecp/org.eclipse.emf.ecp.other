@@ -189,7 +189,7 @@ public class FieldPresentationTest {
 			if (controlBase == null) {
 				controlBase = new Composite((Composite) parent, SWT.NONE);
 				controlBase.setLayout(new GridLayout(1, false));
-				setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+				setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 				if (Util.isCssIdValid(yTextField)) {
 					setCSSId(controlBase, Util.getCssID(yTextField));
 				} else {

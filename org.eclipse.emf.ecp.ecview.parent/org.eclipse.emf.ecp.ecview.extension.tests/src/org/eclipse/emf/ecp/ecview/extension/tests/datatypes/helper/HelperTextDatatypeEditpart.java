@@ -7,7 +7,7 @@ import org.eclipse.emf.ecp.ecview.extension.editpart.emf.datatypes.TextDatatypeE
 
 @SuppressWarnings("restriction")
 public class HelperTextDatatypeEditpart extends TextDatatypeEditpart {
-
+	
 	@Override
 	public ValidatorDelta internalGetValidatorsDelta(DatatypeBridge bridge,
 			Notification notification) {

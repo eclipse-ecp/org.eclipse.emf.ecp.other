@@ -44,7 +44,7 @@ public interface YVerticalLayout extends YLayout, YSpacingable, YMarginable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cell Styles</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYVerticalLayout_CellStyles()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<YVerticalLayoutCellStyle> getCellStyles();

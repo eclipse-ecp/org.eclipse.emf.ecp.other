@@ -1227,13 +1227,13 @@ public class VerticalLayoutPresentationTest {
 		Composite internalLayout2 = (Composite) unwrap(internalLayout2BaseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(internalLayout1BaseComposite));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(internalLayout2BaseComposite));
 		Assert.assertEquals("anyOtherClass",
 				WidgetElement.getCSSClass(internalLayout1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL,
 				WidgetElement.getCSSClass(internalLayout2));
 
 		// assert css id

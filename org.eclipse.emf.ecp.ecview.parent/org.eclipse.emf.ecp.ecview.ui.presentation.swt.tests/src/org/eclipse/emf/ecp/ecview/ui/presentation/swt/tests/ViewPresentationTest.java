@@ -290,7 +290,7 @@ public class ViewPresentationTest {
 		Composite content = (Composite) unwrap(baseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 			WidgetElement.getCSSClass(baseComposite));
 		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(content));
 
@@ -322,8 +322,8 @@ public class ViewPresentationTest {
 		Composite content = (Composite) unwrap(baseComposite);
 
 		// assert css class
-		Assert.assertEquals(IConstants.CSS_CLASS__CONTROL_BASE, WidgetElement.getCSSClass(baseComposite));
-		Assert.assertEquals(IConstants.CSS_CLASS__CONTROL, WidgetElement.getCSSClass(content));
+		Assert.assertEquals(IConstants.CSS_CLASS_CONTROL_BASE, WidgetElement.getCSSClass(baseComposite));
+		Assert.assertEquals(IConstants.CSS_CLASS_CONTROL, WidgetElement.getCSSClass(content));
 
 		// assert css id
 		Assert.assertNull(WidgetElement.getID(baseComposite));

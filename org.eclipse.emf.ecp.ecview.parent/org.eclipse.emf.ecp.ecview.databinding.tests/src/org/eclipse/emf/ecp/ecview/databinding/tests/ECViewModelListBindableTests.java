@@ -89,7 +89,7 @@ public class ECViewModelListBindableTests {
 		bPerson.getAddress().getCountry().getCities().add("Salzburg");
 
 		IObservableValue observableValue = ECViewModelBindable.observeValue(
-				tList, "tObject.address.country.isoCode", BPerson.class);
+				tList, "tObject.address.country.isoCode", BPerson.class, null);
 		final int[] counter = new int[1];
 		observableValue.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -123,7 +123,7 @@ public class ECViewModelListBindableTests {
 		pPerson.getAddress().getCountry().getCities().add("Salzburg");
 
 		IObservableValue observableValue = ECViewModelBindable.observeValue(
-				tList, "tObject.address.country.isoCode", BPerson.class);
+				tList, "tObject.address.country.isoCode", BPerson.class, null);
 		final int[] counter = new int[1];
 		observableValue.addValueChangeListener(new IValueChangeListener() {
 			@Override

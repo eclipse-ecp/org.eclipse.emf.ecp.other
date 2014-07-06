@@ -55,7 +55,7 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 			if (Util.isCssIdValid(yTextArea)) {
 				setCSSId(controlBase, Util.getCssID(yTextArea));
 			} else {
@@ -90,7 +90,7 @@ public class TextAreaPresentation extends AbstractSWTWidgetPresenter {
 		if (Util.isCssClassValid(yTextArea)) {
 			setCSSClass(text, Util.getCssClass(yTextArea));
 		} else {
-			setCSSClass(text, CSS_CLASS__CONTROL);
+			setCSSClass(text, CSS_CLASS_CONTROL);
 		}
 
 		// creates the binding for the field

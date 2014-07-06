@@ -2,8 +2,10 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -143,6 +145,29 @@ public class YGridLayoutCellStyleImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	public YSpanInfo getSpanInfo() {
+		if (spanInfo != null && spanInfo.eIsProxy()) {
+			InternalEObject oldSpanInfo = (InternalEObject)spanInfo;
+			spanInfo = (YSpanInfo)eResolveProxy(oldSpanInfo);
+			if (spanInfo != oldSpanInfo) {
+				InternalEObject newSpanInfo = (InternalEObject)spanInfo;
+				NotificationChain msgs = oldSpanInfo.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE__SPAN_INFO, null, null);
+				if (newSpanInfo.eInternalContainer() == null) {
+					msgs = newSpanInfo.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE__SPAN_INFO, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE__SPAN_INFO, oldSpanInfo, spanInfo));
+			}
+		}
+		return spanInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YSpanInfo basicGetSpanInfo() {
 		return spanInfo;
 	}
 
@@ -206,7 +231,8 @@ public class YGridLayoutCellStyleImpl extends MinimalEObjectImpl.Container imple
 			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE__ALIGNMENT:
 				return getAlignment();
 			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE__SPAN_INFO:
-				return getSpanInfo();
+				if (resolve) return getSpanInfo();
+				return basicGetSpanInfo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,6 +292,20 @@ public class YGridLayoutCellStyleImpl extends MinimalEObjectImpl.Container imple
 				return spanInfo != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE___ADD_SPAN_INFO__INT_INT_INT_INT:
+				return addSpanInfo((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

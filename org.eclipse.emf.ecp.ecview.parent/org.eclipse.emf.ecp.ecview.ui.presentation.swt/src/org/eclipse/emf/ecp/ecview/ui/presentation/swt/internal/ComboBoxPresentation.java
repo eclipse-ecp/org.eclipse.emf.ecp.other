@@ -51,7 +51,7 @@ public class ComboBoxPresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 			if (Util.isCssIdValid(yComboBox)) {
 				setCSSId(controlBase, Util.getCssID(yComboBox));
 			} else {
@@ -86,7 +86,7 @@ public class ComboBoxPresentation extends AbstractSWTWidgetPresenter {
 		if (Util.isCssClassValid(yComboBox)) {
 			setCSSClass(comboBox, Util.getCssClass(yComboBox));
 		} else {
-			setCSSClass(comboBox, CSS_CLASS__CONTROL);
+			setCSSClass(comboBox, CSS_CLASS_CONTROL);
 		}
 
 		// creates the binding for the field

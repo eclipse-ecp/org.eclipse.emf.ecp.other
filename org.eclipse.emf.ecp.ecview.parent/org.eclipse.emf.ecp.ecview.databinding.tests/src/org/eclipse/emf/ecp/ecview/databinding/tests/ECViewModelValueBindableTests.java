@@ -75,7 +75,7 @@ public class ECViewModelValueBindableTests {
 		BPerson bPerson = BPerson.newInstance("AT");
 
 		IObservableValue observableValue = ECViewModelBindable.observeValue(
-				tList, "tObject.address.country.isoCode", BPerson.class);
+				tList, "tObject.address.country.isoCode", BPerson.class, null);
 		final int[] counter = new int[1];
 		observableValue.addValueChangeListener(new IValueChangeListener() {
 			@Override
@@ -102,7 +102,7 @@ public class ECViewModelValueBindableTests {
 		PPerson pPerson = PPerson.newInstance("AT");
 
 		IObservableValue observableValue = ECViewModelBindable.observeValue(
-				tList, "tObject.address.country.isoCode", PPerson.class);
+				tList, "tObject.address.country.isoCode", PPerson.class, null);
 		final int[] counter = new int[1];
 		observableValue.addValueChangeListener(new IValueChangeListener() {
 			@Override

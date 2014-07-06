@@ -2,8 +2,10 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -187,6 +189,16 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	 */
 	public YTabSheet getParent() {
 		if (eContainerFeatureID() != ExtensionModelPackage.YTAB__PARENT) return null;
+		return (YTabSheet)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YTabSheet basicGetParent() {
+		if (eContainerFeatureID() != ExtensionModelPackage.YTAB__PARENT) return null;
 		return (YTabSheet)eInternalContainer();
 	}
 
@@ -225,6 +237,29 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	 * @generated
 	 */
 	public YEmbeddable getEmbeddable() {
+		if (embeddable != null && embeddable.eIsProxy()) {
+			InternalEObject oldEmbeddable = (InternalEObject)embeddable;
+			embeddable = (YEmbeddable)eResolveProxy(oldEmbeddable);
+			if (embeddable != oldEmbeddable) {
+				InternalEObject newEmbeddable = (InternalEObject)embeddable;
+				NotificationChain msgs = oldEmbeddable.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YTAB__EMBEDDABLE, null, null);
+				if (newEmbeddable.eInternalContainer() == null) {
+					msgs = newEmbeddable.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YTAB__EMBEDDABLE, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YTAB__EMBEDDABLE, oldEmbeddable, embeddable));
+			}
+		}
+		return embeddable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddable basicGetEmbeddable() {
 		return embeddable;
 	}
 
@@ -384,9 +419,11 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 			case ExtensionModelPackage.YTAB__CSS_ID:
 				return getCssID();
 			case ExtensionModelPackage.YTAB__PARENT:
-				return getParent();
+				if (resolve) return getParent();
+				return basicGetParent();
 			case ExtensionModelPackage.YTAB__EMBEDDABLE:
-				return getEmbeddable();
+				if (resolve) return getEmbeddable();
+				return basicGetEmbeddable();
 			case ExtensionModelPackage.YTAB__DATADESCRIPTION:
 				if (resolve) return getDatadescription();
 				return basicGetDatadescription();
@@ -466,7 +503,7 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 			case ExtensionModelPackage.YTAB__CSS_ID:
 				return CSS_ID_EDEFAULT == null ? cssID != null : !CSS_ID_EDEFAULT.equals(cssID);
 			case ExtensionModelPackage.YTAB__PARENT:
-				return getParent() != null;
+				return basicGetParent() != null;
 			case ExtensionModelPackage.YTAB__EMBEDDABLE:
 				return embeddable != null;
 			case ExtensionModelPackage.YTAB__DATADESCRIPTION:
@@ -505,6 +542,20 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExtensionModelPackage.YTAB___GET_VIEW:
+				return getView();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -188,13 +188,13 @@ public class ButtonPresentationTest {
 		Button button2 = (Button) unwrapButton(button2BaseComposite);
 
 		// assert css class
-		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(button1BaseComposite));
-		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(button2BaseComposite));
 
 		assertEquals("anyOtherClass", WidgetElement.getCSSClass(button1));
-		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL,
 				WidgetElement.getCSSClass(button2));
 
 		// assert css id

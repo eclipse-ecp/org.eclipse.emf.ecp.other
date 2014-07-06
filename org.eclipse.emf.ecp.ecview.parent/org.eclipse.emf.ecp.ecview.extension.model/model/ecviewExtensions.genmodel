@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.extension.model/src"
-    modelPluginID="org.eclipse.emf.ecp.ecview.extension.model" modelName="Extension"
+    modelPluginID="org.eclipse.emf.ecp.ecview.extension.model" modelName="ECViewExtensions"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//validation ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//binding ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//datatypes"
-    importOrganizing="true">
+    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//binding ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//core ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//validation ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//datatypes ../../org.eclipse.emf.ecp.ecview.common.model/model/core.genmodel#//visibility"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>extdatatypes.ecore</foreignModel>
   <foreignModel>extension.ecore</foreignModel>
+  <genPackages prefix="ExtDatatypes" basePackage="org.eclipse.emf.ecp.ecview.extension.model"
+      disposableProviderFactory="true" ecorePackage="extdatatypes.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="extdatatypes.ecore#//YDateTimeFormat">
+      <genEnumLiterals ecoreEnumLiteral="extdatatypes.ecore#//YDateTimeFormat/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="extdatatypes.ecore#//YDateTimeFormat/TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="extdatatypes.ecore#//YDateTimeFormat/DATE_TIME"/>
+    </genEnums>
+    <genClasses ecoreClass="extdatatypes.ecore#//YTextDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YTextAreaDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YNumericDatatype">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YNumericDatatype/grouping"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YNumericDatatype/markNegative"/>
+    </genClasses>
+    <genClasses ecoreClass="extdatatypes.ecore#//YDecimalDatatype">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YDecimalDatatype/precision"/>
+    </genClasses>
+    <genClasses ecoreClass="extdatatypes.ecore#//YTableDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YCheckBoxDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YComboBoxDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YListDataType"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YOptionsGroupDataType"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YBrowserDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YDateTimeDatatype">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YDateTimeDatatype/format"/>
+    </genClasses>
+    <genClasses ecoreClass="extdatatypes.ecore#//YTreeDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YProgressBarDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YTabSheetDatatype"/>
+    <genClasses ecoreClass="extdatatypes.ecore#//YMasterDetailDatatype"/>
+  </genPackages>
   <genPackages prefix="ExtensionModel" basePackage="org.eclipse.emf.ecp.ecview.extension.model"
       disposableProviderFactory="true" ecorePackage="extension.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="extension.ecore#//YAlignment">
@@ -184,36 +215,25 @@
     <genClasses ecoreClass="extension.ecore#//YTab">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference extension.ecore#//YTab/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//YTab/embeddable"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YTab/datadescription"/>
       <genOperations ecoreOperation="extension.ecore#//YTab/getView"/>
     </genClasses>
-  </genPackages>
-  <genPackages prefix="ExtDatatypes" basePackage="org.eclipse.emf.ecp.ecview.extension.model"
-      disposableProviderFactory="true" ecorePackage="extdatatypes.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="extdatatypes.ecore#//YDateTimeFormat">
-      <genEnumLiterals ecoreEnumLiteral="extdatatypes.ecore#//YDateTimeFormat/DATE"/>
-      <genEnumLiterals ecoreEnumLiteral="extdatatypes.ecore#//YDateTimeFormat/TIME"/>
-      <genEnumLiterals ecoreEnumLiteral="extdatatypes.ecore#//YDateTimeFormat/DATE_TIME"/>
-    </genEnums>
-    <genClasses ecoreClass="extdatatypes.ecore#//YTextDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YTextAreaDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YNumericDatatype">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YNumericDatatype/grouping"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YNumericDatatype/markNegative"/>
+    <genClasses ecoreClass="extension.ecore#//YMasterDetail">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YMasterDetail/datatype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YMasterDetail/datadescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YMasterDetail/selection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YMasterDetail/collection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YMasterDetail/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//YMasterDetail/masterElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//YMasterDetail/detailElement"/>
     </genClasses>
-    <genClasses ecoreClass="extdatatypes.ecore#//YDecimalDatatype">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YDecimalDatatype/precision"/>
+    <genClasses ecoreClass="extension.ecore#//YFormLayout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//YFormLayout/cellStyles"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YFormLayout/fillVertical"/>
     </genClasses>
-    <genClasses ecoreClass="extdatatypes.ecore#//YTableDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YCheckBoxDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YComboBoxDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YListDataType"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YOptionsGroupDataType"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YBrowserDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YDateTimeDatatype">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extdatatypes.ecore#//YDateTimeDatatype/format"/>
+    <genClasses ecoreClass="extension.ecore#//YFormLayoutCellStyle">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference extension.ecore#//YFormLayoutCellStyle/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//YFormLayoutCellStyle/alignment"/>
     </genClasses>
-    <genClasses ecoreClass="extdatatypes.ecore#//YTreeDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YProgressBarDatatype"/>
-    <genClasses ecoreClass="extdatatypes.ecore#//YTabSheetDatatype"/>
   </genPackages>
 </genmodel:GenModel>

@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -365,6 +366,34 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 				return bindings != null && !bindings.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case BindingPackage.YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT:
+				return addBinding((YValueBindingEndpoint)arguments.get(0), (YValueBindingEndpoint)arguments.get(1));
+			case BindingPackage.YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT:
+				return addBinding((YListBindingEndpoint)arguments.get(0), (YListBindingEndpoint)arguments.get(1));
+			case BindingPackage.YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY:
+				return addBinding((YValueBindingEndpoint)arguments.get(0), (YValueBindingEndpoint)arguments.get(1), (YBindingUpdateStrategy)arguments.get(2), (YBindingUpdateStrategy)arguments.get(3));
+			case BindingPackage.YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY:
+				return addBinding((YListBindingEndpoint)arguments.get(0), (YListBindingEndpoint)arguments.get(1), (YBindingUpdateStrategy)arguments.get(2), (YBindingUpdateStrategy)arguments.get(3));
+			case BindingPackage.YBINDING_SET___GET_VIEW:
+				return getView();
+			case BindingPackage.YBINDING_SET___ADD_BINDING__YBINDING:
+				addBinding((YBinding)arguments.get(0));
+				return null;
+			case BindingPackage.YBINDING_SET___REMOVE_BINDING__YBINDING:
+				removeBinding((YBinding)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

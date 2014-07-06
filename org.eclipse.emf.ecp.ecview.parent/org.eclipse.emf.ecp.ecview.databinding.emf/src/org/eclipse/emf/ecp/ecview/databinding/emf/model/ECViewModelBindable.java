@@ -24,6 +24,7 @@ import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
@@ -58,12 +59,17 @@ public class ECViewModelBindable {
 	 *            - The type that is contained in the yElement. For instance if
 	 *            YList#selection is of type Item.class, then this property is
 	 *            Item.class.
+	 * @param emfNsURI
+	 *            - The namespace URI of the EMF package, if the elementType is
+	 *            provided by emf. Required to get the EClass for the given
+	 *            elementType. May be <code>null</code> if the elementType is
+	 *            not related to emf.
 	 * @return
 	 */
 	public static IObservableValue observeValue(EObject yElement,
-			String attributePath, Class<?> elementType) {
+			String attributePath, Class<?> elementType, String emfNsURI) {
 		return observeValue(Realm.getDefault(), yElement, attributePath,
-				elementType);
+				elementType, emfNsURI);
 	}
 
 	/**
@@ -79,14 +85,34 @@ public class ECViewModelBindable {
 	 *            - The type that is contained in the yElement. For instance if
 	 *            YList#selection is of type Item.class, then this property is
 	 *            Item.class.
+	 * @param emfNsURI
+	 *            - The namespace URI of the EMF package, if the elementType is
+	 *            provided by emf. Required to get the EClass for the given
+	 *            elementType. May be <code>null</code> if the elementType is
+	 *            not related to emf.
 	 * @return
 	 */
 	public static IObservableValue observeValue(Realm realm, EObject yElement,
-			String attributePath, Class<?> elementType) {
+			String attributePath, Class<?> elementType, String emfNsURI) {
 
-		if (EObject.class.isAssignableFrom(elementType)) {
-		FeaturePath path = getFeaturePath(attributePath, yElement.eClass(), elementType);
-			
+		if (elementType != null && EObject.class.isAssignableFrom(elementType)) {
+			EPackage ePkg = EPackage.Registry.INSTANCE.getEPackage(emfNsURI);
+			if (ePkg == null) {
+				throw new IllegalArgumentException(emfNsURI
+						+ " is not a valid EPackage!");
+			}
+
+			EClass eClass = (EClass) ePkg.getEClassifier(elementType
+					.getSimpleName());
+			if (eClass == null) {
+				throw new IllegalArgumentException(elementType.getSimpleName()
+						+ " is not contained in the EPackage for nsURI "
+						+ emfNsURI);
+			}
+
+			FeaturePath path = getFeaturePath(attributePath, yElement.eClass(),
+					eClass);
+			return observeValue(realm, yElement, path);
 		} else {
 			return doObserveValue(yElement, attributePath, elementType);
 		}
@@ -126,7 +152,7 @@ public class ECViewModelBindable {
 					eClass.getName()));
 		}
 
-		if (EObject.class.isAssignableFrom(elementType)) {
+		if (elementType != null && EObject.class.isAssignableFrom(elementType)) {
 			throw new IllegalStateException(
 					"Please use observeValue(EObject, FeaturePath)");
 		}

@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -166,7 +167,7 @@ public class YHorizontalLayoutImpl extends YLayoutImpl implements
 	 */
 	public EList<YHorizontalLayoutCellStyle> getCellStyles() {
 		if (cellStyles == null) {
-			cellStyles = new EObjectContainmentEList<YHorizontalLayoutCellStyle>(YHorizontalLayoutCellStyle.class, this, ExtensionModelPackage.YHORIZONTAL_LAYOUT__CELL_STYLES);
+			cellStyles = new EObjectContainmentEList.Resolving<YHorizontalLayoutCellStyle>(YHorizontalLayoutCellStyle.class, this, ExtensionModelPackage.YHORIZONTAL_LAYOUT__CELL_STYLES);
 		}
 		return cellStyles;
 	}
@@ -343,6 +344,20 @@ public class YHorizontalLayoutImpl extends YLayoutImpl implements
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExtensionModelPackage.YHORIZONTAL_LAYOUT___GET_CELL_STYLE__YEMBEDDABLE:
+				return getCellStyle((YEmbeddable)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

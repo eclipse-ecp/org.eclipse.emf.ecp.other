@@ -2,7 +2,9 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -171,6 +173,22 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case BindingPackage.YBINDING_ENDPOINT___GET_BINDING:
+				return getBinding();
+			case BindingPackage.YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT:
+				return isBindsElement((YElement)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

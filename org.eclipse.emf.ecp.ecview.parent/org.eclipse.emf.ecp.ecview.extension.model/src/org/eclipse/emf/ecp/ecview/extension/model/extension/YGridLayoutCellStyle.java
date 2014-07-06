@@ -98,7 +98,7 @@ public interface YGridLayoutCellStyle extends EObject {
 	 * @return the value of the '<em>Span Info</em>' containment reference.
 	 * @see #setSpanInfo(YSpanInfo)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYGridLayoutCellStyle_SpanInfo()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YSpanInfo getSpanInfo();

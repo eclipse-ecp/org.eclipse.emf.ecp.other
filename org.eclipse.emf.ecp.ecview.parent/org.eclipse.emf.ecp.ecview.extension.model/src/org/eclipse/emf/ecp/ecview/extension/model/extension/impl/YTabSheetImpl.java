@@ -60,7 +60,7 @@ public class YTabSheetImpl extends YEmbeddableImpl implements YTabSheet {
 	 */
 	public EList<YTab> getTabs() {
 		if (tabs == null) {
-			tabs = new EObjectContainmentWithInverseEList<YTab>(YTab.class, this, ExtensionModelPackage.YTAB_SHEET__TABS, ExtensionModelPackage.YTAB__PARENT);
+			tabs = new EObjectContainmentWithInverseEList.Resolving<YTab>(YTab.class, this, ExtensionModelPackage.YTAB_SHEET__TABS, ExtensionModelPackage.YTAB__PARENT);
 		}
 		return tabs;
 	}

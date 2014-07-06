@@ -63,7 +63,7 @@ public class BrowserPresentation extends FieldPresentation {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 			if (Util.isCssIdValid(yBrowser)) {
 				setCSSId(controlBase, Util.getCssID(yBrowser));
 			} else {
@@ -89,7 +89,7 @@ public class BrowserPresentation extends FieldPresentation {
 		if (Util.isCssClassValid(yBrowser)) {
 			setCSSClass(browser, Util.getCssClass(yBrowser));
 		} else {
-			setCSSClass(browser, CSS_CLASS__CONTROL);
+			setCSSClass(browser, CSS_CLASS_CONTROL);
 		}
 
 		// creates the binding for the field

@@ -136,22 +136,22 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		CoreModelPackageImpl theCoreModelPackage = (CoreModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) instanceof CoreModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) : CoreModelPackage.eINSTANCE);
 		BindingPackageImpl theBindingPackage = (BindingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) instanceof BindingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BindingPackage.eNS_URI) : BindingPackage.eINSTANCE);
+		CoreModelPackageImpl theCoreModelPackage = (CoreModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) instanceof CoreModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CoreModelPackage.eNS_URI) : CoreModelPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 		VisibilityPackageImpl theVisibilityPackage = (VisibilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) instanceof VisibilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(VisibilityPackage.eNS_URI) : VisibilityPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theValidationPackage.createPackageContents();
-		theCoreModelPackage.createPackageContents();
 		theBindingPackage.createPackageContents();
+		theCoreModelPackage.createPackageContents();
 		theDatatypesPackage.createPackageContents();
 		theVisibilityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theValidationPackage.initializePackageContents();
-		theCoreModelPackage.initializePackageContents();
 		theBindingPackage.initializePackageContents();
+		theCoreModelPackage.initializePackageContents();
 		theDatatypesPackage.initializePackageContents();
 		theVisibilityPackage.initializePackageContents();
 
@@ -363,7 +363,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		yMaxLengthValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 		yRegexpValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(yValidatorEClass, YValidator.class, "YValidator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
 		EGenericType g2 = createEGenericType();

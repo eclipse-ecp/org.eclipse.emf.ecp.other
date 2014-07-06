@@ -21,7 +21,7 @@ public interface IConstants {
 	 * margins on a control and to allow a control to rebuild its SWT controls at the "base composite parent".
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
-	String CSS_CLASS__CONTROL_BASE = "controlbase";
+	String CSS_CLASS_CONTROL_BASE = "controlbase";
 	// END SUPRESS CATCH EXCEPTION
 
 	/**
@@ -29,7 +29,7 @@ public interface IConstants {
 	 * CSS class.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public static final String CSS_CLASS__CONTROL = "control";
+	public static final String CSS_CLASS_CONTROL = "control";
 	// END SUPRESS CATCH EXCEPTION
 
 	/**

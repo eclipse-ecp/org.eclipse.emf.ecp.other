@@ -33,6 +33,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getMultiSelection <em>Multi Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -205,5 +206,31 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable,
 	 * @generated
 	 */
 	void setType(Class<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Emf Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Emf Ns URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Emf Ns URI</em>' attribute.
+	 * @see #setEmfNsURI(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_EmfNsURI()
+	 * @model
+	 * @generated
+	 */
+	String getEmfNsURI();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getEmfNsURI <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Emf Ns URI</em>' attribute.
+	 * @see #getEmfNsURI()
+	 * @generated
+	 */
+	void setEmfNsURI(String value);
 
 } // YUiTable

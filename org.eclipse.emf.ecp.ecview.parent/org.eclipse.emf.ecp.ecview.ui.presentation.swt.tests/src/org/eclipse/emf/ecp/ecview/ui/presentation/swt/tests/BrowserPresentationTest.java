@@ -209,13 +209,13 @@ public class BrowserPresentationTest {
 		Browser browser2 = (Browser) unwrapBrowser(browser2BaseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(browser1BaseComposite));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(browser2BaseComposite));
 
 		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(browser1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL,
 				WidgetElement.getCSSClass(browser2));
 
 //		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,

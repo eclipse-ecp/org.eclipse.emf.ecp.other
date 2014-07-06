@@ -49,7 +49,7 @@ public class TablePresentation extends AbstractSWTWidgetPresenter {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 			if (Util.isCssIdValid(yTable)) {
 				setCSSId(controlBase, Util.getCssID(yTable));
 			} else {
@@ -76,7 +76,7 @@ public class TablePresentation extends AbstractSWTWidgetPresenter {
 		if (Util.isCssClassValid(yTable)) {
 			setCSSClass(table, Util.getCssClass(yTable));
 		} else {
-			setCSSClass(table, CSS_CLASS__CONTROL);
+			setCSSClass(table, CSS_CLASS_CONTROL);
 		}
 		
 		// creates the binding for the field

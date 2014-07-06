@@ -139,6 +139,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 3;
 
 	/**
+	 * The number of operations of the '<em>YText Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTextAreaDatatypeImpl <em>YText Area Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +230,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTEXT_AREA_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 3;
 
 	/**
+	 * The number of operations of the '<em>YText Area Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YNumericDatatypeImpl <em>YNumeric Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -301,6 +319,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YNUMERIC_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>YNumeric Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDecimalDatatypeImpl <em>YDecimal Datatype</em>}' class.
@@ -394,6 +421,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YDECIMAL_DATATYPE_FEATURE_COUNT = YNUMERIC_DATATYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YDecimal Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_DATATYPE_OPERATION_COUNT = YNUMERIC_DATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTableDatatypeImpl <em>YTable Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -447,6 +483,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTABLE_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>YTable Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YCheckBoxDatatypeImpl <em>YCheck Box Datatype</em>}' class.
@@ -504,6 +549,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YCHECK_BOX_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The number of operations of the '<em>YCheck Box Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YComboBoxDatatypeImpl <em>YCombo Box Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,6 +611,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCOMBO_BOX_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>YCombo Box Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YListDataTypeImpl <em>YList Data Type</em>}' class.
@@ -615,6 +678,15 @@ public interface ExtDatatypesPackage extends EPackage {
 
 
 	/**
+	 * The number of operations of the '<em>YList Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_DATA_TYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YOptionsGroupDataTypeImpl <em>YOptions Group Data Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,6 +742,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YOPTIONS_GROUP_DATA_TYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The number of operations of the '<em>YOptions Group Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP_DATA_TYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YBrowserDatatypeImpl <em>YBrowser Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +804,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBROWSER_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>YBrowser Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YDateTimeDatatypeImpl <em>YDate Time Datatype</em>}' class.
@@ -789,6 +879,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YDATE_TIME_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YDate Time Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTreeDatatypeImpl <em>YTree Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -842,6 +941,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTREE_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>YTree Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YProgressBarDatatypeImpl <em>YProgress Bar Datatype</em>}' class.
@@ -899,6 +1007,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YPROGRESS_BAR_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The number of operations of the '<em>YProgress Bar Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YTabSheetDatatypeImpl <em>YTab Sheet Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -954,6 +1071,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	int YTAB_SHEET_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The number of operations of the '<em>YTab Sheet Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.impl.YMasterDetailDatatypeImpl <em>YMaster Detail Datatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1007,6 +1133,15 @@ public interface ExtDatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YMASTER_DETAIL_DATATYPE_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>YMaster Detail Datatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL_DATATYPE_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.datatypes.YDateTimeFormat <em>YDate Time Format</em>}' enum.

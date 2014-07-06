@@ -67,7 +67,7 @@ public class HorizontalLayoutPresentation extends AbstractSWTLayoutPresenter {
 			} else {
 				setCSSId(controlBase, getEditpart().getId());
 			}
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 
 			if (modelAccess.isMargin()) {
 				controlBase.setData(CSSSWTConstants.MARGIN_WRAPPER_KEY,
@@ -87,7 +87,7 @@ public class HorizontalLayoutPresentation extends AbstractSWTLayoutPresenter {
 			if (modelAccess.isCssClassValid()) {
 				setCSSClass(control, modelAccess.getCssClass());
 			} else {
-				setCSSClass(control, CSS_CLASS__CONTROL);
+				setCSSClass(control, CSS_CLASS_CONTROL);
 			}
 
 			layout.fill = modelAccess.isFillHorizontal();

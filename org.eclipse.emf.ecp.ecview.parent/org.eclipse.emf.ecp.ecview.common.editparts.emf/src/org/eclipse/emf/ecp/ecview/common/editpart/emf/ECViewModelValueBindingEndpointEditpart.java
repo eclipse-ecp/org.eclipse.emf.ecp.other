@@ -48,7 +48,8 @@ public class ECViewModelValueBindingEndpointEditpart extends
 		} else if (model.getPropertyPath() != null
 				&& !model.getPropertyPath().equals("")) {
 			return (A) ECViewModelBindable.observeValue(model.getElement(),
-					model.getPropertyPath(), model.getType());
+					model.getPropertyPath(), model.getType(),
+					model.getEmfNsURI());
 		}
 
 		throw new IllegalArgumentException("Not a valid binding model " + model);

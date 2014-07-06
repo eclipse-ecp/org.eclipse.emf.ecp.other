@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getSelection <em>Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,6 +119,26 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @ordered
 	 */
 	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMF_NS_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -373,6 +395,27 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__TYPE, oldType, type));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEmfNsURI() {
+		return emfNsURI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmfNsURI(String newEmfNsURI) {
+		String oldEmfNsURI = emfNsURI;
+		emfNsURI = newEmfNsURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI, oldEmfNsURI, emfNsURI));
+	}
+
 	//	/**
 //	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 //	 * 
@@ -513,6 +556,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				return getCollection();
 			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
 				return getType();
+			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
+				return getEmfNsURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -547,6 +592,9 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
 				setType((Class<?>)newValue);
 				return;
+			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
+				setEmfNsURI((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -579,6 +627,9 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
 				setType((Class<?>)null);
 				return;
+			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
+				setEmfNsURI(EMF_NS_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -604,6 +655,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				return collection != null && !collection.isEmpty();
 			case ExtensionModelPackage.YCOMBO_BOX__TYPE:
 				return type != null;
+			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
+				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -661,6 +714,49 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == YBindable.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YCollectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT: return ExtensionModelPackage.YCOMBO_BOX___CREATE_COLLECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YSelectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT: return ExtensionModelPackage.YCOMBO_BOX___CREATE_SELECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExtensionModelPackage.YCOMBO_BOX___CREATE_SELECTION_ENDPOINT:
+				return createSelectionEndpoint();
+			case ExtensionModelPackage.YCOMBO_BOX___CREATE_COLLECTION_ENDPOINT:
+				return createCollectionEndpoint();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -675,6 +771,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 		result.append(collection);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", emfNsURI: ");
+		result.append(emfNsURI);
 		result.append(')');
 		return result.toString();
 	}

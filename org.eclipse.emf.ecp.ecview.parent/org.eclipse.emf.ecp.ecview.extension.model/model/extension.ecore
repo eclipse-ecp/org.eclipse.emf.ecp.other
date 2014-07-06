@@ -152,6 +152,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YTree" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YCollectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YSelectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YMultiSelectionBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YTreeDatatype"/>
@@ -170,6 +171,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YOptionsGroup" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YCollectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YSelectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YMultiSelectionBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
@@ -188,6 +190,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YList" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YCollectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YSelectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YMultiSelectionBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
@@ -206,6 +209,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YLabel" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YField ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YValueBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/datatypes.ecore#//YDatadescription"/>
@@ -261,6 +265,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YButton" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YAction ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YVisibleable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEditable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEnable">
     <eOperations name="addClickListener">
@@ -313,6 +318,7 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterElement" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="detailElement" eType="ecore:EClass ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YEmbeddable"

@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -834,6 +835,20 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CoreModelPackage.YVIEW___GET_OR_CREATE_BINDING_SET:
+				return getOrCreateBindingSet();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

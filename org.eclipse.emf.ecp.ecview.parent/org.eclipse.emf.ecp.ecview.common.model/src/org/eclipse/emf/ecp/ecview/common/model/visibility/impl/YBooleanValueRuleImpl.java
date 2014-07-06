@@ -2,6 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.visibility.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule;
@@ -54,6 +56,20 @@ public abstract class YBooleanValueRuleImpl extends YVisibilityRuleImpl implemen
 	 */
 	public YVisibilityRuleBindingEndpoint createRuleEndpoint() {
 		return super.createRuleEndpoint("value");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case VisibilityPackage.YBOOLEAN_VALUE_RULE___CREATE_RULE_ENDPOINT:
+				return createRuleEndpoint();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //YBooleanValueRuleImpl

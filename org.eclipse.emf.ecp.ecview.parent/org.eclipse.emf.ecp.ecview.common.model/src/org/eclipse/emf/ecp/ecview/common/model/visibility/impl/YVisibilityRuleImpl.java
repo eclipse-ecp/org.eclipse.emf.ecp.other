@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.visibility.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -276,6 +277,20 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 				return matchMeansFalse != MATCH_MEANS_FALSE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case VisibilityPackage.YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING:
+				return createRuleEndpoint((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

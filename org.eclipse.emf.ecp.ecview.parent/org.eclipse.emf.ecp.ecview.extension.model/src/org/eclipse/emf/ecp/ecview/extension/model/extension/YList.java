@@ -33,6 +33,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YListDataType;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getMultiSelection <em>Multi Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -205,5 +206,31 @@ public interface YList extends YInput, YCollectionBindable, YSelectionBindable, 
 	 * @generated
 	 */
 	void setType(Class<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Emf Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Emf Ns URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Emf Ns URI</em>' attribute.
+	 * @see #setEmfNsURI(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYList_EmfNsURI()
+	 * @model
+	 * @generated
+	 */
+	String getEmfNsURI();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getEmfNsURI <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Emf Ns URI</em>' attribute.
+	 * @see #getEmfNsURI()
+	 * @generated
+	 */
+	void setEmfNsURI(String value);
 
 } // YUiList

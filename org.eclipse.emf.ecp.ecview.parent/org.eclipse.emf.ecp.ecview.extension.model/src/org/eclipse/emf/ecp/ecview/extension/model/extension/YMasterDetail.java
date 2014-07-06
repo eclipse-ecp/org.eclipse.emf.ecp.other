@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatyp
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getSelection <em>Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getMasterElement <em>Master Element</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDetailElement <em>Detail Element</em>}</li>
  * </ul>
@@ -153,6 +154,32 @@ public interface YMasterDetail extends YInput, YCollectionBindable, YSelectionBi
 	void setType(Class<?> value);
 
 	/**
+	 * Returns the value of the '<em><b>Emf Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Emf Ns URI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Emf Ns URI</em>' attribute.
+	 * @see #setEmfNsURI(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYMasterDetail_EmfNsURI()
+	 * @model
+	 * @generated
+	 */
+	String getEmfNsURI();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getEmfNsURI <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Emf Ns URI</em>' attribute.
+	 * @see #getEmfNsURI()
+	 * @generated
+	 */
+	void setEmfNsURI(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Master Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -163,7 +190,7 @@ public interface YMasterDetail extends YInput, YCollectionBindable, YSelectionBi
 	 * @return the value of the '<em>Master Element</em>' containment reference.
 	 * @see #setMasterElement(YEmbeddable)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYMasterDetail_MasterElement()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YEmbeddable getMasterElement();
@@ -189,7 +216,7 @@ public interface YMasterDetail extends YInput, YCollectionBindable, YSelectionBi
 	 * @return the value of the '<em>Detail Element</em>' containment reference.
 	 * @see #setDetailElement(YEmbeddable)
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYMasterDetail_DetailElement()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	YEmbeddable getDetailElement();

@@ -94,6 +94,15 @@ public interface ValidationPackage extends EPackage {
 	int YVALIDATOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YValidator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALIDATOR_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YMinLengthValidatorImpl <em>YMin Length Validator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +147,15 @@ public interface ValidationPackage extends EPackage {
 	 * @ordered
 	 */
 	int YMIN_LENGTH_VALIDATOR_FEATURE_COUNT = YVALIDATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>YMin Length Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMIN_LENGTH_VALIDATOR_OPERATION_COUNT = YVALIDATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YMaxLengthValidatorImpl <em>YMax Length Validator</em>}' class.
@@ -186,6 +204,15 @@ public interface ValidationPackage extends EPackage {
 	int YMAX_LENGTH_VALIDATOR_FEATURE_COUNT = YVALIDATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YMax Length Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMAX_LENGTH_VALIDATOR_OPERATION_COUNT = YVALIDATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YRegexpValidatorImpl <em>YRegexp Validator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,6 +259,15 @@ public interface ValidationPackage extends EPackage {
 	int YREGEXP_VALIDATOR_FEATURE_COUNT = YVALIDATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YRegexp Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_VALIDATOR_OPERATION_COUNT = YVALIDATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,6 +285,15 @@ public interface ValidationPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVALIDATION_CONFIG_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>YValidation Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALIDATION_CONFIG_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig <em>YMin Length Validation Config</em>}' class.
@@ -279,6 +324,15 @@ public interface ValidationPackage extends EPackage {
 	int YMIN_LENGTH_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YMin Length Validation Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMIN_LENGTH_VALIDATION_CONFIG_OPERATION_COUNT = YVALIDATION_CONFIG_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig <em>YMax Length Validation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,6 +361,15 @@ public interface ValidationPackage extends EPackage {
 	int YMAX_LENGTH_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
 
 	/**
+	 * The number of operations of the '<em>YMax Length Validation Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMAX_LENGTH_VALIDATION_CONFIG_OPERATION_COUNT = YVALIDATION_CONFIG_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidationConfig <em>YRegexp Validation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,6 +396,15 @@ public interface ValidationPackage extends EPackage {
 	 * @ordered
 	 */
 	int YREGEXP_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>YRegexp Validation Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_VALIDATION_CONFIG_OPERATION_COUNT = YVALIDATION_CONFIG_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator <em>YValidator</em>}'.

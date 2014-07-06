@@ -26,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEn
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +82,26 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 	 * @ordered
 	 */
 	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMF_NS_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +219,27 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEmfNsURI() {
+		return emfNsURI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmfNsURI(String newEmfNsURI) {
+		String oldEmfNsURI = emfNsURI;
+		emfNsURI = newEmfNsURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI, oldEmfNsURI, emfNsURI));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -210,6 +252,8 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 				return getPropertyPath();
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
 				return getType();
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI:
+				return getEmfNsURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +280,9 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)newValue);
 				return;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI:
+				setEmfNsURI((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -260,6 +307,9 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)null);
 				return;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI:
+				setEmfNsURI(EMF_NS_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -280,6 +330,8 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 				return PROPERTY_PATH_EDEFAULT == null ? propertyPath != null : !PROPERTY_PATH_EDEFAULT.equals(propertyPath);
 			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE:
 				return type != null;
+			case BindingPackage.YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI:
+				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -298,6 +350,8 @@ public class YECViewModelListBindingEndpointImpl extends YListBindingEndpointImp
 		result.append(propertyPath);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", emfNsURI: ");
+		result.append(emfNsURI);
 		result.append(')');
 		return result.toString();
 	}

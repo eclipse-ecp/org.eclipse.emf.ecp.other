@@ -111,6 +111,15 @@ public interface DatatypesPackage extends EPackage {
 	int YDT_BASE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The number of operations of the '<em>YDt Base</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDT_BASE_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype <em>YDatatype</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,6 +173,15 @@ public interface DatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDATATYPE_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>YDatatype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATATYPE_OPERATION_COUNT = YDT_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.YDatadescriptionImpl <em>YDatadescription</em>}' class.
@@ -228,6 +246,15 @@ public interface DatatypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDATADESCRIPTION_FEATURE_COUNT = YDT_BASE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>YDatadescription</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATADESCRIPTION_OPERATION_COUNT = YDT_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDtBase <em>YDt Base</em>}'.

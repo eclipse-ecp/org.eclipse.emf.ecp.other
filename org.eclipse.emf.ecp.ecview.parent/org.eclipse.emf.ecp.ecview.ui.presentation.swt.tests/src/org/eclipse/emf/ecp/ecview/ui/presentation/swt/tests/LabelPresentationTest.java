@@ -184,12 +184,12 @@ public class LabelPresentationTest {
 		Label label2 = (Label) unwrap(label2BaseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(label1BaseComposite));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(label2BaseComposite));
 		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(label1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL,
 				WidgetElement.getCSSClass(label2));
 
 		// assert css id

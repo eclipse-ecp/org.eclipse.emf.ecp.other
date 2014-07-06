@@ -2,6 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
@@ -56,6 +58,20 @@ public abstract class YValueBindingEndpointImpl extends YBindingEndpointImpl
 				.createYDetailValueBindingEndpoint();
 		result.setMasterObservable(this);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT:
+				return createDetailValueEndpoint();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } // YValueBindingEndpointImpl

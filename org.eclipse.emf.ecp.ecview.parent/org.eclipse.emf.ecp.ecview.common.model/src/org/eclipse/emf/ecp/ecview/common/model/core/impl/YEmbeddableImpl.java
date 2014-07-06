@@ -10,8 +10,10 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -567,6 +569,22 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case CoreModelPackage.YEMBEDDABLE___GET_PARENT:
+				return getParent();
+			case CoreModelPackage.YEMBEDDABLE___GET_VIEW:
+				return getView();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

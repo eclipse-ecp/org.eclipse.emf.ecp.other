@@ -209,13 +209,13 @@ public class DateTimePresentationTest {
 		DateTime dateTime2 = (DateTime) unwrapText(text2BaseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(text1BaseComposite));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(text2BaseComposite));
 
 		Assert.assertEquals("anyOtherClass", WidgetElement.getCSSClass(dateTime1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL,
 				WidgetElement.getCSSClass(dateTime2));
 
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,

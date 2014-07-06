@@ -47,17 +47,17 @@ public abstract class AbstractSWTWidgetPresenter extends AbstractDisposable
 		implements IWidgetPresentation<Control> {
 
 	/**
-	 * See {@link IConstants#CSS_CLASS__CONTROL_BASE}.
+	 * See {@link IConstants#CSS_CLASS_CONTROL_BASE}.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public static final String CSS_CLASS__CONTROL_BASE = IConstants.CSS_CLASS__CONTROL_BASE;
+	public static final String CSS_CLASS_CONTROL_BASE = IConstants.CSS_CLASS_CONTROL_BASE;
 	// END SUPRESS CATCH EXCEPTION
 
 	/**
-	 * See {@link IConstants#CSS_CLASS__CONTROL}.
+	 * See {@link IConstants#CSS_CLASS_CONTROL}.
 	 */
 	// BEGIN SUPRESS CATCH EXCEPTION
-	public static final String CSS_CLASS__CONTROL = IConstants.CSS_CLASS__CONTROL;
+	public static final String CSS_CLASS_CONTROL = IConstants.CSS_CLASS_CONTROL;
 	// END SUPRESS CATCH EXCEPTION
 
 	/**

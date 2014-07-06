@@ -175,7 +175,7 @@ public class YFormLayoutImpl extends YLayoutImpl implements YFormLayout {
 	 */
 	public EList<YFormLayoutCellStyle> getCellStyles() {
 		if (cellStyles == null) {
-			cellStyles = new EObjectContainmentEList<YFormLayoutCellStyle>(YFormLayoutCellStyle.class, this, ExtensionModelPackage.YFORM_LAYOUT__CELL_STYLES);
+			cellStyles = new EObjectContainmentEList.Resolving<YFormLayoutCellStyle>(YFormLayoutCellStyle.class, this, ExtensionModelPackage.YFORM_LAYOUT__CELL_STYLES);
 		}
 		return cellStyles;
 	}

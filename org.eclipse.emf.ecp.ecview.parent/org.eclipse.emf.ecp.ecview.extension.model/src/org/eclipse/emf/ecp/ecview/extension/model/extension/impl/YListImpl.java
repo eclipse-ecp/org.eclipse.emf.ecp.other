@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getMultiSelection <em>Multi Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,6 +164,26 @@ public class YListImpl extends YInputImpl implements YList {
 	 * @ordered
 	 */
 	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMF_NS_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -512,6 +534,27 @@ public class YListImpl extends YInputImpl implements YList {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEmfNsURI() {
+		return emfNsURI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmfNsURI(String newEmfNsURI) {
+		String oldEmfNsURI = emfNsURI;
+		emfNsURI = newEmfNsURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YLIST__EMF_NS_URI, oldEmfNsURI, emfNsURI));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -650,6 +693,8 @@ public class YListImpl extends YInputImpl implements YList {
 				return getCollection();
 			case ExtensionModelPackage.YLIST__TYPE:
 				return getType();
+			case ExtensionModelPackage.YLIST__EMF_NS_URI:
+				return getEmfNsURI();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -694,6 +739,9 @@ public class YListImpl extends YInputImpl implements YList {
 			case ExtensionModelPackage.YLIST__TYPE:
 				setType((Class<?>)newValue);
 				return;
+			case ExtensionModelPackage.YLIST__EMF_NS_URI:
+				setEmfNsURI((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -735,6 +783,9 @@ public class YListImpl extends YInputImpl implements YList {
 			case ExtensionModelPackage.YLIST__TYPE:
 				setType((Class<?>)null);
 				return;
+			case ExtensionModelPackage.YLIST__EMF_NS_URI:
+				setEmfNsURI(EMF_NS_URI_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -766,6 +817,8 @@ public class YListImpl extends YInputImpl implements YList {
 				return collection != null && !collection.isEmpty();
 			case ExtensionModelPackage.YLIST__TYPE:
 				return type != null;
+			case ExtensionModelPackage.YLIST__EMF_NS_URI:
+				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -835,6 +888,57 @@ public class YListImpl extends YInputImpl implements YList {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == YBindable.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YCollectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT: return ExtensionModelPackage.YLIST___CREATE_COLLECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YSelectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT: return ExtensionModelPackage.YLIST___CREATE_SELECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YMultiSelectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YMULTI_SELECTION_BINDABLE___CREATE_MULTI_SELECTION_ENDPOINT: return ExtensionModelPackage.YLIST___CREATE_MULTI_SELECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExtensionModelPackage.YLIST___CREATE_MULTI_SELECTION_ENDPOINT:
+				return createMultiSelectionEndpoint();
+			case ExtensionModelPackage.YLIST___CREATE_SELECTION_ENDPOINT:
+				return createSelectionEndpoint();
+			case ExtensionModelPackage.YLIST___CREATE_COLLECTION_ENDPOINT:
+				return createCollectionEndpoint();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -853,6 +957,8 @@ public class YListImpl extends YInputImpl implements YList {
 		result.append(collection);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", emfNsURI: ");
+		result.append(emfNsURI);
 		result.append(')');
 		return result.toString();
 	}

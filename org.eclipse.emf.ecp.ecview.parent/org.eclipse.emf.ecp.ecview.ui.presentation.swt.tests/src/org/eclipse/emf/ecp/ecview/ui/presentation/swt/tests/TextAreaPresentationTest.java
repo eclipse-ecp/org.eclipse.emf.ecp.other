@@ -205,14 +205,14 @@ public class TextAreaPresentationTest {
 		Text textArea2 = (Text) unwrapText(textArea2BaseComposite);
 
 		// assert css class
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(textArea1BaseComposite));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL_BASE,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL_BASE,
 				WidgetElement.getCSSClass(textArea2BaseComposite));
 
 		Assert.assertEquals("anyOtherClass",
 				WidgetElement.getCSSClass(textArea1));
-		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__CONTROL,
+		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS_CONTROL,
 				WidgetElement.getCSSClass(textArea2));
 
 		Assert.assertEquals(AbstractSWTWidgetPresenter.CSS_CLASS__LABEL,

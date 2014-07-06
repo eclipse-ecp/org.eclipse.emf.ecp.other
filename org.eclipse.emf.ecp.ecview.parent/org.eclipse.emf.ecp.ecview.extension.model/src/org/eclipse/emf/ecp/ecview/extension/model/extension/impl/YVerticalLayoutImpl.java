@@ -177,7 +177,7 @@ public class YVerticalLayoutImpl extends YLayoutImpl implements YVerticalLayout 
 	 */
 	public EList<YVerticalLayoutCellStyle> getCellStyles() {
 		if (cellStyles == null) {
-			cellStyles = new EObjectContainmentEList<YVerticalLayoutCellStyle>(YVerticalLayoutCellStyle.class, this, ExtensionModelPackage.YVERTICAL_LAYOUT__CELL_STYLES);
+			cellStyles = new EObjectContainmentEList.Resolving<YVerticalLayoutCellStyle>(YVerticalLayoutCellStyle.class, this, ExtensionModelPackage.YVERTICAL_LAYOUT__CELL_STYLES);
 		}
 		return cellStyles;
 	}

@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getSelection <em>Selection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getMasterElement <em>Master Element</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getDetailElement <em>Detail Element</em>}</li>
  * </ul>
@@ -125,6 +127,26 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * @ordered
 	 */
 	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMF_NS_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMasterElement() <em>Master Element</em>}' containment reference.
@@ -420,7 +442,51 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEmfNsURI() {
+		return emfNsURI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmfNsURI(String newEmfNsURI) {
+		String oldEmfNsURI = emfNsURI;
+		emfNsURI = newEmfNsURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YMASTER_DETAIL__EMF_NS_URI, oldEmfNsURI, emfNsURI));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddable getMasterElement() {
+		if (masterElement != null && masterElement.eIsProxy()) {
+			InternalEObject oldMasterElement = (InternalEObject)masterElement;
+			masterElement = (YEmbeddable)eResolveProxy(oldMasterElement);
+			if (masterElement != oldMasterElement) {
+				InternalEObject newMasterElement = (InternalEObject)masterElement;
+				NotificationChain msgs = oldMasterElement.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT, null, null);
+				if (newMasterElement.eInternalContainer() == null) {
+					msgs = newMasterElement.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT, oldMasterElement, masterElement));
+			}
+		}
+		return masterElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddable basicGetMasterElement() {
 		return masterElement;
 	}
 
@@ -464,6 +530,29 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * @generated
 	 */
 	public YEmbeddable getDetailElement() {
+		if (detailElement != null && detailElement.eIsProxy()) {
+			InternalEObject oldDetailElement = (InternalEObject)detailElement;
+			detailElement = (YEmbeddable)eResolveProxy(oldDetailElement);
+			if (detailElement != oldDetailElement) {
+				InternalEObject newDetailElement = (InternalEObject)detailElement;
+				NotificationChain msgs = oldDetailElement.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT, null, null);
+				if (newDetailElement.eInternalContainer() == null) {
+					msgs = newDetailElement.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT, oldDetailElement, detailElement));
+			}
+		}
+		return detailElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YEmbeddable basicGetDetailElement() {
 		return detailElement;
 	}
 
@@ -615,10 +704,14 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 				return getCollection();
 			case ExtensionModelPackage.YMASTER_DETAIL__TYPE:
 				return getType();
+			case ExtensionModelPackage.YMASTER_DETAIL__EMF_NS_URI:
+				return getEmfNsURI();
 			case ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT:
-				return getMasterElement();
+				if (resolve) return getMasterElement();
+				return basicGetMasterElement();
 			case ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT:
-				return getDetailElement();
+				if (resolve) return getDetailElement();
+				return basicGetDetailElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -653,6 +746,9 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 				return;
 			case ExtensionModelPackage.YMASTER_DETAIL__TYPE:
 				setType((Class<?>)newValue);
+				return;
+			case ExtensionModelPackage.YMASTER_DETAIL__EMF_NS_URI:
+				setEmfNsURI((String)newValue);
 				return;
 			case ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT:
 				setMasterElement((YEmbeddable)newValue);
@@ -693,6 +789,9 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 			case ExtensionModelPackage.YMASTER_DETAIL__TYPE:
 				setType((Class<?>)null);
 				return;
+			case ExtensionModelPackage.YMASTER_DETAIL__EMF_NS_URI:
+				setEmfNsURI(EMF_NS_URI_EDEFAULT);
+				return;
 			case ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT:
 				setMasterElement((YEmbeddable)null);
 				return;
@@ -725,6 +824,8 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 				return collection != null && !collection.isEmpty();
 			case ExtensionModelPackage.YMASTER_DETAIL__TYPE:
 				return type != null;
+			case ExtensionModelPackage.YMASTER_DETAIL__EMF_NS_URI:
+				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
 			case ExtensionModelPackage.YMASTER_DETAIL__MASTER_ELEMENT:
 				return masterElement != null;
 			case ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT:
@@ -793,6 +894,49 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == YBindable.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == YCollectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT: return ExtensionModelPackage.YMASTER_DETAIL___CREATE_COLLECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YSelectionBindable.class) {
+			switch (baseOperationID) {
+				case CoreModelPackage.YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT: return ExtensionModelPackage.YMASTER_DETAIL___CREATE_SELECTION_ENDPOINT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExtensionModelPackage.YMASTER_DETAIL___CREATE_SELECTION_ENDPOINT:
+				return createSelectionEndpoint();
+			case ExtensionModelPackage.YMASTER_DETAIL___CREATE_COLLECTION_ENDPOINT:
+				return createCollectionEndpoint();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -803,6 +947,8 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 		result.append(collection);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", emfNsURI: ");
+		result.append(emfNsURI);
 		result.append(')');
 		return result.toString();
 	}

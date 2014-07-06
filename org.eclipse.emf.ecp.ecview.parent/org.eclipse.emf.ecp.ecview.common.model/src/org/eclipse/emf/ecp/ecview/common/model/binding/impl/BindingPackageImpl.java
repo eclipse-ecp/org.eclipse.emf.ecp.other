@@ -230,6 +230,69 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint() {
+		return yBindingSetEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint() {
+		return yBindingSetEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy() {
+		return yBindingSetEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy() {
+		return yBindingSetEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingSet__GetView() {
+		return yBindingSetEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingSet__AddBinding__YBinding() {
+		return yBindingSetEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingSet__RemoveBinding__YBinding() {
+		return yBindingSetEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYBindingEndpoint() {
 		return yBindingEndpointEClass;
 	}
@@ -239,8 +302,35 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getYBindingEndpoint__GetBinding() {
+		return yBindingEndpointEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBindingEndpoint__IsBindsElement__YElement() {
+		return yBindingEndpointEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYValueBindingEndpoint() {
 		return yValueBindingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYValueBindingEndpoint__CreateDetailValueEndpoint() {
+		return yValueBindingEndpointEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -304,6 +394,42 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 */
 	public EAttribute getYBinding_TargetToModelStrategy() {
 		return (EAttribute)yBindingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBinding__GetBindingSet() {
+		return yBindingEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBinding__IsBindsElement__YElement() {
+		return yBindingEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBinding__GetTargetEndpoint() {
+		return yBindingEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getYBinding__GetModelEndpoint() {
+		return yBindingEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -428,6 +554,15 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYECViewModelValueBindingEndpoint_EmfNsURI() {
+		return (EAttribute)yecViewModelValueBindingEndpointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYECViewModelListBindingEndpoint() {
 		return yecViewModelListBindingEndpointEClass;
 	}
@@ -466,6 +601,15 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 */
 	public EAttribute getYECViewModelListBindingEndpoint_Type() {
 		return (EAttribute)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYECViewModelListBindingEndpoint_EmfNsURI() {
+		return (EAttribute)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -552,10 +696,20 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		// Create classes and their features
 		yBindingSetEClass = createEClass(YBINDING_SET);
 		createEReference(yBindingSetEClass, YBINDING_SET__BINDINGS);
+		createEOperation(yBindingSetEClass, YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT);
+		createEOperation(yBindingSetEClass, YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT);
+		createEOperation(yBindingSetEClass, YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY);
+		createEOperation(yBindingSetEClass, YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY);
+		createEOperation(yBindingSetEClass, YBINDING_SET___GET_VIEW);
+		createEOperation(yBindingSetEClass, YBINDING_SET___ADD_BINDING__YBINDING);
+		createEOperation(yBindingSetEClass, YBINDING_SET___REMOVE_BINDING__YBINDING);
 
 		yBindingEndpointEClass = createEClass(YBINDING_ENDPOINT);
+		createEOperation(yBindingEndpointEClass, YBINDING_ENDPOINT___GET_BINDING);
+		createEOperation(yBindingEndpointEClass, YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT);
 
 		yValueBindingEndpointEClass = createEClass(YVALUE_BINDING_ENDPOINT);
+		createEOperation(yValueBindingEndpointEClass, YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT);
 
 		yBeanValueBindingEndpointEClass = createEClass(YBEAN_VALUE_BINDING_ENDPOINT);
 		createEAttribute(yBeanValueBindingEndpointEClass, YBEAN_VALUE_BINDING_ENDPOINT__BEAN);
@@ -572,6 +726,10 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		yBindingEClass = createEClass(YBINDING);
 		createEAttribute(yBindingEClass, YBINDING__MODEL_TO_TARGET_STRATEGY);
 		createEAttribute(yBindingEClass, YBINDING__TARGET_TO_MODEL_STRATEGY);
+		createEOperation(yBindingEClass, YBINDING___GET_BINDING_SET);
+		createEOperation(yBindingEClass, YBINDING___IS_BINDS_ELEMENT__YELEMENT);
+		createEOperation(yBindingEClass, YBINDING___GET_TARGET_ENDPOINT);
+		createEOperation(yBindingEClass, YBINDING___GET_MODEL_ENDPOINT);
 
 		yValueBindingEClass = createEClass(YVALUE_BINDING);
 		createEReference(yValueBindingEClass, YVALUE_BINDING__TARGET_ENDPOINT);
@@ -589,12 +747,14 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		createEReference(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__FEATURES);
 		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH);
 		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE);
+		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI);
 
 		yecViewModelListBindingEndpointEClass = createEClass(YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT);
 		createEReference(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__ELEMENT);
 		createEReference(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__FEATURES);
 		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH);
 		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE);
+		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI);
 
 		// Create enums
 		yBindingUpdateStrategyEEnum = createEEnum(YBINDING_UPDATE_STRATEGY);
@@ -644,48 +804,48 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		yecViewModelValueBindingEndpointEClass.getESuperTypes().add(this.getYValueBindingEndpoint());
 		yecViewModelListBindingEndpointEClass.getESuperTypes().add(this.getYListBindingEndpoint());
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(yBindingSetEClass, YBindingSet.class, "YBindingSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYBindingSet_Bindings(), this.getYBinding(), null, "bindings", null, 0, -1, YBindingSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(yBindingSetEClass, this.getYValueBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint(), this.getYValueBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueBindingEndpoint(), "targetValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueBindingEndpoint(), "modelValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingSetEClass, this.getYListBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint(), this.getYListBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYListBindingEndpoint(), "targetValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYListBindingEndpoint(), "modelValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingSetEClass, this.getYValueBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy(), this.getYValueBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueBindingEndpoint(), "targetValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueBindingEndpoint(), "modelValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBindingUpdateStrategy(), "targetToModelStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBindingUpdateStrategy(), "modelToTargetStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingSetEClass, this.getYListBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy(), this.getYListBinding(), "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYListBindingEndpoint(), "targetValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYListBindingEndpoint(), "modelValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBindingUpdateStrategy(), "targetToModelStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBindingUpdateStrategy(), "modelToTargetStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(yBindingSetEClass, theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getYBindingSet__GetView(), theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingSetEClass, null, "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBindingSet__AddBinding__YBinding(), null, "addBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBinding(), "binding", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingSetEClass, null, "removeBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBindingSet__RemoveBinding__YBinding(), null, "removeBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYBinding(), "binding", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yBindingEndpointEClass, YBindingEndpoint.class, "YBindingEndpoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(yBindingEndpointEClass, this.getYBinding(), "getBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getYBindingEndpoint__GetBinding(), this.getYBinding(), "getBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingEndpointEClass, ecorePackage.getEBoolean(), "isBindsElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBindingEndpoint__IsBindsElement__YElement(), ecorePackage.getEBoolean(), "isBindsElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theCoreModelPackage.getYElement(), "element", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yValueBindingEndpointEClass, YValueBindingEndpoint.class, "YValueBindingEndpoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(yValueBindingEndpointEClass, this.getYDetailValueBindingEndpoint(), "createDetailValueEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getYValueBindingEndpoint__CreateDetailValueEndpoint(), this.getYDetailValueBindingEndpoint(), "createDetailValueEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yBeanValueBindingEndpointEClass, YBeanValueBindingEndpoint.class, "YBeanValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYBeanValueBindingEndpoint_Bean(), ecorePackage.getEJavaObject(), "bean", null, 0, 1, YBeanValueBindingEndpoint.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -706,14 +866,14 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		initEAttribute(getYBinding_ModelToTargetStrategy(), this.getYBindingUpdateStrategy(), "modelToTargetStrategy", "UPDATE", 0, 1, YBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYBinding_TargetToModelStrategy(), this.getYBindingUpdateStrategy(), "targetToModelStrategy", "UPDATE", 0, 1, YBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(yBindingEClass, this.getYBindingSet(), "getBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getYBinding__GetBindingSet(), this.getYBindingSet(), "getBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(yBindingEClass, ecorePackage.getEBoolean(), "isBindsElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getYBinding__IsBindsElement__YElement(), ecorePackage.getEBoolean(), "isBindsElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theCoreModelPackage.getYElement(), "element", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(yBindingEClass, this.getYBindingEndpoint(), "getTargetEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getYBinding__GetTargetEndpoint(), this.getYBindingEndpoint(), "getTargetEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(yBindingEClass, this.getYBindingEndpoint(), "getModelEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getYBinding__GetModelEndpoint(), this.getYBindingEndpoint(), "getModelEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yValueBindingEClass, YValueBinding.class, "YValueBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYValueBinding_TargetEndpoint(), this.getYValueBindingEndpoint(), null, "targetEndpoint", null, 1, 1, YValueBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -737,6 +897,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYECViewModelValueBindingEndpoint_Type(), g1, "type", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYECViewModelValueBindingEndpoint_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yecViewModelListBindingEndpointEClass, YECViewModelListBindingEndpoint.class, "YECViewModelListBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYECViewModelListBindingEndpoint_Element(), ecorePackage.getEObject(), null, "element", null, 1, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -746,6 +907,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYECViewModelListBindingEndpoint_Type(), g1, "type", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYECViewModelListBindingEndpoint_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yBindingUpdateStrategyEEnum, YBindingUpdateStrategy.class, "YBindingUpdateStrategy");

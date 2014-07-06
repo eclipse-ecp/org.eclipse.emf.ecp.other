@@ -181,7 +181,7 @@ public class ViewPresentation extends AbstractDisposable implements
 			//
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			WidgetElement.setCSSClass(controlBase,
-					IConstants.CSS_CLASS__CONTROL_BASE);
+					IConstants.CSS_CLASS_CONTROL_BASE);
 
 			GridLayout layout = new GridLayout(1, true);
 			controlBase.setLayout(layout);
@@ -207,7 +207,7 @@ public class ViewPresentation extends AbstractDisposable implements
 				WidgetElement.setCSSClass(control, modelAccess.getCssClass());
 			} else {
 				WidgetElement.setCSSClass(control,
-						IConstants.CSS_CLASS__CONTROL);
+						IConstants.CSS_CLASS_CONTROL);
 			}
 
 			// render the content

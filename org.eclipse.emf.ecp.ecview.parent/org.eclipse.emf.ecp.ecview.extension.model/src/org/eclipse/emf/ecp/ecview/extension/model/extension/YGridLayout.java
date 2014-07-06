@@ -46,7 +46,7 @@ public interface YGridLayout extends YLayout, YSpacingable, YMarginable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cell Styles</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYGridLayout_CellStyles()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<YGridLayoutCellStyle> getCellStyles();

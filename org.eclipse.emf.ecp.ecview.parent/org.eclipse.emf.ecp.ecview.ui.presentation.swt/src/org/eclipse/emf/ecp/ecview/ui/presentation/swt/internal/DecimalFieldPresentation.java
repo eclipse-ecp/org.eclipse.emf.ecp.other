@@ -84,7 +84,7 @@ public class DecimalFieldPresentation extends FieldPresentation {
 		if (controlBase == null) {
 			controlBase = new Composite((Composite) parent, SWT.NONE);
 			controlBase.setLayout(new GridLayout(2, false));
-			setCSSClass(controlBase, CSS_CLASS__CONTROL_BASE);
+			setCSSClass(controlBase, CSS_CLASS_CONTROL_BASE);
 			if (Util.isCssIdValid(yDecimalTextField)) {
 				setCSSId(controlBase, Util.getCssID(yDecimalTextField));
 			} else {
@@ -124,7 +124,7 @@ public class DecimalFieldPresentation extends FieldPresentation {
 		if (Util.isCssClassValid(yDecimalTextField)) {
 			setCSSClass(decimalText, Util.getCssClass(yDecimalTextField));
 		} else {
-			setCSSClass(decimalText, CSS_CLASS__CONTROL);
+			setCSSClass(decimalText, CSS_CLASS_CONTROL);
 		}
 	}
 

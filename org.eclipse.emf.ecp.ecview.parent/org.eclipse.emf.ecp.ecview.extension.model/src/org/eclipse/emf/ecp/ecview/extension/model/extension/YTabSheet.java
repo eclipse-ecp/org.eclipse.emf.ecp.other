@@ -35,7 +35,7 @@ public interface YTabSheet extends YEmbeddable {
 	 * @return the value of the '<em>Tabs</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTabSheet_Tabs()
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getParent
-	 * @model opposite="parent" containment="true"
+	 * @model opposite="parent" containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<YTab> getTabs();
