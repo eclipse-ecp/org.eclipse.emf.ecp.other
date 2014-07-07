@@ -2,10 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -29,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTabSheet;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getCssClass <em>Css Class</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl#getParent <em>Parent</em>}</li>
@@ -58,6 +57,24 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -143,6 +160,27 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTAB__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTAB__NAME, oldName, name));
 	}
 
 	/**
@@ -414,6 +452,8 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		switch (featureID) {
 			case ExtensionModelPackage.YTAB__ID:
 				return getId();
+			case ExtensionModelPackage.YTAB__NAME:
+				return getName();
 			case ExtensionModelPackage.YTAB__CSS_CLASS:
 				return getCssClass();
 			case ExtensionModelPackage.YTAB__CSS_ID:
@@ -440,6 +480,9 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		switch (featureID) {
 			case ExtensionModelPackage.YTAB__ID:
 				setId((String)newValue);
+				return;
+			case ExtensionModelPackage.YTAB__NAME:
+				setName((String)newValue);
 				return;
 			case ExtensionModelPackage.YTAB__CSS_CLASS:
 				setCssClass((String)newValue);
@@ -470,6 +513,9 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 			case ExtensionModelPackage.YTAB__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case ExtensionModelPackage.YTAB__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case ExtensionModelPackage.YTAB__CSS_CLASS:
 				setCssClass(CSS_CLASS_EDEFAULT);
 				return;
@@ -498,6 +544,8 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		switch (featureID) {
 			case ExtensionModelPackage.YTAB__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case ExtensionModelPackage.YTAB__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExtensionModelPackage.YTAB__CSS_CLASS:
 				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
 			case ExtensionModelPackage.YTAB__CSS_ID:
@@ -545,20 +593,6 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ExtensionModelPackage.YTAB___GET_VIEW:
-				return getView();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -569,6 +603,8 @@ public class YTabImpl extends MinimalEObjectImpl.Container implements YTab {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", cssClass: ");
 		result.append(cssClass);
 		result.append(", cssID: ");

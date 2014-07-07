@@ -10,12 +10,10 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -567,25 +565,6 @@ public class YFieldImpl extends YEmbeddableImpl implements YField {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case CoreModelPackage.YFIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER:
-				return addValueChangeListener((YValueChangeListener)arguments.get(0));
-			case CoreModelPackage.YFIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER:
-				return removeValueChangeListener((YValueChangeListener)arguments.get(0));
-			case CoreModelPackage.YFIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS:
-				removeAllValueChangListeners();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.YValidator;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YValidatorImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YValidatorImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YValidatorImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
@@ -43,6 +44,24 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 	 */
 	protected String id = ID_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,6 +117,27 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ValidationPackage.YVALIDATOR__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Class<?> getType() {
 		return type;
 	}
@@ -124,6 +164,8 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case ValidationPackage.YVALIDATOR__ID:
 				return getId();
+			case ValidationPackage.YVALIDATOR__NAME:
+				return getName();
 			case ValidationPackage.YVALIDATOR__TYPE:
 				return getType();
 		}
@@ -140,6 +182,9 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case ValidationPackage.YVALIDATOR__ID:
 				setId((String)newValue);
+				return;
+			case ValidationPackage.YVALIDATOR__NAME:
+				setName((String)newValue);
 				return;
 			case ValidationPackage.YVALIDATOR__TYPE:
 				setType((Class<?>)newValue);
@@ -159,6 +204,9 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 			case ValidationPackage.YVALIDATOR__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case ValidationPackage.YVALIDATOR__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case ValidationPackage.YVALIDATOR__TYPE:
 				setType((Class<?>)null);
 				return;
@@ -176,6 +224,8 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case ValidationPackage.YVALIDATOR__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case ValidationPackage.YVALIDATOR__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ValidationPackage.YVALIDATOR__TYPE:
 				return type != null;
 		}
@@ -194,6 +244,8 @@ public abstract class YValidatorImpl extends MinimalEObjectImpl.Container implem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", type: ");
 		result.append(type);
 		result.append(')');

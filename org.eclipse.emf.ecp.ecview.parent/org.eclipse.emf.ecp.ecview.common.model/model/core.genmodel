@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.ecp.ecview.common.model/src" modelPluginID="org.eclipse.emf.ecp.ecview.common.model"
     modelName="ECViewCore" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    copyrightFields="false" importOrganizing="true">
   <foreignModel>binding.ecore</foreignModel>
   <genPackages prefix="Binding" basePackage="org.eclipse.emf.ecp.ecview.common.model"
       disposableProviderFactory="true" ecorePackage="binding.ecore#/">
@@ -88,12 +88,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference binding.ecore#//YECViewModelValueBindingEndpoint/features"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YECViewModelValueBindingEndpoint/propertyPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YECViewModelValueBindingEndpoint/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YECViewModelValueBindingEndpoint/emfNsURI"/>
     </genClasses>
     <genClasses ecoreClass="binding.ecore#//YECViewModelListBindingEndpoint">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference binding.ecore#//YECViewModelListBindingEndpoint/element"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference binding.ecore#//YECViewModelListBindingEndpoint/features"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YECViewModelListBindingEndpoint/propertyPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YECViewModelListBindingEndpoint/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute binding.ecore#//YECViewModelListBindingEndpoint/emfNsURI"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="CoreModel" basePackage="org.eclipse.emf.ecp.ecview.common.model"

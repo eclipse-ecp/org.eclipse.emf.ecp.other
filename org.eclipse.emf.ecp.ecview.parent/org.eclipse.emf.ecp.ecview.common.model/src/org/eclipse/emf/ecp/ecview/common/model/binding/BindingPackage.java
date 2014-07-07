@@ -5,7 +5,6 @@ package org.eclipse.emf.ecp.ecview.common.model.binding;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -78,6 +77,15 @@ public interface BindingPackage extends EPackage {
 	int YBINDING_SET__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDING_SET__NAME = CoreModelPackage.YELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,78 +102,6 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBINDING_SET_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY = CoreModelPackage.YELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY = CoreModelPackage.YELEMENT_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___GET_VIEW = CoreModelPackage.YELEMENT_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Add Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___ADD_BINDING__YBINDING = CoreModelPackage.YELEMENT_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Remove Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET___REMOVE_BINDING__YBINDING = CoreModelPackage.YELEMENT_OPERATION_COUNT + 6;
-
-	/**
-	 * The number of operations of the '<em>YBinding Set</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_SET_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl <em>YBinding Endpoint</em>}' class.
@@ -187,6 +123,15 @@ public interface BindingPackage extends EPackage {
 	int YBINDING_ENDPOINT__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDING_ENDPOINT__NAME = CoreModelPackage.YELEMENT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>YBinding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,33 +139,6 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBINDING_ENDPOINT_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_ENDPOINT___GET_BINDING = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>YBinding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_ENDPOINT_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl <em>YValue Binding Endpoint</em>}' class.
@@ -242,6 +160,15 @@ public interface BindingPackage extends EPackage {
 	int YVALUE_BINDING_ENDPOINT__ID = YBINDING_ENDPOINT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDING_ENDPOINT__NAME = YBINDING_ENDPOINT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>YValue Binding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,42 +176,6 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVALUE_BINDING_ENDPOINT_FEATURE_COUNT = YBINDING_ENDPOINT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING_ENDPOINT___GET_BINDING = YBINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = YBINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YValue Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING_ENDPOINT_OPERATION_COUNT = YBINDING_ENDPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanValueBindingEndpointImpl <em>YBean Value Binding Endpoint</em>}' class.
@@ -304,6 +195,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBEAN_VALUE_BINDING_ENDPOINT__ID = YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_VALUE_BINDING_ENDPOINT__NAME = YVALUE_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Bean</b></em>' attribute.
@@ -331,42 +231,6 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBEAN_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_VALUE_BINDING_ENDPOINT___GET_BINDING = YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_VALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_VALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YBean Value Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_VALUE_BINDING_ENDPOINT_OPERATION_COUNT = YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YListBindingEndpointImpl <em>YList Binding Endpoint</em>}' class.
@@ -428,6 +292,15 @@ public interface BindingPackage extends EPackage {
 	int YDETAIL_VALUE_BINDING_ENDPOINT__ID = YVALUE_BINDING_ENDPOINT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDETAIL_VALUE_BINDING_ENDPOINT__NAME = YVALUE_BINDING_ENDPOINT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Master Observable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,42 +346,6 @@ public interface BindingPackage extends EPackage {
 	int YDETAIL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDETAIL_VALUE_BINDING_ENDPOINT___GET_BINDING = YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDETAIL_VALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDETAIL_VALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YDetail Value Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDETAIL_VALUE_BINDING_ENDPOINT_OPERATION_COUNT = YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -516,6 +353,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST_BINDING_ENDPOINT__ID = YBINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_BINDING_ENDPOINT__NAME = YBINDING_ENDPOINT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>YList Binding Endpoint</em>' class.
@@ -527,33 +373,6 @@ public interface BindingPackage extends EPackage {
 	int YLIST_BINDING_ENDPOINT_FEATURE_COUNT = YBINDING_ENDPOINT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING_ENDPOINT___GET_BINDING = YBINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The number of operations of the '<em>YList Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING_ENDPOINT_OPERATION_COUNT = YBINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -561,6 +380,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBINDING__ID = CoreModelPackage.YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDING__NAME = CoreModelPackage.YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Model To Target Strategy</b></em>' attribute.
@@ -590,51 +418,6 @@ public interface BindingPackage extends EPackage {
 	int YBINDING_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Binding Set</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING___GET_BINDING_SET = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING___IS_BINDS_ELEMENT__YELEMENT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Target Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING___GET_TARGET_ENDPOINT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Model Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING___GET_MODEL_ENDPOINT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>YBinding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDING_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,6 +425,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVALUE_BINDING__ID = YBINDING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVALUE_BINDING__NAME = YBINDING__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Model To Target Strategy</b></em>' attribute.
@@ -689,51 +481,6 @@ public interface BindingPackage extends EPackage {
 	int YVALUE_BINDING_FEATURE_COUNT = YBINDING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Binding Set</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING___GET_BINDING_SET = YBINDING___GET_BINDING_SET;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING___IS_BINDS_ELEMENT__YELEMENT = YBINDING___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Get Target Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING___GET_TARGET_ENDPOINT = YBINDING___GET_TARGET_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Get Model Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING___GET_MODEL_ENDPOINT = YBINDING___GET_MODEL_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YValue Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDING_OPERATION_COUNT = YBINDING_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -741,6 +488,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST_BINDING__ID = YBINDING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST_BINDING__NAME = YBINDING__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Model To Target Strategy</b></em>' attribute.
@@ -789,51 +545,6 @@ public interface BindingPackage extends EPackage {
 
 
 	/**
-	 * The operation id for the '<em>Get Binding Set</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING___GET_BINDING_SET = YBINDING___GET_BINDING_SET;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING___IS_BINDS_ELEMENT__YELEMENT = YBINDING___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Get Target Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING___GET_TARGET_ENDPOINT = YBINDING___GET_TARGET_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Get Model Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING___GET_MODEL_ENDPOINT = YBINDING___GET_MODEL_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YList Binding</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_BINDING_OPERATION_COUNT = YBINDING_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YEnumListBindingEndpointImpl <em>YEnum List Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,6 +562,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YENUM_LIST_BINDING_ENDPOINT__ID = YLIST_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YENUM_LIST_BINDING_ENDPOINT__NAME = YLIST_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Enum</b></em>' attribute.
@@ -871,33 +591,6 @@ public interface BindingPackage extends EPackage {
 	int YENUM_LIST_BINDING_ENDPOINT_FEATURE_COUNT = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YENUM_LIST_BINDING_ENDPOINT___GET_BINDING = YLIST_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YENUM_LIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YLIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The number of operations of the '<em>YEnum List Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YENUM_LIST_BINDING_ENDPOINT_OPERATION_COUNT = YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelValueBindingEndpointImpl <em>YEC View Model Value Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -915,6 +608,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__ID = YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__NAME = YVALUE_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -971,42 +673,6 @@ public interface BindingPackage extends EPackage {
 	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT___GET_BINDING = YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YEC View Model Value Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT_OPERATION_COUNT = YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl <em>YEC View Model List Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1024,6 +690,15 @@ public interface BindingPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__ID = YLIST_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__NAME = YLIST_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1080,33 +755,6 @@ public interface BindingPackage extends EPackage {
 	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT_FEATURE_COUNT = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT___GET_BINDING = YLIST_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = YLIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The number of operations of the '<em>YEC View Model List Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT_OPERATION_COUNT = YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1139,76 +787,6 @@ public interface BindingPackage extends EPackage {
 	EReference getYBindingSet_Bindings();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint) <em>Add Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint)
-	 * @generated
-	 */
-	EOperation getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint) <em>Add Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint)
-	 * @generated
-	 */
-	EOperation getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy) <em>Add Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy)
-	 * @generated
-	 */
-	EOperation getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy) <em>Add Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy, org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy)
-	 * @generated
-	 */
-	EOperation getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#getView() <em>Get View</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get View</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#getView()
-	 * @generated
-	 */
-	EOperation getYBindingSet__GetView();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YBinding) <em>Add Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#addBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YBinding)
-	 * @generated
-	 */
-	EOperation getYBindingSet__AddBinding__YBinding();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#removeBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YBinding) <em>Remove Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet#removeBinding(org.eclipse.emf.ecp.ecview.common.model.binding.YBinding)
-	 * @generated
-	 */
-	EOperation getYBindingSet__RemoveBinding__YBinding();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint <em>YBinding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1219,26 +797,6 @@ public interface BindingPackage extends EPackage {
 	EClass getYBindingEndpoint();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint#getBinding() <em>Get Binding</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Binding</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint#getBinding()
-	 * @generated
-	 */
-	EOperation getYBindingEndpoint__GetBinding();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint#isBindsElement(org.eclipse.emf.ecp.ecview.common.model.core.YElement) <em>Is Binds Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Binds Element</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint#isBindsElement(org.eclipse.emf.ecp.ecview.common.model.core.YElement)
-	 * @generated
-	 */
-	EOperation getYBindingEndpoint__IsBindsElement__YElement();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint <em>YValue Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1247,16 +805,6 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYValueBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint#createDetailValueEndpoint() <em>Create Detail Value Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint#createDetailValueEndpoint()
-	 * @generated
-	 */
-	EOperation getYValueBindingEndpoint__CreateDetailValueEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint <em>YBean Value Binding Endpoint</em>}'.
@@ -1331,46 +879,6 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYBinding_TargetToModelStrategy();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getBindingSet() <em>Get Binding Set</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Binding Set</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getBindingSet()
-	 * @generated
-	 */
-	EOperation getYBinding__GetBindingSet();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#isBindsElement(org.eclipse.emf.ecp.ecview.common.model.core.YElement) <em>Is Binds Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Binds Element</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#isBindsElement(org.eclipse.emf.ecp.ecview.common.model.core.YElement)
-	 * @generated
-	 */
-	EOperation getYBinding__IsBindsElement__YElement();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetEndpoint() <em>Get Target Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Target Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getTargetEndpoint()
-	 * @generated
-	 */
-	EOperation getYBinding__GetTargetEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelEndpoint() <em>Get Model Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Model Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YBinding#getModelEndpoint()
-	 * @generated
-	 */
-	EOperation getYBinding__GetModelEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding <em>YValue Binding</em>}'.
@@ -1692,62 +1200,6 @@ public interface BindingPackage extends EPackage {
 		EReference YBINDING_SET__BINDINGS = eINSTANCE.getYBindingSet_Bindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT = eINSTANCE.getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT = eINSTANCE.getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY = eINSTANCE.getYBindingSet__AddBinding__YValueBindingEndpoint_YValueBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY = eINSTANCE.getYBindingSet__AddBinding__YListBindingEndpoint_YListBindingEndpoint_YBindingUpdateStrategy_YBindingUpdateStrategy();
-
-		/**
-		 * The meta object literal for the '<em><b>Get View</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___GET_VIEW = eINSTANCE.getYBindingSet__GetView();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___ADD_BINDING__YBINDING = eINSTANCE.getYBindingSet__AddBinding__YBinding();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_SET___REMOVE_BINDING__YBINDING = eINSTANCE.getYBindingSet__RemoveBinding__YBinding();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl <em>YBinding Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1758,22 +1210,6 @@ public interface BindingPackage extends EPackage {
 		EClass YBINDING_ENDPOINT = eINSTANCE.getYBindingEndpoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Binding</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_ENDPOINT___GET_BINDING = eINSTANCE.getYBindingEndpoint__GetBinding();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Binds Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = eINSTANCE.getYBindingEndpoint__IsBindsElement__YElement();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingEndpointImpl <em>YValue Binding Endpoint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1782,14 +1218,6 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YVALUE_BINDING_ENDPOINT = eINSTANCE.getYValueBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Detail Value Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = eINSTANCE.getYValueBindingEndpoint__CreateDetailValueEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBeanValueBindingEndpointImpl <em>YBean Value Binding Endpoint</em>}' class.
@@ -1852,38 +1280,6 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YBINDING__TARGET_TO_MODEL_STRATEGY = eINSTANCE.getYBinding_TargetToModelStrategy();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Binding Set</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING___GET_BINDING_SET = eINSTANCE.getYBinding__GetBindingSet();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Binds Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING___IS_BINDS_ELEMENT__YELEMENT = eINSTANCE.getYBinding__IsBindsElement__YElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Target Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING___GET_TARGET_ENDPOINT = eINSTANCE.getYBinding__GetTargetEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Model Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBINDING___GET_MODEL_ENDPOINT = eINSTANCE.getYBinding__GetModelEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YValueBindingImpl <em>YValue Binding</em>}' class.

@@ -267,15 +267,6 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getYVisibilityRule__CreateRuleEndpoint__String() {
-		return yVisibilityRuleEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYVisibilityProperties() {
 		return yVisibilityPropertiesEClass;
 	}
@@ -465,15 +456,6 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getYBooleanValueRule__CreateRuleEndpoint() {
-		return yBooleanValueRuleEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYRegexpRule() {
 		return yRegexpRuleEClass;
 	}
@@ -485,15 +467,6 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 */
 	public EAttribute getYRegexpRule_RegExpression() {
 		return (EAttribute)yRegexpRuleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYRegexpRule__CreateRuleEndpoint() {
-		return yRegexpRuleEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -521,15 +494,6 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 	 */
 	public EAttribute getYDecimalValueRule_ReferenceValue() {
 		return (EAttribute)yDecimalValueRuleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYDecimalValueRule__CreateRuleEndpoint() {
-		return yDecimalValueRuleEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -588,7 +552,6 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		yVisibilityRuleEClass = createEClass(YVISIBILITY_RULE);
 		createEReference(yVisibilityRuleEClass, YVISIBILITY_RULE__BINDING_ENDPOINTS);
 		createEAttribute(yVisibilityRuleEClass, YVISIBILITY_RULE__MATCH_MEANS_FALSE);
-		createEOperation(yVisibilityRuleEClass, YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING);
 
 		yVisibilityPropertiesEClass = createEClass(YVISIBILITY_PROPERTIES);
 		createEAttribute(yVisibilityPropertiesEClass, YVISIBILITY_PROPERTIES__VISIBLE);
@@ -614,16 +577,13 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		createEAttribute(yVisibilityRuleBindingEndpointEClass, YVISIBILITY_RULE_BINDING_ENDPOINT__ATTRIBUTE);
 
 		yBooleanValueRuleEClass = createEClass(YBOOLEAN_VALUE_RULE);
-		createEOperation(yBooleanValueRuleEClass, YBOOLEAN_VALUE_RULE___CREATE_RULE_ENDPOINT);
 
 		yRegexpRuleEClass = createEClass(YREGEXP_RULE);
 		createEAttribute(yRegexpRuleEClass, YREGEXP_RULE__REG_EXPRESSION);
-		createEOperation(yRegexpRuleEClass, YREGEXP_RULE___CREATE_RULE_ENDPOINT);
 
 		yDecimalValueRuleEClass = createEClass(YDECIMAL_VALUE_RULE);
 		createEAttribute(yDecimalValueRuleEClass, YDECIMAL_VALUE_RULE__OPTION);
 		createEAttribute(yDecimalValueRuleEClass, YDECIMAL_VALUE_RULE__REFERENCE_VALUE);
-		createEOperation(yDecimalValueRuleEClass, YDECIMAL_VALUE_RULE___CREATE_RULE_ENDPOINT);
 
 		// Create enums
 		yColorTypeEEnum = createEEnum(YCOLOR_TYPE);
@@ -671,7 +631,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		yRegexpRuleEClass.getESuperTypes().add(this.getYVisibilityRule());
 		yDecimalValueRuleEClass.getESuperTypes().add(this.getYVisibilityRule());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(yVisibilityProcessorEClass, YVisibilityProcessor.class, "YVisibilityProcessor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYVisibilityProcessor_OnMatch(), this.getYVisibilityProperties(), null, "onMatch", null, 1, 1, YVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYVisibilityProcessor_Parent(), theCoreModelPackage.getYVisibilityProcessable(), theCoreModelPackage.getYVisibilityProcessable_VisibilityProcessor(), "parent", null, 1, 1, YVisibilityProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -683,7 +643,7 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 		initEReference(getYVisibilityRule_BindingEndpoints(), this.getYVisibilityRuleBindingEndpoint(), this.getYVisibilityRuleBindingEndpoint_Rule(), "bindingEndpoints", null, 0, -1, YVisibilityRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYVisibilityRule_MatchMeansFalse(), ecorePackage.getEBoolean(), "matchMeansFalse", null, 0, 1, YVisibilityRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getYVisibilityRule__CreateRuleEndpoint__String(), this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(yVisibilityRuleEClass, this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yVisibilityPropertiesEClass, YVisibilityProperties.class, "YVisibilityProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -711,18 +671,18 @@ public class VisibilityPackageImpl extends EPackageImpl implements VisibilityPac
 
 		initEClass(yBooleanValueRuleEClass, YBooleanValueRule.class, "YBooleanValueRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getYBooleanValueRule__CreateRuleEndpoint(), this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yBooleanValueRuleEClass, this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yRegexpRuleEClass, YRegexpRule.class, "YRegexpRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYRegexpRule_RegExpression(), ecorePackage.getEString(), "regExpression", null, 0, 1, YRegexpRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYRegexpRule__CreateRuleEndpoint(), this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yRegexpRuleEClass, this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yDecimalValueRuleEClass, YDecimalValueRule.class, "YDecimalValueRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYDecimalValueRule_Option(), this.getYDecimalValueRuleOption(), "option", "EQUAL", 0, 1, YDecimalValueRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDecimalValueRule_ReferenceValue(), ecorePackage.getEDouble(), "referenceValue", null, 0, 1, YDecimalValueRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYDecimalValueRule__CreateRuleEndpoint(), this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yDecimalValueRuleEClass, this.getYVisibilityRuleBindingEndpoint(), "createRuleEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yColorTypeEEnum, YColorType.class, "YColorType");

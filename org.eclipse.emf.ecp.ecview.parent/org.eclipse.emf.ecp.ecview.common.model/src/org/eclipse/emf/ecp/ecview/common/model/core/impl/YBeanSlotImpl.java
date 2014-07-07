@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoin
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl#getValueTypeQualifiedName <em>Value Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +54,26 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected Class<?> valueType;
+
+	/**
+	 * The default value of the '{@link #getValueTypeQualifiedName() <em>Value Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValueTypeQualifiedName() <em>Value Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String valueTypeQualifiedName = VALUE_TYPE_QUALIFIED_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -110,6 +131,27 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getValueTypeQualifiedName() {
+		return valueTypeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueTypeQualifiedName(String newValueTypeQualifiedName) {
+		String oldValueTypeQualifiedName = valueTypeQualifiedName;
+		valueTypeQualifiedName = newValueTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME, oldValueTypeQualifiedName, valueTypeQualifiedName));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -120,6 +162,8 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 				return getName();
 			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
 				return getValueType();
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME:
+				return getValueTypeQualifiedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -136,6 +180,9 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
 				setValueType((Class<?>)newValue);
+				return;
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME:
+				setValueTypeQualifiedName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,6 +201,9 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
 				setValueType((Class<?>)null);
 				return;
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME:
+				setValueTypeQualifiedName(VALUE_TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -169,6 +219,8 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE:
 				return valueType != null;
+			case CoreModelPackage.YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME:
+				return VALUE_TYPE_QUALIFIED_NAME_EDEFAULT == null ? valueTypeQualifiedName != null : !VALUE_TYPE_QUALIFIED_NAME_EDEFAULT.equals(valueTypeQualifiedName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -186,6 +238,8 @@ public class YBeanSlotImpl extends MinimalEObjectImpl.Container implements
 		result.append(name);
 		result.append(", valueType: ");
 		result.append(valueType);
+		result.append(", valueTypeQualifiedName: ");
+		result.append(valueTypeQualifiedName);
 		result.append(')');
 		return result.toString();
 	}

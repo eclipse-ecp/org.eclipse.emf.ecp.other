@@ -2,10 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -292,20 +290,6 @@ public class YGridLayoutCellStyleImpl extends MinimalEObjectImpl.Container imple
 				return spanInfo != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ExtensionModelPackage.YGRID_LAYOUT_CELL_STYLE___ADD_SPAN_INFO__INT_INT_INT_INT:
-				return addSpanInfo((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

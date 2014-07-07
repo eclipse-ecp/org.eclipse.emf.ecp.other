@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -426,20 +424,6 @@ public class YGridLayoutImpl extends YLayoutImpl implements YGridLayout {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ExtensionModelPackage.YGRID_LAYOUT___ADD_GRID_LAYOUT_CELL_STYLE__YEMBEDDABLE:
-				return addGridLayoutCellStyle((YEmbeddable)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

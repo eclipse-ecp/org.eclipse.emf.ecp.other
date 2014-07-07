@@ -187,8 +187,8 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements
 		// Initialize simple dependencies
 		BindingPackage.eINSTANCE.eClass();
 		CoreModelPackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
 		VisibilityPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -490,7 +490,7 @@ public class ExtDatatypesPackageImpl extends EPackageImpl implements
 		yTabSheetDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yMasterDetailDatatypeEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(yTextDatatypeEClass, YTextDatatype.class, "YTextDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yTextAreaDatatypeEClass, YTextAreaDatatype.class, "YTextAreaDatatype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

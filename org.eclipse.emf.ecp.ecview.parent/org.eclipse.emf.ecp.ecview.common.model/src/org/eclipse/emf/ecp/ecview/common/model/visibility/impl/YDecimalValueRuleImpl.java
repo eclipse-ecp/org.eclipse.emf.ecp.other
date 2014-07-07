@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.visibility.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
@@ -214,20 +212,6 @@ public abstract class YDecimalValueRuleImpl extends YVisibilityRuleImpl implemen
 				return referenceValue != REFERENCE_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case VisibilityPackage.YDECIMAL_VALUE_RULE___CREATE_RULE_ENDPOINT:
-				return createRuleEndpoint();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

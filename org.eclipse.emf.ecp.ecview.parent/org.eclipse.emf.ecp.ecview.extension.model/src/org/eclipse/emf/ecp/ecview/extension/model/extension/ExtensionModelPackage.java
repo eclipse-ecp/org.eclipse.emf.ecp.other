@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
@@ -77,6 +76,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YINPUT__ID = CoreModelPackage.YFIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YINPUT__NAME = CoreModelPackage.YFIELD__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -187,60 +195,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YINPUT_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT___GET_PARENT = CoreModelPackage.YFIELD___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT___GET_VIEW = CoreModelPackage.YFIELD___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = CoreModelPackage.YFIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = CoreModelPackage.YFIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS = CoreModelPackage.YFIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The number of operations of the '<em>YInput</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YINPUT_OPERATION_COUNT = CoreModelPackage.YFIELD_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextFieldImpl <em>YText Field</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,6 +212,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_FIELD__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_FIELD__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -404,69 +367,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YText Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_FIELD_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutImpl <em>YGrid Layout</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -484,6 +384,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YGRID_LAYOUT__ID = CoreModelPackage.YLAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YGRID_LAYOUT__NAME = CoreModelPackage.YLAYOUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -603,42 +512,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YGRID_LAYOUT_FEATURE_COUNT = CoreModelPackage.YLAYOUT_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YGRID_LAYOUT___GET_PARENT = CoreModelPackage.YLAYOUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YGRID_LAYOUT___GET_VIEW = CoreModelPackage.YLAYOUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Grid Layout Cell Style</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YGRID_LAYOUT___ADD_GRID_LAYOUT_CELL_STYLE__YEMBEDDABLE = CoreModelPackage.YLAYOUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YGrid Layout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YGRID_LAYOUT_OPERATION_COUNT = CoreModelPackage.YLAYOUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutCellStyleImpl <em>YGrid Layout Cell Style</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -685,24 +558,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YGRID_LAYOUT_CELL_STYLE_FEATURE_COUNT = 3;
 
 	/**
-	 * The operation id for the '<em>Add Span Info</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YGRID_LAYOUT_CELL_STYLE___ADD_SPAN_INFO__INT_INT_INT_INT = 0;
-
-	/**
-	 * The number of operations of the '<em>YGrid Layout Cell Style</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YGRID_LAYOUT_CELL_STYLE_OPERATION_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YHorizontalLayoutImpl <em>YHorizontal Layout</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -720,6 +575,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YHORIZONTAL_LAYOUT__ID = CoreModelPackage.YLAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHORIZONTAL_LAYOUT__NAME = CoreModelPackage.YLAYOUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -821,42 +685,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YHORIZONTAL_LAYOUT_FEATURE_COUNT = CoreModelPackage.YLAYOUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHORIZONTAL_LAYOUT___GET_PARENT = CoreModelPackage.YLAYOUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHORIZONTAL_LAYOUT___GET_VIEW = CoreModelPackage.YLAYOUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Get Cell Style</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHORIZONTAL_LAYOUT___GET_CELL_STYLE__YEMBEDDABLE = CoreModelPackage.YLAYOUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YHorizontal Layout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHORIZONTAL_LAYOUT_OPERATION_COUNT = CoreModelPackage.YLAYOUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YHorizontalLayoutCellStyleImpl <em>YHorizontal Layout Cell Style</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -894,15 +722,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YHORIZONTAL_LAYOUT_CELL_STYLE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>YHorizontal Layout Cell Style</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHORIZONTAL_LAYOUT_CELL_STYLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YVerticalLayoutImpl <em>YVertical Layout</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -920,6 +739,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVERTICAL_LAYOUT__ID = CoreModelPackage.YLAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVERTICAL_LAYOUT__NAME = CoreModelPackage.YLAYOUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -1021,33 +849,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YVERTICAL_LAYOUT_FEATURE_COUNT = CoreModelPackage.YLAYOUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVERTICAL_LAYOUT___GET_PARENT = CoreModelPackage.YLAYOUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVERTICAL_LAYOUT___GET_VIEW = CoreModelPackage.YLAYOUT___GET_VIEW;
-
-	/**
-	 * The number of operations of the '<em>YVertical Layout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVERTICAL_LAYOUT_OPERATION_COUNT = CoreModelPackage.YLAYOUT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YVerticalLayoutCellStyleImpl <em>YVertical Layout Cell Style</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,15 +884,6 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVERTICAL_LAYOUT_CELL_STYLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YVertical Layout Cell Style</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVERTICAL_LAYOUT_CELL_STYLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YSpanInfoImpl <em>YSpan Info</em>}' class.
@@ -1149,15 +941,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YSPAN_INFO_FEATURE_COUNT = 4;
 
 	/**
-	 * The number of operations of the '<em>YSpan Info</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YSPAN_INFO_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl <em>YTable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1175,6 +958,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTABLE__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -1384,87 +1176,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___CREATE_COLLECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___CREATE_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE___CREATE_MULTI_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>YTable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTABLE_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 3;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl <em>YLabel</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1592,6 +1303,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTREE__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -1801,87 +1521,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTREE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___CREATE_COLLECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___CREATE_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE___CREATE_MULTI_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>YTree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTREE_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 3;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl <em>YOptions Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1899,6 +1538,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YOPTIONS_GROUP__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -2108,87 +1756,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YOPTIONS_GROUP_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___CREATE_COLLECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___CREATE_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP___CREATE_MULTI_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>YOptions Group</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YOPTIONS_GROUP_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2196,6 +1763,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLIST__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -2405,87 +1981,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___CREATE_COLLECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___CREATE_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST___CREATE_MULTI_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>YList</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLIST_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2493,6 +1988,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLABEL__ID = CoreModelPackage.YFIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLABEL__NAME = CoreModelPackage.YFIELD__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -2630,69 +2134,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLABEL_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL___GET_PARENT = CoreModelPackage.YFIELD___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL___GET_VIEW = CoreModelPackage.YFIELD___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = CoreModelPackage.YFIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = CoreModelPackage.YFIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL___REMOVE_ALL_VALUE_CHANG_LISTENERS = CoreModelPackage.YFIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL___CREATE_VALUE_ENDPOINT = CoreModelPackage.YFIELD_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YLabel</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLABEL_OPERATION_COUNT = CoreModelPackage.YFIELD_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2700,6 +2141,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTEXT_AREA__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTEXT_AREA__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -2846,69 +2296,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTEXT_AREA_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YText Area</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTEXT_AREA_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2916,6 +2303,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCHECK_BOX__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCHECK_BOX__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -3062,69 +2458,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCHECK_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YCheck Box</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCHECK_BOX_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3132,6 +2465,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBROWSER__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBROWSER__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -3278,69 +2620,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YBROWSER_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YBrowser</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBROWSER_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3348,6 +2627,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDATE_TIME__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDATE_TIME__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -3494,69 +2782,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDATE_TIME_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YDate Time</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDATE_TIME_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3564,6 +2789,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_FIELD__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_FIELD__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -3710,69 +2944,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YDECIMAL_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YDecimal Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_FIELD_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3780,6 +2951,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YNUMERIC_FIELD__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YNUMERIC_FIELD__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -3926,69 +3106,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YNUMERIC_FIELD_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YNumeric Field</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YNUMERIC_FIELD_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3996,6 +3113,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCOMBO_BOX__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -4178,78 +3304,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___CREATE_COLLECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX___CREATE_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>YCombo Box</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOMBO_BOX_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4257,6 +3311,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBUTTON__ID = CoreModelPackage.YACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBUTTON__NAME = CoreModelPackage.YACTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -4367,51 +3430,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YBUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON___GET_PARENT = CoreModelPackage.YACTION___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON___GET_VIEW = CoreModelPackage.YACTION___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Click Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON___ADD_CLICK_LISTENER__YBUTTONCLICKLISTENER = CoreModelPackage.YACTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Remove Click Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON___REMOVE_CLICK_LISTENER__YBUTTONCLICKLISTENER = CoreModelPackage.YACTION_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>YButton</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBUTTON_OPERATION_COUNT = CoreModelPackage.YACTION_OPERATION_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4419,6 +3437,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTOGGLE_BUTTON__ID = CoreModelPackage.YACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTOGGLE_BUTTON__NAME = CoreModelPackage.YACTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -4520,33 +3547,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTOGGLE_BUTTON_FEATURE_COUNT = CoreModelPackage.YACTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTOGGLE_BUTTON___GET_PARENT = CoreModelPackage.YACTION___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTOGGLE_BUTTON___GET_VIEW = CoreModelPackage.YACTION___GET_VIEW;
-
-	/**
-	 * The number of operations of the '<em>YToggle Button</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTOGGLE_BUTTON_OPERATION_COUNT = CoreModelPackage.YACTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YProgressBarImpl <em>YProgress Bar</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4564,6 +3564,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YPROGRESS_BAR__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YPROGRESS_BAR__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -4710,69 +3719,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YPROGRESS_BAR_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR___CREATE_VALUE_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YProgress Bar</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YPROGRESS_BAR_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabSheetImpl <em>YTab Sheet</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4790,6 +3736,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTAB_SHEET__ID = CoreModelPackage.YEMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB_SHEET__NAME = CoreModelPackage.YEMBEDDABLE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -4855,33 +3810,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTAB_SHEET_FEATURE_COUNT = CoreModelPackage.YEMBEDDABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTAB_SHEET___GET_PARENT = CoreModelPackage.YEMBEDDABLE___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTAB_SHEET___GET_VIEW = CoreModelPackage.YEMBEDDABLE___GET_VIEW;
-
-	/**
-	 * The number of operations of the '<em>YTab Sheet</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTAB_SHEET_OPERATION_COUNT = CoreModelPackage.YEMBEDDABLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTabImpl <em>YTab</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4899,6 +3827,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YTAB__ID = CoreModelPackage.YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTAB__NAME = CoreModelPackage.YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -4955,24 +3892,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTAB_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTAB___GET_VIEW = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YTab</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YTAB_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl <em>YMaster Detail</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4990,6 +3909,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YMASTER_DETAIL__ID = YINPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__NAME = YINPUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -5190,78 +4118,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YMASTER_DETAIL_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 10;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___GET_PARENT = YINPUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___GET_VIEW = YINPUT___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YINPUT___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___REMOVE_ALL_VALUE_CHANG_LISTENERS = YINPUT___REMOVE_ALL_VALUE_CHANG_LISTENERS;
-
-	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___CREATE_COLLECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL___CREATE_SELECTION_ENDPOINT = YINPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>YMaster Detail</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMASTER_DETAIL_OPERATION_COUNT = YINPUT_OPERATION_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YFormLayoutImpl <em>YForm Layout</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5279,6 +4135,15 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YFORM_LAYOUT__ID = CoreModelPackage.YLAYOUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFORM_LAYOUT__NAME = CoreModelPackage.YLAYOUT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -5380,33 +4245,6 @@ public interface ExtensionModelPackage extends EPackage {
 	int YFORM_LAYOUT_FEATURE_COUNT = CoreModelPackage.YLAYOUT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFORM_LAYOUT___GET_PARENT = CoreModelPackage.YLAYOUT___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFORM_LAYOUT___GET_VIEW = CoreModelPackage.YLAYOUT___GET_VIEW;
-
-	/**
-	 * The number of operations of the '<em>YForm Layout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFORM_LAYOUT_OPERATION_COUNT = CoreModelPackage.YLAYOUT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YFormLayoutCellStyleImpl <em>YForm Layout Cell Style</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5442,15 +4280,6 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YFORM_LAYOUT_CELL_STYLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YForm Layout Cell Style</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFORM_LAYOUT_CELL_STYLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '<em>YButton Click Listener</em>' data type.
@@ -5582,16 +4411,6 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYGridLayout_FillVertical();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout#addGridLayoutCellStyle(org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable) <em>Add Grid Layout Cell Style</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Grid Layout Cell Style</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout#addGridLayoutCellStyle(org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable)
-	 * @generated
-	 */
-	EOperation getYGridLayout__AddGridLayoutCellStyle__YEmbeddable();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle <em>YGrid Layout Cell Style</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5635,16 +4454,6 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYGridLayoutCellStyle_SpanInfo();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle#addSpanInfo(int, int, int, int) <em>Add Span Info</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Span Info</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle#addSpanInfo(int, int, int, int)
-	 * @generated
-	 */
-	EOperation getYGridLayoutCellStyle__AddSpanInfo__int_int_int_int();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout <em>YHorizontal Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5675,16 +4484,6 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYHorizontalLayout_FillHorizontal();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout#getCellStyle(org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable) <em>Get Cell Style</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Cell Style</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout#getCellStyle(org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable)
-	 * @generated
-	 */
-	EOperation getYHorizontalLayout__GetCellStyle__YEmbeddable();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle <em>YHorizontal Layout Cell Style</em>}'.
@@ -6441,26 +5240,6 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYButton_ClickListeners();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#addClickListener(org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener) <em>Add Click Listener</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Click Listener</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#addClickListener(org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener)
-	 * @generated
-	 */
-	EOperation getYButton__AddClickListener__YButtonClickListener();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#removeClickListener(org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener) <em>Remove Click Listener</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Click Listener</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YButton#removeClickListener(org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener)
-	 * @generated
-	 */
-	EOperation getYButton__RemoveClickListener__YButtonClickListener();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YToggleButton <em>YToggle Button</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6587,16 +5366,6 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYTab_Datadescription();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getView() <em>Get View</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get View</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTab#getView()
-	 * @generated
-	 */
-	EOperation getYTab__GetView();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail <em>YMaster Detail</em>}'.
@@ -7086,14 +5855,6 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YGRID_LAYOUT__FILL_VERTICAL = eINSTANCE.getYGridLayout_FillVertical();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Grid Layout Cell Style</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YGRID_LAYOUT___ADD_GRID_LAYOUT_CELL_STYLE__YEMBEDDABLE = eINSTANCE.getYGridLayout__AddGridLayoutCellStyle__YEmbeddable();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YGridLayoutCellStyleImpl <em>YGrid Layout Cell Style</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7128,14 +5889,6 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YGRID_LAYOUT_CELL_STYLE__SPAN_INFO = eINSTANCE.getYGridLayoutCellStyle_SpanInfo();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Span Info</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YGRID_LAYOUT_CELL_STYLE___ADD_SPAN_INFO__INT_INT_INT_INT = eINSTANCE.getYGridLayoutCellStyle__AddSpanInfo__int_int_int_int();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YHorizontalLayoutImpl <em>YHorizontal Layout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7160,14 +5913,6 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YHORIZONTAL_LAYOUT__FILL_HORIZONTAL = eINSTANCE.getYHorizontalLayout_FillHorizontal();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Cell Style</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YHORIZONTAL_LAYOUT___GET_CELL_STYLE__YEMBEDDABLE = eINSTANCE.getYHorizontalLayout__GetCellStyle__YEmbeddable();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YHorizontalLayoutCellStyleImpl <em>YHorizontal Layout Cell Style</em>}' class.
@@ -7762,22 +6507,6 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YBUTTON__CLICK_LISTENERS = eINSTANCE.getYButton_ClickListeners();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Click Listener</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBUTTON___ADD_CLICK_LISTENER__YBUTTONCLICKLISTENER = eINSTANCE.getYButton__AddClickListener__YButtonClickListener();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Click Listener</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBUTTON___REMOVE_CLICK_LISTENER__YBUTTONCLICKLISTENER = eINSTANCE.getYButton__RemoveClickListener__YButtonClickListener();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YToggleButtonImpl <em>YToggle Button</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7880,14 +6609,6 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YTAB__DATADESCRIPTION = eINSTANCE.getYTab_Datadescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Get View</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YTAB___GET_VIEW = eINSTANCE.getYTab__GetView();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl <em>YMaster Detail</em>}' class.

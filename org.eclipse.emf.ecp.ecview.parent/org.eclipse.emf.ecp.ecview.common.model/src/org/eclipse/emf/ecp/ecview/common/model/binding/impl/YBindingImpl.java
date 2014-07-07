@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -22,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getModelToTargetStrategy <em>Model To Target Strategy</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingImpl#getTargetToModelStrategy <em>Target To Model Strategy</em>}</li>
  * </ul>
@@ -49,6 +48,26 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getModelToTargetStrategy() <em>Model To Target Strategy</em>}' attribute.
@@ -124,6 +143,27 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING__NAME, oldName, name));
 	}
 
 	/**
@@ -243,6 +283,8 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case BindingPackage.YBINDING__ID:
 				return getId();
+			case BindingPackage.YBINDING__NAME:
+				return getName();
 			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
 				return getModelToTargetStrategy();
 			case BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY:
@@ -260,6 +302,9 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case BindingPackage.YBINDING__ID:
 				setId((String)newValue);
+				return;
+			case BindingPackage.YBINDING__NAME:
+				setName((String)newValue);
 				return;
 			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
 				setModelToTargetStrategy((YBindingUpdateStrategy)newValue);
@@ -281,6 +326,9 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 			case BindingPackage.YBINDING__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case BindingPackage.YBINDING__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
 				setModelToTargetStrategy(MODEL_TO_TARGET_STRATEGY_EDEFAULT);
 				return;
@@ -300,32 +348,14 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case BindingPackage.YBINDING__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case BindingPackage.YBINDING__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case BindingPackage.YBINDING__MODEL_TO_TARGET_STRATEGY:
 				return modelToTargetStrategy != MODEL_TO_TARGET_STRATEGY_EDEFAULT;
 			case BindingPackage.YBINDING__TARGET_TO_MODEL_STRATEGY:
 				return targetToModelStrategy != TARGET_TO_MODEL_STRATEGY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case BindingPackage.YBINDING___GET_BINDING_SET:
-				return getBindingSet();
-			case BindingPackage.YBINDING___IS_BINDS_ELEMENT__YELEMENT:
-				return isBindsElement((YElement)arguments.get(0));
-			case BindingPackage.YBINDING___GET_TARGET_ENDPOINT:
-				return getTargetEndpoint();
-			case BindingPackage.YBINDING___GET_MODEL_ENDPOINT:
-				return getModelEndpoint();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -339,6 +369,8 @@ public abstract class YBindingImpl extends MinimalEObjectImpl.Container implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", modelToTargetStrategy: ");
 		result.append(modelToTargetStrategy);
 		result.append(", targetToModelStrategy: ");

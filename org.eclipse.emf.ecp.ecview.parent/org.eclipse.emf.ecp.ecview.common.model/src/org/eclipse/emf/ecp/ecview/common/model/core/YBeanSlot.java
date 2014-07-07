@@ -4,6 +4,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core;
 
 import org.eclipse.emf.ecore.EObject;
 
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>YBean Slot</b></em>'. <!-- end-user-doc -->
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueTypeQualifiedName <em>Value Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +75,32 @@ public interface YBeanSlot extends EObject {
 	 * @generated
 	 */
 	void setValueType(Class<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Type Qualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Type Qualified Name</em>' attribute.
+	 * @see #setValueTypeQualifiedName(String)
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYBeanSlot_ValueTypeQualifiedName()
+	 * @model
+	 * @generated
+	 */
+	String getValueTypeQualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueTypeQualifiedName <em>Value Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Type Qualified Name</em>' attribute.
+	 * @see #getValueTypeQualifiedName()
+	 * @generated
+	 */
+	void setValueTypeQualifiedName(String value);
 
 	/**
 	 * Creates a binding endpoint that may be used to bind values against this

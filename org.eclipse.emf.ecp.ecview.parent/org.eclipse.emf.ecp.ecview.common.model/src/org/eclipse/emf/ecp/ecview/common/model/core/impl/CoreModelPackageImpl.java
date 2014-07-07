@@ -416,6 +416,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYElement_Name() {
+		return (EAttribute)yElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYLayout() {
 		return yLayoutEClass;
 	}
@@ -454,33 +463,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EReference getYField_InternalValidators() {
 		return (EReference)yFieldEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYField__AddValueChangeListener__YValueChangeListener() {
-		return yFieldEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYField__RemoveValueChangeListener__YValueChangeListener() {
-		return yFieldEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYField__RemoveAllValueChangListeners() {
-		return yFieldEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -542,15 +524,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getYView__GetOrCreateBindingSet() {
-		return yViewEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYViewSet() {
 		return yViewSetEClass;
 	}
@@ -605,26 +578,17 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYBeanSlot_ValueTypeQualifiedName() {
+		return (EAttribute)yBeanSlotEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYEmbeddable() {
 		return yEmbeddableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYEmbeddable__GetParent() {
-		return yEmbeddableEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYEmbeddable__GetView() {
-		return yEmbeddableEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -893,15 +857,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getYValueBindable__CreateValueEndpoint() {
-		return yValueBindableEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYSelectionBindable() {
 		return ySelectionBindableEClass;
 	}
@@ -913,15 +868,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EReference getYSelectionBindable_SelectionBindingEndpoint() {
 		return (EReference)ySelectionBindableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYSelectionBindable__CreateSelectionEndpoint() {
-		return ySelectionBindableEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -947,15 +893,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getYMultiSelectionBindable__CreateMultiSelectionEndpoint() {
-		return yMultiSelectionBindableEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getYCollectionBindable() {
 		return yCollectionBindableEClass;
 	}
@@ -967,15 +904,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EReference getYCollectionBindable_CollectionBindingEndpoint() {
 		return (EReference)yCollectionBindableEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYCollectionBindable__CreateCollectionEndpoint() {
-		return yCollectionBindableEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1066,15 +994,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EClass getYEmbeddableBindingEndpoint() {
 		return yEmbeddableBindingEndpointEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYEmbeddableBindingEndpoint__GetElement() {
-		return yEmbeddableBindingEndpointEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1260,6 +1179,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		// Create classes and their features
 		yElementEClass = createEClass(YELEMENT);
 		createEAttribute(yElementEClass, YELEMENT__ID);
+		createEAttribute(yElementEClass, YELEMENT__NAME);
 
 		yLayoutEClass = createEClass(YLAYOUT);
 		createEReference(yLayoutEClass, YLAYOUT__ELEMENTS);
@@ -1267,9 +1187,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yFieldEClass = createEClass(YFIELD);
 		createEReference(yFieldEClass, YFIELD__VALIDATORS);
 		createEReference(yFieldEClass, YFIELD__INTERNAL_VALIDATORS);
-		createEOperation(yFieldEClass, YFIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER);
-		createEOperation(yFieldEClass, YFIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER);
-		createEOperation(yFieldEClass, YFIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS);
 
 		yViewEClass = createEClass(YVIEW);
 		createEReference(yViewEClass, YVIEW__ROOT);
@@ -1277,7 +1194,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEReference(yViewEClass, YVIEW__CONTENT);
 		createEReference(yViewEClass, YVIEW__BINDING_SET);
 		createEReference(yViewEClass, YVIEW__BEAN_SLOTS);
-		createEOperation(yViewEClass, YVIEW___GET_OR_CREATE_BINDING_SET);
 
 		yViewSetEClass = createEClass(YVIEW_SET);
 		createEReference(yViewSetEClass, YVIEW_SET__VIEWS);
@@ -1286,10 +1202,9 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yBeanSlotEClass = createEClass(YBEAN_SLOT);
 		createEAttribute(yBeanSlotEClass, YBEAN_SLOT__NAME);
 		createEAttribute(yBeanSlotEClass, YBEAN_SLOT__VALUE_TYPE);
+		createEAttribute(yBeanSlotEClass, YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME);
 
 		yEmbeddableEClass = createEClass(YEMBEDDABLE);
-		createEOperation(yEmbeddableEClass, YEMBEDDABLE___GET_PARENT);
-		createEOperation(yEmbeddableEClass, YEMBEDDABLE___GET_VIEW);
 
 		yCssAbleEClass = createEClass(YCSS_ABLE);
 		createEAttribute(yCssAbleEClass, YCSS_ABLE__CSS_CLASS);
@@ -1331,19 +1246,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		yValueBindableEClass = createEClass(YVALUE_BINDABLE);
 		createEReference(yValueBindableEClass, YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT);
-		createEOperation(yValueBindableEClass, YVALUE_BINDABLE___CREATE_VALUE_ENDPOINT);
 
 		ySelectionBindableEClass = createEClass(YSELECTION_BINDABLE);
 		createEReference(ySelectionBindableEClass, YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT);
-		createEOperation(ySelectionBindableEClass, YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT);
 
 		yMultiSelectionBindableEClass = createEClass(YMULTI_SELECTION_BINDABLE);
 		createEReference(yMultiSelectionBindableEClass, YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT);
-		createEOperation(yMultiSelectionBindableEClass, YMULTI_SELECTION_BINDABLE___CREATE_MULTI_SELECTION_ENDPOINT);
 
 		yCollectionBindableEClass = createEClass(YCOLLECTION_BINDABLE);
 		createEReference(yCollectionBindableEClass, YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT);
-		createEOperation(yCollectionBindableEClass, YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT);
 
 		yContextValueBindingEndpointEClass = createEClass(YCONTEXT_VALUE_BINDING_ENDPOINT);
 		createEAttribute(yContextValueBindingEndpointEClass, YCONTEXT_VALUE_BINDING_ENDPOINT__URL_STRING);
@@ -1358,7 +1269,6 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE);
 
 		yEmbeddableBindingEndpointEClass = createEClass(YEMBEDDABLE_BINDING_ENDPOINT);
-		createEOperation(yEmbeddableBindingEndpointEClass, YEMBEDDABLE_BINDING_ENDPOINT___GET_ELEMENT);
 
 		yEmbeddableValueEndpointEClass = createEClass(YEMBEDDABLE_VALUE_ENDPOINT);
 		createEReference(yEmbeddableValueEndpointEClass, YEMBEDDABLE_VALUE_ENDPOINT__ELEMENT);
@@ -1458,9 +1368,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yActivatedEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yDtWrapperEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(yElementEClass, YElement.class, "YElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYElement_Id(), ecorePackage.getEString(), "id", null, 0, 1, YElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, YElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yLayoutEClass, YLayout.class, "YLayout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYLayout_Elements(), this.getYEmbeddable(), null, "elements", null, 0, -1, YLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1469,13 +1380,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYField_Validators(), theValidationPackage.getYValidator(), null, "validators", null, 0, -1, YField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYField_InternalValidators(), theValidationPackage.getYValidator(), null, "internalValidators", null, 0, -1, YField.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getYField__AddValueChangeListener__YValueChangeListener(), ecorePackage.getEBoolean(), "addValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(yFieldEClass, ecorePackage.getEBoolean(), "addValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueChangeListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getYField__RemoveValueChangeListener__YValueChangeListener(), ecorePackage.getEBoolean(), "removeValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(yFieldEClass, ecorePackage.getEBoolean(), "removeValueChangeListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYValueChangeListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getYField__RemoveAllValueChangListeners(), null, "removeAllValueChangListeners", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yFieldEClass, null, "removeAllValueChangListeners", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yViewEClass, YView.class, "YView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYView_Root(), this.getYViewSet(), this.getYViewSet_Views(), "root", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1484,7 +1395,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYView_BindingSet(), theBindingPackage.getYBindingSet(), null, "bindingSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_BeanSlots(), this.getYBeanSlot(), null, "beanSlots", null, 0, -1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYView__GetOrCreateBindingSet(), theBindingPackage.getYBindingSet(), "getOrCreateBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yViewEClass, theBindingPackage.getYBindingSet(), "getOrCreateBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yViewSetEClass, YViewSet.class, "YViewSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYViewSet_Views(), this.getYView(), this.getYView_Root(), "views", null, 0, -1, YViewSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1496,12 +1407,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYBeanSlot_ValueType(), g1, "valueType", null, 1, 1, YBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYBeanSlot_ValueTypeQualifiedName(), ecorePackage.getEString(), "valueTypeQualifiedName", null, 0, 1, YBeanSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEmbeddableEClass, YEmbeddable.class, "YEmbeddable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getYEmbeddable__GetParent(), this.getYLayout(), "getParent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yEmbeddableEClass, this.getYLayout(), "getParent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getYEmbeddable__GetView(), this.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yEmbeddableEClass, this.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yCssAbleEClass, YCssAble.class, "YCssAble", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYCssAble_CssClass(), ecorePackage.getEString(), "cssClass", null, 0, 1, YCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1544,22 +1456,22 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEClass(yValueBindableEClass, YValueBindable.class, "YValueBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYValueBindable_ValueBindingEndpoint(), this.getYEmbeddableValueEndpoint(), this.getYEmbeddableValueEndpoint_Element(), "valueBindingEndpoint", null, 0, 1, YValueBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYValueBindable__CreateValueEndpoint(), this.getYEmbeddableValueEndpoint(), "createValueEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yValueBindableEClass, this.getYEmbeddableValueEndpoint(), "createValueEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(ySelectionBindableEClass, YSelectionBindable.class, "YSelectionBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYSelectionBindable_SelectionBindingEndpoint(), this.getYEmbeddableSelectionEndpoint(), this.getYEmbeddableSelectionEndpoint_Element(), "selectionBindingEndpoint", null, 0, 1, YSelectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYSelectionBindable__CreateSelectionEndpoint(), this.getYEmbeddableSelectionEndpoint(), "createSelectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(ySelectionBindableEClass, this.getYEmbeddableSelectionEndpoint(), "createSelectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yMultiSelectionBindableEClass, YMultiSelectionBindable.class, "YMultiSelectionBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYMultiSelectionBindable_MultiSelectionBindingEndpoint(), this.getYEmbeddableMultiSelectionEndpoint(), this.getYEmbeddableMultiSelectionEndpoint_Element(), "multiSelectionBindingEndpoint", null, 0, 1, YMultiSelectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYMultiSelectionBindable__CreateMultiSelectionEndpoint(), this.getYEmbeddableMultiSelectionEndpoint(), "createMultiSelectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yMultiSelectionBindableEClass, this.getYEmbeddableMultiSelectionEndpoint(), "createMultiSelectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yCollectionBindableEClass, YCollectionBindable.class, "YCollectionBindable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYCollectionBindable_CollectionBindingEndpoint(), this.getYEmbeddableCollectionEndpoint(), this.getYEmbeddableCollectionEndpoint_Element(), "collectionBindingEndpoint", null, 0, 1, YCollectionBindable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYCollectionBindable__CreateCollectionEndpoint(), this.getYEmbeddableCollectionEndpoint(), "createCollectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yCollectionBindableEClass, this.getYEmbeddableCollectionEndpoint(), "createCollectionEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yContextValueBindingEndpointEClass, YContextValueBindingEndpoint.class, "YContextValueBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYContextValueBindingEndpoint_UrlString(), ecorePackage.getEString(), "urlString", null, 1, 1, YContextValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1578,7 +1490,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		initEClass(yEmbeddableBindingEndpointEClass, YEmbeddableBindingEndpoint.class, "YEmbeddableBindingEndpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getYEmbeddableBindingEndpoint__GetElement(), this.getYBindable(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yEmbeddableBindingEndpointEClass, this.getYBindable(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yEmbeddableValueEndpointEClass, YEmbeddableValueEndpoint.class, "YEmbeddableValueEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYEmbeddableValueEndpoint_Element(), this.getYValueBindable(), this.getYValueBindable_ValueBindingEndpoint(), "element", null, 1, 1, YEmbeddableValueEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -32,6 +30,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingSetImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingSetImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingSetImpl#getBindings <em>Bindings</em>}</li>
  * </ul>
  * </p>
@@ -58,6 +57,24 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -101,6 +118,27 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING_SET__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING_SET__NAME, oldName, name));
 	}
 
 	/**
@@ -311,6 +349,8 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case BindingPackage.YBINDING_SET__ID:
 				return getId();
+			case BindingPackage.YBINDING_SET__NAME:
+				return getName();
 			case BindingPackage.YBINDING_SET__BINDINGS:
 				return getBindings();
 		}
@@ -327,6 +367,9 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case BindingPackage.YBINDING_SET__ID:
 				setId((String)newValue);
+				return;
+			case BindingPackage.YBINDING_SET__NAME:
+				setName((String)newValue);
 				return;
 			case BindingPackage.YBINDING_SET__BINDINGS:
 				getBindings().clear();
@@ -346,6 +389,9 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 			case BindingPackage.YBINDING_SET__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case BindingPackage.YBINDING_SET__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case BindingPackage.YBINDING_SET__BINDINGS:
 				getBindings().clear();
 				return;
@@ -362,38 +408,12 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case BindingPackage.YBINDING_SET__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case BindingPackage.YBINDING_SET__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case BindingPackage.YBINDING_SET__BINDINGS:
 				return bindings != null && !bindings.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case BindingPackage.YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT:
-				return addBinding((YValueBindingEndpoint)arguments.get(0), (YValueBindingEndpoint)arguments.get(1));
-			case BindingPackage.YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT:
-				return addBinding((YListBindingEndpoint)arguments.get(0), (YListBindingEndpoint)arguments.get(1));
-			case BindingPackage.YBINDING_SET___ADD_BINDING__YVALUEBINDINGENDPOINT_YVALUEBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY:
-				return addBinding((YValueBindingEndpoint)arguments.get(0), (YValueBindingEndpoint)arguments.get(1), (YBindingUpdateStrategy)arguments.get(2), (YBindingUpdateStrategy)arguments.get(3));
-			case BindingPackage.YBINDING_SET___ADD_BINDING__YLISTBINDINGENDPOINT_YLISTBINDINGENDPOINT_YBINDINGUPDATESTRATEGY_YBINDINGUPDATESTRATEGY:
-				return addBinding((YListBindingEndpoint)arguments.get(0), (YListBindingEndpoint)arguments.get(1), (YBindingUpdateStrategy)arguments.get(2), (YBindingUpdateStrategy)arguments.get(3));
-			case BindingPackage.YBINDING_SET___GET_VIEW:
-				return getView();
-			case BindingPackage.YBINDING_SET___ADD_BINDING__YBINDING:
-				addBinding((YBinding)arguments.get(0));
-				return null;
-			case BindingPackage.YBINDING_SET___REMOVE_BINDING__YBINDING:
-				removeBinding((YBinding)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -407,6 +427,8 @@ public class YBindingSetImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

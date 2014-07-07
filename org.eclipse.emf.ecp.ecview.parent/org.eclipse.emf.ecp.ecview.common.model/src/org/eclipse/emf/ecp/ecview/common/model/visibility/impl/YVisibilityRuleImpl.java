@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.visibility.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -26,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRuleBinding
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl#getBindingEndpoints <em>Binding Endpoints</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl#isMatchMeansFalse <em>Match Means False</em>}</li>
  * </ul>
@@ -54,6 +53,26 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBindingEndpoints() <em>Binding Endpoints</em>}' reference list.
@@ -119,6 +138,27 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_RULE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_RULE__NAME, oldName, name));
 	}
 
 	/**
@@ -212,6 +252,8 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_RULE__ID:
 				return getId();
+			case VisibilityPackage.YVISIBILITY_RULE__NAME:
+				return getName();
 			case VisibilityPackage.YVISIBILITY_RULE__BINDING_ENDPOINTS:
 				return getBindingEndpoints();
 			case VisibilityPackage.YVISIBILITY_RULE__MATCH_MEANS_FALSE:
@@ -230,6 +272,9 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_RULE__ID:
 				setId((String)newValue);
+				return;
+			case VisibilityPackage.YVISIBILITY_RULE__NAME:
+				setName((String)newValue);
 				return;
 			case VisibilityPackage.YVISIBILITY_RULE__BINDING_ENDPOINTS:
 				getBindingEndpoints().clear();
@@ -252,6 +297,9 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 			case VisibilityPackage.YVISIBILITY_RULE__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case VisibilityPackage.YVISIBILITY_RULE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case VisibilityPackage.YVISIBILITY_RULE__BINDING_ENDPOINTS:
 				getBindingEndpoints().clear();
 				return;
@@ -271,26 +319,14 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_RULE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case VisibilityPackage.YVISIBILITY_RULE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case VisibilityPackage.YVISIBILITY_RULE__BINDING_ENDPOINTS:
 				return bindingEndpoints != null && !bindingEndpoints.isEmpty();
 			case VisibilityPackage.YVISIBILITY_RULE__MATCH_MEANS_FALSE:
 				return matchMeansFalse != MATCH_MEANS_FALSE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case VisibilityPackage.YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING:
-				return createRuleEndpoint((String)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -304,6 +340,8 @@ public abstract class YVisibilityRuleImpl extends MinimalEObjectImpl.Container
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", matchMeansFalse: ");
 		result.append(matchMeansFalse);
 		result.append(')');

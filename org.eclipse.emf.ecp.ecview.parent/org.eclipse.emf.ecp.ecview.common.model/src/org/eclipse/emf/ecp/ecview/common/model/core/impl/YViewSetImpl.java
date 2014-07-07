@@ -35,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getViews <em>Views</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl#getBeanSlots <em>Bean Slots</em>}</li>
  * </ul>
@@ -63,6 +64,26 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
@@ -116,6 +137,27 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW_SET__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW_SET__NAME, oldName, name));
 	}
 
 	/**
@@ -180,6 +222,8 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case CoreModelPackage.YVIEW_SET__ID:
 				return getId();
+			case CoreModelPackage.YVIEW_SET__NAME:
+				return getName();
 			case CoreModelPackage.YVIEW_SET__VIEWS:
 				return getViews();
 			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
@@ -198,6 +242,9 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case CoreModelPackage.YVIEW_SET__ID:
 				setId((String)newValue);
+				return;
+			case CoreModelPackage.YVIEW_SET__NAME:
+				setName((String)newValue);
 				return;
 			case CoreModelPackage.YVIEW_SET__VIEWS:
 				getViews().clear();
@@ -221,6 +268,9 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 			case CoreModelPackage.YVIEW_SET__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case CoreModelPackage.YVIEW_SET__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case CoreModelPackage.YVIEW_SET__VIEWS:
 				getViews().clear();
 				return;
@@ -240,6 +290,8 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case CoreModelPackage.YVIEW_SET__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case CoreModelPackage.YVIEW_SET__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoreModelPackage.YVIEW_SET__VIEWS:
 				return views != null && !views.isEmpty();
 			case CoreModelPackage.YVIEW_SET__BEAN_SLOTS:
@@ -259,6 +311,8 @@ public class YViewSetImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

@@ -363,7 +363,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		yMaxLengthValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 		yRegexpValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(yValidatorEClass, YValidator.class, "YValidator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
 		EGenericType g2 = createEGenericType();

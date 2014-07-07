@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
@@ -88,22 +87,22 @@ public interface CoreModelPackage extends EPackage {
 	int YELEMENT__ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YELEMENT__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>YElement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>YElement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YELEMENT_OPERATION_COUNT = 0;
+	int YELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl <em>YEmbeddable</em>}' class.
@@ -123,6 +122,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEMBEDDABLE__ID = YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE__NAME = YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -179,33 +187,6 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE___GET_PARENT = YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE___GET_VIEW = YELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>YEmbeddable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_OPERATION_COUNT = YELEMENT_OPERATION_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl <em>YLayout</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,6 +204,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLAYOUT__ID = YEMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLAYOUT__NAME = YEMBEDDABLE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -288,33 +278,6 @@ public interface CoreModelPackage extends EPackage {
 	int YLAYOUT_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLAYOUT___GET_PARENT = YEMBEDDABLE___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLAYOUT___GET_VIEW = YEMBEDDABLE___GET_VIEW;
-
-	/**
-	 * The number of operations of the '<em>YLayout</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YLAYOUT_OPERATION_COUNT = YEMBEDDABLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YFieldImpl <em>YField</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,6 +295,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YFIELD__ID = YEMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__NAME = YEMBEDDABLE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -442,60 +414,6 @@ public interface CoreModelPackage extends EPackage {
 	int YFIELD_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFIELD___GET_PARENT = YEMBEDDABLE___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFIELD___GET_VIEW = YEMBEDDABLE___GET_VIEW;
-
-	/**
-	 * The operation id for the '<em>Add Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YEMBEDDABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Remove Value Change Listener</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = YEMBEDDABLE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS = YEMBEDDABLE_OPERATION_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>YField</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YFIELD_OPERATION_COUNT = YEMBEDDABLE_OPERATION_COUNT + 3;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -513,6 +431,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVIEW__ID = YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVIEW__NAME = YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -605,24 +532,6 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Get Or Create Binding Set</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVIEW___GET_OR_CREATE_BINDING_SET = YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YView</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVIEW_OPERATION_COUNT = YELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -640,6 +549,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVIEW_SET__ID = YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVIEW_SET__NAME = YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
@@ -669,15 +587,6 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW_SET_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>YView Set</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVIEW_SET_OPERATION_COUNT = YELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotImpl <em>YBean Slot</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -686,42 +595,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	int YBEAN_SLOT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT__VALUE_TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>YBean Slot</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YBean Slot</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}' class.
@@ -734,42 +607,6 @@ public interface CoreModelPackage extends EPackage {
 	int YCSS_ABLE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCSS_ABLE__CSS_CLASS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCSS_ABLE__CSS_ID = 1;
-
-	/**
-	 * The number of structural features of the '<em>YCss Able</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCSS_ABLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YCss Able</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCSS_ABLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMarginable <em>YMarginable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -778,33 +615,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	int YMARGINABLE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Margin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMARGINABLE__MARGIN = 0;
-
-	/**
-	 * The number of structural features of the '<em>YMarginable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMARGINABLE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>YMarginable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMARGINABLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable <em>YSpacingable</em>}' class.
@@ -817,33 +627,6 @@ public interface CoreModelPackage extends EPackage {
 	int YSPACINGABLE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YSPACINGABLE__SPACING = 0;
-
-	/**
-	 * The number of structural features of the '<em>YSpacingable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YSPACINGABLE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>YSpacingable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YSPACINGABLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YHeightable <em>YHeightable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -854,42 +637,6 @@ public interface CoreModelPackage extends EPackage {
 	int YHEIGHTABLE = 10;
 
 	/**
-	 * The feature id for the '<em><b>Height</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHEIGHTABLE__HEIGHT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Height Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHEIGHTABLE__HEIGHT_UNIT = 1;
-
-	/**
-	 * The number of structural features of the '<em>YHeightable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHEIGHTABLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YHeightable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YHEIGHTABLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YWidthable <em>YWidthable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -898,42 +645,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	int YWIDTHABLE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YWIDTHABLE__WIDTH = 0;
-
-	/**
-	 * The feature id for the '<em><b>Width Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YWIDTHABLE__WIDTH_UNIT = 1;
-
-	/**
-	 * The number of structural features of the '<em>YWidthable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YWIDTHABLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YWidthable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YWIDTHABLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YActivateable <em>YActivateable</em>}' class.
@@ -996,6 +707,159 @@ public interface CoreModelPackage extends EPackage {
 	int YBINDABLE = 17;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT__VALUE_TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Value Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>YBean Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCSS_ABLE__CSS_CLASS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCSS_ABLE__CSS_ID = 1;
+
+	/**
+	 * The number of structural features of the '<em>YCss Able</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCSS_ABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Margin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMARGINABLE__MARGIN = 0;
+
+	/**
+	 * The number of structural features of the '<em>YMarginable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMARGINABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Spacing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YSPACINGABLE__SPACING = 0;
+
+	/**
+	 * The number of structural features of the '<em>YSpacingable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YSPACINGABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHEIGHTABLE__HEIGHT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Height Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHEIGHTABLE__HEIGHT_UNIT = 1;
+
+	/**
+	 * The number of structural features of the '<em>YHeightable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YHEIGHTABLE_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YWIDTHABLE__WIDTH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Width Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YWIDTHABLE__WIDTH_UNIT = 1;
+
+	/**
+	 * The number of structural features of the '<em>YWidthable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YWIDTHABLE_FEATURE_COUNT = 2;
+
+	/**
 	 * The number of structural features of the '<em>YBindable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1003,15 +867,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBINDABLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>YBindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDABLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Initial Activated</b></em>' attribute.
@@ -1041,15 +896,6 @@ public interface CoreModelPackage extends EPackage {
 	int YACTIVATEABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>YActivateable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTIVATEABLE_OPERATION_COUNT = YBINDABLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1075,15 +921,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVISIBLEABLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>YVisibleable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBLEABLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -1113,15 +950,6 @@ public interface CoreModelPackage extends EPackage {
 	int YEDITABLE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>YEditable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEDITABLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1149,15 +977,6 @@ public interface CoreModelPackage extends EPackage {
 	int YENABLE_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>YEnable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YENABLE_OPERATION_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1165,6 +984,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YACTION__ID = YEMBEDDABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTION__NAME = YEMBEDDABLE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -1239,33 +1067,6 @@ public interface CoreModelPackage extends EPackage {
 	int YACTION_FEATURE_COUNT = YEMBEDDABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTION___GET_PARENT = YEMBEDDABLE___GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Get View</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTION___GET_VIEW = YEMBEDDABLE___GET_VIEW;
-
-	/**
-	 * The number of operations of the '<em>YAction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTION_OPERATION_COUNT = YEMBEDDABLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable <em>YValue Bindable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1292,24 +1093,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVALUE_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDABLE___CREATE_VALUE_ENDPOINT = YBINDABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YValue Bindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVALUE_BINDABLE_OPERATION_COUNT = YBINDABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
@@ -1340,24 +1123,6 @@ public interface CoreModelPackage extends EPackage {
 	int YSELECTION_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Create Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT = YBINDABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YSelection Bindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YSELECTION_BINDABLE_OPERATION_COUNT = YBINDABLE_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable <em>YMulti Selection Bindable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1384,24 +1149,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YMULTI_SELECTION_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMULTI_SELECTION_BINDABLE___CREATE_MULTI_SELECTION_ENDPOINT = YBINDABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YMulti Selection Bindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YMULTI_SELECTION_BINDABLE_OPERATION_COUNT = YBINDABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable <em>YCollection Bindable</em>}' class.
@@ -1432,24 +1179,6 @@ public interface CoreModelPackage extends EPackage {
 	int YCOLLECTION_BINDABLE_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Create Collection Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT = YBINDABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YCollection Bindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOLLECTION_BINDABLE_OPERATION_COUNT = YBINDABLE_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextValueBindingEndpointImpl <em>YContext Value Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1467,6 +1196,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YCONTEXT_VALUE_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCONTEXT_VALUE_BINDING_ENDPOINT__NAME = BindingPackage.YVALUE_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Url String</b></em>' attribute.
@@ -1487,42 +1225,6 @@ public interface CoreModelPackage extends EPackage {
 	int YCONTEXT_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_VALUE_BINDING_ENDPOINT___GET_BINDING = BindingPackage.YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_VALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_VALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YContext Value Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCONTEXT_VALUE_BINDING_ENDPOINT_OPERATION_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotValueBindingEndpointImpl <em>YBean Slot Value Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1540,6 +1242,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT__NAME = BindingPackage.YVALUE_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Path</b></em>' attribute.
@@ -1569,42 +1280,6 @@ public interface CoreModelPackage extends EPackage {
 	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT___GET_BINDING = BindingPackage.YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YBean Slot Value Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_VALUE_BINDING_ENDPOINT_OPERATION_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl <em>YBean Slot List Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1622,6 +1297,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__ID = BindingPackage.YLIST_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__NAME = BindingPackage.YLIST_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Path</b></em>' attribute.
@@ -1660,33 +1344,6 @@ public interface CoreModelPackage extends EPackage {
 	int YBEAN_SLOT_LIST_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_LIST_BINDING_ENDPOINT___GET_BINDING = BindingPackage.YLIST_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_LIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YLIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The number of operations of the '<em>YBean Slot List Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBEAN_SLOT_LIST_BINDING_ENDPOINT_OPERATION_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1704,24 +1361,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEMBEDDABLE_BINDING_ENDPOINT_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT___GET_ELEMENT = 0;
-
-	/**
-	 * The number of operations of the '<em>YEmbeddable Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_BINDING_ENDPOINT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableValueEndpointImpl <em>YEmbeddable Value Endpoint</em>}' class.
@@ -1743,6 +1382,15 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_VALUE_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_VALUE_ENDPOINT__NAME = BindingPackage.YVALUE_BINDING_ENDPOINT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1759,51 +1407,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEMBEDDABLE_VALUE_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT___GET_BINDING = BindingPackage.YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT___GET_ELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YEmbeddable Value Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_VALUE_ENDPOINT_OPERATION_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableSelectionEndpointImpl <em>YEmbeddable Selection Endpoint</em>}' class.
@@ -1823,6 +1426,15 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEMBEDDABLE_SELECTION_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_SELECTION_ENDPOINT__NAME = BindingPackage.YVALUE_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -1852,51 +1464,6 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_SELECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT___GET_BINDING = BindingPackage.YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT___GET_ELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YEmbeddable Selection Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_SELECTION_ENDPOINT_OPERATION_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableMultiSelectionEndpointImpl <em>YEmbeddable Multi Selection Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1916,6 +1483,15 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__ID = BindingPackage.YLIST_BINDING_ENDPOINT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT__NAME = BindingPackage.YLIST_BINDING_ENDPOINT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1932,42 +1508,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT___GET_BINDING = BindingPackage.YLIST_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YLIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT___GET_ELEMENT = BindingPackage.YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YEmbeddable Multi Selection Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_MULTI_SELECTION_ENDPOINT_OPERATION_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableCollectionEndpointImpl <em>YEmbeddable Collection Endpoint</em>}' class.
@@ -1989,6 +1529,15 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE_COLLECTION_ENDPOINT__ID = BindingPackage.YLIST_BINDING_ENDPOINT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE_COLLECTION_ENDPOINT__NAME = BindingPackage.YLIST_BINDING_ENDPOINT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2005,42 +1554,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YEMBEDDABLE_COLLECTION_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_COLLECTION_ENDPOINT___GET_BINDING = BindingPackage.YLIST_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_COLLECTION_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YLIST_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_COLLECTION_ENDPOINT___GET_ELEMENT = BindingPackage.YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YEmbeddable Collection Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YEMBEDDABLE_COLLECTION_ENDPOINT_OPERATION_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YActivatedEndpointImpl <em>YActivated Endpoint</em>}' class.
@@ -2062,6 +1575,15 @@ public interface CoreModelPackage extends EPackage {
 	int YACTIVATED_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTIVATED_ENDPOINT__NAME = BindingPackage.YVALUE_BINDING_ENDPOINT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2078,51 +1600,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YACTIVATED_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTIVATED_ENDPOINT___GET_BINDING = BindingPackage.YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTIVATED_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTIVATED_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTIVATED_ENDPOINT___GET_ELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YActivated Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YACTIVATED_ENDPOINT_OPERATION_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDtWrapperImpl <em>YDt Wrapper</em>}' class.
@@ -2180,15 +1657,6 @@ public interface CoreModelPackage extends EPackage {
 	int YDT_WRAPPER_FEATURE_COUNT = DatatypesPackage.YDATATYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>YDt Wrapper</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDT_WRAPPER_OPERATION_COUNT = DatatypesPackage.YDATATYPE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable <em>YVisibility Processable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2215,15 +1683,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVISIBILITY_PROCESSABLE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>YVisibility Processable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_PROCESSABLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
@@ -2279,6 +1738,17 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYElement_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YElement#getName()
+	 * @see #getYElement()
+	 * @generated
+	 */
+	EAttribute getYElement_Name();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YLayout <em>YLayout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2330,36 +1800,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYField_InternalValidators();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#addValueChangeListener(org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener) <em>Add Value Change Listener</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Value Change Listener</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YField#addValueChangeListener(org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener)
-	 * @generated
-	 */
-	EOperation getYField__AddValueChangeListener__YValueChangeListener();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#removeValueChangeListener(org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener) <em>Remove Value Change Listener</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Value Change Listener</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YField#removeValueChangeListener(org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener)
-	 * @generated
-	 */
-	EOperation getYField__RemoveValueChangeListener__YValueChangeListener();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YField#removeAllValueChangListeners() <em>Remove All Value Chang Listeners</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove All Value Chang Listeners</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YField#removeAllValueChangListeners()
-	 * @generated
-	 */
-	EOperation getYField__RemoveAllValueChangListeners();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView <em>YView</em>}'.
@@ -2427,16 +1867,6 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYView_BeanSlots();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getOrCreateBindingSet() <em>Get Or Create Binding Set</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Or Create Binding Set</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YView#getOrCreateBindingSet()
-	 * @generated
-	 */
-	EOperation getYView__GetOrCreateBindingSet();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet <em>YView Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2501,6 +1931,17 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYBeanSlot_ValueType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueTypeQualifiedName <em>Value Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot#getValueTypeQualifiedName()
+	 * @see #getYBeanSlot()
+	 * @generated
+	 */
+	EAttribute getYBeanSlot_ValueTypeQualifiedName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable <em>YEmbeddable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2509,26 +1950,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYEmbeddable();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getParent() <em>Get Parent</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Parent</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getParent()
-	 * @generated
-	 */
-	EOperation getYEmbeddable__GetParent();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getView() <em>Get View</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get View</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getView()
-	 * @generated
-	 */
-	EOperation getYEmbeddable__GetView();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}'.
@@ -2838,16 +2259,6 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYValueBindable_ValueBindingEndpoint();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#createValueEndpoint() <em>Create Value Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Value Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable#createValueEndpoint()
-	 * @generated
-	 */
-	EOperation getYValueBindable__CreateValueEndpoint();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2867,16 +2278,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYSelectionBindable_SelectionBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#createSelectionEndpoint() <em>Create Selection Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Selection Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable#createSelectionEndpoint()
-	 * @generated
-	 */
-	EOperation getYSelectionBindable__CreateSelectionEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable <em>YMulti Selection Bindable</em>}'.
@@ -2900,16 +2301,6 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYMultiSelectionBindable_MultiSelectionBindingEndpoint();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable#createMultiSelectionEndpoint() <em>Create Multi Selection Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Multi Selection Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable#createMultiSelectionEndpoint()
-	 * @generated
-	 */
-	EOperation getYMultiSelectionBindable__CreateMultiSelectionEndpoint();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable <em>YCollection Bindable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2929,16 +2320,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYCollectionBindable_CollectionBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable#createCollectionEndpoint() <em>Create Collection Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Collection Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable#createCollectionEndpoint()
-	 * @generated
-	 */
-	EOperation getYCollectionBindable__CreateCollectionEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint <em>YContext Value Binding Endpoint</em>}'.
@@ -3045,16 +2426,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYEmbeddableBindingEndpoint();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint#getElement()
-	 * @generated
-	 */
-	EOperation getYEmbeddableBindingEndpoint__GetElement();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint <em>YEmbeddable Value Endpoint</em>}'.
@@ -3276,6 +2647,14 @@ public interface CoreModelPackage extends EPackage {
 		EAttribute YELEMENT__ID = eINSTANCE.getYElement_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YELEMENT__NAME = eINSTANCE.getYElement_Name();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl <em>YLayout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3318,30 +2697,6 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YFIELD__INTERNAL_VALIDATORS = eINSTANCE.getYField_InternalValidators();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Value Change Listener</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YFIELD___ADD_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = eINSTANCE.getYField__AddValueChangeListener__YValueChangeListener();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Value Change Listener</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YFIELD___REMOVE_VALUE_CHANGE_LISTENER__YVALUECHANGELISTENER = eINSTANCE.getYField__RemoveValueChangeListener__YValueChangeListener();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove All Value Chang Listeners</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YFIELD___REMOVE_ALL_VALUE_CHANG_LISTENERS = eINSTANCE.getYField__RemoveAllValueChangListeners();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl <em>YView</em>}' class.
@@ -3392,14 +2747,6 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YVIEW__BEAN_SLOTS = eINSTANCE.getYView_BeanSlots();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Or Create Binding Set</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YVIEW___GET_OR_CREATE_BINDING_SET = eINSTANCE.getYView__GetOrCreateBindingSet();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
@@ -3454,6 +2801,14 @@ public interface CoreModelPackage extends EPackage {
 		EAttribute YBEAN_SLOT__VALUE_TYPE = eINSTANCE.getYBeanSlot_ValueType();
 
 		/**
+		 * The meta object literal for the '<em><b>Value Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME = eINSTANCE.getYBeanSlot_ValueTypeQualifiedName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl <em>YEmbeddable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3462,22 +2817,6 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YEMBEDDABLE = eINSTANCE.getYEmbeddable();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Parent</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YEMBEDDABLE___GET_PARENT = eINSTANCE.getYEmbeddable__GetParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Get View</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YEMBEDDABLE___GET_VIEW = eINSTANCE.getYEmbeddable__GetView();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}' class.
@@ -3736,14 +3075,6 @@ public interface CoreModelPackage extends EPackage {
 		EReference YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT = eINSTANCE.getYValueBindable_ValueBindingEndpoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Value Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YVALUE_BINDABLE___CREATE_VALUE_ENDPOINT = eINSTANCE.getYValueBindable__CreateValueEndpoint();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable <em>YSelection Bindable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3760,14 +3091,6 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YSELECTION_BINDABLE__SELECTION_BINDING_ENDPOINT = eINSTANCE.getYSelectionBindable_SelectionBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Selection Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT = eINSTANCE.getYSelectionBindable__CreateSelectionEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable <em>YMulti Selection Bindable</em>}' class.
@@ -3788,14 +3111,6 @@ public interface CoreModelPackage extends EPackage {
 		EReference YMULTI_SELECTION_BINDABLE__MULTI_SELECTION_BINDING_ENDPOINT = eINSTANCE.getYMultiSelectionBindable_MultiSelectionBindingEndpoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Multi Selection Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YMULTI_SELECTION_BINDABLE___CREATE_MULTI_SELECTION_ENDPOINT = eINSTANCE.getYMultiSelectionBindable__CreateMultiSelectionEndpoint();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable <em>YCollection Bindable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3812,14 +3127,6 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YCOLLECTION_BINDABLE__COLLECTION_BINDING_ENDPOINT = eINSTANCE.getYCollectionBindable_CollectionBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Collection Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT = eINSTANCE.getYCollectionBindable__CreateCollectionEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YContextValueBindingEndpointImpl <em>YContext Value Binding Endpoint</em>}' class.
@@ -3908,14 +3215,6 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YEMBEDDABLE_BINDING_ENDPOINT = eINSTANCE.getYEmbeddableBindingEndpoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YEMBEDDABLE_BINDING_ENDPOINT___GET_ELEMENT = eINSTANCE.getYEmbeddableBindingEndpoint__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableValueEndpointImpl <em>YEmbeddable Value Endpoint</em>}' class.

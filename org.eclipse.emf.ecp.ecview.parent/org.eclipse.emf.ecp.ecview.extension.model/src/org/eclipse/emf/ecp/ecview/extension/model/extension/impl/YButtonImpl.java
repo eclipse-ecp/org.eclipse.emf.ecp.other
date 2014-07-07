@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -343,24 +341,6 @@ public class YButtonImpl extends YActionImpl implements YButton {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ExtensionModelPackage.YBUTTON___ADD_CLICK_LISTENER__YBUTTONCLICKLISTENER:
-				addClickListener((YButtonClickListener)arguments.get(0));
-				return null;
-			case ExtensionModelPackage.YBUTTON___REMOVE_CLICK_LISTENER__YBUTTONCLICKLISTENER:
-				removeClickListener((YButtonClickListener)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

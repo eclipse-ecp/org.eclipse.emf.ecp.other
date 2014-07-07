@@ -5,7 +5,6 @@ package org.eclipse.emf.ecp.ecview.common.model.visibility;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
@@ -79,6 +78,15 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_PROCESSOR__ID = CoreModelPackage.YELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_PROCESSOR__NAME = CoreModelPackage.YELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>On Match</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,15 +114,6 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_PROCESSOR_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>YVisibility Processor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_PROCESSOR_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRuledVisibilityProcessorImpl <em>YRuled Visibility Processor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +131,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YRULED_VISIBILITY_PROCESSOR__ID = YVISIBILITY_PROCESSOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YRULED_VISIBILITY_PROCESSOR__NAME = YVISIBILITY_PROCESSOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>On Match</b></em>' containment reference.
@@ -170,15 +178,6 @@ public interface VisibilityPackage extends EPackage {
 	int YRULED_VISIBILITY_PROCESSOR_FEATURE_COUNT = YVISIBILITY_PROCESSOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>YRuled Visibility Processor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YRULED_VISIBILITY_PROCESSOR_OPERATION_COUNT = YVISIBILITY_PROCESSOR_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleImpl <em>YVisibility Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +195,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVISIBILITY_RULE__ID = CoreModelPackage.YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE__NAME = CoreModelPackage.YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
@@ -225,24 +233,6 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_RULE_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YVisibility Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_RULE_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl <em>YVisibility Properties</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,6 +250,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVISIBILITY_PROPERTIES__ID = CoreModelPackage.YELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_PROPERTIES__NAME = CoreModelPackage.YELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Visible</b></em>' attribute.
@@ -361,15 +360,6 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_PROPERTIES_FEATURE_COUNT = CoreModelPackage.YELEMENT_FEATURE_COUNT + 10;
 
 	/**
-	 * The number of operations of the '<em>YVisibility Properties</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_PROPERTIES_OPERATION_COUNT = CoreModelPackage.YELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YColorImpl <em>YColor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,15 +424,6 @@ public interface VisibilityPackage extends EPackage {
 	int YCOLOR_FEATURE_COUNT = 5;
 
 	/**
-	 * The number of operations of the '<em>YColor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YCOLOR_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityRuleBindingEndpointImpl <em>YVisibility Rule Binding Endpoint</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,6 +441,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YVISIBILITY_RULE_BINDING_ENDPOINT__ID = BindingPackage.YVALUE_BINDING_ENDPOINT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVISIBILITY_RULE_BINDING_ENDPOINT__NAME = BindingPackage.YVALUE_BINDING_ENDPOINT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Rule</b></em>' reference.
@@ -489,42 +479,6 @@ public interface VisibilityPackage extends EPackage {
 	int YVISIBILITY_RULE_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Binding</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_RULE_BINDING_ENDPOINT___GET_BINDING = BindingPackage.YVALUE_BINDING_ENDPOINT___GET_BINDING;
-
-	/**
-	 * The operation id for the '<em>Is Binds Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_RULE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT = BindingPackage.YVALUE_BINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT;
-
-	/**
-	 * The operation id for the '<em>Create Detail Value Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_RULE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT = BindingPackage.YVALUE_BINDING_ENDPOINT___CREATE_DETAIL_VALUE_ENDPOINT;
-
-	/**
-	 * The number of operations of the '<em>YVisibility Rule Binding Endpoint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YVISIBILITY_RULE_BINDING_ENDPOINT_OPERATION_COUNT = BindingPackage.YVALUE_BINDING_ENDPOINT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YBooleanValueRuleImpl <em>YBoolean Value Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -542,6 +496,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YBOOLEAN_VALUE_RULE__ID = YVISIBILITY_RULE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBOOLEAN_VALUE_RULE__NAME = YVISIBILITY_RULE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
@@ -571,33 +534,6 @@ public interface VisibilityPackage extends EPackage {
 	int YBOOLEAN_VALUE_RULE_FEATURE_COUNT = YVISIBILITY_RULE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBOOLEAN_VALUE_RULE___CREATE_RULE_ENDPOINT__STRING = YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING;
-
-	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBOOLEAN_VALUE_RULE___CREATE_RULE_ENDPOINT = YVISIBILITY_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YBoolean Value Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBOOLEAN_VALUE_RULE_OPERATION_COUNT = YVISIBILITY_RULE_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRegexpRuleImpl <em>YRegexp Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -615,6 +551,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YREGEXP_RULE__ID = YVISIBILITY_RULE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YREGEXP_RULE__NAME = YVISIBILITY_RULE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
@@ -653,33 +598,6 @@ public interface VisibilityPackage extends EPackage {
 	int YREGEXP_RULE_FEATURE_COUNT = YVISIBILITY_RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YREGEXP_RULE___CREATE_RULE_ENDPOINT__STRING = YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING;
-
-	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YREGEXP_RULE___CREATE_RULE_ENDPOINT = YVISIBILITY_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YRegexp Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YREGEXP_RULE_OPERATION_COUNT = YVISIBILITY_RULE_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YDecimalValueRuleImpl <em>YDecimal Value Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -697,6 +615,15 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_VALUE_RULE__ID = YVISIBILITY_RULE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDECIMAL_VALUE_RULE__NAME = YVISIBILITY_RULE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Binding Endpoints</b></em>' reference list.
@@ -742,33 +669,6 @@ public interface VisibilityPackage extends EPackage {
 	 * @ordered
 	 */
 	int YDECIMAL_VALUE_RULE_FEATURE_COUNT = YVISIBILITY_RULE_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_VALUE_RULE___CREATE_RULE_ENDPOINT__STRING = YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING;
-
-	/**
-	 * The operation id for the '<em>Create Rule Endpoint</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_VALUE_RULE___CREATE_RULE_ENDPOINT = YVISIBILITY_RULE_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>YDecimal Value Rule</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YDECIMAL_VALUE_RULE_OPERATION_COUNT = YVISIBILITY_RULE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}' enum.
@@ -876,16 +776,6 @@ public interface VisibilityPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYVisibilityRule_MatchMeansFalse();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#createRuleEndpoint(java.lang.String) <em>Create Rule Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Rule Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityRule#createRuleEndpoint(java.lang.String)
-	 * @generated
-	 */
-	EOperation getYVisibilityRule__CreateRuleEndpoint__String();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties <em>YVisibility Properties</em>}'.
@@ -1115,16 +1005,6 @@ public interface VisibilityPackage extends EPackage {
 	EClass getYBooleanValueRule();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule#createRuleEndpoint() <em>Create Rule Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Rule Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YBooleanValueRule#createRuleEndpoint()
-	 * @generated
-	 */
-	EOperation getYBooleanValueRule__CreateRuleEndpoint();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule <em>YRegexp Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1144,16 +1024,6 @@ public interface VisibilityPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYRegexpRule_RegExpression();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule#createRuleEndpoint() <em>Create Rule Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Rule Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YRegexpRule#createRuleEndpoint()
-	 * @generated
-	 */
-	EOperation getYRegexpRule__CreateRuleEndpoint();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule <em>YDecimal Value Rule</em>}'.
@@ -1186,16 +1056,6 @@ public interface VisibilityPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYDecimalValueRule_ReferenceValue();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule#createRuleEndpoint() <em>Create Rule Endpoint</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Rule Endpoint</em>' operation.
-	 * @see org.eclipse.emf.ecp.ecview.common.model.visibility.YDecimalValueRule#createRuleEndpoint()
-	 * @generated
-	 */
-	EOperation getYDecimalValueRule__CreateRuleEndpoint();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}'.
@@ -1308,14 +1168,6 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YVISIBILITY_RULE__MATCH_MEANS_FALSE = eINSTANCE.getYVisibilityRule_MatchMeansFalse();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Rule Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YVISIBILITY_RULE___CREATE_RULE_ENDPOINT__STRING = eINSTANCE.getYVisibilityRule__CreateRuleEndpoint__String();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl <em>YVisibility Properties</em>}' class.
@@ -1494,14 +1346,6 @@ public interface VisibilityPackage extends EPackage {
 		EClass YBOOLEAN_VALUE_RULE = eINSTANCE.getYBooleanValueRule();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Rule Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YBOOLEAN_VALUE_RULE___CREATE_RULE_ENDPOINT = eINSTANCE.getYBooleanValueRule__CreateRuleEndpoint();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YRegexpRuleImpl <em>YRegexp Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1518,14 +1362,6 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YREGEXP_RULE__REG_EXPRESSION = eINSTANCE.getYRegexpRule_RegExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Rule Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YREGEXP_RULE___CREATE_RULE_ENDPOINT = eINSTANCE.getYRegexpRule__CreateRuleEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YDecimalValueRuleImpl <em>YDecimal Value Rule</em>}' class.
@@ -1552,14 +1388,6 @@ public interface VisibilityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YDECIMAL_VALUE_RULE__REFERENCE_VALUE = eINSTANCE.getYDecimalValueRule_ReferenceValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Rule Endpoint</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation YDECIMAL_VALUE_RULE___CREATE_RULE_ENDPOINT = eINSTANCE.getYDecimalValueRule__CreateRuleEndpoint();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.visibility.YColorType <em>YColor Type</em>}' enum.

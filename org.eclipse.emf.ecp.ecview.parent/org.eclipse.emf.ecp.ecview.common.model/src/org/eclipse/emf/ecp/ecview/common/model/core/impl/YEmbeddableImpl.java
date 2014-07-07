@@ -10,10 +10,8 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -42,6 +40,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getCssClass <em>Css Class</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#isInitialVisible <em>Initial Visible</em>}</li>
@@ -73,6 +72,24 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	 */
 	protected String id = ID_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -186,6 +203,27 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YEMBEDDABLE__NAME, oldName, name));
 	}
 
 	/**
@@ -417,6 +455,8 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case CoreModelPackage.YEMBEDDABLE__ID:
 				return getId();
+			case CoreModelPackage.YEMBEDDABLE__NAME:
+				return getName();
 			case CoreModelPackage.YEMBEDDABLE__CSS_CLASS:
 				return getCssClass();
 			case CoreModelPackage.YEMBEDDABLE__CSS_ID:
@@ -441,6 +481,9 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case CoreModelPackage.YEMBEDDABLE__ID:
 				setId((String)newValue);
+				return;
+			case CoreModelPackage.YEMBEDDABLE__NAME:
+				setName((String)newValue);
 				return;
 			case CoreModelPackage.YEMBEDDABLE__CSS_CLASS:
 				setCssClass((String)newValue);
@@ -471,6 +514,9 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 			case CoreModelPackage.YEMBEDDABLE__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case CoreModelPackage.YEMBEDDABLE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case CoreModelPackage.YEMBEDDABLE__CSS_CLASS:
 				setCssClass(CSS_CLASS_EDEFAULT);
 				return;
@@ -499,6 +545,8 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case CoreModelPackage.YEMBEDDABLE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case CoreModelPackage.YEMBEDDABLE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoreModelPackage.YEMBEDDABLE__CSS_CLASS:
 				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
 			case CoreModelPackage.YEMBEDDABLE__CSS_ID:
@@ -572,22 +620,6 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case CoreModelPackage.YEMBEDDABLE___GET_PARENT:
-				return getParent();
-			case CoreModelPackage.YEMBEDDABLE___GET_VIEW:
-				return getView();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -598,6 +630,8 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", cssClass: ");
 		result.append(cssClass);
 		result.append(", cssID: ");

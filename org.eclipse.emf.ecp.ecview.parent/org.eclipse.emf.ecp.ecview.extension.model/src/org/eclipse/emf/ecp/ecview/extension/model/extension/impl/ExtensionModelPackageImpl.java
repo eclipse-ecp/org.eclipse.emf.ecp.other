@@ -303,8 +303,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		// Initialize simple dependencies
 		BindingPackage.eINSTANCE.eClass();
 		CoreModelPackage.eINSTANCE.eClass();
-		ValidationPackage.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
+		ValidationPackage.eINSTANCE.eClass();
 		VisibilityPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -400,15 +400,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYGridLayout__AddGridLayoutCellStyle__YEmbeddable() {
-		return yGridLayoutEClass.getEOperations().get(0);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -441,15 +432,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYGridLayoutCellStyle__AddSpanInfo__int_int_int_int() {
-		return yGridLayoutCellStyleEClass.getEOperations().get(0);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -471,15 +453,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getYHorizontalLayout_FillHorizontal() {
 		return (EAttribute)yHorizontalLayoutEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYHorizontalLayout__GetCellStyle__YEmbeddable() {
-		return yHorizontalLayoutEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1046,24 +1019,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYButton__AddClickListener__YButtonClickListener() {
-		return yButtonEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYButton__RemoveClickListener__YButtonClickListener() {
-		return yButtonEClass.getEOperations().get(1);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1157,15 +1112,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 */
 	public EReference getYTab_Datadescription() {
 		return (EReference)yTabEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getYTab__GetView() {
-		return yTabEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1497,18 +1443,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		createEAttribute(yGridLayoutEClass, YGRID_LAYOUT__COLUMNS);
 		createEAttribute(yGridLayoutEClass, YGRID_LAYOUT__FILL_HORIZONTAL);
 		createEAttribute(yGridLayoutEClass, YGRID_LAYOUT__FILL_VERTICAL);
-		createEOperation(yGridLayoutEClass, YGRID_LAYOUT___ADD_GRID_LAYOUT_CELL_STYLE__YEMBEDDABLE);
 
 		yGridLayoutCellStyleEClass = createEClass(YGRID_LAYOUT_CELL_STYLE);
 		createEReference(yGridLayoutCellStyleEClass, YGRID_LAYOUT_CELL_STYLE__TARGET);
 		createEAttribute(yGridLayoutCellStyleEClass, YGRID_LAYOUT_CELL_STYLE__ALIGNMENT);
 		createEReference(yGridLayoutCellStyleEClass, YGRID_LAYOUT_CELL_STYLE__SPAN_INFO);
-		createEOperation(yGridLayoutCellStyleEClass, YGRID_LAYOUT_CELL_STYLE___ADD_SPAN_INFO__INT_INT_INT_INT);
 
 		yHorizontalLayoutEClass = createEClass(YHORIZONTAL_LAYOUT);
 		createEReference(yHorizontalLayoutEClass, YHORIZONTAL_LAYOUT__CELL_STYLES);
 		createEAttribute(yHorizontalLayoutEClass, YHORIZONTAL_LAYOUT__FILL_HORIZONTAL);
-		createEOperation(yHorizontalLayoutEClass, YHORIZONTAL_LAYOUT___GET_CELL_STYLE__YEMBEDDABLE);
 
 		yHorizontalLayoutCellStyleEClass = createEClass(YHORIZONTAL_LAYOUT_CELL_STYLE);
 		createEReference(yHorizontalLayoutCellStyleEClass, YHORIZONTAL_LAYOUT_CELL_STYLE__TARGET);
@@ -1613,8 +1556,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		yButtonEClass = createEClass(YBUTTON);
 		createEReference(yButtonEClass, YBUTTON__DATADESCRIPTION);
 		createEAttribute(yButtonEClass, YBUTTON__CLICK_LISTENERS);
-		createEOperation(yButtonEClass, YBUTTON___ADD_CLICK_LISTENER__YBUTTONCLICKLISTENER);
-		createEOperation(yButtonEClass, YBUTTON___REMOVE_CLICK_LISTENER__YBUTTONCLICKLISTENER);
 
 		yToggleButtonEClass = createEClass(YTOGGLE_BUTTON);
 		createEReference(yToggleButtonEClass, YTOGGLE_BUTTON__DATADESCRIPTION);
@@ -1631,7 +1572,6 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		createEReference(yTabEClass, YTAB__PARENT);
 		createEReference(yTabEClass, YTAB__EMBEDDABLE);
 		createEReference(yTabEClass, YTAB__DATADESCRIPTION);
-		createEOperation(yTabEClass, YTAB___GET_VIEW);
 
 		yMasterDetailEClass = createEClass(YMASTER_DETAIL);
 		createEReference(yMasterDetailEClass, YMASTER_DETAIL__DATATYPE);
@@ -1754,7 +1694,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		yFormLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYSpacingable());
 		yFormLayoutEClass.getESuperTypes().add(theCoreModelPackage.getYMarginable());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(yInputEClass, YInput.class, "YInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yTextFieldEClass, YTextField.class, "YTextField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1768,7 +1708,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEAttribute(getYGridLayout_FillHorizontal(), ecorePackage.getEBoolean(), "fillHorizontal", "true", 0, 1, YGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYGridLayout_FillVertical(), ecorePackage.getEBoolean(), "fillVertical", "true", 0, 1, YGridLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getYGridLayout__AddGridLayoutCellStyle__YEmbeddable(), this.getYGridLayoutCellStyle(), "addGridLayoutCellStyle", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(yGridLayoutEClass, this.getYGridLayoutCellStyle(), "addGridLayoutCellStyle", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theCoreModelPackage.getYEmbeddable(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yGridLayoutCellStyleEClass, YGridLayoutCellStyle.class, "YGridLayoutCellStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1776,7 +1716,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEAttribute(getYGridLayoutCellStyle_Alignment(), this.getYAlignment(), "alignment", "UNDEFINED", 0, 1, YGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYGridLayoutCellStyle_SpanInfo(), this.getYSpanInfo(), null, "spanInfo", null, 0, 1, YGridLayoutCellStyle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getYGridLayoutCellStyle__AddSpanInfo__int_int_int_int(), this.getYSpanInfo(), "addSpanInfo", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(yGridLayoutCellStyleEClass, this.getYSpanInfo(), "addSpanInfo", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "col1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "row1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "col2", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1786,7 +1726,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEReference(getYHorizontalLayout_CellStyles(), this.getYHorizontalLayoutCellStyle(), null, "cellStyles", null, 0, -1, YHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYHorizontalLayout_FillHorizontal(), ecorePackage.getEBoolean(), "fillHorizontal", "true", 0, 1, YHorizontalLayout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getYHorizontalLayout__GetCellStyle__YEmbeddable(), this.getYHorizontalLayoutCellStyle(), "getCellStyle", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(yHorizontalLayoutEClass, this.getYHorizontalLayoutCellStyle(), "getCellStyle", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theCoreModelPackage.getYEmbeddable(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yHorizontalLayoutCellStyleEClass, YHorizontalLayoutCellStyle.class, "YHorizontalLayoutCellStyle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1908,10 +1848,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEReference(getYButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYButton_ClickListeners(), this.getYButtonClickListener(), "clickListeners", null, 0, -1, YButton.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getYButton__AddClickListener__YButtonClickListener(), null, "addClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(yButtonEClass, null, "addClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYButtonClickListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getYButton__RemoveClickListener__YButtonClickListener(), null, "removeClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(yButtonEClass, null, "removeClickListener", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYButtonClickListener(), "listener", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yToggleButtonEClass, YToggleButton.class, "YToggleButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1930,7 +1870,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEReference(getYTab_Embeddable(), theCoreModelPackage.getYEmbeddable(), null, "embeddable", null, 1, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTab_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getYTab__GetView(), theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(yTabEClass, theCoreModelPackage.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(yMasterDetailEClass, YMasterDetail.class, "YMasterDetail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYMasterDetail_Datatype(), theExtDatatypesPackage.getYMasterDetailDatatype(), null, "datatype", null, 0, 1, YMasterDetail.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

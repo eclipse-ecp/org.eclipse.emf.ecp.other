@@ -2,10 +2,8 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -447,41 +445,6 @@ public class YTextAreaImpl extends YInputImpl implements YTextArea {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == YBindable.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == YValueBindable.class) {
-			switch (baseOperationID) {
-				case CoreModelPackage.YVALUE_BINDABLE___CREATE_VALUE_ENDPOINT: return ExtensionModelPackage.YTEXT_AREA___CREATE_VALUE_ENDPOINT;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ExtensionModelPackage.YTEXT_AREA___CREATE_VALUE_ENDPOINT:
-				return createValueEndpoint();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

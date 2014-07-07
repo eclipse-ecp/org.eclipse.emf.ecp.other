@@ -23,6 +23,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getOnMatch <em>On Match</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityProcessorImpl#getParent <em>Parent</em>}</li>
  * </ul>
@@ -50,6 +51,26 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOnMatch() <em>On Match</em>}' containment reference.
@@ -99,6 +120,27 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_PROCESSOR__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_PROCESSOR__NAME, oldName, name));
 	}
 
 	/**
@@ -274,6 +316,8 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ID:
 				return getId();
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__NAME:
+				return getName();
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				if (resolve) return getOnMatch();
 				return basicGetOnMatch();
@@ -294,6 +338,9 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ID:
 				setId((String)newValue);
+				return;
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__NAME:
+				setName((String)newValue);
 				return;
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				setOnMatch((YVisibilityProperties)newValue);
@@ -316,6 +363,9 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				setOnMatch((YVisibilityProperties)null);
 				return;
@@ -336,6 +386,8 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case VisibilityPackage.YVISIBILITY_PROCESSOR__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__ON_MATCH:
 				return onMatch != null;
 			case VisibilityPackage.YVISIBILITY_PROCESSOR__PARENT:
@@ -356,6 +408,8 @@ public abstract class YVisibilityProcessorImpl extends MinimalEObjectImpl.Contai
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

@@ -5,6 +5,51 @@ org.eclipse.emf.examples.generator.validator plug-in to illustrate how EMF's
 code generator can be extended.
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
+Contains packages:
+  datatypes <http://eclipse.org/emf/ecp/ecview/extension/datatypes>
+  extension <http://eclipse.org/emf/ecp/ecview/extension/view>
+
+Package datatypes <http://eclipse.org/emf/ecp/ecview/extension/datatypes>
+
+  Class YTextDatatype -> YDatatype, YMaxLengthValidationConfig, YMinLengthValidationConfig, YRegexpValidationConfig
+
+  Class YTextAreaDatatype -> YDatatype, YMinLengthValidationConfig, YMaxLengthValidationConfig, YRegexpValidationConfig
+
+  Class YNumericDatatype -> YDatatype, YRegexpValidationConfig
+    Attribute grouping : EBoolean
+    Attribute markNegative : EBoolean
+
+  Class YDecimalDatatype -> YNumericDatatype, YRegexpValidationConfig
+    Attribute precision : EInt
+
+  Class YTableDatatype -> YDatatype
+
+  Class YCheckBoxDatatype -> YDatatype
+
+  Class YComboBoxDatatype -> YDatatype
+
+  Class YListDataType -> YDatatype
+
+  Class YOptionsGroupDataType -> YDatatype
+
+  Class YBrowserDatatype -> YDatatype
+
+  Class YDateTimeDatatype -> YDatatype
+    Attribute format : YDateTimeFormat
+
+  Class YTreeDatatype -> YDatatype
+
+  Class YProgressBarDatatype -> YDatatype
+
+  Class YTabSheetDatatype -> YDatatype
+
+  Class YMasterDetailDatatype -> YDatatype
+
+  Enum YDateTimeFormat
+    Literal DATE = 0
+    Literal TIME = 1
+    Literal DATE_TIME = 2
+
 Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
 
   Class YInput -> YField
@@ -50,9 +95,45 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute columnTo : EInt
     Attribute rowTo : EInt
 
-  Class YTable -> YInput
+  Class YTable -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
     Reference datatype : YTableDatatype
     Reference datadescription : YDatadescription
+    Attribute selectionType : YSelectionType
+    Attribute selection : EJavaObject
+    Attribute multiSelection : EJavaObject<<0..*>>
+    Attribute collection : EJavaObject<<0..*>>
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
+
+  Class YTree -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
+    Reference datatype : YTreeDatatype
+    Reference datadescription : YDatadescription
+    Attribute selectionType : YSelectionType
+    Attribute selection : EJavaObject
+    Attribute multiSelection : EJavaObject<<0..*>>
+    Attribute collection : EJavaObject<<0..*>>
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
+
+  Class YOptionsGroup -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
+    Reference datadescription : YDatadescription
+    Reference datatype : YOptionsGroupDataType
+    Attribute selectionType : YSelectionType
+    Attribute selection : EJavaObject
+    Attribute multiSelection : EJavaObject<<0..*>>
+    Attribute collection : EJavaObject<<0..*>>
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
+
+  Class YList -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
+    Reference datadescription : YDatadescription
+    Reference datatype : YListDataType
+    Attribute selectionType : YSelectionType
+    Attribute selection : EJavaObject
+    Attribute multiSelection : EJavaObject<<0..*>>
+    Attribute collection : EJavaObject<<0..*>>
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
 
   Class YLabel -> YField, YValueBindable
     Reference datadescription : YDatadescription
@@ -88,20 +169,54 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Reference datadescription : YDatadescription
     Attribute value : ELong
 
-  Class YComboBox -> YInput
+  Class YComboBox -> YInput, YCollectionBindable, YSelectionBindable
     Reference datadescription : YDatadescription
     Reference datatype : YComboBoxDatatype
+    Attribute selection : EJavaObject
+    Attribute collection : EJavaObject<<0..*>>
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
 
-  Class YList -> YInput
+  Class YButton -> YAction, YVisibleable, YEditable, YEnable
     Reference datadescription : YDatadescription
-    Reference datatype : YListDataType
-
-  Class YButton -> YAction
-    Reference datadescription : YDatadescription
-    Attribute type : YButtonType
     Attribute clickListeners : YButtonClickListener<<0..*>>
     Operation addClickListener(YButtonClickListener) : void
     Operation removeClickListener(YButtonClickListener) : void
+
+  Class YToggleButton -> YAction, YActivateable
+    Reference datadescription : YDatadescription
+
+  Class YProgressBar -> YInput, YValueBindable
+    Reference datatype : YProgressBarDatatype
+    Reference datadescription : YDatadescription
+    Attribute value : EFloat
+
+  Class YTabSheet -> YEmbeddable
+    Reference tabs : YTab<<0..*>>
+
+  Class YTab -> YElement, YCssAble
+    Reference parent : YTabSheet<<1..1>>
+    Reference embeddable : YEmbeddable<<1..1>>
+    Reference datadescription : YDatadescription
+    Operation getView() : YView
+
+  Class YMasterDetail -> YInput, YCollectionBindable, YSelectionBindable
+    Reference datatype : YMasterDetailDatatype
+    Reference datadescription : YDatadescription
+    Attribute selection : EJavaObject
+    Attribute collection : EJavaObject<<0..*>>
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
+    Reference masterElement : YEmbeddable
+    Reference detailElement : YEmbeddable
+
+  Class YFormLayout -> YLayout, YSpacingable, YMarginable
+    Reference cellStyles : YFormLayoutCellStyle<<0..*>>
+    Attribute fillVertical : EBoolean
+
+  Class YFormLayoutCellStyle
+    Reference target : YEmbeddable<<1..1>>
+    Attribute alignment : YAlignment
 
   Enum YAlignment
     Literal BOTTOM_LEFT = 0
@@ -122,8 +237,8 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Literal FILL_RIGHT = 15
     Literal UNDEFINED = 16
 
-  Enum YButtonType
-    Literal PUSH = 0
-    Literal TOGGLE = 1
+  Enum YSelectionType
+    Literal SINGLE = 0
+    Literal MULTI = 1
 
   DataType YButtonClickListener <org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener>

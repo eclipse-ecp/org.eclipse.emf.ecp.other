@@ -20,6 +20,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProperties;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl#isEditable <em>Editable</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.visibility.impl.YVisibilityPropertiesImpl#isEnabled <em>Enabled</em>}</li>
@@ -55,6 +56,26 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isVisible() <em>Visible</em>}' attribute.
@@ -274,6 +295,27 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_PROPERTIES__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VisibilityPackage.YVISIBILITY_PROPERTIES__NAME, oldName, name));
 	}
 
 	/**
@@ -602,6 +644,8 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__ID:
 				return getId();
+			case VisibilityPackage.YVISIBILITY_PROPERTIES__NAME:
+				return getName();
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__VISIBLE:
 				return isVisible();
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__EDITABLE:
@@ -638,6 +682,9 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__ID:
 				setId((String)newValue);
+				return;
+			case VisibilityPackage.YVISIBILITY_PROPERTIES__NAME:
+				setName((String)newValue);
 				return;
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__VISIBLE:
 				setVisible((Boolean)newValue);
@@ -684,6 +731,9 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case VisibilityPackage.YVISIBILITY_PROPERTIES__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__VISIBLE:
 				setVisible(VISIBLE_EDEFAULT);
 				return;
@@ -728,6 +778,8 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case VisibilityPackage.YVISIBILITY_PROPERTIES__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__VISIBLE:
 				return visible != VISIBLE_EDEFAULT;
 			case VisibilityPackage.YVISIBILITY_PROPERTIES__EDITABLE:
@@ -764,6 +816,8 @@ public class YVisibilityPropertiesImpl extends MinimalEObjectImpl.Container impl
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", visible: ");
 		result.append(visible);
 		result.append(", editable: ");

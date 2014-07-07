@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.binding.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -21,6 +19,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YBindingEndpointImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +45,26 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,6 +107,27 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YBINDING_ENDPOINT__NAME, oldName, name));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -127,6 +167,8 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 		switch (featureID) {
 			case BindingPackage.YBINDING_ENDPOINT__ID:
 				return getId();
+			case BindingPackage.YBINDING_ENDPOINT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,6 +183,9 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 		switch (featureID) {
 			case BindingPackage.YBINDING_ENDPOINT__ID:
 				setId((String)newValue);
+				return;
+			case BindingPackage.YBINDING_ENDPOINT__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -157,6 +202,9 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 			case BindingPackage.YBINDING_ENDPOINT__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case BindingPackage.YBINDING_ENDPOINT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -171,24 +219,10 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 		switch (featureID) {
 			case BindingPackage.YBINDING_ENDPOINT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case BindingPackage.YBINDING_ENDPOINT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case BindingPackage.YBINDING_ENDPOINT___GET_BINDING:
-				return getBinding();
-			case BindingPackage.YBINDING_ENDPOINT___IS_BINDS_ELEMENT__YELEMENT:
-				return isBindsElement((YElement)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -203,6 +237,8 @@ public abstract class YBindingEndpointImpl extends MinimalEObjectImpl.Container 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

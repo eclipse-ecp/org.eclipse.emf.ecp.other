@@ -10,9 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -44,6 +42,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getCssClass <em>Css Class</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#isMargin <em>Margin</em>}</li>
@@ -78,6 +77,26 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
@@ -223,6 +242,27 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__NAME, oldName, name));
 	}
 
 	/**
@@ -640,6 +680,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		switch (featureID) {
 			case CoreModelPackage.YVIEW__ID:
 				return getId();
+			case CoreModelPackage.YVIEW__NAME:
+				return getName();
 			case CoreModelPackage.YVIEW__CSS_CLASS:
 				return getCssClass();
 			case CoreModelPackage.YVIEW__CSS_ID:
@@ -676,6 +718,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		switch (featureID) {
 			case CoreModelPackage.YVIEW__ID:
 				setId((String)newValue);
+				return;
+			case CoreModelPackage.YVIEW__NAME:
+				setName((String)newValue);
 				return;
 			case CoreModelPackage.YVIEW__CSS_CLASS:
 				setCssClass((String)newValue);
@@ -719,6 +764,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case CoreModelPackage.YVIEW__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case CoreModelPackage.YVIEW__CSS_CLASS:
 				setCssClass(CSS_CLASS_EDEFAULT);
 				return;
@@ -759,6 +807,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		switch (featureID) {
 			case CoreModelPackage.YVIEW__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case CoreModelPackage.YVIEW__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoreModelPackage.YVIEW__CSS_CLASS:
 				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
 			case CoreModelPackage.YVIEW__CSS_ID:
@@ -838,20 +888,6 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case CoreModelPackage.YVIEW___GET_OR_CREATE_BINDING_SET:
-				return getOrCreateBindingSet();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -862,6 +898,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(", cssClass: ");
 		result.append(cssClass);
 		result.append(", cssID: ");

@@ -2,9 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.extension.model.extension.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -886,49 +884,6 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == YBindable.class) {
-			switch (baseOperationID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == YCollectionBindable.class) {
-			switch (baseOperationID) {
-				case CoreModelPackage.YCOLLECTION_BINDABLE___CREATE_COLLECTION_ENDPOINT: return ExtensionModelPackage.YMASTER_DETAIL___CREATE_COLLECTION_ENDPOINT;
-				default: return -1;
-			}
-		}
-		if (baseClass == YSelectionBindable.class) {
-			switch (baseOperationID) {
-				case CoreModelPackage.YSELECTION_BINDABLE___CREATE_SELECTION_ENDPOINT: return ExtensionModelPackage.YMASTER_DETAIL___CREATE_SELECTION_ENDPOINT;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ExtensionModelPackage.YMASTER_DETAIL___CREATE_SELECTION_ENDPOINT:
-				return createSelectionEndpoint();
-			case ExtensionModelPackage.YMASTER_DETAIL___CREATE_COLLECTION_ENDPOINT:
-				return createCollectionEndpoint();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
