@@ -10,14 +10,19 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
@@ -30,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesFactory;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage;
 import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
 
@@ -46,6 +52,8 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#isInitialVisible <em>Initial Visible</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getVisibilityProcessor <em>Visibility Processor</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getOrphanDatatypes <em>Orphan Datatypes</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YEmbeddableImpl#getOrphanDatadescriptions <em>Orphan Datadescriptions</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,8 +82,7 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -83,8 +90,7 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	protected static final String NAME_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -170,6 +176,27 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	protected YVisibilityProcessor visibilityProcessor;
 
 	/**
+	 * The cached value of the '{@link #getOrphanDatatypes()
+	 * <em>Orphan Datatypes</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getOrphanDatatypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YDatatype> orphanDatatypes;
+	/**
+	 * The cached value of the '{@link #getOrphanDatadescriptions()
+	 * <em>Orphan Datadescriptions</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getOrphanDatadescriptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YDatadescription> orphanDatadescriptions;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -206,8 +233,7 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getName() {
@@ -215,8 +241,7 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -306,6 +331,9 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		YDatadescription dsc = DatatypesFactory.eINSTANCE
 				.createYDatadescription();
 		dsc.setLabel(label);
+
+		getOrphanDatadescriptions().add(dsc);
+
 		return dsc;
 	}
 
@@ -313,6 +341,9 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		YDatadescription dsc = DatatypesFactory.eINSTANCE
 				.createYDatadescription();
 		dsc.setLabelI18nKey(i18nKey);
+
+		getOrphanDatadescriptions().add(dsc);
+
 		return dsc;
 	}
 
@@ -382,6 +413,28 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<YDatatype> getOrphanDatatypes() {
+		if (orphanDatatypes == null) {
+			orphanDatatypes = new EObjectContainmentEList.Resolving<YDatatype>(YDatatype.class, this, CoreModelPackage.YEMBEDDABLE__ORPHAN_DATATYPES);
+		}
+		return orphanDatatypes;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<YDatadescription> getOrphanDatadescriptions() {
+		if (orphanDatadescriptions == null) {
+			orphanDatadescriptions = new EObjectContainmentEList.Resolving<YDatadescription>(YDatadescription.class, this, CoreModelPackage.YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS);
+		}
+		return orphanDatadescriptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -442,6 +495,10 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 		switch (featureID) {
 			case CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR:
 				return basicSetVisibilityProcessor(null, msgs);
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATATYPES:
+				return ((InternalEList<?>)getOrphanDatatypes()).basicRemove(otherEnd, msgs);
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS:
+				return ((InternalEList<?>)getOrphanDatadescriptions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -468,6 +525,10 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 			case CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR:
 				if (resolve) return getVisibilityProcessor();
 				return basicGetVisibilityProcessor();
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATATYPES:
+				return getOrphanDatatypes();
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS:
+				return getOrphanDatadescriptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -476,6 +537,7 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -499,6 +561,14 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 				return;
 			case CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR:
 				setVisibilityProcessor((YVisibilityProcessor)newValue);
+				return;
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATATYPES:
+				getOrphanDatatypes().clear();
+				getOrphanDatatypes().addAll((Collection<? extends YDatatype>)newValue);
+				return;
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS:
+				getOrphanDatadescriptions().clear();
+				getOrphanDatadescriptions().addAll((Collection<? extends YDatadescription>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -532,6 +602,12 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 			case CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR:
 				setVisibilityProcessor((YVisibilityProcessor)null);
 				return;
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATATYPES:
+				getOrphanDatatypes().clear();
+				return;
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS:
+				getOrphanDatadescriptions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -557,6 +633,10 @@ public abstract class YEmbeddableImpl extends MinimalEObjectImpl.Container
 				return visible != VISIBLE_EDEFAULT;
 			case CoreModelPackage.YEMBEDDABLE__VISIBILITY_PROCESSOR:
 				return visibilityProcessor != null;
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATATYPES:
+				return orphanDatatypes != null && !orphanDatatypes.isEmpty();
+			case CoreModelPackage.YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS:
+				return orphanDatadescriptions != null && !orphanDatadescriptions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

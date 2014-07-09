@@ -178,13 +178,31 @@ public interface CoreModelPackage extends EPackage {
 	int YEMBEDDABLE__VISIBILITY_PROCESSOR = YELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Orphan Datatypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE__ORPHAN_DATATYPES = YELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datadescriptions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS = YELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>YEmbeddable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 5;
+	int YEMBEDDABLE_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YLayoutImpl <em>YLayout</em>}' class.
@@ -258,6 +276,24 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLAYOUT__VISIBILITY_PROCESSOR = YEMBEDDABLE__VISIBILITY_PROCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datatypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLAYOUT__ORPHAN_DATATYPES = YEMBEDDABLE__ORPHAN_DATATYPES;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datadescriptions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLAYOUT__ORPHAN_DATADESCRIPTIONS = YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -349,6 +385,24 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YFIELD__VISIBILITY_PROCESSOR = YEMBEDDABLE__VISIBILITY_PROCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datatypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__ORPHAN_DATATYPES = YEMBEDDABLE__ORPHAN_DATATYPES;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datadescriptions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YFIELD__ORPHAN_DATADESCRIPTIONS = YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
@@ -478,7 +532,7 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW__VISIBILITY_PROCESSOR = YELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' container reference.
+	 * The feature id for the '<em><b>Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -560,7 +614,7 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW_SET__NAME = YELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Views</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -707,13 +761,22 @@ public interface CoreModelPackage extends EPackage {
 	int YBINDABLE = 17;
 
 	/**
+	 * The number of structural features of the '<em>YBindable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBINDABLE_FEATURE_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT__NAME = 0;
+	int YBEAN_SLOT__NAME = YBINDABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
@@ -722,7 +785,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT__VALUE_TYPE = 1;
+	int YBEAN_SLOT__VALUE_TYPE = YBINDABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Value Type Qualified Name</b></em>' attribute.
@@ -731,7 +794,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME = 2;
+	int YBEAN_SLOT__VALUE_TYPE_QUALIFIED_NAME = YBINDABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>YBean Slot</em>' class.
@@ -740,7 +803,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT_FEATURE_COUNT = 3;
+	int YBEAN_SLOT_FEATURE_COUNT = YBINDABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -858,15 +921,6 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YWIDTHABLE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of structural features of the '<em>YBindable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int YBINDABLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Initial Activated</b></em>' attribute.
@@ -1038,6 +1092,24 @@ public interface CoreModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YACTION__VISIBILITY_PROCESSOR = YEMBEDDABLE__VISIBILITY_PROCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datatypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTION__ORPHAN_DATATYPES = YEMBEDDABLE__ORPHAN_DATATYPES;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datadescriptions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YACTION__ORPHAN_DATADESCRIPTIONS = YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS;
 
 	/**
 	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
@@ -1812,10 +1884,10 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYView();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot <em>Root</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Root</em>'.
+	 * @return the meta object for the reference '<em>Root</em>'.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot()
 	 * @see #getYView()
 	 * @generated
@@ -1877,10 +1949,10 @@ public interface CoreModelPackage extends EPackage {
 	EClass getYViewSet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews <em>Views</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews <em>Views</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Views</em>'.
+	 * @return the meta object for the reference list '<em>Views</em>'.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews()
 	 * @see #getYViewSet()
 	 * @generated
@@ -1950,6 +2022,28 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYEmbeddable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getOrphanDatatypes <em>Orphan Datatypes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Orphan Datatypes</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getOrphanDatatypes()
+	 * @see #getYEmbeddable()
+	 * @generated
+	 */
+	EReference getYEmbeddable_OrphanDatatypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getOrphanDatadescriptions <em>Orphan Datadescriptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Orphan Datadescriptions</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getOrphanDatadescriptions()
+	 * @see #getYEmbeddable()
+	 * @generated
+	 */
+	EReference getYEmbeddable_OrphanDatadescriptions();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}'.
@@ -2709,7 +2803,7 @@ public interface CoreModelPackage extends EPackage {
 		EClass YVIEW = eINSTANCE.getYView();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Root</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2759,7 +2853,7 @@ public interface CoreModelPackage extends EPackage {
 		EClass YVIEW_SET = eINSTANCE.getYViewSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Views</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2817,6 +2911,22 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass YEMBEDDABLE = eINSTANCE.getYEmbeddable();
+
+		/**
+		 * The meta object literal for the '<em><b>Orphan Datatypes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YEMBEDDABLE__ORPHAN_DATATYPES = eINSTANCE.getYEmbeddable_OrphanDatatypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Orphan Datadescriptions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS = eINSTANCE.getYEmbeddable_OrphanDatadescriptions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}' class.

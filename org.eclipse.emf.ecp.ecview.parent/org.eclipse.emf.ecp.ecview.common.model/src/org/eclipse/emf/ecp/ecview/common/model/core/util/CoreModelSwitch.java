@@ -160,6 +160,7 @@ public class CoreModelSwitch<T> extends Switch<T> {
 			case CoreModelPackage.YBEAN_SLOT: {
 				YBeanSlot yBeanSlot = (YBeanSlot)theEObject;
 				T result = caseYBeanSlot(yBeanSlot);
+				if (result == null) result = caseYBindable(yBeanSlot);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

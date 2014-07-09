@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface YViewSet extends YElement {
 	/**
-	 * Returns the value of the '<em><b>Views</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Views</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.core.YView}.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
@@ -39,10 +39,10 @@ public interface YViewSet extends YElement {
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Views</em>' containment reference list.
+	 * @return the value of the '<em>Views</em>' reference list.
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYViewSet_Views()
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot
-	 * @model opposite="root" containment="true" resolveProxies="true"
+	 * @model opposite="root"
 	 * @generated
 	 */
 	EList<YView> getViews();

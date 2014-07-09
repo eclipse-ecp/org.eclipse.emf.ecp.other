@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -80,8 +79,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -90,8 +88,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -162,6 +159,15 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @ordered
 	 */
 	protected YVisibilityProcessor visibilityProcessor;
+
+	/**
+	 * The cached value of the '{@link #getRoot() <em>Root</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getRoot()
+	 * @generated
+	 * @ordered
+	 */
+	protected YViewSet root;
 
 	/**
 	 * The default value of the '{@link #getViewName() <em>View Name</em>}' attribute.
@@ -245,8 +251,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getName() {
@@ -254,8 +259,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -570,9 +574,45 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	public YViewSet getRootGen() {
+		if (root != null && root.eIsProxy()) {
+			InternalEObject oldRoot = (InternalEObject)root;
+			root = (YViewSet)eResolveProxy(oldRoot);
+			if (root != oldRoot) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoreModelPackage.YVIEW__ROOT, oldRoot, root));
+			}
+		}
+		return root;
+	}
+
+	/**
+	 * Overrides super type to ensure bidirectional proxy resolving
+	 */
+	@Override
 	public YViewSet getRoot() {
-		if (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT) return null;
-		return (YViewSet)eContainer();
+		if (root != null && root.eIsProxy()) {
+			InternalEObject oldRoot = (InternalEObject) root;
+			YViewSet oldViewSet = (YViewSet) oldRoot;
+			root = (YViewSet) eResolveProxy(oldRoot);
+			if (root != oldRoot) {
+
+				// ATENTION: inverse add must be called since bidirectional
+				// references uses proxy resolution for lazy linking. And the
+				// views added to proxy must be added to new superType
+				for (YView yView : oldViewSet.getViews()) {
+					((InternalEObject) root).eInverseAdd(
+							(InternalEObject) yView,
+							CoreModelPackage.YVIEW_SET__VIEWS, YView.class,
+							null);
+				}
+
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							CoreModelPackage.YVIEW__ROOT, oldRoot, root));
+			}
+		}
+		return root;
 	}
 
 	/**
@@ -580,8 +620,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @generated
 	 */
 	public YViewSet basicGetRoot() {
-		if (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT) return null;
-		return (YViewSet)eInternalContainer();
+		return root;
 	}
 
 	/**
@@ -590,7 +629,12 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 */
 	public NotificationChain basicSetRoot(YViewSet newRoot,
 			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRoot, CoreModelPackage.YVIEW__ROOT, msgs);
+		YViewSet oldRoot = root;
+		root = newRoot;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__ROOT, oldRoot, newRoot);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
 		return msgs;
 	}
 
@@ -599,12 +643,10 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @generated
 	 */
 	public void setRoot(YViewSet newRoot) {
-		if (newRoot != eInternalContainer() || (eContainerFeatureID() != CoreModelPackage.YVIEW__ROOT && newRoot != null)) {
-			if (EcoreUtil.isAncestor(this, newRoot))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+		if (newRoot != root) {
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
+			if (root != null)
+				msgs = ((InternalEObject)root).eInverseRemove(this, CoreModelPackage.YVIEW_SET__VIEWS, YViewSet.class, msgs);
 			if (newRoot != null)
 				msgs = ((InternalEObject)newRoot).eInverseAdd(this, CoreModelPackage.YVIEW_SET__VIEWS, YViewSet.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
@@ -628,8 +670,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 					msgs = ((InternalEObject)visibilityProcessor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR, null, msgs);
 				return basicSetVisibilityProcessor((YVisibilityProcessor)otherEnd, msgs);
 			case CoreModelPackage.YVIEW__ROOT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
+				if (root != null)
+					msgs = ((InternalEObject)root).eInverseRemove(this, CoreModelPackage.YVIEW_SET__VIEWS, YViewSet.class, msgs);
 				return basicSetRoot((YViewSet)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -655,20 +697,6 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return ((InternalEList<?>)getBeanSlots()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(
-			NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case CoreModelPackage.YVIEW__ROOT:
-				return eInternalContainer().eInverseRemove(this, CoreModelPackage.YVIEW_SET__VIEWS, YViewSet.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -818,7 +846,7 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__VISIBILITY_PROCESSOR:
 				return visibilityProcessor != null;
 			case CoreModelPackage.YVIEW__ROOT:
-				return basicGetRoot() != null;
+				return root != null;
 			case CoreModelPackage.YVIEW__VIEW_NAME:
 				return VIEW_NAME_EDEFAULT == null ? viewName != null : !VIEW_NAME_EDEFAULT.equals(viewName);
 			case CoreModelPackage.YVIEW__CONTENT:

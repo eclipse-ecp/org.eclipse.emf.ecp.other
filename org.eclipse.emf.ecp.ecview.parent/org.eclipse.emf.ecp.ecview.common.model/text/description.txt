@@ -109,12 +109,14 @@ Package core <http://eclipse.org/emf/ecp/ecview/common/view>
     Reference views : YView<<0..*>>
     Reference beanSlots : YBeanSlot<<0..*>>
 
-  Class YBeanSlot
+  Class YBeanSlot -> YBindable
     Attribute name : EString<<1..1>>
-    Attribute valueType : EJavaClass<<1..1>>
+    Attribute valueType : EJavaClass
     Attribute valueTypeQualifiedName : EString
 
   Class YEmbeddable -> YElement, YCssAble, YVisibleable, YVisibilityProcessable
+    Reference orphanDatatypes : YDatatype<<0..*>>
+    Reference orphanDatadescriptions : YDatadescription<<0..*>>
     Operation getParent() : YLayout
     Operation getView() : YView
 
@@ -182,7 +184,7 @@ Package core <http://eclipse.org/emf/ecp/ecview/common/view>
   Class YBeanSlotListBindingEndpoint -> YListBindingEndpoint
     Attribute attributePath : EString<<1..1>>
     Reference beanSlot : YBeanSlot<<1..1>>
-    Attribute collectionType : EJavaClass<<1..1>>
+    Attribute collectionType : EJavaClass
 
   Class YEmbeddableBindingEndpoint
     Operation getElement() : YBindable

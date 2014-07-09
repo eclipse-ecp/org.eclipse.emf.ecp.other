@@ -10,12 +10,22 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.core;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>YUi Embeddable</b></em>'. <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getOrphanDatatypes <em>Orphan Datatypes</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable#getOrphanDatadescriptions <em>Orphan Datadescriptions</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddable()
  * @model abstract="true"
@@ -23,6 +33,38 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
  */
 public interface YEmbeddable extends YElement, YCssAble, YVisibleable,
 		YVisibilityProcessable {
+	/**
+	 * Returns the value of the '<em><b>Orphan Datatypes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatatype}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Orphan Datatypes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Orphan Datatypes</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddable_OrphanDatatypes()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<YDatatype> getOrphanDatatypes();
+
+	/**
+	 * Returns the value of the '<em><b>Orphan Datadescriptions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Orphan Datadescriptions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Orphan Datadescriptions</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYEmbeddable_OrphanDatadescriptions()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<YDatadescription> getOrphanDatadescriptions();
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <p>

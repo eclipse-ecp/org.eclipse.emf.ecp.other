@@ -143,7 +143,7 @@ public interface YView extends YElement, YCssAble, YMarginable,
 	YBindingSet getOrCreateBindingSet();
 
 	/**
-	 * Returns the value of the '<em><b>Root</b></em>' container reference.
+	 * Returns the value of the '<em><b>Root</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews <em>Views</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -151,20 +151,20 @@ public interface YView extends YElement, YCssAble, YMarginable,
 	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root</em>' container reference.
+	 * @return the value of the '<em>Root</em>' reference.
 	 * @see #setRoot(YViewSet)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_Root()
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YViewSet#getViews
-	 * @model opposite="views" transient="false"
+	 * @model opposite="views"
 	 * @generated
 	 */
 	YViewSet getRoot();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot <em>Root</em>}' container reference.
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getRoot <em>Root</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @param value the new value of the '<em>Root</em>' container reference.
+	 * @param value the new value of the '<em>Root</em>' reference.
 	 * @see #getRoot()
 	 * @generated
 	 */

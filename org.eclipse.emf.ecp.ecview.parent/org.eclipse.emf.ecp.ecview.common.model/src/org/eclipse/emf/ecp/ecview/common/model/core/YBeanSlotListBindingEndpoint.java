@@ -86,7 +86,7 @@ public interface YBeanSlotListBindingEndpoint extends YListBindingEndpoint {
 	 * @return the value of the '<em>Collection Type</em>' attribute.
 	 * @see #setCollectionType(Class)
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYBeanSlotListBindingEndpoint_CollectionType()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Class<?> getCollectionType();

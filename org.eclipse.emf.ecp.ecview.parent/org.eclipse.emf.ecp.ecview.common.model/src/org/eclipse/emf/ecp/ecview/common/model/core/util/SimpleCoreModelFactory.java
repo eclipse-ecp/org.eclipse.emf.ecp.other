@@ -14,6 +14,8 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBeanValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -75,6 +77,24 @@ public class SimpleCoreModelFactory {
 	 */
 	public YBeanValueBindingEndpoint createBeanBindingEndpoint() {
 		return BindingFactory.eINSTANCE.createYBeanValueBindingEndpoint();
+	}
+	
+	/**
+	 * Creates an instance of {@link YBeanSlotValueBindingEndpoint}
+	 * 
+	 * @return
+	 */
+	public YBeanSlotValueBindingEndpoint createBeanSlotValueBindingEndpoint() {
+		return CoreModelFactory.eINSTANCE.createYBeanSlotValueBindingEndpoint();
+	}
+	
+	/**
+	 * Creates an instance of {@link YBeanSlotListBindingEndpoint}
+	 * 
+	 * @return
+	 */
+	public YBeanSlotListBindingEndpoint createBeanSlotListBindingEndpoint() {
+		return CoreModelFactory.eINSTANCE.createYBeanSlotListBindingEndpoint();
 	}
 
 	/**
