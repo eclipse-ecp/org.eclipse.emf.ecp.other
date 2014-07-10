@@ -21,6 +21,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl#getAttributePath <em>Attribute Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl#getBeanSlot <em>Bean Slot</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl#getCollectionType <em>Collection Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YBeanSlotListBindingEndpointImpl#getCollectionTypeQualifiedName <em>Collection Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +67,26 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 	 * @ordered
 	 */
 	protected Class<?> collectionType;
+
+	/**
+	 * The default value of the '{@link #getCollectionTypeQualifiedName() <em>Collection Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollectionTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COLLECTION_TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCollectionTypeQualifiedName() <em>Collection Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollectionTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String collectionTypeQualifiedName = COLLECTION_TYPE_QUALIFIED_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,6 +192,27 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCollectionTypeQualifiedName() {
+		return collectionTypeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCollectionTypeQualifiedName(String newCollectionTypeQualifiedName) {
+		String oldCollectionTypeQualifiedName = collectionTypeQualifiedName;
+		collectionTypeQualifiedName = newCollectionTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME, oldCollectionTypeQualifiedName, collectionTypeQualifiedName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -181,6 +223,8 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 				return basicGetBeanSlot();
 			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE:
 				return getCollectionType();
+			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME:
+				return getCollectionTypeQualifiedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +245,9 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 				return;
 			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE:
 				setCollectionType((Class<?>)newValue);
+				return;
+			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME:
+				setCollectionTypeQualifiedName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,6 +270,9 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE:
 				setCollectionType((Class<?>)null);
 				return;
+			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME:
+				setCollectionTypeQualifiedName(COLLECTION_TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -241,6 +291,8 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 				return beanSlot != null;
 			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE:
 				return collectionType != null;
+			case CoreModelPackage.YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME:
+				return COLLECTION_TYPE_QUALIFIED_NAME_EDEFAULT == null ? collectionTypeQualifiedName != null : !COLLECTION_TYPE_QUALIFIED_NAME_EDEFAULT.equals(collectionTypeQualifiedName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -259,6 +311,8 @@ public class YBeanSlotListBindingEndpointImpl extends YListBindingEndpointImpl i
 		result.append(attributePath);
 		result.append(", collectionType: ");
 		result.append(collectionType);
+		result.append(", collectionTypeQualifiedName: ");
+		result.append(collectionTypeQualifiedName);
 		result.append(')');
 		return result.toString();
 	}

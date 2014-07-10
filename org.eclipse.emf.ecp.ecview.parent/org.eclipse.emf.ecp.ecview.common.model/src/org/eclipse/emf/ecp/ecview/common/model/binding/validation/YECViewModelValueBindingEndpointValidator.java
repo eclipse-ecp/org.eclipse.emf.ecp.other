@@ -22,5 +22,7 @@ public interface YECViewModelValueBindingEndpointValidator {
 	boolean validateFeatures(EList<EStructuralFeature> value);
 	boolean validatePropertyPath(String value);
 	boolean validateType(Class<?> value);
+	boolean validateTypeQualifiedName(String value);
+
 	boolean validateEmfNsURI(String value);
 }

@@ -42,6 +42,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -183,6 +184,26 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 	 * @ordered
 	 */
 	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String typeQualifiedName = TYPE_QUALIFIED_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -547,6 +568,27 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTypeQualifiedName() {
+		return typeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeQualifiedName(String newTypeQualifiedName) {
+		String oldTypeQualifiedName = typeQualifiedName;
+		typeQualifiedName = newTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YOPTIONS_GROUP__TYPE_QUALIFIED_NAME, oldTypeQualifiedName, typeQualifiedName));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -690,6 +732,8 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 				return getType();
 			case ExtensionModelPackage.YOPTIONS_GROUP__EMF_NS_URI:
 				return getEmfNsURI();
+			case ExtensionModelPackage.YOPTIONS_GROUP__TYPE_QUALIFIED_NAME:
+				return getTypeQualifiedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -737,6 +781,9 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 			case ExtensionModelPackage.YOPTIONS_GROUP__EMF_NS_URI:
 				setEmfNsURI((String)newValue);
 				return;
+			case ExtensionModelPackage.YOPTIONS_GROUP__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -781,6 +828,9 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 			case ExtensionModelPackage.YOPTIONS_GROUP__EMF_NS_URI:
 				setEmfNsURI(EMF_NS_URI_EDEFAULT);
 				return;
+			case ExtensionModelPackage.YOPTIONS_GROUP__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName(TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -814,6 +864,8 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 				return type != null;
 			case ExtensionModelPackage.YOPTIONS_GROUP__EMF_NS_URI:
 				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
+			case ExtensionModelPackage.YOPTIONS_GROUP__TYPE_QUALIFIED_NAME:
+				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -903,6 +955,8 @@ public class YOptionsGroupImpl extends YInputImpl implements YOptionsGroup {
 		result.append(type);
 		result.append(", emfNsURI: ");
 		result.append(emfNsURI);
+		result.append(", typeQualifiedName: ");
+		result.append(typeQualifiedName);
 		result.append(')');
 		return result.toString();
 	}

@@ -1407,13 +1407,22 @@ public interface CoreModelPackage extends EPackage {
 	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Collection Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>YBean Slot List Binding Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YBEAN_SLOT_LIST_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 3;
+	int YBEAN_SLOT_LIST_BINDING_ENDPOINT_FEATURE_COUNT = BindingPackage.YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.
@@ -2512,6 +2521,17 @@ public interface CoreModelPackage extends EPackage {
 	EAttribute getYBeanSlotListBindingEndpoint_CollectionType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionTypeQualifiedName <em>Collection Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Collection Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionTypeQualifiedName()
+	 * @see #getYBeanSlotListBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYBeanSlotListBindingEndpoint_CollectionTypeQualifiedName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3315,6 +3335,14 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE = eINSTANCE.getYBeanSlotListBindingEndpoint_CollectionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Collection Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME = eINSTANCE.getYBeanSlotListBindingEndpoint_CollectionTypeQualifiedName();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableBindingEndpoint <em>YEmbeddable Binding Endpoint</em>}' class.

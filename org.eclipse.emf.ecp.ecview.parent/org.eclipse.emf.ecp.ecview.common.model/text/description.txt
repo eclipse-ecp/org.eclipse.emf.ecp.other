@@ -67,6 +67,7 @@ Package binding <http://eclipse.org/emf/ecp/ecview/common/binding>
     Reference features : EStructuralFeature<<0..*>>
     Attribute propertyPath : EString
     Attribute type : EJavaClass
+    Attribute typeQualifiedName : EString
     Attribute emfNsURI : EString
 
   Class YECViewModelListBindingEndpoint -> YListBindingEndpoint
@@ -74,6 +75,7 @@ Package binding <http://eclipse.org/emf/ecp/ecview/common/binding>
     Reference features : EStructuralFeature<<0..*>>
     Attribute propertyPath : EString
     Attribute type : EJavaClass
+    Attribute typeQualifiedName : EString
     Attribute emfNsURI : EString
 
   Enum YBindingUpdateStrategy
@@ -185,6 +187,7 @@ Package core <http://eclipse.org/emf/ecp/ecview/common/view>
     Attribute attributePath : EString<<1..1>>
     Reference beanSlot : YBeanSlot<<1..1>>
     Attribute collectionType : EJavaClass
+    Attribute collectionTypeQualifiedName : EString
 
   Class YEmbeddableBindingEndpoint
     Operation getElement() : YBindable
@@ -220,7 +223,7 @@ Package core <http://eclipse.org/emf/ecp/ecview/common/view>
 
 Package validation <http://eclipse.org/emf/ecp/ecview/common/validation>
 
-  Class YValidator -> YElement
+  Class YValidator -> YElement, YBindable
     Attribute type : EJavaClass
 
   Class YMinLengthValidator -> YValidator, YMinLengthValidationConfig

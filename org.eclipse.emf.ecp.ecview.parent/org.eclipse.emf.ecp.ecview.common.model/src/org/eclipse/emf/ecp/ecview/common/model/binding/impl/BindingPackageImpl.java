@@ -428,8 +428,17 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYECViewModelValueBindingEndpoint_EmfNsURI() {
+	public EAttribute getYECViewModelValueBindingEndpoint_TypeQualifiedName() {
 		return (EAttribute)yecViewModelValueBindingEndpointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYECViewModelValueBindingEndpoint_EmfNsURI() {
+		return (EAttribute)yecViewModelValueBindingEndpointEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -482,8 +491,17 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getYECViewModelListBindingEndpoint_EmfNsURI() {
+	public EAttribute getYECViewModelListBindingEndpoint_TypeQualifiedName() {
 		return (EAttribute)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYECViewModelListBindingEndpoint_EmfNsURI() {
+		return (EAttribute)yecViewModelListBindingEndpointEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -607,6 +625,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		createEReference(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__FEATURES);
 		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__PROPERTY_PATH);
 		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE);
+		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME);
 		createEAttribute(yecViewModelValueBindingEndpointEClass, YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI);
 
 		yecViewModelListBindingEndpointEClass = createEClass(YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT);
@@ -614,6 +633,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		createEReference(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__FEATURES);
 		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__PROPERTY_PATH);
 		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE);
+		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME);
 		createEAttribute(yecViewModelListBindingEndpointEClass, YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI);
 
 		// Create enums
@@ -757,6 +777,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYECViewModelValueBindingEndpoint_Type(), g1, "type", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYECViewModelValueBindingEndpoint_TypeQualifiedName(), ecorePackage.getEString(), "typeQualifiedName", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYECViewModelValueBindingEndpoint_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YECViewModelValueBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yecViewModelListBindingEndpointEClass, YECViewModelListBindingEndpoint.class, "YECViewModelListBindingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -767,6 +788,7 @@ public class BindingPackageImpl extends EPackageImpl implements BindingPackage {
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYECViewModelListBindingEndpoint_Type(), g1, "type", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYECViewModelListBindingEndpoint_TypeQualifiedName(), ecorePackage.getEString(), "typeQualifiedName", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYECViewModelListBindingEndpoint_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YECViewModelListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

@@ -26,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingE
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelValueBindingEndpointImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelValueBindingEndpointImpl#getPropertyPath <em>Property Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelValueBindingEndpointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelValueBindingEndpointImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelValueBindingEndpointImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
@@ -82,6 +83,26 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 	 * @ordered
 	 */
 	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String typeQualifiedName = TYPE_QUALIFIED_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
@@ -219,6 +240,27 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTypeQualifiedName() {
+		return typeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeQualifiedName(String newTypeQualifiedName) {
+		String oldTypeQualifiedName = typeQualifiedName;
+		typeQualifiedName = newTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME, oldTypeQualifiedName, typeQualifiedName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getEmfNsURI() {
 		return emfNsURI;
 	}
@@ -252,6 +294,8 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 				return getPropertyPath();
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE:
 				return getType();
+			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME:
+				return getTypeQualifiedName();
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
 				return getEmfNsURI();
 		}
@@ -280,6 +324,9 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)newValue);
 				return;
+			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName((String)newValue);
+				return;
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
 				setEmfNsURI((String)newValue);
 				return;
@@ -307,6 +354,9 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE:
 				setType((Class<?>)null);
 				return;
+			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName(TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
 				setEmfNsURI(EMF_NS_URI_EDEFAULT);
 				return;
@@ -330,6 +380,8 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 				return PROPERTY_PATH_EDEFAULT == null ? propertyPath != null : !PROPERTY_PATH_EDEFAULT.equals(propertyPath);
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE:
 				return type != null;
+			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME:
+				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
 			case BindingPackage.YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI:
 				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
 		}
@@ -350,6 +402,8 @@ public class YECViewModelValueBindingEndpointImpl extends YValueBindingEndpointI
 		result.append(propertyPath);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", typeQualifiedName: ");
+		result.append(typeQualifiedName);
 		result.append(", emfNsURI: ");
 		result.append(emfNsURI);
 		result.append(')');

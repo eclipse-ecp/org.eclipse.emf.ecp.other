@@ -25,6 +25,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTreeDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getEmfNsURI <em>Emf Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -223,5 +224,31 @@ public interface YTree extends YInput, YCollectionBindable, YSelectionBindable, 
 	 * @generated
 	 */
 	void setEmfNsURI(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type Qualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #setTypeQualifiedName(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTree_TypeQualifiedName()
+	 * @model
+	 * @generated
+	 */
+	String getTypeQualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getTypeQualifiedName <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 */
+	void setTypeQualifiedName(String value);
 
 } // YTree

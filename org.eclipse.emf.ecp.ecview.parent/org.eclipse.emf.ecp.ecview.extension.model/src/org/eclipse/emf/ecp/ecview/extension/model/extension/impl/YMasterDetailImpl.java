@@ -40,6 +40,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getMasterElement <em>Master Element</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getDetailElement <em>Detail Element</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YMasterDetailImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -165,6 +166,26 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * @ordered
 	 */
 	protected YEmbeddable detailElement;
+
+	/**
+	 * The default value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String typeQualifiedName = TYPE_QUALIFIED_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -593,6 +614,27 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTypeQualifiedName() {
+		return typeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeQualifiedName(String newTypeQualifiedName) {
+		String oldTypeQualifiedName = typeQualifiedName;
+		typeQualifiedName = newTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YMASTER_DETAIL__TYPE_QUALIFIED_NAME, oldTypeQualifiedName, typeQualifiedName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableSelectionEndpoint createSelectionEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -710,6 +752,8 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 			case ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT:
 				if (resolve) return getDetailElement();
 				return basicGetDetailElement();
+			case ExtensionModelPackage.YMASTER_DETAIL__TYPE_QUALIFIED_NAME:
+				return getTypeQualifiedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -754,6 +798,9 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 			case ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT:
 				setDetailElement((YEmbeddable)newValue);
 				return;
+			case ExtensionModelPackage.YMASTER_DETAIL__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -796,6 +843,9 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 			case ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT:
 				setDetailElement((YEmbeddable)null);
 				return;
+			case ExtensionModelPackage.YMASTER_DETAIL__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName(TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -828,6 +878,8 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 				return masterElement != null;
 			case ExtensionModelPackage.YMASTER_DETAIL__DETAIL_ELEMENT:
 				return detailElement != null;
+			case ExtensionModelPackage.YMASTER_DETAIL__TYPE_QUALIFIED_NAME:
+				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -904,6 +956,8 @@ public class YMasterDetailImpl extends YInputImpl implements YMasterDetail {
 		result.append(type);
 		result.append(", emfNsURI: ");
 		result.append(emfNsURI);
+		result.append(", typeQualifiedName: ");
+		result.append(typeQualifiedName);
 		result.append(')');
 		return result.toString();
 	}

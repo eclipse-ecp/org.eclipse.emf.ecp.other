@@ -353,6 +353,7 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		// Add supertypes to classes
 		yValidatorEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
+		yValidatorEClass.getESuperTypes().add(theCoreModelPackage.getYBindable());
 		yMinLengthValidatorEClass.getESuperTypes().add(this.getYValidator());
 		yMinLengthValidatorEClass.getESuperTypes().add(this.getYMinLengthValidationConfig());
 		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYValidator());

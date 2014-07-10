@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getPropertyPath <em>Property Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getEmfNsURI <em>Emf Ns URI</em>}</li>
  * </ul>
  * </p>
@@ -120,6 +121,32 @@ public interface YECViewModelListBindingEndpoint extends YListBindingEndpoint {
 	 * @generated
 	 */
 	void setType(Class<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type Qualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #setTypeQualifiedName(String)
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage#getYECViewModelListBindingEndpoint_TypeQualifiedName()
+	 * @model
+	 * @generated
+	 */
+	String getTypeQualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getTypeQualifiedName <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 */
+	void setTypeQualifiedName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Emf Ns URI</b></em>' attribute.

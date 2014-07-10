@@ -5,7 +5,9 @@ package org.eclipse.emf.ecp.ecview.common.model.validation.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.validation.*;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
@@ -77,6 +79,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YValidator yValidator = (YValidator)theEObject;
 				T result = caseYValidator(yValidator);
 				if (result == null) result = caseYElement(yValidator);
+				if (result == null) result = caseYBindable(yValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -86,6 +89,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYValidator(yMinLengthValidator);
 				if (result == null) result = caseYMinLengthValidationConfig(yMinLengthValidator);
 				if (result == null) result = caseYElement(yMinLengthValidator);
+				if (result == null) result = caseYBindable(yMinLengthValidator);
 				if (result == null) result = caseYValidationConfig(yMinLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -96,6 +100,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYValidator(yMaxLengthValidator);
 				if (result == null) result = caseYMaxLengthValidationConfig(yMaxLengthValidator);
 				if (result == null) result = caseYElement(yMaxLengthValidator);
+				if (result == null) result = caseYBindable(yMaxLengthValidator);
 				if (result == null) result = caseYValidationConfig(yMaxLengthValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -106,6 +111,7 @@ public class ValidationSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYValidator(yRegexpValidator);
 				if (result == null) result = caseYRegexpValidationConfig(yRegexpValidator);
 				if (result == null) result = caseYElement(yRegexpValidator);
+				if (result == null) result = caseYBindable(yRegexpValidator);
 				if (result == null) result = caseYValidationConfig(yRegexpValidator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -273,6 +279,21 @@ public class ValidationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYElement(YElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YBindable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YBindable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYBindable(YBindable object) {
 		return null;
 	}
 

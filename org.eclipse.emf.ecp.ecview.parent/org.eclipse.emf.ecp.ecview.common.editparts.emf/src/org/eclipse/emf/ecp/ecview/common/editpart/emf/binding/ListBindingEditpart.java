@@ -22,8 +22,10 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.databinding.emf.common.ECViewUpdateListStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -209,7 +211,12 @@ public class ListBindingEditpart extends ElementEditpart<YListBinding>
 					return;
 				}
 
-				binding = bindingManager.bindList(target, model);
+				ECViewUpdateListStrategy modelToTargetStrategy = getValueUpdateStrategy(getModel()
+						.getModelToTargetStrategy());
+				ECViewUpdateListStrategy targetToModelStrategy = getValueUpdateStrategy(getModel()
+						.getTargetToModelStrategy());
+				binding = bindingManager.bindList(target, model,
+						targetToModelStrategy, modelToTargetStrategy);
 				binding.updateTargetToModel();
 
 				// getTargetEndpoint().setRefreshProvider(
@@ -234,6 +241,29 @@ public class ListBindingEditpart extends ElementEditpart<YListBinding>
 		} finally {
 			bound = true;
 		}
+	}
+
+	private ECViewUpdateListStrategy getValueUpdateStrategy(
+			YBindingUpdateStrategy strategy) {
+		ECViewUpdateListStrategy result = null;
+		switch (strategy) {
+		case UPDATE:
+			result = new ECViewUpdateListStrategy(
+					ECViewUpdateListStrategy.POLICY_UPDATE);
+			break;
+		case NEVER:
+			result = new ECViewUpdateListStrategy(
+					ECViewUpdateListStrategy.POLICY_NEVER);
+			break;
+		case ON_REQUEST:
+			result = new ECViewUpdateListStrategy(
+					ECViewUpdateListStrategy.POLICY_ON_REQUEST);
+			break;
+		default:
+			result = new ECViewUpdateListStrategy(
+					ECViewUpdateListStrategy.POLICY_UPDATE);
+		}
+		return result;
 	}
 
 	/**

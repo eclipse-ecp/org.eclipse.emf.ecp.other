@@ -29,4 +29,6 @@ public interface YMasterDetailValidator {
 	boolean validateEmfNsURI(String value);
 	boolean validateMasterElement(YEmbeddable value);
 	boolean validateDetailElement(YEmbeddable value);
+
+	boolean validateTypeQualifiedName(String value);
 }

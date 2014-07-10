@@ -178,7 +178,7 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
 	 * 
 	 * @return
 	 */
-	private boolean isPresentationPresent() {
+	protected boolean isPresentationPresent() {
 		return internalGetPresentation() != null;
 	}
 

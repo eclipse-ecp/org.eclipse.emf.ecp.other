@@ -1275,13 +1275,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE__EMF_NS_URI = YINPUT_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>YTable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
+	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl <em>YLabel</em>}' class.
@@ -1638,13 +1647,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTREE__EMF_NS_URI = YINPUT_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTREE__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>YTree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTREE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
+	int YTREE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl <em>YOptions Group</em>}' class.
@@ -1891,13 +1909,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YOPTIONS_GROUP__EMF_NS_URI = YINPUT_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPTIONS_GROUP__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>YOptions Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YOPTIONS_GROUP_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
+	int YOPTIONS_GROUP_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2134,13 +2161,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YLIST__EMF_NS_URI = YINPUT_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YLIST__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>YList</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
+	int YLIST_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3601,13 +3637,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__EMF_NS_URI = YINPUT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>YCombo Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 8;
+	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4505,13 +4550,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YMASTER_DETAIL__DETAIL_ELEMENT = YINPUT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YMASTER_DETAIL__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>YMaster Detail</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YMASTER_DETAIL_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 10;
+	int YMASTER_DETAIL_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YFormLayoutImpl <em>YForm Layout</em>}' class.
@@ -5148,6 +5202,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYTable_EmfNsURI();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getTypeQualifiedName()
+	 * @see #getYTable()
+	 * @generated
+	 */
+	EAttribute getYTable_TypeQualifiedName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel <em>YLabel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5524,6 +5589,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYComboBox_EmfNsURI();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getTypeQualifiedName()
+	 * @see #getYComboBox()
+	 * @generated
+	 */
+	EAttribute getYComboBox_TypeQualifiedName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList <em>YList</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5620,6 +5696,17 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYList_EmfNsURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YList#getTypeQualifiedName()
+	 * @see #getYList()
+	 * @generated
+	 */
+	EAttribute getYList_TypeQualifiedName();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YButton <em>YButton</em>}'.
@@ -5880,6 +5967,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYMasterDetail_DetailElement();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getTypeQualifiedName()
+	 * @see #getYMasterDetail()
+	 * @generated
+	 */
+	EAttribute getYMasterDetail_TypeQualifiedName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout <em>YForm Layout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6042,6 +6140,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EAttribute getYTree_EmfNsURI();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTree#getTypeQualifiedName()
+	 * @see #getYTree()
+	 * @generated
+	 */
+	EAttribute getYTree_TypeQualifiedName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup <em>YOptions Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6138,6 +6247,17 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYOptionsGroup_EmfNsURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YOptionsGroup#getTypeQualifiedName()
+	 * @see #getYOptionsGroup()
+	 * @generated
+	 */
+	EAttribute getYOptionsGroup_TypeQualifiedName();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.listener.YButtonClickListener <em>YButton Click Listener</em>}'.
@@ -6523,6 +6643,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YTABLE__EMF_NS_URI = eINSTANCE.getYTable_EmfNsURI();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTABLE__TYPE_QUALIFIED_NAME = eINSTANCE.getYTable_TypeQualifiedName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YLabelImpl <em>YLabel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6821,6 +6949,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YCOMBO_BOX__EMF_NS_URI = eINSTANCE.getYComboBox_EmfNsURI();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCOMBO_BOX__TYPE_QUALIFIED_NAME = eINSTANCE.getYComboBox_TypeQualifiedName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6893,6 +7029,14 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YLIST__EMF_NS_URI = eINSTANCE.getYList_EmfNsURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YLIST__TYPE_QUALIFIED_NAME = eINSTANCE.getYList_TypeQualifiedName();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YButtonImpl <em>YButton</em>}' class.
@@ -7099,6 +7243,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YMASTER_DETAIL__DETAIL_ELEMENT = eINSTANCE.getYMasterDetail_DetailElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YMASTER_DETAIL__TYPE_QUALIFIED_NAME = eINSTANCE.getYMasterDetail_TypeQualifiedName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YFormLayoutImpl <em>YForm Layout</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7225,6 +7377,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EAttribute YTREE__EMF_NS_URI = eINSTANCE.getYTree_EmfNsURI();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTREE__TYPE_QUALIFIED_NAME = eINSTANCE.getYTree_TypeQualifiedName();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YOptionsGroupImpl <em>YOptions Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7297,6 +7457,14 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YOPTIONS_GROUP__EMF_NS_URI = eINSTANCE.getYOptionsGroup_EmfNsURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YOPTIONS_GROUP__TYPE_QUALIFIED_NAME = eINSTANCE.getYOptionsGroup_TypeQualifiedName();
 
 		/**
 		 * The meta object literal for the '<em>YButton Click Listener</em>' data type.

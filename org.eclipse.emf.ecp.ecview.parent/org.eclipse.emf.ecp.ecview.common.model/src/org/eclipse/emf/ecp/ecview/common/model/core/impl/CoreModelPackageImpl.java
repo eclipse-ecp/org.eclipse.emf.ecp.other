@@ -1010,6 +1010,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYBeanSlotListBindingEndpoint_CollectionTypeQualifiedName() {
+		return (EAttribute)yBeanSlotListBindingEndpointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYEmbeddableBindingEndpoint() {
 		return yEmbeddableBindingEndpointEClass;
 	}
@@ -1287,6 +1296,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__ATTRIBUTE_PATH);
 		createEReference(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__BEAN_SLOT);
 		createEAttribute(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE);
+		createEAttribute(yBeanSlotListBindingEndpointEClass, YBEAN_SLOT_LIST_BINDING_ENDPOINT__COLLECTION_TYPE_QUALIFIED_NAME);
 
 		yEmbeddableBindingEndpointEClass = createEClass(YEMBEDDABLE_BINDING_ENDPOINT);
 
@@ -1510,6 +1520,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getYBeanSlotListBindingEndpoint_CollectionType(), g1, "collectionType", null, 0, 1, YBeanSlotListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYBeanSlotListBindingEndpoint_CollectionTypeQualifiedName(), ecorePackage.getEString(), "collectionTypeQualifiedName", null, 0, 1, YBeanSlotListBindingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yEmbeddableBindingEndpointEClass, YEmbeddableBindingEndpoint.class, "YEmbeddableBindingEndpoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

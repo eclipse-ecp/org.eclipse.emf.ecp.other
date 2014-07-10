@@ -86,6 +86,32 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 
 	@Override
 	protected IConverter createConverter(Object fromType, Object toType) {
+		
+		/*
+		 * Try to find an number converter for EAttributes
+		 */
+		if(fromType instanceof EAttribute && toType instanceof EAttribute){
+			final EAttribute fromEAttribute = (EAttribute) fromType;
+			final EAttribute toEAttribute = (EAttribute) toType;
+			
+			if(isNumber(fromEAttribute) && isNumber(toEAttribute)){
+				final EDataType fromEDataType = fromEAttribute.getEAttributeType();
+				final Class<?> fromTypeClass = fromEDataType.getInstanceClass();
+				
+				final EDataType toEDataType = toEAttribute.getEAttributeType();
+				final Class<?> toTypeClass = toEDataType.getInstanceClass();
+				
+				IConverter converter = findNumberToNumberConverter(
+						toTypeClass, fromTypeClass);
+				if (converter != null) {
+					return converter;
+				}
+			}
+		}
+		
+		/*
+		 * Try to find further converters
+		 */
 		if (toType instanceof EAttribute) {
 			final EAttribute eAttribute = (EAttribute) toType;
 			final EDataType eDataType = eAttribute.getEAttributeType();
@@ -176,6 +202,13 @@ public class ECViewUpdateValueStrategy extends EMFUpdateValueStrategy {
 		return type instanceof Class
 				&& (((Class<?>) type).isAssignableFrom(Number.class) || isPrimitiveNumber((Class<?>) type));
 	}
+	
+	private boolean isNumber(EAttribute eAttribute) {
+		final EDataType eDataType = eAttribute.getEAttributeType();
+		final Class<?> fromTypeClass = eDataType.getInstanceClass();
+		return isNumber(fromTypeClass);
+	}
+	
 
 	/**
 	 * Returns true, if the given type is a date.

@@ -21,10 +21,11 @@ import org.eclipse.emf.ecp.ecview.common.editpart.binding.IValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.ElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage;
-import org.eclipse.emf.ecp.ecview.common.model.binding.YBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBinding;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.databinding.emf.common.ECViewUpdateValueStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,8 +34,8 @@ import org.slf4j.LoggerFactory;
  * 
  * @param <M>
  */
-public class ValueBindingEditpart extends ElementEditpart<YValueBinding> implements
-		IValueBindingEditpart {
+public class ValueBindingEditpart extends ElementEditpart<YValueBinding>
+		implements IValueBindingEditpart {
 
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(ValueBindingEditpart.class);
@@ -123,7 +124,8 @@ public class ValueBindingEditpart extends ElementEditpart<YValueBinding> impleme
 	 * @param targetValue
 	 *            The content to be set
 	 */
-	protected void internalSetTargetValue(IBindableValueEndpointEditpart targetValue) {
+	protected void internalSetTargetValue(
+			IBindableValueEndpointEditpart targetValue) {
 		this.targetValue = targetValue;
 	}
 
@@ -171,7 +173,8 @@ public class ValueBindingEditpart extends ElementEditpart<YValueBinding> impleme
 	 * @param modelValue
 	 *            The content to be set
 	 */
-	protected void internalSetModelValue(IBindableValueEndpointEditpart modelValue) {
+	protected void internalSetModelValue(
+			IBindableValueEndpointEditpart modelValue) {
 		this.modelValue = modelValue;
 	}
 
@@ -208,7 +211,12 @@ public class ValueBindingEditpart extends ElementEditpart<YValueBinding> impleme
 					return;
 				}
 
-				binding = bindingManager.bindValue(target, model);
+				ECViewUpdateValueStrategy modelToTargetStrategy = getValueUpdateStrategy(getModel()
+						.getModelToTargetStrategy());
+				ECViewUpdateValueStrategy targetToModelStrategy = getValueUpdateStrategy(getModel()
+						.getTargetToModelStrategy());
+				binding = bindingManager.bindValue(target, model,
+						targetToModelStrategy, modelToTargetStrategy);
 				binding.updateTargetToModel();
 
 				// getTargetEndpoint().setRefreshProvider(
@@ -233,6 +241,29 @@ public class ValueBindingEditpart extends ElementEditpart<YValueBinding> impleme
 		} finally {
 			bound = true;
 		}
+	}
+
+	private ECViewUpdateValueStrategy getValueUpdateStrategy(
+			YBindingUpdateStrategy strategy) {
+		ECViewUpdateValueStrategy result = null;
+		switch (strategy) {
+		case UPDATE:
+			result = new ECViewUpdateValueStrategy(
+					ECViewUpdateValueStrategy.POLICY_UPDATE);
+			break;
+		case NEVER:
+			result = new ECViewUpdateValueStrategy(
+					ECViewUpdateValueStrategy.POLICY_NEVER);
+			break;
+		case ON_REQUEST:
+			result = new ECViewUpdateValueStrategy(
+					ECViewUpdateValueStrategy.POLICY_ON_REQUEST);
+			break;
+		default:
+			result = new ECViewUpdateValueStrategy(
+					ECViewUpdateValueStrategy.POLICY_UPDATE);
+		}
+		return result;
 	}
 
 	/**

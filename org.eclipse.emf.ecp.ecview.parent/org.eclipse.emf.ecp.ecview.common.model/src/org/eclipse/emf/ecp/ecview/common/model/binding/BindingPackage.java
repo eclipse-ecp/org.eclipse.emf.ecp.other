@@ -655,13 +655,22 @@ public interface BindingPackage extends EPackage {
 	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Emf Ns URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 4;
+	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__EMF_NS_URI = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>YEC View Model Value Binding Endpoint</em>' class.
@@ -670,7 +679,7 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 5;
+	int YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT_FEATURE_COUNT = YVALUE_BINDING_ENDPOINT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.impl.YECViewModelListBindingEndpointImpl <em>YEC View Model List Binding Endpoint</em>}' class.
@@ -737,13 +746,22 @@ public interface BindingPackage extends EPackage {
 	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Emf Ns URI</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 4;
+	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__EMF_NS_URI = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>YEC View Model List Binding Endpoint</em>' class.
@@ -752,7 +770,7 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT_FEATURE_COUNT = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 5;
+	int YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT_FEATURE_COUNT = YLIST_BINDING_ENDPOINT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YBindingUpdateStrategy <em>YBinding Update Strategy</em>}' enum.
@@ -1020,6 +1038,17 @@ public interface BindingPackage extends EPackage {
 	EAttribute getYECViewModelValueBindingEndpoint_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint#getTypeQualifiedName()
+	 * @see #getYECViewModelValueBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYECViewModelValueBindingEndpoint_TypeQualifiedName();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint#getEmfNsURI <em>Emf Ns URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,6 +1112,17 @@ public interface BindingPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYECViewModelListBindingEndpoint_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getTypeQualifiedName()
+	 * @see #getYECViewModelListBindingEndpoint()
+	 * @generated
+	 */
+	EAttribute getYECViewModelListBindingEndpoint_TypeQualifiedName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelListBindingEndpoint#getEmfNsURI <em>Emf Ns URI</em>}'.
@@ -1394,6 +1434,14 @@ public interface BindingPackage extends EPackage {
 		EAttribute YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE = eINSTANCE.getYECViewModelValueBindingEndpoint_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YEC_VIEW_MODEL_VALUE_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME = eINSTANCE.getYECViewModelValueBindingEndpoint_TypeQualifiedName();
+
+		/**
 		 * The meta object literal for the '<em><b>Emf Ns URI</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1442,6 +1490,14 @@ public interface BindingPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE = eINSTANCE.getYECViewModelListBindingEndpoint_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YEC_VIEW_MODEL_LIST_BINDING_ENDPOINT__TYPE_QUALIFIED_NAME = eINSTANCE.getYECViewModelListBindingEndpoint_TypeQualifiedName();
 
 		/**
 		 * The meta object literal for the '<em><b>Emf Ns URI</b></em>' attribute feature.

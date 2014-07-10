@@ -18,4 +18,6 @@ public interface YBeanSlotListBindingEndpointValidator {
 	boolean validateAttributePath(String value);
 	boolean validateBeanSlot(YBeanSlot value);
 	boolean validateCollectionType(Class<?> value);
+
+	boolean validateCollectionTypeQualifiedName(String value);
 }

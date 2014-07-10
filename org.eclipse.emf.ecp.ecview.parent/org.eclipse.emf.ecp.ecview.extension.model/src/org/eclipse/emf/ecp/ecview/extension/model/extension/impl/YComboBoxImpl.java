@@ -37,6 +37,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,6 +139,26 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 	 * @ordered
 	 */
 	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String typeQualifiedName = TYPE_QUALIFIED_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -415,6 +436,27 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI, oldEmfNsURI, emfNsURI));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTypeQualifiedName() {
+		return typeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeQualifiedName(String newTypeQualifiedName) {
+		String oldTypeQualifiedName = typeQualifiedName;
+		typeQualifiedName = newTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YCOMBO_BOX__TYPE_QUALIFIED_NAME, oldTypeQualifiedName, typeQualifiedName));
+	}
+
 	//	/**
 //	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 //	 * 
@@ -557,6 +599,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				return getType();
 			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
 				return getEmfNsURI();
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE_QUALIFIED_NAME:
+				return getTypeQualifiedName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -594,6 +638,9 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
 				setEmfNsURI((String)newValue);
 				return;
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -629,6 +676,9 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
 				setEmfNsURI(EMF_NS_URI_EDEFAULT);
 				return;
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName(TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -656,6 +706,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 				return type != null;
 			case ExtensionModelPackage.YCOMBO_BOX__EMF_NS_URI:
 				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
+			case ExtensionModelPackage.YCOMBO_BOX__TYPE_QUALIFIED_NAME:
+				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -729,6 +781,8 @@ public class YComboBoxImpl extends YInputImpl implements YComboBox {
 		result.append(type);
 		result.append(", emfNsURI: ");
 		result.append(emfNsURI);
+		result.append(", typeQualifiedName: ");
+		result.append(typeQualifiedName);
 		result.append(')');
 		return result.toString();
 	}

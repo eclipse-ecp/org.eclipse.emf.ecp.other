@@ -25,6 +25,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YMasterDetailDatatyp
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getMasterElement <em>Master Element</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getDetailElement <em>Detail Element</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -230,5 +231,31 @@ public interface YMasterDetail extends YInput, YCollectionBindable, YSelectionBi
 	 * @generated
 	 */
 	void setDetailElement(YEmbeddable value);
+
+	/**
+	 * Returns the value of the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type Qualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #setTypeQualifiedName(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYMasterDetail_TypeQualifiedName()
+	 * @model
+	 * @generated
+	 */
+	String getTypeQualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail#getTypeQualifiedName <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 */
+	void setTypeQualifiedName(String value);
 
 } // YMasterDetail

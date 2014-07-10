@@ -2,6 +2,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.model.validation;
 
+import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 
 /**
@@ -20,7 +21,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
  * @model abstract="true"
  * @generated
  */
-public interface YValidator extends YElement {
+public interface YValidator extends YElement, YBindable {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

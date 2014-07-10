@@ -15,6 +15,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getAttributePath <em>Attribute Path</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getBeanSlot <em>Bean Slot</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionType <em>Collection Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionTypeQualifiedName <em>Collection Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,5 +101,31 @@ public interface YBeanSlotListBindingEndpoint extends YListBindingEndpoint {
 	 * @generated
 	 */
 	void setCollectionType(Class<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Collection Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Collection Type Qualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Collection Type Qualified Name</em>' attribute.
+	 * @see #setCollectionTypeQualifiedName(String)
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYBeanSlotListBindingEndpoint_CollectionTypeQualifiedName()
+	 * @model
+	 * @generated
+	 */
+	String getCollectionTypeQualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint#getCollectionTypeQualifiedName <em>Collection Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Collection Type Qualified Name</em>' attribute.
+	 * @see #getCollectionTypeQualifiedName()
+	 * @generated
+	 */
+	void setCollectionTypeQualifiedName(String value);
 
 } // YBeanSlotListBindingEndpoint

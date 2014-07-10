@@ -31,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getCollection <em>Collection</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getEmfNsURI <em>Emf Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -184,5 +185,31 @@ public interface YComboBox extends YInput, YCollectionBindable, YSelectionBindab
 	 * @generated
 	 */
 	void setEmfNsURI(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type Qualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #setTypeQualifiedName(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_TypeQualifiedName()
+	 * @model
+	 * @generated
+	 */
+	String getTypeQualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getTypeQualifiedName <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Qualified Name</em>' attribute.
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 */
+	void setTypeQualifiedName(String value);
 
 } // YUiComboBox

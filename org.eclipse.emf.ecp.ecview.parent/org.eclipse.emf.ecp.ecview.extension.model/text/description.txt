@@ -104,6 +104,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute collection : EJavaObject<<0..*>>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
+    Attribute typeQualifiedName : EString
 
   Class YTree -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
     Reference datatype : YTreeDatatype
@@ -114,6 +115,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute collection : EJavaObject<<0..*>>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
+    Attribute typeQualifiedName : EString
 
   Class YOptionsGroup -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
     Reference datadescription : YDatadescription
@@ -124,6 +126,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute collection : EJavaObject<<0..*>>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
+    Attribute typeQualifiedName : EString
 
   Class YList -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
     Reference datadescription : YDatadescription
@@ -134,6 +137,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute collection : EJavaObject<<0..*>>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
+    Attribute typeQualifiedName : EString
 
   Class YLabel -> YField, YValueBindable
     Reference datadescription : YDatadescription
@@ -176,6 +180,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute collection : EJavaObject<<0..*>>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
+    Attribute typeQualifiedName : EString
 
   Class YButton -> YAction, YVisibleable, YEditable, YEnable
     Reference datadescription : YDatadescription
@@ -209,6 +214,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute emfNsURI : EString
     Reference masterElement : YEmbeddable
     Reference detailElement : YEmbeddable
+    Attribute typeQualifiedName : EString
 
   Class YFormLayout -> YLayout, YSpacingable, YMarginable
     Reference cellStyles : YFormLayoutCellStyle<<0..*>>
