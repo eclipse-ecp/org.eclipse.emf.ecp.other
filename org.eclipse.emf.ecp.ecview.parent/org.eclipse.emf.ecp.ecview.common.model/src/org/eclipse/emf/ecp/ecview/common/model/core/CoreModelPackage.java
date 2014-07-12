@@ -49,7 +49,7 @@ public interface CoreModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/common/view";
+	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/core/view";
 
 	/**
 	 * The package namespace name.

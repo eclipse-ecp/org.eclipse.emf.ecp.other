@@ -40,7 +40,7 @@ public interface VisibilityPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/common/visibility";
+	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/core/visibility";
 
 	/**
 	 * The package namespace name.

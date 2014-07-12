@@ -38,7 +38,7 @@ public interface ValidationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/common/validation";
+	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/core/validation";
 
 	/**
 	 * The package namespace name.

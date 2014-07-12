@@ -6,13 +6,13 @@ code generator can be extended.
 This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator=false.
 
 Contains packages:
-  binding <http://eclipse.org/emf/ecp/ecview/common/binding>
-  core <http://eclipse.org/emf/ecp/ecview/common/view>
-  validation <http://eclipse.org/emf/ecp/ecview/common/validation>
-  datatypes <http://eclipse.org/emf/ecp/ecview/common/datatypes>
-  visibility <http://eclipse.org/emf/ecp/ecview/common/visibility>
+  binding <http://eclipse.org/emf/ecp/ecview/core/binding>
+  core <http://eclipse.org/emf/ecp/ecview/core/view>
+  validation <http://eclipse.org/emf/ecp/ecview/core/validation>
+  datatypes <http://eclipse.org/emf/ecp/ecview/core/datatypes>
+  visibility <http://eclipse.org/emf/ecp/ecview/core/visibility>
 
-Package binding <http://eclipse.org/emf/ecp/ecview/common/binding>
+Package binding <http://eclipse.org/emf/ecp/ecview/core/binding>
 
   Class YBindingSet -> YElement
     Reference bindings : YBinding<<0..*>>
@@ -83,7 +83,7 @@ Package binding <http://eclipse.org/emf/ecp/ecview/common/binding>
     Literal ON_REQUEST = 1
     Literal NEVER = 2
 
-Package core <http://eclipse.org/emf/ecp/ecview/common/view>
+Package core <http://eclipse.org/emf/ecp/ecview/core/view>
 
   Class YElement
     Attribute id : EString
@@ -221,7 +221,7 @@ Package core <http://eclipse.org/emf/ecp/ecview/common/view>
 
   DataType YValueChangeListener <org.eclipse.emf.ecp.ecview.common.model.core.listeners.YValueChangeListener>
 
-Package validation <http://eclipse.org/emf/ecp/ecview/common/validation>
+Package validation <http://eclipse.org/emf/ecp/ecview/core/validation>
 
   Class YValidator -> YElement, YBindable
     Attribute type : EJavaClass
@@ -243,7 +243,7 @@ Package validation <http://eclipse.org/emf/ecp/ecview/common/validation>
   Class YRegexpValidationConfig -> YValidationConfig
     Attribute regExpression : EString<<1..1>>
 
-Package datatypes <http://eclipse.org/emf/ecp/ecview/common/datatypes>
+Package datatypes <http://eclipse.org/emf/ecp/ecview/core/datatypes>
 
   Class YDtBase -> YElement
     Attribute description : EString
@@ -255,7 +255,7 @@ Package datatypes <http://eclipse.org/emf/ecp/ecview/common/datatypes>
     Attribute label : EString
     Attribute labelI18nKey : EString
 
-Package visibility <http://eclipse.org/emf/ecp/ecview/common/visibility>
+Package visibility <http://eclipse.org/emf/ecp/ecview/core/visibility>
 
   Class YVisibilityProcessor -> YElement
     Reference onMatch : YVisibilityProperties<<1..1>>

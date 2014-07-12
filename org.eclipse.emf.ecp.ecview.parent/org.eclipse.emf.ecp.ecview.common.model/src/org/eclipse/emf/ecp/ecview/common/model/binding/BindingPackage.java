@@ -39,7 +39,7 @@ public interface BindingPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/common/binding";
+	String eNS_URI = "http://eclipse.org/emf/ecp/ecview/core/binding";
 
 	/**
 	 * The package namespace name.

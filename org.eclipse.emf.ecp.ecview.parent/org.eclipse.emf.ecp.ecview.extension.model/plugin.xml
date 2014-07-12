@@ -10,7 +10,7 @@
       <package
             uri="http://eclipse.org/emf/ecp/ecview/extension/datatypes"
             class="org.eclipse.emf.ecp.ecview.extension.model.datatypes.ExtDatatypesPackage"
-            genModel="model/extdatatypes.genmodel"/>
+            genModel="model/extension.genmodel"/>
    </extension>
 
   <extension point="org.eclipse.emf.ecore.generated_package">

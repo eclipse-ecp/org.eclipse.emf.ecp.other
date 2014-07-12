@@ -8,7 +8,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://eclipse.org/emf/ecp/ecview/common/view"
+            uri="http://eclipse.org/emf/ecp/ecview/core/view"
             class="org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage"
             genModel="model/core.genmodel"/>
    </extension>
@@ -17,13 +17,13 @@
       <package
             uri="http://eclipse.org/emf/ecp/ecview/core/datatypes"
             class="org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage"
-            genModel="model/datatypes.genmodel"/>
+            genModel="model/core.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated core -->
       <package
-            uri="http://eclipse.org/emf/ecp/ecview/common/visibility"
+            uri="http://eclipse.org/emf/ecp/ecview/core/visibility"
             class="org.eclipse.emf.ecp.ecview.common.model.visibility.VisibilityPackage"
             genModel="model/core.genmodel"/>
    </extension>
@@ -31,17 +31,17 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated binding -->
       <package
-            uri="http://eclipse.org/emf/ecp/ecview/common/binding"
+            uri="http://eclipse.org/emf/ecp/ecview/core/binding"
             class="org.eclipse.emf.ecp.ecview.common.model.binding.BindingPackage"
-            genModel="model/binding.genmodel"/>
+            genModel="model/core.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated validation -->
       <package
-            uri="http://eclipse.org/emf/ecp/ecview/common/validation"
+            uri="http://eclipse.org/emf/ecp/ecview/core/validation"
             class="org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage"
-            genModel="model/validation.genmodel"/>
+            genModel="model/core.genmodel"/>
    </extension>
 
 </plugin>
