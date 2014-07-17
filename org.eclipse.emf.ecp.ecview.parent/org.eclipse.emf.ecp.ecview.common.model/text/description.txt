@@ -232,6 +232,8 @@ Package validation <http://eclipse.org/emf/ecp/ecview/core/validation>
 
   Class YRegexpValidator -> YValidator, YRegexpValidationConfig
 
+  Class YClassDelegateValidator -> YValidator, YClassDelegateValidationConfig
+
   Class YValidationConfig
 
   Class YMinLengthValidationConfig -> YValidationConfig
@@ -242,6 +244,9 @@ Package validation <http://eclipse.org/emf/ecp/ecview/core/validation>
 
   Class YRegexpValidationConfig -> YValidationConfig
     Attribute regExpression : EString<<1..1>>
+
+  Class YClassDelegateValidationConfig -> YValidationConfig
+    Attribute className : EString<<1..1>>
 
 Package datatypes <http://eclipse.org/emf/ecp/ecview/core/datatypes>
 

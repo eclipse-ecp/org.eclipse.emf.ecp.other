@@ -268,6 +268,61 @@ public interface ValidationPackage extends EPackage {
 	int YREGEXP_VALIDATOR_FEATURE_COUNT = YVALIDATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YClassDelegateValidatorImpl <em>YClass Delegate Validator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.YClassDelegateValidatorImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYClassDelegateValidator()
+	 * @generated
+	 */
+	int YCLASS_DELEGATE_VALIDATOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATOR__ID = YVALIDATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATOR__NAME = YVALIDATOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATOR__TYPE = YVALIDATOR__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATOR__CLASS_NAME = YVALIDATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YClass Delegate Validator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATOR_FEATURE_COUNT = YVALIDATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,7 +330,7 @@ public interface ValidationPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYValidationConfig()
 	 * @generated
 	 */
-	int YVALIDATION_CONFIG = 4;
+	int YVALIDATION_CONFIG = 5;
 
 	/**
 	 * The number of structural features of the '<em>YValidation Config</em>' class.
@@ -294,7 +349,7 @@ public interface ValidationPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMinLengthValidationConfig()
 	 * @generated
 	 */
-	int YMIN_LENGTH_VALIDATION_CONFIG = 5;
+	int YMIN_LENGTH_VALIDATION_CONFIG = 6;
 
 	/**
 	 * The feature id for the '<em><b>Min Length</b></em>' attribute.
@@ -322,7 +377,7 @@ public interface ValidationPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYMaxLengthValidationConfig()
 	 * @generated
 	 */
-	int YMAX_LENGTH_VALIDATION_CONFIG = 6;
+	int YMAX_LENGTH_VALIDATION_CONFIG = 7;
 
 	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' attribute.
@@ -350,7 +405,7 @@ public interface ValidationPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYRegexpValidationConfig()
 	 * @generated
 	 */
-	int YREGEXP_VALIDATION_CONFIG = 7;
+	int YREGEXP_VALIDATION_CONFIG = 8;
 
 	/**
 	 * The feature id for the '<em><b>Reg Expression</b></em>' attribute.
@@ -369,6 +424,34 @@ public interface ValidationPackage extends EPackage {
 	 * @ordered
 	 */
 	int YREGEXP_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig <em>YClass Delegate Validation Config</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYClassDelegateValidationConfig()
+	 * @generated
+	 */
+	int YCLASS_DELEGATE_VALIDATION_CONFIG = 9;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATION_CONFIG__CLASS_NAME = YVALIDATION_CONFIG_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>YClass Delegate Validation Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCLASS_DELEGATE_VALIDATION_CONFIG_FEATURE_COUNT = YVALIDATION_CONFIG_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidator <em>YValidator</em>}'.
@@ -420,6 +503,16 @@ public interface ValidationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getYRegexpValidator();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator <em>YClass Delegate Validator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YClass Delegate Validator</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator
+	 * @generated
+	 */
+	EClass getYClassDelegateValidator();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}'.
@@ -495,6 +588,27 @@ public interface ValidationPackage extends EPackage {
 	EAttribute getYRegexpValidationConfig_RegExpression();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig <em>YClass Delegate Validation Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YClass Delegate Validation Config</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig
+	 * @generated
+	 */
+	EClass getYClassDelegateValidationConfig();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig#getClassName <em>Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig#getClassName()
+	 * @see #getYClassDelegateValidationConfig()
+	 * @generated
+	 */
+	EAttribute getYClassDelegateValidationConfig_ClassName();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -566,6 +680,16 @@ public interface ValidationPackage extends EPackage {
 		EClass YREGEXP_VALIDATOR = eINSTANCE.getYRegexpValidator();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.impl.YClassDelegateValidatorImpl <em>YClass Delegate Validator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.YClassDelegateValidatorImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYClassDelegateValidator()
+		 * @generated
+		 */
+		EClass YCLASS_DELEGATE_VALIDATOR = eINSTANCE.getYClassDelegateValidator();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YValidationConfig <em>YValidation Config</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -628,6 +752,24 @@ public interface ValidationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION = eINSTANCE.getYRegexpValidationConfig_RegExpression();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig <em>YClass Delegate Validation Config</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig
+		 * @see org.eclipse.emf.ecp.ecview.common.model.validation.impl.ValidationPackageImpl#getYClassDelegateValidationConfig()
+		 * @generated
+		 */
+		EClass YCLASS_DELEGATE_VALIDATION_CONFIG = eINSTANCE.getYClassDelegateValidationConfig();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCLASS_DELEGATE_VALIDATION_CONFIG__CLASS_NAME = eINSTANCE.getYClassDelegateValidationConfig_ClassName();
 
 	}
 

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.common.model.validation.*;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
@@ -60,6 +61,7 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 			case ValidationPackage.YMIN_LENGTH_VALIDATOR: return createYMinLengthValidator();
 			case ValidationPackage.YMAX_LENGTH_VALIDATOR: return createYMaxLengthValidator();
 			case ValidationPackage.YREGEXP_VALIDATOR: return createYRegexpValidator();
+			case ValidationPackage.YCLASS_DELEGATE_VALIDATOR: return createYClassDelegateValidator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +95,16 @@ public class ValidationFactoryImpl extends EFactoryImpl implements ValidationFac
 	public YRegexpValidator createYRegexpValidator() {
 		YRegexpValidatorImpl yRegexpValidator = new YRegexpValidatorImpl();
 		return yRegexpValidator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YClassDelegateValidator createYClassDelegateValidator() {
+		YClassDelegateValidatorImpl yClassDelegateValidator = new YClassDelegateValidatorImpl();
+		return yClassDelegateValidator;
 	}
 
 	/**

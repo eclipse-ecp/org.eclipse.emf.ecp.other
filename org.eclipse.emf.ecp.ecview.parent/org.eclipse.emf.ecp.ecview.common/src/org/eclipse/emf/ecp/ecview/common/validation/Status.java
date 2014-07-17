@@ -126,6 +126,9 @@ public class Status implements IStatus {
 	 * @return
 	 */
 	private static String getBundleSymbolicName(Class<?> clazz) {
+		if(clazz == null || FrameworkUtil.getBundle(clazz) == null){
+			return "no bundle available";
+		}
 		return FrameworkUtil.getBundle(clazz).getSymbolicName();
 	}
 

@@ -38,12 +38,14 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.EnumListBindingEnd
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ListBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.ValueBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.common.AbstractEditpartManager;
+import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.ClassDelegateValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MaxLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.MinLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.validation.RegexpValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.RuledVisibilityProcessorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.VisibilityProcessorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.emf.visibility.VisibilityPropertiesEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.validation.IClassDelegateValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IMaxLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IMinLengthValidatorEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.validation.IRegexpValidatorEditpart;
@@ -74,6 +76,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
@@ -167,6 +170,9 @@ public class EditpartManager extends AbstractEditpartManager {
 				.isAssignableFrom(IRegexpValidatorEditpart.class)) {
 			result = createNewInstance(RegexpValidatorEditpart.class);
 		} else if (editPartClazz
+				.isAssignableFrom(IClassDelegateValidatorEditpart.class)) {
+			result = createNewInstance(ClassDelegateValidatorEditpart.class);
+		} else if (editPartClazz
 				.isAssignableFrom(IRuledVisibilityProcessorEditpart.class)) {
 			result = createNewInstance(RuledVisibilityProcessorEditpart.class);
 		} else if (editPartClazz
@@ -245,6 +251,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(MaxLengthValidatorEditpart.class);
 		} else if (yElement instanceof YRegexpValidator) {
 			result = createNewInstance(RegexpValidatorEditpart.class);
+		} else if (yElement instanceof YClassDelegateValidator) {
+			result = createNewInstance(ClassDelegateValidatorEditpart.class);
 		}
 
 		if (result != null) {

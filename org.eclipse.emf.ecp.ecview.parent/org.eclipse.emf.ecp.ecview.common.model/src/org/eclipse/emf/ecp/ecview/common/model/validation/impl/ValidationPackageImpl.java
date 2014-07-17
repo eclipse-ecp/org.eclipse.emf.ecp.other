@@ -15,6 +15,8 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesPackage;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.impl.DatatypesPackageImpl;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidationConfig;
@@ -66,6 +68,13 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yClassDelegateValidatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass yValidationConfigEClass = null;
 
 	/**
@@ -88,6 +97,13 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * @generated
 	 */
 	private EClass yRegexpValidationConfigEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yClassDelegateValidationConfigEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -214,6 +230,15 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYClassDelegateValidator() {
+		return yClassDelegateValidatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYValidationConfig() {
 		return yValidationConfigEClass;
 	}
@@ -277,6 +302,24 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYClassDelegateValidationConfig() {
+		return yClassDelegateValidationConfigEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYClassDelegateValidationConfig_ClassName() {
+		return (EAttribute)yClassDelegateValidationConfigEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ValidationFactory getValidationFactory() {
 		return (ValidationFactory)getEFactoryInstance();
 	}
@@ -309,6 +352,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		yRegexpValidatorEClass = createEClass(YREGEXP_VALIDATOR);
 
+		yClassDelegateValidatorEClass = createEClass(YCLASS_DELEGATE_VALIDATOR);
+
 		yValidationConfigEClass = createEClass(YVALIDATION_CONFIG);
 
 		yMinLengthValidationConfigEClass = createEClass(YMIN_LENGTH_VALIDATION_CONFIG);
@@ -319,6 +364,9 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		yRegexpValidationConfigEClass = createEClass(YREGEXP_VALIDATION_CONFIG);
 		createEAttribute(yRegexpValidationConfigEClass, YREGEXP_VALIDATION_CONFIG__REG_EXPRESSION);
+
+		yClassDelegateValidationConfigEClass = createEClass(YCLASS_DELEGATE_VALIDATION_CONFIG);
+		createEAttribute(yClassDelegateValidationConfigEClass, YCLASS_DELEGATE_VALIDATION_CONFIG__CLASS_NAME);
 	}
 
 	/**
@@ -360,9 +408,12 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 		yMaxLengthValidatorEClass.getESuperTypes().add(this.getYMaxLengthValidationConfig());
 		yRegexpValidatorEClass.getESuperTypes().add(this.getYValidator());
 		yRegexpValidatorEClass.getESuperTypes().add(this.getYRegexpValidationConfig());
+		yClassDelegateValidatorEClass.getESuperTypes().add(this.getYValidator());
+		yClassDelegateValidatorEClass.getESuperTypes().add(this.getYClassDelegateValidationConfig());
 		yMinLengthValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 		yMaxLengthValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 		yRegexpValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
+		yClassDelegateValidationConfigEClass.getESuperTypes().add(this.getYValidationConfig());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yValidatorEClass, YValidator.class, "YValidator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -377,6 +428,8 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		initEClass(yRegexpValidatorEClass, YRegexpValidator.class, "YRegexpValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(yClassDelegateValidatorEClass, YClassDelegateValidator.class, "YClassDelegateValidator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(yValidationConfigEClass, YValidationConfig.class, "YValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(yMinLengthValidationConfigEClass, YMinLengthValidationConfig.class, "YMinLengthValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -387,6 +440,9 @@ public class ValidationPackageImpl extends EPackageImpl implements ValidationPac
 
 		initEClass(yRegexpValidationConfigEClass, YRegexpValidationConfig.class, "YRegexpValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYRegexpValidationConfig_RegExpression(), ecorePackage.getEString(), "regExpression", null, 1, 1, YRegexpValidationConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yClassDelegateValidationConfigEClass, YClassDelegateValidationConfig.class, "YClassDelegateValidationConfig", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYClassDelegateValidationConfig_ClassName(), ecorePackage.getEString(), "className", null, 1, 1, YClassDelegateValidationConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

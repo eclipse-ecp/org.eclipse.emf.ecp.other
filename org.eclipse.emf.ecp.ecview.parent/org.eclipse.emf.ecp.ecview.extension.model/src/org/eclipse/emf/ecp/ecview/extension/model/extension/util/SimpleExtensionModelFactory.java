@@ -3,6 +3,7 @@ package org.eclipse.emf.ecp.ecview.extension.model.extension.util;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.util.SimpleCoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationFactory;
+import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMinLengthValidator;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YRegexpValidator;
@@ -386,5 +387,10 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YRegexpValidator createRegexpValidator() {
 		return ValidationFactory.eINSTANCE.createYRegexpValidator();
 	}
+	
+	public YClassDelegateValidator createClassDelegateValidator() {
+		return ValidationFactory.eINSTANCE.createYClassDelegateValidator();
+	}
+
 
 }

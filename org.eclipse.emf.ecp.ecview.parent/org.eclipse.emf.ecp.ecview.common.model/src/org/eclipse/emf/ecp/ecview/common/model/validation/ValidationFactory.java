@@ -49,6 +49,15 @@ public interface ValidationFactory extends EFactory {
 	YRegexpValidator createYRegexpValidator();
 
 	/**
+	 * Returns a new object of class '<em>YClass Delegate Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YClass Delegate Validator</em>'.
+	 * @generated
+	 */
+	YClassDelegateValidator createYClassDelegateValidator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

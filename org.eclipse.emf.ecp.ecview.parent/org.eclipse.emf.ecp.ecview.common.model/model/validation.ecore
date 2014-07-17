@@ -12,6 +12,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidator" eSuperTypes="#//YValidator #//YMinLengthValidationConfig"/>
   <eClassifiers xsi:type="ecore:EClass" name="YMaxLengthValidator" eSuperTypes="#//YValidator #//YMaxLengthValidationConfig"/>
   <eClassifiers xsi:type="ecore:EClass" name="YRegexpValidator" eSuperTypes="#//YValidator #//YRegexpValidationConfig"/>
+  <eClassifiers xsi:type="ecore:EClass" name="YClassDelegateValidator" eSuperTypes="#//YValidator #//YClassDelegateValidationConfig"/>
   <eClassifiers xsi:type="ecore:EClass" name="YValidationConfig" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="YMinLengthValidationConfig" abstract="true"
       interface="true" eSuperTypes="#//YValidationConfig">
@@ -26,6 +27,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="YRegexpValidationConfig" abstract="true"
       interface="true" eSuperTypes="#//YValidationConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="regExpression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YClassDelegateValidationConfig" abstract="true"
+      interface="true" eSuperTypes="#//YValidationConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

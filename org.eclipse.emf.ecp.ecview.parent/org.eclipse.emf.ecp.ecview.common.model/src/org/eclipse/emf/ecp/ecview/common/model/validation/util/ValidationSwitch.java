@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
+import org.eclipse.emf.ecp.ecview.common.model.validation.*;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YMaxLengthValidator;
@@ -115,6 +116,17 @@ public class ValidationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ValidationPackage.YCLASS_DELEGATE_VALIDATOR: {
+				YClassDelegateValidator yClassDelegateValidator = (YClassDelegateValidator)theEObject;
+				T result = caseYClassDelegateValidator(yClassDelegateValidator);
+				if (result == null) result = caseYValidator(yClassDelegateValidator);
+				if (result == null) result = caseYClassDelegateValidationConfig(yClassDelegateValidator);
+				if (result == null) result = caseYElement(yClassDelegateValidator);
+				if (result == null) result = caseYBindable(yClassDelegateValidator);
+				if (result == null) result = caseYValidationConfig(yClassDelegateValidator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ValidationPackage.YVALIDATION_CONFIG: {
 				YValidationConfig yValidationConfig = (YValidationConfig)theEObject;
 				T result = caseYValidationConfig(yValidationConfig);
@@ -139,6 +151,13 @@ public class ValidationSwitch<T> extends Switch<T> {
 				YRegexpValidationConfig yRegexpValidationConfig = (YRegexpValidationConfig)theEObject;
 				T result = caseYRegexpValidationConfig(yRegexpValidationConfig);
 				if (result == null) result = caseYValidationConfig(yRegexpValidationConfig);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ValidationPackage.YCLASS_DELEGATE_VALIDATION_CONFIG: {
+				YClassDelegateValidationConfig yClassDelegateValidationConfig = (YClassDelegateValidationConfig)theEObject;
+				T result = caseYClassDelegateValidationConfig(yClassDelegateValidationConfig);
+				if (result == null) result = caseYValidationConfig(yClassDelegateValidationConfig);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,6 +226,21 @@ public class ValidationSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YClass Delegate Validator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YClass Delegate Validator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYClassDelegateValidator(YClassDelegateValidator object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>YValidation Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -263,6 +297,21 @@ public class ValidationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYRegexpValidationConfig(YRegexpValidationConfig object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YClass Delegate Validation Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YClass Delegate Validation Config</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYClassDelegateValidationConfig(YClassDelegateValidationConfig object) {
 		return null;
 	}
 

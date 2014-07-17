@@ -20,6 +20,8 @@ import org.eclipse.emf.ecp.ecview.common.editpart.emf.binding.BindableValueEndpo
 import org.eclipse.emf.ecp.ecview.common.model.binding.BindingFactory;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YECViewModelValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.databinding.emf.model.ECViewModelBindable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Responsible to create an observable. The model of this editpart is used to
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecp.ecview.databinding.emf.model.ECViewModelBindable;
 public class ECViewModelValueBindingEndpointEditpart extends
 		BindableValueEndpointEditpart<YECViewModelValueBindingEndpoint>
 		implements IECViewModelValueBindingEndpointEditpart {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ECViewModelValueBindingEndpointEditpart.class);
 
 	@Override
 	protected YECViewModelValueBindingEndpoint createModel() {
@@ -52,7 +56,8 @@ public class ECViewModelValueBindingEndpointEditpart extends
 					model.getEmfNsURI());
 		}
 
-		throw new IllegalArgumentException("Not a valid binding model " + model);
+		LOGGER.error("Not a valid binding model " + model);
+		return null;
 	}
 
 	@Override
