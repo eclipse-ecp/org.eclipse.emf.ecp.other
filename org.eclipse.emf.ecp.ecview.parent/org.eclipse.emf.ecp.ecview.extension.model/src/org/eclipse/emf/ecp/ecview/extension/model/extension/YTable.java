@@ -35,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -259,5 +260,21 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable,
 	 * @generated
 	 */
 	void setTypeQualifiedName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Columns</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_Columns()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<YColumn> getColumns();
 
 } // YUiTable

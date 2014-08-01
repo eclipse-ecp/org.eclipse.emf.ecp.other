@@ -316,11 +316,11 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 				unregisterFromDatatype(yDatatype);
 			}
 
-			// if directly attached to a view, then remove it
-			IViewEditpart view = getView();
-			if (view != null) {
-				view.setContent(null);
-			}
+			// // if directly attached to a view, then remove it
+			// IViewEditpart view = getView();
+			// if (view != null) {
+			// view.setContent(null);
+			// }
 
 			// remove from the parent
 			ILayoutEditpart parent = getParent();

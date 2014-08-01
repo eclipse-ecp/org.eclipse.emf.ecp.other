@@ -42,6 +42,7 @@ import org.eclipse.emf.ecp.ecview.common.notification.ILifecycleService;
 import org.eclipse.emf.ecp.ecview.common.presentation.DelegatingPresenterFactory;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
+import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -565,4 +566,10 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		checkDisposed();
 		return getPresentation().execAsync(runnable);
 	}
+
+	@Override
+	public <A extends IUiKitBasedService> A createService(Class<A> serviceClass) {
+		return getPresentation().createService(serviceClass);
+	}
+	
 }

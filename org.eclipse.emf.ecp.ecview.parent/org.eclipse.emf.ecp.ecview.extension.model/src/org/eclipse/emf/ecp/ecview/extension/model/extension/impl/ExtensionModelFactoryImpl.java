@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
@@ -95,6 +96,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YVERTICAL_LAYOUT_CELL_STYLE: return createYVerticalLayoutCellStyle();
 			case ExtensionModelPackage.YSPAN_INFO: return createYSpanInfo();
 			case ExtensionModelPackage.YTABLE: return createYTable();
+			case ExtensionModelPackage.YCOLUMN: return createYColumn();
 			case ExtensionModelPackage.YTREE: return createYTree();
 			case ExtensionModelPackage.YOPTIONS_GROUP: return createYOptionsGroup();
 			case ExtensionModelPackage.YLIST: return createYList();
@@ -129,6 +131,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 		switch (eDataType.getClassifierID()) {
 			case ExtensionModelPackage.YALIGNMENT:
 				return createYAlignmentFromString(eDataType, initialValue);
+			case ExtensionModelPackage.YFLAT_ALIGNMENT:
+				return createYFlatAlignmentFromString(eDataType, initialValue);
 			case ExtensionModelPackage.YSELECTION_TYPE:
 				return createYSelectionTypeFromString(eDataType, initialValue);
 			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
@@ -148,6 +152,8 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 		switch (eDataType.getClassifierID()) {
 			case ExtensionModelPackage.YALIGNMENT:
 				return convertYAlignmentToString(eDataType, instanceValue);
+			case ExtensionModelPackage.YFLAT_ALIGNMENT:
+				return convertYFlatAlignmentToString(eDataType, instanceValue);
 			case ExtensionModelPackage.YSELECTION_TYPE:
 				return convertYSelectionTypeToString(eDataType, instanceValue);
 			case ExtensionModelPackage.YBUTTON_CLICK_LISTENER:
@@ -245,6 +251,16 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YTable createYTable() {
 		YTableImpl yTable = new YTableImpl();
 		return yTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YColumn createYColumn() {
+		YColumnImpl yColumn = new YColumnImpl();
+		return yColumn;
 	}
 
 	/**
@@ -454,6 +470,26 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	 * @generated
 	 */
 	public String convertYAlignmentToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YFlatAlignment createYFlatAlignmentFromString(EDataType eDataType, String initialValue) {
+		YFlatAlignment result = YFlatAlignment.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertYFlatAlignmentToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -10,6 +10,7 @@ import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 
 /**
@@ -31,4 +32,6 @@ public interface YTableValidator {
 	boolean validateEmfNsURI(String value);
 
 	boolean validateTypeQualifiedName(String value);
+
+	boolean validateColumns(EList<YColumn> value);
 }

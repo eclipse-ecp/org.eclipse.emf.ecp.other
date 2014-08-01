@@ -18,6 +18,7 @@ import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IViewPresentation;
+import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
 
 /**
  * An IUiViewEditpart is an abstraction of the root ui element of a composite
@@ -140,5 +141,13 @@ public interface IViewEditpart extends IElementEditpart {
 	 * @param runnable
 	 */
 	Future<?> execAsync(Runnable runnable);
+
+	/**
+	 * Returns a fully configured service for the given serviceClass.
+	 * 
+	 * @param serviceClass
+	 * @return
+	 */
+	<A extends IUiKitBasedService> A createService(Class<A> serviceClass);
 
 }

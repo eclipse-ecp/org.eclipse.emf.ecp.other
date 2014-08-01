@@ -13,6 +13,8 @@ package org.eclipse.emf.ecp.ecview.common.presentation;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
+
 /**
  * View presenters are used to render UIs based on a view.<br>
  * Implementations are UI-kit specific.
@@ -61,5 +63,13 @@ public interface IViewPresentation<C> extends IWidgetPresentation<C> {
 	 * @param runnable
 	 */
 	Future<?> execAsync(Runnable runnable);
+
+	/**
+	 * Creates the fully configured service for the given service class.
+	 * 
+	 * @param serviceClass
+	 * @return
+	 */
+	<A extends IUiKitBasedService> A createService(Class<A> serviceClass);
 
 }

@@ -24,9 +24,11 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YFlatAlignment;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
@@ -113,6 +115,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass yTableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yColumnEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -239,6 +248,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EEnum yAlignmentEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum yFlatAlignmentEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -647,6 +663,87 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getYTable_TypeQualifiedName() {
 		return (EAttribute)yTableEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYTable_Columns() {
+		return (EReference)yTableEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYColumn() {
+		return yColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_Icon() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_Visible() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_Orderable() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_Collapsed() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_Collapsible() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_Alignment() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYColumn_ExpandRatio() {
+		return (EAttribute)yColumnEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1452,6 +1549,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getYFlatAlignment() {
+		return yFlatAlignmentEEnum;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1535,6 +1641,16 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		createEAttribute(yTableEClass, YTABLE__TYPE);
 		createEAttribute(yTableEClass, YTABLE__EMF_NS_URI);
 		createEAttribute(yTableEClass, YTABLE__TYPE_QUALIFIED_NAME);
+		createEReference(yTableEClass, YTABLE__COLUMNS);
+
+		yColumnEClass = createEClass(YCOLUMN);
+		createEAttribute(yColumnEClass, YCOLUMN__ICON);
+		createEAttribute(yColumnEClass, YCOLUMN__VISIBLE);
+		createEAttribute(yColumnEClass, YCOLUMN__ORDERABLE);
+		createEAttribute(yColumnEClass, YCOLUMN__COLLAPSED);
+		createEAttribute(yColumnEClass, YCOLUMN__COLLAPSIBLE);
+		createEAttribute(yColumnEClass, YCOLUMN__ALIGNMENT);
+		createEAttribute(yColumnEClass, YCOLUMN__EXPAND_RATIO);
 
 		yTreeEClass = createEClass(YTREE);
 		createEReference(yTreeEClass, YTREE__DATATYPE);
@@ -1653,6 +1769,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 
 		// Create enums
 		yAlignmentEEnum = createEEnum(YALIGNMENT);
+		yFlatAlignmentEEnum = createEEnum(YFLAT_ALIGNMENT);
 		ySelectionTypeEEnum = createEEnum(YSELECTION_TYPE);
 
 		// Create data types
@@ -1707,6 +1824,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
 		yTableEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
+		yColumnEClass.getESuperTypes().add(theCoreModelPackage.getYElement());
 		yTreeEClass.getESuperTypes().add(this.getYInput());
 		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYCollectionBindable());
 		yTreeEClass.getESuperTypes().add(theCoreModelPackage.getYSelectionBindable());
@@ -1820,6 +1938,16 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEAttribute(getYTable_Type(), g1, "type", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTable_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTable_TypeQualifiedName(), ecorePackage.getEString(), "typeQualifiedName", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYTable_Columns(), this.getYColumn(), null, "columns", null, 0, -1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yColumnEClass, YColumn.class, "YColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getYColumn_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYColumn_Visible(), ecorePackage.getEBoolean(), "visible", "true", 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYColumn_Orderable(), ecorePackage.getEBoolean(), "orderable", "true", 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYColumn_Collapsed(), ecorePackage.getEBoolean(), "collapsed", "false", 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYColumn_Collapsible(), ecorePackage.getEBoolean(), "collapsible", "true", 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYColumn_Alignment(), this.getYFlatAlignment(), "alignment", "LEFT", 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYColumn_ExpandRatio(), ecorePackage.getEFloat(), "expandRatio", "-1.0f", 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yTreeEClass, YTree.class, "YTree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTree_Datatype(), theExtDatatypesPackage.getYTreeDatatype(), null, "datatype", null, 0, 1, YTree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1978,6 +2106,11 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.FILL_CENTER);
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.FILL_RIGHT);
 		addEEnumLiteral(yAlignmentEEnum, YAlignment.UNDEFINED);
+
+		initEEnum(yFlatAlignmentEEnum, YFlatAlignment.class, "YFlatAlignment");
+		addEEnumLiteral(yFlatAlignmentEEnum, YFlatAlignment.LEFT);
+		addEEnumLiteral(yFlatAlignmentEEnum, YFlatAlignment.CENTER);
+		addEEnumLiteral(yFlatAlignmentEEnum, YFlatAlignment.RIGHT);
 
 		initEEnum(ySelectionTypeEEnum, YSelectionType.class, "YSelectionType");
 		addEEnumLiteral(ySelectionTypeEEnum, YSelectionType.SINGLE);

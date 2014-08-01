@@ -105,6 +105,16 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
     Attribute typeQualifiedName : EString
+    Reference columns : YColumn<<0..*>>
+
+  Class YColumn -> YElement
+    Attribute icon : EString
+    Attribute visible : EBoolean
+    Attribute orderable : EBoolean
+    Attribute collapsed : EBoolean
+    Attribute collapsible : EBoolean
+    Attribute alignment : YFlatAlignment
+    Attribute expandRatio : EFloat
 
   Class YTree -> YInput, YCollectionBindable, YSelectionBindable, YMultiSelectionBindable
     Reference datatype : YTreeDatatype
@@ -242,6 +252,11 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Literal FILL_CENTER = 14
     Literal FILL_RIGHT = 15
     Literal UNDEFINED = 16
+
+  Enum YFlatAlignment
+    Literal LEFT = 0
+    Literal CENTER = 1
+    Literal RIGHT = 2
 
   Enum YSelectionType
     Literal SINGLE = 0

@@ -19,6 +19,9 @@ import java.util.concurrent.Future;
 import org.eclipse.emf.ecp.ecview.common.disposal.AbstractDisposable;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.services.IWidgetAssocationsService;
+import org.eclipse.emf.ecp.ecview.common.services.WidgetAssocationsService;
+import org.eclipse.emf.ecp.ecview.common.tooling.IWidgetMouseClickService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -77,6 +80,15 @@ public class ViewContext extends DisposableContext implements IViewContext {
 
 		if (selector.equals(ILocaleChangedService.ID)) {
 			LocaleChangedService service = new LocaleChangedService();
+			registerService(selector, service);
+			return (S) service;
+		} else if (selector.equals(IWidgetMouseClickService.ID)) {
+			IWidgetMouseClickService service = getViewEditpart().createService(
+					IWidgetMouseClickService.class);
+			registerService(selector, service);
+			return (S) service;
+		} else if (selector.equals(IWidgetAssocationsService.ID)) {
+			WidgetAssocationsService service = new WidgetAssocationsService();
 			registerService(selector, service);
 			return (S) service;
 		} else {
@@ -224,7 +236,15 @@ public class ViewContext extends DisposableContext implements IViewContext {
 	 */
 	@Override
 	public void internalDispose() {
-		viewEditpart.dispose();
+		try {
+			viewEditpart.dispose();
+
+			// Clear all associations
+			IWidgetAssocationsService service = getService(IWidgetAssocationsService.ID);
+			service.clear();
+		} finally {
+			super.internalDispose();
+		}
 	}
 
 	/**

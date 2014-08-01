@@ -103,6 +103,15 @@ public interface ExtensionModelFactory extends EFactory {
 	YTable createYTable();
 
 	/**
+	 * Returns a new object of class '<em>YColumn</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YColumn</em>'.
+	 * @generated
+	 */
+	YColumn createYColumn();
+
+	/**
 	 * Returns a new object of class '<em>YLabel</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

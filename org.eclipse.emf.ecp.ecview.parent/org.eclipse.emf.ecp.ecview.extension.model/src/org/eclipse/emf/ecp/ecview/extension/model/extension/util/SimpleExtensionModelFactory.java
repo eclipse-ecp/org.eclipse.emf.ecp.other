@@ -45,6 +45,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
 
 public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 
@@ -137,6 +138,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTable createTable() {
 		return factory.createYTable();
+	}
+	
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#creatYColumn()
+	 */
+	public YColumn createColumn() {
+		return ExtensionModelFactory.eINSTANCE.createYColumn();
 	}
 
 	/**
@@ -391,6 +400,5 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YClassDelegateValidator createClassDelegateValidator() {
 		return ValidationFactory.eINSTANCE.createYClassDelegateValidator();
 	}
-
 
 }

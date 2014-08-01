@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibilityProcessable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YVisibleable;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.*;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
@@ -150,6 +151,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYTable(YTable object) {
 				return createYTableAdapter();
+			}
+			@Override
+			public Adapter caseYColumn(YColumn object) {
+				return createYColumnAdapter();
 			}
 			@Override
 			public Adapter caseYTree(YTree object) {
@@ -442,6 +447,20 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYTableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn <em>YColumn</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn
+	 * @generated
+	 */
+	public Adapter createYColumnAdapter() {
 		return null;
 	}
 

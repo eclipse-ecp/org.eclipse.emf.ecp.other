@@ -14,7 +14,9 @@ import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
 import org.eclipse.emf.ecp.ecview.common.model.validation.YClassDelegateValidationConfig;
 import org.eclipse.emf.ecp.ecview.common.types.ITypeProviderService;
 import org.eclipse.emf.ecp.ecview.common.validation.IStatus;
+import org.eclipse.emf.ecp.ecview.common.validation.IStatus.Severity;
 import org.eclipse.emf.ecp.ecview.common.validation.IValidator;
+import org.eclipse.emf.ecp.ecview.common.validation.Status;
 import org.eclipse.emf.ecp.ecview.common.validation.StringValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,16 +43,26 @@ public class ClassDelegateValidator extends StringValidator {
 
 	@Override
 	public IStatus doValidate(String value) {
+		if(delegate == null){
+			return Status.createStatus("", ClassDelegateValidator.class, Severity.ERROR, "Error occured: Delegate class was null.");
+		}
 		return delegate.validateValue(value);
 	}
 
 	@Override
 	public void updateParameter(Object model) {
 		YClassDelegateValidationConfig yValidator = (YClassDelegateValidationConfig) model;
-		Class<?> delegateClass = service.forName(ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR, yValidator.getClassName());
+		Class<?> delegateClass = service.forName(
+				ValidationPackage.Literals.YCLASS_DELEGATE_VALIDATOR,
+				yValidator.getClassName());
 		try {
-			delegate = (IValidator) delegateClass.newInstance();
-			
+			if (delegateClass != null) {
+				delegate = (IValidator) delegateClass.newInstance();
+			} else {
+				LOGGER.error("The class {} could not be loaded!",
+						yValidator.getClassName());
+			}
+
 		} catch (InstantiationException e) {
 			LOGGER.error(e.toString());
 		} catch (IllegalAccessException e) {

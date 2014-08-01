@@ -113,6 +113,11 @@
     <eLiterals name="FILL_RIGHT" value="15" literal="FILL_RIGHT"/>
     <eLiterals name="UNDEFINED" value="16" literal="UNDEFINED"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="YFlatAlignment">
+    <eLiterals name="LEFT" literal="LEFT"/>
+    <eLiterals name="CENTER" value="1" literal="CENTER"/>
+    <eLiterals name="RIGHT" value="2" literal="RIGHT"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YSpanInfo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -154,6 +159,23 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+        eType="#//YColumn" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YColumn" eSuperTypes="../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collapsible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="#//YFlatAlignment"
+        defaultValueLiteral="LEFT"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expandRatio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="-1.0f"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YTree" eSuperTypes="#//YInput ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YCollectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YSelectionBindable ../../org.eclipse.emf.ecp.ecview.common.model/model/core.ecore#//YMultiSelectionBindable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" eType="ecore:EClass extdatatypes.ecore#//YTreeDatatype"/>

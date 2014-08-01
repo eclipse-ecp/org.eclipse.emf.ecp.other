@@ -185,23 +185,10 @@ public abstract class DisposableContext extends AbstractDisposable implements
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public void dispose() {
-		if (isDisposed()) {
-			return;
-		}
-
-		internalDispose();
-
-		try {
-			valueBeans = null;
-			services = null;
-		} finally {
-			super.dispose();
-		}
+	protected void internalDispose() {
+		valueBeans = null;
+		services = null;
 	}
 
 }

@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
 
@@ -43,6 +46,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  * </p>
  *
@@ -191,6 +195,16 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected String typeQualifiedName = TYPE_QUALIFIED_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YColumn> columns;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -583,6 +597,18 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<YColumn> getColumns() {
+		if (columns == null) {
+			columns = new EObjectContainmentEList.Resolving<YColumn>(YColumn.class, this, ExtensionModelPackage.YTABLE__COLUMNS);
+		}
+		return columns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -685,6 +711,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return basicSetSelectionBindingEndpoint(null, msgs);
 			case ExtensionModelPackage.YTABLE__MULTI_SELECTION_BINDING_ENDPOINT:
 				return basicSetMultiSelectionBindingEndpoint(null, msgs);
+			case ExtensionModelPackage.YTABLE__COLUMNS:
+				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -725,6 +753,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return getEmfNsURI();
 			case ExtensionModelPackage.YTABLE__TYPE_QUALIFIED_NAME:
 				return getTypeQualifiedName();
+			case ExtensionModelPackage.YTABLE__COLUMNS:
+				return getColumns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -775,6 +805,10 @@ public class YTableImpl extends YInputImpl implements YTable {
 			case ExtensionModelPackage.YTABLE__TYPE_QUALIFIED_NAME:
 				setTypeQualifiedName((String)newValue);
 				return;
+			case ExtensionModelPackage.YTABLE__COLUMNS:
+				getColumns().clear();
+				getColumns().addAll((Collection<? extends YColumn>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -822,6 +856,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 			case ExtensionModelPackage.YTABLE__TYPE_QUALIFIED_NAME:
 				setTypeQualifiedName(TYPE_QUALIFIED_NAME_EDEFAULT);
 				return;
+			case ExtensionModelPackage.YTABLE__COLUMNS:
+				getColumns().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -857,6 +894,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
 			case ExtensionModelPackage.YTABLE__TYPE_QUALIFIED_NAME:
 				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
+			case ExtensionModelPackage.YTABLE__COLUMNS:
+				return columns != null && !columns.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
