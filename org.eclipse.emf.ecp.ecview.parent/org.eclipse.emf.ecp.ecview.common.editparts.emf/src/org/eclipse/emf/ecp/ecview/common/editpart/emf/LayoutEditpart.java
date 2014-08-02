@@ -200,6 +200,7 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
 				ILayoutPresentation<?> presenter = getPresentation();
 				presenter.remove(editPart);
 			}
+			editPart.unrender();
 			break;
 		default:
 			break;
