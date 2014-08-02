@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.presentation;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
 
 /**
@@ -32,19 +33,19 @@ public interface IViewPresentation<C> extends IWidgetPresentation<C> {
 	void render(Map<String, Object> options);
 
 	/**
-	 * Sets the presentation that should render the content.
+	 * Sets the editpart that should render the content.
 	 * 
-	 * @param presentation
-	 *            The content presentation
+	 * @param editpart
+	 *            The content editpart
 	 */
-	void setContent(IWidgetPresentation<?> presentation);
+	void setContent(IEmbeddableEditpart editpart);
 
 	/**
-	 * Returns the presentation of the content.
+	 * Returns the editpart of the content.
 	 * 
-	 * @return contentPresentation
+	 * @return editpart
 	 */
-	IWidgetPresentation<?> getContent();
+	IEmbeddableEditpart getContent();
 
 	/**
 	 * Executes the given runnable. It is ensured that the runnable will be

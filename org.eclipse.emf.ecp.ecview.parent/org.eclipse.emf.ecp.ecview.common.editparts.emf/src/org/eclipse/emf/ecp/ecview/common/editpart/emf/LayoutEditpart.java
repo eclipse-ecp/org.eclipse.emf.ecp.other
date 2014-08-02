@@ -138,9 +138,9 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
 				ILayoutPresentation<?> presenter = getPresentation();
 				int index = notification.getPosition();
 				if (index < 0 || index >= getElements().size() - 1) {
-					presenter.add(editPart.getPresentation());
+					presenter.add(editPart);
 				} else {
-					presenter.insert(editPart.getPresentation(), index);
+					presenter.insert(editPart, index);
 				}
 			}
 			break;
@@ -164,8 +164,7 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
 			//
 			if (isPresentationPresent()) {
 				ILayoutPresentation<?> presenter = getPresentation();
-				presenter.move(editPart.getPresentation(),
-						notification.getPosition());
+				presenter.move(editPart, notification.getPosition());
 			}
 			break;
 		default:
@@ -199,7 +198,7 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
 			//
 			if (isPresentationPresent()) {
 				ILayoutPresentation<?> presenter = getPresentation();
-				presenter.remove(editPart.getPresentation());
+				presenter.remove(editPart);
 			}
 			break;
 		default:
@@ -294,9 +293,62 @@ public class LayoutEditpart<M extends YLayout> extends EmbeddableEditpart<M>
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public ILayoutPresentation<?> getPresentation() {
+		return super.getPresentation();
+	}
+
 	@Override
 	public List<IValidatorEditpart> getDatatypeValidators() {
 		return Collections.emptyList();
 	}
 
+	@Override
+	public void renderChild(IEmbeddableEditpart child) {
+		int index = getElements().indexOf(child);
+		if (index < 0) {
+			throw new IllegalArgumentException(
+					String.format(
+							"The element %s is not contained in the current editpart %s",
+							child.toString(), toString()));
+		}
+
+		getPresentation().insert(child, index);
+	}
+
+	@Override
+	public void unrenderChild(IEmbeddableEditpart child) {
+		// first remove the child presentation from the current presentation
+		getPresentation().remove(child);
+
+		// then tell the child editpart to unrender its own presentation
+		child.unrender();
+	}
+
+	@Override
+	public void unrender() {
+		if (internalGetPresentation() == null) {
+			return;
+		}
+
+		if (uiElementEditparts != null) {
+			for (IEmbeddableEditpart child : uiElementEditparts
+					.toArray(new IEmbeddableEditpart[uiElementEditparts.size()])) {
+				getPresentation().remove(child);
+				child.unrender();
+			}
+		}
+		
+		super.unrender();
+	}
+
+	@Override
+	public void disposeChild(IEmbeddableEditpart child) {
+		// first remove the child presentation from the current presentation
+		getPresentation().remove(child);
+
+		// then tell the child editpart to dispose itself
+		child.dispose();
+	}
 }

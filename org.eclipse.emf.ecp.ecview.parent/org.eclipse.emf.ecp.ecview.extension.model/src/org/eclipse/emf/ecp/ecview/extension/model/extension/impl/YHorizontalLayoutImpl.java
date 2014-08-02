@@ -190,9 +190,6 @@ public class YHorizontalLayoutImpl extends YLayoutImpl implements
 	}
 
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
 	public YHorizontalLayoutCellStyle getCellStyle(YEmbeddable element) {
 		for (YHorizontalLayoutCellStyle style : getCellStyles()) {
 			if (element == style.getTarget()) {

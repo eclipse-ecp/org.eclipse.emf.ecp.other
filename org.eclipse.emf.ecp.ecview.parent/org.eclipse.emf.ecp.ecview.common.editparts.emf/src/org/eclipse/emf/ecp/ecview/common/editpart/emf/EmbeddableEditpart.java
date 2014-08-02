@@ -16,7 +16,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
-import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableParent;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.datatypes.IDatatypeEditpart.DatatypeBridge;
@@ -69,9 +69,20 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ILayoutEditpart getParent() {
-		YLayout yParent = getModel().getParent();
-		return yParent != null ? (ILayoutEditpart) getEditpart(yParent) : null;
+	public IEmbeddableParent getParent() {
+		YLayout yParentLayout = getModel().getParent();
+		if (yParentLayout != null) {
+			return yParentLayout != null ? (IEmbeddableParent) getEditpart(yParentLayout)
+					: null;
+		} else {
+			YView yView = getModel().getView();
+			if (yView != null) {
+				if (yView.getContent() == getModel()) {
+					return (IViewEditpart) getEditpart(yView);
+				}
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -309,23 +320,10 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 	@Override
 	protected void internalDispose() {
 		try {
-
 			// unregister the element from the datatype
 			YDatatype yDatatype = internalGetDatatype();
 			if (yDatatype != null) {
 				unregisterFromDatatype(yDatatype);
-			}
-
-			// // if directly attached to a view, then remove it
-			// IViewEditpart view = getView();
-			// if (view != null) {
-			// view.setContent(null);
-			// }
-
-			// remove from the parent
-			ILayoutEditpart parent = getParent();
-			if (parent != null) {
-				parent.removeElement(this);
 			}
 
 			// dispose the presenter
@@ -337,6 +335,54 @@ public abstract class EmbeddableEditpart<M extends YEmbeddable> extends
 
 		} finally {
 			super.internalDispose();
+		}
+	}
+
+	@Override
+	public void requestRender() {
+		if (getParent() != null) {
+			getParent().renderChild(this);
+		} else {
+			unrender();
+		}
+	}
+
+	@Override
+	public Object render(Object parentWidget) {
+		return getPresentation().createWidget(parentWidget);
+	}
+
+	@Override
+	public void requestUnrender() {
+		if (getParent() != null) {
+			getParent().unrenderChild(this);
+		} else {
+			unrender();
+		}
+	}
+
+	@Override
+	public void unrender() {
+		getPresentation().unrender();
+	}
+
+	@Override
+	public boolean isRendered() {
+		return internalGetPresentation() != null
+				&& internalGetPresentation().isRendered();
+	}
+
+	@Override
+	public Object getWidget() {
+		return getPresentation().getWidget();
+	}
+
+	@Override
+	public void requestDispose() {
+		if (getParent() != null) {
+			getParent().disposeChild(this);
+		} else {
+			dispose();
 		}
 	}
 }

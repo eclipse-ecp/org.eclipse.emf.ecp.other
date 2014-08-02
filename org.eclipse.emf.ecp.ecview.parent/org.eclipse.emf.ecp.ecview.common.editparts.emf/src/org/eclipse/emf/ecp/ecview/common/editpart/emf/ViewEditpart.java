@@ -128,6 +128,41 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 	}
 
+	@Override
+	public void unrenderChild(IEmbeddableEditpart child) {
+		if (child != content) {
+			return;
+		}
+
+		// first remove the child presentation from the current presentation
+		getPresentation().setContent(null);
+
+		// then tell the child editpart to unrender its own presentation
+		child.unrender();
+	}
+
+	@Override
+	public void disposeChild(IEmbeddableEditpart child) {
+		if (child != content) {
+			return;
+		}
+
+		// first remove the child presentation from the current presentation
+		getPresentation().setContent(null);
+
+		// then tell the child editpart to dispose itself
+		child.dispose();
+	}
+
+	@Override
+	public void renderChild(IEmbeddableEditpart child) {
+		if (child != content) {
+			return;
+		}
+
+		getPresentation().setContent(child);
+	}
+
 	/**
 	 * Validates the model and throws an exception if model is not valid.
 	 * 
@@ -388,16 +423,24 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 
 		switch (featureId) {
 		case CoreModelPackage.YVIEW__CONTENT:
-			YEmbeddable yNewContent = (YEmbeddable) notification.getNewValue();
 
+			IEmbeddableEditpart oldContent = content;
+			if (oldContent != null) {
+				oldContent.dispose();
+				internalSetContent(null);
+				if (isRendered()) {
+					getPresentation().setContent(null);
+				}
+			}
+
+			YEmbeddable yNewContent = (YEmbeddable) notification.getNewValue();
 			IEmbeddableEditpart editPart = (IEmbeddableEditpart) getEditpart(yNewContent);
 			internalSetContent(editPart);
 
 			// handle the presentation
 			//
 			if (isRendered()) {
-				getPresentation().setContent(
-						editPart != null ? editPart.getPresentation() : null);
+				getPresentation().setContent(editPart);
 			}
 
 			// fire event
@@ -571,5 +614,5 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	public <A extends IUiKitBasedService> A createService(Class<A> serviceClass) {
 		return getPresentation().createService(serviceClass);
 	}
-	
+
 }

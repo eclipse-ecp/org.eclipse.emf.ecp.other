@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.extension.model.extension;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
@@ -75,5 +76,12 @@ public interface YVerticalLayout extends YLayout, YSpacingable, YMarginable {
 	 * @generated
 	 */
 	void setFillVertical(boolean value);
+
+	/**
+	 * Returns the cell style for the given element.
+	 * @param element
+	 * @return
+	 */
+	YVerticalLayoutCellStyle getCellStyle(YEmbeddable element);
 
 } // YUiVerticalLayout

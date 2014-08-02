@@ -26,7 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
  * not be contained in a {@link ILayoutEditpart} but it can contain several
  * embeddables.
  */
-public interface IViewEditpart extends IElementEditpart {
+public interface IViewEditpart extends IElementEditpart, IEmbeddableParent {
 
 	/**
 	 * Name for "content" property.

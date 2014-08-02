@@ -12,76 +12,78 @@ package org.eclipse.emf.ecp.ecview.common.presentation;
 
 import java.util.List;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+
 /**
  * LayoutPresentations are an abstraction above a layout an are responsible to
  * create the UI-Kit specific elements and to handle them. One important thing
- * to notice is, that the life cycle of presentations is handled by their edit
- * parts. And so on presentations must never dispose its child presentations!
+ * to notice is, that the life cycle of editparts is handled by their edit
+ * parts. And so on editparts must never unrender or dispose its child editparts!
  * 
  * @param <C>
  */
 public interface ILayoutPresentation<C> extends IWidgetPresentation<C> {
 
 	/**
-	 * Returns a list containing all child presentations.
+	 * Returns a list containing all child editparts.
 	 * 
 	 * @return children
 	 */
-	List<IWidgetPresentation<?>> getChildren();
+	List<IEmbeddableEditpart> getChildren();
 
 	/**
 	 * Returns true, if the given child is contained as a children.
 	 * 
-	 * @param presentation
-	 *            The presentation
-	 * @return true if the presentation is contained as a children. False
+	 * @param editpart
+	 *            The editpart
+	 * @return true if the editpart is contained as a children. False
 	 *         otherwise.
 	 */
-	boolean contains(IWidgetPresentation<?> presentation);
+	boolean contains(IEmbeddableEditpart editpart);
 
 	/**
-	 * Adds a presentation to the this layout. Note, that the presentation can
+	 * Adds a editpart to the this layout. Note, that the editpart can
 	 * be of any kind and it not parameterized.
 	 * 
-	 * @param presentation
-	 *            The presentation to be added
+	 * @param editpart
+	 *            The editpart to be added
 	 */
-	void add(IWidgetPresentation<?> presentation);
+	void add(IEmbeddableEditpart editpart);
 
 	/**
-	 * Removes a presentation from this layout.
+	 * Removes a editpart from this layout.
 	 * 
-	 * @param presentation
-	 *            The presentation to be removed
+	 * @param editpart
+	 *            The editpart to be removed
 	 */
-	void remove(IWidgetPresentation<?> presentation);
+	void remove(IEmbeddableEditpart editpart);
 
 	/**
-	 * Inserts the given presentation at the index.
+	 * Inserts the given editpart at the index.
 	 * 
-	 * @param presentation
-	 *            The presentation to be inserted
+	 * @param editpart
+	 *            The editpart to be inserted
 	 * @param index
-	 *            The index where the presentation should be inserted
+	 *            The index where the editpart should be inserted
 	 */
-	void insert(IWidgetPresentation<?> presentation, int index);
+	void insert(IEmbeddableEditpart editpart, int index);
 
 	/**
-	 * Moves the presentation from its current index to the given one.
+	 * Moves the editpart from its current index to the given one.
 	 * 
-	 * @param presentation
-	 *            The presentation
+	 * @param editpart
+	 *            The editpart
 	 * @param index
-	 *            The index where the presentation should be moved to
+	 *            The index where the editpart should be moved to
 	 */
-	void move(IWidgetPresentation<?> presentation, int index);
+	void move(IEmbeddableEditpart editpart, int index);
 
 	/**
-	 * Will render the child presentations.<br>
+	 * Will render the child editparts.<br>
 	 * <ul>
 	 * <li><b>force == false:</b> Only elements will be rendered that are not
 	 * rendered yet. Already rendered elements will not be touched.</li>
-	 * <li><b>force == true:</b> First will unrender all child presentations and
+	 * <li><b>force == true:</b> First will unrender all child editparts and
 	 * afterward it will render them again.</li>
 	 * </ul>
 	 * 
