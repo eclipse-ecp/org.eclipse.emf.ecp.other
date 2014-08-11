@@ -21,8 +21,10 @@ public interface IPresentationFactory {
 	/**
 	 * Returns true, if the factory can be used for the given element.
 	 * 
-	 * @param uiContext contains information about the current ui instance
-	 * @param editpart the editpart for which a presenter should be created.
+	 * @param uiContext
+	 *            contains information about the current ui instance
+	 * @param editpart
+	 *            the editpart for which a presenter should be created.
 	 * @return result
 	 */
 	boolean isFor(IViewContext uiContext, IElementEditpart editpart);
@@ -30,11 +32,19 @@ public interface IPresentationFactory {
 	/**
 	 * Is used to create a new instance of a presenter.
 	 * 
-	 * @param <A> An instance of {@link IWidgetPresentation}
-	 * @param uiContext contains information about the current ui instance
-	 * @param editpart the editpart for which a presenter should be created.
+	 * @param <A>
+	 *            An instance of {@link IWidgetPresentation}
+	 * @param uiContext
+	 *            contains information about the current ui instance
+	 * @param editpart
+	 *            the editpart for which a presenter should be created.
 	 * @return presentation
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if no presentation could be created.
 	 */
-	<A extends IWidgetPresentation<?>> A createPresentation(IViewContext uiContext, IElementEditpart editpart);
+	<A extends IWidgetPresentation<?>> A createPresentation(
+			IViewContext uiContext, IElementEditpart editpart)
+			throws IllegalArgumentException;
 
 }

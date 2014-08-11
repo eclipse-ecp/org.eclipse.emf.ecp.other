@@ -69,11 +69,18 @@ public final class DelegatingPresenterFactory implements IPresentationFactory {
 
 	@Override
 	public <A extends IWidgetPresentation<?>> A createPresentation(
-			IViewContext uiContext, IElementEditpart editpart) {
+			IViewContext uiContext, IElementEditpart editpart) throws IllegalArgumentException {
 		for (IPresentationFactory factory : delegates
 				.toArray(new IPresentationFactory[delegates.size()])) {
 			if (factory.isFor(uiContext, editpart)) {
-				return factory.createPresentation(uiContext, editpart);
+				try {
+					A result = factory.createPresentation(uiContext, editpart);
+					if (result != null) {
+						return result;
+					}
+				} catch (IllegalArgumentException e) {
+					// nothing to do. Try the next factory
+				}
 			}
 		}
 		LOGGER.error("No proper presenterFactory found for elements {} {}",

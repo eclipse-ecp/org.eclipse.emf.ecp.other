@@ -532,11 +532,6 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 				presentation = null;
 			}
 
-			// lazy loading: edit parts also have to be disposed if they have
-			// not been loaded yet,
-			// but exist in the model.
-			// TODO think about it!!!
-
 			if (getContent() != null) {
 				content.dispose();
 				content = null;

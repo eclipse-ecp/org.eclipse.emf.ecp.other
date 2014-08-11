@@ -30,7 +30,6 @@ import org.slf4j.LoggerFactory;
  */
 public class ViewContext extends DisposableContext implements IViewContext {
 
-	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory
 			.getLogger(ViewContext.class);
 
@@ -193,7 +192,8 @@ public class ViewContext extends DisposableContext implements IViewContext {
 
 			// render the UI
 			editPart.render(parameter);
-
+		} catch(Exception ex){
+			logger.error("{}", ex);
 		} finally {
 			rendered = true;
 		}
