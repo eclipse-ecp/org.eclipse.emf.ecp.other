@@ -75,6 +75,15 @@ public interface CoreModelFactory extends EFactory {
 	YBeanSlot createYBeanSlot();
 
 	/**
+	 * Returns a new object of class '<em>YDialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YDialog</em>'.
+	 * @generated
+	 */
+	YDialog createYDialog();
+
+	/**
 	 * Returns a new object of class '<em>YAction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +172,15 @@ public interface CoreModelFactory extends EFactory {
 	 * @generated
 	 */
 	YDtWrapper createYDtWrapper();
+
+	/**
+	 * Returns a new object of class '<em>YCommand Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YCommand Set</em>'.
+	 * @generated
+	 */
+	YCommandSet createYCommandSet();
 
 	/**
 	 * Returns the package supported by this factory.

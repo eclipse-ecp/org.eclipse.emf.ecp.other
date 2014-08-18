@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
@@ -139,6 +140,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYEmbeddableAdapter();
 			}
 			@Override
+			public Adapter caseYDialog(YDialog object) {
+				return createYDialogAdapter();
+			}
+			@Override
 			public Adapter caseYCssAble(YCssAble object) {
 				return createYCssAbleAdapter();
 			}
@@ -241,6 +246,14 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseYVisibilityProcessable(YVisibilityProcessable object) {
 				return createYVisibilityProcessableAdapter();
+			}
+			@Override
+			public Adapter caseYCommand(YCommand object) {
+				return createYCommandAdapter();
+			}
+			@Override
+			public Adapter caseYCommandSet(YCommandSet object) {
+				return createYCommandSetAdapter();
 			}
 			@Override
 			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
@@ -377,6 +390,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYEmbeddableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog <em>YDialog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDialog
+	 * @generated
+	 */
+	public Adapter createYDialogAdapter() {
 		return null;
 	}
 
@@ -741,6 +768,34 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYVisibilityProcessableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCommand <em>YCommand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YCommand
+	 * @generated
+	 */
+	public Adapter createYCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet <em>YCommand Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet
+	 * @generated
+	 */
+	public Adapter createYCommandSetAdapter() {
 		return null;
 	}
 

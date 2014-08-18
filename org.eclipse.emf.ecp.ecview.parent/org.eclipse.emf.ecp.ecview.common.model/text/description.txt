@@ -105,6 +105,7 @@ Package core <http://eclipse.org/emf/ecp/ecview/core/view>
     Reference content : YEmbeddable
     Reference bindingSet : YBindingSet
     Reference beanSlots : YBeanSlot<<0..*>>
+    Reference commandSet : YCommandSet
     Operation getOrCreateBindingSet() : YBindingSet
 
   Class YViewSet -> YElement
@@ -121,6 +122,13 @@ Package core <http://eclipse.org/emf/ecp/ecview/core/view>
     Reference orphanDatadescriptions : YDatadescription<<0..*>>
     Operation getParent() : YLayout
     Operation getView() : YView
+
+  Class YDialog -> YElement, YValueBindable
+    Reference content : YEmbeddable
+    Attribute modal : EBoolean
+    Attribute resizeable : EBoolean
+    Attribute draggable : EBoolean
+    Attribute closable : EBoolean
 
   Class YCssAble
     Attribute cssClass : EString
@@ -212,6 +220,15 @@ Package core <http://eclipse.org/emf/ecp/ecview/core/view>
 
   Class YVisibilityProcessable
     Reference visibilityProcessor : YVisibilityProcessor
+
+  Class YCommand -> YElement
+    Operation getView() : YView
+
+  Class YCommandSet -> YElement
+    Reference commands : YCommand<<0..*>>
+    Operation getView() : YView
+    Operation addCommand(YCommand<<1..1>>) : void
+    Operation removeCommand(YCommand<<1..1>>) : void
 
   Enum YUnit
     Literal Pixel = 0

@@ -99,7 +99,8 @@ public class ContextBeanBindingDelegate extends ContextBindingDelegate {
 
 		// if value-property was references inside the slot, then return the
 		// observable
-		if (beanFragment.equals(ISlot.PROP_VALUE)) {
+		if (beanFragment == null || beanFragment.equals("")
+				|| beanFragment.equals(ISlot.PROP_VALUE)) {
 			return BeansObservables.observeValue(realm, slot, ISlot.PROP_VALUE);
 		} else {
 			// normalize bean fragment

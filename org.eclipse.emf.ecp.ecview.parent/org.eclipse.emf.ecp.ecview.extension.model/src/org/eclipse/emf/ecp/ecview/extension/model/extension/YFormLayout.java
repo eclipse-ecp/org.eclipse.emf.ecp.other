@@ -15,12 +15,8 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout#getCellStyles
- * <em>Cell Styles</em>}</li>
- * <li>
- * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout#isFillVertical
- * <em>Fill Vertical</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout#getCellStyles <em>Cell Styles</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout#isFillVertical <em>Fill Vertical</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,18 +26,15 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
  */
 public interface YFormLayout extends YLayout, YSpacingable, YMarginable {
 	/**
-	 * Returns the value of the '<em><b>Cell Styles</b></em>' containment
-	 * reference list. The list contents are of type
-	 * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayoutCellStyle}
-	 * . <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Cell Styles</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayoutCellStyle}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Cell Styles</em>' containment reference list
 	 * isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Cell Styles</em>' containment reference
-	 *         list.
+	 * @return the value of the '<em>Cell Styles</em>' containment reference list.
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYFormLayout_CellStyles()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
@@ -68,13 +61,10 @@ public interface YFormLayout extends YLayout, YSpacingable, YMarginable {
 	boolean isFillVertical();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout#isFillVertical
-	 * <em>Fill Vertical</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout#isFillVertical <em>Fill Vertical</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>Fill Vertical</em>' attribute.
+	 * @param value the new value of the '<em>Fill Vertical</em>' attribute.
 	 * @see #isFillVertical()
 	 * @generated
 	 */

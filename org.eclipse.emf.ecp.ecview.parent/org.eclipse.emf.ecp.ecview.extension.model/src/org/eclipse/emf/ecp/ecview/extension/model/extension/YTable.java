@@ -36,6 +36,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YTableDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getItemImageProperty <em>Item Image Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -276,5 +277,31 @@ public interface YTable extends YInput, YCollectionBindable, YSelectionBindable,
 	 * @generated
 	 */
 	EList<YColumn> getColumns();
+
+	/**
+	 * Returns the value of the '<em><b>Item Image Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Item Image Property</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Item Image Property</em>' attribute.
+	 * @see #setItemImageProperty(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYTable_ItemImageProperty()
+	 * @model
+	 * @generated
+	 */
+	String getItemImageProperty();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getItemImageProperty <em>Item Image Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Item Image Property</em>' attribute.
+	 * @see #getItemImageProperty()
+	 * @generated
+	 */
+	void setItemImageProperty(String value);
 
 } // YUiTable

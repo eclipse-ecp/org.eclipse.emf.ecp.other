@@ -35,6 +35,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YInput;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
@@ -128,6 +129,13 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass yLabelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yImageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -679,6 +687,15 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getYTable_ItemImageProperty() {
+		return (EAttribute)yTableEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYColumn() {
 		return yColumnEClass;
 	}
@@ -768,6 +785,33 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getYLabel_Value() {
 		return (EAttribute)yLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYImage() {
+		return yImageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYImage_Datadescription() {
+		return (EReference)yImageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYImage_Value() {
+		return (EAttribute)yImageEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1034,6 +1078,24 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 	 */
 	public EAttribute getYComboBox_TypeQualifiedName() {
 		return (EAttribute)yComboBoxEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYComboBox_ItemCaptionProperty() {
+		return (EAttribute)yComboBoxEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYComboBox_ItemImageProperty() {
+		return (EAttribute)yComboBoxEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1642,6 +1704,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		createEAttribute(yTableEClass, YTABLE__EMF_NS_URI);
 		createEAttribute(yTableEClass, YTABLE__TYPE_QUALIFIED_NAME);
 		createEReference(yTableEClass, YTABLE__COLUMNS);
+		createEAttribute(yTableEClass, YTABLE__ITEM_IMAGE_PROPERTY);
 
 		yColumnEClass = createEClass(YCOLUMN);
 		createEAttribute(yColumnEClass, YCOLUMN__ICON);
@@ -1689,6 +1752,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		createEReference(yLabelEClass, YLABEL__DATADESCRIPTION);
 		createEAttribute(yLabelEClass, YLABEL__VALUE);
 
+		yImageEClass = createEClass(YIMAGE);
+		createEReference(yImageEClass, YIMAGE__DATADESCRIPTION);
+		createEAttribute(yImageEClass, YIMAGE__VALUE);
+
 		yTextAreaEClass = createEClass(YTEXT_AREA);
 		createEReference(yTextAreaEClass, YTEXT_AREA__DATADESCRIPTION);
 		createEReference(yTextAreaEClass, YTEXT_AREA__DATATYPE);
@@ -1727,6 +1794,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		createEAttribute(yComboBoxEClass, YCOMBO_BOX__TYPE);
 		createEAttribute(yComboBoxEClass, YCOMBO_BOX__EMF_NS_URI);
 		createEAttribute(yComboBoxEClass, YCOMBO_BOX__TYPE_QUALIFIED_NAME);
+		createEAttribute(yComboBoxEClass, YCOMBO_BOX__ITEM_CAPTION_PROPERTY);
+		createEAttribute(yComboBoxEClass, YCOMBO_BOX__ITEM_IMAGE_PROPERTY);
 
 		yButtonEClass = createEClass(YBUTTON);
 		createEReference(yButtonEClass, YBUTTON__DATADESCRIPTION);
@@ -1839,6 +1908,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		yListEClass.getESuperTypes().add(theCoreModelPackage.getYMultiSelectionBindable());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYField());
 		yLabelEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
+		yImageEClass.getESuperTypes().add(theCoreModelPackage.getYField());
+		yImageEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yTextAreaEClass.getESuperTypes().add(this.getYInput());
 		yTextAreaEClass.getESuperTypes().add(theCoreModelPackage.getYValueBindable());
 		yCheckBoxEClass.getESuperTypes().add(this.getYInput());
@@ -1939,6 +2010,7 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEAttribute(getYTable_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYTable_TypeQualifiedName(), ecorePackage.getEString(), "typeQualifiedName", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTable_Columns(), this.getYColumn(), null, "columns", null, 0, -1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYTable_ItemImageProperty(), ecorePackage.getEString(), "itemImageProperty", null, 0, 1, YTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yColumnEClass, YColumn.class, "YColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYColumn_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, YColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1995,6 +2067,10 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEReference(getYLabel_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYLabel_Value(), ecorePackage.getEString(), "value", null, 0, 1, YLabel.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(yImageEClass, YImage.class, "YImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYImage_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYImage_Value(), ecorePackage.getEString(), "value", null, 0, 1, YImage.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(yTextAreaEClass, YTextArea.class, "YTextArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYTextArea_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YTextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYTextArea_Datatype(), theExtDatatypesPackage.getYTextAreaDatatype(), null, "datatype", null, 0, 1, YTextArea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2036,6 +2112,8 @@ public class ExtensionModelPackageImpl extends EPackageImpl implements
 		initEAttribute(getYComboBox_Type(), g1, "type", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYComboBox_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYComboBox_TypeQualifiedName(), ecorePackage.getEString(), "typeQualifiedName", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYComboBox_ItemCaptionProperty(), ecorePackage.getEString(), "itemCaptionProperty", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYComboBox_ItemImageProperty(), ecorePackage.getEString(), "itemImageProperty", null, 0, 1, YComboBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yButtonEClass, YButton.class, "YButton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYButton_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YButton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

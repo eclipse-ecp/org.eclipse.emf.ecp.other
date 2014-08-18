@@ -34,6 +34,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="beanSlots" upperBound="-1"
         eType="#//YBeanSlot" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commandSet" eType="#//YCommandSet"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YViewSet" eSuperTypes="#//YElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
@@ -58,6 +60,14 @@
         eType="ecore:EClass datatypes.ecore#//YDatatype" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="orphanDatadescriptions"
         upperBound="-1" eType="ecore:EClass datatypes.ecore#//YDatadescription" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YDialog" eSuperTypes="#//YElement #//YValueBindable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//YEmbeddable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resizeable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="draggable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="closable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YCssAble" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cssClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -191,5 +201,20 @@
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="visibilityProcessor" eType="ecore:EClass visibility.ecore#//YVisibilityProcessor"
         containment="true" eOpposite="visibility.ecore#//YVisibilityProcessor/parent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YCommand" abstract="true" interface="true"
+      eSuperTypes="#//YElement">
+    <eOperations name="getView" eType="#//YView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YCommandSet" eSuperTypes="#//YElement">
+    <eOperations name="getView" eType="#//YView"/>
+    <eOperations name="addCommand">
+      <eParameters name="command" lowerBound="1" eType="#//YCommand"/>
+    </eOperations>
+    <eOperations name="removeCommand">
+      <eParameters name="command" lowerBound="1" eType="#//YCommand"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
+        eType="#//YCommand" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

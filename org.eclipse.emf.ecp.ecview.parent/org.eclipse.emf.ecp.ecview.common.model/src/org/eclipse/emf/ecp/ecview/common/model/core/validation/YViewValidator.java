@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
@@ -28,6 +29,10 @@ public interface YViewValidator {
 	boolean validateContent(YEmbeddable value);
 	boolean validateBindingSet(YBindingSet value);
 	boolean validateBeanSlots(EList<YBeanSlot> value);
+
+	boolean validateCommandSet(YCommandSet value);
+
+	boolean validateCommandSet(EList<YCommandSet> value);
 
 	boolean validateOrphanDatatypes(EList<YDatatype> value);
 

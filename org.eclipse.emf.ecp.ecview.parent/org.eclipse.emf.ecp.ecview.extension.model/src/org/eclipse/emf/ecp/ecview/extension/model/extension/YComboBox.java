@@ -32,6 +32,8 @@ import org.eclipse.emf.ecp.ecview.extension.model.datatypes.YComboBoxDatatype;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemCaptionProperty <em>Item Caption Property</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemImageProperty <em>Item Image Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -211,5 +213,57 @@ public interface YComboBox extends YInput, YCollectionBindable, YSelectionBindab
 	 * @generated
 	 */
 	void setTypeQualifiedName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Item Caption Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Item Caption Property</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Item Caption Property</em>' attribute.
+	 * @see #setItemCaptionProperty(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_ItemCaptionProperty()
+	 * @model
+	 * @generated
+	 */
+	String getItemCaptionProperty();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemCaptionProperty <em>Item Caption Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Item Caption Property</em>' attribute.
+	 * @see #getItemCaptionProperty()
+	 * @generated
+	 */
+	void setItemCaptionProperty(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Item Image Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Item Image Property</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Item Image Property</em>' attribute.
+	 * @see #setItemImageProperty(String)
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelPackage#getYComboBox_ItemImageProperty()
+	 * @model
+	 * @generated
+	 */
+	String getItemImageProperty();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemImageProperty <em>Item Image Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Item Image Property</em>' attribute.
+	 * @see #getItemImageProperty()
+	 * @generated
+	 */
+	void setItemImageProperty(String value);
 
 } // YUiComboBox

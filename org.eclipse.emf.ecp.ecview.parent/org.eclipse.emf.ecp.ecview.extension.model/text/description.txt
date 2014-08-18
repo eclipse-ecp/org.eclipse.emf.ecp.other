@@ -106,6 +106,7 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute emfNsURI : EString
     Attribute typeQualifiedName : EString
     Reference columns : YColumn<<0..*>>
+    Attribute itemImageProperty : EString
 
   Class YColumn -> YElement
     Attribute icon : EString
@@ -153,6 +154,10 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Reference datadescription : YDatadescription
     Attribute value : EString
 
+  Class YImage -> YField, YValueBindable
+    Reference datadescription : YDatadescription
+    Attribute value : EString
+
   Class YTextArea -> YInput, YValueBindable
     Reference datadescription : YDatadescription
     Reference datatype : YTextAreaDatatype
@@ -191,6 +196,8 @@ Package extension <http://eclipse.org/emf/ecp/ecview/extension/view>
     Attribute type : EJavaClass
     Attribute emfNsURI : EString
     Attribute typeQualifiedName : EString
+    Attribute itemCaptionProperty : EString
+    Attribute itemImageProperty : EString
 
   Class YButton -> YAction, YVisibleable, YEditable, YEnable
     Reference datadescription : YDatadescription

@@ -14,8 +14,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.ecview.common.editpart.IActionEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IBeanSlotListBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IBeanSlotValueBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.ICommandSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IContextValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IDetailValueBindingEndpointEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IDialogEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IECViewModelListBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IECViewModelValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
@@ -65,7 +67,9 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableCollectionEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableMultiSelectionEndpoint;
@@ -181,6 +185,10 @@ public class EditpartManager extends AbstractEditpartManager {
 		} else if (editPartClazz
 				.isAssignableFrom(IVisibilityPropertiesEditpart.class)) {
 			result = createNewInstance(VisibilityPropertiesEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(ICommandSetEditpart.class)) {
+			result = createNewInstance(CommandSetEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IDialogEditpart.class)) {
+			result = createNewInstance(DialogEditpart.class);
 		}
 
 		if (result != null) {
@@ -253,6 +261,10 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(RegexpValidatorEditpart.class);
 		} else if (yElement instanceof YClassDelegateValidator) {
 			result = createNewInstance(ClassDelegateValidatorEditpart.class);
+		} else if (yElement instanceof YCommandSet) {
+			result = createNewInstance(CommandSetEditpart.class);
+		} else if (yElement instanceof YDialog) {
+			result = createNewInstance(DialogEditpart.class);
 		}
 
 		if (result != null) {

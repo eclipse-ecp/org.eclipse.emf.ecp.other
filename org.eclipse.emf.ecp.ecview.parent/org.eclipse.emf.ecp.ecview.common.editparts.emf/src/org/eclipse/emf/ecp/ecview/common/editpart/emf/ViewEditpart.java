@@ -10,8 +10,10 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart.emf;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Future;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +23,8 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecp.ecview.common.context.ContextException;
 import org.eclipse.emf.ecp.ecview.common.context.IConfiguration;
 import org.eclipse.emf.ecp.ecview.common.context.IViewContext;
+import org.eclipse.emf.ecp.ecview.common.editpart.ICommandSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IDialogEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
@@ -32,6 +36,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -61,6 +66,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	private IConfiguration configuration;
 	private IViewPresentation<?> presentation;
 	private IBindingSetEditpart bindingSet;
+	private ICommandSetEditpart commandSet;
+	private Set<IDialogEditpart> openDialogs;
 
 	/**
 	 * Default constructor.
@@ -113,6 +120,9 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 		// render the bindings
 		renderBindings(options);
+
+		// render the bindings
+		renderCommands(options);
 
 		if (configuration != null) {
 			configuration.afterBind(getContext());
@@ -210,6 +220,24 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			LOGGER.info("BindingSet is null!");
 		}
 		// call to activate not required. Pending bindings are bound
+		// automatically
+	}
+
+	/**
+	 * Renders the commands of that view.
+	 * 
+	 * @param options
+	 * @throws ContextException
+	 */
+	protected void renderCommands(Map<String, Object> options)
+			throws ContextException {
+		checkDisposed();
+
+		ICommandSetEditpart commandSet = getCommandSet();
+		if (commandSet == null) {
+			LOGGER.info("CommandSet is null!");
+		}
+		// call to activate not required. Pending commands are activated
 		// automatically
 	}
 
@@ -414,6 +442,75 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 	}
 
+	@Override
+	public void setCommandSet(ICommandSetEditpart commandSet) {
+		try {
+			checkDisposed();
+
+			// set the element by using the model
+			//
+			M yView = getModel();
+			YCommandSet yCommandSet = commandSet != null ? (YCommandSet) commandSet
+					.getModel() : null;
+			yView.setCommandSet(yCommandSet);
+			// BEGIN SUPRESS CATCH EXCEPTION
+		} catch (RuntimeException e) {
+			// END SUPRESS CATCH EXCEPTION
+			LOGGER.error("{}", e);
+			throw e;
+		}
+	}
+
+	@Override
+	public ICommandSetEditpart getCommandSet() {
+		checkDisposed();
+
+		if (commandSet == null) {
+			loadCommandSet();
+		}
+		return commandSet;
+	}
+
+	/**
+	 * Loads the commandSet of the view.
+	 */
+	protected void loadCommandSet() {
+		checkDisposed();
+
+		if (commandSet == null) {
+			YCommandSet yCommandSet = getModel().getCommandSet();
+			internalSetCommandSet((ICommandSetEditpart) getEditpart(yCommandSet));
+		}
+	}
+
+	/**
+	 * May be invoked by a model change and the commandSet of the edit part
+	 * should be set.
+	 * 
+	 * @param commandSet
+	 *            The commandSet to be set
+	 */
+	protected void internalSetCommandSet(ICommandSetEditpart commandSet) {
+		checkDisposed();
+
+		if (this.commandSet == commandSet) {
+			return;
+		}
+
+		ICommandSetEditpart current = this.commandSet;
+		this.commandSet = commandSet;
+
+		// dispose current binding set
+		if (current != null) {
+			current.dispose();
+		}
+
+		// activate the new binding set
+		if (this.commandSet != null && !this.commandSet.isActive()) {
+			this.commandSet.activate();
+		}
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -453,7 +550,15 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 			internalSetBindingSet(bsEditPart);
 
 			// fire event
-			firePropertyChangedEditpart(PROP_CONTENT, notification);
+			// firePropertyChangedEditpart(PROP_CONTENT, notification);
+		case CoreModelPackage.YVIEW__COMMAND_SET:
+			YCommandSet yNewCommandSet = (YCommandSet) notification
+					.getNewValue();
+			ICommandSetEditpart csEditPart = (ICommandSetEditpart) getEditpart(yNewCommandSet);
+			internalSetCommandSet(csEditPart);
+
+			// fire event
+			// firePropertyChangedEditpart(PROP_CONTENT, notification);
 		default:
 			break;
 		}
@@ -537,6 +642,13 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 				content = null;
 			}
 
+			if (openDialogs != null) {
+				for (IDialogEditpart dialog : openDialogs) {
+					dialog.dispose();
+				}
+				openDialogs = null;
+			}
+
 			if (getBindingSet() != null) {
 				bindingSet.dispose();
 				bindingSet = null;
@@ -610,4 +722,30 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		return getPresentation().createService(serviceClass);
 	}
 
+	@Override
+	public void openDialog(IDialogEditpart dialogEditpart) {
+		if (dialogEditpart != null) {
+			return;
+		}
+
+		if (openDialogs == null) {
+			openDialogs = new HashSet<IDialogEditpart>();
+		}
+		openDialogs.add(dialogEditpart);
+
+		getPresentation().openDialog(dialogEditpart);
+	}
+
+	@Override
+	public void closeDialog(IDialogEditpart dialogEditpart) {
+		if (dialogEditpart != null) {
+			return;
+		}
+
+		if (openDialogs != null) {
+			openDialogs.remove(dialogEditpart);
+		}
+
+		getPresentation().closeDialog(dialogEditpart);
+	}
 }

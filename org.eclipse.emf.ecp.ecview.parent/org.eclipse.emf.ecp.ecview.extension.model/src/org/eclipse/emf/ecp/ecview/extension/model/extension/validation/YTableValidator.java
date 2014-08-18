@@ -34,4 +34,6 @@ public interface YTableValidator {
 	boolean validateTypeQualifiedName(String value);
 
 	boolean validateColumns(EList<YColumn> value);
+
+	boolean validateItemImageProperty(String value);
 }

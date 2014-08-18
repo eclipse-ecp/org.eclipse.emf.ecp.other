@@ -308,6 +308,22 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExtensionModelPackage.YIMAGE: {
+				YImage yImage = (YImage)theEObject;
+				T result = caseYImage(yImage);
+				if (result == null) result = caseYField(yImage);
+				if (result == null) result = caseYValueBindable(yImage);
+				if (result == null) result = caseYEmbeddable(yImage);
+				if (result == null) result = caseYEditable(yImage);
+				if (result == null) result = caseYEnable(yImage);
+				if (result == null) result = caseYBindable(yImage);
+				if (result == null) result = caseYElement(yImage);
+				if (result == null) result = caseYCssAble(yImage);
+				if (result == null) result = caseYVisibleable(yImage);
+				if (result == null) result = caseYVisibilityProcessable(yImage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExtensionModelPackage.YTEXT_AREA: {
 				YTextArea yTextArea = (YTextArea)theEObject;
 				T result = caseYTextArea(yTextArea);
@@ -697,6 +713,21 @@ public class ExtensionModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYLabel(YLabel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YImage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YImage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYImage(YImage object) {
 		return null;
 	}
 

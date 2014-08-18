@@ -25,8 +25,11 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotListBindingEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlotValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCollectionBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommand;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YContextValueBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
+import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
 import org.eclipse.emf.ecp.ecview.common.model.core.YDtWrapper;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEditable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YElement;
@@ -114,6 +117,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EClass yEmbeddableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yDialogEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,6 +306,20 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * @generated
 	 */
 	private EClass yVisibilityProcessableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass yCommandSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -524,6 +548,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYView_CommandSet() {
+		return (EReference)yViewEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYViewSet() {
 		return yViewSetEClass;
 	}
@@ -607,6 +640,60 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EReference getYEmbeddable_OrphanDatadescriptions() {
 		return (EReference)yEmbeddableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYDialog() {
+		return yDialogEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYDialog_Content() {
+		return (EReference)yDialogEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_Modal() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_Resizeable() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_Draggable() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_Closable() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1154,6 +1241,33 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYCommand() {
+		return yCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getYCommandSet() {
+		return yCommandSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYCommandSet_Commands() {
+		return (EReference)yCommandSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUnit() {
 		return yUnitEEnum;
 	}
@@ -1221,6 +1335,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEReference(yViewEClass, YVIEW__CONTENT);
 		createEReference(yViewEClass, YVIEW__BINDING_SET);
 		createEReference(yViewEClass, YVIEW__BEAN_SLOTS);
+		createEReference(yViewEClass, YVIEW__COMMAND_SET);
 
 		yViewSetEClass = createEClass(YVIEW_SET);
 		createEReference(yViewSetEClass, YVIEW_SET__VIEWS);
@@ -1234,6 +1349,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableEClass = createEClass(YEMBEDDABLE);
 		createEReference(yEmbeddableEClass, YEMBEDDABLE__ORPHAN_DATATYPES);
 		createEReference(yEmbeddableEClass, YEMBEDDABLE__ORPHAN_DATADESCRIPTIONS);
+
+		yDialogEClass = createEClass(YDIALOG);
+		createEReference(yDialogEClass, YDIALOG__CONTENT);
+		createEAttribute(yDialogEClass, YDIALOG__MODAL);
+		createEAttribute(yDialogEClass, YDIALOG__RESIZEABLE);
+		createEAttribute(yDialogEClass, YDIALOG__DRAGGABLE);
+		createEAttribute(yDialogEClass, YDIALOG__CLOSABLE);
 
 		yCssAbleEClass = createEClass(YCSS_ABLE);
 		createEAttribute(yCssAbleEClass, YCSS_ABLE__CSS_CLASS);
@@ -1321,6 +1443,11 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yVisibilityProcessableEClass = createEClass(YVISIBILITY_PROCESSABLE);
 		createEReference(yVisibilityProcessableEClass, YVISIBILITY_PROCESSABLE__VISIBILITY_PROCESSOR);
 
+		yCommandEClass = createEClass(YCOMMAND);
+
+		yCommandSetEClass = createEClass(YCOMMAND_SET);
+		createEReference(yCommandSetEClass, YCOMMAND_SET__COMMANDS);
+
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
 
@@ -1377,6 +1504,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableEClass.getESuperTypes().add(this.getYCssAble());
 		yEmbeddableEClass.getESuperTypes().add(this.getYVisibleable());
 		yEmbeddableEClass.getESuperTypes().add(this.getYVisibilityProcessable());
+		yDialogEClass.getESuperTypes().add(this.getYElement());
+		yDialogEClass.getESuperTypes().add(this.getYValueBindable());
 		yActivateableEClass.getESuperTypes().add(this.getYBindable());
 		yActionEClass.getESuperTypes().add(this.getYEmbeddable());
 		yActionEClass.getESuperTypes().add(this.getYEnable());
@@ -1398,6 +1527,8 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yActivatedEndpointEClass.getESuperTypes().add(theBindingPackage.getYValueBindingEndpoint());
 		yActivatedEndpointEClass.getESuperTypes().add(this.getYEmbeddableBindingEndpoint());
 		yDtWrapperEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
+		yCommandEClass.getESuperTypes().add(this.getYElement());
+		yCommandSetEClass.getESuperTypes().add(this.getYElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yElementEClass, YElement.class, "YElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1425,6 +1556,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYView_Content(), this.getYEmbeddable(), null, "content", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_BindingSet(), theBindingPackage.getYBindingSet(), null, "bindingSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_BeanSlots(), this.getYBeanSlot(), null, "beanSlots", null, 0, -1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYView_CommandSet(), this.getYCommandSet(), null, "commandSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yViewEClass, theBindingPackage.getYBindingSet(), "getOrCreateBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1447,6 +1579,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		addEOperation(yEmbeddableEClass, this.getYLayout(), "getParent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(yEmbeddableEClass, this.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yDialogEClass, YDialog.class, "YDialog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYDialog_Content(), this.getYEmbeddable(), null, "content", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_Modal(), ecorePackage.getEBoolean(), "modal", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_Resizeable(), ecorePackage.getEBoolean(), "resizeable", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_Draggable(), ecorePackage.getEBoolean(), "draggable", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_Closable(), ecorePackage.getEBoolean(), "closable", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yCssAbleEClass, YCssAble.class, "YCssAble", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYCssAble_CssClass(), ecorePackage.getEString(), "cssClass", null, 0, 1, YCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1546,6 +1685,21 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		initEClass(yVisibilityProcessableEClass, YVisibilityProcessable.class, "YVisibilityProcessable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getYVisibilityProcessable_VisibilityProcessor(), theVisibilityPackage.getYVisibilityProcessor(), theVisibilityPackage.getYVisibilityProcessor_Parent(), "visibilityProcessor", null, 0, 1, YVisibilityProcessable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(yCommandEClass, YCommand.class, "YCommand", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(yCommandEClass, this.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yCommandSetEClass, YCommandSet.class, "YCommandSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYCommandSet_Commands(), this.getYCommand(), null, "commands", null, 0, -1, YCommandSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(yCommandSetEClass, this.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(yCommandSetEClass, null, "addCommand", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYCommand(), "command", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(yCommandSetEClass, null, "removeCommand", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getYCommand(), "command", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

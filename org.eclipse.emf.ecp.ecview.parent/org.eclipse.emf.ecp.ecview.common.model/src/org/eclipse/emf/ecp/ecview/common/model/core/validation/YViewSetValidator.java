@@ -7,6 +7,7 @@ package org.eclipse.emf.ecp.ecview.common.model.core.validation;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 
 /**
@@ -20,4 +21,6 @@ public interface YViewSetValidator {
 
 	boolean validateViews(EList<YView> value);
 	boolean validateBeanSlots(EList<YBeanSlot> value);
+
+	boolean validateCommandSet(EList<YCommandSet> value);
 }

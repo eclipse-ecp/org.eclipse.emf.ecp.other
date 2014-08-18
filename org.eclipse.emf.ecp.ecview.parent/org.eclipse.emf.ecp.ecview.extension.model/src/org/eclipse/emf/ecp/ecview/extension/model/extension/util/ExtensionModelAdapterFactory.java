@@ -173,6 +173,10 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 				return createYLabelAdapter();
 			}
 			@Override
+			public Adapter caseYImage(YImage object) {
+				return createYImageAdapter();
+			}
+			@Override
 			public Adapter caseYTextArea(YTextArea object) {
 				return createYTextAreaAdapter();
 			}
@@ -475,6 +479,20 @@ public class ExtensionModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YImage <em>YImage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YImage
+	 * @generated
+	 */
+	public Adapter createYImageAdapter() {
 		return null;
 	}
 

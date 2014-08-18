@@ -25,6 +25,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
@@ -51,6 +52,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBindingSet <em>Binding Set</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBeanSlots <em>Bean Slots</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getCommandSet <em>Command Set</em>}</li>
  * </ul>
  * </p>
  *
@@ -213,6 +215,16 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @ordered
 	 */
 	protected EList<YBeanSlot> beanSlots;
+
+	/**
+	 * The cached value of the '{@link #getCommandSet() <em>Command Set</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommandSet()
+	 * @generated
+	 * @ordered
+	 */
+	protected YCommandSet commandSet;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -464,6 +476,81 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YCommandSet getCommandSetGen() {
+		if (commandSet != null && commandSet.eIsProxy()) {
+			InternalEObject oldCommandSet = (InternalEObject)commandSet;
+			commandSet = (YCommandSet)eResolveProxy(oldCommandSet);
+			if (commandSet != oldCommandSet) {
+				InternalEObject newCommandSet = (InternalEObject)commandSet;
+				NotificationChain msgs = oldCommandSet.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__COMMAND_SET, null, null);
+				if (newCommandSet.eInternalContainer() == null) {
+					msgs = newCommandSet.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__COMMAND_SET, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoreModelPackage.YVIEW__COMMAND_SET, oldCommandSet, commandSet));
+			}
+		}
+		return commandSet;
+	}
+	
+	public YCommandSet getCommandSet() {
+		YCommandSet commandSet = getCommandSetGen();
+		if(commandSet == null){
+			commandSet = CoreModelFactory.eINSTANCE.createYCommandSet();
+			setCommandSet(commandSet);
+		}
+		return getCommandSetGen();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YCommandSet basicGetCommandSet() {
+		return commandSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCommandSet(YCommandSet newCommandSet, NotificationChain msgs) {
+		YCommandSet oldCommandSet = commandSet;
+		commandSet = newCommandSet;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__COMMAND_SET, oldCommandSet, newCommandSet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCommandSet(YCommandSet newCommandSet) {
+		if (newCommandSet != commandSet) {
+			NotificationChain msgs = null;
+			if (commandSet != null)
+				msgs = ((InternalEObject)commandSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__COMMAND_SET, null, msgs);
+			if (newCommandSet != null)
+				msgs = ((InternalEObject)newCommandSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YVIEW__COMMAND_SET, null, msgs);
+			msgs = basicSetCommandSet(newCommandSet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YVIEW__COMMAND_SET, newCommandSet, newCommandSet));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -695,6 +782,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return basicSetBindingSet(null, msgs);
 			case CoreModelPackage.YVIEW__BEAN_SLOTS:
 				return ((InternalEList<?>)getBeanSlots()).basicRemove(otherEnd, msgs);
+			case CoreModelPackage.YVIEW__COMMAND_SET:
+				return basicSetCommandSet(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -732,6 +821,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return basicGetBindingSet();
 			case CoreModelPackage.YVIEW__BEAN_SLOTS:
 				return getBeanSlots();
+			case CoreModelPackage.YVIEW__COMMAND_SET:
+				if (resolve) return getCommandSet();
+				return basicGetCommandSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -778,6 +870,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				getBeanSlots().clear();
 				getBeanSlots().addAll((Collection<? extends YBeanSlot>)newValue);
 				return;
+			case CoreModelPackage.YVIEW__COMMAND_SET:
+				setCommandSet((YCommandSet)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -822,6 +917,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__BEAN_SLOTS:
 				getBeanSlots().clear();
 				return;
+			case CoreModelPackage.YVIEW__COMMAND_SET:
+				setCommandSet((YCommandSet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -855,6 +953,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return bindingSet != null;
 			case CoreModelPackage.YVIEW__BEAN_SLOTS:
 				return beanSlots != null && !beanSlots.isEmpty();
+			case CoreModelPackage.YVIEW__COMMAND_SET:
+				return commandSet != null;
 		}
 		return super.eIsSet(featureID);
 	}

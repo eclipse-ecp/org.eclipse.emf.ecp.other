@@ -13,6 +13,7 @@ package org.eclipse.emf.ecp.ecview.common.presentation;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.IDialogEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
 
@@ -72,5 +73,19 @@ public interface IViewPresentation<C> extends IWidgetPresentation<C> {
 	 * @return
 	 */
 	<A extends IUiKitBasedService> A createService(Class<A> serviceClass);
+
+	/**
+	 * Opens the dialog.
+	 * 
+	 * @param dialogEditpart
+	 */
+	void openDialog(IDialogEditpart dialogEditpart);
+
+	/**
+	 * Closes the dialog.
+	 * 
+	 * @param dialogEditpart
+	 */
+	void closeDialog(IDialogEditpart dialogEditpart);
 
 }

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactor
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YBrowser;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YButton;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YCheckBox;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDateTime;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayoutCellStyle;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayoutCellStyle;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
@@ -45,7 +47,6 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTextField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YTree;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YVerticalLayoutCellStyle;
-import org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn;
 
 public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 
@@ -58,6 +59,14 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	 */
 	public YTextField createTextField() {
 		return factory.createYTextField();
+	}
+
+	/**
+	 * @return
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#createYImage()
+	 */
+	public YImage createImage() {
+		return factory.createYImage();
 	}
 
 	/**
@@ -139,7 +148,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YTable createTable() {
 		return factory.createYTable();
 	}
-	
+
 	/**
 	 * @return
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.ExtensionModelFactory#creatYColumn()
@@ -396,7 +405,7 @@ public class SimpleExtensionModelFactory extends SimpleCoreModelFactory {
 	public YRegexpValidator createRegexpValidator() {
 		return ValidationFactory.eINSTANCE.createYRegexpValidator();
 	}
-	
+
 	public YClassDelegateValidator createClassDelegateValidator() {
 		return ValidationFactory.eINSTANCE.createYClassDelegateValidator();
 	}

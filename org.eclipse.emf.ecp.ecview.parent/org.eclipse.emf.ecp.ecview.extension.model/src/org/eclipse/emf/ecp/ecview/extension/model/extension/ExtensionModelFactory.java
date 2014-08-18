@@ -121,6 +121,15 @@ public interface ExtensionModelFactory extends EFactory {
 	YLabel createYLabel();
 
 	/**
+	 * Returns a new object of class '<em>YImage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YImage</em>'.
+	 * @generated
+	 */
+	YImage createYImage();
+
+	/**
 	 * Returns a new object of class '<em>YText Area</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1293,13 +1293,22 @@ public interface ExtensionModelPackage extends EPackage {
 	int YTABLE__COLUMNS = YINPUT_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Item Image Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YTABLE__ITEM_IMAGE_PROPERTY = YINPUT_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>YTable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 13;
+	int YTABLE_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YColumnImpl <em>YColumn</em>}' class.
@@ -1419,7 +1428,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTextArea()
 	 * @generated
 	 */
-	int YTEXT_AREA = 15;
+	int YTEXT_AREA = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YCheckBoxImpl <em>YCheck Box</em>}' class.
@@ -1429,7 +1438,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYCheckBox()
 	 * @generated
 	 */
-	int YCHECK_BOX = 16;
+	int YCHECK_BOX = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YBrowserImpl <em>YBrowser</em>}' class.
@@ -1439,7 +1448,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYBrowser()
 	 * @generated
 	 */
-	int YBROWSER = 17;
+	int YBROWSER = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YDateTimeImpl <em>YDate Time</em>}' class.
@@ -1449,7 +1458,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYDateTime()
 	 * @generated
 	 */
-	int YDATE_TIME = 18;
+	int YDATE_TIME = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YDecimalFieldImpl <em>YDecimal Field</em>}' class.
@@ -1459,7 +1468,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYDecimalField()
 	 * @generated
 	 */
-	int YDECIMAL_FIELD = 19;
+	int YDECIMAL_FIELD = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YNumericFieldImpl <em>YNumeric Field</em>}' class.
@@ -1469,7 +1478,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYNumericField()
 	 * @generated
 	 */
-	int YNUMERIC_FIELD = 20;
+	int YNUMERIC_FIELD = 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YComboBoxImpl <em>YCombo Box</em>}' class.
@@ -1479,7 +1488,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYComboBox()
 	 * @generated
 	 */
-	int YCOMBO_BOX = 21;
+	int YCOMBO_BOX = 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.
@@ -1499,7 +1508,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButton()
 	 * @generated
 	 */
-	int YBUTTON = 22;
+	int YBUTTON = 23;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YToggleButtonImpl <em>YToggle Button</em>}' class.
@@ -1509,7 +1518,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYToggleButton()
 	 * @generated
 	 */
-	int YTOGGLE_BUTTON = 23;
+	int YTOGGLE_BUTTON = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTreeImpl <em>YTree</em>}' class.
@@ -2457,6 +2466,187 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int YLABEL_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YImageImpl <em>YImage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YImageImpl
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYImage()
+	 * @generated
+	 */
+	int YIMAGE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__ID = CoreModelPackage.YFIELD__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__NAME = CoreModelPackage.YFIELD__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__CSS_CLASS = CoreModelPackage.YFIELD__CSS_CLASS;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__CSS_ID = CoreModelPackage.YFIELD__CSS_ID;
+
+	/**
+	 * The feature id for the '<em><b>Initial Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__INITIAL_VISIBLE = CoreModelPackage.YFIELD__INITIAL_VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visible</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__VISIBLE = CoreModelPackage.YFIELD__VISIBLE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility Processor</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__VISIBILITY_PROCESSOR = CoreModelPackage.YFIELD__VISIBILITY_PROCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datatypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__ORPHAN_DATATYPES = CoreModelPackage.YFIELD__ORPHAN_DATATYPES;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Datadescriptions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__ORPHAN_DATADESCRIPTIONS = CoreModelPackage.YFIELD__ORPHAN_DATADESCRIPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Initial Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__INITIAL_EDITABLE = CoreModelPackage.YFIELD__INITIAL_EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Editable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__EDITABLE = CoreModelPackage.YFIELD__EDITABLE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__INITIAL_ENABLED = CoreModelPackage.YFIELD__INITIAL_ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__ENABLED = CoreModelPackage.YFIELD__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__VALIDATORS = CoreModelPackage.YFIELD__VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Internal Validators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__INTERNAL_VALIDATORS = CoreModelPackage.YFIELD__INTERNAL_VALIDATORS;
+
+	/**
+	 * The feature id for the '<em><b>Value Binding Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__VALUE_BINDING_ENDPOINT = CoreModelPackage.YFIELD_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__DATADESCRIPTION = CoreModelPackage.YFIELD_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE__VALUE = CoreModelPackage.YFIELD_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>YImage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YIMAGE_FEATURE_COUNT = CoreModelPackage.YFIELD_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3755,13 +3945,31 @@ public interface ExtensionModelPackage extends EPackage {
 	int YCOMBO_BOX__TYPE_QUALIFIED_NAME = YINPUT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Item Caption Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__ITEM_CAPTION_PROPERTY = YINPUT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Item Image Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YCOMBO_BOX__ITEM_IMAGE_PROPERTY = YINPUT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>YCombo Box</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 9;
+	int YCOMBO_BOX_FEATURE_COUNT = YINPUT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4050,7 +4258,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYProgressBar()
 	 * @generated
 	 */
-	int YPROGRESS_BAR = 24;
+	int YPROGRESS_BAR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4240,7 +4448,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTabSheet()
 	 * @generated
 	 */
-	int YTAB_SHEET = 25;
+	int YTAB_SHEET = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4349,7 +4557,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYTab()
 	 * @generated
 	 */
-	int YTAB = 26;
+	int YTAB = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4431,7 +4639,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYMasterDetail()
 	 * @generated
 	 */
-	int YMASTER_DETAIL = 27;
+	int YMASTER_DETAIL = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4684,7 +4892,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYFormLayout()
 	 * @generated
 	 */
-	int YFORM_LAYOUT = 28;
+	int YFORM_LAYOUT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4829,7 +5037,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYFormLayoutCellStyle()
 	 * @generated
 	 */
-	int YFORM_LAYOUT_CELL_STYLE = 29;
+	int YFORM_LAYOUT_CELL_STYLE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -4866,7 +5074,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYButtonClickListener()
 	 * @generated
 	 */
-	int YBUTTON_CLICK_LISTENER = 33;
+	int YBUTTON_CLICK_LISTENER = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YAlignment <em>YAlignment</em>}' enum.
@@ -4876,7 +5084,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYAlignment()
 	 * @generated
 	 */
-	int YALIGNMENT = 30;
+	int YALIGNMENT = 31;
 
 
 	/**
@@ -4887,7 +5095,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYFlatAlignment()
 	 * @generated
 	 */
-	int YFLAT_ALIGNMENT = 31;
+	int YFLAT_ALIGNMENT = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YSelectionType <em>YSelection Type</em>}' enum.
@@ -4897,7 +5105,7 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYSelectionType()
 	 * @generated
 	 */
-	int YSELECTION_TYPE = 32;
+	int YSELECTION_TYPE = 33;
 
 
 	/**
@@ -5343,6 +5551,17 @@ public interface ExtensionModelPackage extends EPackage {
 	EReference getYTable_Columns();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getItemImageProperty <em>Item Image Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Item Image Property</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YTable#getItemImageProperty()
+	 * @see #getYTable()
+	 * @generated
+	 */
+	EAttribute getYTable_ItemImageProperty();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YColumn <em>YColumn</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5460,6 +5679,38 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYLabel_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YImage <em>YImage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YImage</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YImage
+	 * @generated
+	 */
+	EClass getYImage();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YImage#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YImage#getDatadescription()
+	 * @see #getYImage()
+	 * @generated
+	 */
+	EReference getYImage_Datadescription();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YImage#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YImage#getValue()
+	 * @see #getYImage()
+	 * @generated
+	 */
+	EAttribute getYImage_Value();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YTextArea <em>YText Area</em>}'.
@@ -5815,6 +6066,28 @@ public interface ExtensionModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYComboBox_TypeQualifiedName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemCaptionProperty <em>Item Caption Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Item Caption Property</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemCaptionProperty()
+	 * @see #getYComboBox()
+	 * @generated
+	 */
+	EAttribute getYComboBox_ItemCaptionProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemImageProperty <em>Item Image Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Item Image Property</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.YComboBox#getItemImageProperty()
+	 * @see #getYComboBox()
+	 * @generated
+	 */
+	EAttribute getYComboBox_ItemImageProperty();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.YList <em>YList</em>}'.
@@ -6886,6 +7159,14 @@ public interface ExtensionModelPackage extends EPackage {
 		EReference YTABLE__COLUMNS = eINSTANCE.getYTable_Columns();
 
 		/**
+		 * The meta object literal for the '<em><b>Item Image Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YTABLE__ITEM_IMAGE_PROPERTY = eINSTANCE.getYTable_ItemImageProperty();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YColumnImpl <em>YColumn</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6976,6 +7257,32 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YLABEL__VALUE = eINSTANCE.getYLabel_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YImageImpl <em>YImage</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YImageImpl
+		 * @see org.eclipse.emf.ecp.ecview.extension.model.extension.impl.ExtensionModelPackageImpl#getYImage()
+		 * @generated
+		 */
+		EClass YIMAGE = eINSTANCE.getYImage();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YIMAGE__DATADESCRIPTION = eINSTANCE.getYImage_Datadescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YIMAGE__VALUE = eINSTANCE.getYImage_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTextAreaImpl <em>YText Area</em>}' class.
@@ -7256,6 +7563,22 @@ public interface ExtensionModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YCOMBO_BOX__TYPE_QUALIFIED_NAME = eINSTANCE.getYComboBox_TypeQualifiedName();
+
+		/**
+		 * The meta object literal for the '<em><b>Item Caption Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCOMBO_BOX__ITEM_CAPTION_PROPERTY = eINSTANCE.getYComboBox_ItemCaptionProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Item Image Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YCOMBO_BOX__ITEM_IMAGE_PROPERTY = eINSTANCE.getYComboBox_ItemImageProperty();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YListImpl <em>YList</em>}' class.

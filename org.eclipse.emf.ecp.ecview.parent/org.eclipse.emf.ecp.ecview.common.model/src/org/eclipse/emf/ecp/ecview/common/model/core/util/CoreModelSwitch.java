@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YListBindingEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YValueBindingEndpoint;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
 import org.eclipse.emf.ecp.ecview.common.model.core.YActivateable;
@@ -171,6 +172,15 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = caseYCssAble(yEmbeddable);
 				if (result == null) result = caseYVisibleable(yEmbeddable);
 				if (result == null) result = caseYVisibilityProcessable(yEmbeddable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YDIALOG: {
+				YDialog yDialog = (YDialog)theEObject;
+				T result = caseYDialog(yDialog);
+				if (result == null) result = caseYElement(yDialog);
+				if (result == null) result = caseYValueBindable(yDialog);
+				if (result == null) result = caseYBindable(yDialog);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -373,6 +383,20 @@ public class CoreModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CoreModelPackage.YCOMMAND: {
+				YCommand yCommand = (YCommand)theEObject;
+				T result = caseYCommand(yCommand);
+				if (result == null) result = caseYElement(yCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CoreModelPackage.YCOMMAND_SET: {
+				YCommandSet yCommandSet = (YCommandSet)theEObject;
+				T result = caseYCommandSet(yCommandSet);
+				if (result == null) result = caseYElement(yCommandSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -479,6 +503,21 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYEmbeddable(YEmbeddable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YDialog</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YDialog</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYDialog(YDialog object) {
 		return null;
 	}
 
@@ -869,6 +908,36 @@ public class CoreModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseYVisibilityProcessable(YVisibilityProcessable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCommand</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCommand</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYCommand(YCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>YCommand Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>YCommand Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseYCommandSet(YCommandSet object) {
 		return null;
 	}
 

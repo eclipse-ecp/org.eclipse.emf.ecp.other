@@ -78,14 +78,6 @@ public interface IViewEditpart extends IElementEditpart, IEmbeddableParent {
 	void setConfiguration(IConfiguration configuration);
 
 	/**
-	 * Is called to set the bindingSet of the view.
-	 * 
-	 * @param bindingSet
-	 *            The bindingSet of the view.
-	 */
-	void setBindingSet(IBindingSetEditpart bindingSet);
-
-	/**
 	 * Returns the content of the view.
 	 * 
 	 * @return content
@@ -114,6 +106,29 @@ public interface IViewEditpart extends IElementEditpart, IEmbeddableParent {
 	 * @return
 	 */
 	IBindingSetEditpart getBindingSet();
+
+	/**
+	 * Is called to set the bindingSet of the view.
+	 * 
+	 * @param bindingSet
+	 *            The bindingSet of the view.
+	 */
+	void setBindingSet(IBindingSetEditpart bindingSet);
+
+	/**
+	 * Returns the commandSet that is responsible to handle commands.
+	 * 
+	 * @return
+	 */
+	ICommandSetEditpart getCommandSet();
+
+	/**
+	 * Is called to set the commandSet of the view.
+	 * 
+	 * @param commandSet
+	 *            The commandSet of the view.
+	 */
+	void setCommandSet(ICommandSetEditpart commandSet);
 
 	/**
 	 * Is called to render the view.
@@ -149,5 +164,19 @@ public interface IViewEditpart extends IElementEditpart, IEmbeddableParent {
 	 * @return
 	 */
 	<A extends IUiKitBasedService> A createService(Class<A> serviceClass);
+
+	/**
+	 * Opens the dialog.
+	 * 
+	 * @param dialogEditpart
+	 */
+	void openDialog(IDialogEditpart dialogEditpart);
+
+	/**
+	 * Closes the dialog.
+	 * 
+	 * @param dialogEditpart
+	 */
+	void closeDialog(IDialogEditpart dialogEditpart);
 
 }

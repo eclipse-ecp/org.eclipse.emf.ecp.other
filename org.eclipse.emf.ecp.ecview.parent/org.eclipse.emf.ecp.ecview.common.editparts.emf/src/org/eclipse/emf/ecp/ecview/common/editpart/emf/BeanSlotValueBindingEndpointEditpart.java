@@ -47,12 +47,6 @@ public class BeanSlotValueBindingEndpointEditpart extends
 	@SuppressWarnings("unchecked")
 	@Override
 	public <A extends IObservableValue> A getObservable() {
-		if (getModel().getAttributePath() == null
-				|| getModel().getAttributePath().equals("")) {
-			logger.error("Attribute path must not be null!");
-			return null;
-		}
-
 		YBeanSlot yBeanSlot = getModel().getBeanSlot();
 		if (yBeanSlot == null) {
 			logger.error("BeanSlot must not be null!");
@@ -90,11 +84,21 @@ public class BeanSlotValueBindingEndpointEditpart extends
 		EObject container = yBeanSlot.eContainer();
 		URI uri = null;
 		if (container instanceof YView) {
-			uri = URIHelper.view().bean(yBeanSlot.getName())
-					.fragment(getModel().getAttributePath()).toURI();
+			if (getModel().getAttributePath() == null
+					|| getModel().getAttributePath().equals("")) {
+				uri = URIHelper.view().bean(yBeanSlot.getName()).toURI();
+			} else {
+				uri = URIHelper.view().bean(yBeanSlot.getName())
+						.fragment(getModel().getAttributePath()).toURI();
+			}
 		} else if (container instanceof YViewSet) {
-			uri = URIHelper.viewset().bean(yBeanSlot.getName())
-					.fragment(getModel().getAttributePath()).toURI();
+			if (getModel().getAttributePath() == null
+					|| getModel().getAttributePath().equals("")) {
+				uri = URIHelper.viewset().bean(yBeanSlot.getName()).toURI();
+			} else {
+				uri = URIHelper.viewset().bean(yBeanSlot.getName())
+						.fragment(getModel().getAttributePath()).toURI();
+			}
 		} else {
 			throw new RuntimeException(container + " is not a valid type!");
 		}

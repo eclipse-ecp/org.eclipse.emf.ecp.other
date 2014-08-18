@@ -101,6 +101,7 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 			case ExtensionModelPackage.YOPTIONS_GROUP: return createYOptionsGroup();
 			case ExtensionModelPackage.YLIST: return createYList();
 			case ExtensionModelPackage.YLABEL: return createYLabel();
+			case ExtensionModelPackage.YIMAGE: return createYImage();
 			case ExtensionModelPackage.YTEXT_AREA: return createYTextArea();
 			case ExtensionModelPackage.YCHECK_BOX: return createYCheckBox();
 			case ExtensionModelPackage.YBROWSER: return createYBrowser();
@@ -271,6 +272,16 @@ public class ExtensionModelFactoryImpl extends EFactoryImpl implements Extension
 	public YLabel createYLabel() {
 		YLabelImpl yLabel = new YLabelImpl();
 		return yLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YImage createYImage() {
+		YImageImpl yImage = new YImageImpl();
+		return yImage;
 	}
 
 	/**

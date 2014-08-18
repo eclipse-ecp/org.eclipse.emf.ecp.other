@@ -53,6 +53,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YDecimalField;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YFormLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YGridLayout;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YHorizontalLayout;
+import org.eclipse.emf.ecp.ecview.extension.model.extension.YImage;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YLabel;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YList;
 import org.eclipse.emf.ecp.ecview.extension.model.extension.YMasterDetail;
@@ -74,6 +75,7 @@ import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IDecimalFieldEditp
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IFormLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IGridLayoutEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IHorizontalLayoutEditpart;
+import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IImageEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.ILabelEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IListEditpart;
 import org.eclipse.emf.ecp.ecview.ui.core.editparts.extension.IMasterDetailEditpart;
@@ -219,6 +221,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TreeDatatypeEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IMasterDetailEditpart.class)) {
 			result = createNewInstance(MasterDetailEditpart.class);
+		} else if (editPartClazz.isAssignableFrom(IImageEditpart.class)) {
+			result = createNewInstance(ImageEditpart.class);
 		}
 
 		if (result != null) {
@@ -315,6 +319,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(TreeDatatypeEditpart.class);
 		} else if (yElement instanceof YMasterDetail) {
 			result = createNewInstance(MasterDetailEditpart.class);
+		} else if (yElement instanceof YImage) {
+			result = createNewInstance(ImageEditpart.class);
 		}
 
 		if (result != null) {

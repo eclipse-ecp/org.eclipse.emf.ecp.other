@@ -47,6 +47,7 @@ import org.eclipse.emf.ecp.ecview.extension.model.extension.YTable;
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.extension.model.extension.impl.YTableImpl#getItemImageProperty <em>Item Image Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -205,6 +206,25 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * @ordered
 	 */
 	protected EList<YColumn> columns;
+
+	/**
+	 * The default value of the '{@link #getItemImageProperty() <em>Item Image Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemImageProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ITEM_IMAGE_PROPERTY_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getItemImageProperty() <em>Item Image Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemImageProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected String itemImageProperty = ITEM_IMAGE_PROPERTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -609,6 +629,27 @@ public class YTableImpl extends YInputImpl implements YTable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getItemImageProperty() {
+		return itemImageProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setItemImageProperty(String newItemImageProperty) {
+		String oldItemImageProperty = itemImageProperty;
+		itemImageProperty = newItemImageProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExtensionModelPackage.YTABLE__ITEM_IMAGE_PROPERTY, oldItemImageProperty, itemImageProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public YEmbeddableMultiSelectionEndpoint createMultiSelectionEndpointGen() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -755,6 +796,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return getTypeQualifiedName();
 			case ExtensionModelPackage.YTABLE__COLUMNS:
 				return getColumns();
+			case ExtensionModelPackage.YTABLE__ITEM_IMAGE_PROPERTY:
+				return getItemImageProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -809,6 +852,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 				getColumns().clear();
 				getColumns().addAll((Collection<? extends YColumn>)newValue);
 				return;
+			case ExtensionModelPackage.YTABLE__ITEM_IMAGE_PROPERTY:
+				setItemImageProperty((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -859,6 +905,9 @@ public class YTableImpl extends YInputImpl implements YTable {
 			case ExtensionModelPackage.YTABLE__COLUMNS:
 				getColumns().clear();
 				return;
+			case ExtensionModelPackage.YTABLE__ITEM_IMAGE_PROPERTY:
+				setItemImageProperty(ITEM_IMAGE_PROPERTY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -896,6 +945,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
 			case ExtensionModelPackage.YTABLE__COLUMNS:
 				return columns != null && !columns.isEmpty();
+			case ExtensionModelPackage.YTABLE__ITEM_IMAGE_PROPERTY:
+				return ITEM_IMAGE_PROPERTY_EDEFAULT == null ? itemImageProperty != null : !ITEM_IMAGE_PROPERTY_EDEFAULT.equals(itemImageProperty);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -987,6 +1038,8 @@ public class YTableImpl extends YInputImpl implements YTable {
 		result.append(emfNsURI);
 		result.append(", typeQualifiedName: ");
 		result.append(typeQualifiedName);
+		result.append(", itemImageProperty: ");
+		result.append(itemImageProperty);
 		result.append(')');
 		return result.toString();
 	}

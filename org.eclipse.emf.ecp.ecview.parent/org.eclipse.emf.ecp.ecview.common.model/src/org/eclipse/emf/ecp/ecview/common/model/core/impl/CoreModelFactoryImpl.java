@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecp.ecview.common.model.core.*;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YAction;
@@ -78,6 +79,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YVIEW: return createYView();
 			case CoreModelPackage.YVIEW_SET: return createYViewSet();
 			case CoreModelPackage.YBEAN_SLOT: return createYBeanSlot();
+			case CoreModelPackage.YDIALOG: return createYDialog();
 			case CoreModelPackage.YACTION: return createYAction();
 			case CoreModelPackage.YCONTEXT_VALUE_BINDING_ENDPOINT: return createYContextValueBindingEndpoint();
 			case CoreModelPackage.YBEAN_SLOT_VALUE_BINDING_ENDPOINT: return createYBeanSlotValueBindingEndpoint();
@@ -88,6 +90,7 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 			case CoreModelPackage.YEMBEDDABLE_COLLECTION_ENDPOINT: return createYEmbeddableCollectionEndpoint();
 			case CoreModelPackage.YACTIVATED_ENDPOINT: return createYActivatedEndpoint();
 			case CoreModelPackage.YDT_WRAPPER: return createYDtWrapper();
+			case CoreModelPackage.YCOMMAND_SET: return createYCommandSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +182,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YBeanSlot createYBeanSlot() {
 		YBeanSlotImpl yBeanSlot = new YBeanSlotImpl();
 		return yBeanSlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDialog createYDialog() {
+		YDialogImpl yDialog = new YDialogImpl();
+		return yDialog;
 	}
 
 	/**
@@ -279,6 +292,16 @@ public class CoreModelFactoryImpl extends EFactoryImpl implements CoreModelFacto
 	public YDtWrapper createYDtWrapper() {
 		YDtWrapperImpl yDtWrapper = new YDtWrapperImpl();
 		return yDtWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YCommandSet createYCommandSet() {
+		YCommandSetImpl yCommandSet = new YCommandSetImpl();
+		return yCommandSet;
 	}
 
 	/**
