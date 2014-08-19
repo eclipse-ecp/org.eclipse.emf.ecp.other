@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecp.ecview.common.editpart.IDialogEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelFactory;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
@@ -72,6 +73,7 @@ public class DialogEditpart extends ElementEditpart<YDialog> implements
 	public <A extends IDialogPresentation<?>> A getPresentation() {
 		if (presentation == null) {
 			presentation = createPresenter();
+			presentation.setContent(getContent());
 		}
 		return (A) presentation;
 	}
@@ -109,7 +111,7 @@ public class DialogEditpart extends ElementEditpart<YDialog> implements
 	@Override
 	public void requestRender() {
 		if (getParent() != null) {
-			getParent().openDialog(this);
+			getParent().openDialog(this, null);
 		} else {
 			unrender();
 		}
@@ -269,4 +271,10 @@ public class DialogEditpart extends ElementEditpart<YDialog> implements
 		this.content = content;
 	}
 
+	@Override
+	public void setInputDataBindingEndpoint(
+			IBindableEndpointEditpart bindingEndpoint) {
+		IDialogPresentation<?> presentation = getPresentation();
+		presentation.setInputDataBindingEndpoint(bindingEndpoint);
+	}
 }

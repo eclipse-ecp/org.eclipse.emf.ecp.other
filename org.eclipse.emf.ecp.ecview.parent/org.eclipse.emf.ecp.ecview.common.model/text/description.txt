@@ -106,6 +106,7 @@ Package core <http://eclipse.org/emf/ecp/ecview/core/view>
     Reference bindingSet : YBindingSet
     Reference beanSlots : YBeanSlot<<0..*>>
     Reference commandSet : YCommandSet
+    Reference dialogs : YDialog<<0..*>>
     Operation getOrCreateBindingSet() : YBindingSet
 
   Class YViewSet -> YElement
@@ -123,12 +124,17 @@ Package core <http://eclipse.org/emf/ecp/ecview/core/view>
     Operation getParent() : YLayout
     Operation getView() : YView
 
-  Class YDialog -> YElement, YValueBindable
+  Class YDialog -> YElement, YValueBindable, YCssAble
     Reference content : YEmbeddable
     Attribute modal : EBoolean
     Attribute resizeable : EBoolean
     Attribute draggable : EBoolean
     Attribute closable : EBoolean
+    Attribute value : EJavaObject
+    Attribute type : EJavaClass
+    Attribute emfNsURI : EString
+    Attribute typeQualifiedName : EString
+    Reference datadescription : YDatadescription
 
   Class YCssAble
     Attribute cssClass : EString
@@ -229,6 +235,12 @@ Package core <http://eclipse.org/emf/ecp/ecview/core/view>
     Operation getView() : YView
     Operation addCommand(YCommand<<1..1>>) : void
     Operation removeCommand(YCommand<<1..1>>) : void
+
+  Class YOpenDialogCommand -> YCommand
+    Reference dialog : YDialog
+    Attribute trigger : EJavaObject
+    Operation getView() : YView
+    Operation createTriggerDialogEndpoint() : YECViewModelValueBindingEndpoint
 
   Enum YUnit
     Literal Pixel = 0

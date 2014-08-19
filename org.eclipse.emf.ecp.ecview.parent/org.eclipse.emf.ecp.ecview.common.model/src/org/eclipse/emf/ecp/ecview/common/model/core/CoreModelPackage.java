@@ -586,13 +586,22 @@ public interface CoreModelPackage extends EPackage {
 	int YVIEW__COMMAND_SET = YELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Dialogs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YVIEW__DIALOGS = YELEMENT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>YView</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 10;
+	int YVIEW_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
@@ -852,13 +861,31 @@ public interface CoreModelPackage extends EPackage {
 	int YDIALOG__VALUE_BINDING_ENDPOINT = YELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__CSS_CLASS = YELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Css ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__CSS_ID = YELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YDIALOG__CONTENT = YELEMENT_FEATURE_COUNT + 1;
+	int YDIALOG__CONTENT = YELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Modal</b></em>' attribute.
@@ -867,7 +894,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDIALOG__MODAL = YELEMENT_FEATURE_COUNT + 2;
+	int YDIALOG__MODAL = YELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Resizeable</b></em>' attribute.
@@ -876,7 +903,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDIALOG__RESIZEABLE = YELEMENT_FEATURE_COUNT + 3;
+	int YDIALOG__RESIZEABLE = YELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Draggable</b></em>' attribute.
@@ -885,7 +912,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDIALOG__DRAGGABLE = YELEMENT_FEATURE_COUNT + 4;
+	int YDIALOG__DRAGGABLE = YELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Closable</b></em>' attribute.
@@ -894,7 +921,52 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDIALOG__CLOSABLE = YELEMENT_FEATURE_COUNT + 5;
+	int YDIALOG__CLOSABLE = YELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__VALUE = YELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__TYPE = YELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Emf Ns URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__EMF_NS_URI = YELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Type Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__TYPE_QUALIFIED_NAME = YELEMENT_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Datadescription</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YDIALOG__DATADESCRIPTION = YELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>YDialog</em>' class.
@@ -903,7 +975,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int YDIALOG_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 6;
+	int YDIALOG_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Css Class</b></em>' attribute.
@@ -1949,6 +2021,61 @@ public interface CoreModelPackage extends EPackage {
 	int YCOMMAND_SET_FEATURE_COUNT = YELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YOpenDialogCommandImpl <em>YOpen Dialog Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YOpenDialogCommandImpl
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYOpenDialogCommand()
+	 * @generated
+	 */
+	int YOPEN_DIALOG_COMMAND = 36;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPEN_DIALOG_COMMAND__ID = YCOMMAND__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPEN_DIALOG_COMMAND__NAME = YCOMMAND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Dialog</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPEN_DIALOG_COMMAND__DIALOG = YCOMMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Trigger</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPEN_DIALOG_COMMAND__TRIGGER = YCOMMAND_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>YOpen Dialog Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YOPEN_DIALOG_COMMAND_FEATURE_COUNT = YCOMMAND_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1956,7 +2083,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYUnit()
 	 * @generated
 	 */
-	int YUNIT = 36;
+	int YUNIT = 37;
 
 	/**
 	 * The meta object id for the '<em>YURI</em>' data type.
@@ -1966,7 +2093,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYURI()
 	 * @generated
 	 */
-	int YURI = 37;
+	int YURI = 38;
 
 
 	/**
@@ -1977,7 +2104,7 @@ public interface CoreModelPackage extends EPackage {
 	 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYValueChangeListener()
 	 * @generated
 	 */
-	int YVALUE_CHANGE_LISTENER = 38;
+	int YVALUE_CHANGE_LISTENER = 39;
 
 
 	/**
@@ -2140,6 +2267,17 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYView_CommandSet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getDialogs <em>Dialogs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dialogs</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YView#getDialogs()
+	 * @see #getYView()
+	 * @generated
+	 */
+	EReference getYView_Dialogs();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YViewSet <em>YView Set</em>}'.
@@ -2312,6 +2450,61 @@ public interface CoreModelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getYDialog_Closable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getValue()
+	 * @see #getYDialog()
+	 * @generated
+	 */
+	EAttribute getYDialog_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getType()
+	 * @see #getYDialog()
+	 * @generated
+	 */
+	EAttribute getYDialog_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getEmfNsURI <em>Emf Ns URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Emf Ns URI</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getEmfNsURI()
+	 * @see #getYDialog()
+	 * @generated
+	 */
+	EAttribute getYDialog_EmfNsURI();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getTypeQualifiedName <em>Type Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Qualified Name</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getTypeQualifiedName()
+	 * @see #getYDialog()
+	 * @generated
+	 */
+	EAttribute getYDialog_TypeQualifiedName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getDatadescription <em>Datadescription</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Datadescription</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YDialog#getDatadescription()
+	 * @see #getYDialog()
+	 * @generated
+	 */
+	EReference getYDialog_Datadescription();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}'.
@@ -2979,6 +3172,38 @@ public interface CoreModelPackage extends EPackage {
 	EReference getYCommandSet_Commands();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand <em>YOpen Dialog Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>YOpen Dialog Command</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand
+	 * @generated
+	 */
+	EClass getYOpenDialogCommand();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand#getDialog <em>Dialog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dialog</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand#getDialog()
+	 * @see #getYOpenDialogCommand()
+	 * @generated
+	 */
+	EReference getYOpenDialogCommand_Dialog();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand#getTrigger <em>Trigger</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trigger</em>'.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand#getTrigger()
+	 * @see #getYOpenDialogCommand()
+	 * @generated
+	 */
+	EAttribute getYOpenDialogCommand_Trigger();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3161,6 +3386,14 @@ public interface CoreModelPackage extends EPackage {
 		EReference YVIEW__COMMAND_SET = eINSTANCE.getYView_CommandSet();
 
 		/**
+		 * The meta object literal for the '<em><b>Dialogs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YVIEW__DIALOGS = eINSTANCE.getYView_Dialogs();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewSetImpl <em>YView Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3295,6 +3528,46 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute YDIALOG__CLOSABLE = eINSTANCE.getYDialog_Closable();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDIALOG__VALUE = eINSTANCE.getYDialog_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDIALOG__TYPE = eINSTANCE.getYDialog_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Emf Ns URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDIALOG__EMF_NS_URI = eINSTANCE.getYDialog_EmfNsURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YDIALOG__TYPE_QUALIFIED_NAME = eINSTANCE.getYDialog_TypeQualifiedName();
+
+		/**
+		 * The meta object literal for the '<em><b>Datadescription</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YDIALOG__DATADESCRIPTION = eINSTANCE.getYDialog_Datadescription();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YCssAble <em>YCss Able</em>}' class.
@@ -3855,6 +4128,32 @@ public interface CoreModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YCOMMAND_SET__COMMANDS = eINSTANCE.getYCommandSet_Commands();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YOpenDialogCommandImpl <em>YOpen Dialog Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.YOpenDialogCommandImpl
+		 * @see org.eclipse.emf.ecp.ecview.common.model.core.impl.CoreModelPackageImpl#getYOpenDialogCommand()
+		 * @generated
+		 */
+		EClass YOPEN_DIALOG_COMMAND = eINSTANCE.getYOpenDialogCommand();
+
+		/**
+		 * The meta object literal for the '<em><b>Dialog</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YOPEN_DIALOG_COMMAND__DIALOG = eINSTANCE.getYOpenDialogCommand_Dialog();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute YOPEN_DIALOG_COMMAND__TRIGGER = eINSTANCE.getYOpenDialogCommand_Trigger();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.emf.ecp.ecview.common.model.core.YUnit <em>YUnit</em>}' enum.

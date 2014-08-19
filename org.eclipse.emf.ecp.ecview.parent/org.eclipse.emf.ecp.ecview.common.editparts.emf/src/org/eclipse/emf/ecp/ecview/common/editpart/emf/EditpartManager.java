@@ -27,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableSelectionEndpointEd
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableValueBindingEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IFieldEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.ILayoutEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.IOpenDialogCommandEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBeanValueBindingEndpointEditpart;
@@ -77,6 +78,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableSelectionEndpoint
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YField;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
+import org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.validation.ValidationPackage;
@@ -189,6 +191,9 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(CommandSetEditpart.class);
 		} else if (editPartClazz.isAssignableFrom(IDialogEditpart.class)) {
 			result = createNewInstance(DialogEditpart.class);
+		} else if (editPartClazz
+				.isAssignableFrom(IOpenDialogCommandEditpart.class)) {
+			result = createNewInstance(OpenDialogCommandEditpart.class);
 		}
 
 		if (result != null) {
@@ -265,6 +270,8 @@ public class EditpartManager extends AbstractEditpartManager {
 			result = createNewInstance(CommandSetEditpart.class);
 		} else if (yElement instanceof YDialog) {
 			result = createNewInstance(DialogEditpart.class);
+		} else if (yElement instanceof YOpenDialogCommand) {
+			result = createNewInstance(OpenDialogCommandEditpart.class);
 		}
 
 		if (result != null) {

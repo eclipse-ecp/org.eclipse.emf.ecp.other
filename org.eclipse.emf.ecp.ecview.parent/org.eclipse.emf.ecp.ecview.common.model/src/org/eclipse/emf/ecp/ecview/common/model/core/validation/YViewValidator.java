@@ -10,6 +10,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
+import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YViewSet;
 import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
@@ -31,6 +32,8 @@ public interface YViewValidator {
 	boolean validateBeanSlots(EList<YBeanSlot> value);
 
 	boolean validateCommandSet(YCommandSet value);
+
+	boolean validateDialogs(EList<YDialog> value);
 
 	boolean validateCommandSet(EList<YCommandSet> value);
 

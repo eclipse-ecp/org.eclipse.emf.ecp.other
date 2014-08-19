@@ -45,6 +45,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YHeightable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMultiSelectionBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSelectionBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YSpacingable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YUnit;
@@ -326,6 +327,13 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass yOpenDialogCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum yUnitEEnum = null;
 
 	/**
@@ -557,6 +565,15 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getYView_Dialogs() {
+		return (EReference)yViewEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getYViewSet() {
 		return yViewSetEClass;
 	}
@@ -694,6 +711,51 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 */
 	public EAttribute getYDialog_Closable() {
 		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_Value() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_Type() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_EmfNsURI() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYDialog_TypeQualifiedName() {
+		return (EAttribute)yDialogEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYDialog_Datadescription() {
+		return (EReference)yDialogEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1268,6 +1330,33 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getYOpenDialogCommand() {
+		return yOpenDialogCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYOpenDialogCommand_Dialog() {
+		return (EReference)yOpenDialogCommandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getYOpenDialogCommand_Trigger() {
+		return (EAttribute)yOpenDialogCommandEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getYUnit() {
 		return yUnitEEnum;
 	}
@@ -1336,6 +1425,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEReference(yViewEClass, YVIEW__BINDING_SET);
 		createEReference(yViewEClass, YVIEW__BEAN_SLOTS);
 		createEReference(yViewEClass, YVIEW__COMMAND_SET);
+		createEReference(yViewEClass, YVIEW__DIALOGS);
 
 		yViewSetEClass = createEClass(YVIEW_SET);
 		createEReference(yViewSetEClass, YVIEW_SET__VIEWS);
@@ -1356,6 +1446,11 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		createEAttribute(yDialogEClass, YDIALOG__RESIZEABLE);
 		createEAttribute(yDialogEClass, YDIALOG__DRAGGABLE);
 		createEAttribute(yDialogEClass, YDIALOG__CLOSABLE);
+		createEAttribute(yDialogEClass, YDIALOG__VALUE);
+		createEAttribute(yDialogEClass, YDIALOG__TYPE);
+		createEAttribute(yDialogEClass, YDIALOG__EMF_NS_URI);
+		createEAttribute(yDialogEClass, YDIALOG__TYPE_QUALIFIED_NAME);
+		createEReference(yDialogEClass, YDIALOG__DATADESCRIPTION);
 
 		yCssAbleEClass = createEClass(YCSS_ABLE);
 		createEAttribute(yCssAbleEClass, YCSS_ABLE__CSS_CLASS);
@@ -1448,6 +1543,10 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yCommandSetEClass = createEClass(YCOMMAND_SET);
 		createEReference(yCommandSetEClass, YCOMMAND_SET__COMMANDS);
 
+		yOpenDialogCommandEClass = createEClass(YOPEN_DIALOG_COMMAND);
+		createEReference(yOpenDialogCommandEClass, YOPEN_DIALOG_COMMAND__DIALOG);
+		createEAttribute(yOpenDialogCommandEClass, YOPEN_DIALOG_COMMAND__TRIGGER);
+
 		// Create enums
 		yUnitEEnum = createEEnum(YUNIT);
 
@@ -1506,6 +1605,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yEmbeddableEClass.getESuperTypes().add(this.getYVisibilityProcessable());
 		yDialogEClass.getESuperTypes().add(this.getYElement());
 		yDialogEClass.getESuperTypes().add(this.getYValueBindable());
+		yDialogEClass.getESuperTypes().add(this.getYCssAble());
 		yActivateableEClass.getESuperTypes().add(this.getYBindable());
 		yActionEClass.getESuperTypes().add(this.getYEmbeddable());
 		yActionEClass.getESuperTypes().add(this.getYEnable());
@@ -1529,6 +1629,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		yDtWrapperEClass.getESuperTypes().add(theDatatypesPackage.getYDatatype());
 		yCommandEClass.getESuperTypes().add(this.getYElement());
 		yCommandSetEClass.getESuperTypes().add(this.getYElement());
+		yOpenDialogCommandEClass.getESuperTypes().add(this.getYCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(yElementEClass, YElement.class, "YElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1557,6 +1658,7 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEReference(getYView_BindingSet(), theBindingPackage.getYBindingSet(), null, "bindingSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_BeanSlots(), this.getYBeanSlot(), null, "beanSlots", null, 0, -1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYView_CommandSet(), this.getYCommandSet(), null, "commandSet", null, 0, 1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYView_Dialogs(), this.getYDialog(), null, "dialogs", null, 0, -1, YView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(yViewEClass, theBindingPackage.getYBindingSet(), "getOrCreateBindingSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1586,6 +1688,14 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 		initEAttribute(getYDialog_Resizeable(), ecorePackage.getEBoolean(), "resizeable", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDialog_Draggable(), ecorePackage.getEBoolean(), "draggable", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getYDialog_Closable(), ecorePackage.getEBoolean(), "closable", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_Value(), ecorePackage.getEJavaObject(), "value", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getYDialog_Type(), g1, "type", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_EmfNsURI(), ecorePackage.getEString(), "emfNsURI", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYDialog_TypeQualifiedName(), ecorePackage.getEString(), "typeQualifiedName", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYDialog_Datadescription(), theDatatypesPackage.getYDatadescription(), null, "datadescription", null, 0, 1, YDialog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yCssAbleEClass, YCssAble.class, "YCssAble", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYCssAble_CssClass(), ecorePackage.getEString(), "cssClass", null, 0, 1, YCssAble.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1700,6 +1810,14 @@ public class CoreModelPackageImpl extends EPackageImpl implements CoreModelPacka
 
 		op = addEOperation(yCommandSetEClass, null, "removeCommand", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getYCommand(), "command", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(yOpenDialogCommandEClass, YOpenDialogCommand.class, "YOpenDialogCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getYOpenDialogCommand_Dialog(), this.getYDialog(), null, "dialog", null, 0, 1, YOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getYOpenDialogCommand_Trigger(), ecorePackage.getEJavaObject(), "trigger", null, 0, 1, YOpenDialogCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(yOpenDialogCommandEClass, this.getYView(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(yOpenDialogCommandEClass, theBindingPackage.getYECViewModelValueBindingEndpoint(), "createTriggerDialogEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(yUnitEEnum, YUnit.class, "YUnit");

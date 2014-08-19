@@ -11,12 +11,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBindable;
+import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
 import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddableValueEndpoint;
 import org.eclipse.emf.ecp.ecview.common.model.core.YLayout;
 import org.eclipse.emf.ecp.ecview.common.model.core.YValueBindable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.DatatypesFactory;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -27,11 +30,18 @@ import org.eclipse.emf.ecp.ecview.common.model.core.YView;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getValueBindingEndpoint <em>Value Binding Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getCssClass <em>Css Class</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getCssID <em>Css ID</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#isModal <em>Modal</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#isResizeable <em>Resizeable</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#isDraggable <em>Draggable</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#isClosable <em>Closable</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getEmfNsURI <em>Emf Ns URI</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getTypeQualifiedName <em>Type Qualified Name</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YDialogImpl#getDatadescription <em>Datadescription</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,6 +96,46 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected YEmbeddableValueEndpoint valueBindingEndpoint;
+
+	/**
+	 * The default value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CSS_CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCssClass() <em>Css Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cssClass = CSS_CLASS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCssID() <em>Css ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CSS_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCssID() <em>Css ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCssID()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cssID = CSS_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
@@ -175,6 +225,86 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected boolean closable = CLOSABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Object VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Object value = VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<?> type;
+
+	/**
+	 * The default value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMF_NS_URI_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEmfNsURI() <em>Emf Ns URI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEmfNsURI()
+	 * @generated
+	 * @ordered
+	 */
+	protected String emfNsURI = EMF_NS_URI_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_QUALIFIED_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTypeQualifiedName() <em>Type Qualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeQualifiedName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String typeQualifiedName = TYPE_QUALIFIED_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDatadescription() <em>Datadescription</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatadescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected YDatadescription datadescription;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -288,6 +418,48 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__VALUE_BINDING_ENDPOINT, newValueBindingEndpoint, newValueBindingEndpoint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCssClass() {
+		return cssClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCssClass(String newCssClass) {
+		String oldCssClass = cssClass;
+		cssClass = newCssClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__CSS_CLASS, oldCssClass, cssClass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCssID() {
+		return cssID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCssID(String newCssID) {
+		String oldCssID = cssID;
+		cssID = newCssID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__CSS_ID, oldCssID, cssID));
 	}
 
 	/**
@@ -438,6 +610,156 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(Object newValue) {
+		Object oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Class<?> getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(Class<?> newType) {
+		Class<?> oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEmfNsURI() {
+		return emfNsURI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEmfNsURI(String newEmfNsURI) {
+		String oldEmfNsURI = emfNsURI;
+		emfNsURI = newEmfNsURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__EMF_NS_URI, oldEmfNsURI, emfNsURI));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTypeQualifiedName() {
+		return typeQualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeQualifiedName(String newTypeQualifiedName) {
+		String oldTypeQualifiedName = typeQualifiedName;
+		typeQualifiedName = newTypeQualifiedName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__TYPE_QUALIFIED_NAME, oldTypeQualifiedName, typeQualifiedName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDatadescription getDatadescription() {
+		if (datadescription != null && datadescription.eIsProxy()) {
+			InternalEObject oldDatadescription = (InternalEObject)datadescription;
+			datadescription = (YDatadescription)eResolveProxy(oldDatadescription);
+			if (datadescription != oldDatadescription) {
+				InternalEObject newDatadescription = (InternalEObject)datadescription;
+				NotificationChain msgs = oldDatadescription.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YDIALOG__DATADESCRIPTION, null, null);
+				if (newDatadescription.eInternalContainer() == null) {
+					msgs = newDatadescription.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YDIALOG__DATADESCRIPTION, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CoreModelPackage.YDIALOG__DATADESCRIPTION, oldDatadescription, datadescription));
+			}
+		}
+		return datadescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public YDatadescription basicGetDatadescription() {
+		return datadescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDatadescription(YDatadescription newDatadescription, NotificationChain msgs) {
+		YDatadescription oldDatadescription = datadescription;
+		datadescription = newDatadescription;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__DATADESCRIPTION, oldDatadescription, newDatadescription);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDatadescription(YDatadescription newDatadescription) {
+		if (newDatadescription != datadescription) {
+			NotificationChain msgs = null;
+			if (datadescription != null)
+				msgs = ((InternalEObject)datadescription).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YDIALOG__DATADESCRIPTION, null, msgs);
+			if (newDatadescription != null)
+				msgs = ((InternalEObject)newDatadescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CoreModelPackage.YDIALOG__DATADESCRIPTION, null, msgs);
+			msgs = basicSetDatadescription(newDatadescription, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CoreModelPackage.YDIALOG__DATADESCRIPTION, newDatadescription, newDatadescription));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -475,6 +797,8 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				return basicSetValueBindingEndpoint(null, msgs);
 			case CoreModelPackage.YDIALOG__CONTENT:
 				return basicSetContent(null, msgs);
+			case CoreModelPackage.YDIALOG__DATADESCRIPTION:
+				return basicSetDatadescription(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -493,6 +817,10 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 			case CoreModelPackage.YDIALOG__VALUE_BINDING_ENDPOINT:
 				if (resolve) return getValueBindingEndpoint();
 				return basicGetValueBindingEndpoint();
+			case CoreModelPackage.YDIALOG__CSS_CLASS:
+				return getCssClass();
+			case CoreModelPackage.YDIALOG__CSS_ID:
+				return getCssID();
 			case CoreModelPackage.YDIALOG__CONTENT:
 				if (resolve) return getContent();
 				return basicGetContent();
@@ -504,6 +832,17 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				return isDraggable();
 			case CoreModelPackage.YDIALOG__CLOSABLE:
 				return isClosable();
+			case CoreModelPackage.YDIALOG__VALUE:
+				return getValue();
+			case CoreModelPackage.YDIALOG__TYPE:
+				return getType();
+			case CoreModelPackage.YDIALOG__EMF_NS_URI:
+				return getEmfNsURI();
+			case CoreModelPackage.YDIALOG__TYPE_QUALIFIED_NAME:
+				return getTypeQualifiedName();
+			case CoreModelPackage.YDIALOG__DATADESCRIPTION:
+				if (resolve) return getDatadescription();
+				return basicGetDatadescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -524,6 +863,12 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 			case CoreModelPackage.YDIALOG__VALUE_BINDING_ENDPOINT:
 				setValueBindingEndpoint((YEmbeddableValueEndpoint)newValue);
 				return;
+			case CoreModelPackage.YDIALOG__CSS_CLASS:
+				setCssClass((String)newValue);
+				return;
+			case CoreModelPackage.YDIALOG__CSS_ID:
+				setCssID((String)newValue);
+				return;
 			case CoreModelPackage.YDIALOG__CONTENT:
 				setContent((YEmbeddable)newValue);
 				return;
@@ -538,6 +883,21 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case CoreModelPackage.YDIALOG__CLOSABLE:
 				setClosable((Boolean)newValue);
+				return;
+			case CoreModelPackage.YDIALOG__VALUE:
+				setValue(newValue);
+				return;
+			case CoreModelPackage.YDIALOG__TYPE:
+				setType((Class<?>)newValue);
+				return;
+			case CoreModelPackage.YDIALOG__EMF_NS_URI:
+				setEmfNsURI((String)newValue);
+				return;
+			case CoreModelPackage.YDIALOG__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName((String)newValue);
+				return;
+			case CoreModelPackage.YDIALOG__DATADESCRIPTION:
+				setDatadescription((YDatadescription)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -559,6 +919,12 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 			case CoreModelPackage.YDIALOG__VALUE_BINDING_ENDPOINT:
 				setValueBindingEndpoint((YEmbeddableValueEndpoint)null);
 				return;
+			case CoreModelPackage.YDIALOG__CSS_CLASS:
+				setCssClass(CSS_CLASS_EDEFAULT);
+				return;
+			case CoreModelPackage.YDIALOG__CSS_ID:
+				setCssID(CSS_ID_EDEFAULT);
+				return;
 			case CoreModelPackage.YDIALOG__CONTENT:
 				setContent((YEmbeddable)null);
 				return;
@@ -573,6 +939,21 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case CoreModelPackage.YDIALOG__CLOSABLE:
 				setClosable(CLOSABLE_EDEFAULT);
+				return;
+			case CoreModelPackage.YDIALOG__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case CoreModelPackage.YDIALOG__TYPE:
+				setType((Class<?>)null);
+				return;
+			case CoreModelPackage.YDIALOG__EMF_NS_URI:
+				setEmfNsURI(EMF_NS_URI_EDEFAULT);
+				return;
+			case CoreModelPackage.YDIALOG__TYPE_QUALIFIED_NAME:
+				setTypeQualifiedName(TYPE_QUALIFIED_NAME_EDEFAULT);
+				return;
+			case CoreModelPackage.YDIALOG__DATADESCRIPTION:
+				setDatadescription((YDatadescription)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -591,6 +972,10 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case CoreModelPackage.YDIALOG__VALUE_BINDING_ENDPOINT:
 				return valueBindingEndpoint != null;
+			case CoreModelPackage.YDIALOG__CSS_CLASS:
+				return CSS_CLASS_EDEFAULT == null ? cssClass != null : !CSS_CLASS_EDEFAULT.equals(cssClass);
+			case CoreModelPackage.YDIALOG__CSS_ID:
+				return CSS_ID_EDEFAULT == null ? cssID != null : !CSS_ID_EDEFAULT.equals(cssID);
 			case CoreModelPackage.YDIALOG__CONTENT:
 				return content != null;
 			case CoreModelPackage.YDIALOG__MODAL:
@@ -601,6 +986,16 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				return draggable != DRAGGABLE_EDEFAULT;
 			case CoreModelPackage.YDIALOG__CLOSABLE:
 				return closable != CLOSABLE_EDEFAULT;
+			case CoreModelPackage.YDIALOG__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case CoreModelPackage.YDIALOG__TYPE:
+				return type != null;
+			case CoreModelPackage.YDIALOG__EMF_NS_URI:
+				return EMF_NS_URI_EDEFAULT == null ? emfNsURI != null : !EMF_NS_URI_EDEFAULT.equals(emfNsURI);
+			case CoreModelPackage.YDIALOG__TYPE_QUALIFIED_NAME:
+				return TYPE_QUALIFIED_NAME_EDEFAULT == null ? typeQualifiedName != null : !TYPE_QUALIFIED_NAME_EDEFAULT.equals(typeQualifiedName);
+			case CoreModelPackage.YDIALOG__DATADESCRIPTION:
+				return datadescription != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -619,6 +1014,13 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 		if (baseClass == YValueBindable.class) {
 			switch (derivedFeatureID) {
 				case CoreModelPackage.YDIALOG__VALUE_BINDING_ENDPOINT: return CoreModelPackage.YVALUE_BINDABLE__VALUE_BINDING_ENDPOINT;
+				default: return -1;
+			}
+		}
+		if (baseClass == YCssAble.class) {
+			switch (derivedFeatureID) {
+				case CoreModelPackage.YDIALOG__CSS_CLASS: return CoreModelPackage.YCSS_ABLE__CSS_CLASS;
+				case CoreModelPackage.YDIALOG__CSS_ID: return CoreModelPackage.YCSS_ABLE__CSS_ID;
 				default: return -1;
 			}
 		}
@@ -642,6 +1044,13 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 				default: return -1;
 			}
 		}
+		if (baseClass == YCssAble.class) {
+			switch (baseFeatureID) {
+				case CoreModelPackage.YCSS_ABLE__CSS_CLASS: return CoreModelPackage.YDIALOG__CSS_CLASS;
+				case CoreModelPackage.YCSS_ABLE__CSS_ID: return CoreModelPackage.YDIALOG__CSS_ID;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -658,6 +1067,10 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 		result.append(id);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", cssClass: ");
+		result.append(cssClass);
+		result.append(", cssID: ");
+		result.append(cssID);
 		result.append(", modal: ");
 		result.append(modal);
 		result.append(", resizeable: ");
@@ -666,6 +1079,14 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 		result.append(draggable);
 		result.append(", closable: ");
 		result.append(closable);
+		result.append(", value: ");
+		result.append(value);
+		result.append(", type: ");
+		result.append(type);
+		result.append(", emfNsURI: ");
+		result.append(emfNsURI);
+		result.append(", typeQualifiedName: ");
+		result.append(typeQualifiedName);
 		result.append(')');
 		return result.toString();
 	}
@@ -687,6 +1108,48 @@ public class YDialogImpl extends MinimalEObjectImpl.Container implements
 			EObject parent = container.eContainer();
 			return findViewGeneric(parent);
 		}
+	}
+	
+	/**
+	 * Sets the label by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabel(String label) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescription(label));
+		} else {
+			ds.setLabel(label);
+		}
+	}
+
+	/**
+	 * Sets the label i18nKey by creating a new datadescription.
+	 * 
+	 * @param label
+	 */
+	public void setLabelI18nKey(String i18nKey) {
+		YDatadescription ds = getDatadescription();
+		if (ds == null) {
+			setDatadescription(createDatadescriptionForI18n(i18nKey));
+		} else {
+			ds.setLabelI18nKey(i18nKey);
+		}
+	}
+	
+	protected YDatadescription createDatadescription(String label) {
+		YDatadescription dsc = DatatypesFactory.eINSTANCE
+				.createYDatadescription();
+		dsc.setLabel(label);
+		return dsc;
+	}
+
+	protected YDatadescription createDatadescriptionForI18n(String i18nKey) {
+		YDatadescription dsc = DatatypesFactory.eINSTANCE
+				.createYDatadescription();
+		dsc.setLabelI18nKey(i18nKey);
+		return dsc;
 	}
 
 } // YDialogImpl

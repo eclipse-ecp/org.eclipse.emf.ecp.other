@@ -183,6 +183,15 @@ public interface CoreModelFactory extends EFactory {
 	YCommandSet createYCommandSet();
 
 	/**
+	 * Returns a new object of class '<em>YOpen Dialog Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>YOpen Dialog Command</em>'.
+	 * @generated
+	 */
+	YOpenDialogCommand createYOpenDialogCommand();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

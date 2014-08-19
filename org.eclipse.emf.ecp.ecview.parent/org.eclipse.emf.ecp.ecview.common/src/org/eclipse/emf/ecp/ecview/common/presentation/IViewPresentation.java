@@ -15,6 +15,7 @@ import java.util.concurrent.Future;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IDialogEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.services.IUiKitBasedService;
 
 /**
@@ -78,8 +79,10 @@ public interface IViewPresentation<C> extends IWidgetPresentation<C> {
 	 * Opens the dialog.
 	 * 
 	 * @param dialogEditpart
+	 * @param inputData this object contains information about the input data of the
+	 *            target navigation page.
 	 */
-	void openDialog(IDialogEditpart dialogEditpart);
+	void openDialog(IDialogEditpart dialogEditpart, IBindableEndpointEditpart inputData);
 
 	/**
 	 * Closes the dialog.

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage;
 import org.eclipse.emf.ecp.ecview.common.model.core.YBeanSlot;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCommandSet;
 import org.eclipse.emf.ecp.ecview.common.model.core.YCssAble;
+import org.eclipse.emf.ecp.ecview.common.model.core.YDialog;
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YMarginable;
 import org.eclipse.emf.ecp.ecview.common.model.core.YView;
@@ -53,6 +54,7 @@ import org.eclipse.emf.ecp.ecview.common.model.visibility.YVisibilityProcessor;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBindingSet <em>Binding Set</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getCommandSet <em>Command Set</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.impl.YViewImpl#getDialogs <em>Dialogs</em>}</li>
  * </ul>
  * </p>
  *
@@ -225,6 +227,16 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	 * @ordered
 	 */
 	protected YCommandSet commandSet;
+
+	/**
+	 * The cached value of the '{@link #getDialogs() <em>Dialogs</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDialogs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<YDialog> dialogs;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -551,6 +563,18 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<YDialog> getDialogs() {
+		if (dialogs == null) {
+			dialogs = new EObjectContainmentEList.Resolving<YDialog>(YDialog.class, this, CoreModelPackage.YVIEW__DIALOGS);
+		}
+		return dialogs;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -784,6 +808,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return ((InternalEList<?>)getBeanSlots()).basicRemove(otherEnd, msgs);
 			case CoreModelPackage.YVIEW__COMMAND_SET:
 				return basicSetCommandSet(null, msgs);
+			case CoreModelPackage.YVIEW__DIALOGS:
+				return ((InternalEList<?>)getDialogs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -824,6 +850,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__COMMAND_SET:
 				if (resolve) return getCommandSet();
 				return basicGetCommandSet();
+			case CoreModelPackage.YVIEW__DIALOGS:
+				return getDialogs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -873,6 +901,10 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__COMMAND_SET:
 				setCommandSet((YCommandSet)newValue);
 				return;
+			case CoreModelPackage.YVIEW__DIALOGS:
+				getDialogs().clear();
+				getDialogs().addAll((Collection<? extends YDialog>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -920,6 +952,9 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 			case CoreModelPackage.YVIEW__COMMAND_SET:
 				setCommandSet((YCommandSet)null);
 				return;
+			case CoreModelPackage.YVIEW__DIALOGS:
+				getDialogs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -955,6 +990,8 @@ public class YViewImpl extends MinimalEObjectImpl.Container implements YView {
 				return beanSlots != null && !beanSlots.isEmpty();
 			case CoreModelPackage.YVIEW__COMMAND_SET:
 				return commandSet != null;
+			case CoreModelPackage.YVIEW__DIALOGS:
+				return dialogs != null && !dialogs.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

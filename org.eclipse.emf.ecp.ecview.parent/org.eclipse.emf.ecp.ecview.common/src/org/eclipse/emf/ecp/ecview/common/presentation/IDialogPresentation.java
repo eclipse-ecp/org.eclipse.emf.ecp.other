@@ -11,6 +11,7 @@
 package org.eclipse.emf.ecp.ecview.common.presentation;
 
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 
 /**
  * Needs to render a dialog.
@@ -19,6 +20,19 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
  */
 public interface IDialogPresentation<C> extends IWidgetPresentation<C> {
 
+	/**
+	 * Sets the content of the dialog.
+	 * 
+	 * @param child
+	 */
 	void setContent(IEmbeddableEditpart child);
+
+	/**
+	 * Sets the input data. The binding endpoint contains information about the
+	 * data that should be bound to the dialog.
+	 * 
+	 * @param bindingEndpoint
+	 */
+	void setInputDataBindingEndpoint(IBindableEndpointEditpart bindingEndpoint);
 
 }

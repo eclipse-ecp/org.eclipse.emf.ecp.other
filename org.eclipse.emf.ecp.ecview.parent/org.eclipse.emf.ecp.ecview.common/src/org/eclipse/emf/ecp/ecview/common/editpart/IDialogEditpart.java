@@ -10,6 +10,7 @@
  */
 package org.eclipse.emf.ecp.ecview.common.editpart;
 
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.presentation.IDialogPresentation;
 import org.eclipse.emf.ecp.ecview.common.presentation.IWidgetPresentation;
 
@@ -97,5 +98,14 @@ public interface IDialogEditpart extends IElementEditpart, IEmbeddableParent {
 	 * required to dispose the editpart properly.
 	 */
 	void requestDispose();
+
+	/**
+	 * Sets the input data binding endpoint.
+	 * 
+	 * @param inputData
+	 *            this object contains information about the input data of the
+	 *            target navigation page.
+	 */
+	void setInputDataBindingEndpoint(IBindableEndpointEditpart inputData);
 
 }

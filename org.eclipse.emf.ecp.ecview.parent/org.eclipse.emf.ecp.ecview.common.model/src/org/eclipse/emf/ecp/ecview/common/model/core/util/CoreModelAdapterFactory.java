@@ -256,6 +256,10 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 				return createYCommandSetAdapter();
 			}
 			@Override
+			public Adapter caseYOpenDialogCommand(YOpenDialogCommand object) {
+				return createYOpenDialogCommandAdapter();
+			}
+			@Override
 			public Adapter caseYBindingEndpoint(YBindingEndpoint object) {
 				return createYBindingEndpointAdapter();
 			}
@@ -796,6 +800,20 @@ public class CoreModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createYCommandSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand <em>YOpen Dialog Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.YOpenDialogCommand
+	 * @generated
+	 */
+	public Adapter createYOpenDialogCommandAdapter() {
 		return null;
 	}
 

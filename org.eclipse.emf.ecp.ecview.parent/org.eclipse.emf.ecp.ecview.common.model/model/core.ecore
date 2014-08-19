@@ -36,6 +36,8 @@
         eType="#//YBeanSlot" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commandSet" eType="#//YCommandSet"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialogs" upperBound="-1"
+        eType="#//YDialog" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YViewSet" eSuperTypes="#//YElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
@@ -61,13 +63,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="orphanDatadescriptions"
         upperBound="-1" eType="ecore:EClass datatypes.ecore#//YDatadescription" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="YDialog" eSuperTypes="#//YElement #//YValueBindable">
+  <eClassifiers xsi:type="ecore:EClass" name="YDialog" eSuperTypes="#//YElement #//YValueBindable #//YCssAble">
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//YEmbeddable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resizeable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="draggable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="closable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emfNsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datadescription" eType="ecore:EClass datatypes.ecore#//YDatadescription"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="YCssAble" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cssClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -216,5 +228,11 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
         eType="#//YCommand" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YOpenDialogCommand" eSuperTypes="#//YCommand">
+    <eOperations name="getView" eType="#//YView"/>
+    <eOperations name="createTriggerDialogEndpoint" eType="ecore:EClass binding.ecore#//YECViewModelValueBindingEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dialog" eType="#//YDialog"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
 </ecore:EPackage>

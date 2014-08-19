@@ -29,6 +29,7 @@ import org.eclipse.emf.ecp.ecview.common.editpart.IElementEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IEmbeddableEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.IViewSetEditpart;
+import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindableEndpointEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingEditpart;
 import org.eclipse.emf.ecp.ecview.common.editpart.binding.IBindingSetEditpart;
 import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
@@ -723,8 +724,8 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 	}
 
 	@Override
-	public void openDialog(IDialogEditpart dialogEditpart) {
-		if (dialogEditpart != null) {
+	public void openDialog(IDialogEditpart dialogEditpart, IBindableEndpointEditpart inputData) {
+		if (dialogEditpart == null) {
 			return;
 		}
 
@@ -733,12 +734,12 @@ public class ViewEditpart<M extends YView> extends ElementEditpart<M> implements
 		}
 		openDialogs.add(dialogEditpart);
 
-		getPresentation().openDialog(dialogEditpart);
+		getPresentation().openDialog(dialogEditpart, inputData);
 	}
 
 	@Override
 	public void closeDialog(IDialogEditpart dialogEditpart) {
-		if (dialogEditpart != null) {
+		if (dialogEditpart == null) {
 			return;
 		}
 

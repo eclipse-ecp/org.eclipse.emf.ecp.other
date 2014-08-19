@@ -26,6 +26,7 @@ import org.eclipse.emf.ecp.ecview.common.model.binding.YBindingSet;
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBindingSet <em>Binding Set</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getBeanSlots <em>Bean Slots</em>}</li>
  *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getCommandSet <em>Command Set</em>}</li>
+ *   <li>{@link org.eclipse.emf.ecp.ecview.common.model.core.YView#getDialogs <em>Dialogs</em>}</li>
  * </ul>
  * </p>
  *
@@ -161,6 +162,22 @@ public interface YView extends YElement, YCssAble, YMarginable,
 	 * @generated
 	 */
 	void setCommandSet(YCommandSet value);
+
+	/**
+	 * Returns the value of the '<em><b>Dialogs</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecp.ecview.common.model.core.YDialog}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dialogs</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dialogs</em>' containment reference list.
+	 * @see org.eclipse.emf.ecp.ecview.common.model.core.CoreModelPackage#getYView_Dialogs()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<YDialog> getDialogs();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

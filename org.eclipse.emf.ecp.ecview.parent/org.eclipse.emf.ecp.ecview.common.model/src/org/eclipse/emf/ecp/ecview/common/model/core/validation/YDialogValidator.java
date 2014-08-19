@@ -5,6 +5,7 @@
 package org.eclipse.emf.ecp.ecview.common.model.core.validation;
 
 import org.eclipse.emf.ecp.ecview.common.model.core.YEmbeddable;
+import org.eclipse.emf.ecp.ecview.common.model.datatypes.YDatadescription;
 
 
 /**
@@ -25,5 +26,15 @@ public interface YDialogValidator {
 	boolean validateDraggable(boolean value);
 
 	boolean validateClosable(boolean value);
+
+	boolean validateValue(Object value);
+
+	boolean validateType(Class<?> value);
+
+	boolean validateEmfNsURI(String value);
+
+	boolean validateTypeQualifiedName(String value);
+
+	boolean validateDatadescription(YDatadescription value);
 
 }
